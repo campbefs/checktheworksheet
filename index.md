@@ -37,7 +37,7 @@ node model/official_xfa_harness.js             # runs the form's own calculation
 .venv/bin/python model/charts/make_all.py      # redraws every figure into figures/
 ```
 
-`data/cjd304-xfa.xml` is the calculation logic extracted from the blank official form; `model/run_official_xfa.py`
+`data/extracted/cjd304-xfa.xml` is the calculation logic extracted from the blank official form; `model/run_official_xfa.py`
 executes it and diffs it against the model on six scenarios (`model/runs/official-xfa-vs-model-2026-09-05.txt`).
 
 ## Contents
