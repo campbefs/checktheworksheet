@@ -1,0 +1,86 @@
+====================================================================================================
+CJ-D 304 official XFA calculate-scripts vs model/worksheet.py
+Fixed pattern: 3 children under 18, Parent A gross $570.0/wk, Parent B gross $3865.38/wk, health premiums $33.0/$43.0
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+1. Box 1 (shared), no child care
+----------------------------------------------------------------------------------------------------
+  line                               OFFICIAL XFA    MODEL round  MODEL unround
+  payor (per 6f / model)                        B              B              B
+  final weekly order (7d)                   1,016       1,016.00       1,012.72
+  7e (% of payor's 3a)                       0.27           0.27           0.26
+  3c Parent A (income share)                 0.12           0.12           0.12
+  3c Parent B (income share)                 0.88           0.88           0.88
+  6e Parent A                            1,091.00       1,091.00       1,087.90
+  6e Parent B                               75.18          75.18          75.17
+  6g (netted obligation)                 1,015.82       1,015.82       1,012.72
+
+  Sanity check (case 1): official 7d = 1016 (project expectation: 1016), model unrounded 7d = 1012.72 (project expectation: 1012.73)
+
+----------------------------------------------------------------------------------------------------
+2. Box 2 (Parent A primary), no child care
+----------------------------------------------------------------------------------------------------
+  line                               OFFICIAL XFA    MODEL round  MODEL unround
+  payor (per 6f / model)                        B              B              B
+  final weekly order (7d)                   1,091       1,091.00       1,087.90
+  7e (% of payor's 3a)                       0.29           0.29           0.28
+  3c Parent A (income share)                 0.12           0.12           0.12
+  3c Parent B (income share)                 0.88           0.88           0.88
+  6e Parent A                            1,091.00       1,091.00       1,087.90
+  6e Parent B                                0.00           0.00           0.00
+  6g (netted obligation)                 1,091.00       1,091.00       1,087.90
+
+----------------------------------------------------------------------------------------------------
+3. Box 2, Parent A pays $300/wk child care
+----------------------------------------------------------------------------------------------------
+  line                               OFFICIAL XFA    MODEL round  MODEL unround
+  payor (per 6f / model)                        B              B              B
+  final weekly order (7d)                   1,355       1,355.00       1,350.94
+  7e (% of payor's 3a)                       0.35           0.35           0.35
+  3c Parent A (income share)                 0.12           0.12           0.12
+  3c Parent B (income share)                 0.88           0.88           0.88
+  6e Parent A                            1,355.00       1,355.00       1,350.94
+  6e Parent B                                0.00           0.00           0.00
+  6g (netted obligation)                 1,355.00       1,355.00       1,350.94
+
+----------------------------------------------------------------------------------------------------
+4. Box 1, Parent A pays $300/wk child care
+----------------------------------------------------------------------------------------------------
+  line                               OFFICIAL XFA    MODEL round  MODEL unround
+  payor (per 6f / model)                        B              B              B
+  final weekly order (7d)                   1,280       1,280.00       1,275.77
+  7e (% of payor's 3a)                       0.33           0.33           0.33
+  3c Parent A (income share)                 0.12           0.12           0.12
+  3c Parent B (income share)                 0.88           0.88           0.88
+  6e Parent A                            1,355.00       1,355.00       1,350.94
+  6e Parent B                               75.18          75.18          75.17
+  6g (netted obligation)                 1,279.82       1,279.82       1,275.77
+
+----------------------------------------------------------------------------------------------------
+5. Box 1, each parent pays $300/wk child care
+----------------------------------------------------------------------------------------------------
+  line                               OFFICIAL XFA    MODEL round  MODEL unround
+  payor (per 6f / model)                        B              B              B
+  final weekly order (7d)                   1,274       1,274.00       1,270.58
+  7e (% of payor's 3a)                       0.33           0.33           0.33
+  3c Parent A (income share)                 0.12           0.12           0.12
+  3c Parent B (income share)                 0.88           0.88           0.88
+  6e Parent A                            1,355.00       1,355.00       1,350.94
+  6e Parent B                               80.55          80.55          80.36
+  6g (netted obligation)                 1,274.45       1,274.45       1,270.58
+
+----------------------------------------------------------------------------------------------------
+6. Box 1, Parent B (payor) pays $300/wk child care
+----------------------------------------------------------------------------------------------------
+  line                               OFFICIAL XFA    MODEL round  MODEL unround
+  payor (per 6f / model)                        B              B              B
+  final weekly order (7d)                   1,010       1,010.00       1,007.53
+  7e (% of payor's 3a)                       0.26           0.26           0.26
+  3c Parent A (income share)                 0.12           0.12           0.12
+  3c Parent B (income share)                 0.88           0.88           0.88
+  6e Parent A                            1,091.00       1,091.00       1,087.90
+  6e Parent B                               80.55          80.55          80.36
+  6g (netted obligation)                 1,010.45       1,010.45       1,007.53
+
+====================================================================================================
