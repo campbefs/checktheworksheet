@@ -118,7 +118,7 @@ share of 33.3 percent. At the 2.0 factor implied by Box 1's own uncapped arithme
 columns carry every child at the full schedule amount), it implies 46.9 percent. Neither reaches the
 50 percent the parent in the worked example actually has.
 
-<figure class="exhibit" id="e09" loading="lazy">
+<figure class="exhibit" id="e09">
   <img src="/figures/exhibits/E09-implied-overnight-share-by-factor-3-children.png"
        width="1756" height="1387"
        loading="lazy"
