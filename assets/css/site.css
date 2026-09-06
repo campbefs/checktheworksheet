@@ -1,0 +1,577 @@
+/* ==========================================================================
+   checktheworksheet.org — site stylesheet
+   No framework, no build step, no JavaScript. Structure:
+     1. Design tokens (web-design-system, copied verbatim — do not hand-tune
+        a color/spacing/type value below; change the token instead)
+     2. Reset & base element styles
+     3. Skip link
+     4. Layout containers (measure)
+     5. Header & navigation
+     6. Footer
+     7. Page-anatomy components (hero, disclosure, findings, confidence, stat,
+        ask, breadcrumb, document list)
+     8. Prose defaults (headings, links, lists, blockquote, hr)
+     9. Tables & code
+    10. Figures / exhibits (web-figures)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens — from ~/.claude/skills/web-design-system/tokens.css,
+   copied in with its contrast comments intact. Every ratio was computed
+   with the WCAG relative-luminance formula (sRGB), not estimated. Recompute
+   before changing a hex value; do not add a new color without doing the
+   same math (see that skill's SKILL.md).
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* ---- Type: zero-network-cost system stacks ---- */
+  --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  --font-sans:  Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+  --font-mono:  ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+                'DejaVu Sans Mono', monospace;
+
+  /* ---- Type scale: 1.333 (perfect fourth), base 18px/1.125rem desktop ---- */
+  --text-caption: 0.75rem;   /* 12px */
+  --text-body:    1.125rem;  /* 18px desktop base */
+  --text-body-sm: 1.0625rem; /* 17px phone base, ~700px breakpoint */
+  --text-h3:      1.5rem;    /* 24px  = 18 * 1.333 */
+  --text-h2:      2rem;      /* 32px  = 18 * 1.333^2 */
+  --text-h1:      2.667rem;  /* 42.7px = 18 * 1.333^3 */
+
+  /* ---- Measure & line rhythm ---- */
+  --measure-max: 75ch;       /* target ceiling; hard WCAG 1.4.8 ceiling is 80ch */
+  --measure-min: 45ch;       /* Bernard et al. 2002 preference floor */
+  --leading-body: 1.6;       /* above Butterick's ~1.45 ceiling, at/above WCAG 1.4.8's
+                                 "space-and-a-half" floor — justified by a wider-than-
+                                 Bringhurst measure carrying citations and inline code */
+  --leading-tight: 1.4;      /* captions, table cells, code */
+  --space-paragraph: 1.5em;  /* 1.6 * 1.5 = 2.4x font size; clears WCAG 1.4.8 (2.25x)
+                                 and 1.4.12 (2x) */
+
+  /* ---- Spacing scale, 8px/0.5rem base ---- */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.5rem;   /* 24px */
+  --space-6: 2rem;     /* 32px */
+  --space-7: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px — figure/chart band, desktop */
+  --space-9: 6rem;     /* 96px */
+
+  /* ---- Colour: LIGHT (default) — ratios computed against --surface #fdfcfa ---- */
+  --surface:        #fdfcfa;
+  --surface-alt:    #f3f0ea;  /* 1.11:1 vs surface — decorative only; NOT for zebra striping */
+  --text-primary:   #14171a;  /* 17.55:1 — exceeds AAA (7:1) */
+  --text-secondary: #3f4650;  /* 9.30:1  — exceeds AAA (7:1) */
+  --text-muted:     #6b7280;  /* 4.72:1  — passes AA (4.5:1), just above the floor by design */
+  --rule:           #d8d3cb;  /* 1.45:1  — decorative hairline only, no WCAG ratio applies */
+  --rule-strong:    #8f8a80;  /* 3.35:1  — meets non-text 3:1 (SC 1.4.11) */
+  --accent:         #7a2e2e;  /* 9.07:1  — exceeds AAA, desaturated brick */
+  --link:           #1f5f8b;  /* 6.68:1  — passes AA, near AAA */
+  --data-hue-1:     #b1502d;  /* 5.05:1  — passes AA; warm series (e.g. "payor/burden") */
+  --data-hue-2:     #2b6e6e;  /* 5.76:1  — passes AA; cool series (e.g. "recipient/comparison") */
+
+  /* ---- Colour: DARK (re-derived, not inverted) — ratios computed against --surface-dark #121212 ---- */
+  --surface-dark:         #121212;  /* Material's dark-surface recommendation, not pure black */
+  --surface-dark-alt:     #1e1e1e;  /* 1.12:1 vs surface-dark — elevation tint, decorative */
+  --text-primary-dark:    #e8e6e1; /* 15.02:1 — exceeds AAA; NOT pure #fff (avoids "vibration") */
+  --text-secondary-dark:  #b7b3ab; /* 8.96:1  — exceeds AAA */
+  --text-muted-dark:      #8a877f; /* 5.22:1  — passes AA */
+  --rule-dark:            #3a3a38; /* 1.64:1  — decorative hairline only */
+  --rule-strong-dark:     #65655f; /* 3.19:1  — meets non-text 3:1 */
+  --accent-dark:          #d98b73; /* 7.04:1  — exceeds AAA */
+  --link-dark:            #7fb3d5; /* 8.31:1  — exceeds AAA */
+  --data-hue-1-dark:      #e08b5f; /* 7.16:1  — exceeds AAA */
+  --data-hue-2-dark:      #6bc2c2; /* 9.03:1  — exceeds AAA */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: var(--surface-dark);
+    --surface-alt: var(--surface-dark-alt);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --text-muted: var(--text-muted-dark);
+    --rule: var(--rule-dark);
+    --rule-strong: var(--rule-strong-dark);
+    --accent: var(--accent-dark);
+    --link: var(--link-dark);
+    --data-hue-1: var(--data-hue-1-dark);
+    --data-hue-2: var(--data-hue-2-dark);
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --text-body: var(--text-body-sm);
+    --space-8: var(--space-6); /* figure band collapses from 64px to 32px */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & base element styles
+   -------------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+img, svg { max-width: 100%; height: auto; }
+
+/* Focus is always visible, on every interactive element, at >=3:1 (SC 1.4.11). */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--rule-strong);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Skip link — first focusable element on every page (web-page-anatomy).
+   -------------------------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  left: var(--space-3);
+  top: -3rem;
+  z-index: 100;
+  background: var(--text-primary);
+  color: var(--surface);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Layout containers — measure comes from the tokens directly, never a
+   hand-picked rem/px width (web-design-system: "Common Mistakes").
+   -------------------------------------------------------------------------- */
+
+.header-inner,
+.footer-inner,
+main {
+  max-width: var(--measure-max);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+main {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-9);
+  min-height: 50vh;
+}
+
+/* A figure is allowed to breathe past the prose measure up to the figure band. */
+.exhibit {
+  max-width: calc(var(--measure-max) + var(--space-8) * 2);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   5. Header & navigation — one flat tier, current page marked, no dropdown,
+   no JavaScript (web-page-anatomy).
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: var(--space-5) 0;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3) var(--space-6);
+}
+
+.site-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--text-h3);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-title:hover,
+.site-title:focus-visible { color: var(--accent); }
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+}
+
+.site-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--space-1) 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover { color: var(--text-primary); }
+
+.site-nav a[aria-current="page"] {
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   6. Footer — nav repeated in the same order, then meta (web-page-anatomy:
+   "list only", no prose).
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: var(--space-6) 0 var(--space-8);
+  font-family: var(--font-sans);
+}
+
+.footer-inner .site-nav {
+  margin-bottom: var(--space-4);
+}
+
+.footer-meta {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--text-caption);
+  line-height: var(--leading-tight);
+}
+
+.footer-meta a { color: var(--text-muted); }
+.footer-meta a:hover { color: var(--text-secondary); }
+
+/* --------------------------------------------------------------------------
+   7. Page-anatomy components
+   -------------------------------------------------------------------------- */
+
+/* --- Hero (homepage): eyebrow, H1 assertion, lede --- */
+
+.hero { padding: var(--space-6) 0 var(--space-7); }
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 var(--space-3);
+}
+
+.hero h1 {
+  margin-top: 0;
+  max-width: var(--measure-max);
+}
+
+.lede {
+  font-size: 1.25rem;
+  line-height: var(--leading-body);
+  color: var(--text-secondary);
+  max-width: var(--measure-max);
+}
+
+/* --- Disclosure: personal-stake fact + reason + verification link, one box --- */
+
+.disclosure {
+  border-left: 3px solid var(--rule-strong);
+  background: var(--surface-alt);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-6) 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.disclosure p { margin: 0; }
+.disclosure p + p { margin-top: var(--space-3); }
+
+/* --- Findings list: assertion heading + 2-sentence summary + stat, each card
+   links to its own page --- */
+
+.finding-list {
+  list-style: none;
+  margin: var(--space-6) 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-6);
+}
+
+.finding-card {
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--rule);
+}
+
+.finding-card:last-child { border-bottom: none; }
+
+.finding-card h3 { margin-bottom: var(--space-2); }
+
+.finding-card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.finding-card h3 a:hover,
+.finding-card h3 a:focus-visible { color: var(--link); text-decoration: underline; }
+
+.finding-card p { margin: var(--space-2) 0; }
+
+.finding-card .stat-callout { margin-top: var(--space-3); }
+
+/* --- Confidence tag: text-only, no color-coded meaning (SC 1.4.1) --- */
+
+.confidence-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-left: 3px solid var(--rule-strong);
+  padding: var(--space-1) var(--space-3);
+  margin: var(--space-2) 0;
+  background: var(--surface-alt);
+}
+
+/* --- Stat callout: a single number as prose, not a chart (web-figures) --- */
+
+.stat-callout {
+  font-family: var(--font-sans);
+  margin: var(--space-4) 0;
+}
+
+.stat-value {
+  font-size: var(--text-h2);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  display: block;
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+  max-width: var(--measure-max);
+}
+
+/* --- Ask / verify-it-yourself: one separated, labeled section --- */
+
+.ask {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: var(--space-5);
+  margin: var(--space-7) 0;
+}
+
+.ask > :first-child { margin-top: 0; }
+.ask > :last-child { margin-bottom: 0; }
+
+/* --- Breadcrumb: reserved for pages two levels deep (e.g. a single finding) --- */
+
+.breadcrumb {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+  margin-bottom: var(--space-5);
+}
+
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text-secondary); }
+.breadcrumb [aria-current="page"] { color: var(--text-secondary); }
+
+/* --- Document list: one line of context plus a confidence tag per item --- */
+
+.doc-list {
+  list-style: none;
+  margin: var(--space-6) 0;
+  padding: 0;
+}
+
+.doc-item {
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.doc-item:last-child { border-bottom: none; }
+
+.doc-item .doc-title {
+  font-weight: 600;
+  margin-right: var(--space-3);
+}
+
+.doc-item .doc-context {
+  color: var(--text-secondary);
+  display: block;
+  margin-top: var(--space-1);
+}
+
+/* --------------------------------------------------------------------------
+   8. Prose defaults
+   -------------------------------------------------------------------------- */
+
+.page, .finding, .hero, main > .disclosure {
+  max-width: var(--measure-max);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--text-h1); margin: 0 0 var(--space-5); }
+h2 { font-size: var(--text-h2); margin: var(--space-8) 0 var(--space-4); }
+h3 { font-size: var(--text-h3); margin: var(--space-6) 0 var(--space-3); }
+h4 { font-size: 1.125rem; margin: var(--space-5) 0 var(--space-2); }
+
+p, ul, ol, dl {
+  margin: 0 0 var(--space-paragraph);
+  max-width: var(--measure-max);
+}
+
+li { margin-bottom: var(--space-2); }
+
+a { color: var(--link); }
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: var(--space-6) 0;
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--rule-strong);
+  color: var(--text-secondary);
+  max-width: var(--measure-max);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: var(--space-8) 0;
+}
+
+/* --------------------------------------------------------------------------
+   9. Tables & code — numbers right-aligned with tabular figures, text
+   left-aligned; one strong rule under the header, hairlines between rows,
+   no vertical rules, no zebra striping in prose tables (web-design-system).
+   -------------------------------------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: var(--leading-tight);
+  margin: var(--space-6) 0;
+}
+
+th, td {
+  padding: var(--space-2) var(--space-4) var(--space-2) 0;
+  text-align: left;
+}
+
+th[data-numeric], td[data-numeric],
+th.numeric, td.numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+thead th {
+  border-bottom: 2px solid var(--rule-strong);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+tbody tr { border-bottom: 1px solid var(--rule); }
+tbody tr:last-child { border-bottom: none; }
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  font-variant-numeric: tabular-nums;
+}
+
+code {
+  background: var(--surface-alt);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background: var(--surface-alt);
+  border-left: 3px solid var(--rule-strong);
+  padding: var(--space-4) var(--space-5);
+  overflow-x: auto;
+  line-height: var(--leading-tight);
+  max-width: none;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. Figures / exhibits — from ~/.claude/skills/web-figures/figure.css,
+   using this file's tokens directly (same variable names, so no rewrite
+   was needed). See CONVENTIONS.md for the markup pattern these style.
+   -------------------------------------------------------------------------- */
+
+.exhibit { margin: var(--space-8) 0; }
+.exhibit img { width: 100%; height: auto; display: block; }
+
+.exhibit-title { font-size: 1.05rem; font-weight: 600; margin: var(--space-3) 0 var(--space-1); font-family: var(--font-sans); }
+.exhibit-deck { color: var(--text-muted); margin: 0 0 var(--space-2); }
+
+.exhibit-facts {
+  display: flex; flex-wrap: wrap; gap: 0 var(--space-5);
+  font-size: 0.85rem; margin: var(--space-2) 0;
+  font-family: var(--font-sans);
+}
+.exhibit-facts div { display: flex; gap: 0.35rem; }
+.exhibit-facts dt { color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.02em; }
+.exhibit-facts dd { margin: 0; font-weight: 500; }
+
+.exhibit-notes {
+  font-style: italic; color: var(--text-muted); font-size: 0.85rem;
+  border-top: 1px solid var(--rule); padding-top: var(--space-2); margin: var(--space-3) 0 var(--space-1);
+}
+.exhibit-source { font-size: 0.8rem; color: var(--text-muted); margin: 0; font-family: var(--font-sans); }
+
+/* Two genuinely separate PNGs shown as a pair (e.g. household total + per person). */
+.exhibit-pair { display: flex; gap: var(--space-5); align-items: flex-start; }
+.exhibit-pair .exhibit { flex: 1 1 0; margin: 0; }
+
+@media (max-width: 700px) {
+  .exhibit-pair { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  .exhibit-facts { flex-direction: column; gap: 0.15rem; }
+}
+
+/* Ranked-list data table (see ranked-table.html pattern in CONVENTIONS.md) — light zebra
+   striping is intentional here (unlike the prose-table rule in section 9): the reader is
+   scanning fifty rows for one, not reading text left to right. */
+.exhibit-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; font-family: var(--font-sans); margin: var(--space-5) 0; }
+.exhibit-table caption { text-align: left; font-weight: 600; margin-bottom: var(--space-2); }
+.exhibit-table th, .exhibit-table td { text-align: right; padding: 0.35rem var(--space-3); }
+.exhibit-table th:first-child, .exhibit-table td:first-child { text-align: left; }
+.exhibit-table thead th { border-bottom: 2px solid var(--rule-strong); }
+.exhibit-table tbody tr:nth-child(even) { background: var(--surface-alt); }
+.exhibit-table tbody tr.is-reader-state { font-weight: 700; }

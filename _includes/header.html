@@ -1,0 +1,17 @@
+<!--
+  Flat, single-tier navigation. No dropdowns, no JavaScript. Current page is marked with
+  aria-current="page" (also styled via CSS, see .site-nav a[aria-current]) — checked by
+  `page.url` prefix so a nested page (e.g. /findings/some-finding/) still marks its section.
+  Nav items and hrefs are fixed; see CONVENTIONS.md before adding, renaming or reordering one.
+-->
+<div class="header-inner">
+  <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="{{ '/findings/' | relative_url }}"{% if page.url contains '/findings/' %} aria-current="page"{% endif %}>Findings</a>
+    <a href="{{ '/exhibits/' | relative_url }}"{% if page.url contains '/exhibits/' %} aria-current="page"{% endif %}>Exhibits</a>
+    <a href="{{ '/the-model/' | relative_url }}"{% if page.url contains '/the-model/' %} aria-current="page"{% endif %}>The model</a>
+    <a href="{{ '/the-data/' | relative_url }}"{% if page.url contains '/the-data/' %} aria-current="page"{% endif %}>The data</a>
+    <a href="{{ '/documents/' | relative_url }}"{% if page.url contains '/documents/' %} aria-current="page"{% endif %}>Documents</a>
+    <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about/' %} aria-current="page"{% endif %}>About</a>
+  </nav>
+</div>

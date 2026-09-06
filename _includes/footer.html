@@ -1,0 +1,23 @@
+<!--
+  Repeats the header nav in the same order, plus /sitemap/ (the required second, independent way
+  to navigate — WCAG 2.4.5; the footer repeating the header nav is NOT that second way on its
+  own). /sitemap/ does not exist yet as a content page — see CONVENTIONS.md. No JavaScript.
+-->
+<div class="footer-inner">
+  <nav class="site-nav" aria-label="Footer">
+    <a href="{{ '/findings/' | relative_url }}">Findings</a>
+    <a href="{{ '/exhibits/' | relative_url }}">Exhibits</a>
+    <a href="{{ '/the-model/' | relative_url }}">The model</a>
+    <a href="{{ '/the-data/' | relative_url }}">The data</a>
+    <a href="{{ '/documents/' | relative_url }}">Documents</a>
+    <a href="{{ '/about/' | relative_url }}">About</a>
+    <a href="{{ '/sitemap/' | relative_url }}">Sitemap</a>
+  </nav>
+  <p class="footer-meta">
+    Christopher Campbell, independent &middot;
+    <a href="https://github.com/campbefs/checktheworksheet/issues">report an error</a>
+    &middot; code under the <a href="{{ '/LICENSE-CODE.txt' | relative_url }}">MIT licence</a>;
+    documents and figures under CC&nbsp;BY&nbsp;4.0 &middot;
+    last built {{ site.time | date: "%-d %B %Y" }}
+  </p>
+</div>
