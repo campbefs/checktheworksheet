@@ -1,5 +1,10 @@
 # The Massachusetts child support worksheet, line by line
 
+> **Status, September 2026.** The comments described here are being submitted to the Chief Justice of the
+> Massachusetts Trial Court, and a petition for rulemaking is going to the U.S. Department of Health and Human
+> Services. This page will record the dates once they are sent. The model, the data and the figures are final
+> and can be checked today.
+
 This repository holds a reproduction in code of the Massachusetts Child Support Guidelines Worksheet
 (form CJ-D 304, 2025 edition), the tests that pin it to the form's own calculation scripts, a federal
 and Massachusetts tax model, a fifty-one-jurisdiction comparison at one fact pattern, and the figures
@@ -22,8 +27,7 @@ drawn from them. Everything a reader needs to check a number is here.
    primary custody**, one fact pattern.
    [E17](figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png)
 
-The worked example throughout is the author's own order, disclosed as such in the comments sent to
-the Trial Court. The claims are about the internal consistency of a computation, not about whether
+The worked example throughout is the author's own order, and the comments disclose that plainly. The claims are about the internal consistency of a computation, not about whether
 any support amount is right.
 
 ## Check it yourself
@@ -48,7 +52,7 @@ executes it and diffs it against the model on six scenarios (`model/runs/officia
 | `model/runs/` | Printed output of each script on the date named |
 | `data/fifty-state/` | The fifty-one-jurisdiction rows (`tier-50`), the credit-at-122-overnights tally, the schedule ceilings |
 | `figures/exhibits/` | One chart per file, E01 to E17, each with its CSV beside the working figure in `figures/working/` |
-| `paper/` | The figures appendix (Attachment E) and, once sent, the comments to the Trial Court and the working paper |
+| `paper/` | The figures appendix (Attachment E), and the comments to the Trial Court as prepared for submission |
 
 ## Method for the fifty-one jurisdictions
 
