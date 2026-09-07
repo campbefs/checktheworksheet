@@ -23,14 +23,14 @@
 //       <output id="calc-higher-output" for="calc-higher">$201,000/yr</output>
 //     </label>
 //     <input type="range" id="calc-higher" data-calc-input="higher"
-//            min="60000" max="300000" step="1000" value="201000">
+//            min="60000" max="300000" step="120" value="201000">
 //   </div>
 //   <div class="tool-slider-row">
 //     <label for="calc-lower">Lower earner, gross per year
 //       <output id="calc-lower-output" for="calc-lower">$29,640/yr</output>
 //     </label>
 //     <input type="range" id="calc-lower" data-calc-input="lower"
-//            min="0" max="120000" step="1000" value="29640">
+//            min="0" max="120000" step="120" value="29640">
 //   </div>
 //   <div class="tool-readout" aria-live="polite">
 //     <div>
@@ -73,6 +73,17 @@
 //   silently returned wrong data), the sliders are disabled, every `data-calc-cell` is replaced
 //   with "not available", and `data-calc-flag` explains why -- never a plausible-looking wrong
 //   number. See sanityCheckPasses()/showUnavailable() below.
+// - MOUNT-TIME BUG FOUND AND FIXED 2026-09-07: `step="1000"` on `min="0"` makes the lower
+//   slider's default `value="29640"` an invalid step -- a browser silently rounds a range
+//   input's live `.value` to the nearest valid step from `min` on parse, so the DOM read
+//   `30000`, not `29640`, and the on-load render computed $1,011/wk instead of $1,013/wk (a
+//   wrong-but-plausible number the sanity guard above does NOT catch, since it recomputes
+//   directly against the fixed constants 201000/29640, not against what the sliders' own
+//   `.value` returns). `step="120"` divides both sliders' `(value - min)` exactly (GCD of the
+//   two required offsets, 141000 and 29640, is 120), so both defaults hold on load in every
+//   browser. Found by reading the live DOM after mounting, not by any of the Node-side tests --
+//   a lesson for any future markup contract change: check `element.value`, not only the
+//   `value` attribute, once real HTML is in a real page.
 //
 // FIXED FACTS (not sliders, per design brief SS3.5's word budget -- three children, no child care):
 var MCSGCalculatorFacts = { kids: 3, childcare: 0, box: 1, healthLow: 33.0, healthHigh: 43.0 };
