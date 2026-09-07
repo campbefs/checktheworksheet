@@ -11,7 +11,7 @@ description: >-
 # Line 6b charges the payor 88 cents of every dollar of child care, using an income split base support has already moved
 
 <div class="disclosure">
-<p>The worked example throughout &mdash; the payor, the recipient's $300-a-week child care claim &mdash;
+<p>The worked example throughout (the payor, the recipient's $300-a-week child care claim)
 is my own child support order: three children, my income and my children's mother's income entered
 as the Worksheet requires. I disclose it because a reader should be able to check whether the
 arithmetic changes when the numbers are real, not hypothetical. It doesn't: the same allocation gap
@@ -27,8 +27,8 @@ below.</p>
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
 Massachusetts allocates child care in proportion to each parent's share of combined available
-income. That's a defensible principle. But the worksheet measures the share at Line 3c — computed
-before the base child support order transfers a single dollar between the two households — and then
+income. That's a defensible principle. But the worksheet measures the share at Line 3c, computed
+before the base child support order transfers a single dollar between the two households, and then
 never revisits it. At the author's own order, the recipient's $15,600-a-year child care claim is
 split using that pre-transfer share, which charges the payor 88 cents of every dollar even though
 the base order has already moved a large share of his income to her household.
@@ -38,13 +38,13 @@ the base order has already moved a large share of his income to her household.
 Line 3c is each parent's share of the two parents' combined available income (their Line 3a
 figures, added together). It is computed early in the worksheet, before the base support amount at
 Line 7d exists. Line 6a is the child care one parent actually pays out of pocket. Line 6b multiplies
-the *other* parent's Line 3c share by that amount — so if the recipient pays the provider, the
+the *other* parent's Line 3c share by that amount, so if the recipient pays the provider, the
 payor's Line 6b charge is his Line 3c share of her cost.
 
 The problem is timing. Line 3c reflects income *before* any support changes hands. By the time
 child care is added at Line 6, the base order has already been set and, once paid, will move a
 large share of the payor's income to the recipient's household every week. Line 6b never re-measures
-the shares against that post-transfer reality — it keeps using the original, pre-transfer split for
+the shares against that post-transfer reality. It keeps using the original, pre-transfer split for
 the life of the order, on top of an obligation that has already re-weighted what each household
 actually has.
 
@@ -56,7 +56,7 @@ same $15,600 bill:
 | Basis for the split | Payor's share | Payor funds |
 |---|---:|---:|
 | Line 3c, pre-transfer (what the form does today) | 87.7% | $13,678/yr (order rises to $1,276/wk) |
-| Shares adjusted by the base order (the redline proposed at Line 6b-1) | 64.5% | $10,054/yr (order $1,206/wk — $3,624/yr less than today) |
+| Shares adjusted by the base order (the redline proposed at Line 6b-1) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
 | Post-transfer net shares (income after the order and after tax) | 48.2% | $7,513/yr |
 
 (Source: `model/runs/childcare-post-transfer-run-2026-09-05.txt`, printed by
@@ -66,7 +66,7 @@ same $15,600 bill:
 
 The same mechanism runs in the other direction, too, when both parents pay for care during their
 own parenting time. At equal shared parenting with each parent paying $300 a week, the combined
-$31,200-a-year bill is split 93 percent to the payor and 7 percent to the recipient — while the
+$31,200-a-year bill is split 93 percent to the payor and 7 percent to the recipient, while the
 payor earns 87 percent of the combined income, not 93 percent of it. His own $15,600 of child care
 reduces the order by only $270 a year, because Line 6e limits how much of his own claim he can
 recover once his income share puts him outside the low-income protection the line was written for.
@@ -118,11 +118,11 @@ recover once his income share puts him outside the low-income protection the lin
 
 ## Proportional allocation is fair; the wrong income share is not, and per person the payor still leads
 
-Allocating child care in proportion to income is not, by itself, an unreasonable rule — the
+Allocating child care in proportion to income is not, by itself, an unreasonable rule. The
 objection here is to which income the proportion is measured against, not to proportionality as a
 concept. $300 a week is a real but not extreme claim relative to the $430-per-child statutory
 ceiling; a smaller claim moves the split by less, a larger one by more. And this is one worked
-example, not a distribution — how far a typical case's child care claim sits from this one is not
+example, not a distribution; how far a typical case's child care claim sits from this one is not
 known from anything in this repository.
 
 The standing caveat applies here as everywhere: per person, the payor remains ahead. Even in the
@@ -131,14 +131,14 @@ still holds $58,163 for himself against $22,907 each for the recipient's househo
 
 ## Check it yourself
 
-- [`model/childcare_post_transfer.py`](/model/childcare_post_transfer.py) — computes all three
+- [`model/childcare_post_transfer.py`](/model/childcare_post_transfer.py): computes all three
   allocation rules (pre-transfer, post-transfer gross adjusted by the base order, post-transfer net).
-- [`model/test_childcare_post_transfer.py`](/model/test_childcare_post_transfer.py) — pins the
+- [`model/test_childcare_post_transfer.py`](/model/test_childcare_post_transfer.py): pins the
   87.7%, 64.5%, and resulting order figures the letter's § 2 redline quotes.
 - [`model/worksheet.py`](/model/worksheet.py) and
-  [`model/test_worksheet.py`](/model/test_worksheet.py) — the Line 6a/6b/6e implementation,
+  [`model/test_worksheet.py`](/model/test_worksheet.py): the Line 6a/6b/6e implementation,
   including the test that the payor bears roughly 93 percent of combined child care when both
   parents pay for it under equal shared parenting.
 - [`model/runs/childcare-post-transfer-run-2026-09-05.txt`](/model/runs/childcare-post-transfer-run-2026-09-05.txt)
   and [`model/runs/submission-figures-run-2026-09-05.txt`](/model/runs/submission-figures-run-2026-09-05.txt)
-  — the printed runs behind every figure above.
+  the printed runs behind every figure above.

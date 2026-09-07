@@ -18,7 +18,7 @@ was held fixed. The data behind every figure on this page is described on
 <a href="/the-data/">the data</a> page, which links each of the three underlying files directly.</p>
 </div>
 
-<p class="confidence-tag">Tiered — see method below. One fact pattern; the ranking generalizes to nothing else.</p>
+<p class="confidence-tag">Tiered: see method below. One fact pattern; the ranking generalizes to nothing else.</p>
 
 ## Fifty of fifty-one jurisdictions survived a four-stage check; Georgia did not, and carries no number here
 
@@ -26,19 +26,19 @@ Each of the fifty states and the District of Columbia was profiled from its own 
 documents, computed twice by independent passes, reconciled where the two passes disagreed, and
 then adversarially attacked for defects. Fifty of the fifty-one jurisdictions modeled survived every
 stage. Georgia is the one held out: its enacted formula, and the state's own online calculator, both
-produce a lower order under primary custody than under equal parenting time — an inversion the
+produce a lower order under primary custody than under equal parenting time, an inversion the
 analysis could not resolve into a single trustworthy number, so Georgia is left off every ranking
 below rather than given a wrong one.
 
 That leaves fifty jurisdictions ranked. A tier this size, checked this way, is still one analysis of
-one fact pattern — not a survey, and not a claim about any other income level, custody split, or
+one fact pattern, not a survey, and not a claim about any other income level, custody split, or
 number of children.
 
 ## The fact pattern is fixed, and it is the same order used throughout this site
 
 Every ranking on this page holds one fact pattern constant: three children, a payor at $201,000 a
-year, the other parent at $29,640 a year, no child care claimed. Change any one of those inputs —
-the number of children, the income split, whether child care is claimed — and every ranking below
+year, the other parent at $29,640 a year, no child care claimed. Change any one of those inputs
+(the number of children, the income split, whether child care is claimed) and every ranking below
 could move, in either direction. This is one point in a very large space of possible families, not
 a distribution over them, and it should not be read as one.
 
@@ -46,7 +46,7 @@ a distribution over them, and it should not be read as one.
 
 <p class="stat-callout">
   <span class="stat-value">$4,388 a month</span>
-  <span class="stat-label">Massachusetts's Box 1 order at the worked example — $321 more than New York, the next-highest of the fifty jurisdictions modeled</span>
+  <span class="stat-label">Massachusetts's Box 1 order at the worked example: $321 more than New York, the next-highest of the fifty jurisdictions modeled</span>
 </p>
 
 <figure class="exhibit" id="e11">
@@ -65,12 +65,12 @@ a distribution over them, and it should not be read as one.
 
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Full ranking, equal parenting time">
 <table class="exhibit-table">
-  <caption>Equal-parenting-time monthly order, all fifty jurisdictions modeled — full data behind Exhibit E11</caption>
+  <caption>Equal-parenting-time monthly order, all fifty jurisdictions modeled: full data behind Exhibit E11</caption>
   <thead>
     <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col">Monthly order</th></tr>
   </thead>
   <tbody>
-    <tr class="is-reader-state"><td>1</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$4,388.48</td></tr>
+    <tr class="is-reader-state"><td>1</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td class="numeric">$4,388.48</td></tr>
     <tr><td>2</td><td>New York</td><td class="numeric">$4,067.61</td></tr>
     <tr><td>3</td><td>New Hampshire</td><td class="numeric">$3,838.66</td></tr>
     <tr><td>4</td><td>Texas</td><td class="numeric">$3,510.00</td></tr>
@@ -143,13 +143,13 @@ a distribution over them, and it should not be read as one.
 
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Full ranking, lower-earner primary custody">
 <table class="exhibit-table">
-  <caption>Lower-earner-primary monthly order, all fifty jurisdictions modeled — full data behind Exhibit E12</caption>
+  <caption>Lower-earner-primary monthly order, all fifty jurisdictions modeled: full data behind Exhibit E12</caption>
   <thead>
     <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col">Monthly order</th></tr>
   </thead>
   <tbody>
     <tr><td>1</td><td>Hawaii</td><td class="numeric">$5,821.00</td></tr>
-    <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$4,714.22</td></tr>
+    <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td class="numeric">$4,714.22</td></tr>
     <tr><td>3</td><td>Wisconsin</td><td class="numeric">$4,491.71</td></tr>
     <tr><td>4</td><td>New York</td><td class="numeric">$4,067.61</td></tr>
     <tr><td>5</td><td>Delaware</td><td class="numeric">$3,990.73</td></tr>
@@ -204,8 +204,8 @@ a distribution over them, and it should not be read as one.
 
 ## A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23; Massachusetts is among the 23
 
-This is a count, not a dollar claim. Massachusetts's own Box 2 — one parent with the children about
-a third of the time — is its one-third case, and Massachusetts does not treat that arrangement as
+This is a count, not a dollar claim. Massachusetts's own Box 2 (one parent with the children about
+a third of the time) is its one-third case, and Massachusetts does not treat that arrangement as
 earning a discrete formula credit the way 28 other jurisdictions do.
 
 <figure class="exhibit" id="e13">
@@ -248,7 +248,7 @@ and this table does not adjust for that difference.
 
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Combined-income ceilings, jurisdictions with one stated">
 <table class="exhibit-table">
-  <caption>Combined-income ceiling of the presumptive schedule, 41 jurisdictions that state one — full data behind Exhibit E16</caption>
+  <caption>Combined-income ceiling of the presumptive schedule, 41 jurisdictions that state one: full data behind Exhibit E16</caption>
   <thead>
     <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col">Ceiling (annual)</th><th scope="col">Basis</th></tr>
   </thead>
@@ -265,7 +265,7 @@ and this table does not adjust for that difference.
     <tr><td>10</td><td>Rhode Island</td><td class="numeric">$480,000</td><td>gross</td></tr>
     <tr><td>11</td><td>South Carolina</td><td class="numeric">$480,000</td><td>gross</td></tr>
     <tr><td>12</td><td>Indiana</td><td class="numeric">$478,400</td><td>gross</td></tr>
-    <tr class="is-reader-state"><td>13</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$450,000</td><td>gross</td></tr>
+    <tr class="is-reader-state"><td>13</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td class="numeric">$450,000</td><td>gross</td></tr>
     <tr><td>14</td><td>Idaho</td><td class="numeric">$440,000</td><td>gross</td></tr>
     <tr><td>15</td><td>West Virginia</td><td class="numeric">$420,000</td><td>gross</td></tr>
     <tr><td>16</td><td>Maine</td><td class="numeric">$400,000</td><td>gross</td></tr>
@@ -330,7 +330,7 @@ order more at primary custody than Massachusetts does at equal time. Massachuset
 primary-custody order, $4,714.22, is included for scale.
 
 The Commonwealth's own consultant, in the report the Task Force adopted, attributes Massachusetts's
-higher amounts to its cost of living, not to the design of the formula — see
+higher amounts to its cost of living, not to the design of the formula. See
 <a href="/paper/Comments-to-the-Trial-Court-with-Attachments-A-and-D.pdf">Attachment D</a>. Whatever
 that explains about the level of Massachusetts's orders generally, it does not explain why an
 arrangement giving each parent half the children's time is priced here where sole primary custody is
@@ -340,7 +340,7 @@ priced almost everywhere else.
   <img src="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
        width="1852" height="2264"
        loading="lazy"
-       alt="Bar chart of monthly child support orders in fifty jurisdictions, forty-nine computed with the children primarily with the lower earner and Massachusetts computed twice — once under equal parenting time and once under primary custody for scale.">
+       alt="Bar chart of monthly child support orders in fifty jurisdictions, forty-nine computed with the children primarily with the lower earner and Massachusetts computed twice: once under equal parenting time and once under primary custody for scale.">
   <figcaption>
     <h3 class="exhibit-title">Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h3>
     <p class="exhibit-deck">The same fact pattern as the two rankings above, with Massachusetts computed under Box 1 and every other jurisdiction computed with the children primarily with the lower earner.</p>
@@ -352,15 +352,15 @@ priced almost everywhere else.
 
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Massachusetts equal-time order vs. every other jurisdiction's primary-custody order">
 <table class="exhibit-table">
-  <caption>Massachusetts's equal-time order against every other jurisdiction's primary-custody order — full data behind Exhibit E17</caption>
+  <caption>Massachusetts's equal-time order against every other jurisdiction's primary-custody order: full data behind Exhibit E17</caption>
   <thead>
     <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col">Custody basis</th><th scope="col">Monthly order</th></tr>
   </thead>
   <tbody>
     <tr><td>1</td><td>Hawaii</td><td>primary</td><td class="numeric">$5,821.00</td></tr>
-    <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>primary (for scale)</td><td class="numeric">$4,714.22</td></tr>
+    <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td>primary (for scale)</td><td class="numeric">$4,714.22</td></tr>
     <tr><td>3</td><td>Wisconsin</td><td>primary</td><td class="numeric">$4,491.71</td></tr>
-    <tr class="is-reader-state"><td>4</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>equal</td><td class="numeric">$4,388.48</td></tr>
+    <tr class="is-reader-state"><td>4</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td>equal</td><td class="numeric">$4,388.48</td></tr>
     <tr><td>5</td><td>New York</td><td>primary</td><td class="numeric">$4,067.61</td></tr>
     <tr><td>6</td><td>Delaware</td><td>primary</td><td class="numeric">$3,990.73</td></tr>
     <tr><td>7</td><td>New Hampshire</td><td>primary</td><td class="numeric">$3,838.66</td></tr>
@@ -415,7 +415,7 @@ priced almost everywhere else.
 ## What this page does not show
 
 One fact pattern is not a distribution. Nothing here says what a lower-income family, a two-child
-family, or a family with claimed child care would see in any of these fifty jurisdictions — those
+family, or a family with claimed child care would see in any of these fifty jurisdictions; those
 are different points that have not been computed. Nothing here says Massachusetts's amounts are
 wrong; the Commonwealth's own consultant offers a reason for them, cost of living, that this page
 does not test or dispute. What this page does show, at the one fact pattern tested: an arrangement

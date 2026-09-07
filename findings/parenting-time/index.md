@@ -25,8 +25,8 @@ official calculation scripts in
 
 Massachusetts's Worksheet form (CJ-D 304) offers two relevant boxes: Box 2, where one parent has
 the children the great majority of the time, and Box 1, where the parents share time equally. Both
-boxes compute the same total support amount at Line 4c — $1,240.73 a week at the worked example
-(three children, a payor at $201,000 a year, the other parent at $570 a week) — then divide it
+boxes compute the same total support amount at Line 4c ($1,240.73 a week at the worked example:
+three children, a payor at $201,000 a year, the other parent at $570 a week), then divide it
 between the parents by their shares of combined income. Line 5b assigns the payor 87.68 percent of
 that amount, $1,087.90 a week; that figure is the order Box 2 would produce for the same family.
 
@@ -37,7 +37,7 @@ overnights either parent actually has.
 
 <p class="stat-callout">
   <span class="stat-value">$75 of $1,088</span>
-  <span class="stat-label">the equal-parenting credit at the worked example against the order Box 2 would produce for the same family — 6.9 percent, and no line in the calculation measures time</span>
+  <span class="stat-label">the equal-parenting credit at the worked example against the order Box 2 would produce for the same family: 6.9 percent, and no line in the calculation measures time</span>
 </p>
 
 ## The credit tracks the income gap, not the calendar, and runs backward as the gap widens
@@ -47,7 +47,7 @@ shows the same equal-parenting arrangement priced very differently depending on 
 two incomes are:
 
 <table class="exhibit-table">
-  <caption>The Box 1 credit for equal parenting time, by the other parent's weekly gross income — full data behind <a href="#e08">Exhibit E08</a></caption>
+  <caption>The Box 1 credit for equal parenting time, by the other parent's weekly gross income: full data behind <a href="#e08">Exhibit E08</a></caption>
   <thead>
     <tr>
       <th scope="col">Other parent's weekly gross</th>
@@ -68,7 +68,7 @@ two incomes are:
   </tbody>
 </table>
 
-The wider the gap between the two incomes, the smaller the equal-parenting credit — from 64.5
+The wider the gap between the two incomes, the smaller the equal-parenting credit: from 64.5
 percent of the Box 2 order at a 60.8 percent income share down to 1.3 percent at a 94.6 percent
 share. At the worked example, an 87.7 percent income share, the credit has already fallen to 6.9
 percent.
@@ -92,7 +92,7 @@ percent.
 The same clip that produces the 6.9 percent credit could be applied differently. Removing it once,
 so the payor's own entitlement is not capped a second time (Variant A), raises the order's reduction
 to 14.0 percent, an order of $935.06. Applying the standard cross-credit design used by 23 states,
-at a 1.5 duplication factor (Variant B), raises the reduction to 35.5 percent, an order of $701.30 —
+at a 1.5 duplication factor (Variant B), raises the reduction to 35.5 percent, an order of $701.30,
 a 30.8 percent drop from the current $1,012.73. Neither variant adds a term for how much time either
 parent actually has the children: both change how the income-share gap is priced, not what is being
 priced.
@@ -100,19 +100,19 @@ priced.
 ## Priced as overnights, equal time comes out to a third of the calendar under one factor and just under half under another
 
 Massachusetts's own commentary and the guidelines contain no number for how much of the shared-care
-cost is duplicated between two households. Other states' cross-credit formulas do: solving the Box 1
-arithmetic backward — asking what overnight share, run through a standard cross-credit, would
-reproduce the actual $1,012.73 order — answers how much parenting time Massachusetts is effectively
-pricing equal custody at. The answer depends entirely on which duplication factor is used, so the
+cost is duplicated between two households. Other states' cross-credit formulas do, which makes it
+possible to solve the Box 1 arithmetic backward. Asking what overnight share, run through a standard
+cross-credit, would reproduce the actual $1,012.73 order answers how much parenting time
+Massachusetts is effectively pricing equal custody at. The answer depends entirely on which duplication factor is used, so the
 factor must always be stated beside the number.
 
 <p class="stat-callout">
   <span class="stat-value">33.3% at factor 1.5 · 46.9% at factor 2.0</span>
-  <span class="stat-label">the overnight share the Box 1 order at the worked example implies under a standard cross-credit — never quote one of these numbers without its factor</span>
+  <span class="stat-label">the overnight share the Box 1 order at the worked example implies under a standard cross-credit. Never quote one of these numbers without its factor</span>
 </p>
 
-At the 1.5 duplication factor — the figure Indiana's Child Support Guideline 6 Commentary uses to
-quantify equal-parenting duplication — the Box 1 order at the worked example implies an overnight
+At the 1.5 duplication factor (the figure Indiana's Child Support Guideline 6 Commentary uses to
+quantify equal-parenting duplication), the Box 1 order at the worked example implies an overnight
 share of 33.3 percent. At the 2.0 factor implied by Box 1's own uncapped arithmetic (both parents'
 columns carry every child at the full schedule amount), it implies 46.9 percent. Neither reaches the
 50 percent the parent in the worked example actually has.
@@ -134,8 +134,8 @@ columns carry every child at the full schedule amount), it implies 46.9 percent.
 
 ## Below the Worksheet's income floor, this relationship cannot be expressed at all
 
-At $400 and $250 a week for the other parent — both above the worked example's $570 but shown here
-because the floor sits nearby — the printed run marks the implied-overnight-share columns "n/a."
+At $400 and $250 a week for the other parent (both above the worked example's $570 but shown here
+because the floor sits nearby), the printed run marks the implied-overnight-share columns "n/a."
 Below $391 a week of the other parent's available income, Line 5c substitutes a fixed shaded-area
 amount rather than a percentage of income, so the Box 1 order is no longer a cross-credit and no
 overnight share can be backed out of it. The chart's curve is left blank over that range rather than
@@ -144,8 +144,8 @@ showing a number that would not mean what it appears to mean.
 ## What this does and doesn't show
 
 Every figure on this page comes from one fact pattern: three children, equal parenting time, no
-child care claimed, at the incomes stated. The mechanism — Box 1's credit equalling the payor's own
-capped Line 6e — is a property of the form itself and does not depend on the fact pattern; the
+child care claimed, at the incomes stated. The mechanism (Box 1's credit equalling the payor's own
+capped Line 6e) is a property of the form itself and does not depend on the fact pattern; the
 specific dollar amounts and percentages do. This page says nothing about Box 2, about primary
 custody, or about any arrangement other than equal time.
 

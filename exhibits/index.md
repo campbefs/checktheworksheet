@@ -14,7 +14,7 @@ this site links elsewhere ([The model](/the-model/), [The data](/the-data/)). No
 seventeen figures appears in the Comments prepared for the Trial Court (see
 [Documents](/documents/)); they were built for the working paper and the correspondence that
 follows it. The number under each chart's title states the arrangement, the number of children,
-whether child care is in the order, and the incomes used — the same fact pattern the chart itself
+whether child care is in the order, and the incomes used: the same fact pattern the chart itself
 states. One fact pattern does not generalize to every family; each figure's notes say so again
 where it matters.
 
@@ -272,7 +272,7 @@ where it matters.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / varies</dd></div>
     </dl>
-    <p class="exhibit-notes">Under Box 1 both are shared; under Box 3 one lives primarily with each parent. The payor's care responsibility is one child-share either way, but Line 6g nets the columns on the one-child schedule (Table B 1.00 against 1.40), so the Box 3 order comes out at 70 percent of the Box 1 order — $581 against $835 a week at the worked-example incomes — while two homes each carrying a first child cost 2.00 on Table B against 1.40 in one. This one cuts against the lower earner. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">Under Box 1 both are shared; under Box 3 one lives primarily with each parent. The payor's care responsibility is one child-share either way, but Line 6g nets the columns on the one-child schedule (Table B 1.00 against 1.40), so the Box 3 order comes out at 70 percent of the Box 1 order ($581 against $835 a week at the worked-example incomes), while two homes each carrying a first child cost 2.00 on Table B against 1.40 in one. This one cuts against the lower earner. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig7_box3_split.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       data (CSV): <a href="/figures/working/fig7_box3_inversion.csv">curve</a>,
       <a href="/figures/working/fig7_box3_inversion_example.csv">worked-example point</a></p>
@@ -311,7 +311,7 @@ where it matters.
       <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col" class="numeric">Monthly order</th></tr>
     </thead>
     <tbody>
-      <tr class="is-reader-state"><td>1</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$4,388.48</td></tr>
+      <tr class="is-reader-state"><td>1</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td class="numeric">$4,388.48</td></tr>
       <tr><td>2</td><td>New York</td><td class="numeric">$4,067.61</td></tr>
       <tr><td>3</td><td>New Hampshire</td><td class="numeric">$3,838.66</td></tr>
       <tr><td>4</td><td>Texas</td><td class="numeric">$3,510.00</td></tr>
@@ -398,7 +398,7 @@ where it matters.
     </thead>
     <tbody>
       <tr><td>1</td><td>Hawaii</td><td class="numeric">$5,821.00</td></tr>
-      <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$4,714.22</td></tr>
+      <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td class="numeric">$4,714.22</td></tr>
       <tr><td>3</td><td>Wisconsin</td><td class="numeric">$4,491.71</td></tr>
       <tr><td>4</td><td>New York</td><td class="numeric">$4,067.61</td></tr>
       <tr><td>5</td><td>Delaware</td><td class="numeric">$3,990.73</td></tr>
@@ -503,7 +503,7 @@ where it matters.
       <tr><td>Louisiana</td><td>No</td></tr>
       <tr><td>Maine</td><td>No</td></tr>
       <tr><td>Maryland</td><td>Yes</td></tr>
-      <tr class="is-reader-state"><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>No</td></tr>
+      <tr class="is-reader-state"><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td>No</td></tr>
       <tr><td>Michigan</td><td>Yes</td></tr>
       <tr><td>Minnesota</td><td>Yes</td></tr>
       <tr><td>Mississippi</td><td>No</td></tr>
@@ -581,7 +581,7 @@ where it matters.
       <tr><td>10</td><td>Rhode Island</td><td class="numeric">$480,000</td><td>gross</td></tr>
       <tr><td>11</td><td>South Carolina</td><td class="numeric">$480,000</td><td>gross</td></tr>
       <tr><td>12</td><td>Indiana</td><td class="numeric">$478,400</td><td>gross</td></tr>
-      <tr class="is-reader-state"><td>13</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$450,000</td><td>gross</td></tr>
+      <tr class="is-reader-state"><td>13</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td class="numeric">$450,000</td><td>gross</td></tr>
       <tr><td>14</td><td>Idaho</td><td class="numeric">$440,000</td><td>gross</td></tr>
       <tr><td>15</td><td>West Virginia</td><td class="numeric">$420,000</td><td>gross</td></tr>
       <tr><td>16</td><td>Maine</td><td class="numeric">$400,000</td><td>gross</td></tr>
@@ -647,9 +647,9 @@ where it matters.
     </thead>
     <tbody>
       <tr><td>1</td><td>Hawaii</td><td>Primary, lower earner</td><td class="numeric">$5,821.00</td></tr>
-      <tr class="is-reader-state"><td>&mdash;</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>Primary (Box 2) &mdash; for scale, not ranked</td><td class="numeric">$4,714.22</td></tr>
+      <tr class="is-reader-state"><td>&mdash;</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td>Primary (Box 2) &mdash; for scale, not ranked</td><td class="numeric">$4,714.22</td></tr>
       <tr><td>2</td><td>Wisconsin</td><td>Primary, lower earner</td><td class="numeric">$4,491.71</td></tr>
-      <tr class="is-reader-state"><td>3</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>Equal time (Box 1)</td><td class="numeric">$4,388.48</td></tr>
+      <tr class="is-reader-state"><td>3</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td>Equal time (Box 1)</td><td class="numeric">$4,388.48</td></tr>
       <tr><td>4</td><td>New York</td><td>Primary, lower earner</td><td class="numeric">$4,067.61</td></tr>
       <tr><td>5</td><td>Delaware</td><td>Primary, lower earner</td><td class="numeric">$3,990.73</td></tr>
       <tr><td>6</td><td>New Hampshire</td><td>Primary, lower earner</td><td class="numeric">$3,838.66</td></tr>

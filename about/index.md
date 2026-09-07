@@ -9,19 +9,19 @@ description: >-
 # One person built this, and the tests back the numbers, not the byline
 
 Christopher Campbell built this site, the model, and the documents it links to. He has no
-institutional affiliation, no co-author, and no organization behind the work — which is exactly
+institutional affiliation, no co-author, and no organization behind the work. That is exactly
 why the disclosure below, and the model and data pages, exist: there is no institution's name to
 lend the numbers credibility, so every number has to stand on being checkable instead.
 
 <div class="disclosure">
-  <p>The worked example running through every finding on this site — the $201,000 payor, the
-  $570-a-week other parent, the three children — is my own child support order, computed under
+  <p>The worked example running through every finding on this site (the $201,000 payor, the
+  $570-a-week other parent, the three children) is my own child support order, computed under
   Massachusetts's 2025 worksheet. I am telling you this before you read a single finding because a
   reader should reasonably wonder whether an interested party has shaded a number in his own
   favor, and the honest answer to that is to let you check it rather than to ask you to trust me.
   The worksheet that produced these figures is at
   <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked against the official
-  form's own calculation scripts on <a href="/the-model/">the model page</a> — run it on any
+  form's own calculation scripts on <a href="/the-model/">the model page</a>. Run it on any
   numbers you choose, not just mine.</p>
 </div>
 
@@ -33,7 +33,7 @@ Each is checkable independently of the other two and of the author's own case:
    obligation is paid from net income, so it reports a lower percentage than the payor's actual
    burden.
 2. Line 6b allocates child care on each parent's income share measured before the base support
-   order has already moved money between the two households — one calculation, two different
+   order has already moved money between the two households: one calculation, two different
    income measures.
 3. The credit the worksheet gives for equal parenting time is the difference in two income
    shares with no parenting-time term in it, so the credit shrinks as the gap between the
@@ -58,7 +58,7 @@ to be.
   typical.
 - **It is not a legal filing and creates no legal obligation on anyone.** It is a set of comments
   on how a public worksheet computes, prepared for submission to the body that maintains that
-  worksheet — see [documents](/documents/) for the current, unsent status of that submission.
+  worksheet. See [documents](/documents/) for the current, unsent status of that submission.
 
 ## License
 
@@ -69,7 +69,7 @@ or pull request against the repository, will be corrected and credited.
 
 <div class="ask">
   <h2>Check it yourself</h2>
-  <p>Nothing on this page needs to be taken on trust — the code, the data, and the documents are
+  <p>Nothing on this page needs to be taken on trust: the code, the data, and the documents are
   all linked from here.</p>
   <ul>
     <li><a href="/the-model/">The model</a></li>
