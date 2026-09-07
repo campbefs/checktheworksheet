@@ -40,9 +40,9 @@ sections:
 
 # The Worksheet's credit for equal parenting time falls from 77.6 percent to 6.9 percent as the income gap widens, with no measure of time anywhere in the calculation
 
-<p class="lede">Box 1's credit for equal parenting time equals the payor's own Line 6e, and Line 6e
-has no time in it. So the credit tracks how far apart the two incomes are, not how the children's
-time is actually split.</p>
+<p class="lede">At the worked example, an 87.7 percent payor income share, equal parenting time earns
+a credit of just 6.9 percent. That credit equals the payor's own Line 6e, and Line 6e has no time
+in it, so it tracks how far apart the two incomes are, not how the children's time is split.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">

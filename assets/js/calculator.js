@@ -33,15 +33,25 @@
 //            min="0" max="120000" step="1000" value="29640">
 //   </div>
 //   <div class="tool-readout" aria-live="polite">
-//     <p class="cell-value"><span class="cell-label">Weekly order (Line 7d)</span>
-//        <span data-calc-cell="order_wk">$1,013/wk</span></p>
-//     <p class="cell-value payor-line"><span class="cell-label">Line 7e's reading</span>
-//        <span data-calc-cell="line_7e">26.5%</span></p>
-//     <p class="cell-value true-burden"><span class="cell-label">True share of the payor's net income</span>
-//        <span data-calc-cell="true_pct_net">37.7%</span></p>
+//     <div>
+//       <p class="cell-label">Weekly order (Line 7d)</p>
+//       <p class="cell-value" data-calc-cell="order_wk">$1,013/wk</p>
+//     </div>
+//     <div>
+//       <p class="cell-label">Line 7e's reading</p>
+//       <p class="cell-value payor-line" data-calc-cell="line_7e">26.5%</p>
+//     </div>
+//     <div>
+//       <p class="cell-label">True share of the payor's net income</p>
+//       <p class="cell-value true-burden" data-calc-cell="true_pct_net">37.7%</p>
+//     </div>
 //   </div>
 //   <p class="tool-flag" data-calc-flag>&nbsp;</p>
 // </div>
+//
+// (`.tool-readout` is a 3-column CSS grid in assets/css/site.css -- exactly three direct
+// children, each a wrapper `<div>` holding one `.cell-label` + one `.cell-value` pair, matching
+// the pattern the child-care valve slider already uses.)
 //
 // - The two `data-calc-input` sliders MUST default (via their `value` attribute) to the worked
 //   example's real incomes, and the three `data-calc-cell` spans MUST already contain that
@@ -159,6 +169,9 @@ var MCSGCalculatorFacts = { kids: 3, childcare: 0, box: 1, healthLow: 33.0, heal
     render();
   }
 
-  window.MCSGCalculatorCompute = compute; // exposed for calculator.test.js / manual console checks
+  // Exposed for a manual browser-console spot check (e.g. MCSGCalculatorCompute(201000, 29640)).
+  // calculator.test.js runs in Node, where `window` does not exist, so it re-derives this same
+  // arithmetic against lib/worksheet.js and lib/net-position.js directly rather than calling this.
+  window.MCSGCalculatorCompute = compute;
   document.querySelectorAll('[data-calculator]').forEach(initCalculator);
 })();

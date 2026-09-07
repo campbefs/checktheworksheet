@@ -43,9 +43,10 @@ sections:
 
 # Line 6b charges the payor 88 cents of every dollar of child care, using an income split base support has already moved
 
-<p class="lede">Massachusetts allocates child care in proportion to each parent's share of
-combined income. That's defensible. But the Worksheet measures the share before the base support
-order transfers a single dollar between the two households, and never revisits it.</p>
+<p class="lede">At the worked example, the payor funds 88 cents of every dollar of the recipient's
+$15,600-a-year child care claim. Massachusetts allocates child care in proportion to income; the
+defect is that the Worksheet measures the share before the base support order moves a single
+dollar between the two households, and never revisits it.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
