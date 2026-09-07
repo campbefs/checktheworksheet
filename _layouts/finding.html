@@ -2,7 +2,7 @@
 layout: default
 body_class: finding-page
 ---
-<!--
+{% comment %}
   One of the four finding pages (findings/hardship-test.html, findings/child-care.html,
   findings/parenting-time.html, findings/fifty-jurisdictions.html). Adds an `<article
   class="finding">` wrapper over `default` — nothing more. Per design brief §3.6, a finding page's
@@ -18,7 +18,7 @@ body_class: finding-page
   `.finding` wrapper is what CSS keys the finding-specific rules to (the numeral-pair sizing in
   §3.2, the eyebrow's "Finding N of 4" styling) without leaking those rules onto every generic
   content page.
--->
+{% endcomment %}
 <article class="finding">
 {{ content }}
 </article>

@@ -112,7 +112,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   outline-offset: 2px;
 }
 
-.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.vh, .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---- 2. Skip link + reading-progress bar -------------------------------- */
 
@@ -408,6 +408,21 @@ header.topbar { border-bottom: 1px solid var(--rule); }
 .exhibit-source a { color: var(--text-muted); }
 .exhibit-source code { background: var(--surface-raised); padding: 1px 4px; border-radius: 2px; }
 .exhibit .confidence-tag, .exhibit-figure .confidence-tag { padding: var(--space-4) var(--space-5) 0; margin-bottom: 0; color: var(--text-secondary); }
+
+/* Fact strip (web-figures' <dl class="exhibit-facts">) — kept for pages built before this pass
+   that still use the dl variant rather than relying on the fact strip already baked into each
+   PNG (see CONVENTIONS.md "Figures" for which convention a NEW page should follow — the PNGs in
+   this project already bake in a fact strip via the analysis-chart-anatomy skill, so a new
+   figure.html call does not need to duplicate one). */
+.exhibit-facts { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: 0 0 var(--space-2); }
+.exhibit-facts div { display: flex; gap: var(--space-1); font-size: 0.8125rem; }
+.exhibit-facts dt { color: var(--text-secondary); margin: 0; }
+.exhibit-facts dt::after { content: ":"; }
+.exhibit-facts dd { color: var(--text-primary); margin: 0; font-weight: 600; }
+
+/* Horizontal-scroll wrapper for a wide plain-HTML table (older pages' name for what
+   .exhibit-table-wrap does above — same rule, kept as an alias so nothing already using it breaks). */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 .exhibit-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
 @media (max-width: 700px) { .exhibit-pair { grid-template-columns: 1fr; } }

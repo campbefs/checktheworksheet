@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<!--
+{% comment %}
   Generic content page: findings/index.html, findings/fifty-jurisdictions.html (the full table +
   method, per §3.12's "or fold into ... if that reads as the fuller page" — this repo does NOT
   also build a separate comparison.html; see CONVENTIONS.md), exhibits.html, documents.html,
@@ -16,7 +16,7 @@ layout: default
   Do not auto-generate an H1 from `page.title` here. Every content page writes its own `<h1>` (a
   complete-sentence assertion, per web-page-anatomy) as the first line of its body — a layout that
   also prints `page.title` as a heading would duplicate it.
--->
+{% endcomment %}
 <article class="page">
 {{ content }}
 </article>

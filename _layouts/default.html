@@ -21,9 +21,11 @@
 <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Reading-progress bar: the <960px replacement for the chapter rail (design brief §3.3).
-       Always in the DOM; `chapter-rail.js` only animates it, and does nothing harmful on a page
-       with no `.chapter-rail` (it just tracks page-scroll position). -->
+  {% comment %}
+    Reading-progress bar: the <960px replacement for the chapter rail (design brief §3.3).
+    Always in the DOM; `site.js` only animates it, and does nothing harmful on a page with no
+    `.chapter-rail` (it just tracks page-scroll position).
+  {% endcomment %}
   <div class="progress-bar" aria-hidden="true"></div>
 
   <header class="topbar">
