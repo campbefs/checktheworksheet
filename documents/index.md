@@ -6,7 +6,7 @@ description: The two PDFs behind this site, and their status, stated plainly.
 
 # Two documents, neither sent
 
-Neither below has been submitted, posted, or sent to anyone as of this writing.
+Neither below has been submitted, posted, or sent to anyone yet.
 
 <ul class="doc-list">
   <li class="doc-item">
@@ -29,8 +29,8 @@ Neither below has been submitted, posted, or sent to anyone as of this writing.
 
 ## The PDF is the record; the site is how to check it
 
-The PDF is what a recipient sees; these pages restate the same figures and asks with direct
-links a PDF cannot offer. Where wording differs, the PDF governs.
+A recipient sees the PDF. These pages restate the same figures and asks with direct links a PDF
+can't offer. Where wording differs, the PDF governs.
 
 <div class="ask">
   <h2>Check it yourself</h2>

@@ -10,20 +10,20 @@ Every number in a finding traces to one of these files, or a script in [the mode
 
 ## The form's own logic
 
-[`data/extracted/cjd304-xfa.xml`](/data/extracted/cjd304-xfa.xml): the 2025 CJ-D 304's own
+[`data/extracted/cjd304-xfa.xml`](/data/extracted/cjd304-xfa.xml) holds the 2025 CJ-D 304's own
 scripts, extracted by [`model/inspect_worksheet.py`](/model/inspect_worksheet.py). **Primary
 source, executed directly**; [the model](/the-model/) matches it on all six scenarios.
 
 ## The support chart
 
-[`data/extracted/guidelines-chart.json`](/data/extracted/guidelines-chart.json): 1,104
+[`data/extracted/guidelines-chart.json`](/data/extracted/guidelines-chart.json) holds 1,104
 income-to-support pairs, $0-$8,654/wk, from the 2025 Guidelines Chart. **Checked against Table A,
 no disagreement over one dollar** ([`model/test_guidelines.py`](/model/test_guidelines.py)).
 
 ## Three fifty-one-jurisdiction datasets, one fixed pattern
 
-Payor $201,000/yr, other parent $570/wk, three children, no child care: the author's own order
-(disclosed on [about](/about/)), not a general claim.
+All three use the author's own order (disclosed on [about](/about/)): payor $201,000/yr, other
+parent $570/wk, three children, no child care. Not a general claim.
 
 - [`tier-50-2026-09-05.json`](/data/fifty-state/tier-50-2026-09-05.json): the monthly order in 50
   jurisdictions, equal time (`s1`) and primary custody (`s2`). Massachusetts: $4,388.48 /
@@ -38,12 +38,11 @@ Payor $201,000/yr, other parent $570/wk, three children, no child care: the auth
 
 ## Where gross-versus-net was, and wasn't, raised
 
-[`data/deferrals-gross-vs-net.json`](/data/deferrals-gross-vs-net.json): one row per Massachusetts
-edition, 2017-2025, whether gross-versus-net was deferred that cycle. `DEFERRED` only with a
-verbatim quote in the corpus, `NO RECORD IN CORPUS` otherwise. Only 2025 has one: the Brattle
-Economic Review's "decided not to recommend a change from gross income to net income at this
-time." **Read from `data/extracted/*.flow.txt`**, each row citing its matched `source_file` and
-`quote`.
+[`data/deferrals-gross-vs-net.json`](/data/deferrals-gross-vs-net.json) has one row per
+Massachusetts edition, 2017-2025, marked `DEFERRED` only where a verbatim quote exists in the
+corpus, `NO RECORD IN CORPUS` otherwise. Only 2025 has one: the Brattle Economic Review's "decided
+not to recommend a change from gross income to net income at this time." **Read from
+`data/extracted/*.flow.txt`**, each row citing its matched `source_file` and `quote`.
 
 ## What is not in these files
 

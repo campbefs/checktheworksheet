@@ -8,23 +8,23 @@ description: >-
 
 # A model of the worksheet, checked against the form's own scripts, not just against itself
 
-[Findings](/findings/) states what the checks show; this page is the proof.
+[Findings](/findings/) states what the checks show. This page is the proof.
 
 ## `model/worksheet.py` reimplements CJ-D 304 line by line
 
 [`model/worksheet.py`](/model/worksheet.py) transcribes the 2025 Guidelines Worksheet start to
-finish: income, the income shares and cap, Table A and B, the age adjustment, the low-income
-floor, child care, the income-disparity adjustment, the hardship test, and all three custody
-boxes. [`model/guidelines.py`](/model/guidelines.py) holds Table A and B as published, checked
-against all 1,104 rows of the Commonwealth's own Guidelines Chart, reconstructed at
-[`data/extracted/guidelines-chart.json`](/data/extracted/guidelines-chart.json), with no
+finish: income, income shares and cap, Table A and B, the age adjustment, the low-income floor,
+child care, the income-disparity adjustment, the hardship test, and all three custody boxes.
+[`model/guidelines.py`](/model/guidelines.py) holds Table A and B as published, checked against
+all 1,104 rows of the Commonwealth's own Guidelines Chart
+([`data/extracted/guidelines-chart.json`](/data/extracted/guidelines-chart.json)), with no
 disagreement over one dollar.
 
 ## A tax model computes what each party actually keeps
 
-[`model/net_position.py`](/model/net_position.py) converts gross income to spendable income
-after federal and Massachusetts tax, including the EITC, Child Tax Credit, and the refundable
-Child and Family Tax Credit, so a finding can compare an order against what a household spends.
+[`model/net_position.py`](/model/net_position.py) converts gross income to spendable income after
+federal and Massachusetts tax, including the EITC, Child Tax Credit, and the refundable Child and
+Family Tax Credit, so a finding can compare an order against what a household spends.
 
 ## Three extension models, and one script printing every quoted figure
 
@@ -51,20 +51,20 @@ Child and Family Tax Credit, so a finding can compare an order against what a ho
 The published CJ-D 304 is a fillable XFA form with embedded scripts, extracted at
 [`data/extracted/cjd304-xfa.xml`](/data/extracted/cjd304-xfa.xml) by
 [`model/inspect_worksheet.py`](/model/inspect_worksheet.py). The dependency-free
-[`model/official_xfa_harness.js`](/model/official_xfa_harness.js) (Node) executes those scripts;
+[`model/official_xfa_harness.js`](/model/official_xfa_harness.js) (Node) executes those scripts.
 [`model/run_official_xfa.py`](/model/run_official_xfa.py) runs six scenarios against
 `model/worksheet.py`.
 
-In [`model/runs/official-xfa-vs-model-2026-09-05.txt`](/model/runs/official-xfa-vs-model-2026-09-05.txt),
-the two agree on the final order in all six: $1,016, $1,091, $1,355, $1,280, $1,274, $1,010
+The two agree on the final order in all six:
+[$1,016, $1,091, $1,355, $1,280, $1,274, $1,010](/model/runs/official-xfa-vs-model-2026-09-05.txt)
 (unrounded arithmetic differs by a few dollars, e.g. $1,012.72 against $1,016, from rounding each
-line before the next uses it, reproduced with `round_lines=True`). The project's strongest check:
-the Commonwealth's own code, not another analyst's reading of the form.
+line before the next uses it, reproduced with `round_lines=True`). This is the project's strongest
+check: the Commonwealth's own code, not another analyst's reading of the form.
 
 ## Reproduce every number here
 
-Nothing beyond the standard library is needed, and Node on PATH for the XFA harness. Each file
-above runs as `python3 <path>`; redrawing the figures needs `matplotlib` and `numpy`, then
+Nothing beyond the standard library is needed, plus Node on PATH for the XFA harness. Each file
+above runs as `python3 <path>`. Redrawing the figures needs `matplotlib` and `numpy`, then
 `python3 model/charts/make_all.py`.
 
 <div class="ask">
