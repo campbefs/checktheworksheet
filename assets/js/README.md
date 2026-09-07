@@ -194,32 +194,38 @@ Front matter: `scripts: ["/assets/js/lib/worksheet.js", "/assets/js/lib/net-posi
 does nothing if either is missing (fails safe onto the static markup below, see next point).
 
 **No-JS / load-failure fallback is REQUIRED and is not automatic**: every `data-calc-cell` span,
-both sliders' `value` attributes, both radio groups' `checked` attributes, and the `is-warning`
-class / note text on `recip_after` must already contain the real worked-example numbers exactly as
-written above ($1,013/wk, 26.5%, 37.7%, $87,172/yr, $92,941/yr, $23,235/yr, $201,000/yr, $29,640/yr,
-kids=3, box=1) — copy them verbatim, they are tested (`calculator.test.js` PART 3). A reader with
-JavaScript off, or whose browser fails to load one of the two `lib/` scripts, sees the worked
-example stated correctly, including which of the two warning colours is on, and only loses the
-ability to change it. The `<details open>` renders its content with no JavaScript at all; only the
-ability to collapse it is progressive enhancement (the browser's native behaviour).
+both sliders' `value` attributes, all three radio groups' `checked` attributes, and the
+`is-warning` class / note text on `recip_after` must already contain the real worked-example
+numbers exactly as written above ($1,013/wk, 26.5%, 37.7%, $87,172/yr, $92,941/yr, $23,235/yr,
+$201,000/yr, $29,640/yr, kids=3, box=1, childcare=0) — copy them verbatim, they are tested
+(`calculator.test.js` PART 3). A reader with JavaScript off, or whose browser fails to load one of
+the two `lib/` scripts, sees the worked example stated correctly, including which of the two
+warning colours is on, and only loses the ability to change it. The `<details open>` renders its
+content with no JavaScript at all; only the ability to collapse it is progressive enhancement (the
+browser's native behaviour).
 
-**Fixed facts, not sliders** (per the design brief's word budget): no child care, health premiums
-$33/wk to whichever slider is currently lower and $43/wk to whichever is currently higher (matches
-the convention already used by every heatmap exhibit in this project,
-`model/charts/_common.py`'s `order()`), and the MA Child and Family Tax Credit for children under
-13 fixed at zero qualifying children (same generic-grid convention as every heatmap on this site —
-there is no third control for how many of the children are under 13). Because of that last one,
-**this tool's "after tax" row runs slightly lower than the site's own worked-example figures
-elsewhere** (which use two of the three children under 13): $92,941/yr here vs $93,821/yr in
+**Fixed facts, not sliders** (per the design brief's word budget): health premiums $33/wk to
+whichever slider is currently lower and $43/wk to whichever is currently higher (matches the
+convention already used by every heatmap exhibit in this project, `model/charts/_common.py`'s
+`order()`), and the MA Child and Family Tax Credit for children under 13 fixed at zero qualifying
+children (same generic-grid convention as every heatmap on this site — there is no fourth control
+for how many of the children are under 13). Because of that last one, **this tool's "after tax"
+row runs slightly lower than the site's own worked-example figures elsewhere** (which use two of
+the three children under 13): $92,941/yr here vs $93,821/yr in
 `model/runs/submission-figures-run-2026-09-05.txt` and quoted around the rest of the site. The
 method paragraph in the markup above says so; do not remove that clause if you edit the copy.
-**Children (1/2/3, default 3) and custody (Box 1/Box 2, default Box 1) are real controls** — real
+**Children (1/2/3, default 3), custody (Box 1/Box 2, default Box 1), and (v3, 2026-09-07) child
+care (None/Recipient pays/Both pay, default None) are all real controls** — real
 `<input type="radio">` elements in a `<fieldset>`/`<legend>`, keyboard-operable, each group's
-`name` distinct. The two income sliders remain independent controls; if a reader drags "lower"
-past "higher" the script silently swaps which value plays which role so the labels stay honest —
-it does not clamp or block the drag. **This calculator models Massachusetts only** — the method
-paragraph says so in one clause; no other jurisdiction's worksheet is ported here (contrast the
-fifty-jurisdiction table below, which is a lookup across all 51, not a computation).
+`name` distinct. Child care is a fixed $300/wk claim per scenario rather than a fourth slider (see
+`calculator.js`'s v3 header comment for why a discrete scenario matches the site's own findings
+better than a continuous range); "Recipient pays" assigns the whole $300/wk to Parent A (the lower
+earner), "Both pay" gives $300/wk to each parent. The two income sliders remain independent
+controls; if a reader drags "lower" past "higher" the script silently swaps which value plays
+which role so the labels stay honest — it does not clamp or block the drag. **This calculator
+models Massachusetts only** — the method paragraph says so in one clause; no other jurisdiction's
+worksheet is ported here (contrast the fifty-jurisdiction table below, which is a lookup across
+all 51, not a computation).
 
 **`heatmap-3child-box1.json` is not used by this tool** and is not dead weight to remove — it is
 the CSV `figures/working/fig1_heatmap_3child_box1.csv` already committed to the repo and cited
@@ -404,3 +410,21 @@ markup contract. Not data-driven; no `assets/data/*.json` file involved.
   pre-existing em dashes in every file's own code comments are not reader-visible prose and were
   left as the foundation pass wrote them.
 - Every script here is self-contained ES5 with no absolute local file path.
+
+## Read-back done on the v3 pass (child care control, 2026-09-07)
+
+- `node assets/js/calculator.test.js` — 1280/1280 checks pass, up from 338 (the new PART 6 adds
+  108 fixture-grid checks plus per-scenario checks; every existing PART still passes unchanged).
+- `python3 tools/gen_calculator_childcare_fixtures.py` regenerates
+  `assets/js/fixtures/calculator-childcare.json` from this repo's own `model/worksheet.py` /
+  `model/net_position.py` with zero disabled combinations (108/108 computed).
+- PART 6 also checks every `childcare=0` row against the pre-existing `calculator-v2.json` row for
+  the same kids/box/income combination, proving the new `burden_pct_of_payor_net` readout is
+  identical to the old `support_pct_of_payor_net` one whenever the payor pays no child care
+  directly — v3 changes nothing about v2's numbers.
+- Mounted page (`index.html`) read back in a real browser: the default (childcare=0) numbers are
+  unchanged from before this pass; switching to "Recipient pays" reproduces $1,276/wk, 33.4%,
+  47.4%; switching to "Both pay" pushes the true-share-of-net cell over 40% and into
+  `.is-warning`. 390px screenshot taken; the third `.segmented--compact` fieldset wraps onto its
+  own line under 700px, same as the existing two, and stays within the `.tool` border at 390px.
+- No em dash in any new reader-visible string or code comment this pass added.

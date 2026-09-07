@@ -41,7 +41,7 @@ sections:
 # A 6.9 percent discount is what equal parenting time buys at the worked example, against the Worksheet's primary-custody order
 
 <p class="lede">The primary-custody order is $1,087.90 a week. The equal-time order is $1,012.73.
-That $75.17 gap is the whole discount for splitting time equally instead of the other way: 6.9
+This $75.17 gap is the whole discount for splitting time equally instead of the other way: 6.9
 percent. The next two sections explain where the "a third" language comes from and why the discount
 is this small.</p>
 </section>
@@ -68,7 +68,7 @@ Massachusetts's Worksheet form (CJ-D 304) has two custody boxes, primary (Box 2)
 $201,000 a year, the other parent at $570 a week). Line 5b splits that by income share, giving the
 payor 87.68 percent, $1,087.90, the order Box 2 produces. Box 1 then subtracts one credit at Line 6g,
 which turns out to equal the payor's own Line 6e, capped low because his income share sits below 10
-percent: $75.17. That leaves $1,012.73, a 6.9 percent reduction. Nothing between Line 4c and Line 6g
+percent: $75.17, leaving $1,012.73, a 6.9 percent reduction. Nothing between Line 4c and Line 6g
 asks how many overnights either parent has.
 
 <p class="stat-callout">
@@ -159,9 +159,9 @@ other states answer that with a cross-credit: multiply the basic obligation by a
 
 Solving the Box 1 arithmetic backward through that formula turns up a coincidence, not a description
 of anyone's actual time: the 6.9 percent discount Massachusetts gives for full equal time is close to
-what a cross-credit would give a parent who has the children one night in three. That is a different
-"third" from the Box 2 assumption above — this one comes from running a number backward through
-another state's formula, not from anything Massachusetts's own form assumes.
+what a cross-credit would give a parent who has the children one night in three, a different "third"
+from the Box 2 assumption above: this one comes from running a number backward through another
+state's formula, not from anything Massachusetts's own form assumes.
 
 <p class="stat-callout">
   <span class="stat-value">33.3% at factor 1.5 &middot; 46.9% at factor 2.0</span>
@@ -174,7 +174,9 @@ another state's formula, not from anything Massachusetts's own form assumes.
    alt="Line chart of the overnight share that would reproduce the Box 1 order under a standard cross-credit, at duplication factors 1.5 and 2.0, across the payor's income share, three children."
    title="At the worked example, equal parenting time is priced as a third of overnights at factor 1.5, and 47 percent at factor 2.0."
    deck="The overnight share that reproduces the Box 1 order under a standard cross-credit, at the stated factor. Never quoted without the factor beside it."
-   notes="Blank below the Line 5c floor, where the order is no longer a cross-credit and no overnight share can be backed out of it." %}
+   notes="Blank below the Line 5c floor, where the order is no longer a cross-credit and no overnight share can be backed out of it."
+   source_script="model/box1_fix.py · model/charts/fig3_credit.py"
+   csv_href="/figures/working/fig3_credit_collapse.csv" %}
 
 At the 1.5 factor, neither implied share (33.3 percent or 46.9 percent) reaches the 50 percent this
 parent actually has.

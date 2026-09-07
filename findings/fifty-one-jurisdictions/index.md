@@ -68,17 +68,14 @@ pattern tested, Massachusetts's equal-parenting order ranks first of fifty.</p>
 ## Fifty of fifty-one jurisdictions survived a four-stage check; Georgia did not, and carries no number here
 
 Each of the fifty states and the District of Columbia was profiled from its own primary guidelines
-documents, computed twice by independent passes, reconciled where the two passes disagreed, and
-then adversarially attacked for defects. Fifty of the fifty-one jurisdictions modeled survived every
-stage. Georgia is the one held out: its enacted formula, and the state's own online calculator, both
-produce a lower order under primary custody than under equal parenting time, an inversion the
-analysis could not resolve into a single trustworthy number, so Georgia is left off every ranking
-below rather than given a wrong one.
+documents, computed twice independently, reconciled where the two passes disagreed, and
+adversarially attacked for defects. Fifty of fifty-one survived every stage. Georgia is the one held
+out: its enacted formula and its own online calculator both produce a lower order at primary custody
+than at equal time, an inversion this analysis could not resolve into one trustworthy number, so
+Georgia is left off every ranking rather than given a wrong one.
 
-That leaves fifty jurisdictions ranked. A tier this size, checked this way, is still one analysis of
-one fact pattern, not a survey, and not a claim about any other income level, custody split, or
-number of children. Change any one of those inputs and every ranking below could move, in either
-direction.
+That leaves fifty jurisdictions ranked, at one fact pattern. Change the income level, the custody
+split, or the number of children, and every ranking below could move, in either direction.
 
 </section>
 
@@ -272,9 +269,9 @@ direction.
 
 ## A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23; Massachusetts is among the 23
 
-This is a count, not a dollar claim. Massachusetts's own Box 2 (one parent with the children about a
-third of the time) is its one-third case, and Massachusetts does not treat that arrangement as
-earning a discrete formula credit the way 28 other jurisdictions do.
+This is a count, not a dollar claim. Massachusetts's own Box 2, where one parent has the children
+about a third of the time, is its one-third case, and Massachusetts gives it no discrete formula
+credit the way 28 other jurisdictions do.
 
 <figure class="exhibit" id="e13">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
@@ -299,13 +296,12 @@ earning a discrete formula credit the way 28 other jurisdictions do.
 
 ## Massachusetts's presumptive formula ceiling ranks 13th of the 41 jurisdictions that state one
 
-This figure corrects an earlier comparison this project made against nine benchmark states, in which
+This corrects an earlier comparison this project made against nine benchmark states, where
 Massachusetts appeared second. Measured against the 41 jurisdictions that state a combined-income
-ceiling for their presumptive schedule, Massachusetts's $450,000 ceiling ranks 13th: 12 jurisdictions
-state a higher ceiling, 28 a lower one, and the median among the 41 is $360,000. Ten further
-jurisdictions use a percentage-of-obligor, Melson, or open formula with no stated combined-income
-ceiling. Net-income ceilings are not dollar-for-dollar comparable with gross ones, and this table
-does not adjust for that difference.
+ceiling, Massachusetts's $450,000 ranks 13th: 12 state a higher ceiling, 28 a lower one, median
+$360,000. Ten more jurisdictions use a percentage-of-obligor, Melson, or open formula with no stated
+ceiling. Net-income ceilings aren't dollar-for-dollar comparable with gross ones; this table doesn't
+adjust for that.
 
 <figure class="exhibit" id="e16">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
@@ -412,18 +408,17 @@ does not adjust for that difference.
 
 ## Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions
 
-The same fact pattern as the two rankings above, but recombined: Massachusetts computed under Box 1
-(the children half the time with each parent) is placed on the same scale as every other
-jurisdiction computed with the children primarily with the lower earner. Only Hawaii and Wisconsin
-order more at primary custody than Massachusetts does at equal time. Massachusetts's own
-primary-custody order, $4,714.22, is included for scale.
+The same fact pattern, recombined: Massachusetts under Box 1 (children half the time with each
+parent) is placed on the same scale as every other jurisdiction computed with the children primarily
+with the lower earner. Only Hawaii and Wisconsin order more at primary custody than Massachusetts
+does at equal time; Massachusetts's own primary-custody order, $4,714.22, is included for scale.
 
-The Commonwealth's own consultant, in the report the Task Force adopted, attributes Massachusetts's
-higher amounts to its cost of living, not to the design of the formula. See
-<a href="/paper/Comments-to-the-Trial-Court-with-Attachments-A-and-D.pdf">Attachment D</a>. Whatever
-that explains about the level of Massachusetts's orders generally, it does not explain why an
-arrangement giving each parent half the children's time is priced here where sole primary custody is
-priced almost everywhere else.
+The Commonwealth's own consultant attributes Massachusetts's higher amounts to cost of living, not
+formula design (see
+<a href="/paper/Comments-to-the-Trial-Court-with-Attachments-A-and-D.pdf">Attachment D</a>). Cost of
+living may explain the level of Massachusetts's orders generally, but it doesn't explain why an
+arrangement giving each parent half the time is priced here where sole primary custody is priced
+almost everywhere else.
 
 <figure class="exhibit" id="e17">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
@@ -516,11 +511,10 @@ priced almost everywhere else.
 
 ## Massachusetts still uses gross income, which the Task Force has discussed and deferred once on the record in five documented cycles
 
-Every ranking above uses each jurisdiction's own income basis as its guidelines define it (some
-gross, some net, noted in the ceiling table above), because that is how each state actually
-calculates its order. Massachusetts uses gross income throughout. Whether gross is the right basis
-is a live and unresolved question inside Massachusetts's own review process, which bears on how any
-cross-jurisdiction comparison using gross figures should be read.
+Every ranking above uses each jurisdiction's own income basis, gross or net as its guidelines define
+it (noted in the ceiling table above), because that's how each state actually calculates its order.
+Massachusetts uses gross throughout, and whether gross is the right basis is a live, unresolved
+question inside its own review process.
 
 {% include figure.html
    id="e27"

@@ -66,15 +66,14 @@ dollar between the two households, and never revisits it.</p>
 
 ## Line 6b uses the income split from before the base order moved money between the households
 
-Line 3c is each parent's share of the two parents' combined available income, computed early in the
-worksheet, before the base support amount at Line 7d exists. Line 6a is the child care one parent
-actually pays out of pocket; Line 6b multiplies the *other* parent's Line 3c share by that amount,
-so if the recipient pays the provider, the payor's Line 6b charge is his Line 3c share of her cost.
-By the time child care is added at Line 6, the base order has already been set and, once paid, will
-move a large share of the payor's income to the recipient's household every week, but Line 6b never
-re-measures the shares against that post-transfer reality. It keeps using the original,
-pre-transfer split for the life of the order, on top of an obligation that has already re-weighted
-what each household actually has.
+Line 3c is each parent's share of combined available income, computed early in the Worksheet,
+before the base support amount at Line 7d exists. Line 6a is the child care one parent actually
+pays; Line 6b multiplies the *other* parent's Line 3c share by that amount, so if the recipient
+pays the provider, the payor's Line 6b charge is his Line 3c share of her cost. By the time child
+care is added at Line 6, the base order has already moved a large share of the payor's income to the
+recipient's household every week, but Line 6b never re-measures the shares against that. It keeps
+using the pre-transfer split for the life of the order, on top of an obligation that has already
+re-weighted what each household has.
 
 </section>
 
