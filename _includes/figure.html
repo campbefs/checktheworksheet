@@ -1,4 +1,4 @@
-<!--
+{% comment %}
   One exhibit figure. Pattern and rationale: `web-figures` skill (`figure.html`/`figure.css`
   there is the generic version; this is it wired to this site's paths and CSS classes, §10 of
   site.css). Caption wording (title/deck/notes) should be copied verbatim from each exhibit's own
@@ -33,7 +33,7 @@
   the 2026-09-06 exhibit direction retired every multi-panel exhibit (E03/E07/E14/E15); if a new
   one is ever proposed, split it into single-chart exhibits before adding it here, don't add a
   <picture> workaround for it.
--->
+{% endcomment %}
 <figure class="exhibit" id="{{ include.id }}">
   <img src="{{ include.img | relative_url }}"
        {% unless include.lazy == "false" %}loading="lazy"{% endunless %}

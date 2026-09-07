@@ -1,4 +1,4 @@
-<!--
+{% comment %}
   Top bar (design brief §3.3): wordmark, one flat nav tier, no dropdown, no sidebar here. Exactly
   four items, per the brief — a fuller list (Exhibits, About, Sitemap) lives only in the footer
   and on the Sitemap page; see CONVENTIONS.md "Navigation" for why the two navs differ on purpose.
@@ -15,7 +15,7 @@
   tabbing into it even with the panel visually collapsed on a phone, because a `display: none`
   panel is never used — only `visibility`/`max-height`, so no content is ever removed from the
   keyboard or screen-reader tab order. See CONVENTIONS.md "Header / top bar" for the CSS contract.
--->
+{% endcomment %}
 <div class="topbar-inner">
   <a class="wordmark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 

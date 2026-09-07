@@ -1,4 +1,4 @@
-<!--
+{% comment %}
   The disclosure (design brief, and web-page-anatomy's Disclosure slot): visible prose, never a
   footnote, never behind a link. Sits right after the hero, before the first finding, figure, or
   interactive exhibit — on the home page AND on every finding page (design brief §3.6 step 1 puts
@@ -32,7 +32,7 @@
   This include does not escape the strings in `page.disclosure` — they may contain inline HTML
   (links, <code>), same as this repo's existing `description: >-` front-matter convention. Content
   authors are trusted; there is no user input here.
--->
+{% endcomment %}
 <div class="disclosure">
   <div class="box">
     {% for paragraph in page.disclosure %}

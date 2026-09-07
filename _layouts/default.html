@@ -1,4 +1,4 @@
-<!--
+{% comment %}
   Base HTML skeleton for every page on the site. Never set `layout: default` directly on a
   content page — use `home`, `finding`, or `page` (see CONVENTIONS.md "Layouts"), all three of
   which chain to this file via their own front matter.
@@ -9,7 +9,7 @@
   rail, figures, interactive exhibits — is
   authored inside a content page's own body using the shared includes and CSS classes in
   CONVENTIONS.md, never added here. A layout that grows page-specific markup stops being reusable.
--->
+{% endcomment %}
 <!doctype html>
 <html lang="{{ site.lang | default: 'en' }}">
 <head>

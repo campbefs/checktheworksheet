@@ -1,4 +1,4 @@
-<!--
+{% comment %}
   The left chapter rail (design brief §3.3–§3.4). Used on the four finding pages and, optionally,
   on any other page long enough to want one (the Findings index, the fifty-jurisdictions page,
   About & method) — never on the home page, which has no persistent sidebar (§3.3).
@@ -28,7 +28,7 @@
   Every link is a real `href="#id"` — with JavaScript off this renders as a working static list
   (design brief §3.4's "renders as a static list of working anchor links"); `chapter-rail.js` only
   adds the scroll-tracked `aria-current="location"` on top.
--->
+{% endcomment %}
 <nav class="chapter-rail" aria-label="{{ page.rail_aria_label | default: 'Sections of this page' }}">
   <p class="rail-label">{{ page.rail_label | default: 'On this page' }}</p>
   <ol>

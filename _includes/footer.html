@@ -1,11 +1,11 @@
-<!--
+{% comment %}
   Footer nav is the fuller, flat list (web-page-anatomy's Footer slot) — the top bar in
   header.html only shows the brief's four items; this repeats those four in the same order and
   adds the pages that don't belong in a four-item top bar (Exhibits, About, Sitemap). `/sitemap/`
   is the required second, independent way to navigate (WCAG 2.4.5) — a footer that only repeats
   the header nav is NOT that second way on its own; the actual sitemap page lives at
   `sitemap/index.md` (unchanged from the prior design; see CONVENTIONS.md). No JavaScript.
--->
+{% endcomment %}
 <div class="footer-inner">
   <nav class="site-nav" aria-label="Footer">
     <a href="{{ '/findings/' | relative_url }}">Findings</a>

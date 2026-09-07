@@ -2,7 +2,7 @@
 layout: default
 body_class: home
 ---
-<!--
+{% comment %}
   Home page only (index.html). Design brief §3.3: "no persistent sidebar. Top bar only" — so this
   layout adds nothing structural over `default`, only a `.home` wrapper for CSS scoping (e.g. a
   home-only override of `.hero` spacing) that a page-level `body_class` alone can't cleanly give
@@ -10,7 +10,7 @@ body_class: home
   table and check-it-yourself footer directly in its body, using the shared includes and classes
   documented in CONVENTIONS.md — this layout does not template any of that, because each of those
   sections has real prose and markup that varies with the content, not with the page type.
--->
+{% endcomment %}
 <div class="home">
 {{ content }}
 </div>

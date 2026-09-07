@@ -18,4 +18,6 @@ source "https://rubygems.org"
 gem "jekyll", "3.10.0"
 gem "jekyll-seo-tag"
 gem "jekyll-sitemap"
+gem "kramdown-parser-gfm"  # jekyll defaults kramdown's `input:` to GFM; not pulled in by kramdown itself
 gem "webrick"   # jekyll 3.x + Ruby >= 3.0 needs this explicitly; harmless on 2.6, kept for parity
+gem "ffi", "< 1.17"  # jekyll-watch's transitive dep; 1.17.x dropped Ruby < 3.0, same ceiling as nokogiri above
