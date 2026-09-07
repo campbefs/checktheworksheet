@@ -18,6 +18,7 @@ assets/js/
   csv-slider.js             -- generic "slider(s) -> grid lookup -> readouts" engine
                                 (child-care valve slider, credit-collapse slider)
   sortable-table.js         -- generic sortable/filterable <table> engine (fifty-jurisdiction table)
+  jurisdiction-finder.js    -- the same table's jurisdiction finder <select> (highlight + scroll + readout)
   lightbox.js                -- exhibits-gallery lightbox
   calculator.js              -- the home-page two-income calculator (COMPUTES, does not look up)
   calculator.test.js         -- node assets/js/calculator.test.js -- fidelity tests, run this
@@ -327,6 +328,37 @@ must say so; the table itself carries no confidence styling.
 Static-exhibit pairing (the lead exhibit pair per the 2026-09-06 exhibit direction):
 `figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png` then
 `figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png`.
+
+### 4a. The jurisdiction finder (2026-09-07) — a separate control, next to the filter
+
+`jurisdiction-finder.js` (generic-ish but built for this one table — full markup contract in its
+own header comment). **This is a finder, not a filter: it never hides a row.** A real
+`<select>`/`<label>` with 51 alphabetical options (the table's 50 rows plus Georgia, marked
+`data-held-out="true"` since Georgia has no row), Massachusetts preselected. Choosing an option:
+
+- adds `.is-selected-state` to that jurisdiction's `<tr>` (distinct from `.is-reader-state`,
+  Massachusetts's own permanent tint — a blue outline, `--hue-recipient`, so "my state" and "the
+  state I just looked up" stay visually separate even when both land on the same row) and scrolls
+  it into view;
+- writes a one-line comparison into `#jurisdiction-readout` above the table: the jurisdiction's own
+  S1/S2 and its rank on each (computed client-side by sorting the table's own `data-sort-value`
+  attributes — no separate rank data file), next to Massachusetts's;
+- for Georgia, clears any highlight and swaps the readout for the held-out sentence instead of a
+  number.
+
+**Rank follows the table's own numbers, not a precomputed field** — this is a deliberate choice to
+keep one source of truth (the rendered table) rather than a parallel dataset that could drift from
+it. **Works with the existing sort**: the highlight is a class on the `<tr>` itself, and
+`sortable-table.js` only reorders existing `<tr>` elements when a column header is clicked, so the
+highlighted row's class survives any re-sort (checked: select Texas, sort by S2, the highlight
+follows Texas to its new position).
+
+Front matter: `scripts: ["/assets/js/jurisdiction-finder.js"]`, alongside (not instead of)
+`sortable-table.js` — independent listeners on the same `#fifty-table`. **No-JS fallback**: the
+`<option value="massachusetts" selected>` and the readout's starting text (Massachusetts's own two
+numbers and ranks, written out as plain static text) are both already correct without JavaScript;
+selecting a different option does nothing without JS, same as the pre-existing filter input next
+to it — the table itself is already complete and correct either way.
 
 ---
 

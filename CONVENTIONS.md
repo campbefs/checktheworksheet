@@ -386,6 +386,15 @@ table must render **complete and correctly pre-sorted with no JS at all** — th
 reorders DOM rows already present, it does not fetch or invent data for this exhibit (unlike the
 sliders below, whose whole point is a live lookup).
 
+**Jurisdiction finder (2026-09-07), a separate control next to the filter:** full markup contract
+in `assets/js/jurisdiction-finder.js`'s header comment. Classes: `.table-tools` (wraps the finder
+and the filter in one row, stacking <700px), `.table-finder` (the `<select>`'s own wrapper, styled
+like `.table-filter`), `.jurisdiction-readout` (the one-line comparison above the table), and
+`.is-selected-state` on the found `<tr>` — a blue outline (`--hue-recipient`) kept visually
+distinct from `.is-reader-state`'s permanent claret tint, since Massachusetts (the finder's default)
+can carry both classes at once. **This is a finder, not a filter — it never hides a row**; adds
+`scripts: ["/assets/js/jurisdiction-finder.js"]` alongside `sortable-table.js`.
+
 ### The live tools (calculator, valve slider, credit-collapse slider)
 
 Full markup contract: comment block at the top of `assets/js/csv-slider.js`. Classes: `.tool` /
