@@ -106,6 +106,7 @@
   :root {
     --text-body: var(--text-body-sm);
     --space-8: var(--space-6); /* figure band collapses from 64px to 32px */
+    --text-h1: var(--text-h2); /* long hero/finding headlines don't dominate a phone screen */
   }
 }
 
@@ -217,7 +218,7 @@ main {
   flex-wrap: wrap;
   gap: var(--space-2) var(--space-5);
   font-family: var(--font-sans);
-  font-size: 0.9375rem;
+  font-size: var(--text-caption); /* on-scale: matches .breadcrumb/.footer-meta, the site's other UI-chrome text */
 }
 
 .site-nav a {
@@ -284,7 +285,7 @@ main {
 }
 
 .lede {
-  font-size: 1.25rem;
+  font-size: var(--text-body); /* on-scale: the type scale has no step between body and h3 */
   line-height: var(--leading-body);
   color: var(--text-secondary);
   max-width: var(--measure-max);
@@ -297,7 +298,7 @@ main {
   background: var(--surface-alt);
   padding: var(--space-4) var(--space-5);
   margin: var(--space-6) 0;
-  font-size: 1rem;
+  font-size: var(--text-body); /* on-scale */
   color: var(--text-secondary);
 }
 
@@ -439,7 +440,7 @@ h1, h2, h3, h4 {
 h1 { font-size: var(--text-h1); margin: 0 0 var(--space-5); }
 h2 { font-size: var(--text-h2); margin: var(--space-8) 0 var(--space-4); }
 h3 { font-size: var(--text-h3); margin: var(--space-6) 0 var(--space-3); }
-h4 { font-size: 1.125rem; margin: var(--space-5) 0 var(--space-2); }
+h4 { font-size: var(--text-body); margin: var(--space-5) 0 var(--space-2); } /* on-scale: equals body, no separate step exists */
 
 p, ul, ol, dl {
   margin: 0 0 var(--space-paragraph);
