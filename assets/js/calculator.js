@@ -316,7 +316,7 @@
       if (cells.cc_delta_wk) cells.cc_delta_wk.textContent = signedMoneyWk(ccResult.order_wk - baseResult.order_wk);
       if (cells.cc_share_pct) cells.cc_share_pct.textContent = facts.ccLower > 0 ? pct1(ccResult.higher_share_of_lower_pct) : '—';
       if (cells.cc_share_wk) {
-        cells.cc_share_wk.textContent = facts.ccLower > 0 ? money(ccResult.higher_share_of_lower_wk * 52) + ' a year' : '—';
+        cells.cc_share_wk.textContent = facts.ccLower > 0 ? money(ccResult.higher_share_of_lower_wk * 52) : '—';
       }
       if (cells.cc_combined_line) {
         if (facts.ccLower > 0 && facts.ccHigher > 0) {
