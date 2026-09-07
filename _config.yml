@@ -33,6 +33,9 @@ plugins:
 # that have gone out.
 exclude:
   - README.md                     # GitHub repo-browser landing page; index.html is the real homepage
+  - index.md                      # stale pre-redesign draft homepage, byte-identical to README.md;
+                                   # index.html is the real homepage and would collide with this at
+                                   # build time besides, so it must never be served on its own
   - CLAUDE.md                     # agent instructions; already gitignored, listed for local-build parity
   - CONVENTIONS.md                # internal doc for the agents/maintainers building this site
   - context/                      # session memory; already gitignored, listed for local-build parity

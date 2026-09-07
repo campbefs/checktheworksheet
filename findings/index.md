@@ -5,9 +5,21 @@ description: >-
   Four places where the Massachusetts Child Support Guidelines Worksheet's own arithmetic works
   against its own text, each pinned by a test suite against the form's own calculation scripts,
   plus one fifty-one-jurisdiction comparison at a single fact pattern.
+disclosure:
+  - >-
+    The stat on each card below (57%, 88 cents, 6.9%, 47 of 49) comes from the worked example
+    used throughout this site: my own child support order, three children, my income and my
+    children's mother's income entered as the Worksheet requires. Each finding page states why,
+    and shows the same gap holding across a range of incomes, not only at my own figures.
+  - >-
+    Every number traces to <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>,
+    checked by <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a>
+    against the form's own calculation scripts. More on <a href="/about/">About</a>.
 ---
 
 # Four internal inconsistencies in the worksheet's own arithmetic, and one cross-jurisdiction comparison
+
+{% include disclosure.html %}
 
 Each finding below reproduces one part of the Massachusetts Child Support Guidelines Worksheet
 (form CJ-D 304, 2025 edition) in code, checks it against the form's own embedded calculation

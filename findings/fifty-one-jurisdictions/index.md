@@ -41,7 +41,7 @@ sections:
 {% include disclosure.html %}
 
 <section class="hero" markdown="1">
-<p class="eyebrow">Finding 4 of 4 — the weakest finding on this site</p>
+<p class="eyebrow">Finding 4 of 4: the weakest finding on this site</p>
 
 # One fact pattern ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
 
@@ -496,8 +496,8 @@ priced almost everywhere else.
 
 ## Massachusetts still uses gross income, which the Task Force has discussed and deferred once on the record in five documented cycles
 
-Every ranking above uses each jurisdiction's own income basis as its guidelines define it — some
-gross, some net, noted in the ceiling table above — because that is how each state actually
+Every ranking above uses each jurisdiction's own income basis as its guidelines define it (some
+gross, some net, noted in the ceiling table above), because that is how each state actually
 calculates its order. Massachusetts uses gross income throughout. Whether gross is the right basis
 is a live and unresolved question inside Massachusetts's own review process, which bears on how any
 cross-jurisdiction comparison using gross figures should be read.
@@ -516,10 +516,10 @@ The 2025 Brattle Economic Review, the only cycle in the corpus with a verbatim d
 plainly: <q>Again in this review, as prior task forces have done, the Task Force discussed the use of
 gross versus net income in the guidelines. Ultimately, it decided not to recommend a change from
 gross income to net income at this time. We expect this issue will once again be considered as part
-of the next guidelines review.</q> The 2025 report's own claim that "prior task forces" did the same
-is not independently verifiable from anything in this corpus — the 2017, 2018, 2021 and 2023 primary
-texts contain no discussion of this specific question that this project could find, so those cycles
-are marked "no record," not "deferred."
+of the next guidelines review.</q> The 2025 report says prior task forces discussed this too, but
+that claim isn't independently verifiable from anything in this corpus. The 2017, 2018, 2021 and
+2023 primary texts contain no discussion of this specific question that this project could find.
+Those four cycles are marked "no record," not "deferred."
 
 </section>
 
