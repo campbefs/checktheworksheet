@@ -4,8 +4,9 @@
   which chain to this file via their own front matter.
 
   What lives here and nowhere else: <head>, the skip link, the reading-progress bar, the top-bar
-  header, <main>, the footer, and the two script hooks (`chapter-rail.js`, always; `page.scripts`,
-  per page). Everything else — hero, disclosure, chapter rail, figures, interactive exhibits — is
+  header, <main>, the footer, and the two script hooks (`site.js`, always; `page.scripts`, per
+  page, for the heavier opt-in interactive exhibits). Everything else — hero, disclosure, chapter
+  rail, figures, interactive exhibits — is
   authored inside a content page's own body using the shared includes and CSS classes in
   CONVENTIONS.md, never added here. A layout that grows page-specific markup stops being reusable.
 -->
@@ -37,7 +38,7 @@
     {% include footer.html %}
   </footer>
 
-  <script src="{{ '/assets/js/chapter-rail.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
   {% for src in page.scripts %}
   <script src="{{ src | relative_url }}" defer></script>
   {% endfor %}
