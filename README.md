@@ -1,9 +1,9 @@
 # The Massachusetts child support worksheet, line by line
 
-> **Status, September 2026.** The comments described here are prepared for submission to the Chief Justice of
-> the Massachusetts Trial Court, and a petition for rulemaking is prepared for the U.S. Department of Health
-> and Human Services. Neither has been sent as of this writing; this page will record the dates once they are.
-> The model, the data and the figures are final and can be checked today.
+> **Status, September 2026.** The comments described here are being submitted to the Chief Justice of the
+> Massachusetts Trial Court, and a petition for rulemaking is going to the U.S. Department of Health and Human
+> Services. This page will record the dates once they are sent. The model, the data and the figures are final
+> and can be checked today.
 
 This repository holds a reproduction in code of the Massachusetts Child Support Guidelines Worksheet
 (form CJ-D 304, 2025 edition), the tests that pin it to the form's own calculation scripts, a federal
@@ -26,6 +26,10 @@ drawn from them. Everything a reader needs to check a number is here.
 4. **At equal parenting time, Massachusetts orders more than 47 of 49 other jurisdictions do at
    primary custody**, one fact pattern.
    [E17](figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png)
+5. **The gross-versus-net income question has a verbatim deferral in only one of the five documented
+   guidelines cycles (2017-2025).** The Commonwealth's own 2025 review says prior task forces
+   discussed it too, but their primary text is not in the public record checked here.
+   [E27](figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png)
 
 The worked example throughout is the author's own order, and the comments disclose that plainly. The claims are about the internal consistency of a computation, not about whether
 any support amount is right.
@@ -51,7 +55,7 @@ executes it and diffs it against the model on six scenarios (`model/runs/officia
 | `model/` | `worksheet.py` (CJ-D 304), `guidelines.py` (Tables A and B), `net_position.py` (TY2026 federal + MA tax), `box1_fix.py`, `childcare_post_transfer.py`, `marginal_retention.py`, tests, the XFA harness |
 | `model/runs/` | Printed output of each script on the date named |
 | `data/fifty-state/` | The fifty-one-jurisdiction rows (`tier-50`), the credit-at-122-overnights tally, the schedule ceilings |
-| `figures/exhibits/` | One chart per file, E01 to E17, each with its CSV beside the working figure in `figures/working/` |
+| `figures/exhibits/` | One chart per file, E01 to E27 (no gaps in the numbering are meaningful; a few numbers were retired as multi-panel and split), each with its CSV beside the working figure in `figures/working/` |
 | `paper/` | The figures appendix (Attachment E), and the comments to the Trial Court as prepared for submission |
 
 ## Method for the fifty-one jurisdictions

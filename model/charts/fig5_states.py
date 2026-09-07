@@ -27,7 +27,7 @@ TILES = {"AK": (0, 0), "ME": (0, 10), "VT": (1, 9), "NH": (1, 10),
 assert len(TILES) == 51 and set(TILES) == set(ABBR.values())
 
 
-def strip(rows, key, title, name, custody):
+def strip(rows, key, title, name, custody, xmax=None, subtitle="Monthly order at one fact pattern. Georgia held out."):
     rows = sorted(rows, key=lambda r: r[key])
     fig, ax = theme.figure(9, 10)
     fig.subplots_adjust(bottom=0.05, top=0.90)
@@ -37,9 +37,11 @@ def strip(rows, key, title, name, custody):
     ax.set_yticks(list(y)); ax.set_yticklabels([r["state"] for r in rows], fontsize=8.5)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:,.0f}"))
     ax.set_ylim(-0.6, len(rows) - 0.4)
+    if xmax:
+        ax.set_xlim(0, xmax)
     ax.grid(axis="y", visible=False)
     theme.finish(ax, title=title,
-                 subtitle="Monthly order at one fact pattern. Georgia held out.",
+                 subtitle=subtitle,
                  comma=False,
                  pairs=facts(custody, 3, "None (base support)", "\\$201,000 / \\$29,640"),
                  notes="Each row profiled from primary sources, computed twice blind, reconciled, attacked. Own premiums "
@@ -50,8 +52,13 @@ def strip(rows, key, title, name, custody):
 
 def main():
     tier = json.load(open(os.path.join(D, "tier-50-2026-09-05.json")))
+    ma = next(r for r in tier if r["state"] == "Massachusetts")
+    # Shared with fig10_ma_shared_vs_primary.py (E17): same formula, so the lead pair E12/E17
+    # renders at an identical x-axis range. Do not change one without the other.
+    pair_xmax = max(max(r["s2"] for r in tier), ma["s1"]) * 1.08
     strip(tier, "s1", "Equal parenting time: Massachusetts orders the most of fifty jurisdictions", "fig5a_states_S1.png", 1)
-    strip(tier, "s2", "Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts", "fig5b_states_S2.png", 2)
+    strip(tier, "s2", "Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts", "fig5b_states_S2.png", 2, xmax=pair_xmax,
+          subtitle="First of a pair with E17: same states, same axis, same colours. Monthly order at one fact pattern. Georgia held out.")
     write_csv("fig5_states.csv", ["state", "s1", "s2"], [(r["state"], r["s1"], r["s2"]) for r in tier])
 
     cr = json.load(open(os.path.join(D, "credit-at-122-2026-09-05.json")))
