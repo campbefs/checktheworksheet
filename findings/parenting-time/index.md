@@ -1,10 +1,11 @@
 ---
 layout: finding
-title: Equal parenting time buys a 6.9 percent discount, and here is why
+title: Going from a third of the time to half lowers the order by 6.9 percent
 permalink: /findings/parenting-time/
 description: >-
-  Equal parenting time earns a 6.9 percent discount off the Worksheet's primary-custody order,
-  because the credit is just the gap between the two parents' income shares. No line measures time.
+  The Worksheet's primary-custody box already assumes the paying parent has the children a third of
+  the time. Equal time lowers the order 6.9 percent, because the credit is only the gap between the
+  two incomes. No line measures time.
 disclosure:
   - >-
     The worked example below is my own child support order: three children, equal parenting time,
@@ -19,12 +20,12 @@ disclosure:
     <a href="/model/runs/official-xfa-vs-model-2026-09-05.txt">model/runs/official-xfa-vs-model-2026-09-05.txt</a>.
 rail_label: "On this page"
 sections:
-  - id: mechanism
-    label: "The mechanism"
   - id: third
     label: "Why the form starts at \"a third\""
   - id: small
-    label: "Why the credit is so small"
+    label: "Why the discount is so small"
+  - id: mechanism
+    label: "Line by line"
   - id: cross-credit
     label: "What a cross-credit formula would say"
   - id: caveats
@@ -38,12 +39,12 @@ sections:
 <section class="hero" markdown="1">
 <p class="eyebrow">Finding 3 of 4</p>
 
-# A 6.9 percent discount is what equal parenting time buys at the worked example, against the Worksheet's primary-custody order
+# Going from a third of the time to half lowers the order by 6.9 percent
 
-<p class="lede">The primary-custody order is $1,087.90 a week. The equal-time order is $1,012.73.
-This $75.17 gap is the whole discount for splitting time equally instead of the other way: 6.9
-percent. The next two sections explain where the "a third" language comes from and why the discount
-is this small.</p>
+<p class="lede">With the children about a third of the time, the paying parent's order at the worked
+example is $1,087.90 a week. With them half the time, it is $1,012.73. The difference is $75.17 a
+week, or 6.9 percent. The form has no line for parenting time, so the discount comes from the income
+gap alone.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
@@ -59,46 +60,25 @@ is this small.</p>
 {% include chapter-rail.html %}
 <div class="content-col" markdown="1">
 
-<section id="mechanism" markdown="1">
-
-## Both custody boxes start from the same total, split by income, then Box 1 subtracts one credit
-
-Massachusetts's Worksheet form (CJ-D 304) has two custody boxes, primary (Box 2) and equal time
-(Box 1). Both start from the same total support amount at Line 4c: $1,240.73 a week at the worked example (three children, a payor at
-$201,000 a year, the other parent at $570 a week). Line 5b splits that by income share, giving the
-payor 87.68 percent, $1,087.90, the order Box 2 produces. Box 1 then subtracts one credit at Line 6g,
-which turns out to equal the payor's own Line 6e, capped low because his income share sits below 10
-percent: $75.17, leaving $1,012.73, a 6.9 percent reduction. Nothing between Line 4c and Line 6g
-asks how many overnights either parent has.
-
-<p class="stat-callout">
-  <span class="stat-value">$75 of $1,088</span>
-  <span class="stat-label">the equal-parenting discount at the worked example against the order Box 2 would produce for the same family: 6.9 percent, and no line in the calculation measures time</span>
-</p>
-
-</section>
-
 <section id="third" markdown="1">
 
-## Box 2, the primary-custody box, already assumes the paying parent has the children about a third of the nights
+## The form's primary-custody box already assumes the paying parent has the children a third of the time
 
-Box 2 is not a zero-time box for the parent paying support. Its own calculation assumes that parent
-already has the children about one night in three; that is the arrangement Box 2 is built around.
-Checking Box 1 instead, the equal-time box, is what produces the 6.9 percent discount above. It is
-not a separate credit for having the children a third of the time, and there is no such credit
-anywhere on this form. The one-third figure describes the paying parent's own time under Box 2, not
-the other parent's time.
+The Guidelines build Box 2, the primary-custody calculation, around a paying parent who has the
+children about one night in three. Box 1 is the equal-time box. Moving from Box 2 to Box 1 is the
+only change between the two orders above. So "a third" is where the form starts, and the finding is
+how little moving from a third to a half changes the order.
 
 </section>
 
 <section id="small" markdown="1">
 
-## The discount is small because no line on the form measures parenting time
+## The discount is small because no line on the form measures time
 
-Line 6g is the difference between the two parents' Line 6e amounts, and Line 6e reduces to each
-parent's income share once Box 1 assigns zero children to the payor's column. So the discount tracks
-how far apart the two incomes are, not how the children's time is split, and it shrinks as the income
-gap widens.
+The equal-time credit is the gap between the two parents' income shares and nothing else. At the
+worked example the payor earns 87.7 percent of the combined income, and the discount is 6.9 percent.
+At a 56.3 percent share it would be 77.6 percent. The wider the income gap, the less equal time is
+worth.
 
 {% include figure.html
    id="e08"
@@ -111,9 +91,10 @@ gap widens.
    csv_href="/figures/working/fig3_credit_collapse.csv"
    lazy="false" %}
 
-Variant A's order is $935.06; Variant B's is $701.30, a 30.8 percent drop from today's $1,012.73.
-Neither redline adds a term for how much time either parent actually has. Both just change how the
-income gap is priced, not what is being priced.
+The chart also shows the two redlines in the comments. Variant A applies the Line 6e limit once
+and gives $935.06. Variant B rebuilds the credit as the cross-credit 23 states use and gives $701.30,
+a 30.8 percent drop from today's $1,012.73. Neither redline adds a term for how much time either
+parent actually has.
 
 <details markdown="1">
 <summary>Method: the credit at eight other incomes for the other parent</summary>
@@ -145,6 +126,25 @@ a fixed floor amount rather than a percentage of income, so the order stops beha
 cross-credit. (Source: `model/runs/box1-fix-run-2026-09-05.txt`, printed by `model/box1_fix.py`.)
 
 </details>
+
+</section>
+
+<section id="mechanism" markdown="1">
+
+## How the form gets there, line by line
+
+Both boxes on the form (CJ-D 304) start from the same total at Line 4c: $1,240.73 a week at the worked example (three
+children, a payor at $201,000 a year, the other parent at $570 a week). Line 5b splits that by
+income share, giving the payor 87.68 percent, or $1,087.90. That is the Box 2 order. Box 1 then
+subtracts one credit at Line 6g. That credit equals the payor's own Line 6e, and Line 6e is capped
+low because his column's Line 6d sits below 10 percent. The credit comes to
+$75.17, leaving $1,012.73. Nothing between Line 4c and Line 6g asks how many overnights either
+parent has.
+
+<p class="stat-callout">
+  <span class="stat-value">$75 of $1,088</span>
+  <span class="stat-label">the equal-parenting discount at the worked example against the order Box 2 would produce for the same family: 6.9 percent, and no line in the calculation measures time</span>
+</p>
 
 </section>
 
