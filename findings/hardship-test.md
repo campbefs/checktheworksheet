@@ -4,8 +4,8 @@ title: The hardship test reads the wrong income
 permalink: /findings/hardship-test/
 description: >-
   Worksheet Line 7e tests for hardship by dividing the support order by a gross-derived income
-  figure, but the order is paid from net income. At the author's own order, the line reports 40
-  percent at the exact point his true burden has already reached 57 percent of net.
+  figure, but the order is paid from net income. At the author's own order, the hardship
+  presumption does not kick in until the payor is at 57 percent of net income.
 disclosure:
   - >-
     The worked example throughout (the payor, the $201,000 income, the child care figures) is my
@@ -39,18 +39,19 @@ sections:
 <section class="hero" markdown="1">
 <p class="eyebrow">Finding 1 of 4</p>
 
-# Line 7e reports 40 percent of income at the point the payor has already reached 57 percent of net
+# The hardship presumption does not kick in until the payor is at 57 percent of net income
 
 <p class="lede">Section IV.C presumes hardship once a support order reaches 40 percent of the
 payor's available income. The Worksheet's own test for that threshold divides the order by a
-figure computed before tax, while the order is paid out of what's left after tax, so the two 40
-percents are not the same 40 percent.</p>
+figure computed before tax, while the order is paid out of what's left after tax. At the worked
+example, the presumption doesn't actually kick in until the payor is at 57 percent of his net
+income.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
   <div class="numeral">
     <span class="numeral-value">17</span>
-    <p class="numeral-caption">Point gap, at the worked example, between what Line 7e reports and the payor's true share of net income at the moment Line 7e first reads 40 percent</p>
+    <p class="numeral-caption">Point gap, at the worked example, between what Line 7e reports and the payor's true share of net income at the moment the hardship presumption finally kicks in</p>
   </div>
 </div>
 
@@ -120,9 +121,9 @@ payor's true share of net income at each point.
 | $1,290/wk (ceiling) | $2,144/wk | $111,479/yr | 56.1% | 79.7% |
 
 Line 7e does not reach 40 percent until $589 a week of claimed child care, 46 percent of the $1,290
-statutory ceiling for three children. By the time it fires, the payor's true burden is already 56.9
-percent of his net income, a lag of 17 points between what the form reports and what is actually
-true. At $100 a week the gap is about 12 points, not 17; the lag narrows as claimed child care
+statutory ceiling for three children. The hardship presumption does not kick in until then, and by that point the payor's true burden is
+56.9 percent of his net income, a lag of 17 points between what the form reports and what is
+actually true. At $100 a week the gap is about 12 points, not 17; the lag narrows as claimed child care
 falls. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
 `model/submission_figures.py`.)
 

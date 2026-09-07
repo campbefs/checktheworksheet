@@ -18,24 +18,29 @@ scripts:
 ---
 
 <section class="hero">
-  <p class="eyebrow">Massachusetts Child Support Guidelines Worksheet, verified in code</p>
-  <h1>Massachusetts's hardship test reads 40 percent when a payor has already reached <span class="figure">57 percent</span> of net income.</h1>
-  <p class="lede">This site reproduces the Worksheet (form CJ-D 304, 2025 edition) in code, checks
-  it against the form's own calculation scripts, and finds three places where the arithmetic works
-  against the form's own text, plus a fifty-jurisdiction comparison at one fact pattern.</p>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">Massachusetts Child Support Guidelines Worksheet, verified in code</p>
+      <h1>At equal parenting time, Massachusetts orders more than <span class="figure">47</span> of the other 49 ranked jurisdictions do at primary custody.</h1>
+      <p class="lede">One fact pattern (three children, $201,000 and $29,640 a year, no child care),
+      profiled from each jurisdiction's own guidelines, computed twice, and checked by an
+      adversarial review. Georgia is held out: its enacted formula orders less at equal time than
+      at primary custody.</p>
+      <p class="confidence-tag">Tiered: one fact pattern, not a distribution</p>
+    </div>
+    <div class="hero-visual">
+      {% include figure.html
+         id="e17-hero"
+         img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
+         alt="Ranked bar chart of fifty jurisdictions' child support orders, with Massachusetts computed at equal parenting time and marked at the top, its own primary-custody order shown for scale."
+         title="Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions."
+         notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time; Massachusetts's own primary-custody order, $4,714, is marked for scale."
+         source_script="model/charts/fig10_ma_shared_vs_primary.py"
+         csv_href="/figures/working/fig10_ma_shared_vs_primary.csv"
+         lazy="false" %}
+    </div>
+  </div>
 </section>
-
-<div class="numeral-pair">
-  <div class="numeral">
-    <span class="numeral-value">40</span>
-    <p class="numeral-caption">Line 7e's reading, percent of income</p>
-  </div>
-  <span class="numeral-arrow" aria-hidden="true">&rarr;</span>
-  <div class="numeral">
-    <span class="numeral-value">57</span>
-    <p class="numeral-caption">True share of net income, percent</p>
-  </div>
-</div>
 
 {% include disclosure.html %}
 
@@ -45,9 +50,10 @@ scripts:
     <section class="exhibit-section" id="lead-comparison">
       <p class="eyebrow">The comparison behind this site</p>
       <h2>At equal parenting time, Massachusetts orders more than 47 of the other 49 ranked jurisdictions' primary-custody orders.</h2>
-      <p>One fact pattern (three children, $201,000 and $29,640 a year), profiled, computed twice,
-      and checked by an adversarial review. Georgia is held out: its formula orders less at equal
-      time than at primary custody. Full method below.</p>
+      <p>Every jurisdiction at primary custody first, then Massachusetts recomputed at equal
+      parenting time. One fact pattern (three children, $201,000 and $29,640 a year), profiled,
+      computed twice, and checked by an adversarial review. Georgia is held out: its formula orders
+      less at equal time than at primary custody. Full method below.</p>
       <div class="exhibit-pair">
         {% include figure.html
            id="e12"
@@ -127,7 +133,20 @@ scripts:
   <div></div>
   <div class="content-col">
     <h2 id="findings">What the Worksheet does that its text doesn't say</h2>
-    <p>Four findings, each pinned to the form's own calculation scripts.</p>
+    <p>Four findings, each pinned to the form's own calculation scripts. The hardship presumption
+    does not kick in until the payor is at 57 percent of net income.</p>
+  </div>
+</div>
+
+<div class="numeral-pair" id="hardship-numerals">
+  <div class="numeral">
+    <span class="numeral-value">40</span>
+    <p class="numeral-caption">What Line 7e reports, in percent of income</p>
+  </div>
+  <span class="numeral-arrow" aria-hidden="true">&rarr;</span>
+  <div class="numeral">
+    <span class="numeral-value">57</span>
+    <p class="numeral-caption">The payor's true share of net income when it finally does</p>
   </div>
 </div>
 
@@ -144,7 +163,7 @@ scripts:
       <p>Line 7e computes hardship on gross-derived income; the order is paid from net.</p>
       <div class="stat">
         <span class="stat-value">57%</span>
-        <span class="stat-label">of net income, the moment Line 7e itself still reads 40%</span>
+        <span class="stat-label">of net income, the point where the hardship presumption finally kicks in</span>
       </div>
     </div>
   </article>

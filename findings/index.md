@@ -41,7 +41,7 @@ guidelines, and is tiered accordingly: it generalizes to nothing beyond that one
     computes that share on gross-derived income while the order itself is paid from net.</p>
     <div class="stat">
       <span class="stat-value">57%</span>
-      <span class="stat-label">of the payor's net income, at the worked example, the moment Line 7e itself still reads 40%</span>
+      <span class="stat-label">of the payor's net income, at the worked example, the point where the hardship presumption finally kicks in</span>
     </div>
   </div>
 </article>

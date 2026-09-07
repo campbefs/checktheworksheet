@@ -277,7 +277,7 @@ bookkeeping and an Escape-to-close on top).
 ```html
 <section class="hero">
   <p class="eyebrow">Massachusetts Child Support Guidelines Worksheet, verified in code</p>
-  <h1>Massachusetts's hardship test reads 40 percent when a payor has already reached
+  <h1>Massachusetts's hardship presumption does not kick in until the payor is at
     <span class="figure">57 percent</span> of net income.</h1>
   <p class="lede">One or two sentences restating that number with its reference class...</p>
 </section>
@@ -322,7 +322,7 @@ built by the include in §5) / `.content-col` (max `var(--content-width)`, prose
       <p>One mechanism sentence.</p>
       <div class="stat">
         <span class="stat-value">57%</span>
-        <span class="stat-label">of the payor's net income, at the worked example, the moment Line 7e itself still reads 40%</span>
+        <span class="stat-label">of the payor's net income, at the worked example, the point where the hardship presumption finally kicks in</span>
       </div>
     </div>
   </article>

@@ -218,6 +218,21 @@ header.topbar { border-bottom: 1px solid var(--rule); }
   .hero .lede { font-size: 1.1875rem; }
 }
 
+/* Hero two-column layout (home page only): headline/lede left, lead exhibit right, from 1100px.
+   Below 1100px the visual stacks under the headline — a single grid-template-columns swap, no
+   separate markup for the two states. */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  align-items: center;
+}
+.hero-text .confidence-tag { margin-top: var(--space-4); }
+.hero-visual .exhibit { margin: 0; }
+@media (min-width: 1100px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: var(--space-8); }
+}
+
 /* Display-tier numerals (brief §3.2, grafted from "bold"): sans, 700-800, tabular, huge. Used
    exactly twice on the home page (the hero pair) and once per finding page (that finding's own
    headline stat, no arrow — add `.numeral-pair--solo` to the wrapper). Never for a number that
