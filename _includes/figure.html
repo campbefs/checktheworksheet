@@ -35,9 +35,14 @@
   <picture> workaround for it.
 {% endcomment %}
 <figure class="exhibit" id="{{ include.id }}">
-  <img src="{{ include.img | relative_url }}"
-       {% unless include.lazy == "false" %}loading="lazy"{% endunless %}
-       alt="{{ include.alt }}">
+  <a class="lightbox-trigger" data-lightbox
+     href="{{ include.img | relative_url }}"
+     data-caption="{{ include.title | escape }}"
+     {% if include.csv_href %}data-csv-href="{{ include.csv_href | relative_url }}" data-csv-label="Data (CSV)"{% endif %}>
+    <img src="{{ include.img | relative_url }}"
+         {% unless include.lazy == "false" %}loading="lazy"{% endunless %}
+         alt="{{ include.alt }}">
+  </a>
   <figcaption>
     {% if include.confidence %}<p class="confidence-tag">{{ include.confidence }}</p>{% endif %}
     <h3 class="exhibit-title">{{ include.title }}</h3>

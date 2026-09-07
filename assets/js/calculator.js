@@ -23,14 +23,14 @@
 //       <output id="calc-higher-output" for="calc-higher">$201,000/yr</output>
 //     </label>
 //     <input type="range" id="calc-higher" data-calc-input="higher"
-//            min="60000" max="300000" step="1000" value="201000">
+//            min="60000" max="300000" step="120" value="201000">
 //   </div>
 //   <div class="tool-slider-row">
 //     <label for="calc-lower">Lower earner, gross per year
 //       <output id="calc-lower-output" for="calc-lower">$29,640/yr</output>
 //     </label>
 //     <input type="range" id="calc-lower" data-calc-input="lower"
-//            min="0" max="120000" step="1000" value="29640">
+//            min="0" max="120000" step="120" value="29640">
 //   </div>
 //   <div class="tool-readout" aria-live="polite">
 //     <div>
@@ -67,6 +67,23 @@
 //   loaded first (as separate <script> tags, in that order, before this file) -- it does not
 //   bundle them, so a page opts in with:
 //     scripts: ["/assets/js/lib/worksheet.js", "/assets/js/lib/net-position.js", "/assets/js/calculator.js"]
+// - SANITY GUARD: before wiring up the sliders, this script recomputes the worked example
+//   (higher $201,000, lower $29,640) and checks the weekly order rounds to $1,013 -- the same
+//   figure calculator.test.js pins. If it doesn't (a bad edit to either lib/ file, a load that
+//   silently returned wrong data), the sliders are disabled, every `data-calc-cell` is replaced
+//   with "not available", and `data-calc-flag` explains why -- never a plausible-looking wrong
+//   number. See sanityCheckPasses()/showUnavailable() below.
+// - MOUNT-TIME BUG FOUND AND FIXED 2026-09-07: `step="1000"` on `min="0"` makes the lower
+//   slider's default `value="29640"` an invalid step -- a browser silently rounds a range
+//   input's live `.value` to the nearest valid step from `min` on parse, so the DOM read
+//   `30000`, not `29640`, and the on-load render computed $1,011/wk instead of $1,013/wk (a
+//   wrong-but-plausible number the sanity guard above does NOT catch, since it recomputes
+//   directly against the fixed constants 201000/29640, not against what the sliders' own
+//   `.value` returns). `step="120"` divides both sliders' `(value - min)` exactly (GCD of the
+//   two required offsets, 141000 and 29640, is 120), so both defaults hold on load in every
+//   browser. Found by reading the live DOM after mounting, not by any of the Node-side tests --
+//   a lesson for any future markup contract change: check `element.value`, not only the
+//   `value` attribute, once real HTML is in a real page.
 //
 // FIXED FACTS (not sliders, per design brief SS3.5's word budget -- three children, no child care):
 var MCSGCalculatorFacts = { kids: 3, childcare: 0, box: 1, healthLow: 33.0, healthHigh: 43.0 };
@@ -105,6 +122,34 @@ var MCSGCalculatorFacts = { kids: 3, childcare: 0, box: 1, healthLow: 33.0, heal
     };
   }
 
+  // Per-input sanity guard: the worked example ($201,000 higher earner, $29,640 lower earner,
+  // three children, Box 1) must reproduce the site's own tested figure, $1,013/wk (see
+  // calculator.test.js PART 3). If a future edit to either lib/ file, or a bad load, changes that
+  // answer, showing a wrong number silently is worse than showing nothing -- render a visible
+  // "calculator unavailable" note instead of numbers rather than trust an unverified result.
+  function sanityCheckPasses() {
+    try {
+      var r = compute(201000, 29640);
+      return Math.round(r.order_wk) === 1013;
+    } catch (e) {
+      if (window.console) console.error('calculator.js: sanity check threw', e);
+      return false;
+    }
+  }
+
+  function showUnavailable(root, inputs, cells, flag) {
+    root.setAttribute('data-calc-unavailable', 'true');
+    Object.keys(inputs).forEach(function (key) { inputs[key].disabled = true; });
+    Object.keys(cells).forEach(function (key) { cells[key].textContent = 'not available'; });
+    if (flag) {
+      flag.textContent = 'This calculator is temporarily unavailable: its self-check against ' +
+        'the worked example did not match. Method: ' +
+        'model/worksheet.py and model/net_position.py, ported in assets/js/lib/worksheet.js.';
+      flag.classList.add('visible');
+    }
+    if (window.console) console.error('calculator.js: sanity check failed, worked example did not reproduce $1,013/wk');
+  }
+
   function initCalculator(root) {
     if (!W || !N) {
       // Libraries failed to load -- leave the page's own static worked-example text untouched
@@ -123,6 +168,11 @@ var MCSGCalculatorFacts = { kids: 3, childcare: 0, box: 1, healthLow: 33.0, heal
       cells[el.getAttribute('data-calc-cell')] = el;
     });
     var flag = root.querySelector('[data-calc-flag]');
+
+    if (!sanityCheckPasses()) {
+      showUnavailable(root, inputs, cells, flag);
+      return;
+    }
 
     function outputFor(input) {
       return document.getElementById(input.id + '-output') || root.querySelector('output[for="' + input.id + '"]');

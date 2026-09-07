@@ -567,8 +567,9 @@ input[type="range"]::-moz-range-thumb {
 }
 .lightbox.is-open { display: flex; }
 .lightbox-dialog { max-width: min(94vw, 1100px); max-height: 90vh; background: #fff; border-radius: 6px; overflow: auto; position: relative; }
-.lightbox-dialog img { display: block; width: 100%; height: auto; }
-.lightbox-caption { padding: var(--space-4) var(--space-5); font-size: 0.9375rem; color: var(--text-secondary); }
+.lightbox-dialog img { display: block; width: 100%; height: auto; max-height: 78vh; object-fit: contain; }
+.lightbox-caption { padding: var(--space-4) var(--space-5) 0; font-size: 0.9375rem; color: var(--text-secondary); }
+.lightbox-source { padding: var(--space-2) var(--space-5) var(--space-4); font-size: 0.875rem; }
 .lightbox-close {
   position: absolute; top: var(--space-3); right: var(--space-3);
   width: 36px; height: 36px; border-radius: 50%; border: 0;
@@ -576,6 +577,10 @@ input[type="range"]::-moz-range-thumb {
   line-height: 1;
 }
 .lightbox-close:hover { background: var(--accent); }
+/* Any image wrapped as a lightbox trigger (figure.html, exhibits/index.md, finding-card thumbs) --
+   site-wide as of the 2026-09-07 pass, see assets/js/README.md §"site-wide lightbox mount". */
+a.lightbox-trigger { display: block; cursor: zoom-in; }
+a.lightbox-trigger:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 
 /* ---- 12. Caveats, check-it-yourself, documents, ask ----------------------- */
 

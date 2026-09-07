@@ -13,7 +13,9 @@ disclosure:
     the form's own scripts. Comments built from it are prepared for the Trial Court, on the
     <a href="/documents/">Documents</a> page; they have not been sent.
 scripts:
-  - "/assets/js/csv-slider.js"
+  - "/assets/js/lib/worksheet.js"
+  - "/assets/js/lib/net-position.js"
+  - "/assets/js/calculator.js"
   - "/assets/js/sortable-table.js"
 ---
 
@@ -21,7 +23,7 @@ scripts:
   <div class="hero-grid">
     <div class="hero-text">
       <p class="eyebrow">Massachusetts Child Support Guidelines Worksheet, verified in code</p>
-      <h1>At equal parenting time, Massachusetts orders more than <span class="figure">47</span> of the other 49 ranked jurisdictions do at primary custody.</h1>
+      <h1>Massachusetts orders the most of <span class="figure">fifty</span> ranked jurisdictions at equal parenting time, and the second most at primary custody.</h1>
       <p class="lede">One fact pattern (three children, $201,000 and $29,640 a year, no child care),
       profiled from each jurisdiction's own guidelines, computed twice, and checked by an
       adversarial review. Georgia is held out: its enacted formula orders less at equal time than
@@ -30,13 +32,14 @@ scripts:
     </div>
     <div class="hero-visual">
       {% include figure.html
-         id="e17-hero"
-         img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
-         alt="Ranked bar chart of fifty jurisdictions' child support orders, with Massachusetts computed at equal parenting time and marked at the top, its own primary-custody order shown for scale."
-         title="Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions."
-         notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time; Massachusetts's own primary-custody order, $4,714, is marked for scale."
-         source_script="model/charts/fig10_ma_shared_vs_primary.py"
-         csv_href="/figures/working/fig10_ma_shared_vs_primary.csv"
+         id="e11-hero"
+         img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
+         alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions under equal parenting time, one fact pattern, Massachusetts highlighted."
+         title="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
+         deck="Monthly order at one fact pattern. Georgia held out."
+         notes="Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One fact pattern; the ranking generalizes to nothing else."
+         source_script="model/charts/fig5_states.py"
+         csv_href="/figures/working/fig5_states.csv"
          lazy="false" %}
     </div>
   </div>
@@ -49,7 +52,7 @@ scripts:
   <div class="content-col">
     <section class="exhibit-section" id="lead-comparison">
       <p class="eyebrow">The comparison behind this site</p>
-      <h2>At equal parenting time, Massachusetts orders more than 47 of the other 49 ranked jurisdictions' primary-custody orders.</h2>
+      <h2>Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h2>
       <p>Every jurisdiction at primary custody first, then Massachusetts recomputed at equal
       parenting time. One fact pattern (three children, $201,000 and $29,640 a year), profiled,
       computed twice, and checked by an adversarial review. Georgia is held out: its formula orders
@@ -58,8 +61,10 @@ scripts:
         {% include figure.html
            id="e12"
            img="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
-           alt="Ranked bar chart of fifty jurisdictions' child support orders with the children primarily in the lower earner's household, Massachusetts marked."
-           title="Lower earner primary: only Hawaii orders more than Massachusetts."
+           alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted."
+           title="Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts."
+           deck="Monthly order at one fact pattern. Georgia held out. First of a pair with E17."
+           notes="The same fact pattern with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states, same axis range, same colors, same ordering rule as E17, so the two can be read as a pair."
            source_script="model/charts/fig5_states.py"
            csv_href="/figures/working/fig5_states.csv"
            confidence="Tiered: see method below"
@@ -67,8 +72,10 @@ scripts:
         {% include figure.html
            id="e17"
            img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
-           alt="The same ranked bar chart with Massachusetts recomputed at equal parenting time instead of primary custody, moving its bar above all but two others."
-           title="Massachusetts recomputed at equal time moves above all but Hawaii and Wisconsin."
+           alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale."
+           title="Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions."
+           deck="Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner."
+           notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time; Massachusetts's own primary-custody order, $4,714, is marked for scale and is not part of the ranked comparison."
            source_script="model/charts/fig10_ma_shared_vs_primary.py"
            csv_href="/figures/working/fig10_ma_shared_vs_primary.csv"
            confidence="Tiered: see method below" %}
@@ -81,50 +88,47 @@ scripts:
   <div class="page-shell">
     <div></div>
     <div class="content-col">
-      <div class="tool" data-tool data-tool-src="/assets/data/heatmap-3child-box1.json">
-        <h3>Try it: watch Line 7e diverge from the true share</h3>
-        <p class="tool-deck">A lookup against a 1,147-row grid of real Worksheet output; nothing
-        is computed in your browser.</p>
-        <div class="tool-two-up">
-          <div class="tool-slider-row">
-            <label for="higher-earner-slider">Higher earner, per year
-              <output id="higher-earner-output" for="higher-earner-slider">$200,000</output>
-            </label>
-            <input type="range" id="higher-earner-slider" data-tool-input="higher_gross"
-                   data-tool-output-format="money"
-                   data-tool-valuetext="Higher earner: {value} a year"
-                   min="60000" max="300000" step="5000" value="200000">
-          </div>
-          <div class="tool-slider-row">
-            <label for="lower-earner-slider">Lower earner, per year
-              <output id="lower-earner-output" for="lower-earner-slider">$30,000</output>
-            </label>
-            <input type="range" id="lower-earner-slider" data-tool-input="lower_gross"
-                   data-tool-output-format="money"
-                   data-tool-valuetext="Lower earner: {value} a year"
-                   min="0" max="120000" step="5000" value="30000">
-          </div>
+      <div class="tool tool-two-up" data-calculator>
+        <h3>Try it: compute your own two incomes</h3>
+        <p class="tool-deck">This calculator computes the Worksheet and the TY2026 tax model in
+        your browser, from a tested port of the Python behind every figure on this site; it does
+        not look anything up in a precomputed table.</p>
+        <div class="tool-slider-row">
+          <label for="calc-higher">Higher earner, gross per year
+            <output id="calc-higher-output" for="calc-higher">$201,000/yr</output>
+          </label>
+          <input type="range" id="calc-higher" data-calc-input="higher"
+                 min="60000" max="300000" step="120" value="201000">
+        </div>
+        <div class="tool-slider-row">
+          <label for="calc-lower">Lower earner, gross per year
+            <output id="calc-lower-output" for="calc-lower">$29,640/yr</output>
+          </label>
+          <input type="range" id="calc-lower" data-calc-input="lower"
+                 min="0" max="120000" step="120" value="29640">
         </div>
         <div class="tool-readout" aria-live="polite">
           <div>
-            <p class="cell-label">Weekly order</p>
-            <p class="cell-value" data-tool-cell="order_wk" data-tool-format="money-wk">$1,007/wk</p>
+            <p class="cell-label">Weekly order (Line 7d)</p>
+            <p class="cell-value" data-calc-cell="order_wk">$1,013/wk</p>
           </div>
           <div>
             <p class="cell-label">Line 7e's reading</p>
-            <p class="cell-value payor-line" data-tool-cell="line_7e" data-tool-format="pct1">26.5%</p>
+            <p class="cell-value payor-line" data-calc-cell="line_7e">26.5%</p>
           </div>
           <div>
-            <p class="cell-label">True share of net</p>
-            <p class="cell-value true-burden" data-tool-cell="order_pct_payor_net" data-tool-format="pct1">37.6%</p>
+            <p class="cell-label">True share of the payor's net income</p>
+            <p class="cell-value true-burden" data-calc-cell="true_pct_net">37.7%</p>
           </div>
         </div>
-        <p class="tool-flag visible" data-tool-flag data-tool-flag-rule="divergence"
-           data-tool-flag-keys="line_7e,order_pct_payor_net" data-tool-flag-threshold="0.1"
-           data-tool-flag-text="Line 7e and the true share are more than 10 points apart here.">Line 7e and the true share are more than 10 points apart here.</p>
+        <p class="tool-flag" data-calc-flag>&nbsp;</p>
+        <p>Three children, no child care, Box 1 (shared parenting), health premiums $33/$43 a week,
+        the worked example's own facts, held fixed. Method:
+        <a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
+        <a href="/model/net_position.py"><code>model/net_position.py</code></a>, ported and tested
+        in <a href="/assets/js/lib/worksheet.js"><code>assets/js/lib/worksheet.js</code></a> and
+        <a href="/assets/js/calculator.test.js"><code>assets/js/calculator.test.js</code></a>.</p>
       </div>
-      <p class="tool-method">Data: <a href="/figures/working/fig1_heatmap_3child_box1.csv"><code>fig1_heatmap_3child_box1.csv</code></a>
-      &middot; script <code>model/charts/fig1_heatmaps.py</code>.</p>
     </div>
   </div>
 </section>
@@ -154,8 +158,13 @@ scripts:
 
   <article class="finding-card" id="f-hardship">
     <div class="thumb">
-      <img src="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
-           alt="Line chart of Line 7e's reported percentage against the true share of the payor's net income, as claimed child care rises from $0 to $600 a week.">
+      <a class="lightbox-trigger" data-lightbox
+         href="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
+         data-caption="The hardship valve fires late because it reads the wrong income."
+         data-csv-href="/figures/working/fig6_valve_units_lag.csv" data-csv-label="Data (CSV)">
+        <img src="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
+             alt="Line chart of Line 7e's reported percentage against the true share of the payor's net income, as claimed child care rises from $0 to $600 a week.">
+      </a>
     </div>
     <div class="body">
       <p class="tag">Verified against the form's own scripts <a class="interactive-badge" href="#calculator">&rarr; live tool above</a></p>
@@ -170,8 +179,13 @@ scripts:
 
   <article class="finding-card" id="f-childcare">
     <div class="thumb">
-      <img src="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-           alt="Bar chart comparing the payor's share of claimed child care under three income measures: pre-transfer gross, post-transfer gross, and post-transfer net.">
+      <a class="lightbox-trigger" data-lightbox
+         href="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
+         data-caption="The payor's share of a $15,600 child care bill, three ways to split it."
+         data-csv-href="/figures/working/fig2_childcare_worked_example.csv" data-csv-label="Data (CSV)">
+        <img src="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
+             alt="Bar chart comparing the payor's share of claimed child care under three income measures: pre-transfer gross, post-transfer gross, and post-transfer net.">
+      </a>
     </div>
     <div class="body">
       <p class="tag">Verified against the form's own scripts</p>
@@ -186,8 +200,13 @@ scripts:
 
   <article class="finding-card" id="f-parenting">
     <div class="thumb">
-      <img src="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
-           alt="Line chart of the shared-parenting credit's percentage reduction against the payor's income share, falling from about 75 percent to 7 percent as the income gap widens.">
+      <a class="lightbox-trigger" data-lightbox
+         href="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
+         data-caption="The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing."
+         data-csv-href="/figures/working/fig3_credit_collapse.csv" data-csv-label="Data (CSV)">
+        <img src="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
+             alt="Line chart of the shared-parenting credit's percentage reduction against the payor's income share, falling from about 75 percent to 7 percent as the income gap widens.">
+      </a>
     </div>
     <div class="body">
       <p class="tag">Verified against the form's own scripts</p>
@@ -202,8 +221,13 @@ scripts:
 
   <article class="finding-card" id="f-fifty">
     <div class="thumb">
-      <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-           alt="Ranked bar chart of fifty jurisdictions' child support orders at equal parenting time, one fact pattern, Massachusetts at the top.">
+      <a class="lightbox-trigger" data-lightbox
+         href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
+         data-caption="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
+         data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
+        <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
+             alt="Ranked bar chart of fifty jurisdictions' child support orders at equal parenting time, one fact pattern, Massachusetts at the top.">
+      </a>
     </div>
     <div class="body">
       <p class="tag">Tiered: one fact pattern, not a distribution <span class="interactive-badge">&rarr; sortable table</span></p>

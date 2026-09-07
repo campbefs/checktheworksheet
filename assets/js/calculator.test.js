@@ -171,5 +171,36 @@ equal(calcResult.line_7e.toFixed(3), '0.265', 'calculator.js compute(): Line 7e 
 // particular readout is identical either way, verified here rather than assumed.
 equal(calcResult.true_pct_net.toFixed(3), '0.377', 'calculator.js compute(): true % of net rounds to 37.7%, same as the worked example');
 
+// The mounted page's own static markup (index.html, MARKUP CONTRACT in calculator.js) hardcodes
+// the sliders' default values and the three data-calc-cell spans' starting text as the no-JS
+// fallback. Check the formatted strings a reader actually sees match those exact defaults.
+function moneyWk(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/wk'; }
+function pct1(v) { return (v * 100).toFixed(1) + '%'; }
+equal(moneyWk(calcResult.order_wk), '$1,013/wk', 'mounted defaults: formatted weekly order matches the markup\'s static $1,013/wk');
+equal(pct1(calcResult.line_7e), '26.5%', 'mounted defaults: formatted Line 7e matches the markup\'s static 26.5%');
+equal(pct1(calcResult.true_pct_net), '37.7%', 'mounted defaults: formatted true share of net matches the markup\'s static 37.7%');
+
+// ---------------------------------------------------------------------------------------------
+// PART 4 -- the sanity guard (calculator.js's sanityCheckPasses()) fires on a broken constant and
+// clears once the constant is restored. calculator.js itself only runs this in a browser (it
+// early-returns when `window` is undefined), so this reproduces its exact check --
+// Math.round(order_wk) === 1013 at the worked example -- against the same compute() logic used
+// above, which is what PART 3 already established is faithful to calculator.js's own compute().
+// ---------------------------------------------------------------------------------------------
+console.log('\n=== PART 4: sanity guard fires on a broken constant, clears once restored ===\n');
+
+var BROKEN_FACTS = { kids: 2, box: 1, healthLow: 33.0, healthHigh: 43.0 }; // kids 3 -> 2, temporarily
+var brokenResult = compute(201000, 29640, BROKEN_FACTS);
+var brokenGuardPasses = Math.round(brokenResult.order_wk) === 1013;
+equal(brokenGuardPasses, false,
+  'sanity guard: breaking kids from 3 to 2 makes the worked example diverge from $1,013 (guard would show "calculator unavailable")');
+
+// Restore: the real FACTS (kids=3, matching MCSGCalculatorFacts in calculator.js) must reproduce
+// $1,013 again -- proving the guard's own condition passes once the break is undone.
+var restoredResult = compute(201000, 29640, FACTS);
+var restoredGuardPasses = Math.round(restoredResult.order_wk) === 1013;
+equal(restoredGuardPasses, true,
+  'sanity guard: restoring kids=3 makes the worked example match $1,013 again (guard would pass, numbers render)');
+
 console.log('\n' + checks + ' checks, ' + failures + ' failed.');
 process.exit(failures ? 1 : 0);

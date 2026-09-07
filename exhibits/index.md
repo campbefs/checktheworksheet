@@ -61,8 +61,12 @@ where it matters, and a household comparison always carries its per-person count
 <div class="exhibit-pair">
 
 <figure class="exhibit" id="e01">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E01-who-holds-more-3-children.png"
+     data-caption="With three children, the recipient household holds more after the order in 55 percent of income combinations."
+     data-csv-href="/figures/working/fig1_heatmap_3child_box1.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E01-who-holds-more-3-children.png"
-       alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, across combinations of higher-earner gross income from $60,000 to $300,000 and lower-earner gross income from $0 to $120,000, three children, equal parenting time, no child care.">
+         alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, across combinations of higher-earner gross income from $60,000 to $300,000 and lower-earner gross income from $0 to $120,000, three children, equal parenting time, no child care.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">With three children, the recipient household holds more after the order in 55 percent of income combinations.</h3>
@@ -80,9 +84,13 @@ where it matters, and a household comparison always carries its per-person count
 </figure>
 
 <figure class="exhibit" id="e02">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E02-who-holds-more-per-person-3-children.png"
+     data-caption="Per person, the payor holds more almost everywhere."
+     data-csv-href="/figures/working/fig1_heatmap_3child_box1.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E02-who-holds-more-per-person-3-children.png"
-       loading="lazy"
-       alt="Heatmap of the same net-income gap divided by household size, one person against four, same income grid, three children, equal parenting time, no child care.">
+         loading="lazy"
+         alt="Heatmap of the same net-income gap divided by household size, one person against four, same income grid, three children, equal parenting time, no child care.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">Per person, the payor holds more almost everywhere.</h3>
@@ -104,9 +112,13 @@ where it matters, and a household comparison always carries its per-person count
 <div class="exhibit-pair">
 
 <figure class="exhibit" id="e18">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E18-who-holds-more-1-child.png"
+     data-caption="With one child, the recipient household holds more after the order in only 3 percent of income combinations."
+     data-csv-href="/figures/working/fig1_heatmap_1child_box1.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E18-who-holds-more-1-child.png"
-       loading="lazy"
-       alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, same income grid as E01, one child, equal parenting time, no child care.">
+         loading="lazy"
+         alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, same income grid as E01, one child, equal parenting time, no child care.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">With one child, the recipient household holds more after the order in only 3 percent of income combinations.</h3>
@@ -124,9 +136,13 @@ where it matters, and a household comparison always carries its per-person count
 </figure>
 
 <figure class="exhibit" id="e19">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E19-who-holds-more-2-children.png"
+     data-caption="With two children, the recipient household holds more after the order in 23 percent of income combinations."
+     data-csv-href="/figures/working/fig1_heatmap_2child_box1.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E19-who-holds-more-2-children.png"
-       loading="lazy"
-       alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, same income grid as E01, two children, equal parenting time, no child care.">
+         loading="lazy"
+         alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, same income grid as E01, two children, equal parenting time, no child care.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">With two children, the recipient household holds more after the order in 23 percent of income combinations.</h3>
@@ -146,9 +162,13 @@ where it matters, and a household comparison always carries its per-person count
 </div>
 
 <figure class="exhibit" id="e04">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E04-order-as-share-of-payor-net-3-children.png"
+     data-caption="The order exceeds 40 percent of the payor's net income only where the lower earner makes about $25,000 or less."
+     data-csv-href="/figures/working/fig1_heatmap_3child_box1.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E04-order-as-share-of-payor-net-3-children.png"
-       loading="lazy"
-       alt="Heatmap of the order as a percentage of the payor's net income, with a 40 percent contour line, same income grid, three children, equal parenting time, no child care.">
+         loading="lazy"
+         alt="Heatmap of the order as a percentage of the payor's net income, with a 40 percent contour line, same income grid, three children, equal parenting time, no child care.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The order exceeds 40 percent of the payor's net income only where the lower earner makes about $25,000 or less.</h3>
@@ -168,9 +188,13 @@ where it matters, and a household comparison always carries its per-person count
 ## The hardship test and its units
 
 <figure class="exhibit" id="e05">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
+     data-caption="The hardship valve fires late because it reads the wrong income."
+     data-csv-href="/figures/working/fig6_valve_units_lag.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
-       loading="lazy"
-       alt="Line chart of Line 7e's reported percentage versus the true share of the payor's net income, against child care claimed from $0 to $600 a week, at the worked example.">
+         loading="lazy"
+         alt="Line chart of Line 7e's reported percentage versus the true share of the payor's net income, against child care claimed from $0 to $600 a week, at the worked example.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The hardship valve fires late because it reads the wrong income.</h3>
@@ -188,9 +212,13 @@ where it matters, and a household comparison always carries its per-person count
 </figure>
 
 <figure class="exhibit" id="e10">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E10-cents-kept-of-next-dollar-worked-example.png"
+     data-caption="Of the payor's next dollar, the payor keeps between a third and a half."
+     data-csv-href="/figures/working/fig4_marginal_retention.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E10-cents-kept-of-next-dollar-worked-example.png"
-       loading="lazy"
-       alt="Line chart of cents kept of the payor's next dollar of income, from $100,000 to $400,000 of payor income, with and without $300 a week of child care.">
+         loading="lazy"
+         alt="Line chart of cents kept of the payor's next dollar of income, from $100,000 to $400,000 of payor income, with and without $300 a week of child care.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">Of the payor's next dollar, the payor keeps between a third and a half.</h3>
@@ -210,9 +238,13 @@ where it matters, and a household comparison always carries its per-person count
 ## Child care
 
 <figure class="exhibit" id="e06">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
+     data-caption="The payor's share of a $15,600 child care bill, three ways to split it."
+     data-csv-href="/figures/working/fig2_childcare_worked_example.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-       loading="lazy"
-       alt="Bar chart of the payor's share of a $15,600 annual child care bill under three allocation rules, at the worked example.">
+         loading="lazy"
+         alt="Bar chart of the payor's share of a $15,600 annual child care bill under three allocation rules, at the worked example.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The payor's share of a $15,600 child care bill, three ways to split it.</h3>
@@ -230,9 +262,13 @@ where it matters, and a household comparison always carries its per-person count
 </figure>
 
 <figure class="exhibit" id="e20">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
+     data-caption="With one child, post-transfer child care funds the payor 28 points below his income share."
+     data-csv-href="/figures/working/fig2_childcare_rules.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
-       loading="lazy"
-       alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, one child, $100 a week paid by the lower earner.">
+         loading="lazy"
+         alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, one child, $100 a week paid by the lower earner.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">With one child, post-transfer child care funds the payor 28 points below his income share.</h3>
@@ -250,9 +286,13 @@ where it matters, and a household comparison always carries its per-person count
 </figure>
 
 <figure class="exhibit" id="e21">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
+     data-caption="With two children, post-transfer child care funds the payor 39 points below his income share."
+     data-csv-href="/figures/working/fig2_childcare_rules.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
-       loading="lazy"
-       alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, two children, $100 a week per child paid by the lower earner.">
+         loading="lazy"
+         alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, two children, $100 a week per child paid by the lower earner.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">With two children, post-transfer child care funds the payor 39 points below his income share.</h3>
@@ -270,9 +310,13 @@ where it matters, and a household comparison always carries its per-person count
 </figure>
 
 <figure class="exhibit" id="e22">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
+     data-caption="With three children, post-transfer child care funds the payor 46 points below his income share."
+     data-csv-href="/figures/working/fig2_childcare_rules.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
-       loading="lazy"
-       alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, three children, $100 a week per child paid by the lower earner.">
+         loading="lazy"
+         alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, three children, $100 a week per child paid by the lower earner.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">With three children, post-transfer child care funds the payor 46 points below his income share.</h3>
@@ -292,9 +336,13 @@ where it matters, and a household comparison always carries its per-person count
 <div class="exhibit-pair">
 
 <figure class="exhibit" id="e25">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E25-both-pay-child-care-who-pays-3-children.png"
+     data-caption="The payor bears 93 percent of the combined child care while earning 87 percent of the gross income."
+     data-csv-href="/figures/working/fig8_both_pay.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E25-both-pay-child-care-who-pays-3-children.png"
-       loading="lazy"
-       alt="Stacked bar chart of each parent's share of combined gross income and of a combined $31,200 child care bill, both parents paying $300 a week in their own home, three children.">
+         loading="lazy"
+         alt="Stacked bar chart of each parent's share of combined gross income and of a combined $31,200 child care bill, both parents paying $300 a week in their own home, three children.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The payor bears 93 percent of the combined child care while earning 87 percent of the gross income.</h3>
@@ -312,9 +360,13 @@ where it matters, and a household comparison always carries its per-person count
 </figure>
 
 <figure class="exhibit" id="e26">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E26-both-pay-child-care-net-position-3-children.png"
+     data-caption="Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192."
+     data-csv-href="/figures/working/fig8_both_pay.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E26-both-pay-child-care-net-position-3-children.png"
-       loading="lazy"
-       alt="Bar chart of each parent's net income under three child care scenarios, neither pays, only the recipient pays, both pay $300 a week, three children.">
+         loading="lazy"
+         alt="Bar chart of each parent's net income under three child care scenarios, neither pays, only the recipient pays, both pay $300 a week, three children.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192.</h3>
@@ -336,9 +388,13 @@ where it matters, and a household comparison always carries its per-person count
 ## Parenting time
 
 <figure class="exhibit" id="e08">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
+     data-caption="The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing."
+     data-csv-href="/figures/working/fig3_credit_collapse.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
-       loading="lazy"
-       alt="Line chart of the percentage reduction in the order for equal parenting time versus the one-third-time order, against the payor's share of combined available income, for the current Worksheet and two redline variants.">
+         loading="lazy"
+         alt="Line chart of the percentage reduction in the order for equal parenting time versus the one-third-time order, against the payor's share of combined available income, for the current Worksheet and two redline variants.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing.</h3>
@@ -356,9 +412,13 @@ where it matters, and a household comparison always carries its per-person count
 </figure>
 
 <figure class="exhibit" id="e09">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E09-implied-overnight-share-by-factor-3-children.png"
+     data-caption="At the worked example, equal parenting time is priced as a third of overnights at factor 1.5, and 47 percent at factor 2.0."
+     data-csv-href="/figures/working/fig3_credit_collapse.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E09-implied-overnight-share-by-factor-3-children.png"
-       loading="lazy"
-       alt="Line chart of the overnight share that reproduces the Box 1 order under a standard cross-credit, against the payor's share of combined available income, at duplication factors 1.5 and 2.0.">
+         loading="lazy"
+         alt="Line chart of the overnight share that reproduces the Box 1 order under a standard cross-credit, against the payor's share of combined available income, at duplication factors 1.5 and 2.0.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">At the worked example, equal parenting time is priced as a third of overnights at factor 1.5, and 47 percent at factor 2.0.</h3>
@@ -378,9 +438,13 @@ where it matters, and a household comparison always carries its per-person count
 <div class="exhibit-pair">
 
 <figure class="exhibit" id="e23">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E23-split-siblings-weekly-order-2-children.png"
+     data-caption="Splitting two children across two homes cuts the weekly order by 30 percent."
+     data-csv-href="/figures/working/fig7_box3_inversion.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E23-split-siblings-weekly-order-2-children.png"
-       loading="lazy"
-       alt="Line chart of the weekly child support order against the payor's income share, under Box 1 with both children shared and Box 3 with one child residing primarily with each parent, two children.">
+         loading="lazy"
+         alt="Line chart of the weekly child support order against the payor's income share, under Box 1 with both children shared and Box 3 with one child residing primarily with each parent, two children.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">Splitting two children across two homes cuts the weekly order by 30 percent.</h3>
@@ -399,9 +463,13 @@ where it matters, and a household comparison always carries its per-person count
 </figure>
 
 <figure class="exhibit" id="e24">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E24-split-siblings-schedule-cost-2-children.png"
+     data-caption="Two homes, one child each, cost 43 percent more on the schedule than one home with two."
+     data-csv-href="/figures/working/fig7_box3_inversion.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E24-split-siblings-schedule-cost-2-children.png"
-       loading="lazy"
-       alt="Bar chart comparing Table B's cost multiplier for one home raising two children against two homes each raising one child.">
+         loading="lazy"
+         alt="Bar chart comparing Table B's cost multiplier for one home raising two children against two homes each raising one child.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">Two homes, one child each, cost 43 percent more on the schedule than one home with two.</h3>
@@ -424,9 +492,13 @@ where it matters, and a household comparison always carries its per-person count
 ## Fifty-one jurisdictions
 
 <figure class="exhibit" id="e11">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
+     data-caption="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
+     data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-       loading="lazy"
-       alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions under equal parenting time, one fact pattern, Massachusetts highlighted.">
+         loading="lazy"
+         alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions under equal parenting time, one fact pattern, Massachusetts highlighted.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">Equal parenting time: Massachusetts orders the most of fifty jurisdictions.</h3>
@@ -511,9 +583,13 @@ where it matters, and a household comparison always carries its per-person count
 </details>
 
 <figure class="exhibit" id="e12">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
+     data-caption="Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts."
+     data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
-       loading="lazy"
-       alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted.">
+         loading="lazy"
+         alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.</h3>
@@ -598,9 +674,13 @@ where it matters, and a household comparison always carries its per-person count
 </details>
 
 <figure class="exhibit" id="e13">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
+     data-caption="A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23."
+     data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (JSON)">
   <img src="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
-       loading="lazy"
-       alt="Tile map of fifty-one jurisdictions, each colored by whether a formula credit applies when a parent has the children 122 overnights a year, about one-third of the time.">
+         loading="lazy"
+         alt="Tile map of fifty-one jurisdictions, each colored by whether a formula credit applies when a parent has the children 122 overnights a year, about one-third of the time.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23.</h3>
@@ -685,9 +765,13 @@ where it matters, and a household comparison always carries its per-person count
 </details>
 
 <figure class="exhibit" id="e16">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
+     data-caption="Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower."
+     data-csv-href="/figures/working/fig9_schedule_ceilings.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
-       loading="lazy"
-       alt="Horizontal bar chart ranking 41 jurisdictions by the combined income at which their presumptive child support schedule stops, Massachusetts highlighted.">
+         loading="lazy"
+         alt="Horizontal bar chart ranking 41 jurisdictions by the combined income at which their presumptive child support schedule stops, Massachusetts highlighted.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.</h3>
@@ -762,9 +846,13 @@ where it matters, and a household comparison always carries its per-person count
 </details>
 
 <figure class="exhibit" id="e17">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
+     data-caption="Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions."
+     data-csv-href="/figures/working/fig10_ma_shared_vs_primary.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
-       loading="lazy"
-       alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale.">
+         loading="lazy"
+         alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h3>
@@ -852,9 +940,13 @@ where it matters, and a household comparison always carries its per-person count
 ## The gross-versus-net question
 
 <figure class="exhibit" id="e27">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
+     data-caption="Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017 to 2025."
+     data-csv-href="/figures/working/fig11_deferral_timeline.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
-       loading="lazy"
-       alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking whether the gross-versus-net income question was deferred on the record or not raised in the corpus.">
+         loading="lazy"
+         alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking whether the gross-versus-net income question was deferred on the record or not raised in the corpus.">
+  </a>
   <figcaption>
     <p class="confidence-tag">Documentary: built only from primary-text quotes</p>
     <h3 class="exhibit-title">Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017 to 2025.</h3>

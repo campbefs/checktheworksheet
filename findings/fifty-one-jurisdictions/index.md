@@ -92,9 +92,13 @@ direction.
 </p>
 
 <figure class="exhibit" id="e11">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
+     data-caption="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
+     data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-       width="1744" height="2189"
-       alt="Bar chart ranking fifty state jurisdictions' equal-parenting-time monthly child support orders at one fact pattern, three children, $201,000 and $29,640 in annual income, Massachusetts highlighted.">
+         width="1744" height="2189"
+         alt="Bar chart ranking fifty state jurisdictions' equal-parenting-time monthly child support orders at one fact pattern, three children, $201,000 and $29,640 in annual income, Massachusetts highlighted.">
+  </a>
   <figcaption>
     <h3 class="exhibit-title">Equal parenting time: Massachusetts orders the most of fifty jurisdictions.</h3>
     <p class="exhibit-deck">Monthly order at one fact pattern, three children, $201,000 and $29,640, no child care.</p>
@@ -178,10 +182,14 @@ direction.
 ## With the children primarily with the lower earner, only Hawaii's order is higher
 
 <figure class="exhibit" id="e12">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
+     data-caption="Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts."
+     data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
-       width="1759" height="2230"
-       loading="lazy"
-       alt="Bar chart ranking fifty state jurisdictions' monthly child support orders with the children primarily with the lower earner, same fact pattern as the equal-parenting ranking, Massachusetts highlighted.">
+         width="1759" height="2230"
+         loading="lazy"
+         alt="Bar chart ranking fifty state jurisdictions' monthly child support orders with the children primarily with the lower earner, same fact pattern as the equal-parenting ranking, Massachusetts highlighted.">
+  </a>
   <figcaption>
     <h3 class="exhibit-title">Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.</h3>
     <p class="exhibit-deck">The same fact pattern with the children primarily with the lower earner.</p>
@@ -269,10 +277,14 @@ third of the time) is its one-third case, and Massachusetts does not treat that 
 earning a discrete formula credit the way 28 other jurisdictions do.
 
 <figure class="exhibit" id="e13">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
+     data-caption="A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23."
+     data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (JSON)">
   <img src="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
-       width="1736" height="1554"
-       loading="lazy"
-       alt="Tile map of fifty-one jurisdictions showing which give a formula-based child support credit at 122 overnights, about one-third time, and which do not.">
+         width="1736" height="1554"
+         loading="lazy"
+         alt="Tile map of fifty-one jurisdictions showing which give a formula-based child support credit at 122 overnights, about one-third time, and which do not.">
+  </a>
   <figcaption>
     <h3 class="exhibit-title">A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23.</h3>
     <p class="exhibit-deck">A count, not a dollar amount. Massachusetts is among the 23; its Box 2 is the one-third case.</p>
@@ -296,10 +308,14 @@ ceiling. Net-income ceilings are not dollar-for-dollar comparable with gross one
 does not adjust for that difference.
 
 <figure class="exhibit" id="e16">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
+     data-caption="Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower."
+     data-csv-href="/figures/working/fig9_schedule_ceilings.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
-       width="1663" height="2584"
-       loading="lazy"
-       alt="Bar chart ranking the combined-income ceiling of each jurisdiction's presumptive child support schedule, forty-one jurisdictions with a stated ceiling, Massachusetts marked at $450,000.">
+         width="1663" height="2584"
+         loading="lazy"
+         alt="Bar chart ranking the combined-income ceiling of each jurisdiction's presumptive child support schedule, forty-one jurisdictions with a stated ceiling, Massachusetts marked at $450,000.">
+  </a>
   <figcaption>
     <h3 class="exhibit-title">Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.</h3>
     <p class="exhibit-deck">Forty-one jurisdictions have a combined-income schedule that stops at a stated figure; the median is $360,000, seven stop at exactly $40,000 a month, and Utah's runs to $1.2 million.</p>
@@ -410,10 +426,14 @@ arrangement giving each parent half the children's time is priced here where sol
 priced almost everywhere else.
 
 <figure class="exhibit" id="e17">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
+     data-caption="Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions."
+     data-csv-href="/figures/working/fig10_ma_shared_vs_primary.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
-       width="1852" height="2264"
-       loading="lazy"
-       alt="Bar chart of monthly child support orders in fifty jurisdictions, forty-nine computed with the children primarily with the lower earner and Massachusetts computed twice: once under equal parenting time and once under primary custody for scale.">
+         width="1852" height="2264"
+         loading="lazy"
+         alt="Bar chart of monthly child support orders in fifty jurisdictions, forty-nine computed with the children primarily with the lower earner and Massachusetts computed twice: once under equal parenting time and once under primary custody for scale.">
+  </a>
   <figcaption>
     <h3 class="exhibit-title">Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h3>
     <p class="exhibit-deck">The same fact pattern as the two rankings above, with Massachusetts computed under Box 1 and every other jurisdiction computed with the children primarily with the lower earner.</p>
