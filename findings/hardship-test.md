@@ -8,12 +8,11 @@ description: >-
   percent at the exact point his true burden has already reached 57 percent of net.
 disclosure:
   - >-
-    The worked example throughout — the payor, the $201,000 income, the child care figures — is
-    my own child support order: three children, my income and my children's mother's income
-    entered as the Worksheet requires. I disclose it because a reader should be able to check
-    whether the arithmetic changes when the numbers are real, not hypothetical. It doesn't: the
-    same 17-point gap holds across the income and child-care ranges charted below, not only at my
-    own figures.
+    The worked example throughout (the payor, the $201,000 income, the child care figures) is my
+    own child support order: three children, my income and my children's mother's income entered
+    as the Worksheet requires. I disclose it because a reader should be able to check whether the
+    arithmetic changes when the numbers are real, not hypothetical. It doesn't: the same 17-point
+    gap holds across the income and child-care ranges charted below, not only at my own figures.
   - >-
     The model behind every number on this page is
     <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked by
@@ -37,14 +36,14 @@ sections:
 
 {% include disclosure.html %}
 
-<section class="hero">
+<section class="hero" markdown="1">
 <p class="eyebrow">Finding 1 of 4</p>
 
 # Line 7e reports 40 percent of income at the point the payor has already reached 57 percent of net
 
 <p class="lede">Section IV.C presumes hardship once a support order reaches 40 percent of the
 payor's available income. The Worksheet's own test for that threshold divides the order by a
-figure computed before tax, while the order is paid out of what's left after tax — so the two 40
+figure computed before tax, while the order is paid out of what's left after tax, so the two 40
 percents are not the same 40 percent.</p>
 </section>
 
@@ -57,18 +56,18 @@ percents are not the same 40 percent.</p>
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
-<div class="page-shell">
+<div class="page-shell" markdown="1">
 {% include chapter-rail.html %}
-<div class="content-col">
+<div class="content-col" markdown="1">
 
-<section id="mechanism">
+<section id="mechanism" markdown="1">
 
 ## Line 7e divides by a pre-tax figure while the order is paid from net income
 
 Worksheet Line 7e is 7d (the presumptive support order) divided by 3a (available income), expressed
 as a percentage, and the form flags it once that percentage reaches 40 percent, triggering Section
 IV.C's rebuttable presumption of hardship. Line 3a is gross income minus a short list of specific
-deductions — existing support orders, health and dental premiums for the children — and nothing on
+deductions (existing support orders, health and dental premiums for the children), and nothing on
 that list is a tax. The question Line 7e is trying to answer, does this order leave the payor too
 little to live on, is a question about spendable income; the figure it actually divides by has no
 tax adjustment of any kind. At the worked example, that mismatch means Line 7e reports exactly 40
@@ -76,7 +75,7 @@ percent of income at the same point the payor has actually reached 57 percent of
 
 </section>
 
-<section id="exhibits">
+<section id="exhibits" markdown="1">
 
 ## The blind spot holds across the child care range and across the income range
 
@@ -103,7 +102,7 @@ percent of income at the same point the payor has actually reached 57 percent of
 
 </section>
 
-<section id="method">
+<section id="method" markdown="1">
 
 <details markdown="1">
 <summary>Method: the full lag table, and how Line 7e is computed</summary>
@@ -131,7 +130,7 @@ falls. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
 
 </section>
 
-<section id="caveats">
+<section id="caveats" markdown="1">
 
 ## What this isn't
 
@@ -139,7 +138,7 @@ falls. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
 presumption is unreachable: at $589 a week of claimed child care it reports the 40 percent
 threshold, and a payor can still raise it. The defect is a 17-point lag, not an impossibility. And
 $1,290 a week for three children is the statutory ceiling on allowable child care, not a typical
-claim — one worked example is not a distribution across cases, and how often actual claims sit near
+claim. One worked example is not a distribution across cases, and how often actual claims sit near
 that benchmark is not known from anything in this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Across the full grid behind the heatmap
@@ -149,7 +148,7 @@ total.</p>
 
 </section>
 
-<section id="check">
+<section id="check" markdown="1">
 
 <div class="check-yourself">
 <h2>Check it yourself</h2>

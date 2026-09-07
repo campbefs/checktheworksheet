@@ -1,24 +1,69 @@
 ---
 layout: finding
 title: Fifty-one jurisdictions, one fact pattern
+permalink: /findings/fifty-one-jurisdictions/
 description: >-
   One fact pattern, computed for all fifty states and the District of Columbia, profiled from each
   jurisdiction's own primary documents, computed twice independently, reconciled and adversarially
   checked. This is the weakest claim on this site and generalizes to nothing beyond the fact
   pattern tested.
+disclosure:
+  - >-
+    The fact pattern run through all fifty-one jurisdictions on this page is my own: three
+    children, a payor at $201,000 a year, the other parent at $29,640 a year ($570 a week), no
+    child care claimed. I disclose it because the ranking below only means what it says if the
+    reader can see exactly what was held fixed.
+  - >-
+    The data behind every figure on this page is described on
+    <a href="/the-data/">the data</a> page, which links each of the underlying files directly.
+rail_label: "On this page"
+sections:
+  - id: mechanism
+    label: "How the ranking was built"
+  - id: equal
+    label: "Equal parenting time"
+  - id: primary
+    label: "Lower earner primary"
+  - id: credit-count
+    label: "Who gives a formula credit"
+  - id: ceilings
+    label: "Where each schedule stops"
+  - id: combined
+    label: "Equal time vs. everyone else's primary"
+  - id: gross-net
+    label: "Why gross vs. net complicates this"
+  - id: caveats
+    label: "What this isn't"
+  - id: check
+    label: "Check it yourself"
 ---
 
-# This is the weakest finding on this site: one fact pattern ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
+{% include disclosure.html %}
 
-<div class="disclosure">
-<p>The fact pattern run through all fifty-one jurisdictions on this page is my own: three children,
-a payor at $201,000 a year, the other parent at $29,640 a year ($570 a week), no child care claimed.
-I disclose it because the ranking below only means what it says if the reader can see exactly what
-was held fixed. The data behind every figure on this page is described on
-<a href="/the-data/">the data</a> page, which links each of the three underlying files directly.</p>
+<section class="hero" markdown="1">
+<p class="eyebrow">Finding 4 of 4 — the weakest finding on this site</p>
+
+# One fact pattern ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
+
+<p class="lede">Fifty of fifty-one jurisdictions were profiled from their own primary documents,
+computed twice independently, reconciled, and adversarially attacked for defects. At the one fact
+pattern tested, Massachusetts's equal-parenting order ranks first of fifty.</p>
+</section>
+
+<div class="numeral-pair numeral-pair--solo">
+  <div class="numeral">
+    <span class="numeral-value">1 of 50</span>
+    <p class="numeral-caption">Massachusetts's rank on the equal-parenting-time order, one fact pattern: three children, $201,000 and $29,640 a year, no child care</p>
+  </div>
 </div>
 
 <p class="confidence-tag">Tiered: see method below. One fact pattern; the ranking generalizes to nothing else.</p>
+
+<div class="page-shell" markdown="1">
+{% include chapter-rail.html %}
+<div class="content-col" markdown="1">
+
+<section id="mechanism" markdown="1">
 
 ## Fifty of fifty-one jurisdictions survived a four-stage check; Georgia did not, and carries no number here
 
@@ -32,15 +77,12 @@ below rather than given a wrong one.
 
 That leaves fifty jurisdictions ranked. A tier this size, checked this way, is still one analysis of
 one fact pattern, not a survey, and not a claim about any other income level, custody split, or
-number of children.
+number of children. Change any one of those inputs and every ranking below could move, in either
+direction.
 
-## The fact pattern is fixed, and it is the same order used throughout this site
+</section>
 
-Every ranking on this page holds one fact pattern constant: three children, a payor at $201,000 a
-year, the other parent at $29,640 a year, no child care claimed. Change any one of those inputs
-(the number of children, the income split, whether child care is claimed) and every ranking below
-could move, in either direction. This is one point in a very large space of possible families, not
-a distribution over them, and it should not be read as one.
+<section id="equal" markdown="1">
 
 ## At equal parenting time, Massachusetts's order is the highest of the fifty jurisdictions modeled
 
@@ -62,6 +104,9 @@ a distribution over them, and it should not be read as one.
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
   </figcaption>
 </figure>
+
+<details markdown="1">
+<summary>Method: the full fifty-jurisdiction ranking, equal parenting time</summary>
 
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Full ranking, equal parenting time">
 <table class="exhibit-table">
@@ -124,6 +169,12 @@ a distribution over them, and it should not be read as one.
 </table>
 </div>
 
+</details>
+
+</section>
+
+<section id="primary" markdown="1">
+
 ## With the children primarily with the lower earner, only Hawaii's order is higher
 
 <figure class="exhibit" id="e12">
@@ -140,6 +191,9 @@ a distribution over them, and it should not be read as one.
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
   </figcaption>
 </figure>
+
+<details markdown="1">
+<summary>Method: the full fifty-jurisdiction ranking, lower earner primary</summary>
 
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Full ranking, lower-earner primary custody">
 <table class="exhibit-table">
@@ -202,10 +256,16 @@ a distribution over them, and it should not be read as one.
 </table>
 </div>
 
+</details>
+
+</section>
+
+<section id="credit-count" markdown="1">
+
 ## A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23; Massachusetts is among the 23
 
-This is a count, not a dollar claim. Massachusetts's own Box 2 (one parent with the children about
-a third of the time) is its one-third case, and Massachusetts does not treat that arrangement as
+This is a count, not a dollar claim. Massachusetts's own Box 2 (one parent with the children about a
+third of the time) is its one-third case, and Massachusetts does not treat that arrangement as
 earning a discrete formula credit the way 28 other jurisdictions do.
 
 <figure class="exhibit" id="e13">
@@ -221,15 +281,19 @@ earning a discrete formula credit the way 28 other jurisdictions do.
   </figcaption>
 </figure>
 
+</section>
+
+<section id="ceilings" markdown="1">
+
 ## Massachusetts's presumptive formula ceiling ranks 13th of the 41 jurisdictions that state one
 
-This figure corrects an earlier comparison this project made against nine benchmark states, in
-which Massachusetts appeared second. Measured against the 41 jurisdictions that state a
-combined-income ceiling for their presumptive schedule, Massachusetts's $450,000 ceiling ranks 13th:
-12 jurisdictions state a higher ceiling, 28 a lower one, and the median among the 41 is $360,000. Ten
-further jurisdictions use a percentage-of-obligor, Melson, or open formula with no stated
-combined-income ceiling. Net-income ceilings are not dollar-for-dollar comparable with gross ones,
-and this table does not adjust for that difference.
+This figure corrects an earlier comparison this project made against nine benchmark states, in which
+Massachusetts appeared second. Measured against the 41 jurisdictions that state a combined-income
+ceiling for their presumptive schedule, Massachusetts's $450,000 ceiling ranks 13th: 12 jurisdictions
+state a higher ceiling, 28 a lower one, and the median among the 41 is $360,000. Ten further
+jurisdictions use a percentage-of-obligor, Melson, or open formula with no stated combined-income
+ceiling. Net-income ceilings are not dollar-for-dollar comparable with gross ones, and this table
+does not adjust for that difference.
 
 <figure class="exhibit" id="e16">
   <img src="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
@@ -245,6 +309,9 @@ and this table does not adjust for that difference.
       <a href="/figures/working/fig9_schedule_ceilings.csv">data (CSV)</a></p>
   </figcaption>
 </figure>
+
+<details markdown="1">
+<summary>Method: every jurisdiction's stated ceiling, and the ten with none</summary>
 
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Combined-income ceilings, jurisdictions with one stated">
 <table class="exhibit-table">
@@ -298,7 +365,7 @@ and this table does not adjust for that difference.
 </table>
 </div>
 
-Ten further jurisdictions state no combined-income ceiling for their presumptive schedule:
+<p>Ten further jurisdictions state no combined-income ceiling for their presumptive schedule:</p>
 
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Jurisdictions with no stated combined-income ceiling">
 <table class="exhibit-table">
@@ -320,6 +387,12 @@ Ten further jurisdictions state no combined-income ceiling for their presumptive
   </tbody>
 </table>
 </div>
+
+</details>
+
+</section>
+
+<section id="combined" markdown="1">
 
 ## Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions
 
@@ -349,6 +422,9 @@ priced almost everywhere else.
       <a href="/figures/working/fig10_ma_shared_vs_primary.csv">data (CSV)</a></p>
   </figcaption>
 </figure>
+
+<details markdown="1">
+<summary>Method: the full combined table, Massachusetts equal-time vs. every jurisdiction's primary-custody order</summary>
 
 <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Massachusetts equal-time order vs. every other jurisdiction's primary-custody order">
 <table class="exhibit-table">
@@ -412,25 +488,75 @@ priced almost everywhere else.
 </table>
 </div>
 
-## What this page does not show
+</details>
 
-One fact pattern is not a distribution. Nothing here says what a lower-income family, a two-child
-family, or a family with claimed child care would see in any of these fifty jurisdictions; those
-are different points that have not been computed. Nothing here says Massachusetts's amounts are
-wrong; the Commonwealth's own consultant offers a reason for them, cost of living, that this page
-does not test or dispute. What this page does show, at the one fact pattern tested: an arrangement
-giving each parent equal time is priced by Massachusetts's Worksheet at a level most other
-jurisdictions reserve for one parent having the children the great majority of the time.
+</section>
 
-<div class="ask">
+<section id="gross-net" markdown="1">
+
+## Massachusetts still uses gross income, which the Task Force has discussed and deferred once on the record in five documented cycles
+
+Every ranking above uses each jurisdiction's own income basis as its guidelines define it — some
+gross, some net, noted in the ceiling table above — because that is how each state actually
+calculates its order. Massachusetts uses gross income throughout. Whether gross is the right basis
+is a live and unresolved question inside Massachusetts's own review process, which bears on how any
+cross-jurisdiction comparison using gross figures should be read.
+
+{% include figure.html
+   id="e27"
+   img="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
+   alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking which cycles' own primary text records the gross-versus-net income question being raised and deferred."
+   title="Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017-2025."
+   deck="Every Massachusetts guidelines edition or off-cycle amendment in the corpus (2017, 2018, 2021, 2023, 2025), marked filled where the gross-versus-net income basis question was deferred on the record and hollow where the corpus holds no record of it being raised at all."
+   notes="Only 2025's Brattle Economic Review carries a verbatim deferral; its own text says prior task forces did the same, but their primary text is not in this corpus, so 2017, 2018, 2021 and 2023 are marked no record rather than deferred. The chart states what the corpus supports, not what the 2025 report claims about years it does not itself document."
+   source_script="model/charts/fig11_deferral_timeline.py"
+   csv_href="/figures/working/fig11_deferral_timeline.csv" %}
+
+The 2025 Brattle Economic Review, the only cycle in the corpus with a verbatim deferral, states it
+plainly: <q>Again in this review, as prior task forces have done, the Task Force discussed the use of
+gross versus net income in the guidelines. Ultimately, it decided not to recommend a change from
+gross income to net income at this time. We expect this issue will once again be considered as part
+of the next guidelines review.</q> The 2025 report's own claim that "prior task forces" did the same
+is not independently verifiable from anything in this corpus — the 2017, 2018, 2021 and 2023 primary
+texts contain no discussion of this specific question that this project could find, so those cycles
+are marked "no record," not "deferred."
+
+</section>
+
+<section id="caveats" markdown="1">
+
+## What this isn't
+
+<p class="caveat">One fact pattern is not a distribution. Nothing here says what a lower-income
+family, a two-child family, or a family with claimed child care would see in any of these fifty
+jurisdictions; those are different points that have not been computed.</p>
+
+<p class="caveat">Nothing here says Massachusetts's amounts are wrong. The Commonwealth's own
+consultant offers a reason for them, cost of living, that this page does not test or dispute. What
+this page does show, at the one fact pattern tested: an arrangement giving each parent equal time is
+priced by Massachusetts's Worksheet at a level most other jurisdictions reserve for one parent having
+the children the great majority of the time.</p>
+
+</section>
+
+<section id="check" markdown="1">
+
+<div class="check-yourself">
 <h2>Check it yourself</h2>
 <p>Every ranking above comes from a dataset committed to this repository, built through the
 profile-compute-reconcile-attack process described above.</p>
 <ul>
-  <li><a href="/the-data/">The data</a></li>
-  <li><a href="/data/fifty-state/tier-50-2026-09-05.json"><code>data/fifty-state/tier-50-2026-09-05.json</code></a></li>
-  <li><a href="/data/fifty-state/credit-at-122-2026-09-05.json"><code>data/fifty-state/credit-at-122-2026-09-05.json</code></a></li>
-  <li><a href="/data/fifty-state/ceilings-2026-09-06.json"><code>data/fifty-state/ceilings-2026-09-06.json</code></a></li>
-  <li><a href="https://github.com/campbefs/checktheworksheet">The repository</a></li>
+  <li><strong><a href="/the-data/">The data</a></strong></li>
+  <li><strong><a href="/data/fifty-state/tier-50-2026-09-05.json"><code>tier-50-2026-09-05.json</code></a></strong></li>
+  <li><strong><a href="/data/fifty-state/credit-at-122-2026-09-05.json"><code>credit-at-122-2026-09-05.json</code></a></strong></li>
+  <li><strong><a href="/data/fifty-state/ceilings-2026-09-06.json"><code>ceilings-2026-09-06.json</code></a></strong></li>
+  <li><strong><a href="/data/deferrals-gross-vs-net.json"><code>deferrals-gross-vs-net.json</code></a></strong>
+    The gross-vs-net deferral timeline's own source, grepped from <code>data/extracted/*.flow.txt</code>.</li>
+  <li><strong><a href="https://github.com/campbefs/checktheworksheet">The repository</a></strong></li>
 </ul>
+</div>
+
+</section>
+
+</div>
 </div>

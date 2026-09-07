@@ -8,11 +8,11 @@ description: >-
   the payor 88 cents of every dollar of a $15,600 claim.
 disclosure:
   - >-
-    The worked example throughout — the payor, the recipient's $300-a-week child care claim — is
-    my own child support order: three children, my income and my children's mother's income
-    entered as the Worksheet requires. I disclose it because a reader should be able to check
-    whether the arithmetic changes when the numbers are real, not hypothetical. It doesn't: the
-    same allocation gap holds across income levels and child counts, not only at my own figures.
+    The worked example throughout (the payor, the recipient's $300-a-week child care claim) is my
+    own child support order: three children, my income and my children's mother's income entered
+    as the Worksheet requires. I disclose it because a reader should be able to check whether the
+    arithmetic changes when the numbers are real, not hypothetical. It doesn't: the same
+    allocation gap holds across income levels and child counts, not only at my own figures.
   - >-
     The model behind every number on this page is
     <a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>,
@@ -38,7 +38,7 @@ sections:
 
 {% include disclosure.html %}
 
-<section class="hero">
+<section class="hero" markdown="1">
 <p class="eyebrow">Finding 2 of 4</p>
 
 # Line 6b charges the payor 88 cents of every dollar of child care, using an income split base support has already moved
@@ -57,11 +57,11 @@ order transfers a single dollar between the two households, and never revisits i
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
-<div class="page-shell">
+<div class="page-shell" markdown="1">
 {% include chapter-rail.html %}
-<div class="content-col">
+<div class="content-col" markdown="1">
 
-<section id="mechanism">
+<section id="mechanism" markdown="1">
 
 ## Line 6b uses the income split from before the base order moved money between the households
 
@@ -70,14 +70,14 @@ worksheet, before the base support amount at Line 7d exists. Line 6a is the chil
 actually pays out of pocket; Line 6b multiplies the *other* parent's Line 3c share by that amount,
 so if the recipient pays the provider, the payor's Line 6b charge is his Line 3c share of her cost.
 By the time child care is added at Line 6, the base order has already been set and, once paid, will
-move a large share of the payor's income to the recipient's household every week — but Line 6b never
+move a large share of the payor's income to the recipient's household every week, but Line 6b never
 re-measures the shares against that post-transfer reality. It keeps using the original,
 pre-transfer split for the life of the order, on top of an obligation that has already re-weighted
 what each household actually has.
 
 </section>
 
-<section id="exhibits">
+<section id="exhibits" markdown="1">
 
 ## The payor's share falls from 88 cents to 48 cents once the split is measured after the order and after tax
 
@@ -94,12 +94,12 @@ what each household actually has.
 
 </section>
 
-<section id="range">
+<section id="range" markdown="1">
 
 ## The gap widens with the number of children, in both directions the money can move
 
 The same pre-transfer-versus-post-transfer gap shows up whether the lower earner pays the
-provider — the case above — or whether the higher earner does. Three single-chart exhibits, one per
+provider, the case above, or whether the higher earner does. Three single-chart exhibits, one per
 child count, hold the arrangement fixed (one parent pays $100 a week per child) and vary only how
 many children there are.
 
@@ -128,7 +128,7 @@ many children there are.
    img="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
    alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, three children, across a range of income shares."
    title="With three children, post-transfer child care funds the payor 46 points below his income share."
-   deck="Same construction as the one- and two-child exhibits, three children — the worked example's own child count."
+   deck="Same construction as the one- and two-child exhibits, three children, the worked example's own child count."
    notes="Previously the third panel of the same exhibit."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_rules.csv" %}
@@ -162,7 +162,7 @@ own parenting time.
 
 </section>
 
-<section id="method">
+<section id="method" markdown="1">
 
 <details markdown="1">
 <summary>Method: the full split table, three ways to measure the same $15,600 bill</summary>
@@ -188,7 +188,7 @@ his income share puts him outside the low-income protection the line was written
 
 </section>
 
-<section id="caveats">
+<section id="caveats" markdown="1">
 
 ## What this isn't
 
@@ -196,7 +196,7 @@ his income share puts him outside the low-income protection the line was written
 rule. The objection here is to which income the proportion is measured against, not to
 proportionality as a concept. $300 a week is a real but not extreme claim relative to the
 $430-per-child statutory ceiling; a smaller claim moves the split by less, a larger one by more.
-And this is one worked example, not a distribution — how far a typical case's child care claim sits
+And this is one worked example, not a distribution. How far a typical case's child care claim sits
 from this one is not known from anything in this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Even in the scenario where both parents pay
@@ -205,7 +205,7 @@ against $22,907 each for the recipient's household of four.</p>
 
 </section>
 
-<section id="check">
+<section id="check" markdown="1">
 
 <div class="check-yourself">
 <h2>Check it yourself</h2>

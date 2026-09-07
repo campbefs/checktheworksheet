@@ -35,7 +35,7 @@ sections:
 
 {% include disclosure.html %}
 
-<section class="hero">
+<section class="hero" markdown="1">
 <p class="eyebrow">Finding 3 of 4</p>
 
 # The Worksheet's credit for equal parenting time falls from 77.6 percent to 6.9 percent as the income gap widens, with no measure of time anywhere in the calculation
@@ -54,11 +54,11 @@ time is actually split.</p>
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
-<div class="page-shell">
+<div class="page-shell" markdown="1">
 {% include chapter-rail.html %}
-<div class="content-col">
+<div class="content-col" markdown="1">
 
-<section id="mechanism">
+<section id="mechanism" markdown="1">
 
 ## Box 1's credit for equal parenting time equals the payor's own Line 6e, and Line 6e has no time in it
 
@@ -67,7 +67,7 @@ children the great majority of the time, and Box 1, where the parents share time
 compute the same total support amount at Line 4c ($1,240.73 a week at the worked example: three
 children, a payor at $201,000 a year, the other parent at $570 a week), then divide it between the
 parents by their shares of combined income. Line 5b assigns the payor 87.68 percent of that amount,
-$1,087.90 a week — the order Box 2 would produce for the same family. Box 1 then subtracts a credit
+$1,087.90 a week, the order Box 2 would produce for the same family. Box 1 then subtracts a credit
 at Line 6g, and that credit is exactly the payor's own Line 6e: $75.17 a week, capped there because
 his own income share is below 10 percent. $75.17 out of $1,087.90 is 6.9 percent. Nothing in Lines
 4c through 6g asks how many overnights either parent actually has.
@@ -79,7 +79,7 @@ his own income share is below 10 percent. $75.17 out of $1,087.90 is 6.9 percent
 
 </section>
 
-<section id="exhibits">
+<section id="exhibits" markdown="1">
 
 ## The credit tracks the income gap, not the calendar, and runs backward as the gap widens
 
@@ -97,14 +97,14 @@ his own income share is below 10 percent. $75.17 out of $1,087.90 is 6.9 percent
 Even the fix other states use does not put the calendar into the calculation. Removing the clip once,
 so the payor's own entitlement is not capped a second time (Variant A), raises the order's reduction
 to 14.0 percent, an order of $935.06. Applying the standard cross-credit design used by 23 states, at
-a 1.5 duplication factor (Variant B), raises the reduction to 35.5 percent, an order of $701.30 — a
+a 1.5 duplication factor (Variant B), raises the reduction to 35.5 percent, an order of $701.30, a
 30.8 percent drop from the current $1,012.73. Neither variant adds a term for how much time either
 parent actually has the children: both change how the income-share gap is priced, not what is being
 priced.
 
 </section>
 
-<section id="overnights">
+<section id="overnights" markdown="1">
 
 ## Priced as overnights, equal time comes out to a third of the calendar under one factor and just under half under another
 
@@ -132,13 +132,13 @@ duplication factor is used, so the factor must always be stated beside the numbe
 
 At the 1.5 duplication factor (the figure Indiana's Child Support Guideline 6 Commentary uses to
 quantify equal-parenting duplication), the Box 1 order at the worked example implies an overnight
-share of 33.3 percent. At the 2.0 factor implied by Box 1's own uncapped arithmetic — both parents'
-columns carry every child at the full schedule amount — it implies 46.9 percent. Neither reaches the
+share of 33.3 percent. At the 2.0 factor implied by Box 1's own uncapped arithmetic (both parents'
+columns carry every child at the full schedule amount) it implies 46.9 percent. Neither reaches the
 50 percent the parent in the worked example actually has.
 
 </section>
 
-<section id="method">
+<section id="method" markdown="1">
 
 <details markdown="1">
 <summary>Method: the credit across incomes, and where it stops meaning anything</summary>
@@ -182,13 +182,13 @@ that range rather than showing a number that would not mean what it appears to m
 
 </section>
 
-<section id="caveats">
+<section id="caveats" markdown="1">
 
 ## What this isn't
 
 <p class="caveat">Every figure on this page comes from one fact pattern: three children, equal
-parenting time, no child care claimed, at the incomes stated. The mechanism — Box 1's credit
-equalling the payor's own capped Line 6e — is a property of the form itself and does not depend on
+parenting time, no child care claimed, at the incomes stated. The mechanism, Box 1's credit
+equalling the payor's own capped Line 6e, is a property of the form itself and does not depend on
 the fact pattern; the specific dollar amounts and percentages do. This page says nothing about Box
 2, about primary custody, or about any arrangement other than equal time.</p>
 
@@ -199,7 +199,7 @@ care</a> findings for that comparison at the same worked example.</p>
 
 </section>
 
-<section id="check">
+<section id="check" markdown="1">
 
 <div class="check-yourself">
 <h2>Check it yourself</h2>
