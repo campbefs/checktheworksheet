@@ -107,6 +107,19 @@ scripts:
           <input type="range" id="calc-lower" data-calc-input="lower"
                  min="0" max="120000" step="120" value="29640">
         </div>
+        <div class="tool-controls-row">
+          <fieldset class="segmented">
+            <legend>Children</legend>
+            <label class="segmented-option"><input type="radio" name="calc-kids" value="1" data-calc-radio="kids"> 1</label>
+            <label class="segmented-option"><input type="radio" name="calc-kids" value="2" data-calc-radio="kids"> 2</label>
+            <label class="segmented-option"><input type="radio" name="calc-kids" value="3" data-calc-radio="kids" checked> 3</label>
+          </fieldset>
+          <fieldset class="segmented">
+            <legend>Custody</legend>
+            <label class="segmented-option"><input type="radio" name="calc-custody" value="1" data-calc-radio="custody" checked> Shared, equal time (Box 1)</label>
+            <label class="segmented-option"><input type="radio" name="calc-custody" value="2" data-calc-radio="custody"> Primary with the lower earner (Box 2)</label>
+          </fieldset>
+        </div>
         <div class="tool-readout" aria-live="polite">
           <div>
             <p class="cell-label">Weekly order (Line 7d)</p>
@@ -118,12 +131,35 @@ scripts:
           </div>
           <div>
             <p class="cell-label">True share of the payor's net income</p>
-            <p class="cell-value true-burden" data-calc-cell="true_pct_net">37.7%</p>
+            <p class="cell-value" data-calc-cell="true_pct_net">37.7%</p>
+            <p class="cell-note" data-calc-note="true_pct_net">&nbsp;</p>
           </div>
         </div>
         <p class="tool-flag" data-calc-flag>&nbsp;</p>
-        <p>Three children, no child care, Box 1 (shared parenting), health premiums $33/$43 a week,
-        the worked example's own facts, held fixed. Method:
+        <details class="tool-detail" open>
+          <summary>After tax and the order, per year</summary>
+          <div class="tool-readout tool-readout--pair" aria-live="polite">
+            <div>
+              <p class="cell-label">Payor keeps</p>
+              <p class="cell-value" data-calc-cell="payor_after">$87,172/yr</p>
+            </div>
+            <div>
+              <p class="cell-label">Recipient household holds</p>
+              <p class="cell-value is-warning" data-calc-cell="recip_after">$92,941/yr</p>
+              <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,235/yr</strong></p>
+              <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
+            </div>
+          </div>
+          <p class="tool-flag" data-calc-flag-household>&nbsp;</p>
+        </details>
+        <p>Three children and Box 1 (shared parenting) by default; choose 1&ndash;3 children or
+        Box 2 above &mdash; Box 2 puts the children primarily with the lower earner, who receives,
+        while the higher earner pays. No child care; health premiums $33/wk (lower earner) and
+        $43/wk (higher earner); the MA Child and Family Tax Credit for children under 13 fixed at
+        zero, the same convention as every income-range chart on this site, so the household
+        figures above run slightly lower than this site's worked example elsewhere, which uses two
+        of the three children under 13. This calculator models Massachusetts only; no other
+        state's worksheet is implemented here. Method:
         <a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
         <a href="/model/net_position.py"><code>model/net_position.py</code></a>, ported and tested
         in <a href="/assets/js/lib/worksheet.js"><code>assets/js/lib/worksheet.js</code></a> and

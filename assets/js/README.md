@@ -55,14 +55,30 @@ and computes the real answer for any two incomes, at any dollar value, not just 
 node assets/js/calculator.test.js
 ```
 
-38 checks: all six fact patterns from `model/runs/official-xfa-vs-model-2026-09-05.txt` (the
+338 checks: all six fact patterns from `model/runs/official-xfa-vs-model-2026-09-05.txt` (the
 Commonwealth's own CJ-D 304 XFA calculate-scripts), both in "round every line" mode (matches the
 official scripts to the dollar on all six) and in the default unrounded mode (matches
 `model/worksheet.py`'s own output to six decimal places — this is what the letter, the paper and
-this site's own copy quote); plus the worked example's tax position from
-`model/runs/submission-figures-run-2026-09-05.txt` to the cent. **All 38 pass as of 2026-09-06.**
-If you change either `lib/` file and a check fails, the port has diverged from the Python — fix
-the port, never the test.
+this site's own copy quote); the worked example's tax position from
+`model/runs/submission-figures-run-2026-09-05.txt` to the cent; the sanity guard firing/clearing;
+and (v2, 2026-09-07) the full **children x custody x six-income-pair fixture grid**,
+`fixtures/calculator-v2.json` (36 rows, 0 disabled), generated straight from `model/worksheet.py`
+and `model/net_position.py` in the private repo and checked to the dollar and to 0.001 on ratios.
+**All 338 pass as of 2026-09-07.** If you change either `lib/` file and a check fails, the port has
+diverged from the Python — fix the port, never the test. If you add a new children/custody/income
+combination the tool should support, regenerate `fixtures/calculator-v2.json` from the Python
+first — never hand-write an expected value. The generator script that produced it was written to
+`/tmp` (per this project's convention that a one-off script does not belong in either repo) and is
+not checked in; to reproduce it: for each of children 1/2/3 x box 1/2 x the six `(higher, lower)`
+annual-gross pairs `(201000,29640) (150000,30000) (250000,60000) (120000,80000) (300000,0)
+(90000,45000)`, call `worksheet.run(box, lower/52, higher/52, kids, 0, a_health=33.0,
+b_health=43.0)` then `net_position.analyze(payor_gross, recip_gross, kids, r["7d"], 0.0, 0.0,
+kids_under_13=0)` (payor/recip resolved from `r["payor"]`), and write `kids, box, higher, lower,
+payor, order_wk (r["7d"]), line_7e (r["7e"]), true_pct_net (support_pct_of_payor_net), payor_net,
+payor_after, recip_after, recip_per_person` per row, plus a `disabled` array for any combination
+that raised. All 36 combinations computed cleanly for this grid (`disabled: []`); if a future grid
+addition can't be computed, list it there and disable that combination in the UI instead of
+guessing a number.
 
 ### Markup a page must contain
 
@@ -80,7 +96,20 @@ the port, never the test.
       <output id="calc-lower-output" for="calc-lower">$29,640/yr</output>
     </label>
     <input type="range" id="calc-lower" data-calc-input="lower"
-           min="0" max="120000" step="1000" value="29640">
+           min="0" max="120000" step="120" value="29640">
+  </div>
+  <div class="tool-controls-row">
+    <fieldset class="segmented">
+      <legend>Children</legend>
+      <label class="segmented-option"><input type="radio" name="calc-kids" value="1" data-calc-radio="kids"> 1</label>
+      <label class="segmented-option"><input type="radio" name="calc-kids" value="2" data-calc-radio="kids"> 2</label>
+      <label class="segmented-option"><input type="radio" name="calc-kids" value="3" data-calc-radio="kids" checked> 3</label>
+    </fieldset>
+    <fieldset class="segmented">
+      <legend>Custody</legend>
+      <label class="segmented-option"><input type="radio" name="calc-custody" value="1" data-calc-radio="custody" checked> Shared, equal time (Box 1)</label>
+      <label class="segmented-option"><input type="radio" name="calc-custody" value="2" data-calc-radio="custody"> Primary with the lower earner (Box 2)</label>
+    </fieldset>
   </div>
   <div class="tool-readout" aria-live="polite">
     <div>
@@ -93,12 +122,29 @@ the port, never the test.
     </div>
     <div>
       <p class="cell-label">True share of the payor's net income</p>
-      <p class="cell-value true-burden" data-calc-cell="true_pct_net">37.7%</p>
+      <p class="cell-value" data-calc-cell="true_pct_net">37.7%</p>
+      <p class="cell-note" data-calc-note="true_pct_net">&nbsp;</p>
     </div>
   </div>
   <p class="tool-flag" data-calc-flag>&nbsp;</p>
-  <p>Three children, no child care, Box 1 (shared parenting), health premiums $33/$43 a week,
-    the worked example's own facts, held fixed. Method:
+  <details class="tool-detail" open>
+    <summary>After tax and the order, per year</summary>
+    <div class="tool-readout tool-readout--pair" aria-live="polite">
+      <div>
+        <p class="cell-label">Payor keeps</p>
+        <p class="cell-value" data-calc-cell="payor_after">$87,172/yr</p>
+      </div>
+      <div>
+        <p class="cell-label">Recipient household holds</p>
+        <p class="cell-value is-warning" data-calc-cell="recip_after">$92,941/yr</p>
+        <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,235/yr</strong></p>
+        <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
+      </div>
+    </div>
+    <p class="tool-flag" data-calc-flag-household>&nbsp;</p>
+  </details>
+  <p>Three children and Box 1 (shared parenting) by default, no child care, health premiums
+    $33/wk (lower earner) / $43/wk (higher earner), MA under-13 credit fixed at zero. Method:
     <a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
     <a href="/model/net_position.py"><code>model/net_position.py</code></a>, ported and tested in
     <a href="/assets/js/lib/worksheet.js"><code>assets/js/lib/worksheet.js</code></a> and
@@ -106,28 +152,49 @@ the port, never the test.
 </div>
 ```
 
-(No new CSS class is introduced by this pass. `.check-yourself`/`.ask` exist in
-`assets/css/site.css` but are built for a whole section with an `<h2>` and a link grid — the
-method line above is one plain paragraph inside `.tool` and needs no special class; a page
-author who wants the full check-yourself treatment should put it in its own section outside the
-tool, per `CONVENTIONS.md` §7, not force it onto this one line.)
+(v2 introduces four new classes, all in `assets/css/site.css`'s "Live tools" section:
+`.tool-controls-row` / `.segmented` / `.segmented-option` — the children/custody segmented radio
+controls, `grid-column: 1 / -1` so the row spans the two-up grid regardless of implicit
+auto-placement — and `.tool-detail` — the `<details>` wrapper for the after-tax row, same reason.
+`.cell-note` and `.cell-sub` are new too: a bold short text label paired with the warning colour
+(WCAG 1.4.1 — colour is never the only channel) and the per-person figure beside a household one,
+respectively. `.check-yourself`/`.ask` exist in `assets/css/site.css` but are built for a whole
+section with an `<h2>` and a link grid — the method line above is one plain paragraph inside
+`.tool` and needs no special class; a page author who wants the full check-yourself treatment
+should put it in its own section outside the tool, per `CONVENTIONS.md` §7, not force it onto this
+one line.)
 
 Front matter: `scripts: ["/assets/js/lib/worksheet.js", "/assets/js/lib/net-position.js", "/assets/js/calculator.js"]`
 — **in that order**; `calculator.js` reads `window.MCSGWorksheet` / `window.MCSGNetPosition` and
 does nothing if either is missing (fails safe onto the static markup below, see next point).
 
-**No-JS / load-failure fallback is REQUIRED and is not automatic**: the three `data-calc-cell`
-spans and the two sliders' `value` attributes must already contain the real worked-example numbers
-exactly as written above ($1,013/wk, 26.5%, 37.7%, $201,000/yr, $29,640/yr) — copy them verbatim,
-they are tested. A reader with JavaScript off, or whose browser fails to load one of the two
-`lib/` scripts, sees the worked example stated correctly and only loses the ability to change it.
+**No-JS / load-failure fallback is REQUIRED and is not automatic**: every `data-calc-cell` span,
+both sliders' `value` attributes, both radio groups' `checked` attributes, and the `is-warning`
+class / note text on `recip_after` must already contain the real worked-example numbers exactly as
+written above ($1,013/wk, 26.5%, 37.7%, $87,172/yr, $92,941/yr, $23,235/yr, $201,000/yr, $29,640/yr,
+kids=3, box=1) — copy them verbatim, they are tested (`calculator.test.js` PART 3). A reader with
+JavaScript off, or whose browser fails to load one of the two `lib/` scripts, sees the worked
+example stated correctly, including which of the two warning colours is on, and only loses the
+ability to change it. The `<details open>` renders its content with no JavaScript at all; only the
+ability to collapse it is progressive enhancement (the browser's native behaviour).
 
-**Fixed facts, not sliders** (per the design brief's word budget — two income inputs only): three
-children, no child care, Box 1 (shared parenting), health premiums $33/wk to whichever slider is
-currently lower and $43/wk to whichever is currently higher (matches the convention already used
-by every heatmap exhibit in this project, `model/charts/_common.py`'s `order()`). The two sliders
-are independent controls; if a reader drags "lower" past "higher" the script silently swaps which
-value plays which role so the labels stay honest — it does not clamp or block the drag.
+**Fixed facts, not sliders** (per the design brief's word budget): no child care, health premiums
+$33/wk to whichever slider is currently lower and $43/wk to whichever is currently higher (matches
+the convention already used by every heatmap exhibit in this project,
+`model/charts/_common.py`'s `order()`), and the MA Child and Family Tax Credit for children under
+13 fixed at zero qualifying children (same generic-grid convention as every heatmap on this site —
+there is no third control for how many of the children are under 13). Because of that last one,
+**this tool's "after tax" row runs slightly lower than the site's own worked-example figures
+elsewhere** (which use two of the three children under 13): $92,941/yr here vs $93,821/yr in
+`model/runs/submission-figures-run-2026-09-05.txt` and quoted around the rest of the site. The
+method paragraph in the markup above says so; do not remove that clause if you edit the copy.
+**Children (1/2/3, default 3) and custody (Box 1/Box 2, default Box 1) are real controls** — real
+`<input type="radio">` elements in a `<fieldset>`/`<legend>`, keyboard-operable, each group's
+`name` distinct. The two income sliders remain independent controls; if a reader drags "lower"
+past "higher" the script silently swaps which value plays which role so the labels stay honest —
+it does not clamp or block the drag. **This calculator models Massachusetts only** — the method
+paragraph says so in one clause; no other jurisdiction's worksheet is ported here (contrast the
+fifty-jurisdiction table below, which is a lookup across all 51, not a computation).
 
 **`heatmap-3child-box1.json` is not used by this tool** and is not dead weight to remove — it is
 the CSV `figures/working/fig1_heatmap_3child_box1.csv` already committed to the repo and cited

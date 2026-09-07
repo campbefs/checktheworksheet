@@ -542,6 +542,63 @@ input[type="range"]::-moz-range-thumb {
   .tool-two-up { grid-template-columns: 1fr; gap: var(--space-5); }
 }
 
+/* Calculator v2 (2026-09-07): children/custody segmented controls, and the "after tax and the
+   order" details row. `grid-column: 1 / -1` makes each span the full two-up grid regardless of
+   where it lands in the implicit row/column auto-placement above. */
+.tool-controls-row {
+  grid-column: 1 / -1;
+  display: flex; flex-wrap: wrap; gap: var(--space-5);
+  margin-bottom: var(--space-2);
+}
+.segmented {
+  display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-1);
+  border: 1px solid var(--rule-strong); border-radius: 6px;
+  margin: 0; padding: var(--space-2) var(--space-3);
+}
+.segmented legend {
+  font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase;
+  letter-spacing: 0.04em; color: var(--text-secondary); padding: 0 var(--space-2) 0 0;
+}
+.segmented-option {
+  display: flex; align-items: center; gap: var(--space-1);
+  font-size: 0.875rem; padding: var(--space-2) var(--space-2); border-radius: 4px;
+  cursor: pointer; min-height: 44px; /* WCAG 2.5.5 touch target, matches the slider thumbs above */
+}
+.segmented-option input[type="radio"] {
+  width: 18px; height: 18px; margin: 0; accent-color: var(--accent); cursor: pointer;
+}
+/* Progressive enhancement only: :has() support (Chrome 105+, Safari 15.4+, Firefox 121+) adds a
+   filled background to the checked option. Without it the native radio dot alone still shows
+   which option is selected -- never the only channel. */
+.segmented-option:has(input:checked) { background: var(--accent-tint); font-weight: 600; }
+
+/* The 2-column readout inside "After tax and the order, per year". */
+.tool-readout.tool-readout--pair { grid-template-columns: repeat(2, 1fr); }
+.tool-readout .cell-value.is-warning { color: var(--accent); }
+.cell-note {
+  font-size: 0.8125rem; font-weight: 700; color: var(--accent); margin: var(--space-1) 0 0;
+  visibility: hidden; min-height: 1.2em;
+}
+.cell-note.visible { visibility: visible; }
+.cell-sub {
+  font-family: var(--font-mono); font-size: 0.9375rem; color: var(--text-secondary);
+  margin: var(--space-1) 0 0;
+}
+.cell-sub strong { color: var(--text-primary); font-variant-numeric: tabular-nums; font-weight: 700; }
+
+.tool-detail { grid-column: 1 / -1; border-top: 1px solid var(--rule); margin-top: var(--space-5); padding-top: var(--space-5); }
+.tool-detail summary {
+  cursor: pointer; font-family: var(--font-serif); font-size: 1.0625rem; font-weight: 700;
+  color: var(--text-primary); margin-bottom: var(--space-4);
+}
+.tool-detail summary::marker { color: var(--accent); }
+.tool-detail .tool-readout { border-top: none; padding-top: 0; }
+
+@media (max-width: 700px) {
+  .tool-controls-row { flex-direction: column; align-items: stretch; }
+  .tool-readout.tool-readout--pair { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+
 /* ---- 11. Exhibits gallery + lightbox -------------------------------------- */
 
 .exhibit-gallery {

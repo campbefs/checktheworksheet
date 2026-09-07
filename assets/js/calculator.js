@@ -63,7 +63,7 @@
 //     </div>
 //     <div>
 //       <p class="cell-label">True share of the payor's net income</p>
-//       <p class="cell-value true-burden" data-calc-cell="true_pct_net">37.7%</p>
+//       <p class="cell-value" data-calc-cell="true_pct_net">37.7%</p>
 //       <p class="cell-note" data-calc-note="true_pct_net">&nbsp;</p>
 //     </div>
 //   </div>
@@ -77,9 +77,9 @@
 //       </div>
 //       <div>
 //         <p class="cell-label">Recipient household holds</p>
-//         <p class="cell-value" data-calc-cell="recip_after">$92,941/yr</p>
+//         <p class="cell-value is-warning" data-calc-cell="recip_after">$92,941/yr</p>
 //         <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,235/yr</strong></p>
-//         <p class="cell-note" data-calc-note="recip_after">&nbsp;</p>
+//         <p class="cell-note" data-calc-note="recip_after">Above the payor</p>
 //       </div>
 //     </div>
 //     <p class="tool-flag" data-calc-flag-household>&nbsp;</p>
