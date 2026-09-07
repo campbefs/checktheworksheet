@@ -31,7 +31,8 @@ description: >-
 
 <ul class="finding-list">
   <li class="finding-card">
-    <h3><a href="/findings/hardship-test-reads-the-wrong-income/">The hardship test reads a different income than the order pays from</a></h3>
+    <h3><a href="/findings/hardship-test/">The hardship test reads a different income than the order pays from</a></h3>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <p>Section IV.C presumes hardship once an order reaches 40 percent of a payor's available income, but
     Line 7e computes that share on gross-derived income while the order itself is paid from net. At the
     worked example, the true burden already exceeds 40 percent of net income at $80 a week of claimed
@@ -43,7 +44,8 @@ description: >-
     </p>
   </li>
   <li class="finding-card">
-    <h3><a href="/findings/child-care-allocated-on-the-wrong-income/">Child care is split on income the order has already changed</a></h3>
+    <h3><a href="/findings/child-care/">Child care is split on income the order has already changed</a></h3>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <p>Line 3c allocates child care on each parent's income share before the base child support order has
     moved any money between the households. At the worked example this assigns 87.7 percent of a $15,600
     child care bill to the payor; recomputing the shares after the transfer gives 64.5 percent, and
@@ -54,7 +56,8 @@ description: >-
     </p>
   </li>
   <li class="finding-card">
-    <h3><a href="/findings/parenting-time-credit-has-no-parenting-time-term/">The credit for equal parenting time contains no parenting-time term</a></h3>
+    <h3><a href="/findings/parenting-time/">The credit for equal parenting time contains no parenting-time term</a></h3>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <p>Line 6g nets the two parents' Line 6e amounts, which reduce to the difference in their income
     shares once Box 1 assigns zero children to the payor's column — nothing in the calculation multiplies
     by any share of overnights. So the reduction the credit produces for equal parenting time collapses as
@@ -66,7 +69,7 @@ description: >-
     </p>
   </li>
   <li class="finding-card">
-    <h3><a href="/findings/fifty-one-jurisdictions-one-fact-pattern/">Massachusetts's equal-time order exceeds 47 of 49 other jurisdictions' primary orders</a></h3>
+    <h3><a href="/findings/fifty-one-jurisdictions/">Massachusetts's equal-time order exceeds 47 of 49 other jurisdictions' primary orders</a></h3>
     <p class="confidence-tag">Tiered — one fact pattern, not a distribution; see method</p>
     <p>At one fact pattern — three children, $201,000 and $29,640 a year, no child care — fifty of
     fifty-one jurisdictions were profiled from primary documents, computed twice independently,

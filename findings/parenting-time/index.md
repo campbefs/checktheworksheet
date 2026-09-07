@@ -2,12 +2,11 @@
 layout: finding
 title: The parenting-time credit shrinks as the income gap widens
 description: >-
-  The Worksheet's credit for equal parenting time is the difference between the parents' income
-  shares, capped by one line, with no measure of time anywhere in it — so the credit shrinks as the
-  gap between the parents' incomes widens, and very nearly disappears at a wide gap.
+  The Worksheet's credit for equal parenting time falls from 77.6 percent to 6.9 percent as the
+  income gap between the parents widens, and no line in the calculation ever measures time.
 ---
 
-# The Worksheet's credit for equal parenting time is a gap between income shares, not a measure of time, and it shrinks as the income gap widens
+# The Worksheet's credit for equal parenting time falls from 77.6 percent to 6.9 percent as the income gap widens, with no measure of time anywhere in the calculation
 
 <div class="disclosure">
 <p>The worked example below is my own child support order: three children, equal parenting time,

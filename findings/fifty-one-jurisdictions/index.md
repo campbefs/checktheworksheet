@@ -14,8 +14,8 @@ description: >-
 <p>The fact pattern run through all fifty-one jurisdictions on this page is my own: three children,
 a payor at $201,000 a year, the other parent at $29,640 a year ($570 a week), no child care claimed.
 I disclose it because the ranking below only means what it says if the reader can see exactly what
-was held fixed. The data behind every figure on this page is at
-<a href="/the-data/">the-data</a> and <a href="/data/fifty-state/"><code>data/fifty-state/</code></a>.</p>
+was held fixed. The data behind every figure on this page is described on
+<a href="/the-data/">the data</a> page, which links each of the three underlying files directly.</p>
 </div>
 
 <p class="confidence-tag">Tiered — see method below. One fact pattern; the ranking generalizes to nothing else.</p>
@@ -63,13 +63,14 @@ a distribution over them, and it should not be read as one.
   </figcaption>
 </figure>
 
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Full ranking, equal parenting time">
 <table class="exhibit-table">
   <caption>Equal-parenting-time monthly order, all fifty jurisdictions modeled — full data behind Exhibit E11</caption>
   <thead>
     <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col">Monthly order</th></tr>
   </thead>
   <tbody>
-    <tr class="is-reader-state"><td>1</td><td>Massachusetts</td><td class="numeric">$4,388.48</td></tr>
+    <tr class="is-reader-state"><td>1</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$4,388.48</td></tr>
     <tr><td>2</td><td>New York</td><td class="numeric">$4,067.61</td></tr>
     <tr><td>3</td><td>New Hampshire</td><td class="numeric">$3,838.66</td></tr>
     <tr><td>4</td><td>Texas</td><td class="numeric">$3,510.00</td></tr>
@@ -121,6 +122,7 @@ a distribution over them, and it should not be read as one.
     <tr><td>50</td><td>Utah</td><td class="numeric">$1,058.31</td></tr>
   </tbody>
 </table>
+</div>
 
 ## With the children primarily with the lower earner, only Hawaii's order is higher
 
@@ -139,6 +141,7 @@ a distribution over them, and it should not be read as one.
   </figcaption>
 </figure>
 
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Full ranking, lower-earner primary custody">
 <table class="exhibit-table">
   <caption>Lower-earner-primary monthly order, all fifty jurisdictions modeled — full data behind Exhibit E12</caption>
   <thead>
@@ -146,7 +149,7 @@ a distribution over them, and it should not be read as one.
   </thead>
   <tbody>
     <tr><td>1</td><td>Hawaii</td><td class="numeric">$5,821.00</td></tr>
-    <tr class="is-reader-state"><td>2</td><td>Massachusetts</td><td class="numeric">$4,714.22</td></tr>
+    <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$4,714.22</td></tr>
     <tr><td>3</td><td>Wisconsin</td><td class="numeric">$4,491.71</td></tr>
     <tr><td>4</td><td>New York</td><td class="numeric">$4,067.61</td></tr>
     <tr><td>5</td><td>Delaware</td><td class="numeric">$3,990.73</td></tr>
@@ -197,6 +200,7 @@ a distribution over them, and it should not be read as one.
     <tr><td>50</td><td>Oregon</td><td class="numeric">$1,772.00</td></tr>
   </tbody>
 </table>
+</div>
 
 ## A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23; Massachusetts is among the 23
 
@@ -242,6 +246,7 @@ and this table does not adjust for that difference.
   </figcaption>
 </figure>
 
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Combined-income ceilings, jurisdictions with one stated">
 <table class="exhibit-table">
   <caption>Combined-income ceiling of the presumptive schedule, 41 jurisdictions that state one — full data behind Exhibit E16</caption>
   <thead>
@@ -260,7 +265,7 @@ and this table does not adjust for that difference.
     <tr><td>10</td><td>Rhode Island</td><td class="numeric">$480,000</td><td>gross</td></tr>
     <tr><td>11</td><td>South Carolina</td><td class="numeric">$480,000</td><td>gross</td></tr>
     <tr><td>12</td><td>Indiana</td><td class="numeric">$478,400</td><td>gross</td></tr>
-    <tr class="is-reader-state"><td>13</td><td>Massachusetts</td><td class="numeric">$450,000</td><td>gross</td></tr>
+    <tr class="is-reader-state"><td>13</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$450,000</td><td>gross</td></tr>
     <tr><td>14</td><td>Idaho</td><td class="numeric">$440,000</td><td>gross</td></tr>
     <tr><td>15</td><td>West Virginia</td><td class="numeric">$420,000</td><td>gross</td></tr>
     <tr><td>16</td><td>Maine</td><td class="numeric">$400,000</td><td>gross</td></tr>
@@ -291,9 +296,11 @@ and this table does not adjust for that difference.
     <tr><td>41</td><td>Florida</td><td class="numeric">$120,000</td><td>net</td></tr>
   </tbody>
 </table>
+</div>
 
 Ten further jurisdictions state no combined-income ceiling for their presumptive schedule:
 
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Jurisdictions with no stated combined-income ceiling">
 <table class="exhibit-table">
   <caption>Jurisdictions with no stated combined-income ceiling</caption>
   <thead>
@@ -312,6 +319,7 @@ Ten further jurisdictions state no combined-income ceiling for their presumptive
     <tr><td>Wisconsin</td><td>no stated ceiling</td></tr>
   </tbody>
 </table>
+</div>
 
 ## Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions
 
@@ -342,6 +350,7 @@ priced almost everywhere else.
   </figcaption>
 </figure>
 
+<div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table: Massachusetts equal-time order vs. every other jurisdiction's primary-custody order">
 <table class="exhibit-table">
   <caption>Massachusetts's equal-time order against every other jurisdiction's primary-custody order — full data behind Exhibit E17</caption>
   <thead>
@@ -349,9 +358,9 @@ priced almost everywhere else.
   </thead>
   <tbody>
     <tr><td>1</td><td>Hawaii</td><td>primary</td><td class="numeric">$5,821.00</td></tr>
-    <tr class="is-reader-state"><td>2</td><td>Massachusetts</td><td>primary (for scale)</td><td class="numeric">$4,714.22</td></tr>
+    <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>primary (for scale)</td><td class="numeric">$4,714.22</td></tr>
     <tr><td>3</td><td>Wisconsin</td><td>primary</td><td class="numeric">$4,491.71</td></tr>
-    <tr class="is-reader-state"><td>4</td><td>Massachusetts</td><td>equal</td><td class="numeric">$4,388.48</td></tr>
+    <tr class="is-reader-state"><td>4</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>equal</td><td class="numeric">$4,388.48</td></tr>
     <tr><td>5</td><td>New York</td><td>primary</td><td class="numeric">$4,067.61</td></tr>
     <tr><td>6</td><td>Delaware</td><td>primary</td><td class="numeric">$3,990.73</td></tr>
     <tr><td>7</td><td>New Hampshire</td><td>primary</td><td class="numeric">$3,838.66</td></tr>
@@ -401,6 +410,7 @@ priced almost everywhere else.
     <tr><td>51</td><td>Oregon</td><td>primary</td><td class="numeric">$1,772.00</td></tr>
   </tbody>
 </table>
+</div>
 
 ## What this page does not show
 

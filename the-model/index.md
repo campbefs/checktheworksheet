@@ -10,7 +10,7 @@ description: >-
 # A model of the worksheet, checked against the form's own calculation scripts, not just against itself
 
 This page describes what is reproduced in code and how each part is checked. The findings
-themselves — what the checks show — are on the [findings](/findings/) pages; this page is the
+themselves, what the checks show, are on the [findings](/findings/) pages. This page is the
 proof that the numbers behind them are computed, not asserted.
 
 ## The worksheet model reimplements CJ-D 304 line by line, from the form's own text
@@ -21,20 +21,20 @@ combined-income shares and applicable cap (3b–3d), Table A and Table B support
 Table C age adjustment, the proportional shares and low-income adjustment (5a–5c), the child
 care benchmark and allocation (6a–6c), the income-disparity adjustment and netting (6d–6g), the
 recipient-side adjustment (7a–7b), the final obligation and the 40 percent hardship test (7d–7e),
-and all three custody boxes — Box 1 (shared), Box 2 (primary, roughly two-thirds time), and
+and all three custody boxes: Box 1 (shared), Box 2 (primary, roughly two-thirds time), and
 Box 3 (split, each parent primary for different children).
 
 [`model/guidelines.py`](/model/guidelines.py) holds Table A and Table B as published. Table A was
 cross-checked against every one of the 1,104 combined-income-to-support-amount rows in the
 Commonwealth's own published Guidelines Chart, reconstructed at
-[`data/extracted/guidelines-chart.json`](/data/extracted/guidelines-chart.json) — no
+[`data/extracted/guidelines-chart.json`](/data/extracted/guidelines-chart.json), with no
 disagreement greater than one dollar. Table B (the multiplier for two, three, four and more
 children) is transcribed from the guidelines' own commentary.
 
 ## A tax model computes what each party actually keeps after the order
 
 [`model/net_position.py`](/model/net_position.py) converts each party's gross income to spendable
-income after federal and Massachusetts tax — brackets, the standard deduction, the Social
+income after federal and Massachusetts tax: brackets, the standard deduction, the Social
 Security wage base, the federal Earned Income Tax Credit and Child Tax Credit, and Massachusetts's
 own exemption, EITC match, and refundable Child and Family Tax Credit. This is what lets a
 finding compare a support order, which is computed on gross income, against what each household
@@ -42,12 +42,12 @@ actually has to spend.
 
 ## Three extension models test one mechanism each
 
-- [`model/box1_fix.py`](/model/box1_fix.py) — how the Box 1 equal-parenting credit is computed,
+- [`model/box1_fix.py`](/model/box1_fix.py): how the Box 1 equal-parenting credit is computed,
   and three redlines that would give it a parenting-time term.
-- [`model/childcare_post_transfer.py`](/model/childcare_post_transfer.py) — what child care looks
+- [`model/childcare_post_transfer.py`](/model/childcare_post_transfer.py): what child care looks
   like when it is split on the income shares that exist *after* the base support transfer, instead
   of the pre-transfer shares Line 6b actually uses.
-- [`model/marginal_retention.py`](/model/marginal_retention.py) — of the next dollar the payor
+- [`model/marginal_retention.py`](/model/marginal_retention.py): of the next dollar the payor
   earns, how much is kept after tax and the resulting change in the order.
 
 [`model/submission_figures.py`](/model/submission_figures.py) prints every figure quoted in the
@@ -72,22 +72,22 @@ calculation scripts. [`data/extracted/cjd304-xfa.xml`](/data/extracted/cjd304-xf
 logic, extracted from the blank official form. [`model/official_xfa_harness.js`](/model/official_xfa_harness.js)
 is a small, dependency-free Node program that executes those scripts to a fixed point, exactly as
 the form does when a field changes. [`model/run_official_xfa.py`](/model/run_official_xfa.py)
-drives the harness on six scenarios built from the worked example — Box 1 and Box 2, with and
-without child care, and with child care paid by one or both parents — and prints a line-by-line
+drives the harness on six scenarios built from the worked example: Box 1 and Box 2, with and
+without child care, and with child care paid by one or both parents, and it prints a line-by-line
 comparison against `model/worksheet.py`.
 
 **What the comparison shows.** In [`model/runs/official-xfa-vs-model-2026-09-05.txt`](/model/runs/official-xfa-vs-model-2026-09-05.txt),
 the official form's own scripts and the model's rounded output agree on the final weekly order
 (Line 7d) in all six scenarios: $1,016, $1,091, $1,355, $1,280, $1,274 and $1,010. The model's
 unrounded arithmetic differs from these by a few dollars in each case (for example $1,012.72
-against $1,016 in the first scenario) — that gap is the effect of the form rounding every line to
+against $1,016 in the first scenario), the effect of the form rounding every line to
 the cent before the next line uses it, which the model reproduces when run with its
 `round_lines=True` option. This is the strongest check in the project: it compares the model
 against the Commonwealth's own code, not against another analyst's reading of the form.
 
 ## Reproduce every number here
 
-No third-party packages are needed for the worksheet, tax model, or test suites — only the
+No third-party packages are needed for the worksheet, tax model, or test suites, only the
 standard library, and Node (no npm packages) for the XFA harness.
 
 ```bash
@@ -108,8 +108,8 @@ python3 -m venv .venv && .venv/bin/pip install matplotlib numpy pypdf
 ```
 
 [`model/inspect_worksheet.py`](/model/inspect_worksheet.py) is the extraction script that pulled
-the calculation logic out of the blank PDF in the first place — it is what produced
-`data/extracted/cjd304-xfa.xml` — and is included so the extraction step itself can be checked
+the calculation logic out of the blank PDF in the first place. It is what produced
+`data/extracted/cjd304-xfa.xml`, and is included so the extraction step itself can be checked
 against a fresh copy of the form.
 
 <div class="ask">

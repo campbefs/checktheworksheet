@@ -2,7 +2,7 @@
 layout: page
 title: Sitemap
 description: >-
-  Every page on this site, in one place, with a one-line purpose for each — the site has no
+  Every page on this site, in one place, with a one-line purpose for each. The site has no
   search, so this list is the second way to find anything.
 ---
 
@@ -27,15 +27,15 @@ description: >-
   </li>
   <li class="doc-item">
     <span class="doc-title"><a href="/the-model/">The model</a></span>
-    <span class="doc-context">What is reproduced in code — the worksheet, the tax model, three
+    <span class="doc-context">What is reproduced in code: the worksheet, the tax model, three
       extension models, four test suites, and the harness that runs the official form's own
-      calculation scripts — and the exact commands to reproduce every number.</span>
+      calculation scripts, plus the exact commands to reproduce every number.</span>
   </li>
   <li class="doc-item">
     <span class="doc-title"><a href="/the-data/">The data</a></span>
-    <span class="doc-context">The four underlying datasets — the form's own extracted
-      calculation logic, the published support chart, and two fifty-one-jurisdiction
-      comparisons — with what each contains and its verification status.</span>
+    <span class="doc-context">The five underlying datasets (the form's own extracted
+      calculation logic, the published support chart, and three fifty-one-jurisdiction
+      comparisons), with what each contains and its verification status.</span>
   </li>
   <li class="doc-item">
     <span class="doc-title"><a href="/documents/">Documents</a></span>

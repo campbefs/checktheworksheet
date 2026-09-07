@@ -10,6 +10,22 @@ description: >-
 
 # Line 6b charges the payor 88 cents of every dollar of child care, using an income split base support has already moved
 
+<div class="disclosure">
+<p>The worked example throughout &mdash; the payor, the recipient's $300-a-week child care claim &mdash;
+is my own child support order: three children, my income and my children's mother's income entered
+as the Worksheet requires. I disclose it because a reader should be able to check whether the
+arithmetic changes when the numbers are real, not hypothetical. It doesn't: the same allocation gap
+holds across income levels and child counts, not only at my own figures. The model that produced
+every number here is
+<a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>, checked
+by <a href="/model/test_childcare_post_transfer.py">its test suite</a> against
+<a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, with
+<a href="/model/runs/childcare-post-transfer-run-2026-09-05.txt">the printed run</a> behind the table
+below.</p>
+</div>
+
+<p class="confidence-tag">Verified against the form's own calculation scripts</p>
+
 Massachusetts allocates child care in proportion to each parent's share of combined available
 income. That's a defensible principle. But the worksheet measures the share at Line 3c — computed
 before the base child support order transfers a single dollar between the two households — and then

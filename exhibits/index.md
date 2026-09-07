@@ -62,7 +62,6 @@ where it matters.
 
 <figure class="exhibit" id="e02">
   <img src="/figures/exhibits/E02-who-holds-more-per-person-3-children.png"
-       loading="lazy"
        alt="Heatmap of the same net-income gap divided by household size, one person against four, same income grid, three children, equal parenting time, no child care.">
   <figcaption>
     <h3 class="exhibit-title">Per person, the payor holds more almost everywhere.</h3>
@@ -305,13 +304,14 @@ where it matters.
 <details>
 <summary>Full ranking behind E11 — all 50 jurisdictions</summary>
 
-  <table class="exhibit-table" id="e11-table">
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E11">
+    <table class="exhibit-table" id="e11-table">
     <caption>Monthly order, equal parenting time (S1) &mdash; full data behind <a href="#e11">E11</a></caption>
     <thead>
       <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col" class="numeric">Monthly order</th></tr>
     </thead>
     <tbody>
-      <tr class="is-reader-state"><td>1</td><td>Massachusetts</td><td class="numeric">$4,388.48</td></tr>
+      <tr class="is-reader-state"><td>1</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$4,388.48</td></tr>
       <tr><td>2</td><td>New York</td><td class="numeric">$4,067.61</td></tr>
       <tr><td>3</td><td>New Hampshire</td><td class="numeric">$3,838.66</td></tr>
       <tr><td>4</td><td>Texas</td><td class="numeric">$3,510.00</td></tr>
@@ -363,6 +363,7 @@ where it matters.
       <tr><td>50</td><td>Utah</td><td class="numeric">$1,058.31</td></tr>
     </tbody>
   </table>
+  </div>
 
 </details>
 
@@ -389,14 +390,15 @@ where it matters.
 <details>
 <summary>Full ranking behind E12 — all 50 jurisdictions</summary>
 
-  <table class="exhibit-table" id="e12-table">
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E12">
+    <table class="exhibit-table" id="e12-table">
     <caption>Monthly order, children primarily with the lower earner (S2) &mdash; full data behind <a href="#e12">E12</a></caption>
     <thead>
       <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col" class="numeric">Monthly order</th></tr>
     </thead>
     <tbody>
       <tr><td>1</td><td>Hawaii</td><td class="numeric">$5,821.00</td></tr>
-      <tr class="is-reader-state"><td>2</td><td>Massachusetts</td><td class="numeric">$4,714.22</td></tr>
+      <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$4,714.22</td></tr>
       <tr><td>3</td><td>Wisconsin</td><td class="numeric">$4,491.71</td></tr>
       <tr><td>4</td><td>New York</td><td class="numeric">$4,067.61</td></tr>
       <tr><td>5</td><td>Delaware</td><td class="numeric">$3,990.73</td></tr>
@@ -447,6 +449,7 @@ where it matters.
       <tr><td>50</td><td>Oregon</td><td class="numeric">$1,772.00</td></tr>
     </tbody>
   </table>
+  </div>
 
 </details>
 
@@ -472,7 +475,8 @@ where it matters.
 <details>
 <summary>Full table behind E13 — all 51 jurisdictions</summary>
 
-  <table class="exhibit-table" id="e13-table">
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E13">
+    <table class="exhibit-table" id="e13-table">
     <caption>Formula credit at 122 overnights (one-third time), by jurisdiction &mdash; full data behind <a href="#e13">E13</a></caption>
     <thead>
       <tr><th scope="col">Jurisdiction</th><th scope="col">Formula credit at 122 overnights</th></tr>
@@ -499,7 +503,7 @@ where it matters.
       <tr><td>Louisiana</td><td>No</td></tr>
       <tr><td>Maine</td><td>No</td></tr>
       <tr><td>Maryland</td><td>Yes</td></tr>
-      <tr class="is-reader-state"><td>Massachusetts</td><td>No</td></tr>
+      <tr class="is-reader-state"><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>No</td></tr>
       <tr><td>Michigan</td><td>Yes</td></tr>
       <tr><td>Minnesota</td><td>Yes</td></tr>
       <tr><td>Mississippi</td><td>No</td></tr>
@@ -531,6 +535,7 @@ where it matters.
       <tr><td>Wyoming</td><td>Yes</td></tr>
     </tbody>
   </table>
+  </div>
 
 </details>
 
@@ -557,7 +562,8 @@ where it matters.
 <details>
 <summary>Full ranking behind E16 — 41 combined-income schedules</summary>
 
-  <table class="exhibit-table" id="e16-table">
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E16">
+    <table class="exhibit-table" id="e16-table">
     <caption>Combined income at which the presumptive schedule stops &mdash; full data behind <a href="#e16">E16</a></caption>
     <thead>
       <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col" class="numeric">Combined-income ceiling</th><th scope="col">Basis</th></tr>
@@ -575,7 +581,7 @@ where it matters.
       <tr><td>10</td><td>Rhode Island</td><td class="numeric">$480,000</td><td>gross</td></tr>
       <tr><td>11</td><td>South Carolina</td><td class="numeric">$480,000</td><td>gross</td></tr>
       <tr><td>12</td><td>Indiana</td><td class="numeric">$478,400</td><td>gross</td></tr>
-      <tr class="is-reader-state"><td>13</td><td>Massachusetts</td><td class="numeric">$450,000</td><td>gross</td></tr>
+      <tr class="is-reader-state"><td>13</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td class="numeric">$450,000</td><td>gross</td></tr>
       <tr><td>14</td><td>Idaho</td><td class="numeric">$440,000</td><td>gross</td></tr>
       <tr><td>15</td><td>West Virginia</td><td class="numeric">$420,000</td><td>gross</td></tr>
       <tr><td>16</td><td>Maine</td><td class="numeric">$400,000</td><td>gross</td></tr>
@@ -606,6 +612,7 @@ where it matters.
       <tr><td>41</td><td>Florida</td><td class="numeric">$120,000</td><td>net</td></tr>
     </tbody>
   </table>
+  </div>
 
 </details>
 
@@ -632,16 +639,17 @@ where it matters.
 <details>
 <summary>Full ranking behind E17 — Massachusetts vs. 49 other jurisdictions' primary-custody orders</summary>
 
-  <table class="exhibit-table" id="e17-table">
+  <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E17">
+    <table class="exhibit-table" id="e17-table">
     <caption>Massachusetts&rsquo;s equal-time order vs. every other jurisdiction&rsquo;s primary-custody order &mdash; full data behind <a href="#e17">E17</a></caption>
     <thead>
       <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col">Custody basis</th><th scope="col" class="numeric">Monthly order</th></tr>
     </thead>
     <tbody>
       <tr><td>1</td><td>Hawaii</td><td>Primary, lower earner</td><td class="numeric">$5,821.00</td></tr>
-      <tr class="is-reader-state"><td>&mdash;</td><td>Massachusetts</td><td>Primary (Box 2) &mdash; for scale, not ranked</td><td class="numeric">$4,714.22</td></tr>
+      <tr class="is-reader-state"><td>&mdash;</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>Primary (Box 2) &mdash; for scale, not ranked</td><td class="numeric">$4,714.22</td></tr>
       <tr><td>2</td><td>Wisconsin</td><td>Primary, lower earner</td><td class="numeric">$4,491.71</td></tr>
-      <tr class="is-reader-state"><td>3</td><td>Massachusetts</td><td>Equal time (Box 1)</td><td class="numeric">$4,388.48</td></tr>
+      <tr class="is-reader-state"><td>3</td><td>Massachusetts<span class="visually-hidden"> &mdash; this page&rsquo;s worked example</span></td><td>Equal time (Box 1)</td><td class="numeric">$4,388.48</td></tr>
       <tr><td>4</td><td>New York</td><td>Primary, lower earner</td><td class="numeric">$4,067.61</td></tr>
       <tr><td>5</td><td>Delaware</td><td>Primary, lower earner</td><td class="numeric">$3,990.73</td></tr>
       <tr><td>6</td><td>New Hampshire</td><td>Primary, lower earner</td><td class="numeric">$3,838.66</td></tr>
@@ -691,6 +699,7 @@ where it matters.
       <tr><td>50</td><td>Oregon</td><td>Primary, lower earner</td><td class="numeric">$1,772.00</td></tr>
     </tbody>
   </table>
+  </div>
 
 </details>
 

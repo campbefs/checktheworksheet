@@ -1,9 +1,9 @@
 # The Massachusetts child support worksheet, line by line
 
-> **Status, September 2026.** The comments described here are being submitted to the Chief Justice of the
-> Massachusetts Trial Court, and a petition for rulemaking is going to the U.S. Department of Health and Human
-> Services. This page will record the dates once they are sent. The model, the data and the figures are final
-> and can be checked today.
+> **Status, September 2026.** The comments described here are prepared for submission to the Chief Justice of
+> the Massachusetts Trial Court, and a petition for rulemaking is prepared for the U.S. Department of Health
+> and Human Services. Neither has been sent as of this writing; this page will record the dates once they are.
+> The model, the data and the figures are final and can be checked today.
 
 This repository holds a reproduction in code of the Massachusetts Child Support Guidelines Worksheet
 (form CJ-D 304, 2025 edition), the tests that pin it to the form's own calculation scripts, a federal

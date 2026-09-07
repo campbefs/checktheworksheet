@@ -10,6 +10,21 @@ description: >-
 
 # Line 7e reports 40 percent of income at the point the payor has already reached 57 percent of net
 
+<div class="disclosure">
+<p>The worked example throughout &mdash; the payor, the $201,000 income, the child care figures &mdash;
+is my own child support order: three children, my income and my children's mother's income entered
+as the Worksheet requires. I disclose it because a reader should be able to check whether the
+arithmetic changes when the numbers are real, not hypothetical. It doesn't: the same 17-point gap
+holds across the income and child-care ranges charted below, not only at my own figures. The model
+that produced every number here is <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>,
+checked by <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a> against the
+form's own calculation scripts, with
+<a href="/model/runs/submission-figures-run-2026-09-05.txt">the printed run</a> behind the table
+below.</p>
+</div>
+
+<p class="confidence-tag">Verified against the form's own calculation scripts</p>
+
 Section IV.C of the Massachusetts Child Support Guidelines presumes hardship once a support order
 reaches 40 percent of the payor's available income. Worksheet Line 7e is the form's own test for
 that threshold. It divides the order (Line 7d) by Line 3a — a figure computed before any tax is

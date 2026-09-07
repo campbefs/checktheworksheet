@@ -145,7 +145,8 @@ Layouts table above) rather than leaving the fallback implicit.
 ```html
 <ul class="finding-list">
   <li class="finding-card">
-    <h3><a href="/findings/hardship-test-reads-the-wrong-income/">The hardship test reads the wrong income</a></h3>
+    <h3><a href="/findings/hardship-test/">The hardship test reads the wrong income</a></h3>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <p>Section IV.C presumes hardship at 40 percent of gross-derived available income, but the order
     is paid from net. At the worked example the form reports 40 percent when the payor is at 57
     percent of net.</p>
@@ -154,7 +155,10 @@ Layouts table above) rather than leaving the fallback implicit.
       <span class="stat-label">of the payor's net income, at the point the form itself reads 40%</span>
     </p>
   </li>
-  <!-- one <li class="finding-card"> per finding -->
+  <!-- one <li class="finding-card"> per finding — the real href is that finding's own
+       permalink, and every card gets a .confidence-tag (see below), not just the tiered one -->
+  <!-- ^ this exact slug was previously wrong here and got copied verbatim into index.md;
+       always copy a live permalink from the target file's front matter, not from this example -->
 </ul>
 ```
 
