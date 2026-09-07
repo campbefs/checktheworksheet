@@ -156,7 +156,10 @@ function compute(higherAnnual, lowerAnnual, facts) {
   var payorGross = r.payor === 'A' ? lowerAnnual : higherAnnual;
   var recipGross = r.payor === 'A' ? higherAnnual : lowerAnnual;
   var p = N.analyze(payorGross, recipGross, facts.kids, r['7d'], 0.0, 0.0, undefined, 0);
-  return { order_wk: r['7d'], line_7e: r['7e'], true_pct_net: p.support_pct_of_payor_net };
+  return {
+    order_wk: r['7d'], line_7e: r['7e'], true_pct_net: p.support_pct_of_payor_net,
+    payor_after: p.payor_after, recip_after: p.recip_after, recip_per_person: p.recip_per_person
+  };
 }
 
 var FACTS = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0 };
@@ -168,17 +171,28 @@ equal(calcResult.line_7e.toFixed(3), '0.265', 'calculator.js compute(): Line 7e 
 // brief specifies only two income inputs). kids_under_13 changes ONLY the RECIPIENT's refundable
 // MA credit, which net_position.py's support_pct_of_payor_net never reads (it is
 // annual_support / payor_net, and payor_net depends only on the payor's own gross) -- so this
-// particular readout is identical either way, verified here rather than assumed.
+// particular readout is identical either way, verified here rather than assumed. It DOES change
+// payor_after/recip_after (the recipient's own refundable credits), which is why v2's "after tax"
+// row runs slightly lower than the site's own worked-example figures elsewhere (kids_under_13=2
+// there) -- see calculator.js's header comment and CONVENTIONS.md SS11.
 equal(calcResult.true_pct_net.toFixed(3), '0.377', 'calculator.js compute(): true % of net rounds to 37.7%, same as the worked example');
 
 // The mounted page's own static markup (index.html, MARKUP CONTRACT in calculator.js) hardcodes
-// the sliders' default values and the three data-calc-cell spans' starting text as the no-JS
-// fallback. Check the formatted strings a reader actually sees match those exact defaults.
+// the sliders' default values and the data-calc-cell spans' starting text as the no-JS fallback.
+// Check the formatted strings a reader actually sees match those exact defaults.
 function moneyWk(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/wk'; }
+function money(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/yr'; }
 function pct1(v) { return (v * 100).toFixed(1) + '%'; }
 equal(moneyWk(calcResult.order_wk), '$1,013/wk', 'mounted defaults: formatted weekly order matches the markup\'s static $1,013/wk');
 equal(pct1(calcResult.line_7e), '26.5%', 'mounted defaults: formatted Line 7e matches the markup\'s static 26.5%');
 equal(pct1(calcResult.true_pct_net), '37.7%', 'mounted defaults: formatted true share of net matches the markup\'s static 37.7%');
+equal(money(calcResult.payor_after), '$87,172/yr', 'mounted defaults: formatted payor-keeps matches the markup\'s static $87,172/yr');
+equal(money(calcResult.recip_after), '$92,941/yr', 'mounted defaults: formatted recipient-household-holds matches the markup\'s static $92,941/yr');
+equal(money(calcResult.recip_per_person), '$23,235/yr', 'mounted defaults: formatted recipient per-person matches the markup\'s static $23,235/yr');
+equal(calcResult.recip_after > calcResult.payor_after, true,
+  'mounted defaults: recipient household exceeds payor keeps, so the is-warning class and "Above the payor" note are correctly on by default');
+equal(calcResult.true_pct_net > 0.40, false,
+  'mounted defaults: true share of net (37.7%) is below 40%, so the is-warning class is correctly OFF by default');
 
 // ---------------------------------------------------------------------------------------------
 // PART 4 -- the sanity guard (calculator.js's sanityCheckPasses()) fires on a broken constant and
@@ -201,6 +215,50 @@ var restoredResult = compute(201000, 29640, FACTS);
 var restoredGuardPasses = Math.round(restoredResult.order_wk) === 1013;
 equal(restoredGuardPasses, true,
   'sanity guard: restoring kids=3 makes the worked example match $1,013 again (guard would pass, numbers render)');
+
+// ---------------------------------------------------------------------------------------------
+// PART 5 -- CORRECTNESS GATE: the full v2 fixture grid (children 1/2/3 x box 1/2 x six income
+// pairs, generated straight from model/worksheet.py and model/net_position.py in the private
+// repo -- see /tmp/gen_calc_v2_fixtures.py's own header for the exact command). Every cell the v2
+// calculator can show must reproduce that Python output; the fixture's own "disabled" list (any
+// combination the Python could not compute) must be empty, or those combinations must be
+// disabled in the UI rather than shown with an unverified number.
+// ---------------------------------------------------------------------------------------------
+console.log('\n=== PART 5: v2 fixture grid (children x custody x six income pairs) against the Python ===\n');
+
+var fixtures = require(path.join(__dirname, 'fixtures', 'calculator-v2.json'));
+
+equal(fixtures.disabled.length, 0,
+  'fixture grid: zero combinations were disabled by the Python (none too degenerate to compute)');
+equal(fixtures.rows.length, 36,
+  'fixture grid: 36 rows (3 children x 2 custody boxes x 6 income pairs)');
+
+fixtures.rows.forEach(function (row) {
+  var facts = { kids: row.kids, box: row.box, healthLow: 33.0, healthHigh: 43.0 };
+  var got = compute(row.higher, row.lower, facts);
+  var label = 'kids=' + row.kids + ' box=' + row.box + ' higher=' + row.higher + ' lower=' + row.lower;
+
+  // "To the dollar": tolerance well under half a cent, so any dollar rounding downstream (the
+  // moneyWk()/money() formatters) is guaranteed to land on the same integer dollar the fixture's
+  // own Python run produced.
+  close(got.order_wk, row.order_wk, 1e-6, label + ': order_wk (7d) matches Python to the dollar');
+  close(got.payor_after, row.payor_after, 1e-4, label + ': payor_after matches Python to the dollar');
+  close(got.recip_after, row.recip_after, 1e-4, label + ': recip_after matches Python to the dollar');
+  close(got.recip_per_person, row.recip_per_person, 1e-4, label + ': recip_per_person matches Python to the dollar');
+
+  // "To 0.001 on ratios": Line 7e and the true share of net are both fractions of 1.0; 0.001 is
+  // 0.1 percentage point, tighter than the UI's own one-decimal pct1() display.
+  close(got.line_7e, row.line_7e, 0.001, label + ': line_7e matches Python to 0.001');
+  close(got.true_pct_net, row.true_pct_net, 0.001, label + ': true_pct_net matches Python to 0.001');
+
+  // The is-warning thresholds calculator.js applies must agree with the fixture's own numbers --
+  // this is what proves the UI would show the right colour/label on every one of the 36 cells,
+  // not just the six-scenario/worked-example checks in PARTS 1-3.
+  equal(got.true_pct_net > 0.40, row.true_pct_net > 0.40,
+    label + ': true_pct_net > 40% threshold agrees with the fixture (drives the is-warning class)');
+  equal(got.recip_after > got.payor_after, row.recip_after > row.payor_after,
+    label + ': recip_after > payor_after agrees with the fixture (drives the household is-warning class)');
+});
 
 console.log('\n' + checks + ' checks, ' + failures + ' failed.');
 process.exit(failures ? 1 : 0);

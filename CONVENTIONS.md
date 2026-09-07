@@ -386,6 +386,15 @@ table must render **complete and correctly pre-sorted with no JS at all** — th
 reorders DOM rows already present, it does not fetch or invent data for this exhibit (unlike the
 sliders below, whose whole point is a live lookup).
 
+**Jurisdiction finder (2026-09-07), a separate control next to the filter:** full markup contract
+in `assets/js/jurisdiction-finder.js`'s header comment. Classes: `.table-tools` (wraps the finder
+and the filter in one row, stacking <700px), `.table-finder` (the `<select>`'s own wrapper, styled
+like `.table-filter`), `.jurisdiction-readout` (the one-line comparison above the table), and
+`.is-selected-state` on the found `<tr>` — a blue outline (`--hue-recipient`) kept visually
+distinct from `.is-reader-state`'s permanent claret tint, since Massachusetts (the finder's default)
+can carry both classes at once. **This is a finder, not a filter — it never hides a row**; adds
+`scripts: ["/assets/js/jurisdiction-finder.js"]` alongside `sortable-table.js`.
+
 ### The live tools (calculator, valve slider, credit-collapse slider)
 
 Full markup contract: comment block at the top of `assets/js/csv-slider.js`. Classes: `.tool` /
@@ -394,6 +403,33 @@ Full markup contract: comment block at the top of `assets/js/csv-slider.js`. Cla
 `.tool-flag`. A page using one adds `scripts: ["/assets/js/csv-slider.js"]` **and** must render the
 no-JS fallback described in brief §3.7 (a static table, or the worked example's real baseline
 values as plain text) — never a slider with nothing behind it when JavaScript is off.
+
+**Calculator v2 (2026-09-07) added four classes**, all still inside this same `.tool` vocabulary
+and documented in full in `assets/js/README.md` §1 and the header comment of `assets/js/calculator.js`:
+`.tool-controls-row` (a real-radio segmented-control row — children count, custody box — that
+spans the full `.tool-two-up` grid via `grid-column: 1 / -1`, since the two-up grid's implicit
+2-column auto-placement would otherwise split it across a row), `.segmented`/`.segmented-option`
+(the segmented controls themselves — a `<fieldset>`/`<legend>` with real `<input type="radio">`
+options; the checked-option highlight is `:has()`, progressive enhancement only — the native radio
+dot is the non-color channel that still works everywhere), `.tool-detail` (the `<details open>`
+wrapper around the "after tax and the order" row, also `grid-column: 1 / -1`; open by default per
+the restraint budget below), and `.cell-note`/`.cell-sub` (a bold short text label paired with a
+warning colour per WCAG 1.4.1, and a per-person figure set beside a household one).
+
+**Warning colour: `--accent` (the claret, #7A1330), verified 9.73:1 against `--surface` — well
+past the 4.5:1 AA floor for text, per the ratio table in `assets/css/site.css` §1.** No separate
+warning/danger token exists in this palette (brief §3.1's discipline: `--accent` is the only
+saturated colour, used nowhere decoratively) — reusing it for "this figure crossed a threshold" is
+the same colour already load-bearing for stat numbers, display numerals and the pinned
+Massachusetts row, so it does not introduce a second meaning for red. **Colour is never the only
+channel**: every element that gets `.is-warning` (`.tool-readout .cell-value.is-warning`) is paired
+with a `.cell-note` sibling that fills in with bold text ("Above 40% of net", "Above the payor")
+only when the warning is on, and is otherwise present but empty (`visibility: hidden`, height
+reserved so nothing jumps). This differs from the pre-existing `.true-burden` modifier, which
+colours a cell unconditionally (used by the credit-collapse slider, §3 below, for a figure that is
+always the tool's headline number regardless of its value) — the calculator's true-share-of-net
+cell deliberately does NOT carry `.true-burden`, since v2 needs that one cell's colour to be
+conditional on the 40% threshold rather than permanent; do not re-add `.true-burden` to it.
 
 ### Exhibits gallery + lightbox
 
@@ -488,3 +524,40 @@ design:
   conversion script — GitHub's runner only runs Jekyll itself).
 - `assets/vendor/` does not exist yet — create it only when the Observable Plot exhibit is built,
   with the library's own LICENSE file alongside it (brief: "no CDN at runtime").
+
+---
+
+## 11. Calculator v2 (2026-09-07) — the under-13 discrepancy, and the jurisdiction finder
+
+**The calculator's "after tax and the order" row runs slightly lower than this site's own
+worked-example figures elsewhere, and that is expected, not a bug.** The calculator fixes
+`kids_under_13 = 0` for every combination (same generic-grid convention as
+`model/charts/_common.py`'s `KIDS_UNDER_13 = 0` — there is no third slider for how many children
+are under 13), while the worked example quoted in `model/runs/submission-figures-run-2026-09-05.txt`
+and repeated around the rest of the site uses `kids_under_13 = 2` (two of Chris's own three
+children). The MA Child and Family Tax Credit is $440/child/year for qualifying dependents under
+13, so the calculator's recipient-household figure is understated by up to $880/yr relative to the
+site's other worked-example numbers at three children — the direction that weakens, not flatters,
+the site's own argument. The method paragraph next to the calculator states this in one sentence;
+do not remove it if the copy is edited, and do not "fix" the calculator to use `kids_under_13 = 2`
+by default — that would silently change every other combination it can compute to a fact pattern
+(two of *N* children under 13) that stops making sense once the children slider leaves 3.
+
+**Warning-colour thresholds added by v2** (see §7 for the colour itself): the true-share-of-net
+cell warns above 40% of the payor's net income (Line 7e's own substantial-hardship threshold); the
+recipient-household cell warns whenever it exceeds the payor's own after-tax, after-order figure.
+Both are computed live from the ported worksheet/tax model, not hardcoded — see
+`assets/js/calculator.test.js` PART 5, which checks the threshold comparison agrees with the
+Python-generated fixture on all 36 grid combinations, not only the worked example.
+
+**Restraint budget**: the two new controls add one full-width row; the new output row is inside
+`<details open>` specifically so the block's apparent height stays close to its pre-v2 size when
+collapsed, while still rendering all of its content (open by default) with no JavaScript at all.
+
+**The fifty-jurisdiction table's jurisdiction finder is a separate control from the calculator and
+models nothing itself** — it is a `<select>` over the same 51 rows already in the table (50 ranked
+plus Georgia, held out), used only to highlight and scroll to a row and to read out that
+jurisdiction's own two numbers next to Massachusetts's. It does not compute; the calculator above
+it is the only tool on this page that does, and remains Massachusetts-only for that reason — its
+method paragraph says so in one clause so a reader does not assume the sliders can model another
+state's worksheet.
