@@ -2,41 +2,59 @@
 layout: page
 title: Exhibits
 description: >-
-  Seventeen figures behind the paper's findings, each traced to the model script or the
-  fifty-jurisdiction dataset that produced it, with the plotted values in a CSV or dataset beside
-  every chart.
+  Twenty-three figures behind the paper's findings, one chart each, every one traced to the model
+  script or the fifty-jurisdiction dataset that produced it, with the plotted values in a CSV or
+  dataset beside every chart.
 ---
 
-# Exhibits
+# Every exhibit here is a single chart, drawn from a committed script, with its plotted values linked beside it
 
-Every figure below is drawn by a script in [`model/charts/`](/model/) from the models and data
-this site links elsewhere ([The model](/the-model/), [The data](/the-data/)). None of these
-seventeen figures appears in the Comments prepared for the Trial Court (see
-[Documents](/documents/)); they were built for the working paper and the correspondence that
-follows it. The number under each chart's title states the arrangement, the number of children,
-whether child care is in the order, and the incomes used: the same fact pattern the chart itself
-states. One fact pattern does not generalize to every family; each figure's notes say so again
-where it matters.
+<div class="disclosure">
+<p>Many of the charts below use my own child support order as their worked example: $201,000 and
+$29,640 a year, three children, computed under Massachusetts's 2025 Worksheet. I disclose this
+before you read a single figure because a reader should be able to check whether the arithmetic
+holds up once the numbers are real, not only when they are hypothetical. Where a chart instead
+sweeps a whole range of incomes, the worked example is marked on it as one point among many, and
+the finding is stated for the whole range, not just that point. The worksheet that produced these
+figures is at <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked against
+the official form's own calculation scripts on <a href="/the-model/">the model page</a>. None of
+these figures has been sent to the Trial Court, and neither has anything else on this site (see
+<a href="/documents/">Documents</a> for the two drafts' current status); they were built for the
+working paper and the correspondence that follows it.</p>
+</div>
+
+Every chart below carries one set of axes, no exceptions: an earlier set of exhibits mixed several
+panels into one image, and those have been split into the single-chart figures listed here. The
+fact line under each title states the custody arrangement, the number of children, whether child
+care is in the order, and the incomes used, the same fact pattern the chart itself is computed
+under. One fact pattern does not generalize to every family; each figure's notes say so again
+where it matters, and a household comparison always carries its per-person counterpart.
 
 ## Contents
 
-1. [E01. Below about $230,000 of higher-earner income the recipient household usually holds more after the order; above it, the payor does.](#e01)
-2. [E02. Per person, the payor holds more almost everywhere.](#e02)
-3. [E03. The number of children decides which household holds more after the order.](#e03)
-4. [E04. The order exceeds 40 percent of the payor's net income only where the lower earner makes about $25,000 or less.](#e04)
-5. [E05. The hardship valve fires late because it reads the wrong income.](#e05)
-6. [E06. The payor's share of a $15,600 child care bill, three ways to split it.](#e06)
-7. [E07. Child care is split on an income distribution that base support has already changed.](#e07)
-8. [E08. The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing.](#e08)
-9. [E09. At the worked example, equal parenting time is priced as a third of overnights at factor 1.5, and 47 percent at factor 2.0.](#e09)
-10. [E10. Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
-11. [E11. Equal parenting time: Massachusetts orders the most of fifty jurisdictions.](#e11)
-12. [E12. Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.](#e12)
-13. [E13. A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23.](#e13)
-14. [E14. Splitting the siblings cuts the order by a third while the schedule's own cost measure rises 43 percent.](#e14)
-15. [E15. When both parents pay child care, the payor bears 93 percent of it on 87 percent of the income.](#e15)
-16. [E16. Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
-17. [E17. Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.](#e17)
+1. [With three children, the recipient household holds more after the order in 55 percent of income combinations.](#e01)
+2. [Per person, the payor holds more almost everywhere.](#e02)
+3. [With one child, the recipient household holds more after the order in only 3 percent of income combinations.](#e18)
+4. [With two children, the recipient household holds more after the order in 23 percent of income combinations.](#e19)
+5. [The order exceeds 40 percent of the payor's net income only where the lower earner makes about $25,000 or less.](#e04)
+6. [The hardship valve fires late because it reads the wrong income.](#e05)
+7. [Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
+8. [The payor's share of a $15,600 child care bill, three ways to split it.](#e06)
+9. [With one child, post-transfer child care funds the payor 28 points below his income share.](#e20)
+10. [With two children, post-transfer child care funds the payor 39 points below his income share.](#e21)
+11. [With three children, post-transfer child care funds the payor 46 points below his income share.](#e22)
+12. [The payor bears 93 percent of the combined child care while earning 87 percent of the gross income.](#e25)
+13. [Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192.](#e26)
+14. [The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing.](#e08)
+15. [At the worked example, equal parenting time is priced as a third of overnights at factor 1.5, and 47 percent at factor 2.0.](#e09)
+16. [Splitting two children across two homes cuts the weekly order by 30 percent.](#e23)
+17. [Two homes, one child each, cost 43 percent more on the schedule than one home with two.](#e24)
+18. [Equal parenting time: Massachusetts orders the most of fifty jurisdictions.](#e11)
+19. [Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.](#e12)
+20. [A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23.](#e13)
+21. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
+22. [Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.](#e17)
+23. [Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017 to 2025.](#e27)
 
 ## Who holds more after the order
 
@@ -46,7 +64,8 @@ where it matters.
   <img src="/figures/exhibits/E01-who-holds-more-3-children.png"
        alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, across combinations of higher-earner gross income from $60,000 to $300,000 and lower-earner gross income from $0 to $120,000, three children, equal parenting time, no child care.">
   <figcaption>
-    <h3 class="exhibit-title">Below about $230,000 of higher-earner income the recipient household usually holds more after the order; above it, the payor does.</h3>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">With three children, the recipient household holds more after the order in 55 percent of income combinations.</h3>
     <p class="exhibit-deck">Recipient household net minus payor net, per year.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
@@ -54,7 +73,7 @@ where it matters.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
     </dl>
-    <p class="exhibit-notes">The recipient household is ahead in 55% of the grid, and in 96% of it below $150,000 of higher-earner income; nowhere above $230,000. The closed contour is Line 6e's limitation ceasing to bind once the payor's Line 6d crosses 10%, where the order drops about $110/wk in one step. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">The recipient household is ahead in 96 percent of the grid below $150,000 of higher-earner income, and nowhere above $230,000. The closed contour inside the red region is not noise: it is Line 6e's limitation ceasing to bind once the payor's Line 6d crosses 10 percent, at which point the order drops by about $110 a week in a single step. Per person the payor still leads almost everywhere (E02). Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig1_heatmaps.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig1_heatmap_3child_box1.csv">data (CSV)</a></p>
   </figcaption>
@@ -62,8 +81,10 @@ where it matters.
 
 <figure class="exhibit" id="e02">
   <img src="/figures/exhibits/E02-who-holds-more-per-person-3-children.png"
+       loading="lazy"
        alt="Heatmap of the same net-income gap divided by household size, one person against four, same income grid, three children, equal parenting time, no child care.">
   <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">Per person, the payor holds more almost everywhere.</h3>
     <p class="exhibit-deck">Recipient household net ÷ 4, minus payor net. Companion to E01.</p>
     <dl class="exhibit-facts">
@@ -72,7 +93,7 @@ where it matters.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
     </dl>
-    <p class="exhibit-notes">The payor is ahead in 99% of the grid. This figure travels with E01 wherever E01 is shown, because the per-person comparison is the one a reader will raise first. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">The payor is ahead in 99 percent of the grid. This figure travels with E01 wherever E01 is shown, because the per-person comparison is the one a reader will raise first. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig1_heatmaps.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig1_heatmap_3child_box1.csv">data (CSV)</a></p>
   </figcaption>
@@ -80,32 +101,56 @@ where it matters.
 
 </div>
 
-<figure class="exhibit" id="e03">
-  <img src="/figures/exhibits/E03-children-decide-who-holds-more-1-2-3.png"
+<div class="exhibit-pair">
+
+<figure class="exhibit" id="e18">
+  <img src="/figures/exhibits/E18-who-holds-more-1-child.png"
        loading="lazy"
-       alt="Three heatmaps side by side of the recipient household's net-income gap over the payor's, for one, two and three children, equal parenting time, no child care.">
+       alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, same income grid as E01, one child, equal parenting time, no child care.">
   <figcaption>
-    <h3 class="exhibit-title">The number of children decides which household holds more after the order.</h3>
-    <p class="exhibit-deck">Recipient household net minus payor net. Red: recipient ahead; blue: payor ahead.</p>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">With one child, the recipient household holds more after the order in only 3 percent of income combinations.</h3>
+    <p class="exhibit-deck">Recipient household net minus payor net, per year. Companion to E01/E19 (same grid, two and three children).</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
-      <div><dt>Children</dt><dd>1, 2 and 3</dd></div>
+      <div><dt>Children</dt><dd>1</dd></div>
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
     </dl>
-    <p class="exhibit-notes">With one child the payor is ahead across nearly the whole grid; with three the picture inverts below $230,000. The finding is about the child-count multiplier, Table B, not about any one family. Per person the payor leads throughout (E02). Colour capped at ±$40k. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">Same grid and colour scale as E01, one child instead of three. With E19, this shows that the number of children, not any one family's facts, decides which household comes out ahead. Per person the payor leads far more broadly still (E02's finding travels with all three child counts). Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig1_heatmaps.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
-      data (CSV): <a href="/figures/working/fig1_heatmap_1child_box1.csv">1 child</a>,
-      <a href="/figures/working/fig1_heatmap_2child_box1.csv">2 children</a>,
-      <a href="/figures/working/fig1_heatmap_3child_box1.csv">3 children</a></p>
+      <a href="/figures/working/fig1_heatmap_1child_box1.csv">data (CSV)</a></p>
   </figcaption>
 </figure>
+
+<figure class="exhibit" id="e19">
+  <img src="/figures/exhibits/E19-who-holds-more-2-children.png"
+       loading="lazy"
+       alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, same income grid as E01, two children, equal parenting time, no child care.">
+  <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">With two children, the recipient household holds more after the order in 23 percent of income combinations.</h3>
+    <p class="exhibit-deck">Recipient household net minus payor net, per year. Companion to E01/E18 (same grid, one and three children).</p>
+    <dl class="exhibit-facts">
+      <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
+      <div><dt>Children</dt><dd>2</dd></div>
+      <div><dt>Child care</dt><dd>None (base support)</dd></div>
+      <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
+    </dl>
+    <p class="exhibit-notes">Same grid and colour scale as E01 and E18. The share rises from 3 percent at one child to 23 percent at two to 55 percent at three: a child-count effect, not an artifact of any single income pair. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-source">Source: <code>model/charts/fig1_heatmaps.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
+      <a href="/figures/working/fig1_heatmap_2child_box1.csv">data (CSV)</a></p>
+  </figcaption>
+</figure>
+
+</div>
 
 <figure class="exhibit" id="e04">
   <img src="/figures/exhibits/E04-order-as-share-of-payor-net-3-children.png"
        loading="lazy"
        alt="Heatmap of the order as a percentage of the payor's net income, with a 40 percent contour line, same income grid, three children, equal parenting time, no child care.">
   <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The order exceeds 40 percent of the payor's net income only where the lower earner makes about $25,000 or less.</h3>
     <p class="exhibit-deck">Order as a share of payor net; line at 40%.</p>
     <dl class="exhibit-facts">
@@ -114,7 +159,7 @@ where it matters.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
     </dl>
-    <p class="exhibit-notes">The 40% contour, computed on net income, sits at a lower-earner income of about $25,000 up to roughly $235,000 of higher-earner income; above that, the order never reaches 40% of net at any lower-earner income on the grid (15% of cells). Scale fixed 0–60%. The region under the contour is the one Section IV.C's hardship presumption is written for; E05 shows what the Worksheet reports there. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">The 40 percent contour, computed on net income, sits at a lower-earner income of about $25,000 up to roughly $235,000 of higher-earner income; above that, the order never reaches 40 percent of net at any lower-earner income on the grid (15 percent of cells). Scale fixed 0 to 60 percent. The region under the contour is the one Section IV.C's hardship presumption is written for; E05 shows what the Worksheet reports there. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig1_heatmaps.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig1_heatmap_3child_box1.csv">data (CSV)</a></p>
   </figcaption>
@@ -127,6 +172,7 @@ where it matters.
        loading="lazy"
        alt="Line chart of Line 7e's reported percentage versus the true share of the payor's net income, against child care claimed from $0 to $600 a week, at the worked example.">
   <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The hardship valve fires late because it reads the wrong income.</h3>
     <p class="exhibit-deck">Line 7e's reading vs the true share of net income as claimed child care rises.</p>
     <dl class="exhibit-facts">
@@ -135,7 +181,7 @@ where it matters.
       <div><dt>Child care</dt><dd>Rises to the $430/child ceiling (recipient)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">As child care claimed by the recipient rises, the true burden passes 40% of net at $80 a week of child care; Line 7e reports 40% at $590 a week, by which point the true burden is 57%. Nothing on the form flags the gap. Child care is included in the order. 7e is what the form computes; net is what is paid. Two of three children under 13 (MA credit); premiums $43/$33.</p>
+    <p class="exhibit-notes">As child care claimed by the recipient rises, the true burden passes 40 percent of net at $80 a week of child care; Line 7e reports 40 percent at $590 a week, by which point the true burden is 57 percent. Nothing on the form flags the gap. Child care is included in the order. Line 7e is what the form computes; net is what is paid. Two of three children under 13 (MA credit); premiums $43/$33.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig6_valve.py</code>; <code>model/submission_figures.py</code> ·
       <a href="/figures/working/fig6_valve_units_lag.csv">data (CSV)</a></p>
   </figcaption>
@@ -146,6 +192,7 @@ where it matters.
        loading="lazy"
        alt="Line chart of cents kept of the payor's next dollar of income, from $100,000 to $400,000 of payor income, with and without $300 a week of child care.">
   <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">Of the payor's next dollar, the payor keeps between a third and a half.</h3>
     <p class="exhibit-deck">Marginal retention after federal and state tax and the change in the order.</p>
     <dl class="exhibit-facts">
@@ -154,7 +201,7 @@ where it matters.
       <div><dt>Child care</dt><dd>None vs $300/wk (recipient)</dd></div>
       <div><dt>Incomes</dt><dd>Varies / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">The order's marginal take runs near 20 percent because the child-count multiplier and the rising income share both scale with the payor's income, so the effective rate exceeds Table A's 10 percent top bracket. $5,000 steps. Dashed: 50 cents. Two of three children under 13 (MA credit); premiums $43/$33.</p>
+    <p class="exhibit-notes">The order's marginal take runs near 20 percent because the child-count multiplier and the rising income share both scale with the payor's income, so the effective rate exceeds Table A's 10 percent top bracket. $5,000 steps. Dashed line: 50 cents. Two of three children under 13 (MA credit); premiums $43/$33.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig4_retention.py</code>; <code>model/marginal_retention.py</code> ·
       <a href="/figures/working/fig4_marginal_retention.csv">data (CSV)</a></p>
   </figcaption>
@@ -167,6 +214,7 @@ where it matters.
        loading="lazy"
        alt="Bar chart of the payor's share of a $15,600 annual child care bill under three allocation rules, at the worked example.">
   <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The payor's share of a $15,600 child care bill, three ways to split it.</h3>
     <p class="exhibit-deck">Middle bar: the letter's § 2 redline (Line 6b-1).</p>
     <dl class="exhibit-facts">
@@ -181,43 +229,109 @@ where it matters.
   </figcaption>
 </figure>
 
-<figure class="exhibit" id="e07">
-  <img src="/figures/exhibits/E07-child-care-rules-across-incomes-1-2-3.png"
+<figure class="exhibit" id="e20">
+  <img src="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
        loading="lazy"
-       alt="Line charts across three panels, for one, two and three children, of the payor's funded share of child care under three rules, by income share.">
+       alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, one child, $100 a week paid by the lower earner.">
   <figcaption>
-    <h3 class="exhibit-title">Child care is split on an income distribution that base support has already changed.</h3>
-    <p class="exhibit-deck">Share of the child care bill the payor funds under three rules, by income share.</p>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">With one child, post-transfer child care funds the payor 28 points below his income share.</h3>
+    <p class="exhibit-deck">Share of the child care bill the payor funds, by his pre-transfer income share, two post-transfer rules.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
-      <div><dt>Children</dt><dd>1, 2 and 3</dd></div>
+      <div><dt>Children</dt><dd>1</dd></div>
       <div><dt>Child care</dt><dd>$100/child/wk, paid by the lower earner</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / varies</dd></div>
     </dl>
-    <p class="exhibit-notes">The same three rules across the income range for one, two and three children. The gap between the current rule and either alternative widens with the number of children and with the income gap. Dashed line: funded share equals income share. Child care is included in the order. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">The gap is measured at the highest income share plotted on the CSV. Companion to E21 and E22, two and three children: the gap widens with the number of children. Child care is included in the order. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig2_childcare.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig2_childcare_rules.csv">data (CSV)</a></p>
   </figcaption>
 </figure>
 
-<figure class="exhibit" id="e15">
-  <img src="/figures/exhibits/E15-both-parents-pay-child-care-payor-bears-93pct.png"
+<figure class="exhibit" id="e21">
+  <img src="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
        loading="lazy"
-       alt="Bar chart of each parent's share of a combined $31,200 annual child care bill and resulting net position, under three child care scenarios, at the worked example.">
+       alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, two children, $100 a week per child paid by the lower earner.">
   <figcaption>
-    <h3 class="exhibit-title">When both parents pay child care, the payor bears 93 percent of it on 87 percent of the income.</h3>
-    <p class="exhibit-deck">Who pays a combined $31,200 of child care, and each parent's net position.</p>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">With two children, post-transfer child care funds the payor 39 points below his income share.</h3>
+    <p class="exhibit-deck">Share of the child care bill the payor funds, by his pre-transfer income share, two post-transfer rules.</p>
+    <dl class="exhibit-facts">
+      <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
+      <div><dt>Children</dt><dd>2</dd></div>
+      <div><dt>Child care</dt><dd>$100/child/wk, paid by the lower earner</dd></div>
+      <div><dt>Incomes</dt><dd>$201,000 / varies</dd></div>
+    </dl>
+    <p class="exhibit-notes">Same construction as E20, two children instead of one; the gap grows from 28 points to 39. Child care is included in the order. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-source">Source: <code>model/charts/fig2_childcare.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
+      <a href="/figures/working/fig2_childcare_rules.csv">data (CSV)</a></p>
+  </figcaption>
+</figure>
+
+<figure class="exhibit" id="e22">
+  <img src="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
+       loading="lazy"
+       alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, three children, $100 a week per child paid by the lower earner.">
+  <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">With three children, post-transfer child care funds the payor 46 points below his income share.</h3>
+    <p class="exhibit-deck">Share of the child care bill the payor funds, by his pre-transfer income share, two post-transfer rules.</p>
+    <dl class="exhibit-facts">
+      <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
+      <div><dt>Children</dt><dd>3</dd></div>
+      <div><dt>Child care</dt><dd>$100/child/wk, paid by the lower earner</dd></div>
+      <div><dt>Incomes</dt><dd>$201,000 / varies</dd></div>
+    </dl>
+    <p class="exhibit-notes">Same construction as E20 and E21, three children, the worked example's own child count: the gap reaches 46 points. Child care is included in the order. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-source">Source: <code>model/charts/fig2_childcare.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
+      <a href="/figures/working/fig2_childcare_rules.csv">data (CSV)</a></p>
+  </figcaption>
+</figure>
+
+<div class="exhibit-pair">
+
+<figure class="exhibit" id="e25">
+  <img src="/figures/exhibits/E25-both-pay-child-care-who-pays-3-children.png"
+       loading="lazy"
+       alt="Stacked bar chart of each parent's share of combined gross income and of a combined $31,200 child care bill, both parents paying $300 a week in their own home, three children.">
+  <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">The payor bears 93 percent of the combined child care while earning 87 percent of the gross income.</h3>
+    <p class="exhibit-deck">Who pays a combined $31,200/yr of child care, both parents paying $300/wk in their own home.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
       <div><dt>Children</dt><dd>3</dd></div>
       <div><dt>Child care</dt><dd>$300/wk in each home</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Each parent pays $300 a week during their own parenting time, the ordinary case at equal time. The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so his own $15,600 reduces the order by $270 a year. Order plus his own child care reaches 58 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads ($58,163 vs $22,907 each for four). Two of three under 13; premiums $43/$33.</p>
-    <p class="exhibit-source">Source: <code>model/charts/fig8_both_pay.py</code>; <code>model/submission_figures.py</code> ·
+    <p class="exhibit-notes">Each parent pays $300 a week during their own parenting time, the ordinary case at equal time. Companion to E26, each parent's resulting net position. Two of three children under 13; premiums $43/$33.</p>
+    <p class="exhibit-source">Source: <code>model/submission_figures.py</code> § 2.1; <code>model/charts/fig8_both_pay.py</code> ·
       <a href="/figures/working/fig8_both_pay.csv">data (CSV)</a></p>
   </figcaption>
 </figure>
+
+<figure class="exhibit" id="e26">
+  <img src="/figures/exhibits/E26-both-pay-child-care-net-position-3-children.png"
+       loading="lazy"
+       alt="Bar chart of each parent's net income under three child care scenarios, neither pays, only the recipient pays, both pay $300 a week, three children.">
+  <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192.</h3>
+    <p class="exhibit-deck">Each parent's net position, neither, one, or both paying $300/wk of child care.</p>
+    <dl class="exhibit-facts">
+      <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
+      <div><dt>Children</dt><dd>3</dd></div>
+      <div><dt>Child care</dt><dd>$0 / $300 / $300 per wk (see scenarios)</dd></div>
+      <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
+    </dl>
+    <p class="exhibit-notes">The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so his own $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 58 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads ($58,163 vs. $22,907 each for four). Two of three children under 13; premiums $43/$33.</p>
+    <p class="exhibit-source">Source: <code>model/submission_figures.py</code> § 2.1; <code>model/charts/fig8_both_pay.py</code> ·
+      <a href="/figures/working/fig8_both_pay.csv">data (CSV)</a></p>
+  </figcaption>
+</figure>
+
+</div>
 
 ## Parenting time
 
@@ -226,6 +340,7 @@ where it matters.
        loading="lazy"
        alt="Line chart of the percentage reduction in the order for equal parenting time versus the one-third-time order, against the payor's share of combined available income, for the current Worksheet and two redline variants.">
   <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing.</h3>
     <p class="exhibit-deck">Reduction in the order for equal time vs the one-third-time (Box 2) order.</p>
     <dl class="exhibit-facts">
@@ -245,6 +360,7 @@ where it matters.
        loading="lazy"
        alt="Line chart of the overnight share that reproduces the Box 1 order under a standard cross-credit, against the payor's share of combined available income, at duplication factors 1.5 and 2.0.">
   <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">At the worked example, equal parenting time is priced as a third of overnights at factor 1.5, and 47 percent at factor 2.0.</h3>
     <p class="exhibit-deck">Overnight share that reproduces the Box 1 order under a cross-credit.</p>
     <dl class="exhibit-facts">
@@ -259,25 +375,51 @@ where it matters.
   </figcaption>
 </figure>
 
-<figure class="exhibit" id="e14">
-  <img src="/figures/exhibits/E14-split-siblings-lower-order-higher-cost-2-children.png"
+<div class="exhibit-pair">
+
+<figure class="exhibit" id="e23">
+  <img src="/figures/exhibits/E23-split-siblings-weekly-order-2-children.png"
        loading="lazy"
-       alt="Two-panel chart comparing the weekly order and Table B's cost multiplier under Box 1 (both children shared) and Box 3 (one child residing primarily with each parent), two children.">
+       alt="Line chart of the weekly child support order against the payor's income share, under Box 1 with both children shared and Box 3 with one child residing primarily with each parent, two children.">
   <figcaption>
-    <h3 class="exhibit-title">Splitting the siblings cuts the order by a third while the schedule's own cost measure rises 43 percent.</h3>
-    <p class="exhibit-deck">Weekly order under Box 1 and Box 3 for the same two children, and Table B's cost of each.</p>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">Splitting two children across two homes cuts the weekly order by 30 percent.</h3>
+    <p class="exhibit-deck">Weekly order under Box 1 and Box 3 for the same two children.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint (Box 1) vs split (Box 3)</dd></div>
       <div><dt>Children</dt><dd>2</dd></div>
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / varies</dd></div>
     </dl>
-    <p class="exhibit-notes">Under Box 1 both are shared; under Box 3 one lives primarily with each parent. The payor's care responsibility is one child-share either way, but Line 6g nets the columns on the one-child schedule (Table B 1.00 against 1.40), so the Box 3 order comes out at 70 percent of the Box 1 order ($581 against $835 a week at the worked-example incomes), while two homes each carrying a first child cost 2.00 on Table B against 1.40 in one. This one cuts against the lower earner. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">Under Box 1 both children are shared equal time; under Box 3 one lives primarily with each parent. The payor's care responsibility is one child-share either way, but Line 6g nets the columns on the one-child schedule (Table B 1.00 against 1.40), so the Box 3 order comes out at 70 percent of the Box 1 order ($581 against $835 a week at the worked-example incomes) even though the arrangement costs more on the schedule's own measure (E24). This one cuts against the lower earner. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig7_box3_split.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       data (CSV): <a href="/figures/working/fig7_box3_inversion.csv">curve</a>,
       <a href="/figures/working/fig7_box3_inversion_example.csv">worked-example point</a></p>
   </figcaption>
 </figure>
+
+<figure class="exhibit" id="e24">
+  <img src="/figures/exhibits/E24-split-siblings-schedule-cost-2-children.png"
+       loading="lazy"
+       alt="Bar chart comparing Table B's cost multiplier for one home raising two children against two homes each raising one child.">
+  <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">Two homes, one child each, cost 43 percent more on the schedule than one home with two.</h3>
+    <p class="exhibit-deck">Table B's cost multiple: one home raising two children vs two homes each raising one.</p>
+    <dl class="exhibit-facts">
+      <div><dt>Custody</dt><dd>Joint (Box 1) vs split (Box 3)</dd></div>
+      <div><dt>Children</dt><dd>2</dd></div>
+      <div><dt>Child care</dt><dd>None (base support)</dd></div>
+      <div><dt>Incomes</dt><dd>$201,000 / varies</dd></div>
+    </dl>
+    <p class="exhibit-notes">Table B charges one home raising two children 1.40 times the one-child amount; two homes each raising one child are charged 1.00 twice, for 2.00 combined. The order itself moves the opposite way (E23): the more expensive arrangement produces the smaller transfer.</p>
+    <p class="exhibit-source">Source: <code>model/charts/fig7_box3_split.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
+      data (CSV): <a href="/figures/working/fig7_box3_inversion.csv">curve</a>,
+      <a href="/figures/working/fig7_box3_inversion_example.csv">worked-example point</a></p>
+  </figcaption>
+</figure>
+
+</div>
 
 ## Fifty-one jurisdictions
 
@@ -286,6 +428,7 @@ where it matters.
        loading="lazy"
        alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions under equal parenting time, one fact pattern, Massachusetts highlighted.">
   <figcaption>
+    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">Equal parenting time: Massachusetts orders the most of fifty jurisdictions.</h3>
     <p class="exhibit-deck">Monthly order at one fact pattern. Georgia held out.</p>
     <dl class="exhibit-facts">
@@ -294,7 +437,7 @@ where it matters.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. Each row profiled from primary sources, computed twice blind, reconciled, attacked. Own premiums ($43/$33) as each state treats them. One fact pattern; the ranking generalises to nothing else.</p>
+    <p class="exhibit-notes">Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One fact pattern; the ranking generalizes to nothing else.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
@@ -302,7 +445,7 @@ where it matters.
 </figure>
 
 <details>
-<summary>Full ranking behind E11 — all 50 jurisdictions</summary>
+<summary>Full ranking behind E11: all 50 jurisdictions</summary>
 
   <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E11">
     <table class="exhibit-table" id="e11-table">
@@ -372,15 +515,16 @@ where it matters.
        loading="lazy"
        alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted.">
   <figcaption>
+    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.</h3>
-    <p class="exhibit-deck">Monthly order at one fact pattern. Georgia held out.</p>
+    <p class="exhibit-deck">Monthly order at one fact pattern. Georgia held out. First of a pair with E17.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Primary with the lower earner (Box 2)</dd></div>
       <div><dt>Children</dt><dd>3</dd></div>
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">The same fact pattern with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Each row profiled from primary sources, computed twice blind, reconciled, attacked.</p>
+    <p class="exhibit-notes">The same fact pattern with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states, same axis range, same colors, same ordering rule as E17, so the two can be read as a pair. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
@@ -388,7 +532,7 @@ where it matters.
 </figure>
 
 <details>
-<summary>Full ranking behind E12 — all 50 jurisdictions</summary>
+<summary>Full ranking behind E12: all 50 jurisdictions</summary>
 
   <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E12">
     <table class="exhibit-table" id="e12-table">
@@ -458,6 +602,7 @@ where it matters.
        loading="lazy"
        alt="Tile map of fifty-one jurisdictions, each colored by whether a formula credit applies when a parent has the children 122 overnights a year, about one-third of the time.">
   <figcaption>
+    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23.</h3>
     <p class="exhibit-deck">Blue: a formula credit at 122 overnights a year. Grey: none.</p>
     <dl class="exhibit-facts">
@@ -473,7 +618,7 @@ where it matters.
 </figure>
 
 <details>
-<summary>Full table behind E13 — all 51 jurisdictions</summary>
+<summary>Full table behind E13: all 51 jurisdictions</summary>
 
   <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E13">
     <table class="exhibit-table" id="e13-table">
@@ -542,9 +687,9 @@ where it matters.
 <figure class="exhibit" id="e16">
   <img src="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
        loading="lazy"
-       alt="Horizontal bar chart ranking 41 jurisdictions by the combined income at which their presumptive child support schedule stops, Massachusetts highlighted."
-       >
+       alt="Horizontal bar chart ranking 41 jurisdictions by the combined income at which their presumptive child support schedule stops, Massachusetts highlighted.">
   <figcaption>
+    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.</h3>
     <p class="exhibit-deck">Combined income at which each state's presumptive schedule ends; above it, support is discretionary.</p>
     <dl class="exhibit-facts">
@@ -560,7 +705,7 @@ where it matters.
 </figure>
 
 <details>
-<summary>Full ranking behind E16 — 41 combined-income schedules</summary>
+<summary>Full ranking behind E16: 41 combined-income schedules</summary>
 
   <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E16">
     <table class="exhibit-table" id="e16-table">
@@ -621,6 +766,7 @@ where it matters.
        loading="lazy"
        alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale.">
   <figcaption>
+    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
     <h3 class="exhibit-title">Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h3>
     <p class="exhibit-deck">Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner.</p>
     <dl class="exhibit-facts">
@@ -629,7 +775,7 @@ where it matters.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time; Massachusetts's own primary-custody order, $4,714, is marked for scale and is not part of the ranked comparison. The Commonwealth's consultant attributes the higher amounts to the cost of living, which bears on both households in the order; whatever it explains about the level, it does not explain why an arrangement that gives each parent half the children's time is priced here where sole primary custody is priced almost everywhere else. One fact pattern. Georgia held out. Each row profiled from primary sources, computed twice blind, reconciled, attacked. Own premiums $43/$33 as each state treats them.</p>
+    <p class="exhibit-notes">Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time; Massachusetts's own primary-custody order, $4,714, is marked for scale and is not part of the ranked comparison. The Commonwealth's consultant attributes the higher amounts to the cost of living, which bears on both households in the order; whatever it explains about the level, it does not explain why an arrangement that gives each parent half the children's time is priced here where sole primary custody is priced almost everywhere else. One fact pattern. Georgia held out. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums $43/$33 as each state treats them.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig10_ma_shared_vs_primary.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig10_ma_shared_vs_primary.csv">data (CSV)</a></p>
@@ -637,7 +783,7 @@ where it matters.
 </figure>
 
 <details>
-<summary>Full ranking behind E17 — Massachusetts vs. 49 other jurisdictions' primary-custody orders</summary>
+<summary>Full ranking behind E17: Massachusetts vs. 49 other jurisdictions' primary-custody orders</summary>
 
   <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E17">
     <table class="exhibit-table" id="e17-table">
@@ -702,6 +848,28 @@ where it matters.
   </div>
 
 </details>
+
+## The gross-versus-net question
+
+<figure class="exhibit" id="e27">
+  <img src="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
+       loading="lazy"
+       alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking whether the gross-versus-net income question was deferred on the record or not raised in the corpus.">
+  <figcaption>
+    <p class="confidence-tag">Documentary: built only from primary-text quotes</p>
+    <h3 class="exhibit-title">Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017 to 2025.</h3>
+    <p class="exhibit-deck">Each Massachusetts guidelines edition or amendment; filled means deferred on the record, hollow means no record in the corpus.</p>
+    <dl class="exhibit-facts">
+      <div><dt>Question</dt><dd>Gross vs. net income basis (not the separate alimony/tax question)</dd></div>
+      <div><dt>Corpus</dt><dd>2025 Guidelines + embedded commentary, Brattle Econ. Review, Task Force report</dd></div>
+      <div><dt>Cycles</dt><dd>5, 2017 to 2025</dd></div>
+    </dl>
+    <p class="exhibit-notes">Only 2025 carries a verbatim deferral, in the Brattle Economic Review, quoted on the chart. Its own text says prior task forces did the same, but their primary text is not in this corpus, so 2017, 2018, 2021 and 2023 are marked no record rather than deferred: the chart states what the corpus supports, not what the 2025 report claims about years it does not itself document. A separate question, how a support order and an alimony order interact for tax purposes, was also deferred in 2017, but is not counted here because it is not the gross-versus-net income-basis question. The Economic Review states the next quadrennial review is expected in 2029.</p>
+    <p class="exhibit-source">Source: <code>model/charts/fig11_deferral_timeline.py</code> ·
+      <a href="/data/deferrals-gross-vs-net.json">data (JSON)</a> ·
+      <a href="/figures/working/fig11_deferral_timeline.csv">data (CSV)</a></p>
+  </figcaption>
+</figure>
 
 <div class="ask">
 <h2>Check any of these yourself</h2>

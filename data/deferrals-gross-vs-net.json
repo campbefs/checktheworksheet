@@ -1,0 +1,63 @@
+{
+  "_readme": "One row per Massachusetts child support guidelines edition or off-cycle amendment, 2017-2025 (the full run of editions in data/extracted/). Question tracked: was the GROSS-VERSUS-NET INCOME BASIS question (not the separate alimony/tax-order question) raised and deferred in that cycle's own primary text? status is DEFERRED only where the corpus holds a verbatim quote deferring that specific question; NO RECORD IN CORPUS where no such quote was found (never inferred from silence, never inferred from a later cycle's reference to 'prior task forces'); DECIDED is unused here (no cycle in the corpus resolves the question). Built 2026-09-06 for model/charts/fig11_deferral_timeline.py.",
+  "cycles": [
+    {
+      "year": 2017,
+      "effective_date": "September 2017",
+      "label": "2017 guidelines",
+      "kind": "quadrennial review",
+      "status": "NO RECORD IN CORPUS",
+      "quote": null,
+      "document": null,
+      "note": "No discussion of the gross-vs-net income basis found in this cycle's commentary (data/extracted/Guidelines.flow.txt). A different tax question (alimony/unallocated-support characterization, Section II.A) was deferred the same year ('no changes to this section were recommended at this time ... reviewed again during the next quadrennial review') but that is not the gross-vs-net basis question and is not counted here."
+    },
+    {
+      "year": 2018,
+      "effective_date": "June 15, 2018",
+      "label": "2018 amendment",
+      "kind": "off-cycle amendment",
+      "status": "NO RECORD IN CORPUS",
+      "quote": null,
+      "document": null,
+      "note": "Off-cycle worksheet fix (age-adjustment factors) after the Trial Court 'received questions'; no gross-vs-net text found in the corpus for this amendment."
+    },
+    {
+      "year": 2021,
+      "effective_date": "October 4, 2021",
+      "label": "2021 guidelines",
+      "kind": "quadrennial review",
+      "status": "NO RECORD IN CORPUS",
+      "quote": null,
+      "document": null,
+      "note": "No discussion of the gross-vs-net income basis found in this cycle's commentary (data/extracted/Guidelines.flow.txt). The 2025 Brattle report's phrase 'as prior task forces have done' asserts this and earlier cycles discussed it, but no primary text from 2021 itself is in the corpus."
+    },
+    {
+      "year": 2023,
+      "effective_date": "July 2023",
+      "label": "2023 amendment",
+      "kind": "off-cycle amendment",
+      "status": "NO RECORD IN CORPUS",
+      "quote": null,
+      "document": null,
+      "note": "Off-cycle amendment to comply with 45 C.F.R. § 302.56(c) (incarceration not voluntary unemployment); no gross-vs-net text found in the corpus for this amendment."
+    },
+    {
+      "year": 2025,
+      "effective_date": "December 1, 2025",
+      "label": "2025 guidelines",
+      "kind": "quadrennial review",
+      "status": "DEFERRED",
+      "quote": "Again in this review, as prior task forces have done, the Task Force discussed the use of gross versus net income in the guidelines. Ultimately, it decided not to recommend a change from gross income to net income at this time. We expect this issue will once again be considered as part of the next guidelines review.",
+      "document": "Economic Review of the Massachusetts Child Support Guidelines 2024–2025 (Brattle Group)",
+      "source_file": "data/extracted/Econreview.flow.txt",
+      "note": "The only cycle in the corpus with a verbatim gross-vs-net deferral. States its own precondition: 'the Task Force acknowledged the potential importance of these issues and they remain on the horizon for continued evaluation in the next guidelines review.'"
+    }
+  ],
+  "context_only": {
+    "next_review_expected": "2029",
+    "quote": "the college cost benchmark in the guidelines will likely continue to increase by approximately 4% to 5% per year between now and the next guidelines review in 2029",
+    "document": "Economic Review of the Massachusetts Child Support Guidelines 2024–2025 (Brattle Group)",
+    "source_file": "data/extracted/Econreview.flow.txt",
+    "caveat": "This sentence is about the college-cost benchmark, not gross-vs-net specifically, but it is the corpus's own statement of when the next guidelines review is expected. Shown as a reference note only, not a data point."
+  }
+}

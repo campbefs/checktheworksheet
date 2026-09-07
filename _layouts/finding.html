@@ -1,11 +1,24 @@
 ---
 layout: default
+body_class: finding-page
 ---
+{% comment %}
+  One of the four finding pages (findings/hardship-test.html, findings/child-care.html,
+  findings/parenting-time.html, findings/fifty-jurisdictions.html). Adds an `<article
+  class="finding">` wrapper over `default` — nothing more. Per design brief §3.6, a finding page's
+  own body supplies, in order: the disclosure, the eyebrow + headline + numeral pair, the
+  mechanism paragraph, the interactive exhibit, the static exhibit, the two standing caveats, and
+  a check-it-yourself list. All of that is real per-finding prose and markup, so it lives in the
+  content file, composed from the shared includes (`disclosure.html`, `chapter-rail.html`,
+  `figure.html`) and CSS classes — see CONVENTIONS.md "Finding page pattern" for the exact,
+  copyable skeleton, including where `{% include chapter-rail.html %}` goes relative to the
+  `.page-shell`/`.content-col` grid.
+
+  Why this layout exists as a distinct file from `page.html` rather than reusing it: the
+  `.finding` wrapper is what CSS keys the finding-specific rules to (the numeral-pair sizing in
+  §3.2, the eyebrow's "Finding N of 4" styling) without leaking those rules onto every generic
+  content page.
+{% endcomment %}
 <article class="finding">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="{{ '/findings/' | relative_url }}">Findings</a>
-    <span aria-hidden="true"> &rsaquo; </span>
-    <span aria-current="page">{{ page.title }}</span>
-  </nav>
 {{ content }}
 </article>

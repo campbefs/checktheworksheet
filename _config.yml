@@ -13,15 +13,17 @@ url: "https://checktheworksheet.org"
 
 markdown: kramdown
 
-# No `theme:` / `remote_theme:` — this repo carries its own _layouts/_includes/assets/css/site.css.
-# Re-adding a theme key silently reintroduces that theme's layouts and overrides these files.
+# No `theme:` / `remote_theme:` — this repo carries its own _layouts/_includes/assets/css/site.css
+# (2026-09-06 redesign: "Paper & Claret", see docs/research/website/redesign/2026-09-06-DESIGN-BRIEF.md
+# in the private research repo, and CONVENTIONS.md here). Re-adding a `theme:` key silently
+# reintroduces that theme's layouts and overrides these files — it happened once already on this
+# branch (a prior commit reduced this file to `theme: minima`); don't reintroduce it.
 
 plugins:
   - jekyll-seo-tag     # {% seo %} in _layouts/default.html: meta/OG tags from front matter + this file
   - jekyll-sitemap     # generates /sitemap.xml (machine-readable). The human-readable /sitemap/
                        # PAGE required by web-page-anatomy (WCAG 2.4.5, a second way to navigate
-                       # distinct from the footer) is a separate content page — not built by this
-                       # config and not yet in the repo. See CONVENTIONS.md.
+                       # distinct from the footer) is a separate content page — see CONVENTIONS.md.
 
 # Keeps Jekyll's markdown/HTML converters off files that exist for GitHub's repo browser or for
 # internal maintenance, not for the public site. EXACT FILE PATHS only, never a folder that holds
@@ -30,7 +32,10 @@ plugins:
 # the built site instead of protecting them; their URLs are cited in a working paper and letters
 # that have gone out.
 exclude:
-  - README.md                     # GitHub repo-browser landing page; index.md is the real homepage
+  - README.md                     # GitHub repo-browser landing page; index.html is the real homepage
+  - index.md                      # stale pre-redesign draft homepage, byte-identical to README.md;
+                                   # index.html is the real homepage and would collide with this at
+                                   # build time besides, so it must never be served on its own
   - CLAUDE.md                     # agent instructions; already gitignored, listed for local-build parity
   - CONVENTIONS.md                # internal doc for the agents/maintainers building this site
   - context/                      # session memory; already gitignored, listed for local-build parity
@@ -38,6 +43,9 @@ exclude:
   - figures/working/README.md     # was going live at /figures/working/ via jekyll-readme-index
   - Gemfile
   - Gemfile.lock
+  - vendor/                       # local `bundle install` path (see .gitignore) — never on GH Pages,
+                                   # excluded anyway for a clean local build
+  - node_modules/
 
 # Guards a LOCAL `bundle exec jekyll build` from clobbering asset folders it did not generate, if
 # the destination is ever pointed somewhere other than a throwaway _site/. These paths are frozen:

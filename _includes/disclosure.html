@@ -1,0 +1,42 @@
+{% comment %}
+  The disclosure (design brief, and web-page-anatomy's Disclosure slot): visible prose, never a
+  footnote, never behind a link. Sits right after the hero, before the first finding, figure, or
+  interactive exhibit — on the home page AND on every finding page (design brief §3.6 step 1 puts
+  it first, before even the eyebrow/headline).
+
+  DATA SOURCE: front matter, so the exact wording is reviewable in the content file itself, not
+  buried in an include:
+
+    ---
+    layout: finding
+    disclosure:
+      - >-
+        The worked example throughout — the payor, the $201,000 income, the child care figures —
+        is my own child support order: three children, my income and my children's mother's
+        income entered as the Worksheet requires. I disclose it because a reader should be able
+        to check whether the arithmetic changes when the numbers are real, not hypothetical. It
+        doesn't: the same 17-point gap holds across the income and child-care ranges charted
+        below, not only at my own figures.
+      - >-
+        The model behind every number here is <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>,
+        checked by <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a>
+        against the form's own calculation scripts.
+    ---
+
+  Each list item becomes one <p>. web-page-anatomy's budget is "fact, why it's told, verification
+  link — same paragraph, all three, ≤ 3 sentences total" — the two-paragraph shape above (fact +
+  why in the first, the verification link in the second) is the one already reviewed and shipped
+  in the worked example; a page may use one paragraph or two, but the link must be inside the
+  disclosure block, never moved to a footer or an "about" page instead.
+
+  This include does not escape the strings in `page.disclosure` — they may contain inline HTML
+  (links, <code>), same as this repo's existing `description: >-` front-matter convention. Content
+  authors are trusted; there is no user input here.
+{% endcomment %}
+<div class="disclosure">
+  <div class="box">
+    {% for paragraph in page.disclosure %}
+    <p>{{ paragraph }}</p>
+    {% endfor %}
+  </div>
+</div>

@@ -4,3 +4,10 @@ __pycache__/
 CLAUDE.md
 context/
 output/
+
+# Local Jekyll build (route (a), web-static-build) — never committed; GitHub Pages builds fresh
+# from source on every push.
+vendor/
+_site/
+.bundle/
+Gemfile.lock

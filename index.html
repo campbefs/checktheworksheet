@@ -1,0 +1,517 @@
+---
+layout: home
+title: "checktheworksheet.org: the Massachusetts child support worksheet, checked against its own arithmetic"
+description: "A code reproduction of the Massachusetts Child Support Guidelines Worksheet, checked against the form's own calculation scripts, finds three internal inconsistencies and one fifty-jurisdiction comparison. Every number traces to a file."
+disclosure:
+  - >-
+    The worked example throughout is my own child support order, disclosed so a reader can check
+    the arithmetic against real numbers. It doesn't change: the same gaps hold across the ranges
+    charted on every finding page.
+  - >-
+    Every number traces to <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>,
+    checked by <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a> against
+    the form's own scripts. Comments built from it are prepared for the Trial Court, on the
+    <a href="/documents/">Documents</a> page; they have not been sent.
+scripts:
+  - "/assets/js/csv-slider.js"
+  - "/assets/js/sortable-table.js"
+---
+
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">Massachusetts Child Support Guidelines Worksheet, verified in code</p>
+      <h1>At equal parenting time, Massachusetts orders more than <span class="figure">47</span> of the other 49 ranked jurisdictions do at primary custody.</h1>
+      <p class="lede">One fact pattern (three children, $201,000 and $29,640 a year, no child care),
+      profiled from each jurisdiction's own guidelines, computed twice, and checked by an
+      adversarial review. Georgia is held out: its enacted formula orders less at equal time than
+      at primary custody.</p>
+      <p class="confidence-tag">Tiered: one fact pattern, not a distribution</p>
+    </div>
+    <div class="hero-visual">
+      {% include figure.html
+         id="e17-hero"
+         img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
+         alt="Ranked bar chart of fifty jurisdictions' child support orders, with Massachusetts computed at equal parenting time and marked at the top, its own primary-custody order shown for scale."
+         title="Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions."
+         notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time; Massachusetts's own primary-custody order, $4,714, is marked for scale."
+         source_script="model/charts/fig10_ma_shared_vs_primary.py"
+         csv_href="/figures/working/fig10_ma_shared_vs_primary.csv"
+         lazy="false" %}
+    </div>
+  </div>
+</section>
+
+{% include disclosure.html %}
+
+<div class="page-shell">
+  <div></div>
+  <div class="content-col">
+    <section class="exhibit-section" id="lead-comparison">
+      <p class="eyebrow">The comparison behind this site</p>
+      <h2>At equal parenting time, Massachusetts orders more than 47 of the other 49 ranked jurisdictions' primary-custody orders.</h2>
+      <p>Every jurisdiction at primary custody first, then Massachusetts recomputed at equal
+      parenting time. One fact pattern (three children, $201,000 and $29,640 a year), profiled,
+      computed twice, and checked by an adversarial review. Georgia is held out: its formula orders
+      less at equal time than at primary custody. Full method below.</p>
+      <div class="exhibit-pair">
+        {% include figure.html
+           id="e12"
+           img="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
+           alt="Ranked bar chart of fifty jurisdictions' child support orders with the children primarily in the lower earner's household, Massachusetts marked."
+           title="Lower earner primary: only Hawaii orders more than Massachusetts."
+           source_script="model/charts/fig5_states.py"
+           csv_href="/figures/working/fig5_states.csv"
+           confidence="Tiered: see method below"
+           lazy="false" %}
+        {% include figure.html
+           id="e17"
+           img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
+           alt="The same ranked bar chart with Massachusetts recomputed at equal parenting time instead of primary custody, moving its bar above all but two others."
+           title="Massachusetts recomputed at equal time moves above all but Hawaii and Wisconsin."
+           source_script="model/charts/fig10_ma_shared_vs_primary.py"
+           csv_href="/figures/working/fig10_ma_shared_vs_primary.csv"
+           confidence="Tiered: see method below" %}
+      </div>
+    </section>
+  </div>
+</div>
+
+<section class="tool-section" id="calculator">
+  <div class="page-shell">
+    <div></div>
+    <div class="content-col">
+      <div class="tool" data-tool data-tool-src="/assets/data/heatmap-3child-box1.json">
+        <h3>Try it: watch Line 7e diverge from the true share</h3>
+        <p class="tool-deck">A lookup against a 1,147-row grid of real Worksheet output; nothing
+        is computed in your browser.</p>
+        <div class="tool-two-up">
+          <div class="tool-slider-row">
+            <label for="higher-earner-slider">Higher earner, per year
+              <output id="higher-earner-output" for="higher-earner-slider">$200,000</output>
+            </label>
+            <input type="range" id="higher-earner-slider" data-tool-input="higher_gross"
+                   data-tool-output-format="money"
+                   data-tool-valuetext="Higher earner: {value} a year"
+                   min="60000" max="300000" step="5000" value="200000">
+          </div>
+          <div class="tool-slider-row">
+            <label for="lower-earner-slider">Lower earner, per year
+              <output id="lower-earner-output" for="lower-earner-slider">$30,000</output>
+            </label>
+            <input type="range" id="lower-earner-slider" data-tool-input="lower_gross"
+                   data-tool-output-format="money"
+                   data-tool-valuetext="Lower earner: {value} a year"
+                   min="0" max="120000" step="5000" value="30000">
+          </div>
+        </div>
+        <div class="tool-readout" aria-live="polite">
+          <div>
+            <p class="cell-label">Weekly order</p>
+            <p class="cell-value" data-tool-cell="order_wk" data-tool-format="money-wk">$1,007/wk</p>
+          </div>
+          <div>
+            <p class="cell-label">Line 7e's reading</p>
+            <p class="cell-value payor-line" data-tool-cell="line_7e" data-tool-format="pct1">26.5%</p>
+          </div>
+          <div>
+            <p class="cell-label">True share of net</p>
+            <p class="cell-value true-burden" data-tool-cell="order_pct_payor_net" data-tool-format="pct1">37.6%</p>
+          </div>
+        </div>
+        <p class="tool-flag visible" data-tool-flag data-tool-flag-rule="divergence"
+           data-tool-flag-keys="line_7e,order_pct_payor_net" data-tool-flag-threshold="0.1"
+           data-tool-flag-text="Line 7e and the true share are more than 10 points apart here.">Line 7e and the true share are more than 10 points apart here.</p>
+      </div>
+      <p class="tool-method">Data: <a href="/figures/working/fig1_heatmap_3child_box1.csv"><code>fig1_heatmap_3child_box1.csv</code></a>
+      &middot; script <code>model/charts/fig1_heatmaps.py</code>.</p>
+    </div>
+  </div>
+</section>
+
+<div class="page-shell">
+  <div></div>
+  <div class="content-col">
+    <h2 id="findings">What the Worksheet does that its text doesn't say</h2>
+    <p>Four findings, each pinned to the form's own calculation scripts. The hardship presumption
+    does not kick in until the payor is at 57 percent of net income.</p>
+  </div>
+</div>
+
+<div class="numeral-pair" id="hardship-numerals">
+  <div class="numeral">
+    <span class="numeral-value">40</span>
+    <p class="numeral-caption">What Line 7e reports, in percent of income</p>
+  </div>
+  <span class="numeral-arrow" aria-hidden="true">&rarr;</span>
+  <div class="numeral">
+    <span class="numeral-value">57</span>
+    <p class="numeral-caption">The payor's true share of net income when it finally does</p>
+  </div>
+</div>
+
+<div class="finding-grid" id="findings-grid">
+
+  <article class="finding-card" id="f-hardship">
+    <div class="thumb">
+      <img src="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
+           alt="Line chart of Line 7e's reported percentage against the true share of the payor's net income, as claimed child care rises from $0 to $600 a week.">
+    </div>
+    <div class="body">
+      <p class="tag">Verified against the form's own scripts <a class="interactive-badge" href="#calculator">&rarr; live tool above</a></p>
+      <h3><a href="/findings/hardship-test/">The hardship test reads a different income than the order pays from</a></h3>
+      <p>Line 7e computes hardship on gross-derived income; the order is paid from net.</p>
+      <div class="stat">
+        <span class="stat-value">57%</span>
+        <span class="stat-label">of net income, the point where the hardship presumption finally kicks in</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="finding-card" id="f-childcare">
+    <div class="thumb">
+      <img src="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
+           alt="Bar chart comparing the payor's share of claimed child care under three income measures: pre-transfer gross, post-transfer gross, and post-transfer net.">
+    </div>
+    <div class="body">
+      <p class="tag">Verified against the form's own scripts</p>
+      <h3><a href="/findings/child-care/">Child care is split on income the order has already changed</a></h3>
+      <p>Line 3c allocates child care on income shares fixed before base support moves money.</p>
+      <div class="stat">
+        <span class="stat-value">88&cent;</span>
+        <span class="stat-label">of every child care dollar, funded by the payor</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="finding-card" id="f-parenting">
+    <div class="thumb">
+      <img src="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
+           alt="Line chart of the shared-parenting credit's percentage reduction against the payor's income share, falling from about 75 percent to 7 percent as the income gap widens.">
+    </div>
+    <div class="body">
+      <p class="tag">Verified against the form's own scripts</p>
+      <h3><a href="/findings/parenting-time/">The credit for equal parenting time contains no parenting-time term</a></h3>
+      <p>Line 6g nets the parents' Line 6e amounts; no count of overnights enters at any point.</p>
+      <div class="stat">
+        <span class="stat-value">6.9%</span>
+        <span class="stat-label">the credit at a wide income gap, down from about 75% at a narrow one</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="finding-card" id="f-fifty">
+    <div class="thumb">
+      <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
+           alt="Ranked bar chart of fifty jurisdictions' child support orders at equal parenting time, one fact pattern, Massachusetts at the top.">
+    </div>
+    <div class="body">
+      <p class="tag">Tiered: one fact pattern, not a distribution <span class="interactive-badge">&rarr; sortable table</span></p>
+      <h3><a href="/findings/fifty-one-jurisdictions/">Massachusetts's equal-time order exceeds 47 of 49 other jurisdictions' primary orders</a></h3>
+      <p>Fifty of fifty-one jurisdictions, profiled, computed twice, and checked adversarially.</p>
+      <div class="stat">
+        <span class="stat-value">47 of 49</span>
+        <span class="stat-label">other jurisdictions' primary-custody orders exceeded</span>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="page-shell">
+  <div></div>
+  <div class="content-col">
+    <section id="comparison">
+      <h2>All fifty ranked jurisdictions, both custody arrangements</h2>
+      <p>One fact pattern (three children, $201,000 and $29,640 a year); Massachusetts pinned at
+      the top. Georgia is not shown: its formula orders less at equal time than at primary custody.
+      &dagger; New York exceeds its $193,000 schedule; the rate above that is discretionary.</p>
+
+      <div class="table-filter">
+        <label for="jurisdiction-filter">Filter by jurisdiction</label>
+        <input type="text" id="jurisdiction-filter" data-table-filter="fifty-table" aria-controls="fifty-table">
+      </div>
+
+      <div class="exhibit-table-wrap">
+        <table class="exhibit-table" id="fifty-table" data-sortable>
+          <thead>
+            <tr>
+              <th><button data-sort-key="state" aria-sort="none">Jurisdiction</button></th>
+              <th class="numeric"><button data-sort-key="s1" data-sort-type="number" aria-sort="descending">S1, equal parenting</button></th>
+              <th class="numeric"><button data-sort-key="s2" data-sort-type="number" aria-sort="none">S2, primary custody</button></th>
+            </tr>
+          </thead>
+          <tbody>
+      <tr class="is-reader-state" data-filter-text="massachusetts">
+        <td>Massachusetts</td>
+        <td class="numeric" data-sort-value="4388.48">$4,388/mo</td>
+        <td class="numeric" data-sort-value="4714.22">$4,714/mo</td>
+      </tr>
+      <tr data-filter-text="new york">
+        <td>New York &dagger;</td>
+        <td class="numeric" data-sort-value="4067.61">$4,068/mo</td>
+        <td class="numeric" data-sort-value="4067.61">$4,068/mo</td>
+      </tr>
+      <tr data-filter-text="new hampshire">
+        <td>New Hampshire</td>
+        <td class="numeric" data-sort-value="3838.66">$3,839/mo</td>
+        <td class="numeric" data-sort-value="3838.66">$3,839/mo</td>
+      </tr>
+      <tr data-filter-text="texas">
+        <td>Texas</td>
+        <td class="numeric" data-sort-value="3510.00">$3,510/mo</td>
+        <td class="numeric" data-sort-value="3510.00">$3,510/mo</td>
+      </tr>
+      <tr data-filter-text="missouri">
+        <td>Missouri</td>
+        <td class="numeric" data-sort-value="3139.00">$3,139/mo</td>
+        <td class="numeric" data-sort-value="3139.00">$3,139/mo</td>
+      </tr>
+      <tr data-filter-text="connecticut">
+        <td>Connecticut</td>
+        <td class="numeric" data-sort-value="3138.20">$3,138/mo</td>
+        <td class="numeric" data-sort-value="3138.20">$3,138/mo</td>
+      </tr>
+      <tr data-filter-text="wisconsin">
+        <td>Wisconsin</td>
+        <td class="numeric" data-sort-value="3117.35">$3,117/mo</td>
+        <td class="numeric" data-sort-value="4491.71">$4,492/mo</td>
+      </tr>
+      <tr data-filter-text="new jersey">
+        <td>New Jersey</td>
+        <td class="numeric" data-sort-value="3002.31">$3,002/mo</td>
+        <td class="numeric" data-sort-value="3002.31">$3,002/mo</td>
+      </tr>
+      <tr data-filter-text="north dakota">
+        <td>North Dakota</td>
+        <td class="numeric" data-sort-value="2939.00">$2,939/mo</td>
+        <td class="numeric" data-sort-value="3219.00">$3,219/mo</td>
+      </tr>
+      <tr data-filter-text="maine">
+        <td>Maine</td>
+        <td class="numeric" data-sort-value="2899.02">$2,899/mo</td>
+        <td class="numeric" data-sort-value="2899.02">$2,899/mo</td>
+      </tr>
+      <tr data-filter-text="washington">
+        <td>Washington</td>
+        <td class="numeric" data-sort-value="2819.56">$2,820/mo</td>
+        <td class="numeric" data-sort-value="2819.56">$2,820/mo</td>
+      </tr>
+      <tr data-filter-text="hawaii">
+        <td>Hawaii</td>
+        <td class="numeric" data-sort-value="2774.00">$2,774/mo</td>
+        <td class="numeric" data-sort-value="5821.00">$5,821/mo</td>
+      </tr>
+      <tr data-filter-text="rhode island">
+        <td>Rhode Island</td>
+        <td class="numeric" data-sort-value="2684.45">$2,684/mo</td>
+        <td class="numeric" data-sort-value="3123.22">$3,123/mo</td>
+      </tr>
+      <tr data-filter-text="colorado">
+        <td>Colorado</td>
+        <td class="numeric" data-sort-value="2652.32">$2,652/mo</td>
+        <td class="numeric" data-sort-value="3090.30">$3,090/mo</td>
+      </tr>
+      <tr data-filter-text="iowa">
+        <td>Iowa</td>
+        <td class="numeric" data-sort-value="2630.25">$2,630/mo</td>
+        <td class="numeric" data-sort-value="3744.73">$3,745/mo</td>
+      </tr>
+      <tr data-filter-text="ohio">
+        <td>Ohio</td>
+        <td class="numeric" data-sort-value="2564.15">$2,564/mo</td>
+        <td class="numeric" data-sort-value="2564.15">$2,564/mo</td>
+      </tr>
+      <tr data-filter-text="california">
+        <td>California</td>
+        <td class="numeric" data-sort-value="2424.32">$2,424/mo</td>
+        <td class="numeric" data-sort-value="3436.04">$3,436/mo</td>
+      </tr>
+      <tr data-filter-text="pennsylvania">
+        <td>Pennsylvania</td>
+        <td class="numeric" data-sort-value="2378.42">$2,378/mo</td>
+        <td class="numeric" data-sort-value="3086.76">$3,087/mo</td>
+      </tr>
+      <tr data-filter-text="alaska">
+        <td>Alaska</td>
+        <td class="numeric" data-sort-value="2367.95">$2,368/mo</td>
+        <td class="numeric" data-sort-value="3462.96">$3,463/mo</td>
+      </tr>
+      <tr data-filter-text="maryland">
+        <td>Maryland</td>
+        <td class="numeric" data-sort-value="2309.54">$2,310/mo</td>
+        <td class="numeric" data-sort-value="3295.11">$3,295/mo</td>
+      </tr>
+      <tr data-filter-text="kansas">
+        <td>Kansas</td>
+        <td class="numeric" data-sort-value="2296.63">$2,297/mo</td>
+        <td class="numeric" data-sort-value="3838.03">$3,838/mo</td>
+      </tr>
+      <tr data-filter-text="indiana">
+        <td>Indiana</td>
+        <td class="numeric" data-sort-value="2283.25">$2,283/mo</td>
+        <td class="numeric" data-sort-value="2548.03">$2,548/mo</td>
+      </tr>
+      <tr data-filter-text="delaware">
+        <td>Delaware</td>
+        <td class="numeric" data-sort-value="2281.35">$2,281/mo</td>
+        <td class="numeric" data-sort-value="3990.73">$3,991/mo</td>
+      </tr>
+      <tr data-filter-text="district of columbia">
+        <td>District of Columbia</td>
+        <td class="numeric" data-sort-value="2253.73">$2,254/mo</td>
+        <td class="numeric" data-sort-value="3467.96">$3,468/mo</td>
+      </tr>
+      <tr data-filter-text="louisiana">
+        <td>Louisiana</td>
+        <td class="numeric" data-sort-value="2227.23">$2,227/mo</td>
+        <td class="numeric" data-sort-value="3269.06">$3,269/mo</td>
+      </tr>
+      <tr data-filter-text="arkansas">
+        <td>Arkansas</td>
+        <td class="numeric" data-sort-value="2118.68">$2,119/mo</td>
+        <td class="numeric" data-sort-value="2349.64">$2,350/mo</td>
+      </tr>
+      <tr data-filter-text="mississippi">
+        <td>Mississippi</td>
+        <td class="numeric" data-sort-value="2097.44">$2,097/mo</td>
+        <td class="numeric" data-sort-value="2564.76">$2,565/mo</td>
+      </tr>
+      <tr data-filter-text="wyoming">
+        <td>Wyoming</td>
+        <td class="numeric" data-sort-value="1900.85">$1,901/mo</td>
+        <td class="numeric" data-sort-value="2801.97">$2,802/mo</td>
+      </tr>
+      <tr data-filter-text="north carolina">
+        <td>North Carolina</td>
+        <td class="numeric" data-sort-value="1883.12">$1,883/mo</td>
+        <td class="numeric" data-sort-value="2934.30">$2,934/mo</td>
+      </tr>
+      <tr data-filter-text="illinois">
+        <td>Illinois</td>
+        <td class="numeric" data-sort-value="1881.45">$1,881/mo</td>
+        <td class="numeric" data-sort-value="3037.90">$3,038/mo</td>
+      </tr>
+      <tr data-filter-text="virginia">
+        <td>Virginia</td>
+        <td class="numeric" data-sort-value="1872.18">$1,872/mo</td>
+        <td class="numeric" data-sort-value="2672.09">$2,672/mo</td>
+      </tr>
+      <tr data-filter-text="nevada">
+        <td>Nevada</td>
+        <td class="numeric" data-sort-value="1842.80">$1,843/mo</td>
+        <td class="numeric" data-sort-value="2485.00">$2,485/mo</td>
+      </tr>
+      <tr data-filter-text="tennessee">
+        <td>Tennessee</td>
+        <td class="numeric" data-sort-value="1833.00">$1,833/mo</td>
+        <td class="numeric" data-sort-value="2031.00">$2,031/mo</td>
+      </tr>
+      <tr data-filter-text="south carolina">
+        <td>South Carolina</td>
+        <td class="numeric" data-sort-value="1832.22">$1,832/mo</td>
+        <td class="numeric" data-sort-value="2669.21">$2,669/mo</td>
+      </tr>
+      <tr data-filter-text="new mexico">
+        <td>New Mexico</td>
+        <td class="numeric" data-sort-value="1823.64">$1,824/mo</td>
+        <td class="numeric" data-sort-value="2795.32">$2,795/mo</td>
+      </tr>
+      <tr data-filter-text="idaho">
+        <td>Idaho</td>
+        <td class="numeric" data-sort-value="1794.22">$1,794/mo</td>
+        <td class="numeric" data-sort-value="2549.85">$2,550/mo</td>
+      </tr>
+      <tr data-filter-text="south dakota">
+        <td>South Dakota</td>
+        <td class="numeric" data-sort-value="1788.96">$1,789/mo</td>
+        <td class="numeric" data-sort-value="2623.12">$2,623/mo</td>
+      </tr>
+      <tr data-filter-text="alabama">
+        <td>Alabama</td>
+        <td class="numeric" data-sort-value="1746.00">$1,746/mo</td>
+        <td class="numeric" data-sort-value="2736.00">$2,736/mo</td>
+      </tr>
+      <tr data-filter-text="florida">
+        <td>Florida</td>
+        <td class="numeric" data-sort-value="1735.21">$1,735/mo</td>
+        <td class="numeric" data-sort-value="2512.99">$2,513/mo</td>
+      </tr>
+      <tr data-filter-text="west virginia">
+        <td>West Virginia</td>
+        <td class="numeric" data-sort-value="1724.21">$1,724/mo</td>
+        <td class="numeric" data-sort-value="2518.77">$2,519/mo</td>
+      </tr>
+      <tr data-filter-text="vermont">
+        <td>Vermont</td>
+        <td class="numeric" data-sort-value="1686.42">$1,686/mo</td>
+        <td class="numeric" data-sort-value="2594.42">$2,594/mo</td>
+      </tr>
+      <tr data-filter-text="nebraska">
+        <td>Nebraska</td>
+        <td class="numeric" data-sort-value="1475.23">$1,475/mo</td>
+        <td class="numeric" data-sort-value="2402.03">$2,402/mo</td>
+      </tr>
+      <tr data-filter-text="montana">
+        <td>Montana</td>
+        <td class="numeric" data-sort-value="1461.00">$1,461/mo</td>
+        <td class="numeric" data-sort-value="3073.50">$3,074/mo</td>
+      </tr>
+      <tr data-filter-text="michigan">
+        <td>Michigan</td>
+        <td class="numeric" data-sort-value="1445.25">$1,445/mo</td>
+        <td class="numeric" data-sort-value="2808.44">$2,808/mo</td>
+      </tr>
+      <tr data-filter-text="arizona">
+        <td>Arizona</td>
+        <td class="numeric" data-sort-value="1309.36">$1,309/mo</td>
+        <td class="numeric" data-sort-value="2290.06">$2,290/mo</td>
+      </tr>
+      <tr data-filter-text="oklahoma">
+        <td>Oklahoma</td>
+        <td class="numeric" data-sort-value="1284.42">$1,284/mo</td>
+        <td class="numeric" data-sort-value="2008.78">$2,009/mo</td>
+      </tr>
+      <tr data-filter-text="minnesota">
+        <td>Minnesota</td>
+        <td class="numeric" data-sort-value="1174.71">$1,175/mo</td>
+        <td class="numeric" data-sort-value="2271.30">$2,271/mo</td>
+      </tr>
+      <tr data-filter-text="kentucky">
+        <td>Kentucky</td>
+        <td class="numeric" data-sort-value="1087.80">$1,088/mo</td>
+        <td class="numeric" data-sort-value="1871.67">$1,872/mo</td>
+      </tr>
+      <tr data-filter-text="oregon">
+        <td>Oregon</td>
+        <td class="numeric" data-sort-value="1072.00">$1,072/mo</td>
+        <td class="numeric" data-sort-value="1772.00">$1,772/mo</td>
+      </tr>
+      <tr data-filter-text="utah">
+        <td>Utah</td>
+        <td class="numeric" data-sort-value="1058.31">$1,058/mo</td>
+        <td class="numeric" data-sort-value="2332.66">$2,333/mo</td>
+      </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tool-method">Data: <a href="/figures/working/fig5_states.csv"><code>fig5_states.csv</code></a>,
+      New York's cap from <a href="/figures/working/fig9_schedule_ceilings.csv"><code>fig9_schedule_ceilings.csv</code></a>
+      &middot; <a href="/findings/fifty-one-jurisdictions/">full method</a>.</p>
+    </section>
+
+    <section class="check-yourself" id="check-it-yourself">
+      <h2>Check it yourself</h2>
+      <ul>
+        <li><strong>Hardship test:</strong> <code>model/test_worksheet.py</code>;
+        <a href="/model/runs/submission-figures-run-2026-09-05.txt">printed run</a>.</li>
+        <li><strong>Child care:</strong> <code>model/childcare_post_transfer.py</code> and
+        its <a href="/model/test_childcare_post_transfer.py">tests</a>.</li>
+        <li><strong>Parenting time:</strong> <code>model/box1_fix.py</code> and its
+        <a href="/model/test_box1_fix.py">tests</a>.</li>
+        <li><strong>Fifty jurisdictions:</strong> <a href="/data/fifty-state/tier-50-2026-09-05.json">the dataset</a>
+        and <code>model/charts/fig5_states.py</code>.</li>
+      </ul>
+    </section>
+  </div>
+</div>
