@@ -46,6 +46,166 @@ scripts:
   </div>
 </section>
 
+<section class="tool-section" id="calculator">
+  <div class="page-shell">
+    <div></div>
+    <div class="content-col">
+      <div class="tool tool-two-up" data-calculator>
+        <h3>Try it: compute your own two incomes</h3>
+        <p class="tool-deck">A tested port of the Worksheet and the tax model runs in your
+        browser &mdash; it does not look anything up in a precomputed table.</p>
+
+        <div class="tool-tabs" role="tablist" aria-label="Calculator sections">
+          <button type="button" class="tool-tab" role="tab" id="calc-tab-base"
+                  aria-selected="true" aria-controls="calc-panel-base" data-calc-tab="base">Base support</button>
+          <button type="button" class="tool-tab" role="tab" id="calc-tab-childcare"
+                  aria-selected="false" tabindex="-1" aria-controls="calc-panel-childcare"
+                  data-calc-tab="childcare">Child care</button>
+        </div>
+
+        <div class="tool-slider-row">
+          <label for="calc-higher">Higher earner, gross per year
+            <output id="calc-higher-output" for="calc-higher">$201,000/yr</output>
+          </label>
+          <input type="range" id="calc-higher" data-calc-input="higher"
+                 min="60000" max="300000" step="120" value="201000">
+        </div>
+        <div class="tool-slider-row">
+          <label for="calc-lower">Lower earner, gross per year
+            <output id="calc-lower-output" for="calc-lower">$29,640/yr</output>
+          </label>
+          <input type="range" id="calc-lower" data-calc-input="lower"
+                 min="0" max="120000" step="120" value="29640">
+        </div>
+        <div class="tool-controls-row">
+          <fieldset class="segmented">
+            <legend>Children</legend>
+            <label class="segmented-option"><input type="radio" name="calc-kids" value="1" data-calc-radio="kids"> 1</label>
+            <label class="segmented-option"><input type="radio" name="calc-kids" value="2" data-calc-radio="kids"> 2</label>
+            <label class="segmented-option"><input type="radio" name="calc-kids" value="3" data-calc-radio="kids" checked> 3</label>
+          </fieldset>
+          <fieldset class="segmented">
+            <legend>Custody</legend>
+            <label class="segmented-option"><input type="radio" name="calc-custody" value="1" data-calc-radio="box" checked> Shared, equal time (Box 1)</label>
+            <label class="segmented-option"><input type="radio" name="calc-custody" value="2" data-calc-radio="box"> Primary with the lower earner (Box 2)</label>
+          </fieldset>
+        </div>
+        <div class="tool-controls-row tool-controls-row--premiums">
+          <div class="tool-number-field">
+            <label for="calc-health-higher">Higher earner's health insurance, per week</label>
+            <input type="number" id="calc-health-higher" data-calc-input="healthHigh"
+                   min="0" max="500" step="1" value="40">
+          </div>
+          <div class="tool-number-field">
+            <label for="calc-health-lower">Lower earner's health insurance, per week</label>
+            <input type="number" id="calc-health-lower" data-calc-input="healthLow"
+                   min="0" max="500" step="1" value="40">
+          </div>
+        </div>
+
+        <p class="tool-status-strip" data-calc-status>
+          <span class="tool-badge tool-badge--lit" data-calc-badge="household">Payee household ends up ahead</span>
+          <span class="tool-badge tool-badge--muted" data-calc-badge="hardship">Order below 40% of payor&rsquo;s net (37.8%)</span>
+        </p>
+
+        <div class="tool-panel" id="calc-panel-base" role="tabpanel" aria-labelledby="calc-tab-base" data-calc-panel="base">
+          <div class="tool-readout" aria-live="polite">
+            <div>
+              <p class="cell-label">Weekly order (Line 7d)</p>
+              <p class="cell-value" data-calc-cell="order_wk">$1,015/wk</p>
+            </div>
+            <div>
+              <p class="cell-label">Line 7e's reading</p>
+              <p class="cell-value payor-line" data-calc-cell="line_7e">26.5%</p>
+            </div>
+            <div>
+              <p class="cell-label">True share of the payor's net income</p>
+              <p class="cell-value" data-calc-cell="true_pct_net">37.8%</p>
+            </div>
+          </div>
+          <div class="tool-readout tool-readout--pair" aria-live="polite">
+            <div>
+              <p class="cell-label">Payor keeps, per year</p>
+              <p class="cell-value" data-calc-cell="payor_after">$87,043/yr</p>
+            </div>
+            <div>
+              <p class="cell-label">Recipient household holds, per year</p>
+              <p class="cell-value is-warning" data-calc-cell="recip_after">$93,070/yr</p>
+              <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,267/yr</strong></p>
+              <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-panel" id="calc-panel-childcare" role="tabpanel" aria-labelledby="calc-tab-childcare" data-calc-panel="childcare" hidden>
+          <div class="tool-slider-row">
+            <label for="calc-cc-lower">Child care paid by the lower earner, per week
+              <output id="calc-cc-lower-output" for="calc-cc-lower">$100/wk</output>
+            </label>
+            <input type="range" id="calc-cc-lower" data-calc-input="ccLower"
+                   min="0" max="1290" step="10" value="100">
+          </div>
+          <div class="tool-slider-row">
+            <label for="calc-cc-higher">Child care paid by the higher earner, per week
+              <output id="calc-cc-higher-output" for="calc-cc-higher">$0/wk</output>
+            </label>
+            <input type="range" id="calc-cc-higher" data-calc-input="ccHigher"
+                   min="0" max="1290" step="10" value="0">
+          </div>
+          <div class="tool-readout" aria-live="polite">
+            <div>
+              <p class="cell-label">Weekly order, with child care</p>
+              <p class="cell-value" data-calc-cell="cc_order_wk">$1,103/wk</p>
+            </div>
+            <div>
+              <p class="cell-label">Change from no child care</p>
+              <p class="cell-value" data-calc-cell="cc_delta_wk">+$88/wk</p>
+            </div>
+            <div>
+              <p class="cell-label">Higher earner's share of the lower earner's child care</p>
+              <p class="cell-value" data-calc-cell="cc_share_pct">87.8%</p>
+              <p class="cell-sub">Per year: <strong data-calc-cell="cc_share_wk">$4,567/yr</strong></p>
+            </div>
+          </div>
+          <p class="cell-note" data-calc-cell="cc_combined_line">&nbsp;</p>
+          <div class="tool-readout tool-readout--pair" aria-live="polite">
+            <div>
+              <p class="cell-label">Payor keeps, per year</p>
+              <p class="cell-value" data-calc-cell="cc_payor_after">$82,476/yr</p>
+            </div>
+            <div>
+              <p class="cell-label">Recipient household holds, per year</p>
+              <p class="cell-value is-warning" data-calc-cell="cc_recip_after">$92,437/yr</p>
+              <p class="cell-sub">Per person: <strong data-calc-cell="cc_recip_per_person">$23,109/yr</strong></p>
+              <p class="cell-note visible" data-calc-note="cc_recip_after">Above the payor</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="tool-assumptions">At the $40/$40 default premiums shown here, the base order is
+        $1,015/wk, not the site's $1,013 worked example, which uses $33/$43. The MA credit for
+        children under 13 is fixed at zero throughout.</p>
+
+        <details class="tool-detail">
+          <summary>Assumptions and method</summary>
+          <p>Box 2 puts the children primarily with the lower earner, who receives, while the
+          higher earner pays. Child care above is a combined weekly total per parent, capped at
+          $430 per child; the Child care tab's own readout already reflects it in the order and in
+          the after-tax figures. The MA Child and Family Tax Credit for children under 13 is fixed
+          at zero, the same convention as every income-range chart on this site, so the household
+          figures here run slightly lower than the site's own worked example, which uses two of
+          three children under 13. This calculator models Massachusetts only; no other state's
+          worksheet is implemented here. Method:
+          <a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
+          <a href="/model/net_position.py"><code>model/net_position.py</code></a>, ported and
+          tested in <a href="/assets/js/lib/worksheet.js"><code>assets/js/lib/worksheet.js</code></a>
+          and <a href="/assets/js/calculator.test.js"><code>assets/js/calculator.test.js</code></a>.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% include disclosure.html %}
 
 <div class="page-shell">
@@ -84,100 +244,6 @@ scripts:
     </section>
   </div>
 </div>
-
-<section class="tool-section" id="calculator">
-  <div class="page-shell">
-    <div></div>
-    <div class="content-col">
-      <div class="tool tool-two-up" data-calculator>
-        <h3>Try it: compute your own two incomes</h3>
-        <p class="tool-deck">This calculator computes the Worksheet and the TY2026 tax model in
-        your browser, from a tested port of the Python behind every figure on this site; it does
-        not look anything up in a precomputed table.</p>
-        <div class="tool-slider-row">
-          <label for="calc-higher">Higher earner, gross per year
-            <output id="calc-higher-output" for="calc-higher">$201,000/yr</output>
-          </label>
-          <input type="range" id="calc-higher" data-calc-input="higher"
-                 min="60000" max="300000" step="120" value="201000">
-        </div>
-        <div class="tool-slider-row">
-          <label for="calc-lower">Lower earner, gross per year
-            <output id="calc-lower-output" for="calc-lower">$29,640/yr</output>
-          </label>
-          <input type="range" id="calc-lower" data-calc-input="lower"
-                 min="0" max="120000" step="120" value="29640">
-        </div>
-        <div class="tool-controls-row">
-          <fieldset class="segmented">
-            <legend>Children</legend>
-            <label class="segmented-option"><input type="radio" name="calc-kids" value="1" data-calc-radio="kids"> 1</label>
-            <label class="segmented-option"><input type="radio" name="calc-kids" value="2" data-calc-radio="kids"> 2</label>
-            <label class="segmented-option"><input type="radio" name="calc-kids" value="3" data-calc-radio="kids" checked> 3</label>
-          </fieldset>
-          <fieldset class="segmented">
-            <legend>Custody</legend>
-            <label class="segmented-option"><input type="radio" name="calc-custody" value="1" data-calc-radio="box" checked> Shared, equal time (Box 1)</label>
-            <label class="segmented-option"><input type="radio" name="calc-custody" value="2" data-calc-radio="box"> Primary with the lower earner (Box 2)</label>
-          </fieldset>
-          <fieldset class="segmented segmented--compact">
-            <legend>Child care ($300/wk)</legend>
-            <label class="segmented-option"><input type="radio" name="calc-childcare" value="0" data-calc-radio="childcare" checked> None</label>
-            <label class="segmented-option"><input type="radio" name="calc-childcare" value="1" data-calc-radio="childcare"> Recipient pays</label>
-            <label class="segmented-option"><input type="radio" name="calc-childcare" value="2" data-calc-radio="childcare"> Both pay</label>
-          </fieldset>
-        </div>
-        <div class="tool-readout" aria-live="polite">
-          <div>
-            <p class="cell-label">Weekly order (Line 7d)</p>
-            <p class="cell-value" data-calc-cell="order_wk">$1,013/wk</p>
-          </div>
-          <div>
-            <p class="cell-label">Line 7e's reading</p>
-            <p class="cell-value payor-line" data-calc-cell="line_7e">26.5%</p>
-          </div>
-          <div>
-            <p class="cell-label">True share of the payor's net income</p>
-            <p class="cell-value" data-calc-cell="true_pct_net">37.7%</p>
-            <p class="cell-note" data-calc-note="true_pct_net">&nbsp;</p>
-          </div>
-        </div>
-        <p class="tool-flag" data-calc-flag>&nbsp;</p>
-        <details class="tool-detail" open>
-          <summary>After tax and the order, per year</summary>
-          <div class="tool-readout tool-readout--pair" aria-live="polite">
-            <div>
-              <p class="cell-label">Payor keeps</p>
-              <p class="cell-value" data-calc-cell="payor_after">$87,172/yr</p>
-            </div>
-            <div>
-              <p class="cell-label">Recipient household holds</p>
-              <p class="cell-value is-warning" data-calc-cell="recip_after">$92,941/yr</p>
-              <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,235/yr</strong></p>
-              <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
-            </div>
-          </div>
-          <p class="tool-flag" data-calc-flag-household>&nbsp;</p>
-        </details>
-        <p>Three children, Box 1 (shared parenting), and no child care by default; choose
-        1&ndash;3 children or Box 2 above &mdash; Box 2 puts the children primarily with the lower
-        earner, who receives, while the higher earner pays. Child care is a fixed $300/wk claim,
-        not a slider: "Recipient pays" gives the whole amount to the lower earner, reimbursed in
-        part through the order exactly as the Worksheet already does; "Both pay" gives $300/wk to
-        each parent, the ordinary case at equal parenting time. Health premiums stay fixed at
-        $33/wk (lower earner) and $43/wk (higher earner); the MA Child and Family Tax Credit for
-        children under 13 fixed at zero, the same convention as every income-range chart on this
-        site, so the household figures above run slightly lower than this site's worked example
-        elsewhere, which uses two of the three children under 13. This calculator models
-        Massachusetts only; no other state's worksheet is implemented here. Method:
-        <a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
-        <a href="/model/net_position.py"><code>model/net_position.py</code></a>, ported and tested
-        in <a href="/assets/js/lib/worksheet.js"><code>assets/js/lib/worksheet.js</code></a> and
-        <a href="/assets/js/calculator.test.js"><code>assets/js/calculator.test.js</code></a>.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <div class="page-shell">
   <div></div>
