@@ -494,7 +494,7 @@ where it matters, and a household comparison always carries its per-person count
 <figure class="exhibit" id="e11">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
      data-caption="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
-     data-csv-href="/data/fifty-state/tier-50-2026-09-05.json" data-csv-label="Data (CSV)">
+     data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
          loading="lazy"
          alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions under equal parenting time, one fact pattern, Massachusetts highlighted.">
@@ -585,7 +585,7 @@ where it matters, and a household comparison always carries its per-person count
 <figure class="exhibit" id="e12">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
      data-caption="Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts."
-     data-csv-href="/data/fifty-state/tier-50-2026-09-05.json" data-csv-label="Data (CSV)">
+     data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
          loading="lazy"
          alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted.">
@@ -676,7 +676,7 @@ where it matters, and a household comparison always carries its per-person count
 <figure class="exhibit" id="e13">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
      data-caption="A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23."
-     data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (CSV)">
+     data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (JSON)">
   <img src="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
          loading="lazy"
          alt="Tile map of fifty-one jurisdictions, each colored by whether a formula credit applies when a parent has the children 122 overnights a year, about one-third of the time.">
@@ -767,7 +767,7 @@ where it matters, and a household comparison always carries its per-person count
 <figure class="exhibit" id="e16">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
      data-caption="Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower."
-     data-csv-href="/data/fifty-state/ceilings-2026-09-06.json" data-csv-label="Data (CSV)">
+     data-csv-href="/figures/working/fig9_schedule_ceilings.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
          loading="lazy"
          alt="Horizontal bar chart ranking 41 jurisdictions by the combined income at which their presumptive child support schedule stops, Massachusetts highlighted.">
@@ -848,7 +848,7 @@ where it matters, and a household comparison always carries its per-person count
 <figure class="exhibit" id="e17">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
      data-caption="Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions."
-     data-csv-href="/data/fifty-state/tier-50-2026-09-05.json" data-csv-label="Data (CSV)">
+     data-csv-href="/figures/working/fig10_ma_shared_vs_primary.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
          loading="lazy"
          alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale.">
@@ -942,7 +942,7 @@ where it matters, and a household comparison always carries its per-person count
 <figure class="exhibit" id="e27">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
      data-caption="Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017 to 2025."
-     data-csv-href="/data/deferrals-gross-vs-net.json" data-csv-label="Data (CSV)">
+     data-csv-href="/figures/working/fig11_deferral_timeline.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
          loading="lazy"
          alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking whether the gross-versus-net income question was deferred on the record or not raised in the corpus.">

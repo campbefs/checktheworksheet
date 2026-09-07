@@ -94,7 +94,7 @@ direction.
 <figure class="exhibit" id="e11">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
      data-caption="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
-     data-csv-href="/data/fifty-state/tier-50-2026-09-05.json" data-csv-label="Data (CSV)">
+     data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
          width="1744" height="2189"
          alt="Bar chart ranking fifty state jurisdictions' equal-parenting-time monthly child support orders at one fact pattern, three children, $201,000 and $29,640 in annual income, Massachusetts highlighted.">
@@ -184,7 +184,7 @@ direction.
 <figure class="exhibit" id="e12">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
      data-caption="Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts."
-     data-csv-href="/data/fifty-state/tier-50-2026-09-05.json" data-csv-label="Data (CSV)">
+     data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
          width="1759" height="2230"
          loading="lazy"
@@ -279,7 +279,7 @@ earning a discrete formula credit the way 28 other jurisdictions do.
 <figure class="exhibit" id="e13">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
      data-caption="A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23."
-     data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (CSV)">
+     data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (JSON)">
   <img src="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
          width="1736" height="1554"
          loading="lazy"
@@ -310,7 +310,7 @@ does not adjust for that difference.
 <figure class="exhibit" id="e16">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
      data-caption="Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower."
-     data-csv-href="/data/fifty-state/ceilings-2026-09-06.json" data-csv-label="Data (CSV)">
+     data-csv-href="/figures/working/fig9_schedule_ceilings.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
          width="1663" height="2584"
          loading="lazy"
