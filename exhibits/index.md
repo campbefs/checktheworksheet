@@ -18,8 +18,9 @@ sweeps a whole range of incomes, the worked example is marked on it as one point
 the finding is stated for the whole range, not just that point. The worksheet that produced these
 figures is at <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked against
 the official form's own calculation scripts on <a href="/the-model/">the model page</a>. None of
-these figures has been sent to the Trial Court (see <a href="/documents/">Documents</a> for what
-has); they were built for the working paper and the correspondence that follows it.</p>
+these figures has been sent to the Trial Court, and neither has anything else on this site (see
+<a href="/documents/">Documents</a> for the two drafts' current status); they were built for the
+working paper and the correspondence that follows it.</p>
 </div>
 
 Every chart below carries one set of axes, no exceptions: an earlier set of exhibits mixed several

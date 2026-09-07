@@ -28,6 +28,8 @@ three are internal; they hold regardless of what any particular family's incomes
 compares Massachusetts's order at one fact pattern against fifty other jurisdictions' own
 guidelines, and is tiered accordingly: it generalizes to nothing beyond that one fact pattern.
 
+<h2 class="vh">The four findings</h2>
+
 <div class="finding-grid">
 
 <article class="finding-card">
