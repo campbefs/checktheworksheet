@@ -260,5 +260,105 @@ fixtures.rows.forEach(function (row) {
     label + ': recip_after > payor_after agrees with the fixture (drives the household is-warning class)');
 });
 
+// ---------------------------------------------------------------------------------------------
+// PART 6 -- CORRECTNESS GATE for the child-care control (v3, 2026-09-07): the full childcare
+// fixture grid (children 1/2/3 x custody box 1/2 x child-care scenario 0/1/2 x six income pairs,
+// 108 rows, generated straight from this repo's own model/worksheet.py and model/net_position.py
+// by tools/gen_calculator_childcare_fixtures.py). Every combination the calculator's child-care
+// control can select must reproduce that Python output; the fixture's own "disabled" list must
+// be empty, or those combinations must be disabled in the UI rather than shown with an
+// unverified number.
+// ---------------------------------------------------------------------------------------------
+console.log('\n=== PART 6: v3 child-care fixture grid (children x custody x child care x six income pairs) ===\n');
+
+// Reproduces calculator.js's own childcareArraysFor() / computeWithFacts() exactly (see that
+// file's v3 header comment) -- calculator.js itself is not required() here because it early-
+// returns when `window` is undefined (see PART 3's comment for why the same approach is used
+// there).
+function childcareArraysFor(scenario) {
+  if (scenario === 1) return { a: [300.0], b: [] };
+  if (scenario === 2) return { a: [300.0], b: [300.0] };
+  return { a: [], b: [] };
+}
+
+function computeWithChildcare(higherAnnual, lowerAnnual, facts) {
+  var lowerWk = lowerAnnual / 52.0, higherWk = higherAnnual / 52.0;
+  var cc = childcareArraysFor(facts.childcare || 0);
+  var r = W.run(facts.box, lowerWk, higherWk, facts.kids, 0, {
+    aHealth: facts.healthLow, bHealth: facts.healthHigh, aChildcare: cc.a, bChildcare: cc.b
+  });
+  var payorGross = r.payor === 'A' ? lowerAnnual : higherAnnual;
+  var recipGross = r.payor === 'A' ? higherAnnual : lowerAnnual;
+  var aOwnCc = cc.a.reduce(function (s, v) { return s + v; }, 0);
+  var bOwnCc = cc.b.reduce(function (s, v) { return s + v; }, 0);
+  var weeklyChildcare = aOwnCc + bOwnCc;
+  var payorOwnCc = r.payor === 'A' ? aOwnCc : bOwnCc;
+  var payorChildcareShare = weeklyChildcare > 0 ? payorOwnCc / weeklyChildcare : 0.0;
+  var p = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare, payorChildcareShare, undefined, 0);
+  return {
+    order_wk: r['7d'], line_7e: r['7e'], true_pct_net: p.burden_pct_of_payor_net,
+    payor_after: p.payor_after, recip_after: p.recip_after, recip_per_person: p.recip_per_person
+  };
+}
+
+var ccFixtures = require(path.join(__dirname, 'fixtures', 'calculator-childcare.json'));
+
+equal(ccFixtures.disabled.length, 0,
+  'childcare fixture grid: zero combinations were disabled by the Python');
+equal(ccFixtures.rows.length, 108,
+  'childcare fixture grid: 108 rows (3 children x 2 custody boxes x 3 childcare scenarios x 6 income pairs)');
+
+// The childcare=0 rows must exactly match the v2 fixture's own rows (same 36 combinations,
+// computed the same way except true_pct_net now reads burden_pct_of_payor_net instead of
+// support_pct_of_payor_net -- identical whenever the payor pays no child care directly, which is
+// every childcare=0 row). This proves v3 did not silently change v2's numbers.
+var v2ByKey = {};
+fixtures.rows.forEach(function (row) {
+  v2ByKey[row.kids + '|' + row.box + '|' + row.higher + '|' + row.lower] = row;
+});
+ccFixtures.rows.filter(function (row) { return row.childcare === 0; }).forEach(function (row) {
+  var key = row.kids + '|' + row.box + '|' + row.higher + '|' + row.lower;
+  var v2row = v2ByKey[key];
+  var label = 'childcare=0 kids=' + row.kids + ' box=' + row.box + ' higher=' + row.higher + ' lower=' + row.lower;
+  if (!v2row) {
+    failures++; checks++;
+    console.error('FAIL ' + label + ': no matching v2 fixture row found');
+  } else {
+    close(row.order_wk, v2row.order_wk, 1e-6, label + ': matches v2 fixture order_wk (v3 does not change v2)');
+    close(row.true_pct_net, v2row.true_pct_net, 1e-9, label + ': matches v2 fixture true_pct_net (burden = support when payor pays nothing)');
+  }
+});
+
+ccFixtures.rows.forEach(function (row) {
+  var facts = { kids: row.kids, box: row.box, childcare: row.childcare, healthLow: 33.0, healthHigh: 43.0 };
+  var got = computeWithChildcare(row.higher, row.lower, facts);
+  var label = 'kids=' + row.kids + ' box=' + row.box + ' childcare=' + row.childcare +
+    ' higher=' + row.higher + ' lower=' + row.lower;
+
+  close(got.order_wk, row.order_wk, 1e-6, label + ': order_wk (7d) matches Python to the dollar');
+  close(got.payor_after, row.payor_after, 1e-4, label + ': payor_after matches Python to the dollar');
+  close(got.recip_after, row.recip_after, 1e-4, label + ': recip_after matches Python to the dollar');
+  close(got.recip_per_person, row.recip_per_person, 1e-4, label + ': recip_per_person matches Python to the dollar');
+  close(got.line_7e, row.line_7e, 0.001, label + ': line_7e matches Python to 0.001');
+  close(got.true_pct_net, row.true_pct_net, 0.001, label + ': true_pct_net matches Python to 0.001');
+
+  equal(got.true_pct_net > 0.40, row.true_pct_net > 0.40,
+    label + ': true_pct_net > 40% threshold agrees with the fixture (drives the is-warning class)');
+  equal(got.recip_after > got.payor_after, row.recip_after > row.payor_after,
+    label + ': recip_after > payor_after agrees with the fixture (drives the household is-warning class)');
+});
+
+// The worked example's "recipient pays" and "both pay" rows must reproduce the sanity-guard
+// targets this feature was designed against (verified by hand before this script existed):
+// order $1,276/wk / Line 7e 33.4% / true share of net 47.4% for "recipient pays", and true share
+// of net crossing 55% for "both pay" once the payor's own $300/wk is counted.
+var weRecipientPays = computeWithChildcare(201000, 29640, { kids: 3, box: 1, childcare: 1, healthLow: 33.0, healthHigh: 43.0 });
+equal(Math.round(weRecipientPays.order_wk), 1276, 'worked example, recipient pays $300/wk: order rounds to $1,276/wk');
+equal(pct1(weRecipientPays.line_7e), '33.4%', 'worked example, recipient pays $300/wk: Line 7e rounds to 33.4%');
+equal(pct1(weRecipientPays.true_pct_net), '47.4%', 'worked example, recipient pays $300/wk: true share of net rounds to 47.4%');
+
+var weBothPay = computeWithChildcare(201000, 29640, { kids: 3, box: 1, childcare: 2, healthLow: 33.0, healthHigh: 43.0 });
+equal(weBothPay.true_pct_net > 0.55, true, 'worked example, both pay $300/wk each: true share of net exceeds 55% once the payor\'s own child care is counted');
+
 console.log('\n' + checks + ' checks, ' + failures + ' failed.');
 process.exit(failures ? 1 : 0);

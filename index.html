@@ -120,6 +120,12 @@ scripts:
             <label class="segmented-option"><input type="radio" name="calc-custody" value="1" data-calc-radio="box" checked> Shared, equal time (Box 1)</label>
             <label class="segmented-option"><input type="radio" name="calc-custody" value="2" data-calc-radio="box"> Primary with the lower earner (Box 2)</label>
           </fieldset>
+          <fieldset class="segmented segmented--compact">
+            <legend>Child care ($300/wk)</legend>
+            <label class="segmented-option"><input type="radio" name="calc-childcare" value="0" data-calc-radio="childcare" checked> None</label>
+            <label class="segmented-option"><input type="radio" name="calc-childcare" value="1" data-calc-radio="childcare"> Recipient pays</label>
+            <label class="segmented-option"><input type="radio" name="calc-childcare" value="2" data-calc-radio="childcare"> Both pay</label>
+          </fieldset>
         </div>
         <div class="tool-readout" aria-live="polite">
           <div>
@@ -153,14 +159,17 @@ scripts:
           </div>
           <p class="tool-flag" data-calc-flag-household>&nbsp;</p>
         </details>
-        <p>Three children and Box 1 (shared parenting) by default; choose 1&ndash;3 children or
-        Box 2 above &mdash; Box 2 puts the children primarily with the lower earner, who receives,
-        while the higher earner pays. No child care; health premiums $33/wk (lower earner) and
-        $43/wk (higher earner); the MA Child and Family Tax Credit for children under 13 fixed at
-        zero, the same convention as every income-range chart on this site, so the household
-        figures above run slightly lower than this site's worked example elsewhere, which uses two
-        of the three children under 13. This calculator models Massachusetts only; no other
-        state's worksheet is implemented here. Method:
+        <p>Three children, Box 1 (shared parenting), and no child care by default; choose
+        1&ndash;3 children or Box 2 above &mdash; Box 2 puts the children primarily with the lower
+        earner, who receives, while the higher earner pays. Child care is a fixed $300/wk claim,
+        not a slider: "Recipient pays" gives the whole amount to the lower earner, reimbursed in
+        part through the order exactly as the Worksheet already does; "Both pay" gives $300/wk to
+        each parent, the ordinary case at equal parenting time. Health premiums stay fixed at
+        $33/wk (lower earner) and $43/wk (higher earner); the MA Child and Family Tax Credit for
+        children under 13 fixed at zero, the same convention as every income-range chart on this
+        site, so the household figures above run slightly lower than this site's worked example
+        elsewhere, which uses two of the three children under 13. This calculator models
+        Massachusetts only; no other state's worksheet is implemented here. Method:
         <a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
         <a href="/model/net_position.py"><code>model/net_position.py</code></a>, ported and tested
         in <a href="/assets/js/lib/worksheet.js"><code>assets/js/lib/worksheet.js</code></a> and

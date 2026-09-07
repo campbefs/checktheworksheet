@@ -597,6 +597,14 @@ input[type="range"]::-moz-range-thumb {
    which option is selected -- never the only channel. */
 .segmented-option:has(input:checked) { background: var(--accent-tint); font-weight: 600; }
 
+/* Calculator v3 (2026-09-07): a third segmented fieldset (child care) joins children/custody in
+   .tool-controls-row. .segmented--compact shrinks horizontal padding and label size on this
+   fieldset so three controls fit the row without pushing the tool noticeably taller -- it does
+   NOT shrink .segmented-option's min-height, which stays the WCAG 2.5.5 44px touch target
+   inherited from the base rule above. "Shrink the padding, never the touch target." */
+.segmented--compact { padding: var(--space-1) var(--space-2); }
+.segmented--compact .segmented-option { padding: 0 var(--space-2); font-size: 0.8125rem; }
+
 /* The 2-column readout inside "After tax and the order, per year". */
 .tool-readout.tool-readout--pair { grid-template-columns: repeat(2, 1fr); }
 .tool-readout .cell-value.is-warning { color: var(--accent); }
