@@ -65,14 +65,11 @@ income.</p>
 
 ## Line 7e divides by a pre-tax figure while the order is paid from net income
 
-Worksheet Line 7e is 7d (the presumptive support order) divided by 3a (available income), expressed
-as a percentage, and the form flags it once that percentage reaches 40 percent, triggering Section
-IV.C's rebuttable presumption of hardship. Line 3a is gross income minus a short list of specific
-deductions (existing support orders, health and dental premiums for the children), and nothing on
-that list is a tax. The question Line 7e is trying to answer, does this order leave the payor too
-little to live on, is a question about spendable income; the figure it actually divides by has no
-tax adjustment of any kind. At the worked example, that mismatch means Line 7e reports exactly 40
-percent of income at the same point the payor has actually reached 57 percent of his net income.
+Worksheet Line 7e divides Line 7d (the presumptive order) by Line 3a (available income) and flags
+the result once it reaches 40 percent, triggering Section IV.C's rebuttable presumption of hardship.
+Line 3a is gross income minus a short list of specific deductions (existing support orders, and
+health and dental premiums for the children), and none of them is a tax. Line 7e is trying to answer
+a question about spendable income, but the figure it divides by has no tax adjustment of any kind.
 
 </section>
 

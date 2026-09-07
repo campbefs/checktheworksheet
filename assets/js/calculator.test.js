@@ -260,5 +260,151 @@ fixtures.rows.forEach(function (row) {
     label + ': recip_after > payor_after agrees with the fixture (drives the household is-warning class)');
 });
 
+// ---------------------------------------------------------------------------------------------
+// PART 6 -- CORRECTNESS GATE for the v4 interface (2026-09-07: tabs, two premium number inputs,
+// two child-care sliders): the full fixture grid (children 1/2/3 x custody box 1/2 x premiums
+// {(33,43),(40,40)} x child care {(0,0),(300,0),(300,300)} x six income pairs = 216 rows, plus 3
+// hand-picked extra rows at the worked-example incomes -- 219 total, generated straight from this
+// repo's own model/worksheet.py and model/net_position.py by
+// tools/gen_calculator_childcare_fixtures.py. Every combination the interface can reach must
+// reproduce that Python output; the fixture's own "disabled" list must be empty, or those
+// combinations must be disabled in the UI rather than shown with an unverified number.
+// ---------------------------------------------------------------------------------------------
+console.log('\n=== PART 6: v4 fixture grid (children x custody x premiums x child care x six income pairs) ===\n');
+
+// Reproduces calculator.js's own spreadCC()/computeWithFacts() exactly (see that file's v4 header
+// comment) -- calculator.js itself is not required() here because it early-returns when `window`
+// is undefined (see PART 3's comment for why the same approach is used there).
+function spreadCC(total, kids) {
+  if (!total) return [];
+  var per = total / kids;
+  var out = [];
+  for (var i = 0; i < kids; i++) out.push(per);
+  return out;
+}
+
+function computeV4(higherAnnual, lowerAnnual, facts) {
+  var lowerWk = lowerAnnual / 52.0, higherWk = higherAnnual / 52.0;
+  var aCc = spreadCC(facts.ccLower || 0, facts.kids);
+  var bCc = spreadCC(facts.ccHigher || 0, facts.kids);
+  var r = W.run(facts.box, lowerWk, higherWk, facts.kids, 0, {
+    aHealth: facts.healthLow, bHealth: facts.healthHigh, aChildcare: aCc, bChildcare: bCc
+  });
+  var payorGross = r.payor === 'A' ? lowerAnnual : higherAnnual;
+  var recipGross = r.payor === 'A' ? higherAnnual : lowerAnnual;
+  var aOwnCc = aCc.reduce(function (s, v) { return s + v; }, 0);
+  var bOwnCc = bCc.reduce(function (s, v) { return s + v; }, 0);
+  var weeklyChildcare = aOwnCc + bOwnCc;
+  var payorOwnCc = r.payor === 'A' ? aOwnCc : bOwnCc;
+  var payorChildcareShare = weeklyChildcare > 0 ? payorOwnCc / weeklyChildcare : 0.0;
+  var p = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare, payorChildcareShare, undefined, 0);
+  var higherShareOfLowerWk = r.A_6b;
+  var higherShareOfLowerPct = r.A_6a ? r.A_6b / r.A_6a : 0.0;
+  var higherBearsWk = bOwnCc - r.B_6b + r.A_6b;
+  var higherBearsPct = weeklyChildcare > 0 ? higherBearsWk / weeklyChildcare : 0.0;
+  return {
+    order_wk: r['7d'], line_7e: r['7e'], true_pct_net: p.burden_pct_of_payor_net,
+    payor_after: p.payor_after, recip_after: p.recip_after, recip_per_person: p.recip_per_person,
+    combined_wk: weeklyChildcare,
+    higher_share_of_lower_wk: higherShareOfLowerWk, higher_share_of_lower_pct: higherShareOfLowerPct,
+    higher_bears_wk: higherBearsWk, higher_bears_pct: higherBearsPct
+  };
+}
+
+var ccFixtures = require(path.join(__dirname, 'fixtures', 'calculator-childcare.json'));
+
+equal(ccFixtures.disabled.length, 0,
+  'v4 fixture grid: zero combinations were disabled by the Python');
+equal(ccFixtures.rows.length, 219,
+  'v4 fixture grid: 219 rows (3 children x 2 custody boxes x 2 premium pairs x 3 child-care pairs x 6 income pairs, plus 3 extra)');
+
+ccFixtures.rows.forEach(function (row) {
+  var facts = {
+    kids: row.kids, box: row.box, healthLow: row.health_lo, healthHigh: row.health_hi,
+    ccLower: row.cc_lower, ccHigher: row.cc_higher
+  };
+  var got = computeV4(row.higher, row.lower, facts);
+  var label = 'kids=' + row.kids + ' box=' + row.box + ' health=' + row.health_lo + '/' + row.health_hi +
+    ' cc=' + row.cc_lower + '/' + row.cc_higher + ' higher=' + row.higher + ' lower=' + row.lower;
+
+  close(got.order_wk, row.order_wk, 1e-6, label + ': order_wk (7d) matches Python to the dollar');
+  close(got.payor_after, row.payor_after, 1e-4, label + ': payor_after matches Python to the dollar');
+  close(got.recip_after, row.recip_after, 1e-4, label + ': recip_after matches Python to the dollar');
+  close(got.recip_per_person, row.recip_per_person, 1e-4, label + ': recip_per_person matches Python to the dollar');
+  close(got.line_7e, row.line_7e, 0.001, label + ': line_7e matches Python to 0.001');
+  close(got.true_pct_net, row.true_pct_net, 0.001, label + ': true_pct_net matches Python to 0.001');
+  close(got.higher_share_of_lower_wk, row.higher_share_of_lower_wk, 1e-4, label + ': higher_share_of_lower_wk (Line A_6b) matches Python');
+  close(got.higher_share_of_lower_pct, row.higher_share_of_lower_pct, 1e-6, label + ': higher_share_of_lower_pct matches Python');
+  close(got.higher_bears_wk, row.higher_bears_wk, 1e-4, label + ': higher_bears_wk matches Python');
+  close(got.higher_bears_pct, row.higher_bears_pct, 1e-6, label + ': higher_bears_pct matches Python');
+
+  equal(got.true_pct_net >= 0.40, row.true_pct_net >= 0.40,
+    label + ': true_pct_net >= 40% threshold agrees with the fixture (drives the hardship badge)');
+  equal(got.recip_after > got.payor_after, row.recip_after > row.payor_after,
+    label + ': recip_after > payor_after agrees with the fixture (drives the household badge)');
+});
+
+// The sanity guard's two fixed targets (calculator.js's SANITY_NO_CC / SANITY_CC, independent of
+// any UI state): $33/$43 premiums, kids=3, box=1, worked-example incomes, $0 and then $300/wk
+// (lower earner only) child care.
+var sanityNoCc = computeV4(201000, 29640, { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 0, ccHigher: 0 });
+equal(Math.round(sanityNoCc.order_wk), 1013, 'sanity guard target 1: $33/$43, no child care, rounds to $1,013/wk');
+var sanityCc = computeV4(201000, 29640, { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300, ccHigher: 0 });
+equal(Math.round(sanityCc.order_wk), 1276, 'sanity guard target 2: $33/$43, $300/wk lower-earner child care, rounds to $1,276/wk');
+equal(pct1(sanityCc.line_7e), '33.4%', 'sanity guard target 2: Line 7e rounds to 33.4%');
+equal(pct1(sanityCc.true_pct_net), '47.4%', 'sanity guard target 2: true share of net rounds to 47.4%');
+
+// ---------------------------------------------------------------------------------------------
+// PART 7 -- the interface's actual DEFAULTS (index.html's static no-JS fallback text): $40/$40
+// premiums, three children, Box 1, worked-example incomes. Base support tab = $0/$0 child care;
+// Child care tab defaults to $100/wk from the lower earner, $0 from the higher earner. Every
+// number and every badge state below must match what a reader sees on first load, in both the
+// markup's static text and calculator.js's own render() logic.
+// ---------------------------------------------------------------------------------------------
+console.log('\n=== PART 7: interface defaults ($40/$40 premiums) and status badges ===\n');
+
+var baseDefault = computeV4(201000, 29640, { kids: 3, box: 1, healthLow: 40.0, healthHigh: 40.0, ccLower: 0, ccHigher: 0 });
+equal(moneyWk(baseDefault.order_wk), '$1,015/wk', 'Base support tab default: order matches markup\'s static $1,015/wk');
+equal(pct1(baseDefault.line_7e), '26.5%', 'Base support tab default: Line 7e matches markup\'s static 26.5%');
+equal(pct1(baseDefault.true_pct_net), '37.8%', 'Base support tab default: true share of net matches markup\'s static 37.8%');
+equal(money(baseDefault.payor_after), '$87,043/yr', 'Base support tab default: payor keeps matches markup\'s static $87,043/yr');
+equal(money(baseDefault.recip_after), '$93,070/yr', 'Base support tab default: recipient household holds matches markup\'s static $93,070/yr');
+equal(money(baseDefault.recip_per_person), '$23,267/yr', 'Base support tab default: recipient per person matches markup\'s static $23,267/yr');
+equal(baseDefault.recip_after > baseDefault.payor_after, true,
+  'Base support tab default: household badge is lit ("payee household ends up ahead")');
+equal(baseDefault.true_pct_net >= 0.40, false,
+  'Base support tab default: hardship badge is muted (37.8% is below 40%)');
+
+var ccDefault = computeV4(201000, 29640, { kids: 3, box: 1, healthLow: 40.0, healthHigh: 40.0, ccLower: 100.0, ccHigher: 0.0 });
+equal(moneyWk(ccDefault.order_wk), '$1,103/wk', 'Child care tab default: order matches markup\'s static $1,103/wk');
+equal(Math.round(ccDefault.order_wk - baseDefault.order_wk), 88,
+  'Child care tab default: change from no child care rounds to +$88/wk, matching the markup');
+equal(pct1(ccDefault.higher_share_of_lower_pct), '87.8%',
+  'Child care tab default: higher earner\'s share of the lower earner\'s child care matches markup\'s static 87.8%');
+equal(money(ccDefault.higher_share_of_lower_wk * 52), '$4,567/yr',
+  'Child care tab default: same share, per year, matches markup\'s static $4,567/yr');
+equal(money(ccDefault.payor_after), '$82,476/yr', 'Child care tab default: payor keeps matches markup\'s static $82,476/yr');
+equal(money(ccDefault.recip_after), '$92,437/yr', 'Child care tab default: recipient household holds matches markup\'s static $92,437/yr');
+equal(money(ccDefault.recip_per_person), '$23,109/yr', 'Child care tab default: recipient per person matches markup\'s static $23,109/yr');
+equal(ccDefault.recip_after > ccDefault.payor_after, true,
+  'Child care tab default: household badge is lit ("payee household ends up ahead")');
+equal(ccDefault.true_pct_net >= 0.40, true,
+  'Child care tab default: hardship badge is LIT (41.0% is at or above 40%) -- the Child care tab\'s own default demonstrates the flag');
+equal(pct1(ccDefault.true_pct_net), '41.0%', 'Child care tab default: true share of net (shown in the badge text) is 41.0%');
+
+// The combined-child-care line (calculator.js's cc_combined_line) only fires in the DOM when BOTH
+// sliders are above zero -- at the default (higher earner's slider is $0), calculator.js's own
+// render() leaves it empty. That branch is DOM-only (it never reaches computeV4's return value),
+// so it is checked in the browser pass, not here; the fixture default above (ccHigher: 0.0)
+// documents the condition this test suite cannot itself exercise.
+
+// With both parents paying $300/wk (the old v3 sanity targets, now reachable via both sliders):
+// order $1,276/wk / Line 7e 33.4% / true share of net 47.4% when only the lower earner pays, and
+// true share of net crossing 55% once both pay and the payor's own child care is counted.
+var weBothPay = computeV4(201000, 29640, { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300, ccHigher: 300 });
+equal(weBothPay.true_pct_net > 0.55, true,
+  'worked example, both pay $300/wk each: true share of net exceeds 55% once the payor\'s own child care is counted');
+equal(weBothPay.combined_wk, 600, 'worked example, both pay $300/wk each: combined weekly child care is $600');
+
 console.log('\n' + checks + ' checks, ' + failures + ' failed.');
 process.exit(failures ? 1 : 0);
