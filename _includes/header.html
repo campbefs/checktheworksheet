@@ -1,17 +1,34 @@
 <!--
-  Flat, single-tier navigation. No dropdowns, no JavaScript. Current page is marked with
-  aria-current="page" (also styled via CSS, see .site-nav a[aria-current]) — checked by
-  `page.url` prefix so a nested page (e.g. /findings/some-finding/) still marks its section.
-  Nav items and hrefs are fixed; see CONVENTIONS.md before adding, renaming or reordering one.
+  Top bar (design brief §3.3): wordmark, one flat nav tier, no dropdown, no sidebar here. Exactly
+  four items, per the brief — a fuller list (Exhibits, About, Sitemap) lives only in the footer
+  and on the Sitemap page; see CONVENTIONS.md "Navigation" for why the two navs differ on purpose.
+
+  Current page is marked with `aria-current="page"` (also styled via CSS, see
+  `.topbar nav a[aria-current]` in site.css) — checked by `page.url` prefix so a nested page
+  still marks its section. This nav is `aria-label="Primary"`; the chapter rail on a finding page
+  is a *different* `<nav>` with its own label ("Findings on this page" / "Sections of this page")
+  — never share a label between the two (design brief §3.4).
+
+  Below 640px this collapses to a hamburger toggle, per `assets/js/nav-toggle.js`. Without
+  JavaScript the checkbox below is the entire mechanism: `.nav-toggle-label` is a real, focusable,
+  keyboard-operable control (a `<label for>` bound to the checkbox) and the nav is reachable by
+  tabbing into it even with the panel visually collapsed on a phone, because a `display: none`
+  panel is never used — only `visibility`/`max-height`, so no content is ever removed from the
+  keyboard or screen-reader tab order. See CONVENTIONS.md "Header / top bar" for the CSS contract.
 -->
-<div class="header-inner">
-  <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+<div class="topbar-inner">
+  <a class="wordmark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+  <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+    <span class="vh">Menu</span>
+    <span class="nav-toggle-bars"></span>
+  </label>
+
   <nav class="site-nav" aria-label="Primary">
     <a href="{{ '/findings/' | relative_url }}"{% if page.url contains '/findings/' %} aria-current="page"{% endif %}>Findings</a>
-    <a href="{{ '/exhibits/' | relative_url }}"{% if page.url contains '/exhibits/' %} aria-current="page"{% endif %}>Exhibits</a>
-    <a href="{{ '/the-model/' | relative_url }}"{% if page.url contains '/the-model/' %} aria-current="page"{% endif %}>The model</a>
-    <a href="{{ '/the-data/' | relative_url }}"{% if page.url contains '/the-data/' %} aria-current="page"{% endif %}>The data</a>
-    <a href="{{ '/documents/' | relative_url }}"{% if page.url contains '/documents/' %} aria-current="page"{% endif %}>Documents</a>
-    <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about/' %} aria-current="page"{% endif %}>About</a>
+    <a href="{{ '/findings/fifty-jurisdictions.html' | relative_url }}"{% if page.url contains 'fifty-jurisdictions' %} aria-current="page"{% endif %}>Fifty jurisdictions</a>
+    <a href="{{ '/documents.html' | relative_url }}"{% if page.url contains '/documents' %} aria-current="page"{% endif %}>Documents</a>
+    <a href="https://github.com/campbefs/checktheworksheet">Repository</a>
   </nav>
 </div>

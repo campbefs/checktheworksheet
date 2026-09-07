@@ -1,0 +1,49 @@
+<!--
+  One exhibit figure. Pattern and rationale: `web-figures` skill (`figure.html`/`figure.css`
+  there is the generic version; this is it wired to this site's paths and CSS classes, §10 of
+  site.css). Caption wording (title/deck/notes) should be copied verbatim from each exhibit's own
+  reviewed caption in
+  /Users/christophercampbell/Desktop/src/projects/child-support-reform/output/DRAFT-attachment-E-figures.md
+  (read-only reference outside this repo — copy the wording in, don't link that file).
+
+  PARAMETERS (all via `{% include figure.html param="..." %}`):
+    id            required. Anchor id, e.g. "e05" — matches the exhibit's own number.
+    img           required. Root-relative path, e.g. "/figures/exhibits/E05-....png".
+    alt           required. "[Chart type] of [quantity, axes, scenario]" — identifying, not the
+                  finding (web-figures). Never repeat the title verbatim as the alt text.
+    title         required. The PNG's own in-image title, duplicated verbatim as a real <h3> —
+                  pixels reach neither a search engine nor a screen reader.
+    deck          optional. One line, what is plotted, from the chart's own deck line.
+    notes         optional. Caveats/conventions, from the chart's own Notes line. Every
+                  household-comparison exhibit's per-person counter-argument goes here if the
+                  chart itself doesn't already state it in-image.
+    source_script required. The .py in /model/charts/ that drew it, e.g. "model/charts/fig1_heatmaps.py".
+    csv_href      required. Root-relative path into /figures/working/*.csv — every number on this
+                  site must trace to a file; this is that file for a chart.
+    lazy          optional, "false" to omit `loading="lazy"` — do this for the first figure on a
+                  page (never lazy-load an above-the-fold image); every subsequent figure on the
+                  page should leave this unset (defaults to lazy).
+    confidence    optional. A short confidence-tag string ("Verified against the form's own
+                  scripts", "Tiered — see method") — rendered next to the title when set, per
+                  web-page-anatomy's "mark confidence at the point of listing."
+
+  Multi-panel figure that is two separate PNGs (e.g. a household + per-person pair): wrap two
+  calls to this include in `<div class="exhibit-pair">...</div>` — stacks below ~700px, no second
+  render needed. A single baked-together multi-panel PNG should not exist in this exhibit set —
+  the 2026-09-06 exhibit direction retired every multi-panel exhibit (E03/E07/E14/E15); if a new
+  one is ever proposed, split it into single-chart exhibits before adding it here, don't add a
+  <picture> workaround for it.
+-->
+<figure class="exhibit" id="{{ include.id }}">
+  <img src="{{ include.img | relative_url }}"
+       {% unless include.lazy == "false" %}loading="lazy"{% endunless %}
+       alt="{{ include.alt }}">
+  <figcaption>
+    {% if include.confidence %}<p class="confidence-tag">{{ include.confidence }}</p>{% endif %}
+    <h3 class="exhibit-title">{{ include.title }}</h3>
+    {% if include.deck %}<p class="exhibit-deck">{{ include.deck }}</p>{% endif %}
+    {% if include.notes %}<p class="exhibit-notes">{{ include.notes }}</p>{% endif %}
+    <p class="exhibit-source">Source: <code>{{ include.source_script }}</code> ·
+      <a href="{{ include.csv_href | relative_url }}">data (CSV)</a></p>
+  </figcaption>
+</figure>

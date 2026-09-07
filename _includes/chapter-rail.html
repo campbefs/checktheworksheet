@@ -1,0 +1,39 @@
+<!--
+  The left chapter rail (design brief §3.3–§3.4). Used on the four finding pages and, optionally,
+  on any other page long enough to want one (the Findings index, the fifty-jurisdictions page,
+  About & method) — never on the home page, which has no persistent sidebar (§3.3).
+
+  DATA SOURCE: the page's own front matter, not the rendered headings. Set on the content page,
+  matching that page's own `<h2 id="...">` elements exactly:
+
+    ---
+    layout: finding
+    rail_label: "On this page"          # optional, defaults below
+    rail_aria_label: "Sections of this page"   # optional, defaults below
+    sections:
+      - id: mechanism
+        label: "The mechanism"
+      - id: tool
+        label: "Try it: the slider"
+    ---
+
+  Why front matter and not a headings scan: this is a plain-Jekyll build (route (a) in
+  web-static-build — no custom plugin, no build step beyond GitHub's own runner), so nothing here
+  parses the rendered markdown for `<h2>` tags. The list you write in `sections:` IS the contract;
+  `chapter-rail.js`'s IntersectionObserver only re-points `aria-current` at the links already
+  rendered here, it does not invent them. Read-back rule: before calling a page done, check that
+  every `id` above has a matching `<h2 id="...">` in the body and vice versa — a rail link with no
+  target is a silent dead anchor.
+
+  Every link is a real `href="#id"` — with JavaScript off this renders as a working static list
+  (design brief §3.4's "renders as a static list of working anchor links"); `chapter-rail.js` only
+  adds the scroll-tracked `aria-current="location"` on top.
+-->
+<nav class="chapter-rail" aria-label="{{ page.rail_aria_label | default: 'Sections of this page' }}">
+  <p class="rail-label">{{ page.rail_label | default: 'On this page' }}</p>
+  <ol>
+    {% for s in page.sections %}
+    <li><a href="#{{ s.id }}">{{ s.label }}</a></li>
+    {% endfor %}
+  </ol>
+</nav>
