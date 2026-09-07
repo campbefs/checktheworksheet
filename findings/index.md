@@ -2,7 +2,7 @@
 layout: page
 title: Findings
 description: >-
-  Four places where the Massachusetts Child Support Guidelines Worksheet's own arithmetic works
+  Three places where the Massachusetts Child Support Guidelines Worksheet's own arithmetic works
   against its own text, each pinned by a test suite against the form's own calculation scripts,
   plus one fifty-one-jurisdiction comparison at a single fact pattern.
 disclosure:
@@ -17,7 +17,7 @@ disclosure:
     against the form's own calculation scripts. More on <a href="/about/">About</a>.
 ---
 
-# Four internal inconsistencies in the worksheet's own arithmetic, and one cross-jurisdiction comparison
+# Three internal inconsistencies in the worksheet's arithmetic, and one cross-jurisdiction comparison
 
 {% include disclosure.html %}
 
@@ -28,7 +28,7 @@ three are internal; they hold regardless of what any particular family's incomes
 compares Massachusetts's order at one fact pattern against fifty other jurisdictions' own
 guidelines, and is tiered accordingly: it generalizes to nothing beyond that one fact pattern.
 
-<h2 class="vh">The four findings</h2>
+<h2 class="vh">The findings</h2>
 
 <div class="finding-grid">
 
