@@ -48,8 +48,8 @@
 //     </fieldset>
 //     <fieldset class="segmented">
 //       <legend>Custody</legend>
-//       <label class="segmented-option"><input type="radio" name="calc-custody" value="1" data-calc-radio="custody" checked>Shared, equal time (Box 1)</label>
-//       <label class="segmented-option"><input type="radio" name="calc-custody" value="2" data-calc-radio="custody">Primary with the lower earner (Box 2)</label>
+//       <label class="segmented-option"><input type="radio" name="calc-custody" value="1" data-calc-radio="box" checked>Shared, equal time (Box 1)</label>
+//       <label class="segmented-option"><input type="radio" name="calc-custody" value="2" data-calc-radio="box">Primary with the lower earner (Box 2)</label>
 //     </fieldset>
 //   </div>
 //   <div class="tool-readout" aria-live="polite">
