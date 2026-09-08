@@ -17,7 +17,7 @@ disclosure:
     against the form's own calculation scripts. More on <a href="/about/">About</a>.
 ---
 
-# Three internal inconsistencies in the worksheet's arithmetic, and one cross-jurisdiction comparison
+# Six measurable effects in the worksheet's own arithmetic, ranked by how much each one changes the outcome
 
 {% include disclosure.html %}
 

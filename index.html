@@ -10,8 +10,8 @@ disclosure:
   - >-
     Every number traces to <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>,
     checked by <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a> against
-    the form's own scripts. Comments built from it are prepared for the Trial Court, on the
-    <a href="/documents/">Documents</a> page; they have not been sent.
+    the form's own scripts. Comments to the Trial Court and a petition to HHS, both built from it,
+    are on the <a href="/documents/">Documents</a> page.
 scripts:
   - "/assets/js/lib/worksheet.js"
   - "/assets/js/lib/net-position.js"
@@ -25,10 +25,14 @@ scripts:
     <div class="hero-text">
       <p class="eyebrow">Massachusetts Child Support Guidelines Worksheet, verified in code</p>
       <h1>Massachusetts orders the most of <span class="figure">fifty</span> ranked jurisdictions at equal parenting time, and the second most at primary custody.</h1>
-      <p class="lede">One fact pattern (three children, $201,000 and $29,640 a year, no child care),
-      profiled from each jurisdiction's own guidelines, computed twice, and checked by an
-      adversarial review. Georgia is held out: its enacted formula orders less at equal time than
-      at primary custody.</p>
+      <p class="lede"><strong>Massachusetts's equal-time order exceeds the primary-custody order of
+      47 of the 49 other ranked jurisdictions.</strong> One fact pattern (three children, $201,000
+      and $29,640 a year, no child care), profiled from each jurisdiction's own guidelines, computed
+      twice, and checked by an adversarial review.</p>
+      <div class="stat-callout">
+        <span class="stat-value">47 of 49</span>
+        <span class="stat-label">orders exceeded</span>
+      </div>
       <p class="confidence-tag">Tiered: one fact pattern, not a distribution</p>
     </div>
     <div class="hero-visual">
@@ -37,8 +41,8 @@ scripts:
          img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
          alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions under equal parenting time, one fact pattern, Massachusetts highlighted."
          title="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
-         deck="Monthly order at one fact pattern. Georgia held out."
-         notes="Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One fact pattern; the ranking generalizes to nothing else."
+         deck="Monthly order at one fact pattern."
+         notes="Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One fact pattern; the ranking generalizes to nothing else."
          source_script="model/charts/fig5_states.py"
          csv_href="/figures/working/fig5_states.csv"
          lazy="false" %}
@@ -216,15 +220,14 @@ scripts:
       <h2>Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h2>
       <p>Every jurisdiction at primary custody first, then Massachusetts recomputed at equal
       parenting time. One fact pattern (three children, $201,000 and $29,640 a year), profiled,
-      computed twice, and checked by an adversarial review. Georgia is held out: its formula orders
-      less at equal time than at primary custody. Full method below.</p>
+      computed twice, and checked by an adversarial review. Full method below.</p>
       <div class="exhibit-pair">
         {% include figure.html
            id="e12"
            img="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
            alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted."
            title="Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts."
-           deck="Monthly order at one fact pattern. Georgia held out. First of a pair with E17."
+           deck="Monthly order at one fact pattern. First of a pair with E17."
            notes="The same fact pattern with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states, same axis range, same colors, same ordering rule as E17, so the two can be read as a pair."
            source_script="model/charts/fig5_states.py"
            csv_href="/figures/working/fig5_states.csv"
@@ -344,7 +347,7 @@ scripts:
     <div class="body">
       <p class="tag">Tiered: one fact pattern, not a distribution <span class="interactive-badge">&rarr; sortable table</span></p>
       <h3><a href="/findings/fifty-one-jurisdictions/">Massachusetts's equal-time order exceeds 47 of 49 other jurisdictions' primary orders</a></h3>
-      <p>Fifty of fifty-one jurisdictions, profiled, computed twice, and checked adversarially.</p>
+      <p>Fifty ranked jurisdictions, profiled, computed twice, and checked adversarially.</p>
       <div class="stat">
         <span class="stat-value">47 of 49</span>
         <span class="stat-label">other jurisdictions' primary-custody orders exceeded</span>
@@ -360,8 +363,7 @@ scripts:
     <section id="comparison">
       <h2>All fifty ranked jurisdictions, both custody arrangements</h2>
       <p>One fact pattern (three children, $201,000 and $29,640 a year); Massachusetts pinned at
-      the top. Georgia is not shown: its formula orders less at equal time than at primary custody.
-      &dagger; New York exceeds its $193,000 schedule; the rate above that is discretionary.</p>
+      the top. &dagger; New York exceeds its $193,000 schedule; the rate above that is discretionary.</p>
 
       <p class="jurisdiction-readout" id="jurisdiction-readout" aria-live="polite">Massachusetts:
       $4,388/mo equal parenting (rank 1 of 50), $4,714/mo primary custody (rank 2 of 50).</p>
@@ -694,6 +696,9 @@ scripts:
           </tbody>
         </table>
       </div>
+      <p>Georgia is not ranked above: its enacted formula orders less at equal time than at primary
+      custody, a result the state's own calculator reproduces (see the jurisdiction finder's
+      "Georgia (held out)" option).</p>
       <p class="tool-method">Data: <a href="/figures/working/fig5_states.csv"><code>fig5_states.csv</code></a>,
       New York's cap from <a href="/figures/working/fig9_schedule_ceilings.csv"><code>fig9_schedule_ceilings.csv</code></a>
       &middot; <a href="/findings/fifty-one-jurisdictions/">full method</a>.</p>
