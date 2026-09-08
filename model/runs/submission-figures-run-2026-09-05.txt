@@ -7,24 +7,24 @@ hypothetical. ** The submission discloses this; the figures are real either way.
     Box 1 -- shared financial responsibility and parenting time
 
 == TAX POSITION (net_position.py; federal AND MA constants verified 2026-09-02) ==
-  payor effective rate      +30.4%
-  recipient effective rate  -38.9%   (negative = net refundable credits)
-  spread                    69 points
+  payor effective rate      +27.6%
+  recipient effective rate  -11.2%   (negative = net refundable credits)
+  spread                    39 points
 
 == SECTION 1 -- the Line 7e units lag ==
    child care/wk   order/wk    order/yr  7e reads  true % of net   box
-               0      1,013      52,662     26.5%          37.7%     -
-             100      1,100      57,221     28.8%          40.9%     -
-             300      1,276      66,340     33.4%          47.4%     -
-             589      1,529      79,506     40.0%          56.9%     -
-           1,290      2,144     111,479     56.1%          79.7%   YES
+               0      1,013      52,662     26.5%          36.2%     -
+             100      1,100      57,221     28.8%          39.3%     -
+             300      1,276      66,340     33.4%          45.6%     -
+             589      1,529      79,506     40.0%          54.6%     -
+           1,290      2,144     111,479     56.1%          76.6%   YES
   Line 7e first reaches 40% at $589/wk of child care (196/child), which is 46% of the $1,290 statutory benchmark.
-  At that point the payor's true burden is 56.9% of net -- a lag of 17 points.
+  At that point the payor's true burden is 54.6% of net -- a lag of 15 points.
 
 == SECTION 2 -- household standard of living (IV.B.13) ==
-  no child care        payor keeps $   87,172   recipient household $   93,821   payor share 48.2%
-  $300/wk child care   payor keeps $   73,493   recipient household $   91,900   payor share 44.4%
-  Per person the payor still leads: $87,172 for one against $23,455 each for four. State this.
+  no child care        payor keeps $   92,893   recipient household $   85,608   payor share 52.0%
+  $300/wk child care   payor keeps $   79,215   recipient household $   83,687   payor share 48.6%
+  Per person the payor still leads: $92,893 for one against $21,402 each for four. State this.
 
 == SECTION 4 -- who funds claimed child care ==
   claimed by recipient          $15,600/yr ($300/wk)
@@ -69,6 +69,8 @@ hypothetical. ** The submission discloses this; the figures are real either way.
   recipient pays $300/wk: payor's 6b share $263.05/wk under Box 1, $263.05 under Box 2 (identical; no parenting-time term)
   payor pays $300/wk himself, Box 2: order falls $36.95/wk (12.3% of face value)
   payor pays $300/wk himself, Box 1: order falls $5.19/wk (1.7% of face value)
+  payor's Line 6d where the payor pays $300/wk child care under Box 1 = 4.97% (below 10%, so 6e limits)
+  payor's share of combined GROSS income = 87.15%
   clip factor under Box 1 = recipient 3a / payor 3a = 537/3822 = 14.0%
 
 == SECTION 2.1 -- BOTH parents pay child care under equal shared parenting ==

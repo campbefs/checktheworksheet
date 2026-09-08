@@ -59,9 +59,13 @@ def position(r, cc_total):
     7d by $263/wk. So `payor_childcare_share` is 0 here -- charging him 6b again
     on top of 7d double-counts it, which an earlier version of this script did.
     The recipient pays the provider and is reimbursed through the order, so the
-    full child care amount is subtracted from her side."""
+    full child care amount is subtracted from her side.
+
+    box=1: every call site in this module builds `r` from sheet(), which defaults
+    to Box 1 (this file's worked example is shared parenting throughout), so the
+    credits follow the alternating-year rule, not the recipient-claims-all default."""
     return npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, r["7d"], cc_total, 0.0,
-                        kids_under_13=KIDS_UNDER_13)
+                        kids_under_13=KIDS_UNDER_13, box=1)
 
 
 def solve_7e_40():

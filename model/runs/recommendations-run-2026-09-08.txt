@@ -110,30 +110,30 @@ model/net_position.py's analyze().
   1. Current worksheet (Line 6b on pre-order Line 3c shares)
        order            $ 1,275.77/wk   $ 5,528.34/mo
        payor's share of the $15,600/yr child care:  87.7%  ($13,678.35/yr)
-       after tax: payor keeps $73,493.41   recipient household holds $91,899.72
+       after tax: payor keeps $79,214.91   recipient household holds $83,686.77
   2. Childcare removed from the worksheet (each parent bears what they pay)
        order            $ 1,012.73/wk   $ 4,388.48/mo
        payor's share of the $15,600/yr child care:   0.0%  ($     0.00/yr)
-       after tax: payor keeps $87,171.76   recipient household holds $78,221.37
+       after tax: payor keeps $92,893.26   recipient household holds $70,008.42
   3. Base support first, then childcare split 50-50
        order            $ 1,012.73/wk   $ 4,388.48/mo
        payor's share of the $15,600/yr child care:  50.0%  ($ 7,800.00/yr)
-       after tax: payor keeps $79,371.76   recipient household holds $86,021.37
+       after tax: payor keeps $85,093.26   recipient household holds $77,808.42
   4. Post-transfer GROSS shares on Line 3a (comments' fallback, Line 6b-2)
        order            $ 1,206.08/wk   $ 5,226.34/mo
        payor's share of the $15,600/yr child care:  64.5%  ($10,054.33/yr)
-       after tax: payor keeps $77,117.43   recipient household holds $88,275.69
+       after tax: payor keeps $82,838.93   recipient household holds $80,062.75
   5. Post-transfer NET shares on the withholding basis (comments' Line 6b-1 redline, RECOMMENDED)
        order            $ 1,171.64/wk   $ 5,077.09/mo
        payor's share of the $15,600/yr child care:  53.0%  ($ 8,263.37/yr)
-       after tax: payor keeps $78,908.40   recipient household holds $86,484.73
+       after tax: payor keeps $84,629.90   recipient household holds $78,271.79
 
   The sentence the site makes (rule 1, current worksheet):
     before the order, the payor's share of the parties' combined available
     income (Line 3c) is 87.7%;
     after the order, his share of POST-TRANSFER GROSS income is 64.3%;
     after the order, his share of POST-TRANSFER NET income, withholding basis (the ask) is 53.0%;
-    after the order, his share of POST-TRANSFER NET income counting refundable credits (analysis only) is 48.2%;
+    after the order, his share of POST-TRANSFER NET income counting refundable credits (analysis only) is 52.0%;
     and child care is allocated on the 87.7% figure --
     the income split BEFORE the order, not any figure after it.
 

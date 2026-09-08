@@ -20,14 +20,14 @@ Three changes, each keyed to a Worksheet line, each with an effect measured at t
 
 - **Measure the hardship test on the same income basis the order is paid from.** At $300 a week of
   claimed child care, Line 7e reads 33.4 percent of gross-derived income while the same order is
-  47.4 percent of the payor's net; the presumption itself does not kick in until 57 percent of net.
+  45.6 percent of the payor's net; the presumption itself does not kick in until 55 percent of net.
   The fix changes what the form reports. It leaves every dollar amount untouched.
 - **Allocate child care on the income split the order has already produced, instead of the split
   before it.** The lead redline measures that split net of tax, on a withholding basis (income tax
   and FICA for a single filer claiming no exemptions), taking the payor's child care share from
   87.7 percent to 53.0 percent and the order with $300 a week of child care from $1,275.77 to
   $1,171.64 a week, a $5,415-a-year change. Counting the refundable tax credits as well would take
-  the share to 48.2 percent; the comments stop short of that version, because the Worksheet has no
+  the share to 52.0 percent; the comments stop short of that version, because the Worksheet has no
   field for which parent claims which child. A fallback confined to the Worksheet's existing
   gross-based lines, renumbered Line 6b-2, takes the share to 64.5 percent and the order to
   $1,206.08 a week. Part two below carries this further.
@@ -131,13 +131,13 @@ order at the no-child-care figure.
 
 Counting the refundable credits as well, the federal Earned Income Tax Credit and Child Tax
 Credit, the Massachusetts Earned Income Tax Credit and Child and Family Tax Credit, puts the
-higher earner's share at 48.2 percent, not 53.0. The comments ask for the narrower figure,
+higher earner's share at 52.0 percent, not 53.0. The comments ask for the narrower figure,
 because the worksheet has no field for which parent claims which child and that claim is often
 alternated year to year.
 
 ### The hardship test should be measured on the same income basis it is paid from
 
-Section IV.C's presumption of substantial hardship does not kick in until the payor is at 57
+Section IV.C's presumption of substantial hardship does not kick in until the payor is at 55
 percent of net income, even though Line 7e itself reports only 40 percent at that point. This is
 the same units mismatch as Part one's first ask, stated here because it is the standing condition
 the parenting-time and child care recommendations above operate under: a test that reads gross-derived

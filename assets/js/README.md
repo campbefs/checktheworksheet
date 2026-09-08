@@ -143,7 +143,7 @@ arguments — the same `analyze()` call v2 already made, not a new function.
     </div>
     <div>
       <p class="cell-label">True share of the payor's net income</p>
-      <p class="cell-value" data-calc-cell="true_pct_net">37.7%</p>
+      <p class="cell-value" data-calc-cell="true_pct_net">36.3%</p>
       <p class="cell-note" data-calc-note="true_pct_net">&nbsp;</p>
     </div>
   </div>
@@ -153,13 +153,13 @@ arguments — the same `analyze()` call v2 already made, not a new function.
     <div class="tool-readout tool-readout--pair" aria-live="polite">
       <div>
         <p class="cell-label">Payor keeps</p>
-        <p class="cell-value" data-calc-cell="payor_after">$87,172/yr</p>
+        <p class="cell-value" data-calc-cell="payor_after">$92,453/yr</p>
       </div>
       <div>
         <p class="cell-label">Recipient household holds</p>
-        <p class="cell-value is-warning" data-calc-cell="recip_after">$92,941/yr</p>
-        <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,235/yr</strong></p>
-        <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
+        <p class="cell-value" data-calc-cell="recip_after">$85,168/yr</p>
+        <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$21,292/yr</strong></p>
+        <p class="cell-note" data-calc-note="recip_after">&nbsp;</p>
       </div>
     </div>
     <p class="tool-flag" data-calc-flag-household>&nbsp;</p>
@@ -196,7 +196,7 @@ does nothing if either is missing (fails safe onto the static markup below, see 
 **No-JS / load-failure fallback is REQUIRED and is not automatic**: every `data-calc-cell` span,
 both sliders' `value` attributes, all three radio groups' `checked` attributes, and the
 `is-warning` class / note text on `recip_after` must already contain the real worked-example
-numbers exactly as written above ($1,013/wk, 26.5%, 37.7%, $87,172/yr, $92,941/yr, $23,235/yr,
+numbers exactly as written above ($1,013/wk, 26.5%, 36.3%, $92,453/yr, $85,168/yr, $21,292/yr,
 $201,000/yr, $29,640/yr, kids=3, box=1, childcare=0) — copy them verbatim, they are tested
 (`calculator.test.js` PART 3). A reader with JavaScript off, or whose browser fails to load one of
 the two `lib/` scripts, sees the worked example stated correctly, including which of the two
@@ -210,8 +210,8 @@ convention already used by every heatmap exhibit in this project, `model/charts/
 `order()`), and the MA Child and Family Tax Credit for children under 13 fixed at zero qualifying
 children (same generic-grid convention as every heatmap on this site — there is no fourth control
 for how many of the children are under 13). Because of that last one, **this tool's "after tax"
-row runs slightly lower than the site's own worked-example figures elsewhere** (which use two of
-the three children under 13): $92,941/yr here vs $93,821/yr in
+row runs slightly differently from the site's own worked-example figures elsewhere** (which use two of
+the three children under 13): $85,168/yr here vs $85,608/yr in
 `model/runs/submission-figures-run-2026-09-05.txt` and quoted around the rest of the site. The
 method paragraph in the markup above says so; do not remove that clause if you edit the copy.
 **Children (1/2/3, default 3), custody (Box 1/Box 2, default Box 1), and (v3, 2026-09-07) child

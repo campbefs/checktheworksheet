@@ -18,7 +18,7 @@ def shares(kids, lo):
     r1 = (with_cc["7d"] - base["7d"]) * 52 / (cc * 52)
     b = base["7d"] * 52
     r2 = (HI - b) / ((HI - b) + (lo + b))
-    pos = npos.analyze(HI, lo, kids, base["7d"], 0.0, 0.0, kids_under_13=KIDS_UNDER_13)
+    pos = npos.analyze(HI, lo, kids, base["7d"], 0.0, 0.0, kids_under_13=KIDS_UNDER_13, box=1)
     r3 = pos["payor_after_share"]
     return base["B_3c"], r1, r2, r3
 

@@ -106,7 +106,7 @@ def grid(kids, box=1, hi_range=(60_000, 300_000, 49), lo_range=(0, 120_000, 25))
             # who pays: the worksheet says; with B the higher earner it is B except near-equal incomes
             payor_is_hi = r["payor"] == "B"
             pg, rg = (h, l) if payor_is_hi else (l, h)
-            pos = npos.analyze(pg, rg, kids, wk, 0.0, 0.0, kids_under_13=KIDS_UNDER_13)
+            pos = npos.analyze(pg, rg, kids, wk, 0.0, 0.0, kids_under_13=KIDS_UNDER_13, box=box)
             sign = 1.0 if payor_is_hi else -1.0   # keep "higher earner" as the reference party
             gap_h[i, j] = sign * (pos["recip_after"] - pos["payor_after"])
             gap_pp[i, j] = sign * (pos["recip_after"] / (1 + kids) - pos["payor_after"])

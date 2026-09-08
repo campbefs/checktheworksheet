@@ -248,8 +248,10 @@ def childcare_rules():
     CC_WEEKLY = cpt.CC_WEEKLY               # $300/wk
 
     def after_tax(support_weekly, payor_share_direct):
+        # box=1: the worked example throughout this module is Box 1 (shared, equal
+        # time), so credits follow the alternating-year rule, not recipient-claims-all.
         return npos.analyze(PAYOR_GROSS_YR, RECIP_GROSS_YR, KIDS, support_weekly,
-                             CC_WEEKLY, payor_share_direct, kids_under_13=KIDS_UNDER_13)
+                             CC_WEEKLY, payor_share_direct, kids_under_13=KIDS_UNDER_13, box=1)
 
     rows = []
 
