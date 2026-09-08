@@ -6,7 +6,7 @@ description: >-
   four test suites, and a harness that runs the official form's own scripts against the model.
 ---
 
-# A model of the worksheet, checked against the form's own scripts, not just against itself
+# A model of the worksheet, checked against the form's own scripts as well as against itself
 
 [Findings](/findings/) states what the checks show. This page is the proof.
 
@@ -46,7 +46,7 @@ Family Tax Credit, so a finding can compare an order against what a household sp
 | [`model/test_box1_fix.py`](/model/test_box1_fix.py) | 258 | The Box 1 credit and its redlines |
 | [`model/test_childcare_post_transfer.py`](/model/test_childcare_post_transfer.py) | 10 | Child care on post-transfer shares |
 
-## A harness runs the Commonwealth's own scripts, not a re-derivation
+## A harness runs the Commonwealth's own scripts instead of a re-derivation
 
 The published CJ-D 304 is a fillable XFA form with embedded scripts, extracted at
 [`data/extracted/cjd304-xfa.xml`](/data/extracted/cjd304-xfa.xml) by

@@ -7,13 +7,13 @@ disclosure:
     The worked example running through every finding on this site (the $201,000 payor, the
     $570-a-week other parent, three children) is my own child support order, computed under
     Massachusetts's 2025 worksheet. A reader should reasonably wonder whether an interested party
-    shaded a number in his own favor. The honest answer is to let you check it, not to ask you to
-    trust me.
+    shaded a number in his own favor. So every figure is published with the code that produced it. Check
+    it yourself.
   - >-
     The worksheet that produced these figures is
     <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked against the
     official form's own scripts on <a href="/the-model/">the model page</a>. Run it on any
-    numbers you choose, not just mine.
+    numbers you choose, mine included.
 ---
 
 # Mission
@@ -25,10 +25,10 @@ The Worksheet has never had a proper review. No task force has examined how its 
 economically.
 
 Three things should change. A support order should be computed on the income parents actually have.
-Equal parenting time should earn a real reduction, well beyond the 6.9 percent it earns in the
-example running through this site, though both homes pay for housing and a bedroom for each child, so
-the honest figure falls short of half. And child care should be split on the income each parent holds
-after the order rather than before it. Every figure here comes from a published model with tests.
+Equal parenting time should earn a real reduction, in line with what other states give: Hawaii cuts
+the order 52 percent for equal time, Montana 53 percent, Utah 55 percent. Massachusetts cuts it 6.9
+percent. And child care should be split on the income each parent holds after the order rather than
+before it. Every figure here comes from a published model with tests.
 Anyone can check the arithmetic.
 
 ## Who built this
