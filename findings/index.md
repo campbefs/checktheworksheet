@@ -10,7 +10,7 @@ disclosure:
     The stat on each card below (57%, 88 cents, 6.9%, 47 of 49) comes from the worked example
     used throughout this site: my own child support order, three children, my income and my
     children's mother's income entered as the Worksheet requires. Each finding page states why,
-    and shows the same gap holding across a range of incomes, not only at my own figures.
+    and shows the same gap holding across a range of incomes as well as at my own figures.
   - >-
     Every number traces to <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>,
     checked by <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a>
@@ -85,7 +85,7 @@ of payor income, the same computation keeps his retention between 39 and 48 perc
 {% include figure.html
    id="e10"
    img="/figures/exhibits/E10-cents-kept-of-next-dollar-worked-example.png"
-   alt="Line chart of cents kept of the payor's next dollar of income, from $100,000 to $400,000 of payor income, with and without $300 a week of child care."
+   alt="Line chart of cents kept of the payor's next dollar of income, from $100,000 to $400,000 of payor income, both with and without $300 a week of child care."
    title="Of the payor's next dollar, the payor keeps between a third and a half."
    deck="Marginal retention after federal and state tax and the change in the order."
    notes="The order's marginal take runs near 20 percent, above Table A's 10 percent top bracket, because the child-count multiplier and the rising income share both scale with the payor's income. $5,000 steps. Dashed line: 50 cents. Two of three children under 13 (MA credit); premiums $43/$33."
@@ -129,10 +129,10 @@ the household or about the person in it.
 
 ## 6. Massachusetts's equal-time order exceeds 47 of the other 49 ranked jurisdictions' primary-custody orders
 
-<p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
+<p class="confidence-tag">Tiered: a single fact pattern; see method</p>
 
 Fifty jurisdictions were profiled from their own primary documents at one fact pattern, computed
-twice independently, reconciled, and then checked against an adversarial attack. Massachusetts
+twice independently and reconciled, then checked against an adversarial attack. Massachusetts
 orders more under equal parenting time than any of them, and more under primary custody than every
 one of them but Hawaii. Its own equal-time order exceeds the primary-custody order of 47 of the
 other 49 ranked jurisdictions. Georgia was held out: its enacted formula orders less at equal time

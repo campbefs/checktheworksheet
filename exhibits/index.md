@@ -496,7 +496,7 @@ comparison always carries its per-person counterpart.
          alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions under equal parenting time, one fact pattern, Massachusetts highlighted.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
+    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
     <h3 class="exhibit-title">Equal parenting time: Massachusetts orders the most of fifty jurisdictions.</h3>
     <p class="exhibit-deck">Monthly order at one fact pattern. Georgia held out.</p>
     <dl class="exhibit-facts">
@@ -587,7 +587,7 @@ comparison always carries its per-person counterpart.
          alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
+    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
     <h3 class="exhibit-title">Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.</h3>
     <p class="exhibit-deck">Monthly order at one fact pattern. Georgia held out. First of a pair with E17.</p>
     <dl class="exhibit-facts">
@@ -678,7 +678,7 @@ comparison always carries its per-person counterpart.
          alt="Tile map of fifty-one jurisdictions, each colored by whether a formula credit applies when a parent has the children 122 overnights a year, about one-third of the time.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
+    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
     <h3 class="exhibit-title">In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.</h3>
     <p class="exhibit-deck">Twenty-eight states give that parent a formula credit; 23 do not. Blue: a credit at 122 overnights a year. Grey: none.</p>
     <dl class="exhibit-facts">
@@ -769,7 +769,7 @@ comparison always carries its per-person counterpart.
          alt="Horizontal bar chart ranking 41 jurisdictions by the combined income at which their presumptive child support schedule stops, Massachusetts highlighted.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
+    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
     <h3 class="exhibit-title">Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.</h3>
     <p class="exhibit-deck">Combined income at which each state's presumptive schedule ends; above it, support is discretionary.</p>
     <dl class="exhibit-facts">
@@ -850,7 +850,7 @@ comparison always carries its per-person counterpart.
          alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
+    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
     <h3 class="exhibit-title">Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h3>
     <p class="exhibit-deck">Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner.</p>
     <dl class="exhibit-facts">
