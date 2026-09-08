@@ -1,5 +1,5 @@
 {
-  "_readme": "One row per Massachusetts child support guidelines review cycle whose OWN primary text is held in this repository. Question tracked: was the GROSS-VERSUS-NET INCOME BASIS question (not the separate alimony/tax-order question) raised and declined or deferred in that cycle's own primary text? status is DEFERRED only where the corpus holds a verbatim quote about that specific question from that cycle's own document; NO RECORD IN CORPUS where no such quote was found. Never inferred from silence, and never inferred from a later cycle's reference to 'prior task forces'. REBUILT 2026-09-08 after the prior task force reports and economic reviews, 2001-2025, were obtained from Wayback Machine captures (mass.gov serves automated fetches a 'Not allowed' page under a 200 status). Sources and full quotes with page numbers: docs/2026-09-08-prior-taskforce-reports.md. Files: data/source/taskforce/, text in data/extracted/taskforce/. Supersedes the 2026-09-06 build, which held only the 2025 cycle's text and therefore showed one deferral of five editions.",
+  "_readme": "One row per Massachusetts child support guidelines review cycle whose OWN primary text is held in this repository. Question tracked: was the GROSS-VERSUS-NET INCOME BASIS question (not the separate alimony/tax-order question) raised and declined or deferred in that cycle's own primary text? status is DEFERRED only where the corpus holds a verbatim quote about that specific question from that cycle's own document; NO RECORD IN CORPUS where no such quote was found. Never inferred from silence, and never inferred from a later cycle's reference to 'prior task forces'. REBUILT 2026-09-08 after the prior task force reports and economic reviews, 2001-2025, were obtained from Wayback Machine captures (mass.gov serves automated fetches a 'Not allowed' page under a 200 status). Sources and full quotes with page numbers: docs/2026-09-08-prior-taskforce-reports.md. Files: data/source/taskforce/, text in data/extracted/taskforce/. Supersedes the 2026-09-06 build, which held only the 2025 cycle's text and therefore showed one deferral of five editions. SOURCE KIND MATTERS: 2009 and 2013 are TASK FORCE decisions in the task forces' own reports; 2017, 2021 and 2025 are statements in the ECONOMIC REVIEWS by the Commonwealth's consultants, not task force refusals. Never write 'five task forces declined'.",
   "cycles": [
     {
       "year": 2002,
@@ -29,7 +29,8 @@
       "status": "DEFERRED",
       "quote": "There was little support on the Task Force for basing orders on net income, although this was suggested and discussed. All formulas the Task Force considered were based on gross income.",
       "document": "2008 Report of the Child Support Guidelines Task Force, p. 32",
-      "note": "The report also records the comments that prompted it: 'Comments were made that orders should be based on after-tax, or net, available income' (p. 29). Raised by commenters, considered, declined."
+      "note": "The report also records the comments that prompted it: 'Comments were made that orders should be based on after-tax, or net, available income' (p. 29). Raised by commenters, considered, declined.",
+      "source_kind": "task force report"
     },
     {
       "year": 2013,
@@ -39,7 +40,8 @@
       "status": "DEFERRED",
       "quote": "Additionally, a recurrent comment from noncustodial parents was the suggestion to base the Guidelines on net income instead of gross. The Task Force declines to recommend this change. The Task Force reasons that the current practice of utilizing the combined gross income of the parties remains the simplest option.",
       "document": "2012 Report of the Child Support Guidelines Task Force, p. 82",
-      "note": "Declined on grounds of simplicity. The report states no finding that a gross basis is more accurate."
+      "note": "Declined on grounds of simplicity. The report states no finding that a gross basis is more accurate.",
+      "source_kind": "task force report"
     },
     {
       "year": 2017,
@@ -48,8 +50,9 @@
       "kind": "quadrennial review",
       "status": "DEFERRED",
       "quote": "The Massachusetts guidelines formula considers the gross available income of the payor and recipient, as opposed to their net incomes after taxes and tax-related child benefits.",
-      "document": "Economic Review of the Massachusetts Child Support Guidelines 2016-2017 (Sarro and Rogers), p. 63",
-      "note": "Stated in the cycle's economic review; the seven-page task force report does not use the phrase net income. No change was recommended."
+      "document": "Economic Review of the Massachusetts Child Support Guidelines 2016-2017 (Sarro and Rogers)",
+      "note": "Stated in the cycle's economic review; the seven-page task force report does not use the phrase net income. No change was recommended.",
+      "source_kind": "economic review by the Commonwealth's consultant"
     },
     {
       "year": 2021,
@@ -59,7 +62,8 @@
       "status": "DEFERRED",
       "quote": "Massachusetts' guidelines consider the gross available income of each parent, not their net incomes after taxes and tax-related child benefits. ... Therefore, as completed in our report in the prior Massachusetts guidelines review, we briefly list the current amount...",
       "document": "Economic Review of the Massachusetts Child Support Guidelines 2020-2021 (Brattle Group), p. 107",
-      "note": "The same review records that the Betson estimates the guidelines are calibrated against are denominated in net income, and that the consultant converted them to gross equivalents to use them."
+      "note": "The same review records that the Betson estimates the guidelines are calibrated against are denominated in net income, and that the consultant converted them to gross equivalents to use them.",
+      "source_kind": "economic review by the Commonwealth's consultant"
     },
     {
       "year": 2025,
@@ -69,7 +73,8 @@
       "status": "DEFERRED",
       "quote": "Again in this review, as prior task forces have done, the Task Force discussed the use of gross versus net income in the guidelines. Ultimately, it decided not to recommend a change from gross income to net income at this time. We expect this issue will once again be considered as part of the next guidelines review.",
       "document": "Economic Review of the Massachusetts Child Support Guidelines 2024-2025 (Brattle Group)",
-      "note": "The only cycle that states outright that the question recurs and is expected to recur again. The corpus now confirms the pattern it describes."
+      "note": "The only cycle that states outright that the question recurs and is expected to recur again. The corpus now confirms the pattern it describes.",
+      "source_kind": "economic review by the Commonwealth's consultant"
     }
   ]
 }

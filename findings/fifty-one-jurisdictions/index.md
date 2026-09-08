@@ -517,7 +517,7 @@ question inside its own review process.
    id="e27"
    img="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
    alt="Timeline of seven Massachusetts child support guidelines reviews from 2002 to 2025, marking the five whose own report or economic review declined to move from gross to net income."
-   title="Five task forces have been asked to switch to net income. Five have declined."
+   title="Five reviews have taken up gross versus net. None changed it."
    deck="Massachusetts guidelines reviews since 2002. Filled: the cycle's own report or economic review declines the change."
    notes="Each filled year carries a verbatim quote from that cycle's own document, with page numbers in the source file. The 2002 and 2006 reviews say nothing on the question."
    source_script="model/charts/fig11_deferral_timeline.py"

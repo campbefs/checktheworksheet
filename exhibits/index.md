@@ -50,7 +50,7 @@ comparison always carries its per-person counterpart.
 20. [In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.](#e13)
 21. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
 22. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
-23. [Five task forces have been asked to switch to net income. Five have declined.](#e27)
+23. [Five reviews have taken up gross versus net. None changed it.](#e27)
 
 ## Who holds more after the order
 
@@ -937,7 +937,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e27">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
-     data-caption="Five task forces have been asked to switch to net income. Five have declined."
+     data-caption="Five reviews have taken up gross versus net. None changed it."
      data-csv-href="/figures/working/fig11_deferral_timeline.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
          loading="lazy"
@@ -945,7 +945,7 @@ comparison always carries its per-person counterpart.
   </a>
   <figcaption>
     <p class="confidence-tag">Documentary: built only from primary-text quotes</p>
-    <h3 class="exhibit-title">Five task forces have been asked to switch to net income. Five have declined.</h3>
+    <h3 class="exhibit-title">Five reviews have taken up gross versus net. None changed it.</h3>
     <p class="exhibit-deck">Massachusetts guidelines reviews since 2002. Filled: the cycle's own report or economic review declines the change.</p>
     <dl class="exhibit-facts">
       <div><dt>Question</dt><dd>Gross vs. net income basis (not the separate alimony/tax question)</dd></div>
