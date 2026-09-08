@@ -206,7 +206,7 @@ care</a> findings for that comparison at the same worked example.</p>
 <p>Every number above is printed by a committed script and backed by a CSV of the plotted values.</p>
 <ul>
   <li><strong><a href="/model/box1_fix.py"><code>model/box1_fix.py</code></a></strong>
-    Computes the Box 1 discount, the two redlined variants, and the implied overnight share.</li>
+    Computes the Box 1 discount, the two redlined variants, and the overnight share a cross-credit would need to match the order.</li>
   <li><strong><a href="/model/runs/box1-fix-run-2026-09-05.txt">The full printed run</a></strong>
     Behind every figure on this page.</li>
   <li><strong><a href="/figures/working/fig3_credit_collapse.csv">fig3_credit_collapse.csv</a></strong>

@@ -26,7 +26,7 @@ economically.
 
 Three things should change. A support order should be computed on the income parents actually have.
 Equal parenting time should earn a real reduction, in line with what other states give. Hawaii cuts
-the order 52 percent for equal time and Montana 53 percent. Massachusetts cuts it 6.9 percent. And child care should be split on the income each parent holds after the order rather than
+the order 52 percent for equal time and Utah 55 percent. Massachusetts cuts it 6.9 percent. And child care should be split on the income each parent holds after the order rather than
 before it. Every figure here comes from a published model with tests.
 Anyone can check the arithmetic.
 
