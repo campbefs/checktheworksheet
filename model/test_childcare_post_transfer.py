@@ -23,7 +23,7 @@ check("redline saves $3,624/yr", round(f["rule2b_saving_yr"]) == 3624, f["rule2b
 check("after-tax shares: payor 48.2%", round(f["rule3_share"], 3) == 0.482, f["rule3_share"])
 check("rule 4 (fixed point) equals rule 3", abs(f["rule4_share"] - f["rule3_share"]) < 1e-6, (f["rule3_share"], f["rule4_share"]))
 check("gross post-transfer share 64.3% (not the letter's number)", round(f["rule2_gross_share"], 3) == 0.643, f["rule2_gross_share"])
-check("the two 6b-1 shares sum to one", abs(f["rule2b_share"] + (1 - f["rule2b_share"]) - 1) < 1e-12)
+check("the two 6b-2 fallback shares sum to one", abs(f["rule2b_share"] + (1 - f["rule2b_share"]) - 1) < 1e-12)
 check("per person the payor still leads", f["payor_after"] > f["recip_pp"], (f["payor_after"], f["recip_pp"]))
 
 # v4.9: the withholding basis. In a joint-custody case the credits and the filing status

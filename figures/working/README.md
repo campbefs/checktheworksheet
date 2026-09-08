@@ -19,7 +19,7 @@ Conventions that apply to every figure and must travel with any of them:
 | `fig1_headline_household_gap` | Panel (a) for 1, 2, 3 children side by side: recipient household net minus payor net after the order, Box 1 | `fig1_heatmaps.py`; `worksheet.py`, `net_position.py` |
 | `fig1_heatmap_{1,2,3}child_box{1,2}` | Four panels each: (a) household gap, (b) per-person gap, (c) order as % of payor net with the 40% contour, (d) units lag with the "7e reads 40%" contour | same |
 | `fig2_childcare_rules` | Payor's funded share of child care under three rules (Line 3c; post-transfer gross; post-transfer net) by income share, 1/2/3 children | `fig2_childcare.py` |
-| `fig2_childcare_worked_example` | The 87.7% / 64.5% / 48.2% bars at the letter's worked example (64.5% is the § 2 redline on Line 3a) | `childcare_post_transfer.py` |
+| `fig2_childcare_worked_example` | The 87.7% / 64.5% / 53.0% / 48.2% bars at the letter's worked example (64.5% is the § 2 fallback, new Line 6b-2; 53.0% is what the comments ask for, new Lines 6b-1a and 6b-1, withholding basis) | `childcare_post_transfer.py` |
 | `fig3_credit_collapse` | (a) equal-time reduction vs the ⅓-time order: Worksheet today, Variant A, Variant B; (b) implied overnight share at factors 1.5 and 2.0 | `fig3_credit.py`; `box1_fix.py` |
 | `fig4_marginal_retention` | Cents of the next dollar the payor keeps, $100k–$400k, with and without $300/wk child care | `fig4_retention.py`; `marginal_retention.py` |
 | `fig5a_states_S1`, `fig5b_states_S2` | Monthly orders in fifty jurisdictions at the fact pattern, MA highlighted; Georgia held out | `fig5_states.py`; `data/fifty-state/tier-50-2026-09-05.json` |

@@ -132,9 +132,10 @@ model/net_position.py's analyze().
     before the order, the payor's share of the parties' combined available
     income (Line 3c) is 87.7%;
     after the order, his share of POST-TRANSFER GROSS income is 64.3%;
-    after the order, his share of POST-TRANSFER NET income is 48.2%;
+    after the order, his share of POST-TRANSFER NET income, withholding basis (the ask) is 53.0%;
+    after the order, his share of POST-TRANSFER NET income counting refundable credits (analysis only) is 48.2%;
     and child care is allocated on the 87.7% figure --
-    the income split BEFORE the order, not either figure after it.
+    the income split BEFORE the order, not any figure after it.
 
 ==============================================================================
 END OF RUN

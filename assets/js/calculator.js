@@ -516,7 +516,11 @@
       var dist = computeChildcareDistribution(higher, lower, noCcFacts);
       if (cells.cc_dist_share3c) cells.cc_dist_share3c.textContent = pct1(dist.share3c);
       if (cells.cc_dist_gross) cells.cc_dist_gross.textContent = pct0(dist.gross_share);
-      if (cells.cc_dist_net) cells.cc_dist_net.textContent = pct0(dist.net_share);
+      // Bound to the WITHHOLDING-basis share (the "on money after tax" rule below, and the
+      // figure Section 2 of the comments asks for), not dist.net_share (credits-inclusive,
+      // 48%) -- the two were shown side by side until 2026-09-08 with nothing to say they used
+      // different tax bases, while the "What this project asks for" tag pointed at this cell.
+      if (cells.cc_dist_net) cells.cc_dist_net.textContent = pct0(dist.net_withholding_share);
 
       if (inputs.ccLower) {
         var ccLowOut = outputFor(inputs.ccLower);
@@ -601,7 +605,7 @@
       } else {
         ruleNote = 'The Worksheet charges the higher earner ' + pct1(dist.share3c) +
           ' (' + money(worksheetChargeWk * 52) + ') of the child care, while he holds ' + pct0(dist.gross_share) +
-          ' of the money after the order on paper and ' + pct0(dist.net_share) + ' of it after tax.';
+          ' of the money after the order on paper and ' + pct0(dist.net_withholding_share) + ' of it after tax.';
       }
       if (cells.cc_rule_note) cells.cc_rule_note.textContent = ruleNote;
 

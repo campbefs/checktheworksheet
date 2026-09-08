@@ -491,10 +491,12 @@ def main():
     print(f"    income (Line 3c) is {headline['before_share']:.1%};")
     print(f"    after the order, his share of POST-TRANSFER GROSS income is "
           f"{headline['after_gross_share']:.1%};")
-    print(f"    after the order, his share of POST-TRANSFER NET income is "
-          f"{headline['after_net_share']:.1%};")
+    print(f"    after the order, his share of POST-TRANSFER NET income, withholding basis "
+          f"(the ask) is {headline['after_net_withholding_share']:.1%};")
+    print(f"    after the order, his share of POST-TRANSFER NET income counting refundable "
+          f"credits (analysis only) is {headline['after_net_share']:.1%};")
     print(f"    and child care is allocated on the {headline['before_share']:.1%} figure --")
-    print(f"    the income split BEFORE the order, not either figure after it.")
+    print(f"    the income split BEFORE the order, not any figure after it.")
     print()
 
     print("=" * 78)

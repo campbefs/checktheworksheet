@@ -37,14 +37,14 @@ Family Tax Credit, so a finding can compare an order against what a household sp
 - [`model/submission_figures.py`](/model/submission_figures.py): prints every figure quoted to
   the Trial Court, so none is quoted without a script producing it.
 
-## Four test suites, 348 checks, all passing, gate every quoted number
+## Four test suites, 358 checks, all passing, gate every quoted number
 
 | Suite | Checks | What it pins |
 |---|---|---|
 | [`model/test_guidelines.py`](/model/test_guidelines.py) | 20 | Table A/B vs. the published chart |
 | [`model/test_worksheet.py`](/model/test_worksheet.py) | 60 | The disclosed order and the form's rounding |
 | [`model/test_box1_fix.py`](/model/test_box1_fix.py) | 258 | The Box 1 credit and its redlines |
-| [`model/test_childcare_post_transfer.py`](/model/test_childcare_post_transfer.py) | 10 | Child care on post-transfer shares |
+| [`model/test_childcare_post_transfer.py`](/model/test_childcare_post_transfer.py) | 20 | Child care on post-transfer shares |
 
 ## A harness runs the Commonwealth's own scripts instead of a re-derivation
 

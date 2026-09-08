@@ -35,7 +35,7 @@ comparison always carries its per-person counterpart.
 5. [The order exceeds 40 percent of the payor's net income only where the lower earner makes about $25,000 or less.](#e04)
 6. [The hardship valve fires late because it reads the wrong income.](#e05)
 7. [Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
-8. [The payor's share of a $15,600 child care bill, three ways to split it.](#e06)
+8. [The payor's share of a $15,600 child care bill, four ways to split it.](#e06)
 9. [With one child, post-transfer child care funds the payor 28 points below his income share.](#e20)
 10. [With two children, post-transfer child care funds the payor 39 points below his income share.](#e21)
 11. [With three children, post-transfer child care funds the payor 46 points below his income share.](#e22)
@@ -235,23 +235,23 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e06">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-     data-caption="The payor's share of a $15,600 child care bill, three ways to split it."
+     data-caption="The payor's share of a $15,600 child care bill, four ways to split it."
      data-csv-href="/figures/working/fig2_childcare_worked_example.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
          loading="lazy"
-         alt="Bar chart of the payor's share of a $15,600 annual child care bill under three allocation rules, at the worked example.">
+         alt="Bar chart of the payor's share of a $15,600 annual child care bill under four allocation rules, at the worked example.">
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">The payor's share of a $15,600 child care bill, three ways to split it.</h3>
-    <p class="exhibit-deck">Middle bar: the letter's § 2 redline (Line 6b-1).</p>
+    <h3 class="exhibit-title">The payor's share of a $15,600 child care bill, four ways to split it.</h3>
+    <p class="exhibit-deck">Third bar: what the comments ask for (new Lines 6b-1a and 6b-1).</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
       <div><dt>Children</dt><dd>3</dd></div>
       <div><dt>Child care</dt><dd>$300/wk, paid by the recipient</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Line 3c allocates 87.7 percent to the payor on pre-transfer income shares. The letter's § 2 redline, adjusting shares by the base order, gives 64.5 percent. Post-transfer net shares give 48.2 percent, the right bar, where the argument goes once net income is admitted. Child care is included in the order. Two of three children under 13 (MA credit); premiums $43/$33.</p>
+    <p class="exhibit-notes">Line 3c allocates 87.7 percent to the payor on pre-transfer income shares. The second bar is the fallback (new Line 6b-2), adjusting shares by the base order on a gross basis: 64.5 percent. The third bar is what the comments ask for: the same adjustment measured after federal and Massachusetts income tax and FICA, for a single filer claiming no exemptions, giving 53.0 percent. The fourth bar adds the refundable tax credits back in, 48.2 percent; that basis is not asked for, because CJ-D 304 collects neither parent's filing status nor which parent claims which child. Child care is included in the order. Two of three children under 13 (MA credit); premiums $43/$33.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig2_childcare.py</code>; <code>model/childcare_post_transfer.py</code> ·
       <a href="/figures/working/fig2_childcare_worked_example.csv">data (CSV)</a></p>
   </figcaption>

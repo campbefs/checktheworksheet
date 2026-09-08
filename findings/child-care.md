@@ -171,8 +171,9 @@ own parenting time.
 | Post-transfer net shares, withholding basis (the redline proposed, Line 6b-1; order $1,172/wk, $5,415/yr less than today) | 53.0% | $8,263/yr |
 | Post-transfer net shares counting refundable tax credits (analysis only, not proposed) | 48.2% | $7,513/yr |
 
-(Source: `model/runs/childcare-post-transfer-run-2026-09-05.txt`, printed by
-`model/childcare_post_transfer.py`; the order figures are from
+(Source: `model/runs/childcare-post-transfer-run-2026-09-08.txt`, printed by
+`model/childcare_post_transfer.py` (the 2026-09-05 run predates rule 5, the withholding-basis
+figure this table quotes, and is kept alongside for the record); the order figures are from
 `model/runs/submission-figures-run-2026-09-05.txt`.) Exhibits E25 and E26 above show the same
 mechanism when both parents pay for care: Line 6e limits how much of the payor's own claim he can
 recover once his income share puts him outside the low-income protection the line was written for.
