@@ -55,7 +55,7 @@ def main():
             fig.subplots_adjust(hspace=0.42, wspace=0.28, top=0.83, bottom=0.10)
             panel(axs[0, 0], g, "gap_h", "(a) Recipient household net minus payor net, per year", kids=kids)
             panel(axs[0, 1], g, "gap_pp", "(b) The same per person (recipient household ÷ (1 + children))", kids=kids)
-            panel(axs[1, 0], g, "pct_net", "(c) Order as a share of payor NET income (line: 40%)",
+            panel(axs[1, 0], g, "pct_net", "(c) Order as a share of payor net income, with the 40% line marked",
                   diverging=False, contour=0.40, pct=True, kids=kids, vmax=0.60)
             # panel (d): sequential lag with the 7e = 40% contour drawn from e7
             Z = g["lag"]
@@ -66,10 +66,10 @@ def main():
             cb.ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
             cb.outline.set_visible(False)
             _ax_money(axs[1, 1]); _mark(axs[1, 1], kids); axs[1, 1].grid(False)
-            axs[1, 1].set_title("(d) Units lag: true share of payor net minus Line 7e's gross-based reading",
+            axs[1, 1].set_title("(d) How far Line 7e's reading falls short of the true share of net",
                                 loc="left", fontsize=10.5, color=P["text"], pad=6)
             boxname = "Box 1 (equal time)" if box == 1 else "Box 2 (primary with the lower earner)"
-            fig.subplots_adjust(top=top_header(fig, f"Massachusetts 2025 Guidelines: {kids} child{'ren' if kids > 1 else ''}, {boxname}",
+            fig.subplots_adjust(top=top_header(fig, f"Four views of the order for {kids} child{'ren' if kids > 1 else ''} under {boxname}",
                 "Who holds more after the order, and what Line 7e sees.",
                 facts(box, kids), x=0.06))
             bottom_footer(fig, NOTE_MASK + "Panels (c) and (d): fixed scales across all six figures. " + NOTE_CONV, SOURCE_SRC)

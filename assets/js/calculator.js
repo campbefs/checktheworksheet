@@ -235,8 +235,8 @@
 
   // CHANGE 1 -- the Child care section's distribution readout. Port of
   // model/childcare_post_transfer.py's rule1_share (Line 3c) / rule2_gross_share / rule3_share, at
-  // the NO-CHILD-CARE order -- Chris: "have the base support calculated first and then figure out
-  // what the net percentage mix is." Independent of facts.ccLower/facts.ccHigher; only
+  // the NO-CHILD-CARE order -- the author's direction: "have the base support calculated first and
+  // then figure out what the net percentage mix is." Independent of facts.ccLower/facts.ccHigher; only
   // kids/box/healthLow/healthHigh matter. "Higher earner" is Parent B always (see header comment);
   // every fixture row this site has ever computed names B the payor, so this does not special-case
   // a flip. net_share uses kidsUnder13 = 0 (the same convention as every other figure in this

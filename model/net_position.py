@@ -171,19 +171,21 @@ def net_income(gross, status, kids, params, kids_under_13=None):
 def net_income_withholding_basis(gross, params=TAX_PARAMS):
     """Net of federal and Massachusetts income tax and FICA. NO refundable credits.
 
-    This is the basis the comments' child-care redline asks for, and the basis the 40%-hardship
-    ask already uses. It is deliberately narrower than `net_income` above: it applies the
-    schedules to a single filer claiming no exemptions, so it needs nothing beyond gross income
-    and the published rates.
+    This is the basis Section 2 of the comments asks for as of v4.9, and the basis
+    Section 1 already asks for at Line 7e. It is deliberately narrower than
+    `net_income` above: it applies the schedules to a single filer claiming no
+    exemptions, so it needs nothing beyond gross income and the published rates.
 
-    Why the credits are excluded, although they are large and real: the refundable credits and
-    head-of-household status both turn on which parent claims which child, CJ-D 304 collects
-    neither fact, and in a shared-parenting case the claim is commonly alternated by year. Who
-    claims the children moves the post-transfer share more than the credits themselves are
-    worth. A Worksheet line cannot rest on an input the Worksheet does not have.
+    Why the credits are excluded, although they are large and real: the refundable
+    credits and head-of-household status both turn on which parent claims which
+    child, CJ-D 304 collects neither fact, and in a shared-parenting case the
+    claim is commonly alternated by year. Measured in tools/net_basis_sensitivity.py:
+    who claims the children moves the post-transfer share 7.8 points, more than the
+    credits themselves are worth (4.8 points). A Worksheet line cannot rest on an
+    input the Worksheet does not have.
 
-    The omission runs AGAINST the payor: including the credits would put his share lower than
-    this basis does, so the rule as proposed understates the case for it.
+    The omission runs AGAINST the payor: including the credits would put his share
+    at 48.2% rather than 53.0%, so the rule as proposed understates the case for it.
     """
     return gross - (federal_tax(gross, "single", params)
                     + fica(gross, params)

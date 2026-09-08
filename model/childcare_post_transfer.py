@@ -15,12 +15,15 @@ paid by Parent A) the script prints the payor's share of that child care under:
   1.  current Worksheet: Line 3c, pre-transfer available income (what CJ-D 304 does);
   2.  post-transfer GROSS shares: (payor gross - base order) : (recipient gross + base order);
   2b. the redline as drafted: the same on Line 3a, over Line 3b — a fallback, not the ask;
-  3.  post-transfer NET shares, after tax, from net_position.py — depends on filing status and
-      who claims the children, facts CJ-D 304 does not collect;
-  4.  rule 3 including the child care the recipient pays the provider (fixed point; equals rule 3);
+  3.  post-transfer NET shares, after tax, from net_position.py — ANALYSIS (credits included),
+      not the ask: it depends on filing status and who claims the children, facts CJ-D 304
+      does not collect;
+  4.  rule 3 including the child care the recipient pays the provider (fixed point; equals
+      rule 3) — also ANALYSIS, same reason;
   5.  post-transfer NET shares on the withholding basis (net_position.net_income_withholding_
-      basis: tax and FICA only, no refundable credits) — the ask. Needs only gross income and the
-      published schedules, so it is the version a Worksheet line can actually compute.
+      basis: tax and FICA only, no refundable credits) — THE ASK as of v4.9. Needs only gross
+      income and the published schedules, so it is the version a Worksheet line can actually
+      compute. See tools/net_basis_sensitivity.py for why credits and filing status were left out.
 
 Pinned by model/test_childcare_post_transfer.py. Run: .venv/bin/python model/childcare_post_transfer.py
 """
@@ -83,11 +86,11 @@ def figures():
         share = new
     f["rule4_share"] = share
 
-    # 5. THE ASK: post-transfer net shares on the WITHHOLDING basis (tax and FICA, single filer,
-    # no exemptions -- no refundable credits, because CJ-D 304 collects neither filing status nor
-    # who claims which child). The order moves, because Line 6b-1 sits inside the
-    # 6b -> 6c -> 6e -> 6g -> 7b -> 7d chain: the same linear step the gross fallback (rule 2b)
-    # already uses.
+    # 5. THE PRIMARY ASK as of v4.9: post-transfer net shares on the WITHHOLDING basis
+    # (tax and FICA, single filer, no exemptions -- no refundable credits, because
+    # CJ-D 304 collects neither filing status nor who claims which child). The order
+    # moves, because Line 6b-1 sits inside the 6b -> 6c -> 6e -> 6g -> 7b -> 7d chain:
+    # the same linear step the gross fallback (rule 2b) already uses.
     p5 = npos.net_income_withholding_basis(PAYOR_GROSS)
     r5 = npos.net_income_withholding_basis(RECIP_GROSS)
     f["rule5_payor_net"], f["rule5_recip_net"] = p5, r5

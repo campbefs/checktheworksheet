@@ -41,13 +41,15 @@ def main():
     ax.plot([ma["s2"]], [yi], marker="|", markersize=14, color=P["text"], lw=0)
     ax.annotate(f"MA primary: ${ma['s2']:,.0f}", xy=(ma["s2"], yi), xytext=(ma["s2"] + 120, yi - 2.2),
                 fontsize=8.5, color=P["text_2"], arrowprops=dict(arrowstyle="-", color=P["text_2"], lw=0.6))
-    theme.finish(ax, title=f"Massachusetts's equal-time order exceeds the primary-custody order of {below} of the {len(others)} others",
-                 subtitle="Second of a pair with E12: same states, same axis, Massachusetts's Box 1 equal-time order takes the place of its own primary-custody bar.",
+    joined_above = " and ".join(above) if len(above) <= 2 else ", ".join(above[:-1]) + f", and {above[-1]}"
+    theme.finish(ax, title=f"Only {joined_above} order more than Massachusetts does at equal time" if above
+                 else "Massachusetts orders more than every other state does at equal time",
+                 subtitle="Massachusetts's equal-time order against every other state's primary-custody order.",
                  comma=False,
                  pairs=[("Custody", "MA equal time (Box 1) vs others primary"), ("Children", "3"),
                         ("Child care", "None (base support)"), ("Incomes", "\\$201,000 / \\$29,640")],
-                 notes=f"One fact pattern. Georgia held out. Above Massachusetts: {', '.join(above) or 'none'}. Each row profiled from primary sources, "
-                       "computed twice blind, reconciled, attacked. Own premiums \\$43/\\$33 as each state treats them.",
+                 notes="Scaled to match E12 so the two can be read side by side. Georgia held out; "
+                       "one fact pattern only.",
                  source="data/fifty-state/tier-50-2026-09-05.json")
     theme.save(fig, out("fig10_ma_shared_vs_primary.png"))
     write_csv("fig10_ma_shared_vs_primary.csv", ["state", "custody", "monthly_order"],

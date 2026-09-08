@@ -27,7 +27,7 @@ Three changes, each keyed to a Worksheet line, each with an effect measured at t
   and FICA for a single filer claiming no exemptions), taking the payor's child care share from
   87.7 percent to 53.0 percent and the order with $300 a week of child care from $1,275.77 to
   $1,171.64 a week, a $5,415-a-year change. Counting the refundable tax credits as well would take
-  the share to 48.2 percent, but the comments do not ask for that, because the Worksheet has no
+  the share to 48.2 percent; the comments stop short of that version, because the Worksheet has no
   field for which parent claims which child. A fallback confined to the Worksheet's existing
   gross-based lines, renumbered Line 6b-2, takes the share to 64.5 percent and the order to
   $1,206.08 a week. Part two below carries this further.
@@ -40,8 +40,8 @@ figure is reproduced in the model files linked at the bottom of this page.
 ## What would put Massachusetts in line with other states
 
 This part is analysis beyond what the comments ask for. It compares Massachusetts's Worksheet
-against other states' schedules and against the child support recommendations Chris has made from
-that comparison.
+against other states' schedules and against the child support recommendations the author has made
+from that comparison.
 
 ### The joint-custody discount should come from a cross-credit, using the factor other states use
 
@@ -113,7 +113,7 @@ from $1,275.77 to $1,171.64 a week, because those lines sit inside the chain tha
 to lines it already computes, renumbered Line 6b-2, which reaches 64.5 percent with no tax
 computation at all.
 
-Two other options Chris raised are shown in the table below for comparison: removing child care
+Two other options the author raised are shown in the table below for comparison: removing child care
 from the Worksheet entirely, so each parent bears 0 percent of the other's cost, and splitting it
 50-50 after base support is computed, regardless of income.
 

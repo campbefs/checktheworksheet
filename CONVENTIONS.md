@@ -359,8 +359,8 @@ comment block) rather than hand-writing the `<figure>` markup:
    csv_href="/figures/working/fig6_valve_units_lag.csv" %}
 ```
 
-Copy `title`/`notes` wording **verbatim** from the exhibit's own reviewed caption in
-`/Users/christophercampbell/Desktop/src/projects/child-support-reform/output/DRAFT-attachment-E-figures.md`
+Copy `title`/`notes` wording **verbatim** from the exhibit's own reviewed caption in the private
+repository's `output/DRAFT-attachment-E-figures.md`
 (read-only reference outside this repo — copy the wording in, never link that file from the site).
 Drop `lazy="false"` on the first figure on a page (never lazy-load an above-the-fold image).
 
@@ -534,7 +534,7 @@ worked-example figures elsewhere, and that is expected, not a bug.** The calcula
 `kids_under_13 = 0` for every combination (same generic-grid convention as
 `model/charts/_common.py`'s `KIDS_UNDER_13 = 0` — there is no third slider for how many children
 are under 13), while the worked example quoted in `model/runs/submission-figures-run-2026-09-05.txt`
-and repeated around the rest of the site uses `kids_under_13 = 2` (two of Chris's own three
+and repeated around the rest of the site uses `kids_under_13 = 2` (two of the worked example's three
 children). The MA Child and Family Tax Credit is $440/child/year for qualifying dependents under
 13, so the calculator's recipient-household figure is understated by up to $880/yr relative to the
 site's other worked-example numbers at three children — the direction that weakens, not flatters,

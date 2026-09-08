@@ -34,12 +34,12 @@ def main():
         ax.plot([x, x], [0, up], color=color, lw=1.2, zorder=2)
         ax.plot([x], [up], marker="o", ms=11, mfc=(color if deferred else "none"), mec=color, mew=1.8, zorder=3)
         va = "bottom" if up > 0 else "top"
-        ax.annotate(f"{r['label']}\n{r['status']}", (x, up), xytext=(0, 8 if up > 0 else -8),
+        ax.annotate(f"{r['label']}\n" + ("DECLINED" if deferred else "NO RECORD"), (x, up), xytext=(0, 8 if up > 0 else -8),
                     textcoords="offset points", ha="center", va=va, fontsize=8.7,
                     color=(P["text"] if deferred else P["text_mute"]),
                     fontweight="bold" if deferred else "normal")
 
-    ax.set_xlim(2016, 2027)
+    ax.set_xlim(min(xs) - 3, max(xs) + 3)
     ax.set_ylim(-2.1, 2.1)
     ax.set_xticks(xs)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0f}"))
@@ -48,15 +48,15 @@ def main():
         ax.spines[spine].set_visible(False)
     ax.grid(False)
 
-    theme.finish(ax, title=f"Gross versus net was deferred in {n_deferred} of {n_total} documented guidelines cycles, 2017–2025",
-                 subtitle="Each Massachusetts guidelines edition or amendment; filled = deferred on the record, hollow = no record in the corpus.",
+    theme.finish(ax, title=f"Five reviews have taken up gross versus net. None changed it",
+                 subtitle="Massachusetts guidelines reviews since 2002. Filled: that cycle's own report or economic review takes up the question and recommends no change.",
                  comma=False, legend=False,
                  pairs=[("Question", "Gross vs. net income basis (not the separate alimony/tax question)"),
-                        ("Corpus", "2025 Guidelines + embedded commentary, Brattle Econ. Review, Task Force report"),
-                        ("Cycles", f"{n_total}, 2017–2025")],
-                 notes="Only 2025 has a verbatim deferral; 2025's own text says prior task forces did the same, but their primary text is not "
-                       "in this corpus, so 2017/2018/2021/2023 are marked no record, not deferred. Econreview also states the next review is expected 2029.",
-                 source="data/deferrals-gross-vs-net.json (data/extracted/*.flow.txt)")
+                        ("Corpus", "Every task force report and economic review, 2001 to 2025"),
+                        ("Cycles", f"{n_total} reviews, {min(xs)} to {max(xs)}")],
+                 notes="Each filled year has a verbatim quote from that cycle's own document, listed with page numbers in the source file. "
+                       "The 2002 and 2006 cycles say nothing on the question, so they are marked no record rather than declined.",
+                 source="data/deferrals-gross-vs-net.json (data/extracted/taskforce/)")
     theme.save(fig, out("fig11_deferral_timeline.png"))
     write_csv("fig11_deferral_timeline.csv", ["year", "label", "kind", "status", "document", "quote"],
               [(r["year"], r["label"], r["kind"], r["status"], r.get("document") or "", (r.get("quote") or "").replace("\n", " ")) for r in cycles])

@@ -132,7 +132,7 @@ def main():
          "Recipient household net ÷ 4, minus payor net. Companion to E01.", pairs=F3,
          notes="Payor ahead in 99% of cells. " + NOTE_MASK + NOTE_CONV)
     heat("E04-order-as-share-of-payor-net-3-children.png", g3, "order_pct_payor_net",
-         "The order tops 40% of the payor's net only when the lower earner makes under about \\$25,000",
+         "The order exceeds 40% of the payor's net income only where the lower earner makes about \\$25,000 or less",
          "Order as a share of payor net; line at 40%.", diverging=False, contour=0.40, pct=True, vmax=0.60, pairs=F3,
          notes="15% of cells. Scale fixed 0–60%. " + NOTE_MASK + NOTE_CONV)
 
@@ -176,9 +176,9 @@ def main():
     ax.set_xlim(0.5, 1.0); ax.set_ylim(0, 1)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
     ax.axvline(0.877, color=P["text_mute"], lw=0.8); ax.text(0.879, 0.93, "worked\nexample", fontsize=8, color=P["text_mute"])
-    theme.finish(ax, title="The equal-time credit collapses with the income gap; a cross-credit only narrows",
-                 subtitle="Reduction in the order for equal time vs the one-third-time (Box 2) order.",
-                 xlabel="Payor's share of combined available income (Line 3c)", ylabel="Reduction vs the ⅓-time order", pct=True,
+    theme.finish(ax, title="The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing",
+                 subtitle="Reduction in the order for equal time, against the Box 2 order (the paying parent has the children about a third of the time).",
+                 xlabel="Payor's share of combined available income (Line 3c)", ylabel="Reduction vs the Box 2 order", pct=True,
                  pairs=facts("1v2", 3, "None (base support)", f"\\${EXAMPLE['payor']:,.0f} / varies"),
                  notes="Variants A and B: the letter's § 5 redlines (box1_fix.py). " + NOTE_CONV,
                  source=SOURCE_SRC)
@@ -191,11 +191,13 @@ def main():
     ax.set_xlim(0.5, 1.0); ax.set_ylim(0, 0.6)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
     ax.axvline(0.877, color=P["text_mute"], lw=0.8); ax.text(0.879, 0.56, "worked\nexample", fontsize=8, color=P["text_mute"])
-    theme.finish(ax, title="Equal time is priced as a third of overnights at factor 1.5, and 47% at factor 2.0",
-                 subtitle="Overnight share that reproduces the Box 1 order under a cross-credit.",
-                 xlabel="Payor's share of combined available income (Line 3c)", ylabel="Implied payor overnight share", pct=True,
+    theme.finish(ax, title="The equal-time credit is what a standard formula pays a parent who has the children one night in three",
+                 subtitle="Massachusetts's credit for half the nights, converted into the overnight share a cross-credit "
+                          "formula would need to produce it.",
+                 xlabel="Payor's share of combined available income (Line 3c)", ylabel="Overnight share under a cross-credit", pct=True,
                  pairs=facts(1, 3, "None (base support)", f"\\${EXAMPLE['payor']:,.0f} / varies"),
-                 notes="Blank below the Line 5c floor. State the factor with the number. " + NOTE_CONV,
+                 notes="At the worked example (87.7% payor income share): 33% of overnights at factor 1.5, 47% at factor 2.0. "
+                       "Blank below the Line 5c floor. " + NOTE_CONV,
                  source=SOURCE_SRC + "; box1_fix.py")
     theme.save(fig, ex("E09-implied-overnight-share-by-factor-3-children.png")); print("E09")
 
@@ -294,8 +296,8 @@ def main():
         ax.text(i + wd / 2, her[i] + 1500, f"${her[i] / 1000:,.0f}k", ha="center", fontsize=8.5, color=P["text_2"])
     ax.set_xticks(xs); ax.set_xticklabels(scen_labels, fontsize=9)
     ax.set_ylim(0, 120_000); ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v / 1000:,.0f}k"))
-    theme.finish(ax, title=f"Both parents paying child care costs the payor \\${his_extra:,.0f}/yr, the recipient \\${her_extra:,.0f}",
-                 subtitle="Each parent's net position, neither/one/both paying $300/wk of child care.",
+    theme.finish(ax, title=f"Both parents paying child care costs the payor \\${his_extra:,.0f} a year, the recipient household \\${her_extra:,.0f}",
+                 subtitle="Each parent's net position, neither, one, or both paying $300/wk of child care.",
                  legend=True,
                  pairs=facts(1, 3, "\\$0 / \\$300 / \\$300 per wk (see scenarios)", "\\$201,000 / \\$29,640"),
                  notes=f"Companion to E25. The payor's own \\${float(b8['Both pay $300/wk']['his_childcare']):,.0f} cuts the order by only "
@@ -332,9 +334,9 @@ def main():
         f.write("**Retired from the exhibit set (multi-panel; kept as working figures for the paper only):** "
                 "`fig1_headline_household_gap.png` (was E03; its three panels are now E18/E19/E01), "
                 "`fig2_childcare_rules.png` (was E07; now E20/E21/E22), `fig7_box3_inversion.png` (was E14; now E23/E24), "
-                "`fig8_both_pay.png` (was E15; now E25/E26). The old E03/E07/E14/E15 exhibit PNGs are moved, not deleted, "
-                "into `_retired-2026-09-06-multi-panel/` beside this file, so nothing downstream globbing this folder for "
-                "the live set picks them up.\n\n")
+                "`fig8_both_pay.png` (was E15; now E25/E26). The old E03/E07/E14/E15 exhibit PNGs are retired from the set: "
+                "in the source repository they sit in `_retired-2026-09-06-multi-panel/`; a copy of this folder may still "
+                "carry them unlinked. Nothing in the live set references them.\n\n")
         f.write("The per-person exhibit (E02) travels with E01/E18/E19. The lead pair is E12 then E17 (same states, same "
                 "axis range, same colours, same ordering rule): E12 ranks every jurisdiction's primary-custody order with "
                 "Massachusetts marked; E17 replaces Massachusetts's bar with its equal-time order. Generic grids set the MA "
