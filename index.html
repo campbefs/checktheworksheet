@@ -98,25 +98,25 @@ scripts:
           <div class="tool-number-field">
             <label for="calc-health-higher">Higher earner's health insurance, per week</label>
             <input type="number" id="calc-health-higher" data-calc-input="healthHigh"
-                   min="0" max="500" step="1" value="40">
+                   min="0" max="500" step="1" value="43">
           </div>
           <div class="tool-number-field">
             <label for="calc-health-lower">Lower earner's health insurance, per week</label>
             <input type="number" id="calc-health-lower" data-calc-input="healthLow"
-                   min="0" max="500" step="1" value="40">
+                   min="0" max="500" step="1" value="33">
           </div>
         </div>
 
         <p class="tool-status-strip" data-calc-status>
           <span class="tool-badge tool-badge--lit" data-calc-badge="household">Payee household ends up ahead</span>
-          <span class="tool-badge tool-badge--muted" data-calc-badge="hardship">Order below 40% of payor&rsquo;s net (37.8%)</span>
+          <span class="tool-badge tool-badge--muted" data-calc-badge="hardship">Order below 40% of payor&rsquo;s net (37.7%)</span>
         </p>
 
         <div class="tool-panel" id="calc-panel-base" role="tabpanel" aria-labelledby="calc-tab-base" data-calc-panel="base">
           <div class="tool-readout" aria-live="polite">
             <div>
               <p class="cell-label">Weekly order (Line 7d)</p>
-              <p class="cell-value" data-calc-cell="order_wk">$1,015/wk</p>
+              <p class="cell-value" data-calc-cell="order_wk">$1,013/wk</p>
             </div>
             <div>
               <p class="cell-label">Line 7e's reading</p>
@@ -124,18 +124,18 @@ scripts:
             </div>
             <div>
               <p class="cell-label">True share of the payor's net income</p>
-              <p class="cell-value" data-calc-cell="true_pct_net">37.8%</p>
+              <p class="cell-value" data-calc-cell="true_pct_net">37.7%</p>
             </div>
           </div>
           <div class="tool-readout tool-readout--pair" aria-live="polite">
             <div>
               <p class="cell-label">Payor keeps, per year</p>
-              <p class="cell-value" data-calc-cell="payor_after">$87,043/yr</p>
+              <p class="cell-value" data-calc-cell="payor_after">$87,172/yr</p>
             </div>
             <div>
               <p class="cell-label">Recipient household holds, per year</p>
-              <p class="cell-value is-warning" data-calc-cell="recip_after">$93,070/yr</p>
-              <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,267/yr</strong></p>
+              <p class="cell-value is-warning" data-calc-cell="recip_after">$92,941/yr</p>
+              <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,235/yr</strong></p>
               <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
             </div>
           </div>
@@ -206,9 +206,7 @@ scripts:
           </div>
         </div>
 
-        <p class="tool-assumptions">At the $40/$40 default premiums shown here, the base order is
-        $1,015/wk, not the site's $1,013 worked example, which uses $33/$43. The MA credit for
-        children under 13 is fixed at zero throughout.</p>
+        <p class="tool-assumptions">The MA credit for children under 13 is fixed at zero throughout.</p>
 
         <details class="tool-detail">
           <summary>Assumptions and method</summary>
