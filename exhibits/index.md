@@ -937,7 +937,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e27">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
-     data-caption="The 2025 review deferred gross versus net again, "as prior task forces have done.""
+     data-caption="The 2025 review deferred gross versus net again, &quot;as prior task forces have done.&quot;"
      data-csv-href="/figures/working/fig11_deferral_timeline.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
          loading="lazy"
