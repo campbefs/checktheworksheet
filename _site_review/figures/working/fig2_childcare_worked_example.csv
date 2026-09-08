@@ -1,7 +1,0 @@
-rule,payor_share
-"Worksheet today
-(Line 3c, pre-transfer)",0.8768174760022585
-"Shares adjusted by the base order
-(Line 6b-1, the § 2 redline)",0.6445081434447836
-"Post-transfer
-net shares",0.48163022920349263
