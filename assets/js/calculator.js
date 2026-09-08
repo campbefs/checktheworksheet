@@ -4,6 +4,26 @@
 // assets/js/lib/net-position.js -- checked to the dollar against the Commonwealth's own CJ-D 304
 // XFA calculate-scripts. See assets/js/calculator.test.js.
 //
+// v5 (2026-09-07) adds two things to the Child care tab only, both from
+// model/childcare_post_transfer.py (not a new computation -- see that file's own docstring for the
+// five rules it prints and model/test_childcare_post_transfer.py for what pins them):
+//   1. AN ALWAYS-VISIBLE READOUT (computeChildcareDistribution): the higher earner's Line 3c income
+//      share (the pre-order share Line 6b already uses to allocate child care), and where that same
+//      pair of incomes actually lands after the NO-CHILD-CARE order -- as a share of gross and, using
+//      net-position.js, of net. Independent of the two child-care sliders; it is a property of income,
+//      children and the custody box alone. Its net-share leg uses kidsUnder13 = min(2, kids) -- the
+//      site's own worked example's fact (two of three children are under 13), NOT the zero used
+//      everywhere else on this tab -- because the task was to reproduce childcare_post_transfer.py's
+//      87.7/64.3/48.2 at that worked example, and that script uses kidsUnder13=2. Every OTHER figure on
+//      this tab keeps the site-wide zero convention; only this one readout differs, and it says so.
+//   2. A TOGGLE (computeFixedRuleOrder), "the comments' Line 6b-1": recomputes the child-care order by
+//      running the worksheet ONCE with no child care to get the base order and the Payor/Recipient
+//      designation Line 6f would give in that pass (avoids the circularity a 2026-09-05 review caught --
+//      see childcare_post_transfer.py's own header), then allocates the combined child-care dollars on
+//      that payor's post-transfer Line 3a share instead of the pre-order Line 3c share. A dedicated
+//      sanity check (fixedRuleSanityPasses) gates the toggle alone: if it fails, the toggle disables
+//      with a note instead of showing a wrong number, without taking down the rest of the calculator.
+//
 // v4 (2026-09-07) is an interface rebuild, not a new computation. Three changes:
 //   1. TABS. "Base support" (no child care) and "Child care" (two sliders, one per parent) are
 //      real tabs (role="tablist"/"tab"/"tabpanel", arrow-key navigation), not a third radio
@@ -58,10 +78,14 @@
 //   <div data-calc-panel="base">    ... data-calc-cell="order_wk" / "line_7e" / "true_pct_net" ...
 //                                    ... data-calc-cell="payor_after" / "recip_after" / "recip_per_person" ...
 //   <div data-calc-panel="childcare" hidden>
+//     ... data-calc-cell="cc_dist_share3c" / "cc_dist_gross" / "cc_dist_net" (always visible) ...
 //     <input data-calc-input="ccLower"> <input data-calc-input="ccHigher">  (child-care sliders)
 //     ... data-calc-cell="cc_order_wk" / "cc_delta_wk" / "cc_share_pct" / "cc_share_wk" ...
 //     ... data-calc-cell="cc_payor_after" / "cc_recip_after" / "cc_recip_per_person" ...
 //     ... data-calc-cell="cc_combined_line" (only filled in when BOTH sliders > 0) ...
+//     <input data-calc-input="ccFix" type="checkbox">  (the Line 6b-1 toggle)
+//     ... data-calc-cell="cc_fix_compare_wrap" > "cc_fix_order" / "cc_fix_was" (shown when checked) ...
+//     ... data-calc-note="cc_fix" (disable message if fixedRuleSanityPasses() fails) ...
 // </div>
 //
 // - Every `data-calc-*` element MUST already contain the real, precomputed defaults as static
@@ -88,6 +112,8 @@
   function money(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/yr'; }
   function moneyWk(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/wk'; }
   function pct1(v) { return (v * 100).toFixed(1) + '%'; }
+  function pct0(v) { return Math.round(v * 100) + '%'; }
+  function moneyBare(v) { return '$' + Math.round(v).toLocaleString('en-US'); }
   function signedMoneyWk(v) {
     var sign = v >= 0 ? '+' : '−';
     return sign + '$' + Math.round(Math.abs(v)).toLocaleString('en-US') + '/wk';
@@ -152,19 +178,104 @@
     };
   }
 
+  // CHANGE 1 -- the always-visible Child care tab readout. Port of
+  // model/childcare_post_transfer.py's rule1_share (Line 3c) / rule2_gross_share / rule3_share, at
+  // the NO-CHILD-CARE order -- Chris: "have the base support calculated first and then figure out
+  // what the net percentage mix is." Independent of facts.ccLower/facts.ccHigher; only
+  // kids/box/healthLow/healthHigh matter. "Higher earner" is Parent B always (see header comment);
+  // every fixture row this site has ever computed names B the payor, so this does not special-case
+  // a flip.
+  function computeChildcareDistribution(higherAnnual, lowerAnnual, facts) {
+    var lowerWk = lowerAnnual / 52.0, higherWk = higherAnnual / 52.0;
+    var r0 = W.run(facts.box, lowerWk, higherWk, facts.kids, 0,
+      { aHealth: facts.healthLow, bHealth: facts.healthHigh });
+    var baseOrderWk = r0['7d'];
+    var combinedGross = higherAnnual + lowerAnnual;
+    var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
+    // Two of three children under 13 -- the site's own worked example's fact, not the zero
+    // convention this tab's other cells use. See the header comment for why this one readout
+    // differs. Capped at facts.kids so a 1- or 2-child selection never claims more under-13
+    // children than the family has.
+    var kidsUnder13 = Math.min(2, facts.kids);
+    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, kidsUnder13);
+    return {
+      base_order_wk: baseOrderWk,
+      share3c: r0.B_3c,
+      gross_share: grossShare,
+      net_share: pos.payor_after_share
+    };
+  }
+
+  // CHANGE 2 -- the "apply the proposed fix" toggle. Port of childcare_post_transfer.py's rule2b:
+  // run the worksheet with NO child care to get the base order and the Payor/Recipient designation
+  // Line 6f would give in that pass, then allocate the COMBINED weekly child care on that payor's
+  // post-transfer Line 3a share (Line 3a moved by the base order, over Line 3b) instead of the
+  // pre-order Line 3c share Line 6b uses today. This is the letter's Section 2 redline, new
+  // Worksheet Line 6b-1. Uses r0.payor generically (not a hardcoded "B") to match the Python's own
+  // "whichever parent Line 6f names payor in that pass" -- see the file's header comment on why a
+  // literal Payor/Recipient label from an EARLIER pass, not the current one, avoids a circularity a
+  // 2026-09-05 review caught.
+  function computeFixedRuleOrder(higherAnnual, lowerAnnual, facts) {
+    var lowerWk = lowerAnnual / 52.0, higherWk = higherAnnual / 52.0;
+    var r0 = W.run(facts.box, lowerWk, higherWk, facts.kids, 0,
+      { aHealth: facts.healthLow, bHealth: facts.healthHigh });
+    var baseOrderWk = r0['7d'];
+    var payorThreeA = r0.payor === 'A' ? r0.A_3a : r0.B_3a;
+    var combinedThreeB = r0['3b'];
+    var share = combinedThreeB ? (payorThreeA - baseOrderWk) / combinedThreeB : 0.0;
+    var totalChildcare = (facts.ccLower || 0) + (facts.ccHigher || 0);
+    return {
+      base_order_wk: baseOrderWk,
+      fixed_rule_share: share,
+      fixed_rule_order_wk: baseOrderWk + share * totalChildcare
+    };
+  }
+
   // Sanity guard targets: $33/$43 premiums, kids=3, box=1, worked-example incomes, independent of
   // any UI state. See calculator.test.js PARTS 1/2/6 for the same two figures.
   var SANITY_HIGHER = 201000, SANITY_LOWER = 29640;
   var SANITY_NO_CC = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 0, ccHigher: 0 };
   var SANITY_CC = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300, ccHigher: 0 };
 
+  // The Change-1 readout's own sanity target: $33/$43 premiums, kids=3, box=1, worked-example
+  // incomes, no child care -- reproduces childcare_post_transfer.py's 87.7% / 64.3% / 48.2%
+  // (rule1_share / rule2_gross_share / rule3_share). If this fails it is as serious as the order
+  // itself being wrong, so it is folded into the main guard below, not the toggle-only one.
+  function distributionSanityPasses() {
+    try {
+      var d = computeChildcareDistribution(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC);
+      return Math.round(d.share3c * 1000) === 877 &&
+             Math.round(d.gross_share * 100) === 64 &&
+             Math.round(d.net_share * 100) === 48;
+    } catch (e) {
+      if (window.console) console.error('calculator.js: distribution sanity check threw', e);
+      return false;
+    }
+  }
+
   function sanityCheckPasses() {
     try {
       var noCc = computeWithFacts(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC);
       var withCc = computeWithFacts(SANITY_HIGHER, SANITY_LOWER, SANITY_CC);
-      return Math.round(noCc.order_wk) === 1013 && Math.round(withCc.order_wk) === 1276;
+      return Math.round(noCc.order_wk) === 1013 && Math.round(withCc.order_wk) === 1276 &&
+             distributionSanityPasses();
     } catch (e) {
       if (window.console) console.error('calculator.js: sanity check threw', e);
+      return false;
+    }
+  }
+
+  // The Change-2 toggle's OWN gate, separate from the main guard above: worked example, $300
+  // lower-earner child care, fix on -> $1,206/wk (childcare_post_transfer.py's rule2b_7d). If this
+  // fails, only the toggle disables (see initCalculator) -- the rest of the calculator keeps
+  // working, per the brief: never show a wrong number, but don't take down the whole tool for one
+  // figure either.
+  function fixedRuleSanityPasses() {
+    try {
+      var f = computeFixedRuleOrder(SANITY_HIGHER, SANITY_LOWER, SANITY_CC);
+      return Math.round(f.fixed_rule_order_wk) === 1206;
+    } catch (e) {
+      if (window.console) console.error('calculator.js: fixed-rule sanity check threw', e);
       return false;
     }
   }
@@ -248,7 +359,8 @@
         healthHigh: Number(inputs.healthHigh.value) || 0,
         healthLow: Number(inputs.healthLow.value) || 0,
         ccLower: inputs.ccLower ? Number(inputs.ccLower.value) || 0 : 0,
-        ccHigher: inputs.ccHigher ? Number(inputs.ccHigher.value) || 0 : 0
+        ccHigher: inputs.ccHigher ? Number(inputs.ccHigher.value) || 0 : 0,
+        ccFixOn: inputs.ccFix ? !!inputs.ccFix.checked : false
       };
     }
 
@@ -285,6 +397,12 @@
       var noCcFacts = { kids: facts.kids, box: facts.box, healthHigh: facts.healthHigh, healthLow: facts.healthLow, ccLower: 0, ccHigher: 0 };
       var baseResult = computeWithFacts(higher, lower, noCcFacts);
       var ccResult = computeWithFacts(higher, lower, facts);
+
+      // -- Child care tab: the always-visible pre/post-order distribution readout (Change 1). --
+      var dist = computeChildcareDistribution(higher, lower, noCcFacts);
+      if (cells.cc_dist_share3c) cells.cc_dist_share3c.textContent = pct1(dist.share3c);
+      if (cells.cc_dist_gross) cells.cc_dist_gross.textContent = pct0(dist.gross_share);
+      if (cells.cc_dist_net) cells.cc_dist_net.textContent = pct0(dist.net_share);
 
       if (inputs.ccLower) {
         var ccLowOut = outputFor(inputs.ccLower);
@@ -341,6 +459,24 @@
       }
       if (cells.cc_recip_per_person) cells.cc_recip_per_person.textContent = money(ccResult.recip_per_person);
 
+      // -- Child care tab: the "apply the proposed fix" toggle (Change 2). --
+      if (inputs.ccFix) {
+        if (fixedRuleSanityPasses()) {
+          inputs.ccFix.disabled = false;
+          setNote('cc_fix', '');
+          var fixResult = computeFixedRuleOrder(higher, lower, facts);
+          var showFix = facts.ccFixOn && (facts.ccLower > 0 || facts.ccHigher > 0);
+          if (cells.cc_fix_order) cells.cc_fix_order.textContent = moneyWk(fixResult.fixed_rule_order_wk);
+          if (cells.cc_fix_was) cells.cc_fix_was.textContent = moneyBare(ccResult.order_wk);
+          if (cells.cc_fix_compare_wrap) cells.cc_fix_compare_wrap.classList.toggle('visible', showFix);
+        } else {
+          inputs.ccFix.disabled = true;
+          inputs.ccFix.checked = false;
+          if (cells.cc_fix_compare_wrap) cells.cc_fix_compare_wrap.classList.remove('visible');
+          setNote('cc_fix', 'Proposed-fix figures unavailable.');
+        }
+      }
+
       // -- Status strip: reflects whichever tab is active. --
       var active = activeTab === 'childcare' ? ccResult : baseResult;
       setBadge('household', active.recip_after > active.payor_after,
@@ -381,6 +517,7 @@
     inputs.healthLow && inputs.healthLow.addEventListener('input', render);
     inputs.ccLower && inputs.ccLower.addEventListener('input', render);
     inputs.ccHigher && inputs.ccHigher.addEventListener('input', render);
+    inputs.ccFix && inputs.ccFix.addEventListener('change', render);
     radios.forEach(function (el) {
       el.addEventListener('change', function () {
         if (el.getAttribute('data-calc-radio') === 'kids') updateChildcareBounds(Number(el.value));
@@ -393,5 +530,7 @@
   }
 
   window.MCSGCalculatorComputeWithFacts = computeWithFacts;
+  window.MCSGCalculatorComputeChildcareDistribution = computeChildcareDistribution;
+  window.MCSGCalculatorComputeFixedRuleOrder = computeFixedRuleOrder;
   document.querySelectorAll('[data-calculator]').forEach(initCalculator);
 })();

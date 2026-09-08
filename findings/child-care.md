@@ -12,7 +12,7 @@ disclosure:
     own child support order: three children, my income and my children's mother's income entered
     as the Worksheet requires. I disclose it because a reader should be able to check whether the
     arithmetic changes when the numbers are real, not hypothetical. It doesn't: the same
-    allocation gap holds across income levels and child counts, not only at my own figures.
+    allocation gap holds across income levels and child counts as well as at my own figures.
   - >-
     The model behind every number on this page is
     <a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>,
@@ -196,7 +196,7 @@ his income share puts him outside the low-income protection the line was written
 rule. The objection here is to which income the proportion is measured against, not to
 proportionality as a concept. $300 a week is a real but not extreme claim relative to the
 $430-per-child statutory ceiling; a smaller claim moves the split by less, a larger one by more.
-And this is one worked example, not a distribution. How far a typical case's child care claim sits
+And this is one worked example. How far a typical case's child care claim sits
 from this one is not known from anything in this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Even in the scenario where both parents pay

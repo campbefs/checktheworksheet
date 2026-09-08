@@ -12,7 +12,7 @@ disclosure:
     own child support order: three children, my income and my children's mother's income entered
     as the Worksheet requires. I disclose it because a reader should be able to check whether the
     arithmetic changes when the numbers are real, not hypothetical. It doesn't: the same 17-point
-    gap holds across the income and child-care ranges charted below, not only at my own figures.
+    gap holds across the income and child-care ranges charted below as well as at my own figures.
   - >-
     The model behind every number on this page is
     <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked by
@@ -134,9 +134,9 @@ falls. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
 
 <p class="caveat">The valve does eventually fire. This is not a claim that Section IV.C's hardship
 presumption is unreachable: at $589 a week of claimed child care it reports the 40 percent
-threshold, and a payor can still raise it. The defect is a 17-point lag, not an impossibility. And
-$1,290 a week for three children is the statutory ceiling on allowable child care, not a typical
-claim. One worked example is not a distribution across cases, and how often actual claims sit near
+threshold, and a payor can still raise it. The defect is a 17-point lag before the valve fires.
+$1,290 a week for three children is the statutory ceiling on allowable child care; a typical
+claim would be lower. This is one worked example, and how often actual claims sit near
 that benchmark is not known from anything in this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Across the full grid behind the heatmap
