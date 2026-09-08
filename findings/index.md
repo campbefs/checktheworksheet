@@ -123,10 +123,10 @@ household or about the person in it.
 
 <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
 
-Massachusetts orders more under equal parenting time than any of the fifty jurisdictions modeled,
-and more under primary custody than every one of them but Hawaii. Its own equal-time order exceeds
-the primary-custody order of 47 of the other 49 ranked jurisdictions. Georgia is held out: its
-enacted formula orders less at equal time than at primary custody.
+Massachusetts orders more under equal parenting time than any of the fifty states modeled, and
+more under primary custody than every one of them but Hawaii. It charges more for equal parenting
+time than 47 states charge a parent who has the children a third of the time. Georgia is held out:
+its enacted formula orders less at equal time than at primary custody.
 
 {% include figure.html
    id="e11"

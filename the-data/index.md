@@ -33,7 +33,7 @@ parent $570/wk, three children, no child care. Not a general claim.
   overnights earns a formula credit, 51 jurisdictions. Tally: 28 yes, 23 no, Massachusetts among
   the 23. **Profile text**, one pass per jurisdiction; `basis` names rows revised.
 - [`ceilings-2026-09-06.json`](/data/fifty-state/ceilings-2026-09-06.json): where each schedule
-  stops. 41 state a ceiling; Massachusetts $450,000, 13th of 41, median $360,000; 10 more have no
+  stops. 41 states state a ceiling; Massachusetts $450,000, 13th of 41, median $360,000; 10 more have no
   ceiling. **39 rows high confidence, 12 medium**.
 
 ## Where gross-versus-net was, and wasn't, raised

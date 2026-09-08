@@ -506,7 +506,7 @@ almost everywhere else.
 
 <section id="gross-net" markdown="1">
 
-## Massachusetts still uses gross income, which the Task Force has discussed and deferred once on the record in five documented cycles
+## Two task forces were asked to move to net income and declined; three economic reviews since have reported the amounts running above the benchmarks
 
 Every ranking above uses each jurisdiction's own income basis, gross or net as its guidelines define
 it (noted in the ceiling table above), because that's how each state actually calculates its order.
@@ -516,21 +516,16 @@ question inside its own review process.
 {% include figure.html
    id="e27"
    img="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
-   alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking which cycles' own primary text records the gross-versus-net income question being raised and deferred."
+   alt="Timeline of seven Massachusetts child support guidelines reviews from 2002 to 2025, marking the five whose own report or economic review declined to move from gross to net income."
    title="Five task forces have been asked to switch to net income. Five have declined."
-   deck="Every Massachusetts guidelines edition or off-cycle amendment in the corpus (2017, 2018, 2021, 2023, 2025), marked filled where the gross-versus-net income basis question was deferred on the record and hollow where the corpus holds no record of it being raised at all."
-   notes="The chart states what the corpus supports, not what the 2025 report claims about years it does not itself document."
+   deck="Massachusetts guidelines reviews since 2002. Filled: the cycle's own report or economic review declines the change."
+   notes="Each filled year carries a verbatim quote from that cycle's own document, with page numbers in the source file. The 2002 and 2006 reviews say nothing on the question."
    source_script="model/charts/fig11_deferral_timeline.py"
    csv_href="/figures/working/fig11_deferral_timeline.csv" %}
 
-The 2025 Brattle Economic Review, the only cycle in the corpus with a verbatim deferral, states it
-plainly: <q>Again in this review, as prior task forces have done, the Task Force discussed the use of
-gross versus net income in the guidelines. Ultimately, it decided not to recommend a change from
-gross income to net income at this time. We expect this issue will once again be considered as part
-of the next guidelines review.</q> The 2025 report says prior task forces discussed this too, but
-that claim isn't independently verifiable from anything in this corpus. The 2017, 2018, 2021 and
-2023 primary texts contain no discussion of this specific question that this project could find.
-Those four cycles are marked "no record," not "deferred."
+The 2008 Report of the Child Support Guidelines Task Force records that <q>there was little support on the Task Force for basing orders on net income, although this was suggested and discussed.</q> The 2012 Report goes further and names the source of the request: <q>a recurrent comment from noncustodial parents was the suggestion to base the Guidelines on net income instead of gross. The Task Force declines to recommend this change. The Task Force reasons that the current practice of utilizing the combined gross income of the parties remains the simplest option.</q> Simplicity is the reason given. Neither report states a finding that a gross basis measures the burden correctly.
+
+The three economic reviews since then were commissioned by the Commonwealth and reported something else again. The 2017 review found the Massachusetts amounts for one child <q>have been higher than all of the benchmarks in at least the last two quadrennial reviews in 2008-2009 and 2012-2013</q>, and running 37 and 63 percent above the USDA national estimates at middle and high incomes. The 2021 review found the same pattern at 34 and 58 percent. The 2025 review records that gross versus net was discussed <q>again in this review, as prior task forces have done</q>, with no change recommended <q>at this time</q>. The analysis was done. The amounts stayed.
 
 </section>
 
