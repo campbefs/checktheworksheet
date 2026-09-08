@@ -24,7 +24,7 @@
         300.0
       ]
     ],
-    "note": "cc_lower/cc_higher are COMBINED weekly totals, spread evenly across `kids` array elements before being passed to worksheet.run() -- see spread() above."
+    "note": "cc_lower/cc_higher are COMBINED weekly totals, spread evenly across `kids` array elements before being passed to worksheet.run() -- see spread() above. dist_share3c/dist_gross_share/dist_net_share (Change 1) are independent of cc_lower/cc_higher -- see distribution() above. fixed_rule_share/fixed_rule_order_wk (Change 2) are childcare_post_transfer.py's rule2b -- see fixed_rule() above."
   },
   "rows": [
     {
@@ -48,7 +48,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.7404786010077834,
+      "dist_net_share": 0.6332009216146135,
+      "fixed_rule_share": 0.7435240706893844,
+      "fixed_rule_order_wk": 581.0772204531697
     },
     {
       "kids": 1,
@@ -71,7 +76,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.7023568269522873,
+      "dist_net_share": 0.5924289707885766,
+      "fixed_rule_share": 0.7054225486879243,
+      "fixed_rule_order_wk": 453.3802143959287
     },
     {
       "kids": 1,
@@ -94,7 +104,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.7101126091582469,
+      "dist_net_share": 0.6341758718268322,
+      "fixed_rule_share": 0.71197625483276,
+      "fixed_rule_order_wk": 574.3286761719899
     },
     {
       "kids": 1,
@@ -117,7 +132,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.5647251210315841,
+      "dist_net_share": 0.5220670004045707,
+      "fixed_rule_share": 0.5647036654610953,
+      "fixed_rule_order_wk": 135.67261141698418
     },
     {
       "kids": 1,
@@ -140,7 +160,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8497853333333334,
+      "dist_net_share": 0.7502725994284528,
+      "fixed_rule_share": 0.8486573259359761,
+      "fixed_rule_order_wk": 866.623076923077
     },
     {
       "kids": 1,
@@ -163,7 +188,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.5997886378790257,
+      "dist_net_share": 0.5371745767992185,
+      "fixed_rule_share": 0.600813946902421,
+      "fixed_rule_order_wk": 173.6256516602217
     },
     {
       "kids": 1,
@@ -186,7 +216,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 263.04524280067756,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.7404786010077834,
+      "dist_net_share": 0.6332009216146135,
+      "fixed_rule_share": 0.7435240706893844,
+      "fixed_rule_order_wk": 804.134441659985
     },
     {
       "kids": 1,
@@ -209,7 +244,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 251.8017813323639,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.7023568269522873,
+      "dist_net_share": 0.5924289707885766,
+      "fixed_rule_share": 0.7054225486879243,
+      "fixed_rule_order_wk": 665.006979002306
     },
     {
       "kids": 1,
@@ -232,7 +272,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 242.86778544542034,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.7101126091582469,
+      "dist_net_share": 0.6341758718268322,
+      "fixed_rule_share": 0.71197625483276,
+      "fixed_rule_order_wk": 787.9215526218179
     },
     {
       "kids": 1,
@@ -255,7 +300,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 180.20688810903454,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.5647251210315841,
+      "dist_net_share": 0.5220670004045707,
+      "fixed_rule_share": 0.5647036654610953,
+      "fixed_rule_order_wk": 305.08371105531273
     },
     {
       "kids": 1,
@@ -278,7 +328,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8497853333333334,
+      "dist_net_share": 0.7502725994284528,
+      "fixed_rule_share": 0.8486573259359761,
+      "fixed_rule_order_wk": 1121.2202747038698
     },
     {
       "kids": 1,
@@ -301,7 +356,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 200.9126426958061,
       "higher_bears_pct": 0.6697088089860204,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.5997886378790257,
+      "dist_net_share": 0.5371745767992185,
+      "fixed_rule_share": 0.600813946902421,
+      "fixed_rule_order_wk": 353.869835730948
     },
     {
       "kids": 1,
@@ -324,7 +384,12 @@
       "higher_share_of_lower_pct": 0.8768174760022585,
       "higher_bears_wk": 462.0315146809712,
       "higher_bears_pct": 0.7700525244682853,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.7404786010077834,
+      "dist_net_share": 0.6332009216146135,
+      "fixed_rule_share": 0.7435240706893844,
+      "fixed_rule_order_wk": 1027.1916628668005
     },
     {
       "kids": 1,
@@ -347,7 +412,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 445.9158865763883,
       "higher_bears_pct": 0.7431931442939805,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.7023568269522873,
+      "dist_net_share": 0.5924289707885766,
+      "fixed_rule_share": 0.7054225486879243,
+      "fixed_rule_order_wk": 876.6337436086833
     },
     {
       "kids": 1,
@@ -370,7 +440,12 @@
       "higher_share_of_lower_pct": 0.8095592848180679,
       "higher_bears_wk": 433.11049247176913,
       "higher_bears_pct": 0.7218508207862819,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.7101126091582469,
+      "dist_net_share": 0.6341758718268322,
+      "fixed_rule_share": 0.71197625483276,
+      "fixed_rule_order_wk": 1001.5144290716458
     },
     {
       "kids": 1,
@@ -393,7 +468,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 343.29653962294947,
       "higher_bears_pct": 0.5721608993715824,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.5647251210315841,
+      "dist_net_share": 0.5220670004045707,
+      "fixed_rule_share": 0.5647036654610953,
+      "fixed_rule_order_wk": 474.49481069364134
     },
     {
       "kids": 1,
@@ -416,7 +496,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 515.0,
       "higher_bears_pct": 0.8583333333333333,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8497853333333334,
+      "dist_net_share": 0.7502725994284528,
+      "fixed_rule_share": 0.8486573259359761,
+      "fixed_rule_order_wk": 1375.8174724846626
     },
     {
       "kids": 1,
@@ -439,7 +524,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 372.9747878639888,
       "higher_bears_pct": 0.6216246464399814,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.5997886378790257,
+      "dist_net_share": 0.5371745767992185,
+      "fixed_rule_share": 0.600813946902421,
+      "fixed_rule_order_wk": 534.1140198016742
     },
     {
       "kids": 1,
@@ -462,7 +552,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.7400831998863932,
+      "dist_net_share": 0.6326741356048854,
+      "fixed_rule_share": 0.7444930643844829,
+      "fixed_rule_order_wk": 582.8309765038903
     },
     {
       "kids": 1,
@@ -485,7 +580,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.7018028003124812,
+      "dist_net_share": 0.5917166093641256,
+      "fixed_rule_share": 0.7065770248876627,
+      "fixed_rule_order_wk": 455.2979989183343
     },
     {
       "kids": 1,
@@ -508,7 +608,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.7098032747296215,
+      "dist_net_share": 0.6337446836073934,
+      "fixed_rule_share": 0.7126569943963597,
+      "fixed_rule_order_wk": 576.1727852657184
     },
     {
       "kids": 1,
@@ -531,7 +636,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.5642459150326797,
+      "dist_net_share": 0.521444784243118,
+      "fixed_rule_share": 0.5656106158421974,
+      "fixed_rule_order_wk": 137.5157114127702
     },
     {
       "kids": 1,
@@ -554,7 +664,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8497333333333333,
+      "dist_net_share": 0.7501972496861031,
+      "fixed_rule_share": 0.8486842105263157,
+      "fixed_rule_order_wk": 866.9230769230769
     },
     {
       "kids": 1,
@@ -577,7 +692,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.598650342061807,
+      "dist_net_share": 0.5357715764505022,
+      "fixed_rule_share": 0.6017868861077954,
+      "fixed_rule_order_wk": 176.58084272415482
     },
     {
       "kids": 1,
@@ -600,7 +720,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 263.49346520664074,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.7400831998863932,
+      "dist_net_share": 0.6326741356048854,
+      "fixed_rule_share": 0.7444930643844829,
+      "fixed_rule_order_wk": 806.1788958192351
     },
     {
       "kids": 1,
@@ -623,7 +748,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 252.36578707916286,
       "higher_bears_pct": 0.8412192902638762,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.7018028003124812,
+      "dist_net_share": 0.5917166093641256,
+      "fixed_rule_share": 0.7065770248876627,
+      "fixed_rule_order_wk": 667.2711063846332
     },
     {
       "kids": 1,
@@ -646,7 +776,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 243.185979597175,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.7098032747296215,
+      "dist_net_share": 0.6337446836073934,
+      "fixed_rule_share": 0.7126569943963597,
+      "fixed_rule_order_wk": 789.9698835846264
     },
     {
       "kids": 1,
@@ -669,7 +804,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 180.63725490196077,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.5642459150326797,
+      "dist_net_share": 0.521444784243118,
+      "fixed_rule_share": 0.5656106158421974,
+      "fixed_rule_order_wk": 307.19889616542946
     },
     {
       "kids": 1,
@@ -692,7 +832,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8497333333333333,
+      "dist_net_share": 0.7501972496861031,
+      "fixed_rule_share": 0.8486842105263157,
+      "fixed_rule_order_wk": 1121.5283400809717
     },
     {
       "kids": 1,
@@ -715,7 +860,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 201.58972791195353,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.598650342061807,
+      "dist_net_share": 0.5357715764505022,
+      "fixed_rule_share": 0.6017868861077954,
+      "fixed_rule_order_wk": 357.1169085564934
     },
     {
       "kids": 1,
@@ -738,7 +888,12 @@
       "higher_share_of_lower_pct": 0.8783115506888025,
       "higher_bears_wk": 462.67396679618514,
       "higher_bears_pct": 0.7711232779936419,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.7400831998863932,
+      "dist_net_share": 0.6326741356048854,
+      "fixed_rule_share": 0.7444930643844829,
+      "fixed_rule_order_wk": 1029.52681513458
     },
     {
       "kids": 1,
@@ -761,7 +916,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 446.7242948134668,
       "higher_bears_pct": 0.744540491355778,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.7018028003124812,
+      "dist_net_share": 0.5917166093641256,
+      "fixed_rule_share": 0.7065770248876627,
+      "fixed_rule_order_wk": 879.2442138509319
     },
     {
       "kids": 1,
@@ -784,7 +944,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 433.5665707559508,
       "higher_bears_pct": 0.722610951259918,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.7098032747296215,
+      "dist_net_share": 0.6337446836073934,
+      "fixed_rule_share": 0.7126569943963597,
+      "fixed_rule_order_wk": 1003.7669819035342
     },
     {
       "kids": 1,
@@ -807,7 +972,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 343.91339869281046,
       "higher_bears_pct": 0.5731889978213508,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.5642459150326797,
+      "dist_net_share": 0.521444784243118,
+      "fixed_rule_share": 0.5656106158421974,
+      "fixed_rule_order_wk": 476.88208091808866
     },
     {
       "kids": 1,
@@ -830,7 +1000,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 515.0,
       "higher_bears_pct": 0.8583333333333333,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8497333333333333,
+      "dist_net_share": 0.7501972496861031,
+      "fixed_rule_share": 0.8486842105263157,
+      "fixed_rule_order_wk": 1376.1336032388663
     },
     {
       "kids": 1,
@@ -853,7 +1028,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 373.9452766738001,
       "higher_bears_pct": 0.6232421277896668,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.598650342061807,
+      "dist_net_share": 0.5357715764505022,
+      "fixed_rule_share": 0.6017868861077954,
+      "fixed_rule_order_wk": 537.652974388832
     },
     {
       "kids": 1,
@@ -876,7 +1056,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.7254898640010474,
+      "dist_net_share": 0.613231689026506,
+      "fixed_rule_share": 0.7282740252382198,
+      "fixed_rule_order_wk": 647.5580339768926
     },
     {
       "kids": 1,
@@ -899,7 +1084,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6810645062053783,
+      "dist_net_share": 0.5650515364788402,
+      "fixed_rule_share": 0.6836522489148874,
+      "fixed_rule_order_wk": 527.0844015967674
     },
     {
       "kids": 1,
@@ -922,7 +1112,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6845664561662687,
+      "dist_net_share": 0.5985665144362856,
+      "fixed_rule_share": 0.6861002241855635,
+      "fixed_rule_order_wk": 726.6230497780136
     },
     {
       "kids": 1,
@@ -945,7 +1140,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.4947793605157921,
+      "dist_net_share": 0.4312472220263219,
+      "fixed_rule_share": 0.49334791532256594,
+      "fixed_rule_order_wk": 404.69476724695363
     },
     {
       "kids": 1,
@@ -968,7 +1168,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8471853333333333,
+      "dist_net_share": 0.7465051123109645,
+      "fixed_rule_share": 0.8460378017490362,
+      "fixed_rule_order_wk": 881.623076923077
     },
     {
       "kids": 1,
@@ -991,7 +1196,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.5359260137602958,
+      "dist_net_share": 0.4584610450852523,
+      "fixed_rule_share": 0.5350254247118609,
+      "fixed_rule_order_wk": 339.4228488915395
     },
     {
       "kids": 1,
@@ -1014,7 +1224,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 263.04524280067756,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.7254898640010474,
+      "dist_net_share": 0.613231689026506,
+      "fixed_rule_share": 0.7282740252382198,
+      "fixed_rule_order_wk": 866.0402415483586
     },
     {
       "kids": 1,
@@ -1037,7 +1252,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 251.8017813323639,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6810645062053783,
+      "dist_net_share": 0.5650515364788402,
+      "fixed_rule_share": 0.6836522489148874,
+      "fixed_rule_order_wk": 732.1800762712336
     },
     {
       "kids": 1,
@@ -1060,7 +1280,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 242.86778544542034,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6845664561662687,
+      "dist_net_share": 0.5985665144362856,
+      "fixed_rule_share": 0.6861002241855635,
+      "fixed_rule_order_wk": 932.4531170336827
     },
     {
       "kids": 1,
@@ -1083,7 +1308,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 180.20688810903454,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.4947793605157921,
+      "dist_net_share": 0.4312472220263219,
+      "fixed_rule_share": 0.49334791532256594,
+      "fixed_rule_order_wk": 552.6991418437234
     },
     {
       "kids": 1,
@@ -1106,7 +1336,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8471853333333333,
+      "dist_net_share": 0.7465051123109645,
+      "fixed_rule_share": 0.8460378017490362,
+      "fixed_rule_order_wk": 1135.4344174477878
     },
     {
       "kids": 1,
@@ -1129,7 +1364,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 200.9126426958061,
       "higher_bears_pct": 0.6697088089860204,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.5359260137602958,
+      "dist_net_share": 0.4584610450852523,
+      "fixed_rule_share": 0.5350254247118609,
+      "fixed_rule_order_wk": 499.9304763050977
     },
     {
       "kids": 1,
@@ -1152,7 +1392,12 @@
       "higher_share_of_lower_pct": 0.8768174760022585,
       "higher_bears_wk": 462.0315146809712,
       "higher_bears_pct": 0.7700525244682853,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.7254898640010474,
+      "dist_net_share": 0.613231689026506,
+      "fixed_rule_share": 0.7282740252382198,
+      "fixed_rule_order_wk": 1084.5224491198246
     },
     {
       "kids": 1,
@@ -1175,7 +1420,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 445.9158865763883,
       "higher_bears_pct": 0.7431931442939805,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6810645062053783,
+      "dist_net_share": 0.5650515364788402,
+      "fixed_rule_share": 0.6836522489148874,
+      "fixed_rule_order_wk": 937.2757509456999
     },
     {
       "kids": 1,
@@ -1198,7 +1448,12 @@
       "higher_share_of_lower_pct": 0.8095592848180679,
       "higher_bears_wk": 433.11049247176913,
       "higher_bears_pct": 0.7218508207862819,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6845664561662687,
+      "dist_net_share": 0.5985665144362856,
+      "fixed_rule_share": 0.6861002241855635,
+      "fixed_rule_order_wk": 1138.2831842893518
     },
     {
       "kids": 1,
@@ -1221,7 +1476,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 343.29653962294947,
       "higher_bears_pct": 0.5721608993715824,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.4947793605157921,
+      "dist_net_share": 0.4312472220263219,
+      "fixed_rule_share": 0.49334791532256594,
+      "fixed_rule_order_wk": 700.7035164404932
     },
     {
       "kids": 1,
@@ -1244,7 +1504,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 515.0,
       "higher_bears_pct": 0.8583333333333333,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8471853333333333,
+      "dist_net_share": 0.7465051123109645,
+      "fixed_rule_share": 0.8460378017490362,
+      "fixed_rule_order_wk": 1389.2457579724987
     },
     {
       "kids": 1,
@@ -1267,7 +1532,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 372.9747878639888,
       "higher_bears_pct": 0.6216246464399814,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.5359260137602958,
+      "dist_net_share": 0.4584610450852523,
+      "fixed_rule_share": 0.5350254247118609,
+      "fixed_rule_order_wk": 660.4381037186561
     },
     {
       "kids": 1,
@@ -1290,7 +1560,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.725328217288082,
+      "dist_net_share": 0.6130163299334176,
+      "fixed_rule_share": 0.7294670612651148,
+      "fixed_rule_order_wk": 648.2749993207076
     },
     {
       "kids": 1,
@@ -1313,7 +1588,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6808595329087048,
+      "dist_net_share": 0.5647879840445316,
+      "fixed_rule_share": 0.6851382843696933,
+      "fixed_rule_order_wk": 527.7939245467909
     },
     {
       "kids": 1,
@@ -1336,7 +1616,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6844611578476623,
+      "dist_net_share": 0.5984197367409881,
+      "fixed_rule_share": 0.686970176997042,
+      "fixed_rule_order_wk": 727.250789754321
     },
     {
       "kids": 1,
@@ -1359,7 +1644,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.4945969575163399,
+      "dist_net_share": 0.43101038422709553,
+      "fixed_rule_share": 0.49448218700606605,
+      "fixed_rule_order_wk": 405.3963172448466
     },
     {
       "kids": 1,
@@ -1382,7 +1672,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8471333333333333,
+      "dist_net_share": 0.7464297625686148,
+      "fixed_rule_share": 0.8460660580021482,
+      "fixed_rule_order_wk": 881.9230769230769
     },
     {
       "kids": 1,
@@ -1405,7 +1700,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.5356303570094093,
+      "dist_net_share": 0.4580966349571295,
+      "fixed_rule_share": 0.5367632084704238,
+      "fixed_rule_order_wk": 340.1904193024951
     },
     {
       "kids": 1,
@@ -1428,7 +1728,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 263.49346520664074,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.725328217288082,
+      "dist_net_share": 0.6130163299334176,
+      "fixed_rule_share": 0.7294670612651148,
+      "fixed_rule_order_wk": 867.1151177002421
     },
     {
       "kids": 1,
@@ -1451,7 +1756,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 252.36578707916286,
       "higher_bears_pct": 0.8412192902638762,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6808595329087048,
+      "dist_net_share": 0.5647879840445316,
+      "fixed_rule_share": 0.6851382843696933,
+      "fixed_rule_order_wk": 733.3354098576989
     },
     {
       "kids": 1,
@@ -1474,7 +1784,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 243.185979597175,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6844611578476623,
+      "dist_net_share": 0.5984197367409881,
+      "fixed_rule_share": 0.686970176997042,
+      "fixed_rule_order_wk": 933.3418428534336
     },
     {
       "kids": 1,
@@ -1497,7 +1812,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 180.63725490196077,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.4945969575163399,
+      "dist_net_share": 0.43101038422709553,
+      "fixed_rule_share": 0.49448218700606605,
+      "fixed_rule_order_wk": 553.7409733466665
     },
     {
       "kids": 1,
@@ -1520,7 +1840,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8471333333333333,
+      "dist_net_share": 0.7464297625686148,
+      "fixed_rule_share": 0.8460660580021482,
+      "fixed_rule_order_wk": 1135.7428943237214
     },
     {
       "kids": 1,
@@ -1543,7 +1868,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 201.58972791195353,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.5356303570094093,
+      "dist_net_share": 0.4580966349571295,
+      "fixed_rule_share": 0.5367632084704238,
+      "fixed_rule_order_wk": 501.2193818436223
     },
     {
       "kids": 1,
@@ -1566,7 +1896,12 @@
       "higher_share_of_lower_pct": 0.8783115506888025,
       "higher_bears_wk": 462.67396679618514,
       "higher_bears_pct": 0.7711232779936419,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.725328217288082,
+      "dist_net_share": 0.6130163299334176,
+      "fixed_rule_share": 0.7294670612651148,
+      "fixed_rule_order_wk": 1085.9552360797766
     },
     {
       "kids": 1,
@@ -1589,7 +1924,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 446.7242948134668,
       "higher_bears_pct": 0.744540491355778,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6808595329087048,
+      "dist_net_share": 0.5647879840445316,
+      "fixed_rule_share": 0.6851382843696933,
+      "fixed_rule_order_wk": 938.8768951686068
     },
     {
       "kids": 1,
@@ -1612,7 +1952,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 433.5665707559508,
       "higher_bears_pct": 0.722610951259918,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6844611578476623,
+      "dist_net_share": 0.5984197367409881,
+      "fixed_rule_share": 0.686970176997042,
+      "fixed_rule_order_wk": 1139.4328959525462
     },
     {
       "kids": 1,
@@ -1635,7 +1980,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 343.91339869281046,
       "higher_bears_pct": 0.5731889978213508,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.4945969575163399,
+      "dist_net_share": 0.43101038422709553,
+      "fixed_rule_share": 0.49448218700606605,
+      "fixed_rule_order_wk": 702.0856294484863
     },
     {
       "kids": 1,
@@ -1658,7 +2008,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 515.0,
       "higher_bears_pct": 0.8583333333333333,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.8471333333333333,
+      "dist_net_share": 0.7464297625686148,
+      "fixed_rule_share": 0.8460660580021482,
+      "fixed_rule_order_wk": 1389.5627117243657
     },
     {
       "kids": 1,
@@ -1681,7 +2036,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 373.9452766738001,
       "higher_bears_pct": 0.6232421277896668,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.5356303570094093,
+      "dist_net_share": 0.4580966349571295,
+      "fixed_rule_share": 0.5367632084704238,
+      "fixed_rule_order_wk": 662.2483443847493
     },
     {
       "kids": 2,
@@ -1704,7 +2064,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6832319560831133,
+      "dist_net_share": 0.5386530883125269,
+      "fixed_rule_share": 0.685279407604325,
+      "fixed_rule_order_wk": 834.9881086344376
     },
     {
       "kids": 2,
@@ -1727,7 +2092,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6436808910665356,
+      "dist_net_share": 0.49612750626426044,
+      "fixed_rule_share": 0.6454294305642574,
+      "fixed_rule_order_wk": 656.4892232312231
     },
     {
       "kids": 2,
@@ -1750,7 +2120,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.664056491531223,
+      "dist_net_share": 0.5631653621522594,
+      "fixed_rule_share": 0.6653254142313596,
+      "fixed_rule_order_wk": 848.8939927946319
     },
     {
       "kids": 2,
@@ -1773,7 +2148,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.5506151694442177,
+      "dist_net_share": 0.49509981935429326,
+      "fixed_rule_share": 0.5503092808334875,
+      "fixed_rule_order_wk": 189.94165598377776
     },
     {
       "kids": 2,
@@ -1796,7 +2176,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7886594666666668,
+      "dist_net_share": 0.6476699154662829,
+      "fixed_rule_share": 0.7870724466355906,
+      "fixed_rule_order_wk": 1219.2723076923075
     },
     {
       "kids": 2,
@@ -1819,7 +2204,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.573901045936236,
+      "dist_net_share": 0.48222607142357155,
+      "fixed_rule_share": 0.5741456657208951,
+      "fixed_rule_order_wk": 240.83382305015658
     },
     {
       "kids": 2,
@@ -1842,7 +2232,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 263.04524280067756,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6832319560831133,
+      "dist_net_share": 0.5386530883125269,
+      "fixed_rule_share": 0.685279407604325,
+      "fixed_rule_order_wk": 1040.571930915735
     },
     {
       "kids": 2,
@@ -1865,7 +2260,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 251.8017813323639,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6436808910665356,
+      "dist_net_share": 0.49612750626426044,
+      "fixed_rule_share": 0.6454294305642574,
+      "fixed_rule_order_wk": 850.1180524005003
     },
     {
       "kids": 2,
@@ -1888,7 +2288,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 242.86778544542034,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.664056491531223,
+      "dist_net_share": 0.5631653621522594,
+      "fixed_rule_share": 0.6653254142313596,
+      "fixed_rule_order_wk": 1048.4916170640397
     },
     {
       "kids": 2,
@@ -1911,7 +2316,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 180.20688810903454,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.5506151694442177,
+      "dist_net_share": 0.49509981935429326,
+      "fixed_rule_share": 0.5503092808334875,
+      "fixed_rule_order_wk": 355.03444023382406
     },
     {
       "kids": 2,
@@ -1934,7 +2344,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7886594666666668,
+      "dist_net_share": 0.6476699154662829,
+      "fixed_rule_share": 0.7870724466355906,
+      "fixed_rule_order_wk": 1455.3940416829846
     },
     {
       "kids": 2,
@@ -1957,7 +2372,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 200.9126426958061,
       "higher_bears_pct": 0.6697088089860204,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.573901045936236,
+      "dist_net_share": 0.48222607142357155,
+      "fixed_rule_share": 0.5741456657208951,
+      "fixed_rule_order_wk": 413.0775227664251
     },
     {
       "kids": 2,
@@ -1980,7 +2400,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 526.0904856013551,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6832319560831133,
+      "dist_net_share": 0.5386530883125269,
+      "fixed_rule_share": 0.685279407604325,
+      "fixed_rule_order_wk": 1246.1557531970325
     },
     {
       "kids": 2,
@@ -2003,7 +2428,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 503.6035626647278,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6436808910665356,
+      "dist_net_share": 0.49612750626426044,
+      "fixed_rule_share": 0.6454294305642574,
+      "fixed_rule_order_wk": 1043.7468815697775
     },
     {
       "kids": 2,
@@ -2026,7 +2456,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 485.7355708908407,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.664056491531223,
+      "dist_net_share": 0.5631653621522594,
+      "fixed_rule_share": 0.6653254142313596,
+      "fixed_rule_order_wk": 1248.0892413334477
     },
     {
       "kids": 2,
@@ -2049,7 +2484,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 360.4137762180691,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.5506151694442177,
+      "dist_net_share": 0.49509981935429326,
+      "fixed_rule_share": 0.5503092808334875,
+      "fixed_rule_order_wk": 520.1272244838704
     },
     {
       "kids": 2,
@@ -2072,7 +2512,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 600.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7886594666666668,
+      "dist_net_share": 0.6476699154662829,
+      "fixed_rule_share": 0.7870724466355906,
+      "fixed_rule_order_wk": 1691.515775673662
     },
     {
       "kids": 2,
@@ -2095,7 +2540,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 401.8252853916123,
       "higher_bears_pct": 0.6697088089860205,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.573901045936236,
+      "dist_net_share": 0.48222607142357155,
+      "fixed_rule_share": 0.5741456657208951,
+      "fixed_rule_order_wk": 585.3212224826937
     },
     {
       "kids": 2,
@@ -2118,7 +2568,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.682741523198564,
+      "dist_net_share": 0.5380211382922084,
+      "fixed_rule_share": 0.6860981318903073,
+      "fixed_rule_order_wk": 837.1633671054462
     },
     {
       "kids": 2,
@@ -2141,7 +2596,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6429861426596959,
+      "dist_net_share": 0.49527024454208,
+      "fixed_rule_share": 0.6463688903477324,
+      "fixed_rule_order_wk": 658.8941215625911
     },
     {
       "kids": 2,
@@ -2164,7 +2624,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6636703910730829,
+      "dist_net_share": 0.5626336000455638,
+      "fixed_rule_share": 0.6658966166382937,
+      "fixed_rule_order_wk": 851.1957455258519
     },
     {
       "kids": 2,
@@ -2187,7 +2652,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.5499442810457517,
+      "dist_net_share": 0.49424366846486345,
+      "fixed_rule_share": 0.551005188976462,
+      "fixed_rule_order_wk": 192.5219959778783
     },
     {
       "kids": 2,
@@ -2210,7 +2680,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7885866666666667,
+      "dist_net_share": 0.6475666624038533,
+      "fixed_rule_share": 0.7871106337271752,
+      "fixed_rule_order_wk": 1219.6923076923076
     },
     {
       "kids": 2,
@@ -2233,7 +2708,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.5727712218485682,
+      "dist_net_share": 0.4808970155153131,
+      "fixed_rule_share": 0.5750849506997608,
+      "fixed_rule_order_wk": 243.76702020083246
     },
     {
       "kids": 2,
@@ -2256,7 +2736,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 263.49346520664074,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.682741523198564,
+      "dist_net_share": 0.5380211382922084,
+      "fixed_rule_share": 0.6860981318903073,
+      "fixed_rule_order_wk": 1042.9928066725383
     },
     {
       "kids": 2,
@@ -2279,7 +2764,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 252.36578707916286,
       "higher_bears_pct": 0.8412192902638762,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6429861426596959,
+      "dist_net_share": 0.49527024454208,
+      "fixed_rule_share": 0.6463688903477324,
+      "fixed_rule_order_wk": 852.8047886669108
     },
     {
       "kids": 2,
@@ -2302,7 +2792,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 243.185979597175,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6636703910730829,
+      "dist_net_share": 0.5626336000455638,
+      "fixed_rule_share": 0.6658966166382937,
+      "fixed_rule_order_wk": 1050.96473051734
     },
     {
       "kids": 2,
@@ -2325,7 +2820,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 180.63725490196077,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.5499442810457517,
+      "dist_net_share": 0.49424366846486345,
+      "fixed_rule_share": 0.551005188976462,
+      "fixed_rule_order_wk": 357.82355267081687
     },
     {
       "kids": 2,
@@ -2348,7 +2848,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7885866666666667,
+      "dist_net_share": 0.6475666624038533,
+      "fixed_rule_share": 0.7871106337271752,
+      "fixed_rule_order_wk": 1455.82549781046
     },
     {
       "kids": 2,
@@ -2371,7 +2876,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 201.58972791195353,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.5727712218485682,
+      "dist_net_share": 0.4808970155153131,
+      "fixed_rule_share": 0.5750849506997608,
+      "fixed_rule_order_wk": 416.2925054107607
     },
     {
       "kids": 2,
@@ -2394,7 +2904,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 526.9869304132815,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.682741523198564,
+      "dist_net_share": 0.5380211382922084,
+      "fixed_rule_share": 0.6860981318903073,
+      "fixed_rule_order_wk": 1248.8222462396307
     },
     {
       "kids": 2,
@@ -2417,7 +2932,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 504.73157415832577,
       "higher_bears_pct": 0.8412192902638763,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6429861426596959,
+      "dist_net_share": 0.49527024454208,
+      "fixed_rule_share": 0.6463688903477324,
+      "fixed_rule_order_wk": 1046.7154557712306
     },
     {
       "kids": 2,
@@ -2440,7 +2960,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 486.37195919435,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6636703910730829,
+      "dist_net_share": 0.5626336000455638,
+      "fixed_rule_share": 0.6658966166382937,
+      "fixed_rule_order_wk": 1250.733715508828
     },
     {
       "kids": 2,
@@ -2463,7 +2988,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 361.27450980392155,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.5499442810457517,
+      "dist_net_share": 0.49424366846486345,
+      "fixed_rule_share": 0.551005188976462,
+      "fixed_rule_order_wk": 523.1251093637554
     },
     {
       "kids": 2,
@@ -2486,7 +3016,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 600.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7885866666666667,
+      "dist_net_share": 0.6475666624038533,
+      "fixed_rule_share": 0.7871106337271752,
+      "fixed_rule_order_wk": 1691.9586879286128
     },
     {
       "kids": 2,
@@ -2509,7 +3044,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 403.17945582390706,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.5727712218485682,
+      "dist_net_share": 0.4808970155153131,
+      "fixed_rule_share": 0.5750849506997608,
+      "fixed_rule_order_wk": 588.817990620689
     },
     {
       "kids": 2,
@@ -2532,7 +3072,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6670905962820075,
+      "dist_net_share": 0.5178540493907148,
+      "fixed_rule_share": 0.6688566449326044,
+      "fixed_rule_order_wk": 906.5812475676496
     },
     {
       "kids": 2,
@@ -2555,7 +3100,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6201569753541963,
+      "dist_net_share": 0.4671009517627227,
+      "fixed_rule_share": 0.6213774400376905,
+      "fixed_rule_order_wk": 737.9181622354743
     },
     {
       "kids": 2,
@@ -2578,7 +3128,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6358123934714859,
+      "dist_net_share": 0.5242657939976214,
+      "fixed_rule_share": 0.6367165999325617,
+      "fixed_rule_order_wk": 1017.272269689219
     },
     {
       "kids": 2,
@@ -2601,7 +3156,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.45269110472210894,
+      "dist_net_share": 0.3701345117113219,
+      "fixed_rule_share": 0.45041123063954636,
+      "fixed_rule_order_wk": 566.5726741457349
     },
     {
       "kids": 2,
@@ -2624,7 +3184,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7860594666666667,
+      "dist_net_share": 0.6439823060937981,
+      "fixed_rule_share": 0.7844529224486506,
+      "fixed_rule_order_wk": 1234.2723076923075
     },
     {
       "kids": 2,
@@ -2647,7 +3212,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.48362975259774765,
+      "dist_net_share": 0.3760364468021816,
+      "fixed_rule_share": 0.48115207100219715,
+      "fixed_rule_order_wk": 475.1919884481552
     },
     {
       "kids": 2,
@@ -2670,7 +3240,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 263.04524280067756,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6670905962820075,
+      "dist_net_share": 0.5178540493907148,
+      "fixed_rule_share": 0.6688566449326044,
+      "fixed_rule_order_wk": 1107.2382410474308
     },
     {
       "kids": 2,
@@ -2693,7 +3268,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 251.8017813323639,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6201569753541963,
+      "dist_net_share": 0.4671009517627227,
+      "fixed_rule_share": 0.6213774400376905,
+      "fixed_rule_order_wk": 924.3313942467814
     },
     {
       "kids": 2,
@@ -2716,7 +3296,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 242.86778544542034,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6358123934714859,
+      "dist_net_share": 0.5242657939976214,
+      "fixed_rule_share": 0.6367165999325617,
+      "fixed_rule_order_wk": 1208.2872496689874
     },
     {
       "kids": 2,
@@ -2739,7 +3324,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 180.20688810903454,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.45269110472210894,
+      "dist_net_share": 0.3701345117113219,
+      "fixed_rule_share": 0.45041123063954636,
+      "fixed_rule_order_wk": 701.6960433375989
     },
     {
       "kids": 2,
@@ -2762,7 +3352,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7860594666666667,
+      "dist_net_share": 0.6439823060937981,
+      "fixed_rule_share": 0.7844529224486506,
+      "fixed_rule_order_wk": 1469.6081844269027
     },
     {
       "kids": 2,
@@ -2785,7 +3380,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 200.9126426958061,
       "higher_bears_pct": 0.6697088089860204,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.48362975259774765,
+      "dist_net_share": 0.3760364468021816,
+      "fixed_rule_share": 0.48115207100219715,
+      "fixed_rule_order_wk": 619.5376097488144
     },
     {
       "kids": 2,
@@ -2808,7 +3408,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 526.0904856013551,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6670905962820075,
+      "dist_net_share": 0.5178540493907148,
+      "fixed_rule_share": 0.6688566449326044,
+      "fixed_rule_order_wk": 1307.8952345272123
     },
     {
       "kids": 2,
@@ -2831,7 +3436,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 503.6035626647278,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6201569753541963,
+      "dist_net_share": 0.4671009517627227,
+      "fixed_rule_share": 0.6213774400376905,
+      "fixed_rule_order_wk": 1110.7446262580886
     },
     {
       "kids": 2,
@@ -2854,7 +3464,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 485.7355708908407,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6358123934714859,
+      "dist_net_share": 0.5242657939976214,
+      "fixed_rule_share": 0.6367165999325617,
+      "fixed_rule_order_wk": 1399.302229648756
     },
     {
       "kids": 2,
@@ -2877,7 +3492,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 360.4137762180691,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.45269110472210894,
+      "dist_net_share": 0.3701345117113219,
+      "fixed_rule_share": 0.45041123063954636,
+      "fixed_rule_order_wk": 836.8194125294627
     },
     {
       "kids": 2,
@@ -2900,7 +3520,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 600.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7860594666666667,
+      "dist_net_share": 0.6439823060937981,
+      "fixed_rule_share": 0.7844529224486506,
+      "fixed_rule_order_wk": 1704.944061161498
     },
     {
       "kids": 2,
@@ -2923,7 +3548,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 401.8252853916123,
       "higher_bears_pct": 0.6697088089860205,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.48362975259774765,
+      "dist_net_share": 0.3760364468021816,
+      "fixed_rule_share": 0.48115207100219715,
+      "fixed_rule_order_wk": 763.8832310494735
     },
     {
       "kids": 2,
@@ -2946,7 +3576,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6668642908838558,
+      "dist_net_share": 0.5175624423116103,
+      "fixed_rule_share": 0.6699292654956397,
+      "fixed_rule_order_wk": 907.5849990489904
     },
     {
       "kids": 2,
@@ -2969,7 +3604,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6198700127388534,
+      "dist_net_share": 0.4667468637743108,
+      "fixed_rule_share": 0.6227058820120202,
+      "fixed_rule_order_wk": 738.9114943655072
     },
     {
       "kids": 2,
@@ -2992,7 +3632,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6356649758254369,
+      "dist_net_share": 0.5240627610398138,
+      "fixed_rule_share": 0.6375102749996254,
+      "fixed_rule_order_wk": 1018.1511056560493
     },
     {
       "kids": 2,
@@ -3015,7 +3660,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.4524357405228759,
+      "dist_net_share": 0.3698086299598982,
+      "fixed_rule_share": 0.4514253886058781,
+      "fixed_rule_order_wk": 567.5548441427852
     },
     {
       "kids": 2,
@@ -3038,7 +3688,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7859866666666666,
+      "dist_net_share": 0.6438790530313686,
+      "fixed_rule_share": 0.7844924812030075,
+      "fixed_rule_order_wk": 1234.6923076923076
     },
     {
       "kids": 2,
@@ -3061,7 +3716,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.48321583314650635,
+      "dist_net_share": 0.37554953729279866,
+      "fixed_rule_share": 0.48268218797598866,
+      "fixed_rule_order_wk": 476.2665870234931
     },
     {
       "kids": 2,
@@ -3084,7 +3744,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 263.49346520664074,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6668642908838558,
+      "dist_net_share": 0.5175624423116103,
+      "fixed_rule_share": 0.6699292654956397,
+      "fixed_rule_order_wk": 1108.5637786976822
     },
     {
       "kids": 2,
@@ -3107,7 +3772,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 252.36578707916286,
       "higher_bears_pct": 0.8412192902638762,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6198700127388534,
+      "dist_net_share": 0.4667468637743108,
+      "fixed_rule_share": 0.6227058820120202,
+      "fixed_rule_order_wk": 925.7232589691132
     },
     {
       "kids": 2,
@@ -3130,7 +3800,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 243.185979597175,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6356649758254369,
+      "dist_net_share": 0.5240627610398138,
+      "fixed_rule_share": 0.6375102749996254,
+      "fixed_rule_order_wk": 1209.404188155937
     },
     {
       "kids": 2,
@@ -3153,7 +3828,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 180.63725490196077,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.4524357405228759,
+      "dist_net_share": 0.3698086299598982,
+      "fixed_rule_share": 0.4514253886058781,
+      "fixed_rule_order_wk": 702.9824607245487
     },
     {
       "kids": 2,
@@ -3176,7 +3856,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7859866666666666,
+      "dist_net_share": 0.6438790530313686,
+      "fixed_rule_share": 0.7844924812030075,
+      "fixed_rule_order_wk": 1470.0400520532098
     },
     {
       "kids": 2,
@@ -3199,7 +3884,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 201.58972791195353,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.48321583314650635,
+      "dist_net_share": 0.37554953729279866,
+      "fixed_rule_share": 0.48268218797598866,
+      "fixed_rule_order_wk": 621.0712434162897
     },
     {
       "kids": 2,
@@ -3222,7 +3912,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 526.9869304132815,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6668642908838558,
+      "dist_net_share": 0.5175624423116103,
+      "fixed_rule_share": 0.6699292654956397,
+      "fixed_rule_order_wk": 1309.5425583463743
     },
     {
       "kids": 2,
@@ -3245,7 +3940,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 504.73157415832577,
       "higher_bears_pct": 0.8412192902638763,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6198700127388534,
+      "dist_net_share": 0.4667468637743108,
+      "fixed_rule_share": 0.6227058820120202,
+      "fixed_rule_order_wk": 1112.5350235727192
     },
     {
       "kids": 2,
@@ -3268,7 +3968,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 486.37195919435,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6356649758254369,
+      "dist_net_share": 0.5240627610398138,
+      "fixed_rule_share": 0.6375102749996254,
+      "fixed_rule_order_wk": 1400.6572706558245
     },
     {
       "kids": 2,
@@ -3291,7 +3996,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 361.27450980392155,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.4524357405228759,
+      "dist_net_share": 0.3698086299598982,
+      "fixed_rule_share": 0.4514253886058781,
+      "fixed_rule_order_wk": 838.4100773063121
     },
     {
       "kids": 2,
@@ -3314,7 +4024,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 600.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7859866666666666,
+      "dist_net_share": 0.6438790530313686,
+      "fixed_rule_share": 0.7844924812030075,
+      "fixed_rule_order_wk": 1705.387796414112
     },
     {
       "kids": 2,
@@ -3337,7 +4052,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 403.17945582390706,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.48321583314650635,
+      "dist_net_share": 0.37554953729279866,
+      "fixed_rule_share": 0.48268218797598866,
+      "fixed_rule_order_wk": 765.8758998090864
     },
     {
       "kids": 3,
@@ -3360,7 +4080,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6431593046358441,
+      "dist_net_share": 0.48163022920349263,
+      "fixed_rule_share": 0.6445081434447836,
+      "fixed_rule_order_wk": 1012.7257303613252
     },
     {
       "kids": 3,
@@ -3383,7 +4108,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6026077359465093,
+      "dist_net_share": 0.43925571428794585,
+      "fixed_rule_share": 0.6034342478776905,
+      "fixed_rule_order_wk": 798.6655294159294
     },
     {
       "kids": 3,
@@ -3406,7 +4136,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6318172091923063,
+      "dist_net_share": 0.5116555047602176,
+      "fixed_rule_share": 0.6326698258103793,
+      "fixed_rule_order_wk": 1041.0897144304813
     },
     {
       "kids": 3,
@@ -3429,7 +4164,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.5407382033330613,
+      "dist_net_share": 0.47566641085607697,
+      "fixed_rule_share": 0.5402332115941619,
+      "fixed_rule_order_wk": 227.92998718053343
     },
     {
       "kids": 3,
@@ -3452,7 +4192,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.74587136,
+      "dist_net_share": 0.5834495793353529,
+      "fixed_rule_share": 0.7439630311253207,
+      "fixed_rule_order_wk": 1466.1267692307692
     },
     {
       "kids": 3,
@@ -3475,7 +4220,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.5553479217901498,
+      "dist_net_share": 0.446658460388241,
+      "fixed_rule_share": 0.55503303706787,
+      "fixed_rule_order_wk": 289.000587660188
     },
     {
       "kids": 3,
@@ -3498,7 +4248,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 263.04524280067756,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6431593046358441,
+      "dist_net_share": 0.48163022920349263,
+      "fixed_rule_share": 0.6445081434447836,
+      "fixed_rule_order_wk": 1206.0781733947601
     },
     {
       "kids": 3,
@@ -3521,7 +4276,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 251.8017813323639,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6026077359465093,
+      "dist_net_share": 0.43925571428794585,
+      "fixed_rule_share": 0.6034342478776905,
+      "fixed_rule_order_wk": 979.6958037792366
     },
     {
       "kids": 3,
@@ -3544,7 +4304,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 242.86778544542034,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6318172091923063,
+      "dist_net_share": 0.5116555047602176,
+      "fixed_rule_share": 0.6326698258103793,
+      "fixed_rule_order_wk": 1230.890662173595
     },
     {
       "kids": 3,
@@ -3567,7 +4332,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 180.20688810903454,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.5407382033330613,
+      "dist_net_share": 0.47566641085607697,
+      "fixed_rule_share": 0.5402332115941619,
+      "fixed_rule_order_wk": 389.99995065878204
     },
     {
       "kids": 3,
@@ -3590,7 +4360,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.74587136,
+      "dist_net_share": 0.5834495793353529,
+      "fixed_rule_share": 0.7439630311253207,
+      "fixed_rule_order_wk": 1689.3156785683655
     },
     {
       "kids": 3,
@@ -3613,7 +4388,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 200.9126426958061,
       "higher_bears_pct": 0.6697088089860204,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.5553479217901498,
+      "dist_net_share": 0.446658460388241,
+      "fixed_rule_share": 0.55503303706787,
+      "fixed_rule_order_wk": 455.510498780549
     },
     {
       "kids": 3,
@@ -3636,7 +4416,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 526.0904856013551,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6431593046358441,
+      "dist_net_share": 0.48163022920349263,
+      "fixed_rule_share": 0.6445081434447836,
+      "fixed_rule_order_wk": 1399.4306164281952
     },
     {
       "kids": 3,
@@ -3659,7 +4444,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 503.6035626647278,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.6026077359465093,
+      "dist_net_share": 0.43925571428794585,
+      "fixed_rule_share": 0.6034342478776905,
+      "fixed_rule_order_wk": 1160.7260781425437
     },
     {
       "kids": 3,
@@ -3682,7 +4472,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 485.7355708908407,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6318172091923063,
+      "dist_net_share": 0.5116555047602176,
+      "fixed_rule_share": 0.6326698258103793,
+      "fixed_rule_order_wk": 1420.6916099167088
     },
     {
       "kids": 3,
@@ -3705,7 +4500,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 360.4137762180691,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.5407382033330613,
+      "dist_net_share": 0.47566641085607697,
+      "fixed_rule_share": 0.5402332115941619,
+      "fixed_rule_order_wk": 552.0699141370305
     },
     {
       "kids": 3,
@@ -3728,7 +4528,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 600.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.74587136,
+      "dist_net_share": 0.5834495793353529,
+      "fixed_rule_share": 0.7439630311253207,
+      "fixed_rule_order_wk": 1912.5045879059617
     },
     {
       "kids": 3,
@@ -3751,7 +4556,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 401.8252853916123,
       "higher_bears_pct": 0.6697088089860205,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.5553479217901498,
+      "dist_net_share": 0.446658460388241,
+      "fixed_rule_share": 0.55503303706787,
+      "fixed_rule_order_wk": 622.02040990091
     },
     {
       "kids": 3,
@@ -3774,7 +4584,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6426023495170835,
+      "dist_net_share": 0.4809204998918287,
+      "fixed_rule_share": 0.6452216791443843,
+      "fixed_rule_order_wk": 1015.1960405265355
     },
     {
       "kids": 3,
@@ -3797,7 +4612,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6018144823027463,
+      "dist_net_share": 0.43829050904867195,
+      "fixed_rule_share": 0.604223196169781,
+      "fixed_rule_order_wk": 801.4114074135708
     },
     {
       "kids": 3,
@@ -3820,7 +4640,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6313773725135059,
+      "dist_net_share": 0.5110580337210603,
+      "fixed_rule_share": 0.6331643522076473,
+      "fixed_rule_order_wk": 1043.7118177079453
     },
     {
       "kids": 3,
@@ -3843,7 +4668,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.539933137254902,
+      "dist_net_share": 0.47465357076076536,
+      "fixed_rule_share": 0.5407813901704472,
+      "fixed_rule_order_wk": 231.02639517345392
     },
     {
       "kids": 3,
@@ -3866,7 +4696,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.745784,
+      "dist_net_share": 0.5833264215274285,
+      "fixed_rule_share": 0.7440091299677766,
+      "fixed_rule_order_wk": 1466.6307692307691
     },
     {
       "kids": 3,
@@ -3889,7 +4724,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.5539921328849485,
+      "dist_net_share": 0.44511119963804935,
+      "fixed_rule_share": 0.5557087888984107,
+      "fixed_rule_order_wk": 292.520424240999
     },
     {
       "kids": 3,
@@ -3912,7 +4752,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 263.49346520664074,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6426023495170835,
+      "dist_net_share": 0.4809204998918287,
+      "fixed_rule_share": 0.6452216791443843,
+      "fixed_rule_order_wk": 1208.7625442698509
     },
     {
       "kids": 3,
@@ -3935,7 +4780,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 252.36578707916286,
       "higher_bears_pct": 0.8412192902638762,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6018144823027463,
+      "dist_net_share": 0.43829050904867195,
+      "fixed_rule_share": 0.604223196169781,
+      "fixed_rule_order_wk": 982.6783662645051
     },
     {
       "kids": 3,
@@ -3958,7 +4808,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 243.185979597175,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6313773725135059,
+      "dist_net_share": 0.5110580337210603,
+      "fixed_rule_share": 0.6331643522076473,
+      "fixed_rule_order_wk": 1233.6611233702395
     },
     {
       "kids": 3,
@@ -3981,7 +4836,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 180.63725490196077,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.539933137254902,
+      "dist_net_share": 0.47465357076076536,
+      "fixed_rule_share": 0.5407813901704472,
+      "fixed_rule_order_wk": 393.2608122245881
     },
     {
       "kids": 3,
@@ -4004,7 +4864,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.745784,
+      "dist_net_share": 0.5833264215274285,
+      "fixed_rule_share": 0.7440091299677766,
+      "fixed_rule_order_wk": 1689.8335082211022
     },
     {
       "kids": 3,
@@ -4027,7 +4892,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 201.58972791195353,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.5539921328849485,
+      "dist_net_share": 0.44511119963804935,
+      "fixed_rule_share": 0.5557087888984107,
+      "fixed_rule_order_wk": 459.23306091052217
     },
     {
       "kids": 3,
@@ -4050,7 +4920,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 526.9869304132815,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6426023495170835,
+      "dist_net_share": 0.4809204998918287,
+      "fixed_rule_share": 0.6452216791443843,
+      "fixed_rule_order_wk": 1402.3290480131661
     },
     {
       "kids": 3,
@@ -4073,7 +4948,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 504.73157415832577,
       "higher_bears_pct": 0.8412192902638763,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.6018144823027463,
+      "dist_net_share": 0.43829050904867195,
+      "fixed_rule_share": 0.604223196169781,
+      "fixed_rule_order_wk": 1163.9453251154396
     },
     {
       "kids": 3,
@@ -4096,7 +4976,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 486.37195919435,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6313773725135059,
+      "dist_net_share": 0.5110580337210603,
+      "fixed_rule_share": 0.6331643522076473,
+      "fixed_rule_order_wk": 1423.6104290325338
     },
     {
       "kids": 3,
@@ -4119,7 +5004,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 361.27450980392155,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.539933137254902,
+      "dist_net_share": 0.47465357076076536,
+      "fixed_rule_share": 0.5407813901704472,
+      "fixed_rule_order_wk": 555.4952292757223
     },
     {
       "kids": 3,
@@ -4142,7 +5032,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 600.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.745784,
+      "dist_net_share": 0.5833264215274285,
+      "fixed_rule_share": 0.7440091299677766,
+      "fixed_rule_order_wk": 1913.036247211435
     },
     {
       "kids": 3,
@@ -4165,7 +5060,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 403.17945582390706,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.5539921328849485,
+      "dist_net_share": 0.44511119963804935,
+      "fixed_rule_share": 0.5557087888984107,
+      "fixed_rule_order_wk": 625.9456975800454
     },
     {
       "kids": 3,
@@ -4188,7 +5088,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6262111088786795,
+      "dist_net_share": 0.460033100631542,
+      "fixed_rule_share": 0.6272644787186735,
+      "fixed_rule_order_wk": 1087.8974970811796
     },
     {
       "kids": 3,
@@ -4211,7 +5116,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.5775217037583689,
+      "dist_net_share": 0.40873184605114316,
+      "fixed_rule_share": 0.5777850738236526,
+      "fixed_rule_order_wk": 885.5017946825692
     },
     {
       "kids": 3,
@@ -4234,7 +5144,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6016845495851378,
+      "dist_net_share": 0.47072351269178064,
+      "fixed_rule_share": 0.6021480629554604,
+      "fixed_rule_order_wk": 1220.7267236270627
     },
     {
       "kids": 3,
@@ -4257,7 +5172,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.42322932566653065,
+      "dist_net_share": 0.3278304678390291,
+      "fixed_rule_share": 0.42035555136143254,
+      "fixed_rule_order_wk": 679.887208974882
     },
     {
       "kids": 3,
@@ -4280,7 +5200,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7432713599999999,
+      "dist_net_share": 0.5797841683852196,
+      "fixed_rule_share": 0.7413435069383807,
+      "fixed_rule_order_wk": 1481.1267692307692
     },
     {
       "kids": 3,
@@ -4303,7 +5228,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.4470223697839638,
+      "dist_net_share": 0.32303458780821875,
+      "fixed_rule_share": 0.4434407234054324,
+      "fixed_rule_order_wk": 570.2303861377864
     },
     {
       "kids": 3,
@@ -4326,7 +5256,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 263.04524280067756,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6262111088786795,
+      "dist_net_share": 0.460033100631542,
+      "fixed_rule_share": 0.6272644787186735,
+      "fixed_rule_order_wk": 1276.0768406967816
     },
     {
       "kids": 3,
@@ -4349,7 +5284,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 251.8017813323639,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.5775217037583689,
+      "dist_net_share": 0.40873184605114316,
+      "fixed_rule_share": 0.5777850738236526,
+      "fixed_rule_order_wk": 1058.837316829665
     },
     {
       "kids": 3,
@@ -4372,7 +5312,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 242.86778544542034,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6016845495851378,
+      "dist_net_share": 0.47072351269178064,
+      "fixed_rule_share": 0.6021480629554604,
+      "fixed_rule_order_wk": 1401.3711425137008
     },
     {
       "kids": 3,
@@ -4395,7 +5340,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 180.20688810903454,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.42322932566653065,
+      "dist_net_share": 0.3278304678390291,
+      "fixed_rule_share": 0.42035555136143254,
+      "fixed_rule_order_wk": 805.9938743833118
     },
     {
       "kids": 3,
@@ -4418,7 +5368,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7432713599999999,
+      "dist_net_share": 0.5797841683852196,
+      "fixed_rule_share": 0.7413435069383807,
+      "fixed_rule_order_wk": 1703.5298213122835
     },
     {
       "kids": 3,
@@ -4441,7 +5396,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 200.9126426958061,
       "higher_bears_pct": 0.6697088089860204,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.4470223697839638,
+      "dist_net_share": 0.32303458780821875,
+      "fixed_rule_share": 0.4434407234054324,
+      "fixed_rule_order_wk": 703.2626031594161
     },
     {
       "kids": 3,
@@ -4464,7 +5424,12 @@
       "higher_share_of_lower_pct": 0.8768174760022586,
       "higher_bears_wk": 526.0904856013551,
       "higher_bears_pct": 0.8768174760022586,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8768174760022586,
+      "dist_gross_share": 0.6262111088786795,
+      "dist_net_share": 0.460033100631542,
+      "fixed_rule_share": 0.6272644787186735,
+      "fixed_rule_order_wk": 1464.2561843123838
     },
     {
       "kids": 3,
@@ -4487,7 +5452,12 @@
       "higher_share_of_lower_pct": 0.8393392711078796,
       "higher_bears_wk": 503.6035626647278,
       "higher_bears_pct": 0.8393392711078796,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8393392711078796,
+      "dist_gross_share": 0.5775217037583689,
+      "dist_net_share": 0.40873184605114316,
+      "fixed_rule_share": 0.5777850738236526,
+      "fixed_rule_order_wk": 1232.1728389767609
     },
     {
       "kids": 3,
@@ -4510,7 +5480,12 @@
       "higher_share_of_lower_pct": 0.8095592848180678,
       "higher_bears_wk": 485.7355708908407,
       "higher_bears_pct": 0.8095592848180678,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8095592848180678,
+      "dist_gross_share": 0.6016845495851378,
+      "dist_net_share": 0.47072351269178064,
+      "fixed_rule_share": 0.6021480629554604,
+      "fixed_rule_order_wk": 1582.015561400339
     },
     {
       "kids": 3,
@@ -4533,7 +5508,12 @@
       "higher_share_of_lower_pct": 0.6006896270301151,
       "higher_bears_wk": 360.4137762180691,
       "higher_bears_pct": 0.6006896270301151,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6006896270301151,
+      "dist_gross_share": 0.42322932566653065,
+      "dist_net_share": 0.3278304678390291,
+      "fixed_rule_share": 0.42035555136143254,
+      "fixed_rule_order_wk": 932.1005397917415
     },
     {
       "kids": 3,
@@ -4556,7 +5536,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 600.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7432713599999999,
+      "dist_net_share": 0.5797841683852196,
+      "fixed_rule_share": 0.7413435069383807,
+      "fixed_rule_order_wk": 1925.9328733937978
     },
     {
       "kids": 3,
@@ -4579,7 +5564,12 @@
       "higher_share_of_lower_pct": 0.6697088089860204,
       "higher_bears_wk": 401.8252853916123,
       "higher_bears_pct": 0.6697088089860205,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6697088089860204,
+      "dist_gross_share": 0.4470223697839638,
+      "dist_net_share": 0.32303458780821875,
+      "fixed_rule_share": 0.4434407234054324,
+      "fixed_rule_order_wk": 836.2948201810458
     },
     {
       "kids": 3,
@@ -4602,7 +5592,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6259395424008974,
+      "dist_net_share": 0.45968704278441025,
+      "fixed_rule_share": 0.6282528084570072,
+      "fixed_rule_order_wk": 1089.1019988587886
     },
     {
       "kids": 3,
@@ -4625,7 +5620,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.5771773486199575,
+      "dist_net_share": 0.4083128459162193,
+      "fixed_rule_share": 0.579003200361649,
+      "fixed_rule_order_wk": 886.6937932386086
     },
     {
       "kids": 3,
@@ -4648,7 +5648,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6015076484098791,
+      "dist_net_share": 0.4704832113842629,
+      "fixed_rule_share": 0.602888343601434,
+      "fixed_rule_order_wk": 1221.781326787259
     },
     {
       "kids": 3,
@@ -4671,7 +5676,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.42292288862745103,
+      "dist_net_share": 0.3274449445530672,
+      "fixed_rule_share": 0.42128562972574646,
+      "fixed_rule_order_wk": 681.0658129713423
     },
     {
       "kids": 3,
@@ -4694,7 +5704,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7431840000000001,
+      "dist_net_share": 0.5796610105772952,
+      "fixed_rule_share": 0.741390977443609,
+      "fixed_rule_order_wk": 1481.6307692307691
     },
     {
       "kids": 3,
@@ -4717,7 +5732,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.4465256664424742,
+      "dist_net_share": 0.32246773733332,
+      "fixed_rule_share": 0.44482547362988395,
+      "fixed_rule_order_wk": 571.5199044281918
     },
     {
       "kids": 3,
@@ -4740,7 +5760,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 263.49346520664074,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6259395424008974,
+      "dist_net_share": 0.45968704278441025,
+      "fixed_rule_share": 0.6282528084570072,
+      "fixed_rule_order_wk": 1277.5778413958908
     },
     {
       "kids": 3,
@@ -4763,7 +5788,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 252.36578707916286,
       "higher_bears_pct": 0.8412192902638762,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.5771773486199575,
+      "dist_net_share": 0.4083128459162193,
+      "fixed_rule_share": 0.579003200361649,
+      "fixed_rule_order_wk": 1060.3947533471032
     },
     {
       "kids": 3,
@@ -4786,7 +5816,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 243.185979597175,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6015076484098791,
+      "dist_net_share": 0.4704832113842629,
+      "fixed_rule_share": 0.602888343601434,
+      "fixed_rule_order_wk": 1402.6478298676893
     },
     {
       "kids": 3,
@@ -4809,7 +5844,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 180.63725490196077,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.42292288862745103,
+      "dist_net_share": 0.3274449445530672,
+      "fixed_rule_share": 0.42128562972574646,
+      "fixed_rule_order_wk": 807.4515018890663
     },
     {
       "kids": 3,
@@ -4832,7 +5872,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 300.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7431840000000001,
+      "dist_net_share": 0.5796610105772952,
+      "fixed_rule_share": 0.741390977443609,
+      "fixed_rule_order_wk": 1704.048062463852
     },
     {
       "kids": 3,
@@ -4855,7 +5900,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 201.58972791195353,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 300.0
+      "combined_wk": 300.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.4465256664424742,
+      "dist_net_share": 0.32246773733332,
+      "fixed_rule_share": 0.44482547362988395,
+      "fixed_rule_order_wk": 704.967546517157
     },
     {
       "kids": 3,
@@ -4878,7 +5928,12 @@
       "higher_share_of_lower_pct": 0.8783115506888024,
       "higher_bears_wk": 526.9869304132815,
       "higher_bears_pct": 0.8783115506888024,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6259395424008974,
+      "dist_net_share": 0.45968704278441025,
+      "fixed_rule_share": 0.6282528084570072,
+      "fixed_rule_order_wk": 1466.053683932993
     },
     {
       "kids": 3,
@@ -4901,7 +5956,12 @@
       "higher_share_of_lower_pct": 0.8412192902638762,
       "higher_bears_wk": 504.73157415832577,
       "higher_bears_pct": 0.8412192902638763,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8412192902638762,
+      "dist_gross_share": 0.5771773486199575,
+      "dist_net_share": 0.4083128459162193,
+      "fixed_rule_share": 0.579003200361649,
+      "fixed_rule_order_wk": 1234.095713455598
     },
     {
       "kids": 3,
@@ -4924,7 +5984,12 @@
       "higher_share_of_lower_pct": 0.8106199319905834,
       "higher_bears_wk": 486.37195919435,
       "higher_bears_pct": 0.8106199319905834,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.8106199319905834,
+      "dist_gross_share": 0.6015076484098791,
+      "dist_net_share": 0.4704832113842629,
+      "fixed_rule_share": 0.602888343601434,
+      "fixed_rule_order_wk": 1583.5143329481195
     },
     {
       "kids": 3,
@@ -4947,7 +6012,12 @@
       "higher_share_of_lower_pct": 0.6021241830065359,
       "higher_bears_wk": 361.27450980392155,
       "higher_bears_pct": 0.6021241830065359,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6021241830065359,
+      "dist_gross_share": 0.42292288862745103,
+      "dist_net_share": 0.3274449445530672,
+      "fixed_rule_share": 0.42128562972574646,
+      "fixed_rule_order_wk": 933.8371908067902
     },
     {
       "kids": 3,
@@ -4970,7 +6040,12 @@
       "higher_share_of_lower_pct": 1.0,
       "higher_bears_wk": 600.0,
       "higher_bears_pct": 1.0,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 1.0,
+      "dist_gross_share": 0.7431840000000001,
+      "dist_net_share": 0.5796610105772952,
+      "fixed_rule_share": 0.741390977443609,
+      "fixed_rule_order_wk": 1926.4653556969347
     },
     {
       "kids": 3,
@@ -4993,7 +6068,12 @@
       "higher_share_of_lower_pct": 0.6719657597065117,
       "higher_bears_wk": 403.17945582390706,
       "higher_bears_pct": 0.6719657597065117,
-      "combined_wk": 600.0
+      "combined_wk": 600.0,
+      "dist_share3c": 0.6719657597065117,
+      "dist_gross_share": 0.4465256664424742,
+      "dist_net_share": 0.32246773733332,
+      "fixed_rule_share": 0.44482547362988395,
+      "fixed_rule_order_wk": 838.4151886061222
     },
     {
       "kids": 3,
@@ -5016,7 +6096,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.8714880332986472,
+      "dist_gross_share": 0.6431547384409897,
+      "dist_net_share": 0.48162441048988025,
+      "fixed_rule_share": 0.6431547384409897,
+      "fixed_rule_order_wk": 1012.7459831917337
     },
     {
       "kids": 3,
@@ -5039,7 +6124,12 @@
       "higher_share_of_lower_pct": 0.0,
       "higher_bears_wk": 0.0,
       "higher_bears_pct": 0.0,
-      "combined_wk": 0
+      "combined_wk": 0,
+      "dist_share3c": 0.900600764609503,
+      "dist_gross_share": 0.6370631670946161,
+      "dist_net_share": 0.4738619057691506,
+      "fixed_rule_share": 0.6545250721768717,
+      "fixed_rule_order_wk": 1039.7644450249568
     },
     {
       "kids": 3,
@@ -5062,7 +6152,12 @@
       "higher_share_of_lower_pct": 0.8783115506888025,
       "higher_bears_wk": 87.83115506888025,
       "higher_bears_pct": 0.8783115506888025,
-      "combined_wk": 100.0
+      "combined_wk": 100.0,
+      "dist_share3c": 0.8783115506888025,
+      "dist_gross_share": 0.6426023495170835,
+      "dist_net_share": 0.4809204998918287,
+      "fixed_rule_share": 0.6452216791443843,
+      "fixed_rule_order_wk": 1079.718208440974
     }
   ],
   "disabled": []

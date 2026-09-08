@@ -406,5 +406,109 @@ equal(weBothPay.true_pct_net > 0.55, true,
   'worked example, both pay $300/wk each: true share of net exceeds 55% once the payor\'s own child care is counted');
 equal(weBothPay.combined_wk, 600, 'worked example, both pay $300/wk each: combined weekly child care is $600');
 
+// ---------------------------------------------------------------------------------------------
+// PART 8 -- Child care tab v5 (2026-09-07): the always-visible distribution readout (Change 1)
+// and the "apply the proposed fix" toggle (Change 2), both ported from
+// model/childcare_post_transfer.py. Reproduces calculator.js's own computeChildcareDistribution()/
+// computeFixedRuleOrder() exactly (see that file's v5 header comment) -- calculator.js itself is
+// not required() here for the same reason PART 3/6 give.
+// ---------------------------------------------------------------------------------------------
+console.log('\n=== PART 8: Child care tab distribution readout + proposed-fix toggle defaults ===\n');
+
+function pct0(v) { return Math.round(v * 100) + '%'; }
+function moneyBare(v) { return '$' + Math.round(v).toLocaleString('en-US'); }
+
+function computeDistribution(higherAnnual, lowerAnnual, facts) {
+  var lowerWk = lowerAnnual / 52.0, higherWk = higherAnnual / 52.0;
+  var r0 = W.run(facts.box, lowerWk, higherWk, facts.kids, 0, { aHealth: facts.healthLow, bHealth: facts.healthHigh });
+  var baseOrderWk = r0['7d'];
+  var combinedGross = higherAnnual + lowerAnnual;
+  var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
+  // Two of three children under 13 -- the site's own worked example's fact, capped at kids, NOT
+  // the zero this tab's other cells use. See calculator.js's header comment for why.
+  var kidsUnder13 = Math.min(2, facts.kids);
+  var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, kidsUnder13);
+  return { base_order_wk: baseOrderWk, share3c: r0.B_3c, gross_share: grossShare, net_share: pos.payor_after_share };
+}
+
+function computeFixedRule(higherAnnual, lowerAnnual, facts) {
+  var lowerWk = lowerAnnual / 52.0, higherWk = higherAnnual / 52.0;
+  var r0 = W.run(facts.box, lowerWk, higherWk, facts.kids, 0, { aHealth: facts.healthLow, bHealth: facts.healthHigh });
+  var baseOrderWk = r0['7d'];
+  var payorThreeA = r0.payor === 'A' ? r0.A_3a : r0.B_3a;
+  var combinedThreeB = r0['3b'];
+  var share = combinedThreeB ? (payorThreeA - baseOrderWk) / combinedThreeB : 0.0;
+  var totalChildcare = (facts.ccLower || 0) + (facts.ccHigher || 0);
+  return { base_order_wk: baseOrderWk, fixed_rule_share: share, fixed_rule_order_wk: baseOrderWk + share * totalChildcare };
+}
+
+// Interface defaults: $40/$40 premiums, three children, Box 1, worked-example incomes, Child care
+// tab's own default $100/wk from the lower earner. Must match index.html's static no-JS fallback.
+var distDefault = computeDistribution(201000, 29640, { kids: 3, box: 1, healthLow: 40.0, healthHigh: 40.0 });
+equal(pct1(distDefault.share3c), '87.8%',
+  'Child care tab default: higher earner\'s share of child care (Line 3c) matches markup\'s static 87.8%');
+equal(pct0(distDefault.gross_share), '64%',
+  'Child care tab default: post-transfer gross share matches markup\'s static 64%');
+equal(pct0(distDefault.net_share), '48%',
+  'Child care tab default: post-transfer net share matches markup\'s static 48%');
+
+var fixDefault = computeFixedRule(201000, 29640, { kids: 3, box: 1, healthLow: 40.0, healthHigh: 40.0, ccLower: 100.0, ccHigher: 0.0 });
+equal(moneyWk(fixDefault.fixed_rule_order_wk), '$1,080/wk',
+  'Child care tab default: proposed-fix order matches markup\'s static $1,080/wk');
+equal(moneyBare(ccDefault.order_wk), '$1,103',
+  'Child care tab default: "was" figure matches the current order\'s markup static $1,103');
+
+// ---------------------------------------------------------------------------------------------
+// PART 9 -- CORRECTNESS GATE for Change 1/2: the same 219-row v4 fixture grid, checked against the
+// dist_share3c/dist_gross_share/dist_net_share/fixed_rule_share/fixed_rule_order_wk fields
+// tools/gen_calculator_childcare_fixtures.py now emits (2026-09-07 addition; see that script's
+// distribution()/fixed_rule() for what produces them).
+// ---------------------------------------------------------------------------------------------
+console.log('\n=== PART 9: v5 fixture grid -- distribution readout + proposed-fix toggle ===\n');
+
+ccFixtures.rows.forEach(function (row) {
+  var label = 'kids=' + row.kids + ' box=' + row.box + ' health=' + row.health_lo + '/' + row.health_hi +
+    ' cc=' + row.cc_lower + '/' + row.cc_higher + ' higher=' + row.higher + ' lower=' + row.lower;
+
+  var gotDist = computeDistribution(row.higher, row.lower, { kids: row.kids, box: row.box, healthLow: row.health_lo, healthHigh: row.health_hi });
+  close(gotDist.share3c, row.dist_share3c, 1e-6, label + ': dist_share3c (Line 3c) matches Python');
+  close(gotDist.gross_share, row.dist_gross_share, 1e-6, label + ': dist_gross_share matches Python');
+  close(gotDist.net_share, row.dist_net_share, 1e-6, label + ': dist_net_share matches Python');
+
+  var gotFix = computeFixedRule(row.higher, row.lower, {
+    kids: row.kids, box: row.box, healthLow: row.health_lo, healthHigh: row.health_hi,
+    ccLower: row.cc_lower, ccHigher: row.cc_higher
+  });
+  close(gotFix.fixed_rule_share, row.fixed_rule_share, 1e-6, label + ': fixed_rule_share matches Python');
+  close(gotFix.fixed_rule_order_wk, row.fixed_rule_order_wk, 1e-4, label + ': fixed_rule_order_wk matches Python to the dollar');
+});
+
+// ---------------------------------------------------------------------------------------------
+// PART 10 -- FIDELITY PIN: model/childcare_post_transfer.py's own worked example (PAYOR_GROSS
+// $201,000, RECIP_WEEKLY $570/wk, three children, Box 1, health $33/$43, $300/wk lower-earner
+// child care) must reproduce that script's rule1_share/rule2_gross_share/rule3_share (87.7% /
+// 64.3% / 48.2%) and rule2b_share/rule2b_7d (64.5% / $1,206.08/wk) to the value it actually prints
+// -- run 2026-09-07 (see model/childcare_post_transfer.py's own docstring). This is also
+// calculator.js's fixedRuleSanityPasses() target: worked example, $300 lower-earner child care,
+// fix on -> $1,206/wk.
+// ---------------------------------------------------------------------------------------------
+console.log('\n=== PART 10: childcare_post_transfer.py fidelity -- 87.7% / 64.3% / 48.2%, rule2b $1,206/wk ===\n');
+
+var weDist = computeDistribution(PAYOR_GROSS, RECIP_GROSS, { kids: KIDS, box: 1, healthLow: 33.0, healthHigh: 43.0 });
+close(weDist.share3c, 0.8768174760022585, 1e-9, 'worked example dist_share3c (rule1_share) = 87.7%');
+close(weDist.gross_share, 0.6431593046358441, 1e-9, 'worked example dist_gross_share (rule2_gross_share) = 64.3%');
+close(weDist.net_share, 0.48163022920349263, 1e-9, 'worked example dist_net_share (rule3_share) = 48.2%');
+equal(pct1(weDist.share3c), '87.7%', 'worked example: formatted higher earner\'s share of child care = 87.7%');
+equal(pct0(weDist.gross_share), '64%', 'worked example: formatted post-transfer gross share = 64%');
+equal(pct0(weDist.net_share), '48%', 'worked example: formatted post-transfer net share = 48%');
+
+var weFix = computeFixedRule(PAYOR_GROSS, RECIP_GROSS, { kids: KIDS, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300.0, ccHigher: 0.0 });
+close(weFix.fixed_rule_share, 0.6445081434447836, 1e-9, 'worked example fixed_rule_share (rule2b_share) = 64.5%');
+close(weFix.fixed_rule_order_wk, 1206.0781733947601, 1e-6, 'worked example fixed_rule_order_wk (rule2b_7d) = $1,206.08/wk');
+equal(Math.round(weFix.fixed_rule_order_wk), 1206,
+  'worked example: proposed-fix order rounds to $1,206/wk (calculator.js\'s fixedRuleSanityPasses() target)');
+equal(moneyWk(weFix.fixed_rule_order_wk), '$1,206/wk', 'worked example: formatted proposed-fix order = $1,206/wk');
+equal(moneyBare(sanityCc.order_wk), '$1,276', 'worked example: formatted current-rule order (the "was" figure) = $1,276');
+
 console.log('\n' + checks + ' checks, ' + failures + ' failed.');
 process.exit(failures ? 1 : 0);

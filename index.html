@@ -142,6 +142,14 @@ scripts:
         </div>
 
         <div class="tool-panel" id="calc-panel-childcare" role="tabpanel" aria-labelledby="calc-tab-childcare" data-calc-panel="childcare" hidden>
+          <p class="tool-callout" data-calc-cell="cc_dist_wrap">
+            Higher earner&rsquo;s share of child care: <strong data-calc-cell="cc_dist_share3c">87.8%</strong>.
+            His share of income after the order: <strong data-calc-cell="cc_dist_gross">64%</strong> of gross,
+            <strong data-calc-cell="cc_dist_net">48%</strong> of net.
+          </p>
+          <p class="tool-callout-note">Child care is allocated on the first number. The order has
+          already moved the split to the other two.</p>
+
           <div class="tool-slider-row">
             <label for="calc-cc-lower">Child care paid by the lower earner, per week
               <output id="calc-cc-lower-output" for="calc-cc-lower">$100/wk</output>
@@ -184,6 +192,18 @@ scripts:
               <p class="cell-note visible" data-calc-note="cc_recip_after">Above the payor</p>
             </div>
           </div>
+
+          <div class="tool-toggle-row">
+            <label class="tool-checkbox">
+              <input type="checkbox" id="calc-cc-fix" data-calc-input="ccFix">
+              Apply the proposed fix: allocate child care on income after the order (the
+              comments&rsquo; Line 6b-1)
+            </label>
+            <p class="tool-fix-compare" data-calc-cell="cc_fix_compare_wrap">
+              <strong data-calc-cell="cc_fix_order">$1,080/wk</strong>, was <span data-calc-cell="cc_fix_was">$1,103</span>
+            </p>
+            <p class="cell-note" data-calc-note="cc_fix">&nbsp;</p>
+          </div>
         </div>
 
         <p class="tool-assumptions">At the $40/$40 default premiums shown here, the base order is
@@ -203,7 +223,11 @@ scripts:
           <a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
           <a href="/model/net_position.py"><code>model/net_position.py</code></a>, ported and
           tested in <a href="/assets/js/lib/worksheet.js"><code>assets/js/lib/worksheet.js</code></a>
-          and <a href="/assets/js/calculator.test.js"><code>assets/js/calculator.test.js</code></a>.</p>
+          and <a href="/assets/js/calculator.test.js"><code>assets/js/calculator.test.js</code></a>.
+          The Child care tab's toggle applies the redline drafted in
+          <a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>:
+          once the base order is set, child care is split on each parent's resulting share of
+          income, not their share beforehand.</p>
         </details>
       </div>
     </div>

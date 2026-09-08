@@ -687,6 +687,33 @@ input[type="range"]::-moz-range-thumb {
   margin: var(--space-5) 0 0; max-width: var(--measure);
 }
 
+/* Calculator v5 (2026-09-07): the Child care tab's always-visible distribution readout and the
+   "apply the proposed fix" toggle (childcare_post_transfer.py's Line 6b-1 redline). Both are
+   direct children of .tool-panel, which is plain block flow, not a grid item context, so neither
+   needs grid-column. */
+.tool-callout {
+  font-size: 0.9375rem; color: var(--text-primary); margin: 0 0 var(--space-2); max-width: var(--measure);
+}
+.tool-callout strong { font-variant-numeric: tabular-nums; color: var(--accent); }
+.tool-callout-note {
+  font-size: 0.8125rem; color: var(--text-secondary); margin: 0 0 var(--space-6); max-width: var(--measure);
+}
+.tool-toggle-row { margin: var(--space-2) 0 0; }
+.tool-checkbox {
+  display: flex; align-items: flex-start; gap: var(--space-2);
+  font-size: 0.875rem; color: var(--text-primary); cursor: pointer; max-width: var(--measure);
+}
+.tool-checkbox input[type="checkbox"] {
+  width: 20px; height: 20px; margin-top: 2px; flex-shrink: 0; accent-color: var(--accent); cursor: pointer;
+}
+.tool-checkbox:has(input:disabled) { color: var(--text-secondary); cursor: not-allowed; }
+.tool-fix-compare {
+  font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary);
+  margin: var(--space-2) 0 0; visibility: hidden; min-height: 1.2em;
+}
+.tool-fix-compare.visible { visibility: visible; }
+.tool-fix-compare strong { color: var(--accent); font-weight: 700; }
+
 @media (max-width: 480px) {
   .tool-status-strip { flex-direction: column; align-items: flex-start; }
 }

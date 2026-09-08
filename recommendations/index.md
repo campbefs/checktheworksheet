@@ -22,8 +22,8 @@ Three changes, each keyed to a Worksheet line, each with an effect measured at t
   claimed child care, Line 7e reads 33.4 percent of gross-derived income while the same order is
   47.4 percent of the payor's net; the presumption itself does not kick in until 57 percent of net.
   The fix changes what the form reports. It leaves every dollar amount untouched.
-- **Allocate child care on the income split the order has already produced, not the split before
-  it.** The new Line 6b-1 redline takes the payor's child care share from 87.7 percent to 64.5
+- **Allocate child care on the income split the order has already produced, instead of the split
+  before it.** The new Line 6b-1 redline takes the payor's child care share from 87.7 percent to 64.5
   percent and the order from $1,275.77 to $1,206.08 a week. Part two below carries this further.
 - **Apply the equal-parenting credit once, at the transfer, instead of clipping it as an entitlement.**
   Variant A takes the equal-time order from $1,012.73 to $935.06 a week, a 7.7 percent cut.
@@ -54,7 +54,7 @@ A simpler alternative is a straight linear discount on the time split: no discou
 three, a 50 percent discount at half the time. This rule gives $543.95 a week, or $2,357.11 a month,
 16.4 percent below Washington and 2.8 percent below California. The cross-credit stays the
 recommendation, because this linear version prices Massachusetts below both comparison states
-rather than in line with them.
+instead of in line with them.
 
 | Rule | Weekly order | Monthly | Against the median | Against WA | Against CA |
 |---|---|---|---|---|---|

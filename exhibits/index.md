@@ -12,7 +12,7 @@ description: >-
 <div class="disclosure">
 <p>Many charts below use my own child support order: $201,000 and $29,640 a year, three children,
 computed under Massachusetts's 2025 Worksheet. I disclose it so you can check the arithmetic
-against real numbers, not only hypothetical ones. Where a chart sweeps a range of incomes, my own
+against real numbers as well as hypothetical ones. Where a chart sweeps a range of incomes, my own
 figures are marked as one point among many. The worksheet behind these figures is
 <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked against the official
 form's own scripts on <a href="/the-model/">the model page</a>. None of these figures has been

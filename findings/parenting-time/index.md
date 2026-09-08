@@ -122,7 +122,7 @@ parent actually has.
 </table>
 
 Below $391 a week of the other parent's available income (the bottom two rows), Line 5c substitutes
-a fixed floor amount rather than a percentage of income, so the order stops behaving like a
+a fixed floor amount instead of a percentage of income, so the order stops behaving like a
 cross-credit. (Source: `model/runs/box1-fix-run-2026-09-05.txt`, printed by `model/box1_fix.py`.)
 
 </details>
@@ -135,9 +135,9 @@ cross-credit. (Source: `model/runs/box1-fix-run-2026-09-05.txt`, printed by `mod
 
 Both boxes on the form (CJ-D 304) start from the same total at Line 4c: $1,240.73 a week at the worked example (three
 children, a payor at $201,000 a year, the other parent at $570 a week). Line 5b splits that by
-income share, giving the payor 87.68 percent, or $1,087.90. That is the Box 2 order. Box 1 then
-subtracts one credit at Line 6g. That credit equals the payor's own Line 6e, and Line 6e is capped
-low because his column's Line 6d sits below 10 percent. The credit comes to
+income share, giving the payor 87.68 percent, or $1,087.90; this is the Box 2 order. Box 1 then
+subtracts one credit at Line 6g, the payor's own Line 6e, capped low because his column's Line 6d
+sits below 10 percent. The credit comes to
 $75.17, leaving $1,012.73. Nothing between Line 4c and Line 6g asks how many overnights either
 parent has.
 
@@ -157,10 +157,10 @@ Massachusetts doesn't say how much cost two households duplicate when they share
 other states answer that with a cross-credit: multiply the basic obligation by a duplication factor
 (Indiana's commentary sets 1.5) before subtracting the lower earner's share.
 
-Solving the Box 1 arithmetic backward through that formula turns up a coincidence, not a description
-of anyone's actual time: the 6.9 percent discount Massachusetts gives for full equal time is close to
+Solving the Box 1 arithmetic backward through that formula turns up a coincidence: the 6.9 percent
+discount Massachusetts gives for full equal time is close to
 what a cross-credit would give a parent who has the children one night in three, a different "third"
-from the Box 2 assumption above: this one comes from running a number backward through another
+from the Box 2 assumption above; this one comes from running a number backward through another
 state's formula, not from anything Massachusetts's own form assumes.
 
 <p class="stat-callout">

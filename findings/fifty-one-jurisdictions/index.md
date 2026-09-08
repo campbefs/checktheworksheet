@@ -72,7 +72,7 @@ documents, computed twice independently, reconciled where the two passes disagre
 adversarially attacked for defects. Fifty of fifty-one survived every stage. Georgia is the one held
 out: its enacted formula and its own online calculator both produce a lower order at primary custody
 than at equal time, an inversion this analysis could not resolve into one trustworthy number, so
-Georgia is left off every ranking rather than given a wrong one.
+Georgia is left off every ranking instead of assigned a number that could be wrong.
 
 That leaves fifty jurisdictions ranked, at one fact pattern. Change the income level, the custody
 split, or the number of children, and every ranking below could move, in either direction.
@@ -269,7 +269,7 @@ split, or the number of children, and every ranking below could move, in either 
 
 ## In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.
 
-This is a count, not a dollar claim. Massachusetts's primary-custody box already assumes the paying
+This counts jurisdictions; it says nothing about dollar amounts. Massachusetts's primary-custody box already assumes the paying
 parent has the children about a third of the time and gives nothing for it: the order is the same
 as for a parent with no overnights. Twenty-eight jurisdictions give a formula credit at that point.
 
@@ -546,7 +546,7 @@ family, a two-child family, or a family with claimed child care would see in any
 jurisdictions; those are different points that have not been computed.</p>
 
 <p class="caveat">Nothing here says Massachusetts's amounts are wrong. The Commonwealth's own
-consultant offers a reason for them, cost of living, that this page does not test or dispute. What
+consultant's stated reason for them is cost of living; this page does not test or dispute it. What
 this page does show, at the one fact pattern tested: an arrangement giving each parent equal time is
 priced by Massachusetts's Worksheet at a level most other jurisdictions reserve for one parent having
 the children the great majority of the time.</p>

@@ -1,6 +1,21 @@
 #!/usr/bin/env python3
 """Generate assets/js/fixtures/calculator-childcare.json from this repo's own frozen model/.
 
+2026-09-07 addition: two figures ported from model/childcare_post_transfer.py for the Child care
+tab's new readout line and "apply the proposed fix" toggle --
+
+  dist_share3c / dist_gross_share / dist_net_share  (Change 1, always-visible readout): the higher
+  earner's Line 3c income share, and where that pair of incomes lands (gross, net) after the
+  NO-CHILD-CARE order -- rule1_share / rule2_gross_share / rule3_share in childcare_post_transfer.py.
+  Independent of cc_lower/cc_higher; identical across every row sharing the same
+  kids/box/health/higher/lower, which is deliberate -- it lets calculator.test.js check the same
+  four numbers on many rows rather than adding a separate fixture file.
+
+  fixed_rule_share / fixed_rule_order_wk  (Change 2, the toggle): childcare_post_transfer.py's
+  rule2b -- run the worksheet with NO child care to get the base order and the payor Line 6f names
+  in THAT pass, allocate the row's combined weekly child care (cc_lower + cc_higher) on that
+  payor's post-transfer Line 3a share instead of Line 3c, add it to the base order.
+
 Correctness gate for the calculator's premium inputs and Child care tab (rebuilt 2026-09-07:
 premiums became two number inputs, default $40/$40, and child care became two continuous
 sliders -- dollar amounts, not a 0/1/2 scenario radio). Every combination the interface can
@@ -65,6 +80,41 @@ EXTRA = [
 ]
 
 
+def distribution(higher, lower, kids, box, health_lo, health_hi):
+    """Change 1: childcare_post_transfer.py's rule1_share / rule2_gross_share / rule3_share, at
+    the NO-CHILD-CARE order. Higher earner = Parent B always (see module CONVENTION above); every
+    row this script has ever computed names B the payor, so this does not special-case a flip."""
+    r0 = w.run(box=box, a_gross=lower / 52.0, b_gross=higher / 52.0, children_under18=kids,
+               a_health=health_lo, b_health=health_hi)
+    base = r0["7d"]
+    combined_gross = higher + lower
+    gross_share = (higher - base * 52) / combined_gross if combined_gross else 0.0
+    # Two of three children under 13 -- the site's own worked example's fact, capped at kids so a
+    # 1- or 2-child row never claims more under-13 children than the family has. See calculator.js's
+    # header comment for why this readout alone departs from the tab's zero-credit convention.
+    kids_under_13 = min(2, kids)
+    pos = npos.analyze(higher, lower, kids, base, 0.0, 0.0, kids_under_13=kids_under_13)
+    return {
+        "dist_share3c": r0["B_3c"],
+        "dist_gross_share": gross_share,
+        "dist_net_share": pos["payor_after_share"],
+    }
+
+
+def fixed_rule(higher, lower, kids, box, health_lo, health_hi, weekly_childcare):
+    """Change 2: childcare_post_transfer.py's rule2b -- the "apply the proposed fix" toggle."""
+    r0 = w.run(box=box, a_gross=lower / 52.0, b_gross=higher / 52.0, children_under18=kids,
+               a_health=health_lo, b_health=health_hi)
+    base = r0["7d"]
+    payor_3a = r0["A_3a"] if r0["payor"] == "A" else r0["B_3a"]
+    combined_3b = r0["3b"]
+    share = (payor_3a - base) / combined_3b if combined_3b else 0.0
+    return {
+        "fixed_rule_share": share,
+        "fixed_rule_order_wk": base + share * weekly_childcare,
+    }
+
+
 def spread(total, kids):
     """A combined weekly dollar amount spread evenly across `kids` array elements, matching
     the interface's own composition (see header comment)."""
@@ -110,6 +160,9 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
         higher_bears_wk = b_own_cc - r["B_6b"] + r["A_6b"]
         higher_bears_pct = (higher_bears_wk / weekly_childcare) if weekly_childcare else 0.0
 
+        dist = distribution(higher, lower, kids, box, health_lo, health_hi)
+        fixed = fixed_rule(higher, lower, kids, box, health_lo, health_hi, weekly_childcare)
+
         row = {
             "kids": kids, "box": box,
             "health_lo": health_lo, "health_hi": health_hi,
@@ -128,6 +181,11 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
             "higher_bears_wk": higher_bears_wk,
             "higher_bears_pct": higher_bears_pct,
             "combined_wk": weekly_childcare,
+            "dist_share3c": dist["dist_share3c"],
+            "dist_gross_share": dist["dist_gross_share"],
+            "dist_net_share": dist["dist_net_share"],
+            "fixed_rule_share": fixed["fixed_rule_share"],
+            "fixed_rule_order_wk": fixed["fixed_rule_order_wk"],
         }
         rows.append(row)
         print(label, "->",
@@ -135,7 +193,9 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
               "7e=%.9f" % row["line_7e"],
               "true_pct_net=%.9f" % row["true_pct_net"],
               "payor_after=%.4f" % row["payor_after"],
-              "recip_after=%.4f" % row["recip_after"])
+              "recip_after=%.4f" % row["recip_after"],
+              "dist=%.6f/%.6f/%.6f" % (row["dist_share3c"], row["dist_gross_share"], row["dist_net_share"]),
+              "fixed_rule_7d=%.6f" % row["fixed_rule_order_wk"])
     except Exception as e:
         disabled.append({"kids": kids, "box": box, "health_lo": health_lo, "health_hi": health_hi,
                           "cc_lower": cc_lower, "cc_higher": cc_higher,
@@ -163,7 +223,11 @@ with open(out_path, "w") as f:
             "health_pairs": HEALTH_PAIRS,
             "cc_pairs": CC_PAIRS,
             "note": "cc_lower/cc_higher are COMBINED weekly totals, spread evenly across `kids` "
-                    "array elements before being passed to worksheet.run() -- see spread() above.",
+                    "array elements before being passed to worksheet.run() -- see spread() above. "
+                    "dist_share3c/dist_gross_share/dist_net_share (Change 1) are independent of "
+                    "cc_lower/cc_higher -- see distribution() above. fixed_rule_share/"
+                    "fixed_rule_order_wk (Change 2) are childcare_post_transfer.py's rule2b -- see "
+                    "fixed_rule() above.",
         },
         "rows": rows,
         "disabled": disabled,
