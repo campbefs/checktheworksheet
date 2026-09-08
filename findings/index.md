@@ -131,8 +131,8 @@ enacted formula orders less at equal time than at primary custody.
 {% include figure.html
    id="e11"
    img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-   alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions under equal parenting time, one fact pattern, Massachusetts highlighted."
-   title="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
+   alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one fact pattern, Massachusetts highlighted."
+   title="At equal parenting time, Massachusetts orders the most of the fifty states."
    deck="Monthly order at one fact pattern. Georgia held out."
    notes="Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One fact pattern; the ranking generalizes to nothing else."
    source_script="model/charts/fig5_states.py"

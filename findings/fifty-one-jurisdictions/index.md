@@ -90,14 +90,14 @@ split, or the number of children, and every ranking below could move, in either 
 
 <figure class="exhibit" id="e11">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-     data-caption="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
+     data-caption="At equal parenting time, Massachusetts orders the most of the fifty states."
      data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
          width="1744" height="2189"
          alt="Bar chart ranking fifty state jurisdictions' equal-parenting-time monthly child support orders at one fact pattern, three children, $201,000 and $29,640 in annual income, Massachusetts highlighted.">
   </a>
   <figcaption>
-    <h3 class="exhibit-title">Equal parenting time: Massachusetts orders the most of fifty jurisdictions.</h3>
+    <h3 class="exhibit-title">At equal parenting time, Massachusetts orders the most of the fifty states.</h3>
     <p class="exhibit-deck">Monthly order at one fact pattern, three children, $201,000 and $29,640, no child care.</p>
     <p class="exhibit-notes">Georgia is held out; see method, above. One fact pattern; the ranking generalizes to nothing else.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
@@ -180,7 +180,7 @@ split, or the number of children, and every ranking below could move, in either 
 
 <figure class="exhibit" id="e12">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
-     data-caption="Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts."
+     data-caption="With the lower earner primary, only Hawaii orders more than Massachusetts."
      data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
          width="1759" height="2230"
@@ -188,7 +188,7 @@ split, or the number of children, and every ranking below could move, in either 
          alt="Bar chart ranking fifty state jurisdictions' monthly child support orders with the children primarily with the lower earner, same fact pattern as the equal-parenting ranking, Massachusetts highlighted.">
   </a>
   <figcaption>
-    <h3 class="exhibit-title">Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.</h3>
+    <h3 class="exhibit-title">With the lower earner primary, only Hawaii orders more than Massachusetts.</h3>
     <p class="exhibit-deck">The same fact pattern with the children primarily with the lower earner.</p>
     <p class="exhibit-notes">Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
@@ -419,7 +419,7 @@ almost everywhere else.
 
 <figure class="exhibit" id="e17">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
-     data-caption="Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions."
+     data-caption="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
      data-csv-href="/figures/working/fig10_ma_shared_vs_primary.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
          width="1852" height="2264"
@@ -427,7 +427,7 @@ almost everywhere else.
          alt="Bar chart of monthly child support orders in fifty jurisdictions, forty-nine computed with the children primarily with the lower earner and Massachusetts computed twice: once under equal parenting time and once under primary custody for scale.">
   </a>
   <figcaption>
-    <h3 class="exhibit-title">Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h3>
+    <h3 class="exhibit-title">Only Wisconsin and Hawaii order more than Massachusetts does at equal time.</h3>
     <p class="exhibit-deck">The same fact pattern as the two rankings above, with Massachusetts computed under Box 1 and every other jurisdiction computed with the children primarily with the lower earner.</p>
     <p class="exhibit-notes">Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig10_ma_shared_vs_primary.py</code> ·
@@ -517,7 +517,7 @@ question inside its own review process.
    id="e27"
    img="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
    alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking which cycles' own primary text records the gross-versus-net income question being raised and deferred."
-   title="Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017-2025."
+   title="The 2025 review deferred gross versus net again, as prior task forces had."
    deck="Every Massachusetts guidelines edition or off-cycle amendment in the corpus (2017, 2018, 2021, 2023, 2025), marked filled where the gross-versus-net income basis question was deferred on the record and hollow where the corpus holds no record of it being raised at all."
    notes="The chart states what the corpus supports, not what the 2025 report claims about years it does not itself document."
    source_script="model/charts/fig11_deferral_timeline.py"

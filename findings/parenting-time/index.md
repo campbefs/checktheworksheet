@@ -169,7 +169,7 @@ state's formula rather than anything Massachusetts's own form assumes.
    id="e09"
    img="/figures/exhibits/E09-implied-overnight-share-by-factor-3-children.png"
    alt="Line chart of the overnight share that would reproduce the Box 1 order under a standard cross-credit, at duplication factors 1.5 and 2.0, across the payor's income share, three children."
-   title="At the worked example, equal parenting time is priced as a third of overnights at factor 1.5, and 47 percent at factor 2.0."
+   title="The equal-time credit is what a standard formula pays a parent who has the children one night in three."
    deck="The overnight share that reproduces the Box 1 order under a standard cross-credit, at the stated factor. Never quoted without the factor beside it."
    notes="Blank below the Line 5c floor, where the order is no longer a cross-credit and no overnight share can be backed out of it."
    source_script="model/box1_fix.py · model/charts/fig3_credit.py"

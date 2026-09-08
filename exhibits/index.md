@@ -45,11 +45,11 @@ comparison always carries its per-person counterpart.
 15. [The equal-time credit is what a standard formula pays a parent who has the children one night in three.](#e09)
 16. [Splitting two children across two homes cuts the weekly order by 30 percent.](#e23)
 17. [Two homes, one child each, cost 43 percent more on the schedule than one home with two.](#e24)
-18. [Equal parenting time: Massachusetts orders the most of fifty jurisdictions.](#e11)
-19. [Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.](#e12)
+18. [At equal parenting time, Massachusetts orders the most of the fifty states.](#e11)
+19. [With the lower earner primary, only Hawaii orders more than Massachusetts.](#e12)
 20. [In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.](#e13)
 21. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
-22. [Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.](#e17)
+22. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
 23. [The 2025 review deferred gross versus net again, "as prior task forces have done."](#e27)
 
 ## Who holds more after the order
@@ -489,15 +489,15 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e11">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-     data-caption="Equal parenting time: Massachusetts orders the most of fifty jurisdictions."
+     data-caption="At equal parenting time, Massachusetts orders the most of the fifty states."
      data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
          loading="lazy"
-         alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions under equal parenting time, one fact pattern, Massachusetts highlighted.">
+         alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one fact pattern, Massachusetts highlighted.">
   </a>
   <figcaption>
     <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
-    <h3 class="exhibit-title">Equal parenting time: Massachusetts orders the most of fifty jurisdictions.</h3>
+    <h3 class="exhibit-title">At equal parenting time, Massachusetts orders the most of the fifty states.</h3>
     <p class="exhibit-deck">Monthly order at one fact pattern. Georgia held out.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
@@ -580,15 +580,15 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e12">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
-     data-caption="Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts."
+     data-caption="With the lower earner primary, only Hawaii orders more than Massachusetts."
      data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
          loading="lazy"
-         alt="Horizontal bar chart of the monthly child support order in fifty jurisdictions with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted.">
+         alt="Horizontal bar chart of the monthly child support order in fifty states with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted.">
   </a>
   <figcaption>
     <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
-    <h3 class="exhibit-title">Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.</h3>
+    <h3 class="exhibit-title">With the lower earner primary, only Hawaii orders more than Massachusetts.</h3>
     <p class="exhibit-deck">Monthly order at one fact pattern. Georgia held out. First of a pair with E17.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Primary with the lower earner (Box 2)</dd></div>
@@ -843,7 +843,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e17">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
-     data-caption="Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions."
+     data-caption="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
      data-csv-href="/figures/working/fig10_ma_shared_vs_primary.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
          loading="lazy"
@@ -851,7 +851,7 @@ comparison always carries its per-person counterpart.
   </a>
   <figcaption>
     <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
-    <h3 class="exhibit-title">Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h3>
+    <h3 class="exhibit-title">Only Wisconsin and Hawaii order more than Massachusetts does at equal time.</h3>
     <p class="exhibit-deck">Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>MA equal time (Box 1) vs others primary</dd></div>
