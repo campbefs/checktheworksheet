@@ -1,0 +1,197 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>The model | Check the Worksheet</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="The model" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="A Python reproduction of the Massachusetts worksheet, a tax model, three extension models, four test suites, and a harness that runs the official form’s own scripts against the model." />
+<meta name="twitter:description" property="og:description" content="A Python reproduction of the Massachusetts worksheet, a tax model, three extension models, four test suites, and a harness that runs the official form’s own scripts against the model." />
+<link rel="canonical" href="https://checktheworksheet.org/the-model/" />
+<meta property="og:url" content="https://checktheworksheet.org/the-model/" />
+<meta property="og:site_name" content="Check the Worksheet" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="The model" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A Python reproduction of the Massachusetts worksheet, a tax model, three extension models, four test suites, and a harness that runs the official form’s own scripts against the model.","headline":"The model","url":"https://checktheworksheet.org/the-model/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="topbar">
+    
+<div class="topbar-inner">
+  <a class="wordmark" href="/">Check the Worksheet</a>
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+  <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+    <span class="vh">Menu</span>
+    <span class="nav-toggle-bars"></span>
+  </label>
+
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/findings/">Findings</a>
+    <a href="/recommendations/">Recommendations</a>
+    <a href="/findings/fifty-one-jurisdictions/">Fifty jurisdictions</a>
+    <a href="/documents/">Documents</a>
+    <a href="/about/">Mission</a>
+    <a href="https://github.com/campbefs/checktheworksheet">Repository</a>
+  </nav>
+</div>
+
+  </header>
+
+  <main id="main">
+    
+<article class="page">
+<h1 id="a-model-of-the-worksheet-checked-against-the-forms-own-scripts-as-well-as-against-itself">A model of the worksheet, checked against the form’s own scripts as well as against itself</h1>
+
+<p><a href="/findings/">Findings</a> states what the checks show. This page is the proof.</p>
+
+<h2 id="modelworksheetpy-reimplements-cj-d-304-line-by-line"><code class="language-plaintext highlighter-rouge">model/worksheet.py</code> reimplements CJ-D 304 line by line</h2>
+
+<p><a href="/model/worksheet.py"><code class="language-plaintext highlighter-rouge">model/worksheet.py</code></a> transcribes the 2025 Guidelines Worksheet start to
+finish: income, income shares and cap, Table A and B, the age adjustment, the low-income floor,
+child care, the income-disparity adjustment, the hardship test, and all three custody boxes.
+<a href="/model/guidelines.py"><code class="language-plaintext highlighter-rouge">model/guidelines.py</code></a> holds Table A and B as published, checked against
+all 1,104 rows of the Commonwealth’s own Guidelines Chart
+(<a href="/data/extracted/guidelines-chart.json"><code class="language-plaintext highlighter-rouge">data/extracted/guidelines-chart.json</code></a>), with no
+disagreement over one dollar.</p>
+
+<h2 id="a-tax-model-computes-what-each-party-actually-keeps">A tax model computes what each party actually keeps</h2>
+
+<p><a href="/model/net_position.py"><code class="language-plaintext highlighter-rouge">model/net_position.py</code></a> converts gross income to spendable income after
+federal and Massachusetts tax, including the EITC, Child Tax Credit, and the refundable Child and
+Family Tax Credit, so a finding can compare an order against what a household spends.</p>
+
+<h2 id="three-extension-models-and-one-script-printing-every-quoted-figure">Three extension models, and one script printing every quoted figure</h2>
+
+<ul>
+  <li><a href="/model/box1_fix.py"><code class="language-plaintext highlighter-rouge">model/box1_fix.py</code></a>: the Box 1 equal-parenting credit, and three
+redlines that give it a parenting-time term.</li>
+  <li><a href="/model/childcare_post_transfer.py"><code class="language-plaintext highlighter-rouge">model/childcare_post_transfer.py</code></a>: child care split on
+income shares measured <em>after</em> base support transfers, not Line 6b’s pre-transfer shares.</li>
+  <li><a href="/model/marginal_retention.py"><code class="language-plaintext highlighter-rouge">model/marginal_retention.py</code></a>: how much of the payor’s next
+dollar is kept after tax.</li>
+  <li><a href="/model/submission_figures.py"><code class="language-plaintext highlighter-rouge">model/submission_figures.py</code></a>: prints every figure quoted to
+the Trial Court, so none is quoted without a script producing it.</li>
+</ul>
+
+<h2 id="four-test-suites-348-checks-all-passing-gate-every-quoted-number">Four test suites, 348 checks, all passing, gate every quoted number</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suite</th>
+      <th>Checks</th>
+      <th>What it pins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/model/test_guidelines.py"><code class="language-plaintext highlighter-rouge">model/test_guidelines.py</code></a></td>
+      <td>20</td>
+      <td>Table A/B vs. the published chart</td>
+    </tr>
+    <tr>
+      <td><a href="/model/test_worksheet.py"><code class="language-plaintext highlighter-rouge">model/test_worksheet.py</code></a></td>
+      <td>60</td>
+      <td>A real order and the form’s rounding</td>
+    </tr>
+    <tr>
+      <td><a href="/model/test_box1_fix.py"><code class="language-plaintext highlighter-rouge">model/test_box1_fix.py</code></a></td>
+      <td>258</td>
+      <td>The Box 1 credit and its redlines</td>
+    </tr>
+    <tr>
+      <td><a href="/model/test_childcare_post_transfer.py"><code class="language-plaintext highlighter-rouge">model/test_childcare_post_transfer.py</code></a></td>
+      <td>10</td>
+      <td>Child care on post-transfer shares</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="a-harness-runs-the-commonwealths-own-scripts-instead-of-a-re-derivation">A harness runs the Commonwealth’s own scripts instead of a re-derivation</h2>
+
+<p>The published CJ-D 304 is a fillable XFA form with embedded scripts, extracted at
+<a href="/data/extracted/cjd304-xfa.xml"><code class="language-plaintext highlighter-rouge">data/extracted/cjd304-xfa.xml</code></a> by
+<a href="/model/inspect_worksheet.py"><code class="language-plaintext highlighter-rouge">model/inspect_worksheet.py</code></a>. The dependency-free
+<a href="/model/official_xfa_harness.js"><code class="language-plaintext highlighter-rouge">model/official_xfa_harness.js</code></a> (Node) executes those scripts.
+<a href="/model/run_official_xfa.py"><code class="language-plaintext highlighter-rouge">model/run_official_xfa.py</code></a> runs six scenarios against
+<code class="language-plaintext highlighter-rouge">model/worksheet.py</code>.</p>
+
+<p>The two agree on the final order in all six:
+<a href="/model/runs/official-xfa-vs-model-2026-09-05.txt">$1,016, $1,091, $1,355, $1,280, $1,274, $1,010</a>
+(unrounded arithmetic differs by a few dollars, e.g. $1,012.72 against $1,016, from rounding each
+line before the next uses it, reproduced with <code class="language-plaintext highlighter-rouge">round_lines=True</code>). This is the project’s strongest
+check: the Commonwealth’s own code, not another analyst’s reading of the form.</p>
+
+<h2 id="reproduce-every-number-here">Reproduce every number here</h2>
+
+<p>Nothing beyond the standard library is needed, plus Node on PATH for the XFA harness. Each file
+above runs as <code class="language-plaintext highlighter-rouge">python3 &lt;path&gt;</code>. Redrawing the figures needs <code class="language-plaintext highlighter-rouge">matplotlib</code> and <code class="language-plaintext highlighter-rouge">numpy</code>, then
+<code class="language-plaintext highlighter-rouge">python3 model/charts/make_all.py</code>.</p>
+
+<div class="ask">
+  <h2>Check it yourself</h2>
+  <p>Every command above runs against files in this repository; no network access needed.</p>
+  <ul>
+    <li><a href="/the-data/">The data</a></li>
+    <li><a href="/findings/">The findings the model produces</a></li>
+    <li><a href="https://github.com/campbefs/checktheworksheet">The repository</a></li>
+  </ul>
+</div>
+
+</article>
+
+  </main>
+
+  <footer class="site-footer">
+    
+<div class="footer-inner">
+  <nav class="site-nav" aria-label="Footer">
+    <a href="/findings/">Findings</a>
+    <a href="/findings/fifty-one-jurisdictions/">Fifty jurisdictions</a>
+    <a href="/exhibits/">Exhibits</a>
+    <a href="/documents/">Documents</a>
+    <a href="/about/">Mission &amp; about</a>
+    <a href="/sitemap/">Sitemap</a>
+    <a href="https://github.com/campbefs/checktheworksheet">Repository</a>
+  </nav>
+  <p class="footer-meta">
+    Christopher Campbell, independent &middot;
+    <a href="https://github.com/campbefs/checktheworksheet/issues">report an error</a>
+    &middot; code under the <a href="/LICENSE-CODE.txt">MIT licence</a>;
+    documents and figures under CC&nbsp;BY&nbsp;4.0 &middot;
+    last built 8 September 2026
+  </p>
+</div>
+
+  </footer>
+
+  
+  <div class="lightbox" data-lightbox-root aria-hidden="true">
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Exhibit image" tabindex="-1">
+      <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close">&times;</button>
+      <img data-lightbox-image src="" alt="">
+      <p class="lightbox-caption" data-lightbox-caption></p>
+      <p class="lightbox-source" hidden><a data-lightbox-csv href="#"></a></p>
+    </div>
+  </div>
+
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/lightbox.js" defer></script>
+  
+</body>
+</html>
