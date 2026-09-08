@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-description: The disclosure of a personal stake, and what this project does not claim.
+title: Mission
+description: The mission, the disclosure of a personal stake, and what this project does not claim.
 disclosure:
   - >-
     The worked example running through every finding on this site (the $201,000 payor, the
@@ -16,7 +16,16 @@ disclosure:
     numbers you choose, not just mine.
 ---
 
-# One person built this; the tests back the numbers, not the byline
+# Mission
+
+This project works to make the Massachusetts Child Support Guidelines fair and internally
+consistent, through economic analysis anyone can check. A support order should be computed on the
+income parents actually have, should credit parenting time for what it costs, and should allocate
+child care on the income split the order itself creates. Every figure here comes from a published
+model with tests, so a task force, a legislator, a journalist or a parent can rerun the arithmetic
+instead of taking a position on trust.
+
+## Who built this
 
 Christopher Campbell built this site, with no institution behind it. Every number stands on being
 checkable. That is why the disclosure and the [model](/the-model/)/[data](/the-data/) pages exist.
