@@ -19,7 +19,9 @@ disclosure:
 # Mission
 
 This project works to make the Massachusetts Child Support Guidelines fair and internally
-consistent. The method is economic analysis anyone can rerun. A support order should be computed on
+consistent, and to hold the Commonwealth accountable for the review its Worksheet has never had: the
+lines that compute the presumptive order were adopted by delegation, and no task force report
+examines how they work. The method is economic analysis anyone can rerun. A support order should be computed on
 the income parents actually have, credit parenting time for what it costs, and allocate child care on
 the income split the order itself creates. Every figure here comes from a published model with
 tests, so a task force, a legislator, a journalist or a parent can check the arithmetic instead of
