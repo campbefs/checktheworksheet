@@ -140,6 +140,14 @@
       + maRefundableCredits(gross, kids, status, params, kidsUnder13);
   }
 
+  // Port of net_position.net_income_withholding_basis. Tax and FICA only, single filer,
+  // no exemptions, no refundable credits -- the basis Section 2 of the comments asks for
+  // as of v4.9, because CJ-D 304 collects neither filing status nor who claims which child.
+  function netIncomeWithholdingBasis(gross, params) {
+    params = params || TAX_PARAMS;
+    return gross - (federalTax(gross, 'single', params) + fica(gross, params) + maTax(gross, 'single', params, 0));
+  }
+
   /**
    * Post-transfer spendable-income comparison. Mirrors net_position.py's analyze().
    * @param {number} payorGross annual
@@ -197,6 +205,7 @@
     maRefundableCredits: maRefundableCredits,
     refundableCredits: refundableCredits,
     netIncome: netIncome,
+    netIncomeWithholdingBasis: netIncomeWithholdingBasis,
     analyze: analyze
   };
 }));

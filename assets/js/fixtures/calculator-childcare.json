@@ -24,7 +24,7 @@
         300.0
       ]
     ],
-    "note": "cc_lower/cc_higher are COMBINED weekly totals, spread evenly across `kids` array elements before being passed to worksheet.run() -- see spread() above. dist_share3c/dist_gross_share/dist_net_share (Change 1) are independent of cc_lower/cc_higher -- see distribution() above; dist_net_share uses kids_under_13=0, the same convention as every other figure here. fixed_rule_share/fixed_rule_order_wk (Change 2, 'on income after the order', a fallback) are childcare_post_transfer.py's rule2b -- see fixed_rule() above. net_rule_share/net_rule_order_wk/net_rule_charge_wk (Change 3, 'on money after tax', what this project recommends) are childcare_post_transfer.py's rule3/4 -- see net_rule() above; net_rule_order_wk always equals dist_base_order_wk because this rule does not change the order, only who pays the child care."
+    "note": "cc_lower/cc_higher are COMBINED weekly totals, spread evenly across `kids` array elements before being passed to worksheet.run() -- see spread() above. dist_share3c/dist_gross_share/dist_net_share/dist_net_withholding_share (Change 1) are independent of cc_lower/cc_higher -- see distribution() above; dist_net_share uses kids_under_13=0, the same convention as every other figure here, and includes refundable credits (analytical figure only). dist_net_withholding_share is net_position.net_income_withholding_basis -- tax and FICA only, no refundable credits -- and is the basis THE ASK uses. fixed_rule_share/fixed_rule_order_wk (Change 2, 'on income after the order', a fallback) are childcare_post_transfer.py's rule2b -- see fixed_rule() above. net_rule_share/net_rule_order_wk/net_rule_charge_wk (Change 3, 'on money after tax', what this project recommends) are childcare_post_transfer.py's rule5 as of 2026-09-08 -- see net_rule() above; net_rule_order_wk is dist_base_order_wk plus net_rule_share times the row's combined child care, because this rule is a Worksheet-line redline (like fixed_rule) and changes the order."
   },
   "rows": [
     {
@@ -52,9 +52,10 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.7404786010077834,
       "dist_net_share": 0.6348143925536008,
+      "dist_net_withholding_share": 0.666095418118668,
       "fixed_rule_share": 0.7435240706893844,
       "fixed_rule_order_wk": 581.0772204531697,
-      "net_rule_share": 0.6348143925536008,
+      "net_rule_share": 0.666095418118668,
       "net_rule_order_wk": 581.0772204531697,
       "net_rule_charge_wk": 0.0
     },
@@ -83,9 +84,10 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.7023568269522873,
       "dist_net_share": 0.5942968696609053,
+      "dist_net_withholding_share": 0.6306094228186054,
       "fixed_rule_share": 0.7054225486879243,
       "fixed_rule_order_wk": 453.3802143959287,
-      "net_rule_share": 0.5942968696609053,
+      "net_rule_share": 0.6306094228186054,
       "net_rule_order_wk": 453.3802143959287,
       "net_rule_charge_wk": 0.0
     },
@@ -114,9 +116,10 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.7101126091582469,
       "dist_net_share": 0.6354330574761281,
+      "dist_net_withholding_share": 0.6454423960196993,
       "fixed_rule_share": 0.71197625483276,
       "fixed_rule_order_wk": 574.3286761719899,
-      "net_rule_share": 0.6354330574761281,
+      "net_rule_share": 0.6454423960196993,
       "net_rule_order_wk": 574.3286761719899,
       "net_rule_charge_wk": 0.0
     },
@@ -145,9 +148,10 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.5647251210315841,
       "dist_net_share": 0.5235625827277256,
+      "dist_net_withholding_share": 0.5404235497736346,
       "fixed_rule_share": 0.5647036654610953,
       "fixed_rule_order_wk": 135.67261141698418,
-      "net_rule_share": 0.5235625827277256,
+      "net_rule_share": 0.5404235497736346,
       "net_rule_order_wk": 135.67261141698418,
       "net_rule_charge_wk": 0.0
     },
@@ -176,9 +180,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8497853333333334,
       "dist_net_share": 0.7518705115890036,
+      "dist_net_withholding_share": 0.7751240975714426,
       "fixed_rule_share": 0.8486573259359761,
       "fixed_rule_order_wk": 866.623076923077,
-      "net_rule_share": 0.7518705115890036,
+      "net_rule_share": 0.7751240975714426,
       "net_rule_order_wk": 866.623076923077,
       "net_rule_charge_wk": 0.0
     },
@@ -207,9 +212,10 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.5997886378790257,
       "dist_net_share": 0.5393412087891424,
+      "dist_net_withholding_share": 0.5647984459782426,
       "fixed_rule_share": 0.600813946902421,
       "fixed_rule_order_wk": 173.6256516602217,
-      "net_rule_share": 0.5393412087891424,
+      "net_rule_share": 0.5647984459782426,
       "net_rule_order_wk": 173.6256516602217,
       "net_rule_charge_wk": 0.0
     },
@@ -238,11 +244,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.7404786010077834,
       "dist_net_share": 0.6348143925536008,
+      "dist_net_withholding_share": 0.666095418118668,
       "fixed_rule_share": 0.7435240706893844,
       "fixed_rule_order_wk": 804.134441659985,
-      "net_rule_share": 0.6348143925536008,
-      "net_rule_order_wk": 581.0772204531697,
-      "net_rule_charge_wk": 190.44431776608025
+      "net_rule_share": 0.666095418118668,
+      "net_rule_order_wk": 780.9058458887702,
+      "net_rule_charge_wk": 199.8286254356004
     },
     {
       "kids": 1,
@@ -269,11 +276,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.7023568269522873,
       "dist_net_share": 0.5942968696609053,
+      "dist_net_withholding_share": 0.6306094228186054,
       "fixed_rule_share": 0.7054225486879243,
       "fixed_rule_order_wk": 665.006979002306,
-      "net_rule_share": 0.5942968696609053,
-      "net_rule_order_wk": 453.3802143959287,
-      "net_rule_charge_wk": 178.2890608982716
+      "net_rule_share": 0.6306094228186054,
+      "net_rule_order_wk": 642.5630412415103,
+      "net_rule_charge_wk": 189.18282684558164
     },
     {
       "kids": 1,
@@ -300,11 +308,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.7101126091582469,
       "dist_net_share": 0.6354330574761281,
+      "dist_net_withholding_share": 0.6454423960196993,
       "fixed_rule_share": 0.71197625483276,
       "fixed_rule_order_wk": 787.9215526218179,
-      "net_rule_share": 0.6354330574761281,
-      "net_rule_order_wk": 574.3286761719899,
-      "net_rule_charge_wk": 190.62991724283845
+      "net_rule_share": 0.6454423960196993,
+      "net_rule_order_wk": 767.9613949778997,
+      "net_rule_charge_wk": 193.6327188059098
     },
     {
       "kids": 1,
@@ -331,11 +340,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.5647251210315841,
       "dist_net_share": 0.5235625827277256,
+      "dist_net_withholding_share": 0.5404235497736346,
       "fixed_rule_share": 0.5647036654610953,
       "fixed_rule_order_wk": 305.08371105531273,
-      "net_rule_share": 0.5235625827277256,
-      "net_rule_order_wk": 135.67261141698418,
-      "net_rule_charge_wk": 157.06877481831768
+      "net_rule_share": 0.5404235497736346,
+      "net_rule_order_wk": 297.79967634907456,
+      "net_rule_charge_wk": 162.12706493209038
     },
     {
       "kids": 1,
@@ -362,11 +372,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8497853333333334,
       "dist_net_share": 0.7518705115890036,
+      "dist_net_withholding_share": 0.7751240975714426,
       "fixed_rule_share": 0.8486573259359761,
       "fixed_rule_order_wk": 1121.2202747038698,
-      "net_rule_share": 0.7518705115890036,
-      "net_rule_order_wk": 866.623076923077,
-      "net_rule_charge_wk": 225.5611534767011
+      "net_rule_share": 0.7751240975714426,
+      "net_rule_order_wk": 1099.1603061945098,
+      "net_rule_charge_wk": 232.53722927143278
     },
     {
       "kids": 1,
@@ -393,11 +404,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.5997886378790257,
       "dist_net_share": 0.5393412087891424,
+      "dist_net_withholding_share": 0.5647984459782426,
       "fixed_rule_share": 0.600813946902421,
       "fixed_rule_order_wk": 353.869835730948,
-      "net_rule_share": 0.5393412087891424,
-      "net_rule_order_wk": 173.6256516602217,
-      "net_rule_charge_wk": 161.8023626367427
+      "net_rule_share": 0.5647984459782426,
+      "net_rule_order_wk": 343.0651854536945,
+      "net_rule_charge_wk": 169.43953379347278
     },
     {
       "kids": 1,
@@ -424,11 +436,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.7404786010077834,
       "dist_net_share": 0.6348143925536008,
+      "dist_net_withholding_share": 0.666095418118668,
       "fixed_rule_share": 0.7435240706893844,
       "fixed_rule_order_wk": 1027.1916628668005,
-      "net_rule_share": 0.6348143925536008,
-      "net_rule_order_wk": 581.0772204531697,
-      "net_rule_charge_wk": 380.8886355321605
+      "net_rule_share": 0.666095418118668,
+      "net_rule_order_wk": 980.7344713243706,
+      "net_rule_charge_wk": 399.6572508712008
     },
     {
       "kids": 1,
@@ -455,11 +468,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.7023568269522873,
       "dist_net_share": 0.5942968696609053,
+      "dist_net_withholding_share": 0.6306094228186054,
       "fixed_rule_share": 0.7054225486879243,
       "fixed_rule_order_wk": 876.6337436086833,
-      "net_rule_share": 0.5942968696609053,
-      "net_rule_order_wk": 453.3802143959287,
-      "net_rule_charge_wk": 356.5781217965432
+      "net_rule_share": 0.6306094228186054,
+      "net_rule_order_wk": 831.745868087092,
+      "net_rule_charge_wk": 378.3656536911633
     },
     {
       "kids": 1,
@@ -486,11 +500,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.7101126091582469,
       "dist_net_share": 0.6354330574761281,
+      "dist_net_withholding_share": 0.6454423960196993,
       "fixed_rule_share": 0.71197625483276,
       "fixed_rule_order_wk": 1001.5144290716458,
-      "net_rule_share": 0.6354330574761281,
-      "net_rule_order_wk": 574.3286761719899,
-      "net_rule_charge_wk": 381.2598344856769
+      "net_rule_share": 0.6454423960196993,
+      "net_rule_order_wk": 961.5941137838095,
+      "net_rule_charge_wk": 387.2654376118196
     },
     {
       "kids": 1,
@@ -517,11 +532,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.5647251210315841,
       "dist_net_share": 0.5235625827277256,
+      "dist_net_withholding_share": 0.5404235497736346,
       "fixed_rule_share": 0.5647036654610953,
       "fixed_rule_order_wk": 474.49481069364134,
-      "net_rule_share": 0.5235625827277256,
-      "net_rule_order_wk": 135.67261141698418,
-      "net_rule_charge_wk": 314.13754963663536
+      "net_rule_share": 0.5404235497736346,
+      "net_rule_order_wk": 459.92674128116494,
+      "net_rule_charge_wk": 324.25412986418075
     },
     {
       "kids": 1,
@@ -548,11 +564,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8497853333333334,
       "dist_net_share": 0.7518705115890036,
+      "dist_net_withholding_share": 0.7751240975714426,
       "fixed_rule_share": 0.8486573259359761,
       "fixed_rule_order_wk": 1375.8174724846626,
-      "net_rule_share": 0.7518705115890036,
-      "net_rule_order_wk": 866.623076923077,
-      "net_rule_charge_wk": 451.1223069534022
+      "net_rule_share": 0.7751240975714426,
+      "net_rule_order_wk": 1331.6975354659426,
+      "net_rule_charge_wk": 465.07445854286556
     },
     {
       "kids": 1,
@@ -579,11 +596,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.5997886378790257,
       "dist_net_share": 0.5393412087891424,
+      "dist_net_withholding_share": 0.5647984459782426,
       "fixed_rule_share": 0.600813946902421,
       "fixed_rule_order_wk": 534.1140198016742,
-      "net_rule_share": 0.5393412087891424,
-      "net_rule_order_wk": 173.6256516602217,
-      "net_rule_charge_wk": 323.6047252734854
+      "net_rule_share": 0.5647984459782426,
+      "net_rule_order_wk": 512.5047192471673,
+      "net_rule_charge_wk": 338.87906758694555
     },
     {
       "kids": 1,
@@ -610,9 +628,10 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.7400831998863932,
       "dist_net_share": 0.6342862642307321,
+      "dist_net_withholding_share": 0.6655412658181404,
       "fixed_rule_share": 0.7444930643844829,
       "fixed_rule_order_wk": 582.8309765038903,
-      "net_rule_share": 0.6342862642307321,
+      "net_rule_share": 0.6655412658181404,
       "net_rule_order_wk": 582.8309765038903,
       "net_rule_charge_wk": 0.0
     },
@@ -641,9 +660,10 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.7018028003124812,
       "dist_net_share": 0.5935822621965626,
+      "dist_net_withholding_share": 0.6298511516184085,
       "fixed_rule_share": 0.7065770248876627,
       "fixed_rule_order_wk": 455.2979989183343,
-      "net_rule_share": 0.5935822621965626,
+      "net_rule_share": 0.6298511516184085,
       "net_rule_order_wk": 455.2979989183343,
       "net_rule_charge_wk": 0.0
     },
@@ -672,9 +692,10 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.7098032747296215,
       "dist_net_share": 0.63500101447229,
+      "dist_net_withholding_share": 0.6450035474764894,
       "fixed_rule_share": 0.7126569943963597,
       "fixed_rule_order_wk": 576.1727852657184,
-      "net_rule_share": 0.63500101447229,
+      "net_rule_share": 0.6450035474764894,
       "net_rule_order_wk": 576.1727852657184,
       "net_rule_charge_wk": 0.0
     },
@@ -703,9 +724,10 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.5642459150326797,
       "dist_net_share": 0.5229385840833894,
+      "dist_net_withholding_share": 0.5397794556890857,
       "fixed_rule_share": 0.5656106158421974,
       "fixed_rule_order_wk": 137.5157114127702,
-      "net_rule_share": 0.5229385840833894,
+      "net_rule_share": 0.5397794556890857,
       "net_rule_order_wk": 137.5157114127702,
       "net_rule_charge_wk": 0.0
     },
@@ -734,9 +756,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8497333333333333,
       "dist_net_share": 0.7517950013686228,
+      "dist_net_withholding_share": 0.7750462519975998,
       "fixed_rule_share": 0.8486842105263157,
       "fixed_rule_order_wk": 866.9230769230769,
-      "net_rule_share": 0.7517950013686228,
+      "net_rule_share": 0.7750462519975998,
       "net_rule_order_wk": 866.9230769230769,
       "net_rule_charge_wk": 0.0
     },
@@ -765,9 +788,10 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.598650342061807,
       "dist_net_share": 0.5379325495995786,
+      "dist_net_withholding_share": 0.5633232972074583,
       "fixed_rule_share": 0.6017868861077954,
       "fixed_rule_order_wk": 176.58084272415482,
-      "net_rule_share": 0.5379325495995786,
+      "net_rule_share": 0.5633232972074583,
       "net_rule_order_wk": 176.58084272415482,
       "net_rule_charge_wk": 0.0
     },
@@ -796,11 +820,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.7400831998863932,
       "dist_net_share": 0.6342862642307321,
+      "dist_net_withholding_share": 0.6655412658181404,
       "fixed_rule_share": 0.7444930643844829,
       "fixed_rule_order_wk": 806.1788958192351,
-      "net_rule_share": 0.6342862642307321,
-      "net_rule_order_wk": 582.8309765038903,
-      "net_rule_charge_wk": 190.28587926921963
+      "net_rule_share": 0.6655412658181404,
+      "net_rule_order_wk": 782.4933562493325,
+      "net_rule_charge_wk": 199.66237974544214
     },
     {
       "kids": 1,
@@ -827,11 +852,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.7018028003124812,
       "dist_net_share": 0.5935822621965626,
+      "dist_net_withholding_share": 0.6298511516184085,
       "fixed_rule_share": 0.7065770248876627,
       "fixed_rule_order_wk": 667.2711063846332,
-      "net_rule_share": 0.5935822621965626,
-      "net_rule_order_wk": 455.2979989183343,
-      "net_rule_charge_wk": 178.0746786589688
+      "net_rule_share": 0.6298511516184085,
+      "net_rule_order_wk": 644.2533444038569,
+      "net_rule_charge_wk": 188.95534548552257
     },
     {
       "kids": 1,
@@ -858,11 +884,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.7098032747296215,
       "dist_net_share": 0.63500101447229,
+      "dist_net_withholding_share": 0.6450035474764894,
       "fixed_rule_share": 0.7126569943963597,
       "fixed_rule_order_wk": 789.9698835846264,
-      "net_rule_share": 0.63500101447229,
-      "net_rule_order_wk": 576.1727852657184,
-      "net_rule_charge_wk": 190.50030434168698
+      "net_rule_share": 0.6450035474764894,
+      "net_rule_order_wk": 769.6738495086652,
+      "net_rule_charge_wk": 193.5010642429468
     },
     {
       "kids": 1,
@@ -889,11 +916,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.5642459150326797,
       "dist_net_share": 0.5229385840833894,
+      "dist_net_withholding_share": 0.5397794556890857,
       "fixed_rule_share": 0.5656106158421974,
       "fixed_rule_order_wk": 307.19889616542946,
-      "net_rule_share": 0.5229385840833894,
-      "net_rule_order_wk": 137.5157114127702,
-      "net_rule_charge_wk": 156.88157522501683
+      "net_rule_share": 0.5397794556890857,
+      "net_rule_order_wk": 299.44954811949594,
+      "net_rule_charge_wk": 161.9338367067257
     },
     {
       "kids": 1,
@@ -920,11 +948,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8497333333333333,
       "dist_net_share": 0.7517950013686228,
+      "dist_net_withholding_share": 0.7750462519975998,
       "fixed_rule_share": 0.8486842105263157,
       "fixed_rule_order_wk": 1121.5283400809717,
-      "net_rule_share": 0.7517950013686228,
-      "net_rule_order_wk": 866.9230769230769,
-      "net_rule_charge_wk": 225.53850041058683
+      "net_rule_share": 0.7750462519975998,
+      "net_rule_order_wk": 1099.436952522357,
+      "net_rule_charge_wk": 232.51387559927994
     },
     {
       "kids": 1,
@@ -951,11 +980,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.598650342061807,
       "dist_net_share": 0.5379325495995786,
+      "dist_net_withholding_share": 0.5633232972074583,
       "fixed_rule_share": 0.6017868861077954,
       "fixed_rule_order_wk": 357.1169085564934,
-      "net_rule_share": 0.5379325495995786,
-      "net_rule_order_wk": 176.58084272415482,
-      "net_rule_charge_wk": 161.3797648798736
+      "net_rule_share": 0.5633232972074583,
+      "net_rule_order_wk": 345.57783188639235,
+      "net_rule_charge_wk": 168.9969891622375
     },
     {
       "kids": 1,
@@ -982,11 +1012,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.7400831998863932,
       "dist_net_share": 0.6342862642307321,
+      "dist_net_withholding_share": 0.6655412658181404,
       "fixed_rule_share": 0.7444930643844829,
       "fixed_rule_order_wk": 1029.52681513458,
-      "net_rule_share": 0.6342862642307321,
-      "net_rule_order_wk": 582.8309765038903,
-      "net_rule_charge_wk": 380.57175853843927
+      "net_rule_share": 0.6655412658181404,
+      "net_rule_order_wk": 982.1557359947745,
+      "net_rule_charge_wk": 399.3247594908843
     },
     {
       "kids": 1,
@@ -1013,11 +1044,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.7018028003124812,
       "dist_net_share": 0.5935822621965626,
+      "dist_net_withholding_share": 0.6298511516184085,
       "fixed_rule_share": 0.7065770248876627,
       "fixed_rule_order_wk": 879.2442138509319,
-      "net_rule_share": 0.5935822621965626,
-      "net_rule_order_wk": 455.2979989183343,
-      "net_rule_charge_wk": 356.1493573179376
+      "net_rule_share": 0.6298511516184085,
+      "net_rule_order_wk": 833.2086898893795,
+      "net_rule_charge_wk": 377.91069097104514
     },
     {
       "kids": 1,
@@ -1044,11 +1076,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.7098032747296215,
       "dist_net_share": 0.63500101447229,
+      "dist_net_withholding_share": 0.6450035474764894,
       "fixed_rule_share": 0.7126569943963597,
       "fixed_rule_order_wk": 1003.7669819035342,
-      "net_rule_share": 0.63500101447229,
-      "net_rule_order_wk": 576.1727852657184,
-      "net_rule_charge_wk": 381.00060868337397
+      "net_rule_share": 0.6450035474764894,
+      "net_rule_order_wk": 963.1749137516119,
+      "net_rule_charge_wk": 387.0021284858936
     },
     {
       "kids": 1,
@@ -1075,11 +1108,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.5642459150326797,
       "dist_net_share": 0.5229385840833894,
+      "dist_net_withholding_share": 0.5397794556890857,
       "fixed_rule_share": 0.5656106158421974,
       "fixed_rule_order_wk": 476.88208091808866,
-      "net_rule_share": 0.5229385840833894,
-      "net_rule_order_wk": 137.5157114127702,
-      "net_rule_charge_wk": 313.76315045003366
+      "net_rule_share": 0.5397794556890857,
+      "net_rule_order_wk": 461.38338482622163,
+      "net_rule_charge_wk": 323.8676734134514
     },
     {
       "kids": 1,
@@ -1106,11 +1140,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8497333333333333,
       "dist_net_share": 0.7517950013686228,
+      "dist_net_withholding_share": 0.7750462519975998,
       "fixed_rule_share": 0.8486842105263157,
       "fixed_rule_order_wk": 1376.1336032388663,
-      "net_rule_share": 0.7517950013686228,
-      "net_rule_order_wk": 866.9230769230769,
-      "net_rule_charge_wk": 451.07700082117367
+      "net_rule_share": 0.7750462519975998,
+      "net_rule_order_wk": 1331.9508281216367,
+      "net_rule_charge_wk": 465.0277511985599
     },
     {
       "kids": 1,
@@ -1137,11 +1172,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.598650342061807,
       "dist_net_share": 0.5379325495995786,
+      "dist_net_withholding_share": 0.5633232972074583,
       "fixed_rule_share": 0.6017868861077954,
       "fixed_rule_order_wk": 537.652974388832,
-      "net_rule_share": 0.5379325495995786,
-      "net_rule_order_wk": 176.58084272415482,
-      "net_rule_charge_wk": 322.7595297597472
+      "net_rule_share": 0.5633232972074583,
+      "net_rule_order_wk": 514.5748210486298,
+      "net_rule_charge_wk": 337.993978324475
     },
     {
       "kids": 1,
@@ -1168,9 +1204,10 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.7254898640010474,
       "dist_net_share": 0.6147942759958797,
+      "dist_net_withholding_share": 0.6450887930866532,
       "fixed_rule_share": 0.7282740252382198,
       "fixed_rule_order_wk": 647.5580339768926,
-      "net_rule_share": 0.6147942759958797,
+      "net_rule_share": 0.6450887930866532,
       "net_rule_order_wk": 647.5580339768926,
       "net_rule_charge_wk": 0.0
     },
@@ -1199,9 +1236,10 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6810645062053783,
       "dist_net_share": 0.5668331156720244,
+      "dist_net_withholding_share": 0.6014675865823785,
       "fixed_rule_share": 0.6836522489148874,
       "fixed_rule_order_wk": 527.0844015967674,
-      "net_rule_share": 0.5668331156720244,
+      "net_rule_share": 0.6014675865823785,
       "net_rule_order_wk": 527.0844015967674,
       "net_rule_charge_wk": 0.0
     },
@@ -1230,9 +1268,10 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6845664561662687,
       "dist_net_share": 0.5997531083537277,
+      "dist_net_withholding_share": 0.6092004165059278,
       "fixed_rule_share": 0.6861002241855635,
       "fixed_rule_order_wk": 726.6230497780136,
-      "net_rule_share": 0.5997531083537277,
+      "net_rule_share": 0.6092004165059278,
       "net_rule_order_wk": 726.6230497780136,
       "net_rule_charge_wk": 0.0
     },
@@ -1261,9 +1300,10 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.4947793605157921,
       "dist_net_share": 0.4324826299752488,
+      "dist_net_withholding_share": 0.4464104308007958,
       "fixed_rule_share": 0.49334791532256594,
       "fixed_rule_order_wk": 404.69476724695363,
-      "net_rule_share": 0.4324826299752488,
+      "net_rule_share": 0.4464104308007958,
       "net_rule_order_wk": 404.69476724695363,
       "net_rule_charge_wk": 0.0
     },
@@ -1292,9 +1332,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8471853333333333,
       "dist_net_share": 0.7480950005699569,
+      "dist_net_withholding_share": 0.7712318188792983,
       "fixed_rule_share": 0.8460378017490362,
       "fixed_rule_order_wk": 881.623076923077,
-      "net_rule_share": 0.7480950005699569,
+      "net_rule_share": 0.7712318188792983,
       "net_rule_order_wk": 881.623076923077,
       "net_rule_charge_wk": 0.0
     },
@@ -1323,9 +1364,10 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.5359260137602958,
       "dist_net_share": 0.4603101950810215,
+      "dist_net_withholding_share": 0.48203711975463726,
       "fixed_rule_share": 0.5350254247118609,
       "fixed_rule_order_wk": 339.4228488915395,
-      "net_rule_share": 0.4603101950810215,
+      "net_rule_share": 0.48203711975463726,
       "net_rule_order_wk": 339.4228488915395,
       "net_rule_charge_wk": 0.0
     },
@@ -1354,11 +1396,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.7254898640010474,
       "dist_net_share": 0.6147942759958797,
+      "dist_net_withholding_share": 0.6450887930866532,
       "fixed_rule_share": 0.7282740252382198,
       "fixed_rule_order_wk": 866.0402415483586,
-      "net_rule_share": 0.6147942759958797,
-      "net_rule_order_wk": 647.5580339768926,
-      "net_rule_charge_wk": 184.4382827987639
+      "net_rule_share": 0.6450887930866532,
+      "net_rule_order_wk": 841.0846719028885,
+      "net_rule_charge_wk": 193.52663792599597
     },
     {
       "kids": 1,
@@ -1385,11 +1428,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6810645062053783,
       "dist_net_share": 0.5668331156720244,
+      "dist_net_withholding_share": 0.6014675865823785,
       "fixed_rule_share": 0.6836522489148874,
       "fixed_rule_order_wk": 732.1800762712336,
-      "net_rule_share": 0.5668331156720244,
-      "net_rule_order_wk": 527.0844015967674,
-      "net_rule_charge_wk": 170.04993470160733
+      "net_rule_share": 0.6014675865823785,
+      "net_rule_order_wk": 707.524677571481,
+      "net_rule_charge_wk": 180.44027597471356
     },
     {
       "kids": 1,
@@ -1416,11 +1460,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6845664561662687,
       "dist_net_share": 0.5997531083537277,
+      "dist_net_withholding_share": 0.6092004165059278,
       "fixed_rule_share": 0.6861002241855635,
       "fixed_rule_order_wk": 932.4531170336827,
-      "net_rule_share": 0.5997531083537277,
-      "net_rule_order_wk": 726.6230497780136,
-      "net_rule_charge_wk": 179.92593250611833
+      "net_rule_share": 0.6092004165059278,
+      "net_rule_order_wk": 909.383174729792,
+      "net_rule_charge_wk": 182.76012495177835
     },
     {
       "kids": 1,
@@ -1447,11 +1492,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.4947793605157921,
       "dist_net_share": 0.4324826299752488,
+      "dist_net_withholding_share": 0.4464104308007958,
       "fixed_rule_share": 0.49334791532256594,
       "fixed_rule_order_wk": 552.6991418437234,
-      "net_rule_share": 0.4324826299752488,
-      "net_rule_order_wk": 404.69476724695363,
-      "net_rule_charge_wk": 129.74478899257463
+      "net_rule_share": 0.4464104308007958,
+      "net_rule_order_wk": 538.6178964871924,
+      "net_rule_charge_wk": 133.92312924023872
     },
     {
       "kids": 1,
@@ -1478,11 +1524,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8471853333333333,
       "dist_net_share": 0.7480950005699569,
+      "dist_net_withholding_share": 0.7712318188792983,
       "fixed_rule_share": 0.8460378017490362,
       "fixed_rule_order_wk": 1135.4344174477878,
-      "net_rule_share": 0.7480950005699569,
-      "net_rule_order_wk": 881.623076923077,
-      "net_rule_charge_wk": 224.42850017098706
+      "net_rule_share": 0.7712318188792983,
+      "net_rule_order_wk": 1112.9926225868664,
+      "net_rule_charge_wk": 231.36954566378947
     },
     {
       "kids": 1,
@@ -1509,11 +1556,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.5359260137602958,
       "dist_net_share": 0.4603101950810215,
+      "dist_net_withholding_share": 0.48203711975463726,
       "fixed_rule_share": 0.5350254247118609,
       "fixed_rule_order_wk": 499.9304763050977,
-      "net_rule_share": 0.4603101950810215,
-      "net_rule_order_wk": 339.4228488915395,
-      "net_rule_charge_wk": 138.09305852430646
+      "net_rule_share": 0.48203711975463726,
+      "net_rule_order_wk": 484.0339848179307,
+      "net_rule_charge_wk": 144.61113592639117
     },
     {
       "kids": 1,
@@ -1540,11 +1588,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.7254898640010474,
       "dist_net_share": 0.6147942759958797,
+      "dist_net_withholding_share": 0.6450887930866532,
       "fixed_rule_share": 0.7282740252382198,
       "fixed_rule_order_wk": 1084.5224491198246,
-      "net_rule_share": 0.6147942759958797,
-      "net_rule_order_wk": 647.5580339768926,
-      "net_rule_charge_wk": 368.8765655975278
+      "net_rule_share": 0.6450887930866532,
+      "net_rule_order_wk": 1034.6113098288845,
+      "net_rule_charge_wk": 387.05327585199194
     },
     {
       "kids": 1,
@@ -1571,11 +1620,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6810645062053783,
       "dist_net_share": 0.5668331156720244,
+      "dist_net_withholding_share": 0.6014675865823785,
       "fixed_rule_share": 0.6836522489148874,
       "fixed_rule_order_wk": 937.2757509456999,
-      "net_rule_share": 0.5668331156720244,
-      "net_rule_order_wk": 527.0844015967674,
-      "net_rule_charge_wk": 340.09986940321465
+      "net_rule_share": 0.6014675865823785,
+      "net_rule_order_wk": 887.9649535461945,
+      "net_rule_charge_wk": 360.8805519494271
     },
     {
       "kids": 1,
@@ -1602,11 +1652,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6845664561662687,
       "dist_net_share": 0.5997531083537277,
+      "dist_net_withholding_share": 0.6092004165059278,
       "fixed_rule_share": 0.6861002241855635,
       "fixed_rule_order_wk": 1138.2831842893518,
-      "net_rule_share": 0.5997531083537277,
-      "net_rule_order_wk": 726.6230497780136,
-      "net_rule_charge_wk": 359.85186501223666
+      "net_rule_share": 0.6092004165059278,
+      "net_rule_order_wk": 1092.1432996815704,
+      "net_rule_charge_wk": 365.5202499035567
     },
     {
       "kids": 1,
@@ -1633,11 +1684,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.4947793605157921,
       "dist_net_share": 0.4324826299752488,
+      "dist_net_withholding_share": 0.4464104308007958,
       "fixed_rule_share": 0.49334791532256594,
       "fixed_rule_order_wk": 700.7035164404932,
-      "net_rule_share": 0.4324826299752488,
-      "net_rule_order_wk": 404.69476724695363,
-      "net_rule_charge_wk": 259.48957798514925
+      "net_rule_share": 0.4464104308007958,
+      "net_rule_order_wk": 672.5410257274311,
+      "net_rule_charge_wk": 267.84625848047745
     },
     {
       "kids": 1,
@@ -1664,11 +1716,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8471853333333333,
       "dist_net_share": 0.7480950005699569,
+      "dist_net_withholding_share": 0.7712318188792983,
       "fixed_rule_share": 0.8460378017490362,
       "fixed_rule_order_wk": 1389.2457579724987,
-      "net_rule_share": 0.7480950005699569,
-      "net_rule_order_wk": 881.623076923077,
-      "net_rule_charge_wk": 448.8570003419741
+      "net_rule_share": 0.7712318188792983,
+      "net_rule_order_wk": 1344.362168250656,
+      "net_rule_charge_wk": 462.73909132757893
     },
     {
       "kids": 1,
@@ -1695,11 +1748,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.5359260137602958,
       "dist_net_share": 0.4603101950810215,
+      "dist_net_withholding_share": 0.48203711975463726,
       "fixed_rule_share": 0.5350254247118609,
       "fixed_rule_order_wk": 660.4381037186561,
-      "net_rule_share": 0.4603101950810215,
-      "net_rule_order_wk": 339.4228488915395,
-      "net_rule_charge_wk": 276.1861170486129
+      "net_rule_share": 0.48203711975463726,
+      "net_rule_order_wk": 628.6451207443218,
+      "net_rule_charge_wk": 289.22227185278234
     },
     {
       "kids": 1,
@@ -1726,9 +1780,10 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.725328217288082,
       "dist_net_share": 0.6145783681423168,
+      "dist_net_withholding_share": 0.6448622461877784,
       "fixed_rule_share": 0.7294670612651148,
       "fixed_rule_order_wk": 648.2749993207076,
-      "net_rule_share": 0.6145783681423168,
+      "net_rule_share": 0.6448622461877784,
       "net_rule_order_wk": 648.2749993207076,
       "net_rule_charge_wk": 0.0
     },
@@ -1757,9 +1812,10 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6808595329087048,
       "dist_net_share": 0.5665687322700907,
+      "dist_net_withholding_share": 0.6011870489033035,
       "fixed_rule_share": 0.6851382843696933,
       "fixed_rule_order_wk": 527.7939245467909,
-      "net_rule_share": 0.5665687322700907,
+      "net_rule_share": 0.6011870489033035,
       "net_rule_order_wk": 527.7939245467909,
       "net_rule_charge_wk": 0.0
     },
@@ -1788,9 +1844,10 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6844611578476623,
       "dist_net_share": 0.5996060396873916,
+      "dist_net_withholding_share": 0.6090510312146487,
       "fixed_rule_share": 0.686970176997042,
       "fixed_rule_order_wk": 727.250789754321,
-      "net_rule_share": 0.5996060396873916,
+      "net_rule_share": 0.6090510312146487,
       "net_rule_order_wk": 727.250789754321,
       "net_rule_charge_wk": 0.0
     },
@@ -1819,9 +1876,10 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.4945969575163399,
       "dist_net_share": 0.43224511369907276,
+      "dist_net_withholding_share": 0.44616526547895147,
       "fixed_rule_share": 0.49448218700606605,
       "fixed_rule_order_wk": 405.3963172448466,
-      "net_rule_share": 0.43224511369907276,
+      "net_rule_share": 0.44616526547895147,
       "net_rule_order_wk": 405.3963172448466,
       "net_rule_charge_wk": 0.0
     },
@@ -1850,9 +1908,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8471333333333333,
       "dist_net_share": 0.748019490349576,
+      "dist_net_withholding_share": 0.7711539733054553,
       "fixed_rule_share": 0.8460660580021482,
       "fixed_rule_order_wk": 881.9230769230769,
-      "net_rule_share": 0.748019490349576,
+      "net_rule_share": 0.7711539733054553,
       "net_rule_order_wk": 881.9230769230769,
       "net_rule_charge_wk": 0.0
     },
@@ -1881,9 +1940,10 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.5356303570094093,
       "dist_net_share": 0.4599443151464798,
+      "dist_net_withholding_share": 0.48165397006187094,
       "fixed_rule_share": 0.5367632084704238,
       "fixed_rule_order_wk": 340.1904193024951,
-      "net_rule_share": 0.4599443151464798,
+      "net_rule_share": 0.48165397006187094,
       "net_rule_order_wk": 340.1904193024951,
       "net_rule_charge_wk": 0.0
     },
@@ -1912,11 +1972,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.725328217288082,
       "dist_net_share": 0.6145783681423168,
+      "dist_net_withholding_share": 0.6448622461877784,
       "fixed_rule_share": 0.7294670612651148,
       "fixed_rule_order_wk": 867.1151177002421,
-      "net_rule_share": 0.6145783681423168,
-      "net_rule_order_wk": 648.2749993207076,
-      "net_rule_charge_wk": 184.37351044269505
+      "net_rule_share": 0.6448622461877784,
+      "net_rule_order_wk": 841.733673177041,
+      "net_rule_charge_wk": 193.45867385633352
     },
     {
       "kids": 1,
@@ -1943,11 +2004,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6808595329087048,
       "dist_net_share": 0.5665687322700907,
+      "dist_net_withholding_share": 0.6011870489033035,
       "fixed_rule_share": 0.6851382843696933,
       "fixed_rule_order_wk": 733.3354098576989,
-      "net_rule_share": 0.5665687322700907,
-      "net_rule_order_wk": 527.7939245467909,
-      "net_rule_charge_wk": 169.97061968102722
+      "net_rule_share": 0.6011870489033035,
+      "net_rule_order_wk": 708.150039217782,
+      "net_rule_charge_wk": 180.35611467099108
     },
     {
       "kids": 1,
@@ -1974,11 +2036,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6844611578476623,
       "dist_net_share": 0.5996060396873916,
+      "dist_net_withholding_share": 0.6090510312146487,
       "fixed_rule_share": 0.686970176997042,
       "fixed_rule_order_wk": 933.3418428534336,
-      "net_rule_share": 0.5996060396873916,
-      "net_rule_order_wk": 727.250789754321,
-      "net_rule_charge_wk": 179.88181190621748
+      "net_rule_share": 0.6090510312146487,
+      "net_rule_order_wk": 909.9660991187155,
+      "net_rule_charge_wk": 182.71530936439459
     },
     {
       "kids": 1,
@@ -2005,11 +2068,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.4945969575163399,
       "dist_net_share": 0.43224511369907276,
+      "dist_net_withholding_share": 0.44616526547895147,
       "fixed_rule_share": 0.49448218700606605,
       "fixed_rule_order_wk": 553.7409733466665,
-      "net_rule_share": 0.43224511369907276,
-      "net_rule_order_wk": 405.3963172448466,
-      "net_rule_charge_wk": 129.67353410972183
+      "net_rule_share": 0.44616526547895147,
+      "net_rule_order_wk": 539.2458968885321,
+      "net_rule_charge_wk": 133.84957964368544
     },
     {
       "kids": 1,
@@ -2036,11 +2100,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8471333333333333,
       "dist_net_share": 0.748019490349576,
+      "dist_net_withholding_share": 0.7711539733054553,
       "fixed_rule_share": 0.8460660580021482,
       "fixed_rule_order_wk": 1135.7428943237214,
-      "net_rule_share": 0.748019490349576,
-      "net_rule_order_wk": 881.9230769230769,
-      "net_rule_charge_wk": 224.4058471048728
+      "net_rule_share": 0.7711539733054553,
+      "net_rule_order_wk": 1113.2692689147134,
+      "net_rule_charge_wk": 231.3461919916366
     },
     {
       "kids": 1,
@@ -2067,11 +2132,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.5356303570094093,
       "dist_net_share": 0.4599443151464798,
+      "dist_net_withholding_share": 0.48165397006187094,
       "fixed_rule_share": 0.5367632084704238,
       "fixed_rule_order_wk": 501.2193818436223,
-      "net_rule_share": 0.4599443151464798,
-      "net_rule_order_wk": 340.1904193024951,
-      "net_rule_charge_wk": 137.98329454394394
+      "net_rule_share": 0.48165397006187094,
+      "net_rule_order_wk": 484.6866103210564,
+      "net_rule_charge_wk": 144.4961910185613
     },
     {
       "kids": 1,
@@ -2098,11 +2164,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.725328217288082,
       "dist_net_share": 0.6145783681423168,
+      "dist_net_withholding_share": 0.6448622461877784,
       "fixed_rule_share": 0.7294670612651148,
       "fixed_rule_order_wk": 1085.9552360797766,
-      "net_rule_share": 0.6145783681423168,
-      "net_rule_order_wk": 648.2749993207076,
-      "net_rule_charge_wk": 368.7470208853901
+      "net_rule_share": 0.6448622461877784,
+      "net_rule_order_wk": 1035.1923470333745,
+      "net_rule_charge_wk": 386.91734771266704
     },
     {
       "kids": 1,
@@ -2129,11 +2196,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6808595329087048,
       "dist_net_share": 0.5665687322700907,
+      "dist_net_withholding_share": 0.6011870489033035,
       "fixed_rule_share": 0.6851382843696933,
       "fixed_rule_order_wk": 938.8768951686068,
-      "net_rule_share": 0.5665687322700907,
-      "net_rule_order_wk": 527.7939245467909,
-      "net_rule_charge_wk": 339.94123936205443
+      "net_rule_share": 0.6011870489033035,
+      "net_rule_order_wk": 888.506153888773,
+      "net_rule_charge_wk": 360.71222934198215
     },
     {
       "kids": 1,
@@ -2160,11 +2228,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6844611578476623,
       "dist_net_share": 0.5996060396873916,
+      "dist_net_withholding_share": 0.6090510312146487,
       "fixed_rule_share": 0.686970176997042,
       "fixed_rule_order_wk": 1139.4328959525462,
-      "net_rule_share": 0.5996060396873916,
-      "net_rule_order_wk": 727.250789754321,
-      "net_rule_charge_wk": 359.76362381243496
+      "net_rule_share": 0.6090510312146487,
+      "net_rule_order_wk": 1092.68140848311,
+      "net_rule_charge_wk": 365.43061872878917
     },
     {
       "kids": 1,
@@ -2191,11 +2260,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.4945969575163399,
       "dist_net_share": 0.43224511369907276,
+      "dist_net_withholding_share": 0.44616526547895147,
       "fixed_rule_share": 0.49448218700606605,
       "fixed_rule_order_wk": 702.0856294484863,
-      "net_rule_share": 0.43224511369907276,
-      "net_rule_order_wk": 405.3963172448466,
-      "net_rule_charge_wk": 259.34706821944366
+      "net_rule_share": 0.44616526547895147,
+      "net_rule_order_wk": 673.0954765322175,
+      "net_rule_charge_wk": 267.6991592873709
     },
     {
       "kids": 1,
@@ -2222,11 +2292,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.8471333333333333,
       "dist_net_share": 0.748019490349576,
+      "dist_net_withholding_share": 0.7711539733054553,
       "fixed_rule_share": 0.8460660580021482,
       "fixed_rule_order_wk": 1389.5627117243657,
-      "net_rule_share": 0.748019490349576,
-      "net_rule_order_wk": 881.9230769230769,
-      "net_rule_charge_wk": 448.8116942097456
+      "net_rule_share": 0.7711539733054553,
+      "net_rule_order_wk": 1344.61546090635,
+      "net_rule_charge_wk": 462.6923839832732
     },
     {
       "kids": 1,
@@ -2253,11 +2324,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.5356303570094093,
       "dist_net_share": 0.4599443151464798,
+      "dist_net_withholding_share": 0.48165397006187094,
       "fixed_rule_share": 0.5367632084704238,
       "fixed_rule_order_wk": 662.2483443847493,
-      "net_rule_share": 0.4599443151464798,
-      "net_rule_order_wk": 340.1904193024951,
-      "net_rule_charge_wk": 275.9665890878879
+      "net_rule_share": 0.48165397006187094,
+      "net_rule_order_wk": 629.1828013396178,
+      "net_rule_charge_wk": 288.9923820371226
     },
     {
       "kids": 2,
@@ -2284,9 +2356,10 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6832319560831133,
       "dist_net_share": 0.5413144309829363,
+      "dist_net_withholding_share": 0.5858645885475703,
       "fixed_rule_share": 0.685279407604325,
       "fixed_rule_order_wk": 834.9881086344376,
-      "net_rule_share": 0.5413144309829363,
+      "net_rule_share": 0.5858645885475703,
       "net_rule_order_wk": 834.9881086344376,
       "net_rule_charge_wk": 0.0
     },
@@ -2315,9 +2388,10 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6436808910665356,
       "dist_net_share": 0.4991385506220641,
+      "dist_net_withholding_share": 0.5503023236106359,
       "fixed_rule_share": 0.6454294305642574,
       "fixed_rule_order_wk": 656.4892232312231,
-      "net_rule_share": 0.4991385506220641,
+      "net_rule_share": 0.5503023236106359,
       "net_rule_order_wk": 656.4892232312231,
       "net_rule_charge_wk": 0.0
     },
@@ -2346,9 +2420,10 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.664056491531223,
       "dist_net_share": 0.5653757844404166,
+      "dist_net_withholding_share": 0.5801032088612028,
       "fixed_rule_share": 0.6653254142313596,
       "fixed_rule_order_wk": 848.8939927946319,
-      "net_rule_share": 0.5653757844404166,
+      "net_rule_share": 0.5801032088612028,
       "net_rule_order_wk": 848.8939927946319,
       "net_rule_charge_wk": 0.0
     },
@@ -2377,9 +2452,10 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.5506151694442177,
       "dist_net_share": 0.49789552167479595,
+      "dist_net_withholding_share": 0.5214585610809378,
       "fixed_rule_share": 0.5503092808334875,
       "fixed_rule_order_wk": 189.94165598377776,
-      "net_rule_share": 0.49789552167479595,
+      "net_rule_share": 0.5214585610809378,
       "net_rule_order_wk": 189.94165598377776,
       "net_rule_charge_wk": 0.0
     },
@@ -2408,9 +2484,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7886594666666668,
       "dist_net_share": 0.6503757255002216,
+      "dist_net_withholding_share": 0.683616825123162,
       "fixed_rule_share": 0.7870724466355906,
       "fixed_rule_order_wk": 1219.2723076923075,
-      "net_rule_share": 0.6503757255002216,
+      "net_rule_share": 0.683616825123162,
       "net_rule_order_wk": 1219.2723076923075,
       "net_rule_charge_wk": 0.0
     },
@@ -2439,9 +2516,10 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.573901045936236,
       "dist_net_share": 0.4859523473328919,
+      "dist_net_withholding_share": 0.531250005533052,
       "fixed_rule_share": 0.5741456657208951,
       "fixed_rule_order_wk": 240.83382305015658,
-      "net_rule_share": 0.4859523473328919,
+      "net_rule_share": 0.531250005533052,
       "net_rule_order_wk": 240.83382305015658,
       "net_rule_charge_wk": 0.0
     },
@@ -2470,11 +2548,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6832319560831133,
       "dist_net_share": 0.5413144309829363,
+      "dist_net_withholding_share": 0.5858645885475703,
       "fixed_rule_share": 0.685279407604325,
       "fixed_rule_order_wk": 1040.571930915735,
-      "net_rule_share": 0.5413144309829363,
-      "net_rule_order_wk": 834.9881086344376,
-      "net_rule_charge_wk": 162.3943292948809
+      "net_rule_share": 0.5858645885475703,
+      "net_rule_order_wk": 1010.7474851987087,
+      "net_rule_charge_wk": 175.7593765642711
     },
     {
       "kids": 2,
@@ -2501,11 +2580,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6436808910665356,
       "dist_net_share": 0.4991385506220641,
+      "dist_net_withholding_share": 0.5503023236106359,
       "fixed_rule_share": 0.6454294305642574,
       "fixed_rule_order_wk": 850.1180524005003,
-      "net_rule_share": 0.4991385506220641,
-      "net_rule_order_wk": 656.4892232312231,
-      "net_rule_charge_wk": 149.74156518661923
+      "net_rule_share": 0.5503023236106359,
+      "net_rule_order_wk": 821.5799203144139,
+      "net_rule_charge_wk": 165.09069708319078
     },
     {
       "kids": 2,
@@ -2532,11 +2612,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.664056491531223,
       "dist_net_share": 0.5653757844404166,
+      "dist_net_withholding_share": 0.5801032088612028,
       "fixed_rule_share": 0.6653254142313596,
       "fixed_rule_order_wk": 1048.4916170640397,
-      "net_rule_share": 0.5653757844404166,
-      "net_rule_order_wk": 848.8939927946319,
-      "net_rule_charge_wk": 169.61273533212497
+      "net_rule_share": 0.5801032088612028,
+      "net_rule_order_wk": 1022.9249554529928,
+      "net_rule_charge_wk": 174.03096265836083
     },
     {
       "kids": 2,
@@ -2563,11 +2644,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.5506151694442177,
       "dist_net_share": 0.49789552167479595,
+      "dist_net_withholding_share": 0.5214585610809378,
       "fixed_rule_share": 0.5503092808334875,
       "fixed_rule_order_wk": 355.03444023382406,
-      "net_rule_share": 0.49789552167479595,
-      "net_rule_order_wk": 189.94165598377776,
-      "net_rule_charge_wk": 149.3686565024388
+      "net_rule_share": 0.5214585610809378,
+      "net_rule_order_wk": 346.37922430805907,
+      "net_rule_charge_wk": 156.43756832428133
     },
     {
       "kids": 2,
@@ -2594,11 +2676,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7886594666666668,
       "dist_net_share": 0.6503757255002216,
+      "dist_net_withholding_share": 0.683616825123162,
       "fixed_rule_share": 0.7870724466355906,
       "fixed_rule_order_wk": 1455.3940416829846,
-      "net_rule_share": 0.6503757255002216,
-      "net_rule_order_wk": 1219.2723076923075,
-      "net_rule_charge_wk": 195.1127176500665
+      "net_rule_share": 0.683616825123162,
+      "net_rule_order_wk": 1424.3573552292562,
+      "net_rule_charge_wk": 205.0850475369486
     },
     {
       "kids": 2,
@@ -2625,11 +2708,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.573901045936236,
       "dist_net_share": 0.4859523473328919,
+      "dist_net_withholding_share": 0.531250005533052,
       "fixed_rule_share": 0.5741456657208951,
       "fixed_rule_order_wk": 413.0775227664251,
-      "net_rule_share": 0.4859523473328919,
-      "net_rule_order_wk": 240.83382305015658,
-      "net_rule_charge_wk": 145.78570419986755
+      "net_rule_share": 0.531250005533052,
+      "net_rule_order_wk": 400.2088247100722,
+      "net_rule_charge_wk": 159.3750016599156
     },
     {
       "kids": 2,
@@ -2656,11 +2740,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6832319560831133,
       "dist_net_share": 0.5413144309829363,
+      "dist_net_withholding_share": 0.5858645885475703,
       "fixed_rule_share": 0.685279407604325,
       "fixed_rule_order_wk": 1246.1557531970325,
-      "net_rule_share": 0.5413144309829363,
-      "net_rule_order_wk": 834.9881086344376,
-      "net_rule_charge_wk": 324.7886585897618
+      "net_rule_share": 0.5858645885475703,
+      "net_rule_order_wk": 1186.5068617629797,
+      "net_rule_charge_wk": 351.5187531285422
     },
     {
       "kids": 2,
@@ -2687,11 +2772,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6436808910665356,
       "dist_net_share": 0.4991385506220641,
+      "dist_net_withholding_share": 0.5503023236106359,
       "fixed_rule_share": 0.6454294305642574,
       "fixed_rule_order_wk": 1043.7468815697775,
-      "net_rule_share": 0.4991385506220641,
-      "net_rule_order_wk": 656.4892232312231,
-      "net_rule_charge_wk": 299.48313037323845
+      "net_rule_share": 0.5503023236106359,
+      "net_rule_order_wk": 986.6706173976047,
+      "net_rule_charge_wk": 330.18139416638155
     },
     {
       "kids": 2,
@@ -2718,11 +2804,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.664056491531223,
       "dist_net_share": 0.5653757844404166,
+      "dist_net_withholding_share": 0.5801032088612028,
       "fixed_rule_share": 0.6653254142313596,
       "fixed_rule_order_wk": 1248.0892413334477,
-      "net_rule_share": 0.5653757844404166,
-      "net_rule_order_wk": 848.8939927946319,
-      "net_rule_charge_wk": 339.22547066424994
+      "net_rule_share": 0.5801032088612028,
+      "net_rule_order_wk": 1196.9559181113536,
+      "net_rule_charge_wk": 348.06192531672167
     },
     {
       "kids": 2,
@@ -2749,11 +2836,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.5506151694442177,
       "dist_net_share": 0.49789552167479595,
+      "dist_net_withholding_share": 0.5214585610809378,
       "fixed_rule_share": 0.5503092808334875,
       "fixed_rule_order_wk": 520.1272244838704,
-      "net_rule_share": 0.49789552167479595,
-      "net_rule_order_wk": 189.94165598377776,
-      "net_rule_charge_wk": 298.7373130048776
+      "net_rule_share": 0.5214585610809378,
+      "net_rule_order_wk": 502.8167926323404,
+      "net_rule_charge_wk": 312.87513664856266
     },
     {
       "kids": 2,
@@ -2780,11 +2868,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7886594666666668,
       "dist_net_share": 0.6503757255002216,
+      "dist_net_withholding_share": 0.683616825123162,
       "fixed_rule_share": 0.7870724466355906,
       "fixed_rule_order_wk": 1691.515775673662,
-      "net_rule_share": 0.6503757255002216,
-      "net_rule_order_wk": 1219.2723076923075,
-      "net_rule_charge_wk": 390.225435300133
+      "net_rule_share": 0.683616825123162,
+      "net_rule_order_wk": 1629.4424027662049,
+      "net_rule_charge_wk": 410.1700950738972
     },
     {
       "kids": 2,
@@ -2811,11 +2900,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.573901045936236,
       "dist_net_share": 0.4859523473328919,
+      "dist_net_withholding_share": 0.531250005533052,
       "fixed_rule_share": 0.5741456657208951,
       "fixed_rule_order_wk": 585.3212224826937,
-      "net_rule_share": 0.4859523473328919,
-      "net_rule_order_wk": 240.83382305015658,
-      "net_rule_charge_wk": 291.5714083997351
+      "net_rule_share": 0.531250005533052,
+      "net_rule_order_wk": 559.5838263699877,
+      "net_rule_charge_wk": 318.7500033198312
     },
     {
       "kids": 2,
@@ -2842,9 +2932,10 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.682741523198564,
       "dist_net_share": 0.5406793586644427,
+      "dist_net_withholding_share": 0.5851772498008522,
       "fixed_rule_share": 0.6860981318903073,
       "fixed_rule_order_wk": 837.1633671054462,
-      "net_rule_share": 0.5406793586644427,
+      "net_rule_share": 0.5851772498008522,
       "net_rule_order_wk": 837.1633671054462,
       "net_rule_charge_wk": 0.0
     },
@@ -2873,9 +2964,10 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6429861426596959,
       "dist_net_share": 0.49827608609810564,
+      "dist_net_withholding_share": 0.5493514528935283,
       "fixed_rule_share": 0.6463688903477324,
       "fixed_rule_order_wk": 658.8941215625911,
-      "net_rule_share": 0.49827608609810564,
+      "net_rule_share": 0.5493514528935283,
       "net_rule_order_wk": 658.8941215625911,
       "net_rule_charge_wk": 0.0
     },
@@ -2904,9 +2996,10 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6636703910730829,
       "dist_net_share": 0.5648419351691125,
+      "dist_net_withholding_share": 0.5795554533968647,
       "fixed_rule_share": 0.6658966166382937,
       "fixed_rule_order_wk": 851.1957455258519,
-      "net_rule_share": 0.5648419351691125,
+      "net_rule_share": 0.5795554533968647,
       "net_rule_order_wk": 851.1957455258519,
       "net_rule_charge_wk": 0.0
     },
@@ -2935,9 +3028,10 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.5499442810457517,
       "dist_net_share": 0.4970345363198003,
+      "dist_net_withholding_share": 0.5205568293625694,
       "fixed_rule_share": 0.551005188976462,
       "fixed_rule_order_wk": 192.5219959778783,
-      "net_rule_share": 0.4970345363198003,
+      "net_rule_share": 0.5205568293625694,
       "net_rule_order_wk": 192.5219959778783,
       "net_rule_charge_wk": 0.0
     },
@@ -2966,9 +3060,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7885866666666667,
       "dist_net_share": 0.6502720410711874,
+      "dist_net_withholding_share": 0.6835078413197819,
       "fixed_rule_share": 0.7871106337271752,
       "fixed_rule_order_wk": 1219.6923076923076,
-      "net_rule_share": 0.6502720410711874,
+      "net_rule_share": 0.6835078413197819,
       "net_rule_order_wk": 1219.6923076923076,
       "net_rule_charge_wk": 0.0
     },
@@ -2997,9 +3092,10 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.5727712218485682,
       "dist_net_share": 0.48461302149252783,
+      "dist_net_withholding_share": 0.5297858355089559,
       "fixed_rule_share": 0.5750849506997608,
       "fixed_rule_order_wk": 243.76702020083246,
-      "net_rule_share": 0.48461302149252783,
+      "net_rule_share": 0.5297858355089559,
       "net_rule_order_wk": 243.76702020083246,
       "net_rule_charge_wk": 0.0
     },
@@ -3028,11 +3124,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.682741523198564,
       "dist_net_share": 0.5406793586644427,
+      "dist_net_withholding_share": 0.5851772498008522,
       "fixed_rule_share": 0.6860981318903073,
       "fixed_rule_order_wk": 1042.9928066725383,
-      "net_rule_share": 0.5406793586644427,
-      "net_rule_order_wk": 837.1633671054462,
-      "net_rule_charge_wk": 162.2038075993328
+      "net_rule_share": 0.5851772498008522,
+      "net_rule_order_wk": 1012.7165420457019,
+      "net_rule_charge_wk": 175.55317494025564
     },
     {
       "kids": 2,
@@ -3059,11 +3156,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6429861426596959,
       "dist_net_share": 0.49827608609810564,
+      "dist_net_withholding_share": 0.5493514528935283,
       "fixed_rule_share": 0.6463688903477324,
       "fixed_rule_order_wk": 852.8047886669108,
-      "net_rule_share": 0.49827608609810564,
-      "net_rule_order_wk": 658.8941215625911,
-      "net_rule_charge_wk": 149.4828258294317
+      "net_rule_share": 0.5493514528935283,
+      "net_rule_order_wk": 823.6995574306495,
+      "net_rule_charge_wk": 164.80543586805848
     },
     {
       "kids": 2,
@@ -3090,11 +3188,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6636703910730829,
       "dist_net_share": 0.5648419351691125,
+      "dist_net_withholding_share": 0.5795554533968647,
       "fixed_rule_share": 0.6658966166382937,
       "fixed_rule_order_wk": 1050.96473051734,
-      "net_rule_share": 0.5648419351691125,
-      "net_rule_order_wk": 851.1957455258519,
-      "net_rule_charge_wk": 169.45258055073376
+      "net_rule_share": 0.5795554533968647,
+      "net_rule_order_wk": 1025.0623815449112,
+      "net_rule_charge_wk": 173.8666360190594
     },
     {
       "kids": 2,
@@ -3121,11 +3220,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.5499442810457517,
       "dist_net_share": 0.4970345363198003,
+      "dist_net_withholding_share": 0.5205568293625694,
       "fixed_rule_share": 0.551005188976462,
       "fixed_rule_order_wk": 357.82355267081687,
-      "net_rule_share": 0.4970345363198003,
-      "net_rule_order_wk": 192.5219959778783,
-      "net_rule_charge_wk": 149.1103608959401
+      "net_rule_share": 0.5205568293625694,
+      "net_rule_order_wk": 348.6890447866491,
+      "net_rule_charge_wk": 156.16704880877083
     },
     {
       "kids": 2,
@@ -3152,11 +3252,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7885866666666667,
       "dist_net_share": 0.6502720410711874,
+      "dist_net_withholding_share": 0.6835078413197819,
       "fixed_rule_share": 0.7871106337271752,
       "fixed_rule_order_wk": 1455.82549781046,
-      "net_rule_share": 0.6502720410711874,
-      "net_rule_order_wk": 1219.6923076923076,
-      "net_rule_charge_wk": 195.08161232135623
+      "net_rule_share": 0.6835078413197819,
+      "net_rule_order_wk": 1424.7446600882422,
+      "net_rule_charge_wk": 205.05235239593458
     },
     {
       "kids": 2,
@@ -3183,11 +3284,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.5727712218485682,
       "dist_net_share": 0.48461302149252783,
+      "dist_net_withholding_share": 0.5297858355089559,
       "fixed_rule_share": 0.5750849506997608,
       "fixed_rule_order_wk": 416.2925054107607,
-      "net_rule_share": 0.48461302149252783,
-      "net_rule_order_wk": 243.76702020083246,
-      "net_rule_charge_wk": 145.38390644775833
+      "net_rule_share": 0.5297858355089559,
+      "net_rule_order_wk": 402.7027708535192,
+      "net_rule_charge_wk": 158.93575065268675
     },
     {
       "kids": 2,
@@ -3214,11 +3316,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.682741523198564,
       "dist_net_share": 0.5406793586644427,
+      "dist_net_withholding_share": 0.5851772498008522,
       "fixed_rule_share": 0.6860981318903073,
       "fixed_rule_order_wk": 1248.8222462396307,
-      "net_rule_share": 0.5406793586644427,
-      "net_rule_order_wk": 837.1633671054462,
-      "net_rule_charge_wk": 324.4076151986656
+      "net_rule_share": 0.5851772498008522,
+      "net_rule_order_wk": 1188.2697169859575,
+      "net_rule_charge_wk": 351.1063498805113
     },
     {
       "kids": 2,
@@ -3245,11 +3348,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6429861426596959,
       "dist_net_share": 0.49827608609810564,
+      "dist_net_withholding_share": 0.5493514528935283,
       "fixed_rule_share": 0.6463688903477324,
       "fixed_rule_order_wk": 1046.7154557712306,
-      "net_rule_share": 0.49827608609810564,
-      "net_rule_order_wk": 658.8941215625911,
-      "net_rule_charge_wk": 298.9656516588634
+      "net_rule_share": 0.5493514528935283,
+      "net_rule_order_wk": 988.5049932987081,
+      "net_rule_charge_wk": 329.61087173611696
     },
     {
       "kids": 2,
@@ -3276,11 +3380,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6636703910730829,
       "dist_net_share": 0.5648419351691125,
+      "dist_net_withholding_share": 0.5795554533968647,
       "fixed_rule_share": 0.6658966166382937,
       "fixed_rule_order_wk": 1250.733715508828,
-      "net_rule_share": 0.5648419351691125,
-      "net_rule_order_wk": 851.1957455258519,
-      "net_rule_charge_wk": 338.9051611014675
+      "net_rule_share": 0.5795554533968647,
+      "net_rule_order_wk": 1198.9290175639708,
+      "net_rule_charge_wk": 347.7332720381188
     },
     {
       "kids": 2,
@@ -3307,11 +3412,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.5499442810457517,
       "dist_net_share": 0.4970345363198003,
+      "dist_net_withholding_share": 0.5205568293625694,
       "fixed_rule_share": 0.551005188976462,
       "fixed_rule_order_wk": 523.1251093637554,
-      "net_rule_share": 0.4970345363198003,
-      "net_rule_order_wk": 192.5219959778783,
-      "net_rule_charge_wk": 298.2207217918802
+      "net_rule_share": 0.5205568293625694,
+      "net_rule_order_wk": 504.85609359541996,
+      "net_rule_charge_wk": 312.33409761754166
     },
     {
       "kids": 2,
@@ -3338,11 +3444,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7885866666666667,
       "dist_net_share": 0.6502720410711874,
+      "dist_net_withholding_share": 0.6835078413197819,
       "fixed_rule_share": 0.7871106337271752,
       "fixed_rule_order_wk": 1691.9586879286128,
-      "net_rule_share": 0.6502720410711874,
-      "net_rule_order_wk": 1219.6923076923076,
-      "net_rule_charge_wk": 390.16322464271246
+      "net_rule_share": 0.6835078413197819,
+      "net_rule_order_wk": 1629.7970124841768,
+      "net_rule_charge_wk": 410.10470479186915
     },
     {
       "kids": 2,
@@ -3369,11 +3476,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.5727712218485682,
       "dist_net_share": 0.48461302149252783,
+      "dist_net_withholding_share": 0.5297858355089559,
       "fixed_rule_share": 0.5750849506997608,
       "fixed_rule_order_wk": 588.817990620689,
-      "net_rule_share": 0.48461302149252783,
-      "net_rule_order_wk": 243.76702020083246,
-      "net_rule_charge_wk": 290.76781289551667
+      "net_rule_share": 0.5297858355089559,
+      "net_rule_order_wk": 561.638521506206,
+      "net_rule_charge_wk": 317.8715013053735
     },
     {
       "kids": 2,
@@ -3400,9 +3508,10 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6670905962820075,
       "dist_net_share": 0.520412629502091,
+      "dist_net_withholding_share": 0.5632425695811768,
       "fixed_rule_share": 0.6688566449326044,
       "fixed_rule_order_wk": 906.5812475676496,
-      "net_rule_share": 0.520412629502091,
+      "net_rule_share": 0.5632425695811768,
       "net_rule_order_wk": 906.5812475676496,
       "net_rule_charge_wk": 0.0
     },
@@ -3431,9 +3540,10 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6201569753541963,
       "dist_net_share": 0.46993583123941257,
+      "dist_net_withholding_share": 0.5181062042926743,
       "fixed_rule_share": 0.6213774400376905,
       "fixed_rule_order_wk": 737.9181622354743,
-      "net_rule_share": 0.46993583123941257,
+      "net_rule_share": 0.5181062042926743,
       "net_rule_order_wk": 737.9181622354743,
       "net_rule_charge_wk": 0.0
     },
@@ -3462,9 +3572,10 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6358123934714859,
       "dist_net_share": 0.5263235356022222,
+      "dist_net_withholding_share": 0.5400336914044108,
       "fixed_rule_share": 0.6367165999325617,
       "fixed_rule_order_wk": 1017.272269689219,
-      "net_rule_share": 0.5263235356022222,
+      "net_rule_share": 0.5400336914044108,
       "net_rule_order_wk": 1017.272269689219,
       "net_rule_charge_wk": 0.0
     },
@@ -3493,9 +3604,10 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.45269110472210894,
       "dist_net_share": 0.3722245668332143,
+      "dist_net_withholding_share": 0.3898401945189636,
       "fixed_rule_share": 0.45041123063954636,
       "fixed_rule_order_wk": 566.5726741457349,
-      "net_rule_share": 0.3722245668332143,
+      "net_rule_share": 0.3898401945189636,
       "net_rule_order_wk": 566.5726741457349,
       "net_rule_charge_wk": 0.0
     },
@@ -3524,9 +3636,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7860594666666667,
       "dist_net_share": 0.6466727101775716,
+      "dist_net_withholding_share": 0.6797245464310177,
       "fixed_rule_share": 0.7844529224486506,
       "fixed_rule_order_wk": 1234.2723076923075,
-      "net_rule_share": 0.6466727101775716,
+      "net_rule_share": 0.6797245464310177,
       "net_rule_order_wk": 1234.2723076923075,
       "net_rule_charge_wk": 0.0
     },
@@ -3555,9 +3668,10 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.48362975259774765,
       "dist_net_share": 0.37894217014602505,
+      "dist_net_withholding_share": 0.41426496052889134,
       "fixed_rule_share": 0.48115207100219715,
       "fixed_rule_order_wk": 475.1919884481552,
-      "net_rule_share": 0.37894217014602505,
+      "net_rule_share": 0.41426496052889134,
       "net_rule_order_wk": 475.1919884481552,
       "net_rule_charge_wk": 0.0
     },
@@ -3586,11 +3700,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6670905962820075,
       "dist_net_share": 0.520412629502091,
+      "dist_net_withholding_share": 0.5632425695811768,
       "fixed_rule_share": 0.6688566449326044,
       "fixed_rule_order_wk": 1107.2382410474308,
-      "net_rule_share": 0.520412629502091,
-      "net_rule_order_wk": 906.5812475676496,
-      "net_rule_charge_wk": 156.1237888506273
+      "net_rule_share": 0.5632425695811768,
+      "net_rule_order_wk": 1075.5540184420026,
+      "net_rule_charge_wk": 168.97277087435305
     },
     {
       "kids": 2,
@@ -3617,11 +3732,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6201569753541963,
       "dist_net_share": 0.46993583123941257,
+      "dist_net_withholding_share": 0.5181062042926743,
       "fixed_rule_share": 0.6213774400376905,
       "fixed_rule_order_wk": 924.3313942467814,
-      "net_rule_share": 0.46993583123941257,
-      "net_rule_order_wk": 737.9181622354743,
-      "net_rule_charge_wk": 140.98074937182378
+      "net_rule_share": 0.5181062042926743,
+      "net_rule_order_wk": 893.3500235232766,
+      "net_rule_charge_wk": 155.4318612878023
     },
     {
       "kids": 2,
@@ -3648,11 +3764,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6358123934714859,
       "dist_net_share": 0.5263235356022222,
+      "dist_net_withholding_share": 0.5400336914044108,
       "fixed_rule_share": 0.6367165999325617,
       "fixed_rule_order_wk": 1208.2872496689874,
-      "net_rule_share": 0.5263235356022222,
-      "net_rule_order_wk": 1017.272269689219,
-      "net_rule_charge_wk": 157.89706068066667
+      "net_rule_share": 0.5400336914044108,
+      "net_rule_order_wk": 1179.2823771105423,
+      "net_rule_charge_wk": 162.01010742132326
     },
     {
       "kids": 2,
@@ -3679,11 +3796,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.45269110472210894,
       "dist_net_share": 0.3722245668332143,
+      "dist_net_withholding_share": 0.3898401945189636,
       "fixed_rule_share": 0.45041123063954636,
       "fixed_rule_order_wk": 701.6960433375989,
-      "net_rule_share": 0.3722245668332143,
-      "net_rule_order_wk": 566.5726741457349,
-      "net_rule_charge_wk": 111.66737004996429
+      "net_rule_share": 0.3898401945189636,
+      "net_rule_order_wk": 683.5247325014241,
+      "net_rule_charge_wk": 116.95205835568909
     },
     {
       "kids": 2,
@@ -3710,11 +3828,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7860594666666667,
       "dist_net_share": 0.6466727101775716,
+      "dist_net_withholding_share": 0.6797245464310177,
       "fixed_rule_share": 0.7844529224486506,
       "fixed_rule_order_wk": 1469.6081844269027,
-      "net_rule_share": 0.6466727101775716,
-      "net_rule_order_wk": 1234.2723076923075,
-      "net_rule_charge_wk": 194.00181305327146
+      "net_rule_share": 0.6797245464310177,
+      "net_rule_order_wk": 1438.189671621613,
+      "net_rule_charge_wk": 203.91736392930528
     },
     {
       "kids": 2,
@@ -3741,11 +3860,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.48362975259774765,
       "dist_net_share": 0.37894217014602505,
+      "dist_net_withholding_share": 0.41426496052889134,
       "fixed_rule_share": 0.48115207100219715,
       "fixed_rule_order_wk": 619.5376097488144,
-      "net_rule_share": 0.37894217014602505,
-      "net_rule_order_wk": 475.1919884481552,
-      "net_rule_charge_wk": 113.68265104380751
+      "net_rule_share": 0.41426496052889134,
+      "net_rule_order_wk": 599.4714766068226,
+      "net_rule_charge_wk": 124.2794881586674
     },
     {
       "kids": 2,
@@ -3772,11 +3892,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6670905962820075,
       "dist_net_share": 0.520412629502091,
+      "dist_net_withholding_share": 0.5632425695811768,
       "fixed_rule_share": 0.6688566449326044,
       "fixed_rule_order_wk": 1307.8952345272123,
-      "net_rule_share": 0.520412629502091,
-      "net_rule_order_wk": 906.5812475676496,
-      "net_rule_charge_wk": 312.2475777012546
+      "net_rule_share": 0.5632425695811768,
+      "net_rule_order_wk": 1244.5267893163557,
+      "net_rule_charge_wk": 337.9455417487061
     },
     {
       "kids": 2,
@@ -3803,11 +3924,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6201569753541963,
       "dist_net_share": 0.46993583123941257,
+      "dist_net_withholding_share": 0.5181062042926743,
       "fixed_rule_share": 0.6213774400376905,
       "fixed_rule_order_wk": 1110.7446262580886,
-      "net_rule_share": 0.46993583123941257,
-      "net_rule_order_wk": 737.9181622354743,
-      "net_rule_charge_wk": 281.96149874364755
+      "net_rule_share": 0.5181062042926743,
+      "net_rule_order_wk": 1048.7818848110787,
+      "net_rule_charge_wk": 310.8637225756046
     },
     {
       "kids": 2,
@@ -3834,11 +3956,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6358123934714859,
       "dist_net_share": 0.5263235356022222,
+      "dist_net_withholding_share": 0.5400336914044108,
       "fixed_rule_share": 0.6367165999325617,
       "fixed_rule_order_wk": 1399.302229648756,
-      "net_rule_share": 0.5263235356022222,
-      "net_rule_order_wk": 1017.272269689219,
-      "net_rule_charge_wk": 315.79412136133334
+      "net_rule_share": 0.5400336914044108,
+      "net_rule_order_wk": 1341.2924845318655,
+      "net_rule_charge_wk": 324.0202148426465
     },
     {
       "kids": 2,
@@ -3865,11 +3988,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.45269110472210894,
       "dist_net_share": 0.3722245668332143,
+      "dist_net_withholding_share": 0.3898401945189636,
       "fixed_rule_share": 0.45041123063954636,
       "fixed_rule_order_wk": 836.8194125294627,
-      "net_rule_share": 0.3722245668332143,
-      "net_rule_order_wk": 566.5726741457349,
-      "net_rule_charge_wk": 223.33474009992858
+      "net_rule_share": 0.3898401945189636,
+      "net_rule_order_wk": 800.4767908571131,
+      "net_rule_charge_wk": 233.90411671137818
     },
     {
       "kids": 2,
@@ -3896,11 +4020,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7860594666666667,
       "dist_net_share": 0.6466727101775716,
+      "dist_net_withholding_share": 0.6797245464310177,
       "fixed_rule_share": 0.7844529224486506,
       "fixed_rule_order_wk": 1704.944061161498,
-      "net_rule_share": 0.6466727101775716,
-      "net_rule_order_wk": 1234.2723076923075,
-      "net_rule_charge_wk": 388.0036261065429
+      "net_rule_share": 0.6797245464310177,
+      "net_rule_order_wk": 1642.1070355509182,
+      "net_rule_charge_wk": 407.83472785861056
     },
     {
       "kids": 2,
@@ -3927,11 +4052,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.48362975259774765,
       "dist_net_share": 0.37894217014602505,
+      "dist_net_withholding_share": 0.41426496052889134,
       "fixed_rule_share": 0.48115207100219715,
       "fixed_rule_order_wk": 763.8832310494735,
-      "net_rule_share": 0.37894217014602505,
-      "net_rule_order_wk": 475.1919884481552,
-      "net_rule_charge_wk": 227.36530208761502
+      "net_rule_share": 0.41426496052889134,
+      "net_rule_order_wk": 723.75096476549,
+      "net_rule_charge_wk": 248.5589763173348
     },
     {
       "kids": 2,
@@ -3958,9 +4084,10 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6668642908838558,
       "dist_net_share": 0.5201195816694116,
+      "dist_net_withholding_share": 0.5629254039227521,
       "fixed_rule_share": 0.6699292654956397,
       "fixed_rule_order_wk": 907.5849990489904,
-      "net_rule_share": 0.5201195816694116,
+      "net_rule_share": 0.5629254039227521,
       "net_rule_order_wk": 907.5849990489904,
       "net_rule_charge_wk": 0.0
     },
@@ -3989,9 +4116,10 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6198700127388534,
       "dist_net_share": 0.4695795942577959,
+      "dist_net_withholding_share": 0.5177134515419692,
       "fixed_rule_share": 0.6227058820120202,
       "fixed_rule_order_wk": 738.9114943655072,
-      "net_rule_share": 0.4695795942577959,
+      "net_rule_share": 0.5177134515419692,
       "net_rule_order_wk": 738.9114943655072,
       "net_rule_charge_wk": 0.0
     },
@@ -4020,9 +4148,10 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6356649758254369,
       "dist_net_share": 0.526119705740689,
+      "dist_net_withholding_share": 0.53982455199662,
       "fixed_rule_share": 0.6375102749996254,
       "fixed_rule_order_wk": 1018.1511056560493,
-      "net_rule_share": 0.526119705740689,
+      "net_rule_share": 0.53982455199662,
       "net_rule_order_wk": 1018.1511056560493,
       "net_rule_charge_wk": 0.0
     },
@@ -4051,9 +4180,10 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.4524357405228759,
       "dist_net_share": 0.37189684491071195,
+      "dist_net_withholding_share": 0.38949696306838155,
       "fixed_rule_share": 0.4514253886058781,
       "fixed_rule_order_wk": 567.5548441427852,
-      "net_rule_share": 0.37189684491071195,
+      "net_rule_share": 0.38949696306838155,
       "net_rule_order_wk": 567.5548441427852,
       "net_rule_charge_wk": 0.0
     },
@@ -4082,9 +4212,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7859866666666666,
       "dist_net_share": 0.6465690257485373,
+      "dist_net_withholding_share": 0.6796155626276374,
       "fixed_rule_share": 0.7844924812030075,
       "fixed_rule_order_wk": 1234.6923076923076,
-      "net_rule_share": 0.6465690257485373,
+      "net_rule_share": 0.6796155626276374,
       "net_rule_order_wk": 1234.6923076923076,
       "net_rule_charge_wk": 0.0
     },
@@ -4113,9 +4244,10 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.48321583314650635,
       "dist_net_share": 0.37845149817069024,
+      "dist_net_withholding_share": 0.4137285509590185,
       "fixed_rule_share": 0.48268218797598866,
       "fixed_rule_order_wk": 476.2665870234931,
-      "net_rule_share": 0.37845149817069024,
+      "net_rule_share": 0.4137285509590185,
       "net_rule_order_wk": 476.2665870234931,
       "net_rule_charge_wk": 0.0
     },
@@ -4144,11 +4276,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6668642908838558,
       "dist_net_share": 0.5201195816694116,
+      "dist_net_withholding_share": 0.5629254039227521,
       "fixed_rule_share": 0.6699292654956397,
       "fixed_rule_order_wk": 1108.5637786976822,
-      "net_rule_share": 0.5201195816694116,
-      "net_rule_order_wk": 907.5849990489904,
-      "net_rule_charge_wk": 156.0358745008235
+      "net_rule_share": 0.5629254039227521,
+      "net_rule_order_wk": 1076.462620225816,
+      "net_rule_charge_wk": 168.87762117682564
     },
     {
       "kids": 2,
@@ -4175,11 +4308,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6198700127388534,
       "dist_net_share": 0.4695795942577959,
+      "dist_net_withholding_share": 0.5177134515419692,
       "fixed_rule_share": 0.6227058820120202,
       "fixed_rule_order_wk": 925.7232589691132,
-      "net_rule_share": 0.4695795942577959,
-      "net_rule_order_wk": 738.9114943655072,
-      "net_rule_charge_wk": 140.87387827733878
+      "net_rule_share": 0.5177134515419692,
+      "net_rule_order_wk": 894.2255298280979,
+      "net_rule_charge_wk": 155.31403546259077
     },
     {
       "kids": 2,
@@ -4206,11 +4340,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6356649758254369,
       "dist_net_share": 0.526119705740689,
+      "dist_net_withholding_share": 0.53982455199662,
       "fixed_rule_share": 0.6375102749996254,
       "fixed_rule_order_wk": 1209.404188155937,
-      "net_rule_share": 0.526119705740689,
-      "net_rule_order_wk": 1018.1511056560493,
-      "net_rule_charge_wk": 157.8359117222067
+      "net_rule_share": 0.53982455199662,
+      "net_rule_order_wk": 1180.0984712550353,
+      "net_rule_charge_wk": 161.947365598986
     },
     {
       "kids": 2,
@@ -4237,11 +4372,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.4524357405228759,
       "dist_net_share": 0.37189684491071195,
+      "dist_net_withholding_share": 0.38949696306838155,
       "fixed_rule_share": 0.4514253886058781,
       "fixed_rule_order_wk": 702.9824607245487,
-      "net_rule_share": 0.37189684491071195,
-      "net_rule_order_wk": 567.5548441427852,
-      "net_rule_charge_wk": 111.56905347321359
+      "net_rule_share": 0.38949696306838155,
+      "net_rule_order_wk": 684.4039330632996,
+      "net_rule_charge_wk": 116.84908892051446
     },
     {
       "kids": 2,
@@ -4268,11 +4404,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7859866666666666,
       "dist_net_share": 0.6465690257485373,
+      "dist_net_withholding_share": 0.6796155626276374,
       "fixed_rule_share": 0.7844924812030075,
       "fixed_rule_order_wk": 1470.0400520532098,
-      "net_rule_share": 0.6465690257485373,
-      "net_rule_order_wk": 1234.6923076923076,
-      "net_rule_charge_wk": 193.97070772456118
+      "net_rule_share": 0.6796155626276374,
+      "net_rule_order_wk": 1438.576976480599,
+      "net_rule_charge_wk": 203.88466878829124
     },
     {
       "kids": 2,
@@ -4299,11 +4436,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.48321583314650635,
       "dist_net_share": 0.37845149817069024,
+      "dist_net_withholding_share": 0.4137285509590185,
       "fixed_rule_share": 0.48268218797598866,
       "fixed_rule_order_wk": 621.0712434162897,
-      "net_rule_share": 0.37845149817069024,
-      "net_rule_order_wk": 476.2665870234931,
-      "net_rule_charge_wk": 113.53544945120707
+      "net_rule_share": 0.4137285509590185,
+      "net_rule_order_wk": 600.3851523111987,
+      "net_rule_charge_wk": 124.11856528770555
     },
     {
       "kids": 2,
@@ -4330,11 +4468,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6668642908838558,
       "dist_net_share": 0.5201195816694116,
+      "dist_net_withholding_share": 0.5629254039227521,
       "fixed_rule_share": 0.6699292654956397,
       "fixed_rule_order_wk": 1309.5425583463743,
-      "net_rule_share": 0.5201195816694116,
-      "net_rule_order_wk": 907.5849990489904,
-      "net_rule_charge_wk": 312.071749001647
+      "net_rule_share": 0.5629254039227521,
+      "net_rule_order_wk": 1245.3402414026418,
+      "net_rule_charge_wk": 337.7552423536513
     },
     {
       "kids": 2,
@@ -4361,11 +4500,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6198700127388534,
       "dist_net_share": 0.4695795942577959,
+      "dist_net_withholding_share": 0.5177134515419692,
       "fixed_rule_share": 0.6227058820120202,
       "fixed_rule_order_wk": 1112.5350235727192,
-      "net_rule_share": 0.4695795942577959,
-      "net_rule_order_wk": 738.9114943655072,
-      "net_rule_charge_wk": 281.74775655467755
+      "net_rule_share": 0.5177134515419692,
+      "net_rule_order_wk": 1049.5395652906886,
+      "net_rule_charge_wk": 310.62807092518153
     },
     {
       "kids": 2,
@@ -4392,11 +4532,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6356649758254369,
       "dist_net_share": 0.526119705740689,
+      "dist_net_withholding_share": 0.53982455199662,
       "fixed_rule_share": 0.6375102749996254,
       "fixed_rule_order_wk": 1400.6572706558245,
-      "net_rule_share": 0.526119705740689,
-      "net_rule_order_wk": 1018.1511056560493,
-      "net_rule_charge_wk": 315.6718234444134
+      "net_rule_share": 0.53982455199662,
+      "net_rule_order_wk": 1342.0458368540212,
+      "net_rule_charge_wk": 323.894731197972
     },
     {
       "kids": 2,
@@ -4423,11 +4564,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.4524357405228759,
       "dist_net_share": 0.37189684491071195,
+      "dist_net_withholding_share": 0.38949696306838155,
       "fixed_rule_share": 0.4514253886058781,
       "fixed_rule_order_wk": 838.4100773063121,
-      "net_rule_share": 0.37189684491071195,
-      "net_rule_order_wk": 567.5548441427852,
-      "net_rule_charge_wk": 223.13810694642717
+      "net_rule_share": 0.38949696306838155,
+      "net_rule_order_wk": 801.2530219838142,
+      "net_rule_charge_wk": 233.69817784102892
     },
     {
       "kids": 2,
@@ -4454,11 +4596,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7859866666666666,
       "dist_net_share": 0.6465690257485373,
+      "dist_net_withholding_share": 0.6796155626276374,
       "fixed_rule_share": 0.7844924812030075,
       "fixed_rule_order_wk": 1705.387796414112,
-      "net_rule_share": 0.6465690257485373,
-      "net_rule_order_wk": 1234.6923076923076,
-      "net_rule_charge_wk": 387.94141544912236
+      "net_rule_share": 0.6796155626276374,
+      "net_rule_order_wk": 1642.4616452688902,
+      "net_rule_charge_wk": 407.7693375765825
     },
     {
       "kids": 2,
@@ -4485,11 +4628,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.48321583314650635,
       "dist_net_share": 0.37845149817069024,
+      "dist_net_withholding_share": 0.4137285509590185,
       "fixed_rule_share": 0.48268218797598866,
       "fixed_rule_order_wk": 765.8758998090864,
-      "net_rule_share": 0.37845149817069024,
-      "net_rule_order_wk": 476.2665870234931,
-      "net_rule_charge_wk": 227.07089890241414
+      "net_rule_share": 0.4137285509590185,
+      "net_rule_order_wk": 724.5037175989042,
+      "net_rule_charge_wk": 248.2371305754111
     },
     {
       "kids": 3,
@@ -4516,9 +4660,10 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6431593046358441,
       "dist_net_share": 0.4839833869380114,
+      "dist_net_withholding_share": 0.5297030078478019,
       "fixed_rule_share": 0.6445081434447836,
       "fixed_rule_order_wk": 1012.7257303613252,
-      "net_rule_share": 0.4839833869380114,
+      "net_rule_share": 0.5297030078478019,
       "net_rule_order_wk": 1012.7257303613252,
       "net_rule_charge_wk": 0.0
     },
@@ -4547,9 +4692,10 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6026077359465093,
       "dist_net_share": 0.4418843255157172,
+      "dist_net_withholding_share": 0.4940873541650572,
       "fixed_rule_share": 0.6034342478776905,
       "fixed_rule_order_wk": 798.6655294159294,
-      "net_rule_share": 0.4418843255157172,
+      "net_rule_share": 0.4940873541650572,
       "net_rule_order_wk": 798.6655294159294,
       "net_rule_charge_wk": 0.0
     },
@@ -4578,9 +4724,10 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6318172091923063,
       "dist_net_share": 0.5136361283976321,
+      "dist_net_withholding_share": 0.5343657778502552,
       "fixed_rule_share": 0.6326698258103793,
       "fixed_rule_order_wk": 1041.0897144304813,
-      "net_rule_share": 0.5136361283976321,
+      "net_rule_share": 0.5343657778502552,
       "net_rule_order_wk": 1041.0897144304813,
       "net_rule_charge_wk": 0.0
     },
@@ -4609,9 +4756,10 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.5407382033330613,
       "dist_net_share": 0.4783141504099655,
+      "dist_net_withholding_share": 0.5081830689960501,
       "fixed_rule_share": 0.5402332115941619,
       "fixed_rule_order_wk": 227.92998718053343,
-      "net_rule_share": 0.4783141504099655,
+      "net_rule_share": 0.5081830689960501,
       "net_rule_order_wk": 227.92998718053343,
       "net_rule_charge_wk": 0.0
     },
@@ -4640,9 +4788,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.74587136,
       "dist_net_share": 0.5858723580556167,
+      "dist_net_withholding_share": 0.6195617344093654,
       "fixed_rule_share": 0.7439630311253207,
       "fixed_rule_order_wk": 1466.1267692307692,
-      "net_rule_share": 0.5858723580556167,
+      "net_rule_share": 0.6195617344093654,
       "net_rule_order_wk": 1466.1267692307692,
       "net_rule_charge_wk": 0.0
     },
@@ -4671,9 +4820,10 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.5553479217901498,
       "dist_net_share": 0.4500061003071495,
+      "dist_net_withholding_share": 0.5072065030758619,
       "fixed_rule_share": 0.55503303706787,
       "fixed_rule_order_wk": 289.000587660188,
-      "net_rule_share": 0.4500061003071495,
+      "net_rule_share": 0.5072065030758619,
       "net_rule_order_wk": 289.000587660188,
       "net_rule_charge_wk": 0.0
     },
@@ -4702,11 +4852,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6431593046358441,
       "dist_net_share": 0.4839833869380114,
+      "dist_net_withholding_share": 0.5297030078478019,
       "fixed_rule_share": 0.6445081434447836,
       "fixed_rule_order_wk": 1206.0781733947601,
-      "net_rule_share": 0.4839833869380114,
-      "net_rule_order_wk": 1012.7257303613252,
-      "net_rule_charge_wk": 145.19501608140342
+      "net_rule_share": 0.5297030078478019,
+      "net_rule_order_wk": 1171.6366327156657,
+      "net_rule_charge_wk": 158.91090235434058
     },
     {
       "kids": 3,
@@ -4733,11 +4884,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6026077359465093,
       "dist_net_share": 0.4418843255157172,
+      "dist_net_withholding_share": 0.4940873541650572,
       "fixed_rule_share": 0.6034342478776905,
       "fixed_rule_order_wk": 979.6958037792366,
-      "net_rule_share": 0.4418843255157172,
-      "net_rule_order_wk": 798.6655294159294,
-      "net_rule_charge_wk": 132.56529765471515
+      "net_rule_share": 0.4940873541650572,
+      "net_rule_order_wk": 946.8917356654466,
+      "net_rule_charge_wk": 148.22620624951716
     },
     {
       "kids": 3,
@@ -4764,11 +4916,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6318172091923063,
       "dist_net_share": 0.5136361283976321,
+      "dist_net_withholding_share": 0.5343657778502552,
       "fixed_rule_share": 0.6326698258103793,
       "fixed_rule_order_wk": 1230.890662173595,
-      "net_rule_share": 0.5136361283976321,
-      "net_rule_order_wk": 1041.0897144304813,
-      "net_rule_charge_wk": 154.0908385192896
+      "net_rule_share": 0.5343657778502552,
+      "net_rule_order_wk": 1201.3994477855579,
+      "net_rule_charge_wk": 160.30973335507656
     },
     {
       "kids": 3,
@@ -4795,11 +4948,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.5407382033330613,
       "dist_net_share": 0.4783141504099655,
+      "dist_net_withholding_share": 0.5081830689960501,
       "fixed_rule_share": 0.5402332115941619,
       "fixed_rule_order_wk": 389.99995065878204,
-      "net_rule_share": 0.4783141504099655,
-      "net_rule_order_wk": 227.92998718053343,
-      "net_rule_charge_wk": 143.49424512298964
+      "net_rule_share": 0.5081830689960501,
+      "net_rule_order_wk": 380.3849078793485,
+      "net_rule_charge_wk": 152.45492069881504
     },
     {
       "kids": 3,
@@ -4826,11 +4980,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.74587136,
       "dist_net_share": 0.5858723580556167,
+      "dist_net_withholding_share": 0.6195617344093654,
       "fixed_rule_share": 0.7439630311253207,
       "fixed_rule_order_wk": 1689.3156785683655,
-      "net_rule_share": 0.5858723580556167,
-      "net_rule_order_wk": 1466.1267692307692,
-      "net_rule_charge_wk": 175.761707416685
+      "net_rule_share": 0.6195617344093654,
+      "net_rule_order_wk": 1651.995289553579,
+      "net_rule_charge_wk": 185.86852032280962
     },
     {
       "kids": 3,
@@ -4857,11 +5012,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.5553479217901498,
       "dist_net_share": 0.4500061003071495,
+      "dist_net_withholding_share": 0.5072065030758619,
       "fixed_rule_share": 0.55503303706787,
       "fixed_rule_order_wk": 455.510498780549,
-      "net_rule_share": 0.4500061003071495,
-      "net_rule_order_wk": 289.000587660188,
-      "net_rule_charge_wk": 135.00183009214484
+      "net_rule_share": 0.5072065030758619,
+      "net_rule_order_wk": 441.1625385829466,
+      "net_rule_charge_wk": 152.16195092275856
     },
     {
       "kids": 3,
@@ -4888,11 +5044,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6431593046358441,
       "dist_net_share": 0.4839833869380114,
+      "dist_net_withholding_share": 0.5297030078478019,
       "fixed_rule_share": 0.6445081434447836,
       "fixed_rule_order_wk": 1399.4306164281952,
-      "net_rule_share": 0.4839833869380114,
-      "net_rule_order_wk": 1012.7257303613252,
-      "net_rule_charge_wk": 290.39003216280685
+      "net_rule_share": 0.5297030078478019,
+      "net_rule_order_wk": 1330.5475350700062,
+      "net_rule_charge_wk": 317.82180470868116
     },
     {
       "kids": 3,
@@ -4919,11 +5076,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.6026077359465093,
       "dist_net_share": 0.4418843255157172,
+      "dist_net_withholding_share": 0.4940873541650572,
       "fixed_rule_share": 0.6034342478776905,
       "fixed_rule_order_wk": 1160.7260781425437,
-      "net_rule_share": 0.4418843255157172,
-      "net_rule_order_wk": 798.6655294159294,
-      "net_rule_charge_wk": 265.1305953094303
+      "net_rule_share": 0.4940873541650572,
+      "net_rule_order_wk": 1095.1179419149637,
+      "net_rule_charge_wk": 296.4524124990343
     },
     {
       "kids": 3,
@@ -4950,11 +5108,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6318172091923063,
       "dist_net_share": 0.5136361283976321,
+      "dist_net_withholding_share": 0.5343657778502552,
       "fixed_rule_share": 0.6326698258103793,
       "fixed_rule_order_wk": 1420.6916099167088,
-      "net_rule_share": 0.5136361283976321,
-      "net_rule_order_wk": 1041.0897144304813,
-      "net_rule_charge_wk": 308.1816770385792
+      "net_rule_share": 0.5343657778502552,
+      "net_rule_order_wk": 1361.7091811406344,
+      "net_rule_charge_wk": 320.6194667101531
     },
     {
       "kids": 3,
@@ -4981,11 +5140,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.5407382033330613,
       "dist_net_share": 0.4783141504099655,
+      "dist_net_withholding_share": 0.5081830689960501,
       "fixed_rule_share": 0.5402332115941619,
       "fixed_rule_order_wk": 552.0699141370305,
-      "net_rule_share": 0.4783141504099655,
-      "net_rule_order_wk": 227.92998718053343,
-      "net_rule_charge_wk": 286.9884902459793
+      "net_rule_share": 0.5081830689960501,
+      "net_rule_order_wk": 532.8398285781635,
+      "net_rule_charge_wk": 304.9098413976301
     },
     {
       "kids": 3,
@@ -5012,11 +5172,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.74587136,
       "dist_net_share": 0.5858723580556167,
+      "dist_net_withholding_share": 0.6195617344093654,
       "fixed_rule_share": 0.7439630311253207,
       "fixed_rule_order_wk": 1912.5045879059617,
-      "net_rule_share": 0.5858723580556167,
-      "net_rule_order_wk": 1466.1267692307692,
-      "net_rule_charge_wk": 351.52341483337
+      "net_rule_share": 0.6195617344093654,
+      "net_rule_order_wk": 1837.8638098763886,
+      "net_rule_charge_wk": 371.73704064561923
     },
     {
       "kids": 3,
@@ -5043,11 +5204,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.5553479217901498,
       "dist_net_share": 0.4500061003071495,
+      "dist_net_withholding_share": 0.5072065030758619,
       "fixed_rule_share": 0.55503303706787,
       "fixed_rule_order_wk": 622.02040990091,
-      "net_rule_share": 0.4500061003071495,
-      "net_rule_order_wk": 289.000587660188,
-      "net_rule_charge_wk": 270.0036601842897
+      "net_rule_share": 0.5072065030758619,
+      "net_rule_order_wk": 593.3244895057051,
+      "net_rule_charge_wk": 304.3239018455171
     },
     {
       "kids": 3,
@@ -5074,9 +5236,10 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6426023495170835,
       "dist_net_share": 0.48327019001796684,
+      "dist_net_withholding_share": 0.5289224385887504,
       "fixed_rule_share": 0.6452216791443843,
       "fixed_rule_order_wk": 1015.1960405265355,
-      "net_rule_share": 0.48327019001796684,
+      "net_rule_share": 0.5289224385887504,
       "net_rule_order_wk": 1015.1960405265355,
       "net_rule_charge_wk": 0.0
     },
@@ -5105,9 +5268,10 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6018144823027463,
       "dist_net_share": 0.44091334425749457,
+      "dist_net_withholding_share": 0.4930016637861121,
       "fixed_rule_share": 0.604223196169781,
       "fixed_rule_order_wk": 801.4114074135708,
-      "net_rule_share": 0.44091334425749457,
+      "net_rule_share": 0.4930016637861121,
       "net_rule_order_wk": 801.4114074135708,
       "net_rule_charge_wk": 0.0
     },
@@ -5136,9 +5300,10 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6313773725135059,
       "dist_net_share": 0.5130363445420353,
+      "dist_net_withholding_share": 0.5337417875411274,
       "fixed_rule_share": 0.6331643522076473,
       "fixed_rule_order_wk": 1043.7118177079453,
-      "net_rule_share": 0.5130363445420353,
+      "net_rule_share": 0.5337417875411274,
       "net_rule_order_wk": 1043.7118177079453,
       "net_rule_charge_wk": 0.0
     },
@@ -5167,9 +5332,10 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.539933137254902,
       "dist_net_share": 0.4772956724627457,
+      "dist_net_withholding_share": 0.507100990934008,
       "fixed_rule_share": 0.5407813901704472,
       "fixed_rule_order_wk": 231.02639517345392,
-      "net_rule_share": 0.4772956724627457,
+      "net_rule_share": 0.507100990934008,
       "net_rule_order_wk": 231.02639517345392,
       "net_rule_charge_wk": 0.0
     },
@@ -5198,9 +5364,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.745784,
       "dist_net_share": 0.5857486888339783,
+      "dist_net_withholding_share": 0.6194309538453094,
       "fixed_rule_share": 0.7440091299677766,
       "fixed_rule_order_wk": 1466.6307692307691,
-      "net_rule_share": 0.5857486888339783,
+      "net_rule_share": 0.6194309538453094,
       "net_rule_order_wk": 1466.6307692307691,
       "net_rule_charge_wk": 0.0
     },
@@ -5229,9 +5396,10 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.5539921328849485,
       "dist_net_share": 0.4484472430636377,
+      "dist_net_withholding_share": 0.5054494990469467,
       "fixed_rule_share": 0.5557087888984107,
       "fixed_rule_order_wk": 292.520424240999,
-      "net_rule_share": 0.4484472430636377,
+      "net_rule_share": 0.5054494990469467,
       "net_rule_order_wk": 292.520424240999,
       "net_rule_charge_wk": 0.0
     },
@@ -5260,11 +5428,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6426023495170835,
       "dist_net_share": 0.48327019001796684,
+      "dist_net_withholding_share": 0.5289224385887504,
       "fixed_rule_share": 0.6452216791443843,
       "fixed_rule_order_wk": 1208.7625442698509,
-      "net_rule_share": 0.48327019001796684,
-      "net_rule_order_wk": 1015.1960405265355,
-      "net_rule_charge_wk": 144.98105700539006
+      "net_rule_share": 0.5289224385887504,
+      "net_rule_order_wk": 1173.8727721031605,
+      "net_rule_charge_wk": 158.67673157662512
     },
     {
       "kids": 3,
@@ -5291,11 +5460,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6018144823027463,
       "dist_net_share": 0.44091334425749457,
+      "dist_net_withholding_share": 0.4930016637861121,
       "fixed_rule_share": 0.604223196169781,
       "fixed_rule_order_wk": 982.6783662645051,
-      "net_rule_share": 0.44091334425749457,
-      "net_rule_order_wk": 801.4114074135708,
-      "net_rule_charge_wk": 132.27400327724837
+      "net_rule_share": 0.4930016637861121,
+      "net_rule_order_wk": 949.3119065494045,
+      "net_rule_charge_wk": 147.90049913583363
     },
     {
       "kids": 3,
@@ -5322,11 +5492,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6313773725135059,
       "dist_net_share": 0.5130363445420353,
+      "dist_net_withholding_share": 0.5337417875411274,
       "fixed_rule_share": 0.6331643522076473,
       "fixed_rule_order_wk": 1233.6611233702395,
-      "net_rule_share": 0.5130363445420353,
-      "net_rule_order_wk": 1043.7118177079453,
-      "net_rule_charge_wk": 153.91090336261058
+      "net_rule_share": 0.5337417875411274,
+      "net_rule_order_wk": 1203.8343539702835,
+      "net_rule_charge_wk": 160.12253626233823
     },
     {
       "kids": 3,
@@ -5353,11 +5524,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.539933137254902,
       "dist_net_share": 0.4772956724627457,
+      "dist_net_withholding_share": 0.507100990934008,
       "fixed_rule_share": 0.5407813901704472,
       "fixed_rule_order_wk": 393.2608122245881,
-      "net_rule_share": 0.4772956724627457,
-      "net_rule_order_wk": 231.02639517345392,
-      "net_rule_charge_wk": 143.1887017388237
+      "net_rule_share": 0.507100990934008,
+      "net_rule_order_wk": 383.1566924536563,
+      "net_rule_charge_wk": 152.1302972802024
     },
     {
       "kids": 3,
@@ -5384,11 +5556,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.745784,
       "dist_net_share": 0.5857486888339783,
+      "dist_net_withholding_share": 0.6194309538453094,
       "fixed_rule_share": 0.7440091299677766,
       "fixed_rule_order_wk": 1689.8335082211022,
-      "net_rule_share": 0.5857486888339783,
-      "net_rule_order_wk": 1466.6307692307691,
-      "net_rule_charge_wk": 175.7246066501935
+      "net_rule_share": 0.6194309538453094,
+      "net_rule_order_wk": 1652.460055384362,
+      "net_rule_charge_wk": 185.82928615359282
     },
     {
       "kids": 3,
@@ -5415,11 +5588,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.5539921328849485,
       "dist_net_share": 0.4484472430636377,
+      "dist_net_withholding_share": 0.5054494990469467,
       "fixed_rule_share": 0.5557087888984107,
       "fixed_rule_order_wk": 459.23306091052217,
-      "net_rule_share": 0.4484472430636377,
-      "net_rule_order_wk": 292.520424240999,
-      "net_rule_charge_wk": 134.5341729190913
+      "net_rule_share": 0.5054494990469467,
+      "net_rule_order_wk": 444.155273955083,
+      "net_rule_charge_wk": 151.634849714084
     },
     {
       "kids": 3,
@@ -5446,11 +5620,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6426023495170835,
       "dist_net_share": 0.48327019001796684,
+      "dist_net_withholding_share": 0.5289224385887504,
       "fixed_rule_share": 0.6452216791443843,
       "fixed_rule_order_wk": 1402.3290480131661,
-      "net_rule_share": 0.48327019001796684,
-      "net_rule_order_wk": 1015.1960405265355,
-      "net_rule_charge_wk": 289.9621140107801
+      "net_rule_share": 0.5289224385887504,
+      "net_rule_order_wk": 1332.5495036797856,
+      "net_rule_charge_wk": 317.35346315325023
     },
     {
       "kids": 3,
@@ -5477,11 +5652,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.6018144823027463,
       "dist_net_share": 0.44091334425749457,
+      "dist_net_withholding_share": 0.4930016637861121,
       "fixed_rule_share": 0.604223196169781,
       "fixed_rule_order_wk": 1163.9453251154396,
-      "net_rule_share": 0.44091334425749457,
-      "net_rule_order_wk": 801.4114074135708,
-      "net_rule_charge_wk": 264.54800655449674
+      "net_rule_share": 0.4930016637861121,
+      "net_rule_order_wk": 1097.212405685238,
+      "net_rule_charge_wk": 295.80099827166725
     },
     {
       "kids": 3,
@@ -5508,11 +5684,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6313773725135059,
       "dist_net_share": 0.5130363445420353,
+      "dist_net_withholding_share": 0.5337417875411274,
       "fixed_rule_share": 0.6331643522076473,
       "fixed_rule_order_wk": 1423.6104290325338,
-      "net_rule_share": 0.5130363445420353,
-      "net_rule_order_wk": 1043.7118177079453,
-      "net_rule_charge_wk": 307.82180672522117
+      "net_rule_share": 0.5337417875411274,
+      "net_rule_order_wk": 1363.9568902326218,
+      "net_rule_charge_wk": 320.24507252467646
     },
     {
       "kids": 3,
@@ -5539,11 +5716,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.539933137254902,
       "dist_net_share": 0.4772956724627457,
+      "dist_net_withholding_share": 0.507100990934008,
       "fixed_rule_share": 0.5407813901704472,
       "fixed_rule_order_wk": 555.4952292757223,
-      "net_rule_share": 0.4772956724627457,
-      "net_rule_order_wk": 231.02639517345392,
-      "net_rule_charge_wk": 286.3774034776474
+      "net_rule_share": 0.507100990934008,
+      "net_rule_order_wk": 535.2869897338587,
+      "net_rule_charge_wk": 304.2605945604048
     },
     {
       "kids": 3,
@@ -5570,11 +5748,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.745784,
       "dist_net_share": 0.5857486888339783,
+      "dist_net_withholding_share": 0.6194309538453094,
       "fixed_rule_share": 0.7440091299677766,
       "fixed_rule_order_wk": 1913.036247211435,
-      "net_rule_share": 0.5857486888339783,
-      "net_rule_order_wk": 1466.6307692307691,
-      "net_rule_charge_wk": 351.449213300387
+      "net_rule_share": 0.6194309538453094,
+      "net_rule_order_wk": 1838.289341537955,
+      "net_rule_charge_wk": 371.65857230718564
     },
     {
       "kids": 3,
@@ -5601,11 +5780,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.5539921328849485,
       "dist_net_share": 0.4484472430636377,
+      "dist_net_withholding_share": 0.5054494990469467,
       "fixed_rule_share": 0.5557087888984107,
       "fixed_rule_order_wk": 625.9456975800454,
-      "net_rule_share": 0.4484472430636377,
-      "net_rule_order_wk": 292.520424240999,
-      "net_rule_charge_wk": 269.0683458381826
+      "net_rule_share": 0.5054494990469467,
+      "net_rule_order_wk": 595.790123669167,
+      "net_rule_charge_wk": 303.269699428168
     },
     {
       "kids": 3,
@@ -5632,9 +5812,10 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6262111088786795,
       "dist_net_share": 0.46228073872244013,
+      "dist_net_withholding_share": 0.5059502131273433,
       "fixed_rule_share": 0.6272644787186735,
       "fixed_rule_order_wk": 1087.8974970811796,
-      "net_rule_share": 0.46228073872244013,
+      "net_rule_share": 0.5059502131273433,
       "net_rule_order_wk": 1087.8974970811796,
       "net_rule_charge_wk": 0.0
     },
@@ -5663,9 +5844,10 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.5775217037583689,
       "dist_net_share": 0.41117779515261216,
+      "dist_net_withholding_share": 0.4597532366898811,
       "fixed_rule_share": 0.5777850738236526,
       "fixed_rule_order_wk": 885.5017946825692,
-      "net_rule_share": 0.41117779515261216,
+      "net_rule_share": 0.4597532366898811,
       "net_rule_order_wk": 885.5017946825692,
       "net_rule_charge_wk": 0.0
     },
@@ -5694,9 +5876,10 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6016845495851378,
       "dist_net_share": 0.47254568817362375,
+      "dist_net_withholding_share": 0.4916169838333489,
       "fixed_rule_share": 0.6021480629554604,
       "fixed_rule_order_wk": 1220.7267236270627,
-      "net_rule_share": 0.47254568817362375,
+      "net_rule_share": 0.4916169838333489,
       "net_rule_order_wk": 1220.7267236270627,
       "net_rule_charge_wk": 0.0
     },
@@ -5725,9 +5908,10 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.42322932566653065,
       "dist_net_share": 0.32965529649385256,
+      "dist_net_withholding_share": 0.35024102912168104,
       "fixed_rule_share": 0.42035555136143254,
       "fixed_rule_order_wk": 679.887208974882,
-      "net_rule_share": 0.32965529649385256,
+      "net_rule_share": 0.35024102912168104,
       "net_rule_order_wk": 679.887208974882,
       "net_rule_charge_wk": 0.0
     },
@@ -5756,9 +5940,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7432713599999999,
       "dist_net_share": 0.5821917264592348,
+      "dist_net_withholding_share": 0.615669455717221,
       "fixed_rule_share": 0.7413435069383807,
       "fixed_rule_order_wk": 1481.1267692307692,
-      "net_rule_share": 0.5821917264592348,
+      "net_rule_share": 0.615669455717221,
       "net_rule_order_wk": 1481.1267692307692,
       "net_rule_charge_wk": 0.0
     },
@@ -5787,9 +5972,10 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.4470223697839638,
       "dist_net_share": 0.3254556848594086,
+      "dist_net_withholding_share": 0.3668244490708691,
       "fixed_rule_share": 0.4434407234054324,
       "fixed_rule_order_wk": 570.2303861377864,
-      "net_rule_share": 0.3254556848594086,
+      "net_rule_share": 0.3668244490708691,
       "net_rule_order_wk": 570.2303861377864,
       "net_rule_charge_wk": 0.0
     },
@@ -5818,11 +6004,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6262111088786795,
       "dist_net_share": 0.46228073872244013,
+      "dist_net_withholding_share": 0.5059502131273433,
       "fixed_rule_share": 0.6272644787186735,
       "fixed_rule_order_wk": 1276.0768406967816,
-      "net_rule_share": 0.46228073872244013,
-      "net_rule_order_wk": 1087.8974970811796,
-      "net_rule_charge_wk": 138.68422161673203
+      "net_rule_share": 0.5059502131273433,
+      "net_rule_order_wk": 1239.6825610193825,
+      "net_rule_charge_wk": 151.785063938203
     },
     {
       "kids": 3,
@@ -5849,11 +6036,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.5775217037583689,
       "dist_net_share": 0.41117779515261216,
+      "dist_net_withholding_share": 0.4597532366898811,
       "fixed_rule_share": 0.5777850738236526,
       "fixed_rule_order_wk": 1058.837316829665,
-      "net_rule_share": 0.41117779515261216,
-      "net_rule_order_wk": 885.5017946825692,
-      "net_rule_charge_wk": 123.35333854578364
+      "net_rule_share": 0.4597532366898811,
+      "net_rule_order_wk": 1023.4277656895335,
+      "net_rule_charge_wk": 137.92597100696435
     },
     {
       "kids": 3,
@@ -5880,11 +6068,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6016845495851378,
       "dist_net_share": 0.47254568817362375,
+      "dist_net_withholding_share": 0.4916169838333489,
       "fixed_rule_share": 0.6021480629554604,
       "fixed_rule_order_wk": 1401.3711425137008,
-      "net_rule_share": 0.47254568817362375,
-      "net_rule_order_wk": 1220.7267236270627,
-      "net_rule_charge_wk": 141.76370645208712
+      "net_rule_share": 0.4916169838333489,
+      "net_rule_order_wk": 1368.2118187770675,
+      "net_rule_charge_wk": 147.48509515000467
     },
     {
       "kids": 3,
@@ -5911,11 +6100,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.42322932566653065,
       "dist_net_share": 0.32965529649385256,
+      "dist_net_withholding_share": 0.35024102912168104,
       "fixed_rule_share": 0.42035555136143254,
       "fixed_rule_order_wk": 805.9938743833118,
-      "net_rule_share": 0.32965529649385256,
-      "net_rule_order_wk": 679.887208974882,
-      "net_rule_charge_wk": 98.89658894815577
+      "net_rule_share": 0.35024102912168104,
+      "net_rule_order_wk": 784.9595177113863,
+      "net_rule_charge_wk": 105.07230873650431
     },
     {
       "kids": 3,
@@ -5942,11 +6132,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7432713599999999,
       "dist_net_share": 0.5821917264592348,
+      "dist_net_withholding_share": 0.615669455717221,
       "fixed_rule_share": 0.7413435069383807,
       "fixed_rule_order_wk": 1703.5298213122835,
-      "net_rule_share": 0.5821917264592348,
-      "net_rule_order_wk": 1481.1267692307692,
-      "net_rule_charge_wk": 174.65751793777042
+      "net_rule_share": 0.615669455717221,
+      "net_rule_order_wk": 1665.8276059459356,
+      "net_rule_charge_wk": 184.7008367151663
     },
     {
       "kids": 3,
@@ -5973,11 +6164,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.4470223697839638,
       "dist_net_share": 0.3254556848594086,
+      "dist_net_withholding_share": 0.3668244490708691,
       "fixed_rule_share": 0.4434407234054324,
       "fixed_rule_order_wk": 703.2626031594161,
-      "net_rule_share": 0.3254556848594086,
-      "net_rule_order_wk": 570.2303861377864,
-      "net_rule_charge_wk": 97.63670545782259
+      "net_rule_share": 0.3668244490708691,
+      "net_rule_order_wk": 680.2777208590471,
+      "net_rule_charge_wk": 110.04733472126073
     },
     {
       "kids": 3,
@@ -6004,11 +6196,12 @@
       "dist_share3c": 0.8768174760022586,
       "dist_gross_share": 0.6262111088786795,
       "dist_net_share": 0.46228073872244013,
+      "dist_net_withholding_share": 0.5059502131273433,
       "fixed_rule_share": 0.6272644787186735,
       "fixed_rule_order_wk": 1464.2561843123838,
-      "net_rule_share": 0.46228073872244013,
-      "net_rule_order_wk": 1087.8974970811796,
-      "net_rule_charge_wk": 277.36844323346406
+      "net_rule_share": 0.5059502131273433,
+      "net_rule_order_wk": 1391.4676249575855,
+      "net_rule_charge_wk": 303.570127876406
     },
     {
       "kids": 3,
@@ -6035,11 +6228,12 @@
       "dist_share3c": 0.8393392711078796,
       "dist_gross_share": 0.5775217037583689,
       "dist_net_share": 0.41117779515261216,
+      "dist_net_withholding_share": 0.4597532366898811,
       "fixed_rule_share": 0.5777850738236526,
       "fixed_rule_order_wk": 1232.1728389767609,
-      "net_rule_share": 0.41117779515261216,
-      "net_rule_order_wk": 885.5017946825692,
-      "net_rule_charge_wk": 246.7066770915673
+      "net_rule_share": 0.4597532366898811,
+      "net_rule_order_wk": 1161.353736696498,
+      "net_rule_charge_wk": 275.8519420139287
     },
     {
       "kids": 3,
@@ -6066,11 +6260,12 @@
       "dist_share3c": 0.8095592848180678,
       "dist_gross_share": 0.6016845495851378,
       "dist_net_share": 0.47254568817362375,
+      "dist_net_withholding_share": 0.4916169838333489,
       "fixed_rule_share": 0.6021480629554604,
       "fixed_rule_order_wk": 1582.015561400339,
-      "net_rule_share": 0.47254568817362375,
-      "net_rule_order_wk": 1220.7267236270627,
-      "net_rule_charge_wk": 283.52741290417424
+      "net_rule_share": 0.4916169838333489,
+      "net_rule_order_wk": 1515.696913927072,
+      "net_rule_charge_wk": 294.97019030000934
     },
     {
       "kids": 3,
@@ -6097,11 +6292,12 @@
       "dist_share3c": 0.6006896270301151,
       "dist_gross_share": 0.42322932566653065,
       "dist_net_share": 0.32965529649385256,
+      "dist_net_withholding_share": 0.35024102912168104,
       "fixed_rule_share": 0.42035555136143254,
       "fixed_rule_order_wk": 932.1005397917415,
-      "net_rule_share": 0.32965529649385256,
-      "net_rule_order_wk": 679.887208974882,
-      "net_rule_charge_wk": 197.79317789631153
+      "net_rule_share": 0.35024102912168104,
+      "net_rule_order_wk": 890.0318264478906,
+      "net_rule_charge_wk": 210.14461747300862
     },
     {
       "kids": 3,
@@ -6128,11 +6324,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7432713599999999,
       "dist_net_share": 0.5821917264592348,
+      "dist_net_withholding_share": 0.615669455717221,
       "fixed_rule_share": 0.7413435069383807,
       "fixed_rule_order_wk": 1925.9328733937978,
-      "net_rule_share": 0.5821917264592348,
-      "net_rule_order_wk": 1481.1267692307692,
-      "net_rule_charge_wk": 349.31503587554084
+      "net_rule_share": 0.615669455717221,
+      "net_rule_order_wk": 1850.528442661102,
+      "net_rule_charge_wk": 369.4016734303326
     },
     {
       "kids": 3,
@@ -6159,11 +6356,12 @@
       "dist_share3c": 0.6697088089860204,
       "dist_gross_share": 0.4470223697839638,
       "dist_net_share": 0.3254556848594086,
+      "dist_net_withholding_share": 0.3668244490708691,
       "fixed_rule_share": 0.4434407234054324,
       "fixed_rule_order_wk": 836.2948201810458,
-      "net_rule_share": 0.3254556848594086,
-      "net_rule_order_wk": 570.2303861377864,
-      "net_rule_charge_wk": 195.27341091564517
+      "net_rule_share": 0.3668244490708691,
+      "net_rule_order_wk": 790.3250555803078,
+      "net_rule_charge_wk": 220.09466944252145
     },
     {
       "kids": 3,
@@ -6190,9 +6388,10 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6259395424008974,
       "dist_net_share": 0.46193299009958416,
+      "dist_net_withholding_share": 0.5055696143372338,
       "fixed_rule_share": 0.6282528084570072,
       "fixed_rule_order_wk": 1089.1019988587886,
-      "net_rule_share": 0.46193299009958416,
+      "net_rule_share": 0.5055696143372338,
       "net_rule_order_wk": 1089.1019988587886,
       "net_rule_charge_wk": 0.0
     },
@@ -6221,9 +6420,10 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.5771773486199575,
       "dist_net_share": 0.4107562876206909,
+      "dist_net_withholding_share": 0.4592819333890352,
       "fixed_rule_share": 0.579003200361649,
       "fixed_rule_order_wk": 886.6937932386086,
-      "net_rule_share": 0.4107562876206909,
+      "net_rule_share": 0.4592819333890352,
       "net_rule_order_wk": 886.6937932386086,
       "net_rule_charge_wk": 0.0
     },
@@ -6252,9 +6452,10 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6015076484098791,
       "dist_net_share": 0.4723044566573126,
+      "dist_net_withholding_share": 0.491366016544,
       "fixed_rule_share": 0.602888343601434,
       "fixed_rule_order_wk": 1221.781326787259,
-      "net_rule_share": 0.4723044566573126,
+      "net_rule_share": 0.491366016544,
       "net_rule_order_wk": 1221.781326787259,
       "net_rule_charge_wk": 0.0
     },
@@ -6283,9 +6484,10 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.42292288862745103,
       "dist_net_share": 0.3292676272391405,
+      "dist_net_withholding_share": 0.34982915138098253,
       "fixed_rule_share": 0.42128562972574646,
       "fixed_rule_order_wk": 681.0658129713423,
-      "net_rule_share": 0.3292676272391405,
+      "net_rule_share": 0.34982915138098253,
       "net_rule_order_wk": 681.0658129713423,
       "net_rule_charge_wk": 0.0
     },
@@ -6314,9 +6516,10 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7431840000000001,
       "dist_net_share": 0.5820680572375964,
+      "dist_net_withholding_share": 0.615538675153165,
       "fixed_rule_share": 0.741390977443609,
       "fixed_rule_order_wk": 1481.6307692307691,
-      "net_rule_share": 0.5820680572375964,
+      "net_rule_share": 0.615538675153165,
       "net_rule_order_wk": 1481.6307692307691,
       "net_rule_charge_wk": 0.0
     },
@@ -6345,9 +6548,10 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.4465256664424742,
       "dist_net_share": 0.3248845859229982,
+      "dist_net_withholding_share": 0.36618075758702173,
       "fixed_rule_share": 0.44482547362988395,
       "fixed_rule_order_wk": 571.5199044281918,
-      "net_rule_share": 0.3248845859229982,
+      "net_rule_share": 0.36618075758702173,
       "net_rule_order_wk": 571.5199044281918,
       "net_rule_charge_wk": 0.0
     },
@@ -6376,11 +6580,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6259395424008974,
       "dist_net_share": 0.46193299009958416,
+      "dist_net_withholding_share": 0.5055696143372338,
       "fixed_rule_share": 0.6282528084570072,
       "fixed_rule_order_wk": 1277.5778413958908,
-      "net_rule_share": 0.46193299009958416,
-      "net_rule_order_wk": 1089.1019988587886,
-      "net_rule_charge_wk": 138.57989702987524
+      "net_rule_share": 0.5055696143372338,
+      "net_rule_order_wk": 1240.7728831599588,
+      "net_rule_charge_wk": 151.67088430117013
     },
     {
       "kids": 3,
@@ -6407,11 +6612,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.5771773486199575,
       "dist_net_share": 0.4107562876206909,
+      "dist_net_withholding_share": 0.4592819333890352,
       "fixed_rule_share": 0.579003200361649,
       "fixed_rule_order_wk": 1060.3947533471032,
-      "net_rule_share": 0.4107562876206909,
-      "net_rule_order_wk": 886.6937932386086,
-      "net_rule_charge_wk": 123.22688628620726
+      "net_rule_share": 0.4592819333890352,
+      "net_rule_order_wk": 1024.4783732553192,
+      "net_rule_charge_wk": 137.78458001671058
     },
     {
       "kids": 3,
@@ -6438,11 +6644,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6015076484098791,
       "dist_net_share": 0.4723044566573126,
+      "dist_net_withholding_share": 0.491366016544,
       "fixed_rule_share": 0.602888343601434,
       "fixed_rule_order_wk": 1402.6478298676893,
-      "net_rule_share": 0.4723044566573126,
-      "net_rule_order_wk": 1221.781326787259,
-      "net_rule_charge_wk": 141.6913369971938
+      "net_rule_share": 0.491366016544,
+      "net_rule_order_wk": 1369.1911317504591,
+      "net_rule_charge_wk": 147.4098049632
     },
     {
       "kids": 3,
@@ -6469,11 +6676,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.42292288862745103,
       "dist_net_share": 0.3292676272391405,
+      "dist_net_withholding_share": 0.34982915138098253,
       "fixed_rule_share": 0.42128562972574646,
       "fixed_rule_order_wk": 807.4515018890663,
-      "net_rule_share": 0.3292676272391405,
-      "net_rule_order_wk": 681.0658129713423,
-      "net_rule_charge_wk": 98.78028817174214
+      "net_rule_share": 0.34982915138098253,
+      "net_rule_order_wk": 786.0145583856371,
+      "net_rule_charge_wk": 104.94874541429476
     },
     {
       "kids": 3,
@@ -6500,11 +6708,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7431840000000001,
       "dist_net_share": 0.5820680572375964,
+      "dist_net_withholding_share": 0.615538675153165,
       "fixed_rule_share": 0.741390977443609,
       "fixed_rule_order_wk": 1704.048062463852,
-      "net_rule_share": 0.5820680572375964,
-      "net_rule_order_wk": 1481.6307692307691,
-      "net_rule_charge_wk": 174.62041717127892
+      "net_rule_share": 0.615538675153165,
+      "net_rule_order_wk": 1666.2923717767187,
+      "net_rule_charge_wk": 184.66160254594948
     },
     {
       "kids": 3,
@@ -6531,11 +6740,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.4465256664424742,
       "dist_net_share": 0.3248845859229982,
+      "dist_net_withholding_share": 0.36618075758702173,
       "fixed_rule_share": 0.44482547362988395,
       "fixed_rule_order_wk": 704.967546517157,
-      "net_rule_share": 0.3248845859229982,
-      "net_rule_order_wk": 571.5199044281918,
-      "net_rule_charge_wk": 97.46537577689945
+      "net_rule_share": 0.36618075758702173,
+      "net_rule_order_wk": 681.3741317042983,
+      "net_rule_charge_wk": 109.85422727610651
     },
     {
       "kids": 3,
@@ -6562,11 +6772,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6259395424008974,
       "dist_net_share": 0.46193299009958416,
+      "dist_net_withholding_share": 0.5055696143372338,
       "fixed_rule_share": 0.6282528084570072,
       "fixed_rule_order_wk": 1466.053683932993,
-      "net_rule_share": 0.46193299009958416,
-      "net_rule_order_wk": 1089.1019988587886,
-      "net_rule_charge_wk": 277.1597940597505
+      "net_rule_share": 0.5055696143372338,
+      "net_rule_order_wk": 1392.443767461129,
+      "net_rule_charge_wk": 303.34176860234027
     },
     {
       "kids": 3,
@@ -6593,11 +6804,12 @@
       "dist_share3c": 0.8412192902638762,
       "dist_gross_share": 0.5771773486199575,
       "dist_net_share": 0.4107562876206909,
+      "dist_net_withholding_share": 0.4592819333890352,
       "fixed_rule_share": 0.579003200361649,
       "fixed_rule_order_wk": 1234.095713455598,
-      "net_rule_share": 0.4107562876206909,
-      "net_rule_order_wk": 886.6937932386086,
-      "net_rule_charge_wk": 246.45377257241452
+      "net_rule_share": 0.4592819333890352,
+      "net_rule_order_wk": 1162.2629532720298,
+      "net_rule_charge_wk": 275.56916003342116
     },
     {
       "kids": 3,
@@ -6624,11 +6836,12 @@
       "dist_share3c": 0.8106199319905834,
       "dist_gross_share": 0.6015076484098791,
       "dist_net_share": 0.4723044566573126,
+      "dist_net_withholding_share": 0.491366016544,
       "fixed_rule_share": 0.602888343601434,
       "fixed_rule_order_wk": 1583.5143329481195,
-      "net_rule_share": 0.4723044566573126,
-      "net_rule_order_wk": 1221.781326787259,
-      "net_rule_charge_wk": 283.3826739943876
+      "net_rule_share": 0.491366016544,
+      "net_rule_order_wk": 1516.6009367136592,
+      "net_rule_charge_wk": 294.8196099264
     },
     {
       "kids": 3,
@@ -6655,11 +6868,12 @@
       "dist_share3c": 0.6021241830065359,
       "dist_gross_share": 0.42292288862745103,
       "dist_net_share": 0.3292676272391405,
+      "dist_net_withholding_share": 0.34982915138098253,
       "fixed_rule_share": 0.42128562972574646,
       "fixed_rule_order_wk": 933.8371908067902,
-      "net_rule_share": 0.3292676272391405,
-      "net_rule_order_wk": 681.0658129713423,
-      "net_rule_charge_wk": 197.56057634348429
+      "net_rule_share": 0.34982915138098253,
+      "net_rule_order_wk": 890.9633037999319,
+      "net_rule_charge_wk": 209.89749082858953
     },
     {
       "kids": 3,
@@ -6686,11 +6900,12 @@
       "dist_share3c": 1.0,
       "dist_gross_share": 0.7431840000000001,
       "dist_net_share": 0.5820680572375964,
+      "dist_net_withholding_share": 0.615538675153165,
       "fixed_rule_share": 0.741390977443609,
       "fixed_rule_order_wk": 1926.4653556969347,
-      "net_rule_share": 0.5820680572375964,
-      "net_rule_order_wk": 1481.6307692307691,
-      "net_rule_charge_wk": 349.24083434255783
+      "net_rule_share": 0.615538675153165,
+      "net_rule_order_wk": 1850.953974322668,
+      "net_rule_charge_wk": 369.32320509189896
     },
     {
       "kids": 3,
@@ -6717,11 +6932,12 @@
       "dist_share3c": 0.6719657597065117,
       "dist_gross_share": 0.4465256664424742,
       "dist_net_share": 0.3248845859229982,
+      "dist_net_withholding_share": 0.36618075758702173,
       "fixed_rule_share": 0.44482547362988395,
       "fixed_rule_order_wk": 838.4151886061222,
-      "net_rule_share": 0.3248845859229982,
-      "net_rule_order_wk": 571.5199044281918,
-      "net_rule_charge_wk": 194.9307515537989
+      "net_rule_share": 0.36618075758702173,
+      "net_rule_order_wk": 791.2283589804049,
+      "net_rule_charge_wk": 219.70845455221303
     },
     {
       "kids": 3,
@@ -6748,9 +6964,10 @@
       "dist_share3c": 0.8714880332986472,
       "dist_gross_share": 0.6431547384409897,
       "dist_net_share": 0.48397753979522223,
+      "dist_net_withholding_share": 0.5296966083530954,
       "fixed_rule_share": 0.6431547384409897,
       "fixed_rule_order_wk": 1012.7459831917337,
-      "net_rule_share": 0.48397753979522223,
+      "net_rule_share": 0.5296966083530954,
       "net_rule_order_wk": 1012.7459831917337,
       "net_rule_charge_wk": 0.0
     },
@@ -6779,9 +6996,10 @@
       "dist_share3c": 0.900600764609503,
       "dist_gross_share": 0.6370631670946161,
       "dist_net_share": 0.4761771088877309,
+      "dist_net_withholding_share": 0.5211593076404651,
       "fixed_rule_share": 0.6545250721768717,
       "fixed_rule_order_wk": 1039.7644450249568,
-      "net_rule_share": 0.4761771088877309,
+      "net_rule_share": 0.5211593076404651,
       "net_rule_order_wk": 1039.7644450249568,
       "net_rule_charge_wk": 0.0
     },
@@ -6810,11 +7028,12 @@
       "dist_share3c": 0.8783115506888025,
       "dist_gross_share": 0.6426023495170835,
       "dist_net_share": 0.48327019001796684,
+      "dist_net_withholding_share": 0.5289224385887504,
       "fixed_rule_share": 0.6452216791443843,
       "fixed_rule_order_wk": 1079.718208440974,
-      "net_rule_share": 0.48327019001796684,
-      "net_rule_order_wk": 1015.1960405265355,
-      "net_rule_charge_wk": 48.327019001796685
+      "net_rule_share": 0.5289224385887504,
+      "net_rule_order_wk": 1068.0882843854106,
+      "net_rule_charge_wk": 52.89224385887504
     }
   ],
   "disabled": []

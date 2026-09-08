@@ -4,17 +4,30 @@
 // assets/js/lib/net-position.js -- checked to the dollar against the Commonwealth's own CJ-D 304
 // XFA calculate-scripts. See assets/js/calculator.test.js.
 //
+// v9 (2026-09-08) fixes a mismatch between this calculator and the letter's own Section 2 ask:
+// "On money after tax" (computeNetRuleOrder) used to leave the support order at the no-child-care
+// figure and describe the higher earner's share as a private side payment. The letter's redline is
+// a Worksheet LINE (new Line 6b-1) inside the chain 6b -> 6c -> 6e -> 6g -> 7b -> 7d, so adopting it
+// changes the order itself -- an amount inside a court order carries contempt, wage assignment and
+// state collection; a side payment carries none of that. Two changes fix it:
+//   1. THE SHARE is now `net_withholding_share` (computeChildcareDistribution), the post-transfer
+//      share on net_position.net_income_withholding_basis -- tax and FICA only, single filer, no
+//      exemptions, NO refundable credits. Ported from model/childcare_post_transfer.py's rule5, the
+//      figure Section 2 asks for as of v4.9. `net_share` (credits included) is unchanged and still
+//      shown as the analytical figure in the distribution callout; it is not what a Worksheet line
+//      can compute, because CJ-D 304 collects neither filing status nor who claims which child.
+//   2. THE ORDER moves: net_rule_order_wk = base_order_wk + net_rule_share * totalChildcare, the
+//      same linear step the "on income after the order" fallback already uses, because both are
+//      now Worksheet-line redlines, not a private payment.
+//
 // v7 (2026-09-07, afternoon) adds a SECOND child-care allocation rule and cleans up the on/off
 // control, both from owner feedback on v6:
 //   1. THREE-WAY RULE SELECTOR replaces the single "apply the proposed fix" checkbox
 //      (data-calc-radio="ccRule", values worksheet/nettax/linebased):
 //        - "As the Worksheet does it" (default): today's Line 6b, unchanged.
-//        - "On money after tax" (computeNetRuleOrder): what this project recommends. Ported from
-//          childcare_post_transfer.py's rule3/4 -- algebraically the payor_after_share at the
-//          NO-CHILD-CARE order (the annual_childcare terms cancel out of both the numerator and
-//          the denominator at the fixed point, so rule3 and rule4 are always the same number; see
-//          that script's own docstring). This rule does NOT change the support order -- the higher
-//          earner pays their share of child care directly, the same way rule 3/4 does in Python.
+//        - "On money after tax" (computeNetRuleOrder): what this project recommends, as of v9 a
+//          Worksheet-line redline like the fallback below, not a side payment -- see the v9 note
+//          above.
 //        - "On income after the order" (computeFixedRuleOrder, unchanged arithmetic): the former
 //          sole toggle, now labelled a fallback for when post-tax figures cannot be computed.
 //      All three share one explanatory line (data-calc-cell="cc_rule_note") that states what the
@@ -238,28 +251,44 @@
     var combinedGross = higherAnnual + lowerAnnual;
     var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
     var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0);
+    // v9: the withholding-basis post-transfer share -- tax and FICA only, single filer, no
+    // exemptions, no refundable credits. This is what Section 2 of the comments asks for as of
+    // v4.9, because CJ-D 304 collects neither filing status nor who claims which child; net_share
+    // above (credits included) stays as the analytical figure shown in the distribution callout.
+    var pw = N.netIncomeWithholdingBasis(higherAnnual);
+    var rw = N.netIncomeWithholdingBasis(lowerAnnual);
+    var aw = pw - baseOrderWk * 52, bw = rw + baseOrderWk * 52;
+    var netWithholdingShare = (aw + bw) ? aw / (aw + bw) : 0.0;
     return {
       base_order_wk: baseOrderWk,
       share3c: r0.B_3c,
       gross_share: grossShare,
-      net_share: pos.payor_after_share
+      net_share: pos.payor_after_share,
+      net_withholding_share: netWithholdingShare
     };
   }
 
-  // CHANGE 3 (v7) -- "on money after tax", the rule this project recommends. The higher earner's
-  // share of the combined child care is computeChildcareDistribution's own net_share (see the
-  // comment above for why that is also childcare_post_transfer.py's rule3/rule4 fixed point). This
-  // rule does not touch the support order -- it stays at the no-child-care base order -- and instead
-  // states what the higher earner would pay directly, the same decomposition
-  // childcare_post_transfer.py's rule3/4 print.
+  // CHANGE 3 (v7, mechanism fixed v9) -- "on money after tax", the rule this project recommends.
+  // The higher earner's share is computeChildcareDistribution's own net_withholding_share (v9: the
+  // withholding basis, no refundable credits -- childcare_post_transfer.py's rule5, the figure
+  // Section 2 of the comments asks for as of v4.9). The order MOVES: base_order_wk plus that share
+  // of the combined child care, because the letter's Line 6b-1 redline sits inside the Worksheet's
+  // own 6b -> 6c -> 6e -> 6g -> 7b -> 7d chain, the same linear step the "on income after the
+  // order" fallback below already uses. (Superseded description: v7-v8 kept the order at the
+  // no-child-care base and described this as a private side payment -- that modelled a different
+  // remedy from the one the letter proposes and was fixed 2026-09-08.)
   function computeNetRuleOrder(higherAnnual, lowerAnnual, facts) {
     var dist = computeChildcareDistribution(higherAnnual, lowerAnnual, facts);
     var totalChildcare = (facts.ccLower || 0) + (facts.ccHigher || 0);
+    // v9: the share is the WITHHOLDING-basis post-transfer net share, and the child care
+    // it allocates moves through the ORDER, because the letter's Line 6b-1 feeds
+    // 6b -> 6c -> 6e -> 6g -> 7b -> 7d. Same linear step the gross fallback (linebased) uses.
+    var share = dist.net_withholding_share;
     return {
       base_order_wk: dist.base_order_wk,
-      net_rule_share: dist.net_share,
-      net_rule_order_wk: dist.base_order_wk,
-      net_rule_charge_wk: dist.net_share * totalChildcare
+      net_rule_share: share,
+      net_rule_order_wk: dist.base_order_wk + share * totalChildcare,
+      net_rule_charge_wk: share * totalChildcare
     };
   }
 
@@ -339,12 +368,12 @@
   }
 
   // The "on money after tax" rule's OWN gate, mirroring the one above: worked example, $300
-  // lower-earner child care, this rule keeps the order at the no-child-care base ($1,013/wk) and
-  // charges the higher earner net_share of it directly -- 48.4% (Math.round(share*1000)===484).
+  // lower-earner child care, withholding-basis share 53.0%, order $1,172/wk (rounds from
+  // model/childcare_post_transfer.py's rule5_7d, $1,171.64).
   function netRuleSanityPasses() {
     try {
       var n = computeNetRuleOrder(SANITY_HIGHER, SANITY_LOWER, SANITY_CC);
-      return Math.round(n.net_rule_order_wk) === 1013 && Math.round(n.net_rule_share * 1000) === 484;
+      return Math.round(n.net_rule_order_wk) === 1172 && Math.round(n.net_rule_share * 1000) === 530;
     } catch (e) {
       if (window.console) console.error('calculator.js: net-rule sanity check threw', e);
       return false;
@@ -562,10 +591,9 @@
       var linebasedChargeWk = fixResult.fixed_rule_share * totalChildcareWk;
       var ruleNote = '';
       if (selectedRule === 'nettax') {
-        ruleNote = 'On money after tax, the higher earner would pay ' + pct1(netResult.net_rule_share) +
-          ' (' + money(netResult.net_rule_charge_wk * 52) + ') of the child care directly. The support ' +
-          'order stays at ' + moneyWk(netResult.net_rule_order_wk) + '; the Worksheet’s own figure is ' +
-          moneyWk(ccResult.order_wk) + '.';
+        ruleNote = 'On money after tax, the higher earner would carry ' + pct1(netResult.net_rule_share) +
+          ' (' + money(netResult.net_rule_charge_wk * 52) + ') of the child care, and the order would be ' +
+          moneyWk(netResult.net_rule_order_wk) + ' instead of the Worksheet’s ' + moneyWk(ccResult.order_wk) + '.';
       } else if (selectedRule === 'linebased') {
         ruleNote = 'On income after the order, the higher earner would be charged ' + pct1(fixResult.fixed_rule_share) +
           ' (' + money(linebasedChargeWk * 52) + ') of the child care through the order. Resulting order ' +

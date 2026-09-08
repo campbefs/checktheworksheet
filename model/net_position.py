@@ -168,6 +168,28 @@ def net_income(gross, status, kids, params, kids_under_13=None):
             + ma_refundable_credits(gross, kids, status, params, kids_under_13))
 
 
+def net_income_withholding_basis(gross, params=TAX_PARAMS):
+    """Net of federal and Massachusetts income tax and FICA. NO refundable credits.
+
+    This is the basis the comments' child-care redline asks for, and the basis the 40%-hardship
+    ask already uses. It is deliberately narrower than `net_income` above: it applies the
+    schedules to a single filer claiming no exemptions, so it needs nothing beyond gross income
+    and the published rates.
+
+    Why the credits are excluded, although they are large and real: the refundable credits and
+    head-of-household status both turn on which parent claims which child, CJ-D 304 collects
+    neither fact, and in a shared-parenting case the claim is commonly alternated by year. Who
+    claims the children moves the post-transfer share more than the credits themselves are
+    worth. A Worksheet line cannot rest on an input the Worksheet does not have.
+
+    The omission runs AGAINST the payor: including the credits would put his share lower than
+    this basis does, so the rule as proposed understates the case for it.
+    """
+    return gross - (federal_tax(gross, "single", params)
+                    + fica(gross, params)
+                    + ma_tax(gross, "single", params, 0))
+
+
 def analyze(payor_gross, recipient_gross, kids, weekly_support, weekly_childcare,
             payor_childcare_share, params=TAX_PARAMS, kids_under_13=None):
     annual_support = weekly_support * 52.0

@@ -14,9 +14,13 @@ paid by Parent A) the script prints the payor's share of that child care under:
 
   1.  current Worksheet: Line 3c, pre-transfer available income (what CJ-D 304 does);
   2.  post-transfer GROSS shares: (payor gross - base order) : (recipient gross + base order);
-  2b. the redline as drafted: the same on Line 3a, over Line 3b — THIS is the letter's figure;
-  3.  post-transfer NET shares, after tax, from net_position.py;
-  4.  rule 3 including the child care the recipient pays the provider (fixed point; equals rule 3).
+  2b. the redline as drafted: the same on Line 3a, over Line 3b — a fallback, not the ask;
+  3.  post-transfer NET shares, after tax, from net_position.py — depends on filing status and
+      who claims the children, facts CJ-D 304 does not collect;
+  4.  rule 3 including the child care the recipient pays the provider (fixed point; equals rule 3);
+  5.  post-transfer NET shares on the withholding basis (net_position.net_income_withholding_
+      basis: tax and FICA only, no refundable credits) — the ask. Needs only gross income and the
+      published schedules, so it is the version a Worksheet line can actually compute.
 
 Pinned by model/test_childcare_post_transfer.py. Run: .venv/bin/python model/childcare_post_transfer.py
 """
@@ -78,6 +82,20 @@ def figures():
             break
         share = new
     f["rule4_share"] = share
+
+    # 5. THE ASK: post-transfer net shares on the WITHHOLDING basis (tax and FICA, single filer,
+    # no exemptions -- no refundable credits, because CJ-D 304 collects neither filing status nor
+    # who claims which child). The order moves, because Line 6b-1 sits inside the
+    # 6b -> 6c -> 6e -> 6g -> 7b -> 7d chain: the same linear step the gross fallback (rule 2b)
+    # already uses.
+    p5 = npos.net_income_withholding_basis(PAYOR_GROSS)
+    r5 = npos.net_income_withholding_basis(RECIP_GROSS)
+    f["rule5_payor_net"], f["rule5_recip_net"] = p5, r5
+    a5, b5 = p5 - base * 52, r5 + base * 52
+    f["rule5_share"] = a5 / (a5 + b5)
+    f["rule5_7d"] = base + f["rule5_share"] * CC_WEEKLY
+    f["rule5_saving_yr"] = (cur["7d"] - f["rule5_7d"]) * 52
+
     f["pre_transfer_gross_share"] = PAYOR_GROSS / (PAYOR_GROSS + RECIP_GROSS)
     return f
 
@@ -98,6 +116,11 @@ def main():
     print(f"3.  POST-TRANSFER NET shares              payor {f['rule3_share']:6.1%} / recipient {1-f['rule3_share']:6.1%}  "
           f"(${f['payor_after']:,.0f} vs ${f['recip_after']:,.0f})  -> funds ${f['rule3_share']*cc:,.0f}/yr")
     print(f"4.  POST-TRANSFER NET incl. child care    payor {f['rule4_share']:6.1%} (fixed point; equals rule 3)")
+    print(f"5.  POST-TRANSFER NET, withholding basis  payor {f['rule5_share']:6.1%} / recipient "
+          f"{1-f['rule5_share']:6.1%}  -> order ${f['rule5_7d']:,.2f}/wk vs ${f['current_7d']:,.2f} "
+          f"(saves ${f['rule5_saving_yr']:,.0f}/yr)   <-- THE ASK")
+    print(f"    payor net ${f['rule5_payor_net']:,.0f} ({1-f['rule5_payor_net']/PAYOR_GROSS:.1%} effective), "
+          f"recipient net ${f['rule5_recip_net']:,.0f} ({1-f['rule5_recip_net']/RECIP_GROSS:.1%} effective)")
     print()
     print(f"Pre-transfer gross share (Line 3c basis, approx): payor {f['pre_transfer_gross_share']:6.1%}")
     print("Caveat that travels with every line: per person the payor still leads "
