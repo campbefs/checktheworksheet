@@ -75,10 +75,8 @@ how little moving from a third to a half changes the order.
 
 ## The discount is small because no line on the form measures time
 
-The equal-time credit is the gap between the two parents' income shares and nothing else. At the
-worked example the payor earns 87.7 percent of the combined income, and the discount is 6.9 percent.
-At a 56.3 percent share it would be 77.6 percent. The wider the income gap, the less equal time is
-worth.
+The equal-time credit is the gap between the two parents' income shares and nothing else. The wider
+the income gap, the less equal time is worth.
 
 {% include figure.html
    id="e08"
@@ -158,10 +156,9 @@ other states answer that with a cross-credit: multiply the basic obligation by a
 (Indiana's commentary sets 1.5) before subtracting the lower earner's share.
 
 Solving the Box 1 arithmetic backward through that formula turns up a coincidence: the 6.9 percent
-discount Massachusetts gives for full equal time is close to
-what a cross-credit would give a parent who has the children one night in three, a different "third"
-from the Box 2 assumption above; this one comes from running a number backward through another
-state's formula, not from anything Massachusetts's own form assumes.
+discount for full equal time is close to what a cross-credit would give a parent with the children
+one night in three, a different "third" from the Box 2 assumption above, backed out of another
+state's formula rather than anything Massachusetts's own form assumes.
 
 <p class="stat-callout">
   <span class="stat-value">33.3% at factor 1.5 &middot; 46.9% at factor 2.0</span>
@@ -178,7 +175,7 @@ state's formula, not from anything Massachusetts's own form assumes.
    source_script="model/box1_fix.py · model/charts/fig3_credit.py"
    csv_href="/figures/working/fig3_credit_collapse.csv" %}
 
-At the 1.5 factor, neither implied share (33.3 percent or 46.9 percent) reaches the 50 percent this
+At the 1.5 factor, neither implied share, 33.3 percent or 46.9 percent, reaches the 50 percent this
 parent actually has.
 
 </details>

@@ -66,14 +66,12 @@ dollar between the two households, and never revisits it.</p>
 
 ## Line 6b uses the income split from before the base order moved money between the households
 
-Line 3c is each parent's share of combined available income, computed early in the Worksheet,
-before the base support amount at Line 7d exists. Line 6a is the child care one parent actually
-pays; Line 6b multiplies the *other* parent's Line 3c share by that amount, so if the recipient
-pays the provider, the payor's Line 6b charge is his Line 3c share of her cost. By the time child
-care is added at Line 6, the base order has already moved a large share of the payor's income to the
-recipient's household every week, but Line 6b never re-measures the shares against that. It keeps
-using the pre-transfer split for the life of the order, on top of an obligation that has already
-re-weighted what each household has.
+Line 3c is each parent's share of combined available income, computed before the base support
+amount at Line 7d exists. Line 6a is the child care one parent actually pays; Line 6b multiplies
+the *other* parent's Line 3c share by that amount, so if the recipient pays the provider, the
+payor's Line 6b charge is his Line 3c share of her cost. By the time child care is added at Line 6,
+the base order has already moved a large share of the payor's income to the recipient's household,
+but Line 6b never re-measures the shares against that transfer.
 
 </section>
 
@@ -98,10 +96,9 @@ re-weighted what each household has.
 
 ## The gap widens with the number of children, in both directions the money can move
 
-The same pre-transfer-versus-post-transfer gap shows up whether the lower earner pays the
-provider, the case above, or whether the higher earner does. Three single-chart exhibits, one per
-child count, hold the arrangement fixed (one parent pays $100 a week per child) and vary only how
-many children there are.
+The same pre-transfer-versus-post-transfer gap shows up whichever parent pays the provider. Three
+exhibits below hold the arrangement fixed at $100 a week per child and vary only the number of
+children.
 
 {% include figure.html
    id="e20"
@@ -109,7 +106,7 @@ many children there are.
    alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, one child, across a range of income shares."
    title="With one child, post-transfer child care funds the payor 28 points below his income share."
    deck="Share of the child care bill the payor funds against his pre-transfer income share (Line 3c), one child, $100 a week paid by the lower earner, under two post-transfer rules."
-   notes="The gap is measured at the highest income share plotted. Previously the first panel of a three-panel exhibit, split under the site's one-exhibit-one-graph rule."
+   notes="The gap is measured at the highest income share plotted."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_rules.csv" %}
 
@@ -119,7 +116,7 @@ many children there are.
    alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, two children, across a range of income shares."
    title="With two children, post-transfer child care funds the payor 39 points below his income share."
    deck="Same construction as the one-child exhibit, two children."
-   notes="The gap widens with the number of children. Previously the second panel of the same exhibit."
+   notes="The gap widens with the number of children."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_rules.csv" %}
 
@@ -129,7 +126,7 @@ many children there are.
    alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, three children, across a range of income shares."
    title="With three children, post-transfer child care funds the payor 46 points below his income share."
    deck="Same construction as the one- and two-child exhibits, three children, the worked example's own child count."
-   notes="Previously the third panel of the same exhibit."
+   notes="This is the worked example's own child count."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_rules.csv" %}
 
@@ -145,7 +142,7 @@ own parenting time.
    alt="Stacked bar chart comparing the payor's share of combined gross income against his share of a combined child care bill, equal shared parenting, three children."
    title="The payor bears 93 percent of the combined child care while earning 87 percent of the gross income."
    deck="Each parent pays $300 a week during their own parenting time, the ordinary case at equal time."
-   notes="Two stacked bars: share of combined gross income and share of the combined $31,200 child care bill. Previously the first panel of a two-panel exhibit."
+   notes="Two stacked bars: share of combined gross income and share of the combined $31,200 child care bill."
    source_script="model/charts/fig8_both_pay.py"
    csv_href="/figures/working/fig8_both_pay.csv" %}
 
@@ -155,7 +152,7 @@ own parenting time.
    alt="Bar chart comparing net income outcomes when both parents pay $300 a week of child care under equal shared parenting, three scenarios: neither pays, only the recipient pays, both pay."
    title="Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192."
    deck="Each parent's net position under three scenarios: neither pays, only the recipient pays $300 a week, both pay $300 a week."
-   notes="The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so his own $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 58 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads. Previously the second panel of the same exhibit."
+   notes="The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so his own $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 58 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads."
    source_script="model/charts/fig8_both_pay.py"
    csv_href="/figures/working/fig8_both_pay.csv" %}
 </div>
@@ -175,14 +172,9 @@ own parenting time.
 
 (Source: `model/runs/childcare-post-transfer-run-2026-09-05.txt`, printed by
 `model/childcare_post_transfer.py`; the order figures are from
-`model/runs/submission-figures-run-2026-09-05.txt`.) The pre-transfer share the form actually uses,
-87.7 percent, rounds to 88 cents of every dollar of the claim funded by the payor.
-
-At equal shared parenting with each parent paying $300 a week for their own time, the combined
-$31,200-a-year bill is split 93 percent to the payor and 7 percent to the recipient, while the payor
-earns 87 percent of the combined income, not 93 percent of it. His own $15,600 of child care reduces
-the order by only $270 a year, because Line 6e limits how much of his own claim he can recover once
-his income share puts him outside the low-income protection the line was written for.
+`model/runs/submission-figures-run-2026-09-05.txt`.) Exhibits E25 and E26 above show the same
+mechanism when both parents pay for care: Line 6e limits how much of the payor's own claim he can
+recover once his income share puts him outside the low-income protection the line was written for.
 
 </details>
 
@@ -196,8 +188,8 @@ his income share puts him outside the low-income protection the line was written
 rule. The objection here is to which income the proportion is measured against, not to
 proportionality as a concept. $300 a week is a real but not extreme claim relative to the
 $430-per-child statutory ceiling; a smaller claim moves the split by less, a larger one by more.
-And this is one worked example. How far a typical case's child care claim sits
-from this one is not known from anything in this repository.</p>
+This is one worked example, and how far a typical claim sits from it is not known from anything in
+this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Even in the scenario where both parents pay
 for care and he is charged 93 percent of the combined bill, he still holds $58,163 for himself

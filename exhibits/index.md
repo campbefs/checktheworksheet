@@ -596,7 +596,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Same fact pattern, children primarily with the lower earner. Hawaii's design, shared with Delaware and Montana, exhausts the self-support reserve differently from an income-shares schedule at this income gap. Same states, axis range, colors, and ordering rule as E17, so the two read as a pair. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked.</p>
+    <p class="exhibit-notes">Same fact pattern, children primarily with the lower earner. Hawaii's design, shared with Delaware and Montana, exhausts the self-support reserve differently from an income-shares schedule at this income gap. Same states, axis range, colors, and ordering rule as E17, so the two read as a pair.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
@@ -859,7 +859,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time. Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison. The Commonwealth's consultant attributes the higher amounts to cost of living, which bears on both households; whatever it explains about the level, it doesn't explain why an arrangement giving each parent half the time is priced where sole primary custody is priced almost everywhere else. One fact pattern. Georgia held out. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums $43/$33 as each state treats them.</p>
+    <p class="exhibit-notes">Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time. Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison. The Commonwealth's consultant attributes the higher amounts to cost of living, which bears on both households; whatever it explains about the level, it doesn't explain why an arrangement giving each parent half the time is priced where sole primary custody is priced almost everywhere else. One fact pattern; Georgia held out (see E11).</p>
     <p class="exhibit-source">Source: <code>model/charts/fig10_ma_shared_vs_primary.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig10_ma_shared_vs_primary.csv">data (CSV)</a></p>

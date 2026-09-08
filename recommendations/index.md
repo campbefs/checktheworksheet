@@ -42,19 +42,16 @@ that comparison. Nothing here has been submitted to the Trial Court.
 **At equal parenting time, Massachusetts's order should fall to what a standard cross-credit
 formula produces, using the 1.5 duplication factor twenty-three other states already use.**
 
-At the worked example, today's equal-time order is $1,012.73 a week. A cross-credit at a 1.5
-duplication factor puts it at $701.30 a week, a 30.8 percent cut. The monthly figure, $3,038.95,
-sits 7.8 percent above Washington and 25.4 percent above California, the two comparably high cost
-of living states, and 39.9 percent above the fifty-jurisdiction median. This is already what the
-comments ask the Trial Court to adopt as Variant B, because it is what most states with a
-cross-credit use, and because it is the one candidate that keeps working as the income gap widens
-instead of collapsing the way today's credit does.
+A cross-credit at a 1.5 duplication factor is already what the comments ask the Trial Court to
+adopt as Variant B: it's what most states with a cross-credit use, and it's the one candidate that
+keeps working as the income gap widens instead of collapsing the way today's credit does. It cuts
+the order 30.8 percent, to a monthly figure 7.8 percent above Washington and 25.4 percent above
+California, and 39.9 percent above the fifty-jurisdiction median.
 
 A simpler alternative is a straight linear discount on the time split: no discount at one night in
-three, a 50 percent discount at half the time. This rule gives $543.95 a week, or $2,357.11 a month,
-16.4 percent below Washington and 2.8 percent below California. The cross-credit stays the
-recommendation, because this linear version prices Massachusetts below both comparison states
-instead of in line with them.
+three, a 50 percent discount at half the time, pricing Massachusetts 16.4 percent below Washington
+and 2.8 percent below California. The cross-credit stays the recommendation, because the linear
+version prices Massachusetts below both comparison states instead of in line with them.
 
 | Rule | Weekly order | Monthly | Against the median | Against WA | Against CA |
 |---|---|---|---|---|---|
@@ -99,21 +96,17 @@ which is the scale this recommendation is measured against.
 
 At the worked example, three children, $300 a week in child care paid by the recipient: the payor's
 Line 3c income share before the order is 87.7 percent, and Line 6b charges him that share of the
-$15,600 a year. But the order has already moved money between the households. After the transfer,
-his share of the combined gross is 64.3 percent, and his share of combined net is 48.2 percent.
-Child care is charged against the income split that no longer describes either household's actual
-resources.
+$15,600 a year. But the order has already moved money between the households: after the transfer,
+his share of the combined gross is 64.3 percent, and of combined net, 48.2 percent.
 
-The recommended fix allocates child care on the post-transfer split. On post-transfer shares of
-available income (Line 3a), the redline already in the comments (Line 6b-1), his share falls from 87.7 percent to 64.5 percent
-and the order falls from $1,275.77 to $1,206.08 a week. The fuller version uses post-transfer net
-shares, 48.2 percent, which the paper treats as the principled endpoint: the Worksheet cannot compute
-it today because it holds no net-income figure anywhere in its calculation.
+The recommended fix allocates child care on the post-transfer split: Line 3a shares (the redline
+already in the comments, Line 6b-1), or post-transfer net shares, which the paper treats as the
+principled endpoint. The Worksheet cannot compute the net version today because it holds no
+net-income figure anywhere in its calculation.
 
-Two other options Chris raised are shown for comparison. Removing child care from the Worksheet
-entirely returns the order to $1,012.73 a week and leaves the payor bearing 0 percent of the $15,600,
-each parent covering only what they pay directly. Splitting child care 50-50 after base support is
-computed leaves the base order unchanged and charges each parent $7,800 a year regardless of income.
+Two other options Chris raised are shown in the table below for comparison: removing child care
+from the Worksheet entirely, so each parent bears 0 percent of the other's cost, and splitting it
+50-50 after base support is computed, regardless of income.
 
 | Rule | Weekly order | Payor's child care share | Payor's yearly child care |
 |---|---|---|---|

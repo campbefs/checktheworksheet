@@ -21,19 +21,16 @@ disclosure:
 
 {% include disclosure.html %}
 
-Each finding below traces to a script in this repository, or for the fourth, to the guidelines'
-own text on deviation. They run in the order that each one changes what a family actually pays or
-keeps, the most consequential first.
+Each finding traces to a script in this repository, or, for the fourth, to the guidelines' own
+text on deviation.
 
 ## 1. The payor funds 88 cents of every dollar of child care on an income split the order has already moved
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
-Line 6b splits a child care claim by each parent's Line 3c income share, which is computed before
-Line 7d's base support order transfers any money between the two households. At the worked example
-that charges the payor 87.7 percent of a $15,600-a-year claim. Measuring the same split after the
-base order moves money gives 64.5 percent. After tax as well, it is 48.2 percent. Line 6b never
-looks back.
+Line 6b splits a child care claim by each parent's Line 3c income share, computed before Line 7d's
+base support order moves any money between the households, and never revisits the split
+afterward.
 
 {% include figure.html
    id="e06"
@@ -53,12 +50,10 @@ looks back.
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
 Line 6g nets the two parents' Line 6e amounts, which reduce to the gap between their income shares
-once Box 1 puts zero children in the payor's column. No line multiplies by any share of overnights.
-Moving from about a third of the parenting time to half lowers the order 6.9 percent at this
-family's income gap; at a narrower gap the same move lowers it 77.6 percent. A wider income gap
-buys a payor less credit for the same equal time. Research on custody decided mainly by a financial
-incentive, separate from a family's actual circumstances, finds children can fare worse under it
-(Fernandez-Kranz et al. 2021). That is an argument against pricing parenting time by formula at all.
+once Box 1 puts zero children in the payor's column; no line measures overnights. That gap shrinks
+the discount from 77.6 percent at a narrower income share to 6.9 percent at this family's. Research
+on custody decided mainly by financial incentive finds children can fare worse under it
+(Fernandez-Kranz et al. 2021), an argument against pricing parenting time by formula at all.
 
 {% include figure.html
    id="e08"
@@ -76,11 +71,11 @@ incentive, separate from a family's actual circumstances, finds children can far
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
-Of the next $10,000 the payor earns at $201,000, 20.3 percent goes to the increase in the order.
-Another 31.3 percent goes to income and payroll tax combined. He keeps 48.3 percent. The order's
-marginal share runs above Table A's own 10 percent top bracket, because both the child-count
-multiplier and the payor's rising income share scale up with income. Run from $150,000 to $300,000
-of payor income, the same computation keeps his retention between 39 and 48 percent throughout.
+Of the next $10,000 the payor earns at $201,000, 20.3 percent goes to the order and 31.3 percent to
+combined income and payroll tax, leaving him 48.3 percent — above Table A's own 10 percent top
+bracket, because the child-count multiplier and his rising income share both scale up with income.
+The same computation keeps his retention between 39 and 48 percent from $150,000 to $300,000 of
+payor income.
 
 {% include figure.html
    id="e10"
@@ -101,21 +96,18 @@ own guidelines make rebutting it conditional on a judge making four specific fin
 guidelines amount, that applying it would be unjust or inappropriate, the facts justifying
 departure, and that departure is consistent with the child's best interest. Meeting that bar costs
 legal time, so contesting a child care claim or a parenting-time credit worth a few thousand
-dollars a year can cost more than the amount actually in dispute. The Commonwealth publishes how
-often the presumption is rebutted. It does not publish the one number that would say whether
-contesting is worth attempting: how often a deviation motion the parties did not simply agree to
-still succeeds.
+dollars a year can cost more than the amount in dispute. The Commonwealth publishes how often the
+presumption is rebutted, but not the one number that would say whether contesting is worth it: how
+often a deviation motion the parties did not simply agree to still succeeds.
 
 ## 5. After tax and the order, the recipient household holds $93,821 to the payor's $87,172, though the payor still holds more per person
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
-At the worked example, with no child care claimed, the payor's income after tax and after the
-order comes to $87,172 a year. The recipient's household, after tax and after receiving the order,
-comes to $93,821. Divided across household size, the payor still holds more for himself than the
-recipient's household holds per person, $87,172 for one against $23,455 each for four. Both figures
-are true at once; which one answers a reader's question depends on whether the question is about
-the household or about the person in it.
+Divided across household size, the payor still holds more for himself than the recipient's
+household holds per person, $87,172 for one against $23,455 each for four. Both figures are true
+at once; which one answers a reader's question depends on whether the question is about the
+household or about the person in it.
 
 {% include figure.html
    id="e01"
@@ -131,12 +123,10 @@ the household or about the person in it.
 
 <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
 
-Fifty jurisdictions were profiled from their own primary documents at one fact pattern, computed
-twice independently and reconciled, then checked against an adversarial attack. Massachusetts
-orders more under equal parenting time than any of them, and more under primary custody than every
-one of them but Hawaii. Its own equal-time order exceeds the primary-custody order of 47 of the
-other 49 ranked jurisdictions. Georgia was held out: its enacted formula orders less at equal time
-than at primary custody. The ranking says nothing beyond this one fact pattern.
+Massachusetts orders more under equal parenting time than any of the fifty jurisdictions modeled,
+and more under primary custody than every one of them but Hawaii. Its own equal-time order exceeds
+the primary-custody order of 47 of the other 49 ranked jurisdictions. Georgia is held out: its
+enacted formula orders less at equal time than at primary custody.
 
 {% include figure.html
    id="e11"
@@ -152,7 +142,7 @@ than at primary custody. The ranking says nothing beyond this one fact pattern.
 
 <div class="ask">
   <h2>Check it yourself</h2>
-  <p>Every number above traces to a script and a printed run in this repository. See
-  <a href="/the-model/">the model</a> and <a href="/the-data/">the data</a> for the full list, or
-  each finding's own "Check it yourself" section for the exact file behind its numbers.</p>
+  <p>Every number above traces to a script and a printed run in this repository: see
+  <a href="/the-model/">the model</a> and <a href="/the-data/">the data</a>, or each finding's own
+  "Check it yourself" section for the exact file.</p>
 </div>

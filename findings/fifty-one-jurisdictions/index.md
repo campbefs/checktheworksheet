@@ -99,7 +99,7 @@ split, or the number of children, and every ranking below could move, in either 
   <figcaption>
     <h3 class="exhibit-title">Equal parenting time: Massachusetts orders the most of fifty jurisdictions.</h3>
     <p class="exhibit-deck">Monthly order at one fact pattern, three children, $201,000 and $29,640, no child care.</p>
-    <p class="exhibit-notes">Fifty of fifty-one survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. One fact pattern; the ranking generalizes to nothing else.</p>
+    <p class="exhibit-notes">Georgia is held out; see method, above. One fact pattern; the ranking generalizes to nothing else.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
@@ -269,9 +269,9 @@ split, or the number of children, and every ranking below could move, in either 
 
 ## In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.
 
-This counts jurisdictions; it says nothing about dollar amounts. Massachusetts's primary-custody box already assumes the paying
-parent has the children about a third of the time and gives nothing for it: the order is the same
-as for a parent with no overnights. Twenty-eight jurisdictions give a formula credit at that point.
+Massachusetts's primary-custody box already assumes the paying parent has the children about a
+third of the time and gives nothing for it: the order is the same as for a parent with no
+overnights.
 
 <figure class="exhibit" id="e13">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
@@ -298,10 +298,7 @@ as for a parent with no overnights. Twenty-eight jurisdictions give a formula cr
 
 This corrects an earlier comparison this project made against nine benchmark states, where
 Massachusetts appeared second. Measured against the 41 jurisdictions that state a combined-income
-ceiling, Massachusetts's $450,000 ranks 13th: 12 state a higher ceiling, 28 a lower one, median
-$360,000. Ten more jurisdictions use a percentage-of-obligor, Melson, or open formula with no stated
-ceiling. Net-income ceilings aren't dollar-for-dollar comparable with gross ones; this table doesn't
-adjust for that.
+ceiling, Massachusetts's $450,000 ranks 13th.
 
 <figure class="exhibit" id="e16">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
@@ -432,7 +429,7 @@ almost everywhere else.
   <figcaption>
     <h3 class="exhibit-title">Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.</h3>
     <p class="exhibit-deck">The same fact pattern as the two rankings above, with Massachusetts computed under Box 1 and every other jurisdiction computed with the children primarily with the lower earner.</p>
-    <p class="exhibit-notes">Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time; Massachusetts's own primary-custody order, $4,714, is marked for scale.</p>
+    <p class="exhibit-notes">Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig10_ma_shared_vs_primary.py</code> ·
       <a href="/figures/working/fig10_ma_shared_vs_primary.csv">data (CSV)</a></p>
   </figcaption>
@@ -522,7 +519,7 @@ question inside its own review process.
    alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking which cycles' own primary text records the gross-versus-net income question being raised and deferred."
    title="Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017-2025."
    deck="Every Massachusetts guidelines edition or off-cycle amendment in the corpus (2017, 2018, 2021, 2023, 2025), marked filled where the gross-versus-net income basis question was deferred on the record and hollow where the corpus holds no record of it being raised at all."
-   notes="Only 2025's Brattle Economic Review carries a verbatim deferral; its own text says prior task forces did the same, but their primary text is not in this corpus, so 2017, 2018, 2021 and 2023 are marked no record rather than deferred. The chart states what the corpus supports, not what the 2025 report claims about years it does not itself document."
+   notes="The chart states what the corpus supports, not what the 2025 report claims about years it does not itself document."
    source_script="model/charts/fig11_deferral_timeline.py"
    csv_href="/figures/working/fig11_deferral_timeline.csv" %}
 

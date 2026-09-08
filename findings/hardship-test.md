@@ -68,8 +68,8 @@ income.</p>
 Worksheet Line 7e divides Line 7d (the presumptive order) by Line 3a (available income) and flags
 the result once it reaches 40 percent, triggering Section IV.C's rebuttable presumption of hardship.
 Line 3a is gross income minus a short list of specific deductions (existing support orders, and
-health and dental premiums for the children), and none of them is a tax. Line 7e is trying to answer
-a question about spendable income, but the figure it divides by has no tax adjustment of any kind.
+health and dental premiums for the children), none of them a tax — so Line 7e answers a question
+about spendable income with a figure that has no tax adjustment at all.
 
 </section>
 
@@ -94,7 +94,7 @@ a question about spendable income, but the figure it divides by has no tax adjus
    alt="Heatmap of the support order as a share of the payor's net income across a grid of higher-earner and lower-earner gross incomes, three children, Box 1, with a 40 percent contour line."
    title="The order exceeds 40 percent of the payor's net income only where the lower earner makes about $25,000 or less."
    deck="Order as a share of the payor's net income, three children, Box 1, across a grid of both incomes."
-   notes="The 40 percent contour, computed on net income, sits at a lower-earner income of about $25,000, up to roughly $235,000 of higher-earner income; above that the order never reaches 40 percent of net at any lower-earner income on the grid. That is the region Section IV.C's hardship presumption is written for, and the exhibit above shows what the Worksheet reports there."
+   notes="The 40 percent contour, computed on net income, sits at a lower-earner income of about $25,000, up to roughly $235,000 of higher-earner income; above that the order never reaches 40 percent of net on the grid. Section IV.C's hardship presumption targets this region; E05 shows what the Worksheet reports there."
    source_script="model/charts/fig1_heatmaps.py"
    csv_href="/figures/working/fig1_heatmap_3child_box1.csv" %}
 
@@ -118,10 +118,9 @@ payor's true share of net income at each point.
 | $1,290/wk (ceiling) | $2,144/wk | $111,479/yr | 56.1% | 79.7% |
 
 Line 7e does not reach 40 percent until $589 a week of claimed child care, 46 percent of the $1,290
-statutory ceiling for three children. The hardship presumption does not kick in until then, and by that point the payor's true burden is
-56.9 percent of his net income, a lag of 17 points between what the form reports and what is
-actually true. At $100 a week the gap is about 12 points, not 17; the lag narrows as claimed child care
-falls. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
+statutory ceiling for three children, by which point the payor's true burden is 56.9 percent of his
+net income. That 17-point lag narrows as claimed child care falls, to about 12 points at $100 a
+week. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
 `model/submission_figures.py`.)
 
 </details>
@@ -132,12 +131,10 @@ falls. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
 
 ## What this isn't
 
-<p class="caveat">The valve does eventually fire. This is not a claim that Section IV.C's hardship
-presumption is unreachable: at $589 a week of claimed child care it reports the 40 percent
-threshold, and a payor can still raise it. The defect is a 17-point lag before the valve fires.
-$1,290 a week for three children is the statutory ceiling on allowable child care; a typical
-claim would be lower. This is one worked example, and how often actual claims sit near
-that benchmark is not known from anything in this repository.</p>
+<p class="caveat">The valve does eventually fire; this isn't a claim that Section IV.C's hardship
+presumption is unreachable, only that it fires 17 points late. $1,290 a week for three children is
+the statutory ceiling on allowable child care, not a typical claim. This is one worked example, and
+how often actual claims sit near that benchmark isn't known from anything in this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Across the full grid behind the heatmap
 above, the payor holds more per person than the recipient's household in 99 percent of the 1,147
