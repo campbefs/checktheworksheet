@@ -269,9 +269,9 @@ split, or the number of children, and every ranking below could move, in either 
 
 ## In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.
 
-This is a count, not a dollar claim. Massachusetts's own Box 2, where one parent has the children
-about a third of the time, is its one-third case, and Massachusetts gives it no discrete formula
-credit the way 28 other jurisdictions do.
+This is a count, not a dollar claim. Massachusetts's primary-custody box already assumes the paying
+parent has the children about a third of the time and gives nothing for it: the order is the same
+as for a parent with no overnights. Twenty-eight jurisdictions give a formula credit at that point.
 
 <figure class="exhibit" id="e13">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
