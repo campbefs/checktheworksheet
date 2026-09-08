@@ -24,9 +24,12 @@ them more fair and to hold the Commonwealth accountable for the Worksheet.
 The Worksheet has never had a proper review. No task force has examined how its math actually works
 economically.
 
-A support order should be computed on the income parents actually have, credit parenting time for
-what it costs, and split child care on the income each parent has after the order. Every figure here
-comes from a published model with tests, so anyone can check the arithmetic.
+Three things should change. A support order should be computed on the income parents actually have.
+Equal parenting time should earn a real reduction, well beyond the 6.9 percent it earns in the
+example running through this site, though both homes pay for housing and a bedroom for each child, so
+the honest figure falls short of half. And child care should be split on the income each parent holds
+after the order rather than before it. Every figure here comes from a published model with tests.
+Anyone can check the arithmetic.
 
 ## Who built this
 
