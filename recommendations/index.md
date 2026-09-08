@@ -104,8 +104,8 @@ his share of the combined gross is 64.3 percent, and his share of combined net i
 Child care is charged against the income split that no longer describes either household's actual
 resources.
 
-The recommended fix allocates child care on the post-transfer split. On post-transfer gross shares,
-the redline already in the comments (Line 6b-1), his share falls from 87.7 percent to 64.5 percent
+The recommended fix allocates child care on the post-transfer split. On post-transfer shares of
+available income (Line 3a), the redline already in the comments (Line 6b-1), his share falls from 87.7 percent to 64.5 percent
 and the order falls from $1,275.77 to $1,206.08 a week. The fuller version uses post-transfer net
 shares, 48.2 percent, which the paper treats as the principled endpoint: the Worksheet cannot compute
 it today because it holds no net-income figure anywhere in its calculation.
