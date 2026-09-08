@@ -18,8 +18,8 @@ disclosure:
 
 # Mission
 
-This project works to make the Massachusetts Child Support Guidelines fair, and to hold the
-Commonwealth accountable for the Worksheet.
+This project aims to advocate for reform of the Massachusetts Child Support Guidelines, to make
+them more fair and to hold the Commonwealth accountable for the Worksheet.
 
 The Worksheet has never had a proper review. No task force has examined how its math actually works
 economically.
