@@ -127,7 +127,7 @@ the household or about the person in it.
    source_script="model/charts/fig1_heatmaps.py · model/worksheet.py · model/net_position.py"
    csv_href="/figures/working/fig1_heatmap_3child_box1.csv" %}
 
-## 6. A parent here with the children half the time pays more than a parent in 47 of the other 49 states pays with them a third of the time.
+## 6. Massachusetts charges more for equal parenting time than 47 states charge a parent who has the children a third of the time
 
 <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
 
