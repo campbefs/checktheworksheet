@@ -38,7 +38,7 @@ afterward.
    alt="Bar chart of the payor's share of a $15,600 annual child care claim under three allocation rules, at the worked example."
    title="The payor's share of a $15,600 child care bill, three ways to split it."
    deck="Line 3c allocates 87.7 percent to the payor on pre-transfer income shares."
-   notes="Adjusting the shares by the base order, the letter's § 2 redline, gives 64.5 percent. Post-transfer net shares give 48.2 percent. The middle bar is the redline; the right bar is where the argument goes once net income is admitted."
+   notes="The letter's current § 2 redline measures the split net of tax on a withholding basis and reaches 53.0 percent, not yet plotted in this chart. Adjusting the shares by the base order alone, the fallback confined to the Worksheet's existing gross-based lines, gives 64.5 percent. Post-transfer net shares counting refundable tax credits give 48.2 percent, kept as analysis, not the ask. The middle and right bars above are the prior figures."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}

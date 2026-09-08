@@ -77,7 +77,7 @@ but Line 6b never re-measures the shares against that transfer.
 
 <section id="exhibits" markdown="1">
 
-## The payor's share falls from 88 cents to 48 cents once the split is measured after the order and after tax
+## The payor's share falls from 88 cents to 53 cents once the split is measured after the order and after tax
 
 {% include figure.html
    id="e06"
@@ -85,7 +85,7 @@ but Line 6b never re-measures the shares against that transfer.
    alt="Bar chart of the payor's share of a $15,600 annual child care claim under three allocation rules, at the worked example."
    title="The payor's share of a $15,600 child care bill, three ways to split it."
    deck="Line 3c allocates 87.7 percent to the payor on pre-transfer income shares."
-   notes="Post-transfer net shares, the letter's § 2 lead redline, give 48.2 percent. Adjusting the shares by the base order alone, the fallback offered if the Worksheet will not carry a tax computation, gives 64.5 percent. The right bar is the redline actually asked for; the middle bar is what it falls back to."
+   notes="The comments' current lead redline measures the split net of tax on a withholding basis and reaches 53.0 percent, not yet plotted in this chart. The two bars shown here are the prior figures: 64.5 percent is the post-transfer gross fallback, renumbered Line 6b-2; 48.2 percent is the post-transfer net figure counting refundable tax credits, which now survives only as analysis, because the Worksheet has no field for which parent claims which child."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}
@@ -162,19 +162,24 @@ own parenting time.
 <section id="method" markdown="1">
 
 <details markdown="1">
-<summary>Method: the full split table, three ways to measure the same $15,600 bill</summary>
+<summary>Method: the full split table, four ways to measure the same $15,600 bill</summary>
 
 | Basis for the split | Payor's share | Payor funds |
 |---|---:|---:|
 | Line 3c, pre-transfer (what the form does today) | 87.7% | $13,678/yr (order rises to $1,276/wk) |
-| Shares adjusted by the base order (fallback redline at Line 6b-1, without a net computation) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
-| Post-transfer net shares (income after the order and after tax; the redline proposed) | 48.2% | $7,513/yr |
+| Shares adjusted by the base order (fallback redline at Line 6b-2, without a net computation) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
+| Post-transfer net shares, withholding basis (the redline proposed, Line 6b-1; order $1,172/wk, $5,415/yr less than today) | 53.0% | $8,263/yr |
+| Post-transfer net shares counting refundable tax credits (analysis only, not proposed) | 48.2% | $7,513/yr |
 
 (Source: `model/runs/childcare-post-transfer-run-2026-09-05.txt`, printed by
 `model/childcare_post_transfer.py`; the order figures are from
 `model/runs/submission-figures-run-2026-09-05.txt`.) Exhibits E25 and E26 above show the same
 mechanism when both parents pay for care: Line 6e limits how much of the payor's own claim he can
 recover once his income share puts him outside the low-income protection the line was written for.
+
+The calculator on the home page reports the same 53.0 percent. Unlike the figures that count the
+refundable credits, this one does not depend on the children's ages, so the site and the comments
+print one number, not two.
 
 </details>
 
@@ -203,10 +208,11 @@ against $22,907 each for the recipient's household of four.</p>
 <h2>Check it yourself</h2>
 <ul>
   <li><strong><a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a></strong>
-    Computes all three allocation rules: pre-transfer, post-transfer gross adjusted by the base
-    order, and post-transfer net.</li>
+    Computes all four allocation rules: pre-transfer, post-transfer gross adjusted by the base
+    order, post-transfer net on a withholding basis, and post-transfer net counting refundable
+    credits.</li>
   <li><strong><a href="/model/test_childcare_post_transfer.py">Its test suite</a></strong>
-    Pins the 87.7%, 64.5%, and resulting order figures quoted above.</li>
+    Pins the 87.7%, 64.5%, 53.0%, 48.2%, and resulting order figures quoted above.</li>
   <li><strong><a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
     <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a></strong>
     The Line 6a/6b/6e implementation, including the test that the payor bears roughly 93 percent

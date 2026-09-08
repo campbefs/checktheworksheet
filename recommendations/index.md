@@ -23,10 +23,14 @@ Three changes, each keyed to a Worksheet line, each with an effect measured at t
   47.4 percent of the payor's net; the presumption itself does not kick in until 57 percent of net.
   The fix changes what the form reports. It leaves every dollar amount untouched.
 - **Allocate child care on the income split the order has already produced, instead of the split
-  before it.** The lead redline measures that split net of tax, taking the payor's child care share
-  from 87.7 percent to 48.2 percent; a fallback confined to the Worksheet's existing gross-based
-  lines, new Line 6b-1, takes it to 64.5 percent and the order from $1,275.77 to $1,206.08 a week.
-  Part two below carries this further.
+  before it.** The lead redline measures that split net of tax, on a withholding basis (income tax
+  and FICA for a single filer claiming no exemptions), taking the payor's child care share from
+  87.7 percent to 53.0 percent and the order with $300 a week of child care from $1,275.77 to
+  $1,171.64 a week, a $5,415-a-year change. Counting the refundable tax credits as well would take
+  the share to 48.2 percent, but the comments do not ask for that, because the Worksheet has no
+  field for which parent claims which child. A fallback confined to the Worksheet's existing
+  gross-based lines, renumbered Line 6b-2, takes the share to 64.5 percent and the order to
+  $1,206.08 a week. Part two below carries this further.
 - **Apply the equal-parenting credit once, at the transfer, instead of clipping it as an entitlement.**
   Variant A takes the equal-time order from $1,012.73 to $935.06 a week, a 7.7 percent cut.
 
@@ -99,13 +103,15 @@ instead of the 87.7 percent pre-order split the Worksheet uses today.**
 At the worked example, three children, $300 a week in child care paid by the recipient: the payor's
 Line 3c income share before the order is 87.7 percent, and Line 6b charges him that share of the
 $15,600 a year. But the order has already moved money between the households: after the transfer,
-his share of the combined gross is 64.3 percent, and of combined net, 48.2 percent.
+his share of the combined gross is 64.3 percent, and on a withholding basis, income tax and FICA
+for a single filer claiming no exemptions, his share of combined net is 53.0 percent.
 
-The recommended fix allocates child care on the post-transfer net split, 48.2 percent, the same
-principle the comments lead with. The Worksheet cannot compute it today because it holds no
-net-income figure anywhere in its calculation, so the comments also offer, as a fallback, the
-post-transfer split on Line 3a shares already in the comments (Line 6b-1), which needs no new
-input and reaches 64.5 percent.
+The recommended fix, and now the comments' own lead redline, allocates child care on that
+post-transfer net split, using new Worksheet Lines 6b-1a and 6b-1. It changes the order itself,
+from $1,275.77 to $1,171.64 a week, because those lines sit inside the chain that produces Line
+7d. The Worksheet holds no net-income figure today, so the comments also offer a fallback confined
+to lines it already computes, renumbered Line 6b-2, which reaches 64.5 percent with no tax
+computation at all.
 
 Two other options Chris raised are shown in the table below for comparison: removing child care
 from the Worksheet entirely, so each parent bears 0 percent of the other's cost, and splitting it
@@ -114,13 +120,20 @@ from the Worksheet entirely, so each parent bears 0 percent of the other's cost,
 | Rule | Weekly order | Payor's child care share | Payor's yearly child care |
 |---|---|---|---|
 | Current worksheet (pre-transfer Line 3c shares) | $1,275.77 | 87.7% | $13,678 |
+| Post-transfer shares of available income, Line 3a (Line 6b-2, fallback without a net computation) | $1,206.08 | 64.5% | $10,054 |
 | Removed from the worksheet entirely | $1,012.73 | 0.0% | $0 |
 | Split 50-50 after base support | $1,012.73 | 50.0% | $7,800 |
-| Post-transfer shares of available income, Line 3a (Line 6b-1, fallback without a net computation) | $1,206.08 | 64.5% | $10,054 |
-| **Post-transfer net shares (recommended; not computable on the Worksheet today)** | **$1,012.73** | **48.2%** | **$7,513** |
+| **Post-transfer net shares, withholding basis (recommended; the comments' lead redline, Line 6b-1)** | **$1,171.64** | **53.0%** | **$8,263** |
 
-The post-transfer net row uses the same $1,012.73 base order as the current rule and the two
-Chris-proposed alternatives; only the child-care split changes across the table.
+The recommended row changes the order itself, because the line it adds sits inside the chain that
+produces the order. The two rows above it, which move the payment outside the worksheet, leave the
+order at the no-child-care figure.
+
+Counting the refundable credits as well, the federal Earned Income Tax Credit and Child Tax
+Credit, the Massachusetts Earned Income Tax Credit and Child and Family Tax Credit, puts the
+higher earner's share at 48.2 percent, not 53.0. The comments ask for the narrower figure,
+because the worksheet has no field for which parent claims which child and that claim is often
+alternated year to year.
 
 ### The hardship test should be measured on the same income basis it is paid from
 
