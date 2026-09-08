@@ -167,7 +167,7 @@ own parenting time.
 | Basis for the split | Payor's share | Payor funds |
 |---|---:|---:|
 | Line 3c, pre-transfer (what the form does today) | 87.7% | $13,678/yr (order rises to $1,276/wk) |
-| Shares adjusted by the base order (fallback redline at Line 6b-1, if net is not adopted) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
+| Shares adjusted by the base order (fallback redline at Line 6b-1, without a net computation) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
 | Post-transfer net shares (income after the order and after tax; the redline proposed) | 48.2% | $7,513/yr |
 
 (Source: `model/runs/childcare-post-transfer-run-2026-09-05.txt`, printed by

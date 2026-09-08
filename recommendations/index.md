@@ -94,7 +94,7 @@ which is the scale this recommendation is measured against.
 ### Child care should be split on the income mix the order has already created
 
 **Child care should be allocated on each parent's share of after-tax resources following the order,
-not the 87.7 percent pre-order split the Worksheet uses today.**
+instead of the 87.7 percent pre-order split the Worksheet uses today.**
 
 At the worked example, three children, $300 a week in child care paid by the recipient: the payor's
 Line 3c income share before the order is 87.7 percent, and Line 6b charges him that share of the
@@ -116,7 +116,7 @@ from the Worksheet entirely, so each parent bears 0 percent of the other's cost,
 | Current worksheet (pre-transfer Line 3c shares) | $1,275.77 | 87.7% | $13,678 |
 | Removed from the worksheet entirely | $1,012.73 | 0.0% | $0 |
 | Split 50-50 after base support | $1,012.73 | 50.0% | $7,800 |
-| Post-transfer shares of available income, Line 3a (Line 6b-1, fallback if net is not adopted) | $1,206.08 | 64.5% | $10,054 |
+| Post-transfer shares of available income, Line 3a (Line 6b-1, fallback without a net computation) | $1,206.08 | 64.5% | $10,054 |
 | **Post-transfer net shares (recommended; not computable on the Worksheet today)** | **$1,012.73** | **48.2%** | **$7,513** |
 
 The post-transfer net row uses the same $1,012.73 base order as the current rule and the two
