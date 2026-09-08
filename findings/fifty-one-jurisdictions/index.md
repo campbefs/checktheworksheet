@@ -406,7 +406,7 @@ adjust for that.
 
 <section id="combined" markdown="1">
 
-## Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions
+## A parent here with the children half the time pays more than a parent in 47 of the other 49 states pays with them a third of the time
 
 The same fact pattern, recombined: Massachusetts under Box 1 (children half the time with each
 parent) is placed on the same scale as every other jurisdiction computed with the children primarily
