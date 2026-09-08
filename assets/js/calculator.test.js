@@ -424,11 +424,25 @@ function computeDistribution(higherAnnual, lowerAnnual, facts) {
   var baseOrderWk = r0['7d'];
   var combinedGross = higherAnnual + lowerAnnual;
   var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
-  // Two of three children under 13 -- the site's own worked example's fact, capped at kids, NOT
-  // the zero this tab's other cells use. See calculator.js's header comment for why.
-  var kidsUnder13 = Math.min(2, facts.kids);
-  var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, kidsUnder13);
+  // kids_under_13 = 0, the same convention as every other figure this calculator computes (2026-09-07
+  // afternoon: dropped the earlier min(2, kids) exception -- see calculator.js's v7 header comment).
+  var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0);
   return { base_order_wk: baseOrderWk, share3c: r0.B_3c, gross_share: grossShare, net_share: pos.payor_after_share };
+}
+
+// CHANGE 3 (v7): "on money after tax", the recommended rule. net_rule_share is exactly
+// computeDistribution()'s own net_share (see calculator.js's computeNetRuleOrder for why the
+// rule3/rule4 fixed point in childcare_post_transfer.py always reduces to the cc=0 share); the
+// order stays at the no-child-care base, and the charge is that share applied to the row's
+// combined weekly child care.
+function computeNetRule(higherAnnual, lowerAnnual, facts, totalChildcareWk) {
+  var d = computeDistribution(higherAnnual, lowerAnnual, facts);
+  return {
+    base_order_wk: d.base_order_wk,
+    net_rule_share: d.net_share,
+    net_rule_order_wk: d.base_order_wk,
+    net_rule_charge_wk: d.net_share * totalChildcareWk
+  };
 }
 
 function computeFixedRule(higherAnnual, lowerAnnual, facts) {
@@ -481,23 +495,33 @@ ccFixtures.rows.forEach(function (row) {
   });
   close(gotFix.fixed_rule_share, row.fixed_rule_share, 1e-6, label + ': fixed_rule_share matches Python');
   close(gotFix.fixed_rule_order_wk, row.fixed_rule_order_wk, 1e-4, label + ': fixed_rule_order_wk matches Python to the dollar');
+
+  var totalCc = row.cc_lower + row.cc_higher;
+  var gotNet = computeNetRule(row.higher, row.lower,
+    { kids: row.kids, box: row.box, healthLow: row.health_lo, healthHigh: row.health_hi }, totalCc);
+  close(gotNet.net_rule_share, row.net_rule_share, 1e-6, label + ': net_rule_share matches Python');
+  close(gotNet.net_rule_order_wk, row.net_rule_order_wk, 1e-4, label + ': net_rule_order_wk matches Python (stays at the no-child-care order)');
+  close(gotNet.net_rule_charge_wk, row.net_rule_charge_wk, 1e-4, label + ': net_rule_charge_wk matches Python to the dollar');
 });
 
 // ---------------------------------------------------------------------------------------------
 // PART 10 -- FIDELITY PIN: model/childcare_post_transfer.py's own worked example (PAYOR_GROSS
 // $201,000, RECIP_WEEKLY $570/wk, three children, Box 1, health $33/$43, $300/wk lower-earner
 // child care) must reproduce that script's rule1_share/rule2_gross_share/rule3_share (87.7% /
-// 64.3% / 48.2%) and rule2b_share/rule2b_7d (64.5% / $1,206.08/wk) to the value it actually prints
-// -- run 2026-09-07 (see model/childcare_post_transfer.py's own docstring). This is also
-// calculator.js's fixedRuleSanityPasses() target: worked example, $300 lower-earner child care,
-// fix on -> $1,206/wk.
+// 64.3% / 48.4% at kids_under_13=0, the site-wide convention -- the script itself prints 48.2% at
+// its own KIDS_UNDER_13=2, a different, real-fact-pattern constant this calculator does not use)
+// and rule2b_share/rule2b_7d (64.5% / $1,206.08/wk) to the value it actually prints -- run
+// 2026-09-07 (see model/childcare_post_transfer.py's own docstring). This is also calculator.js's
+// fixedRuleSanityPasses() target: worked example, $300 lower-earner child care, fix on ->
+// $1,206/wk. PART 10 also pins the "on money after tax" rule (netRuleSanityPasses() target):
+// order stays at $1,013/wk, share 48.4%.
 // ---------------------------------------------------------------------------------------------
-console.log('\n=== PART 10: childcare_post_transfer.py fidelity -- 87.7% / 64.3% / 48.2%, rule2b $1,206/wk ===\n');
+console.log('\n=== PART 10: childcare_post_transfer.py fidelity -- 87.7% / 64.3% / 48.4%, rule2b $1,206/wk ===\n');
 
 var weDist = computeDistribution(PAYOR_GROSS, RECIP_GROSS, { kids: KIDS, box: 1, healthLow: 33.0, healthHigh: 43.0 });
 close(weDist.share3c, 0.8768174760022585, 1e-9, 'worked example dist_share3c (rule1_share) = 87.7%');
 close(weDist.gross_share, 0.6431593046358441, 1e-9, 'worked example dist_gross_share (rule2_gross_share) = 64.3%');
-close(weDist.net_share, 0.48163022920349263, 1e-9, 'worked example dist_net_share (rule3_share) = 48.2%');
+close(weDist.net_share, 0.4839833869380114, 1e-9, 'worked example dist_net_share (rule3_share, kids_under_13=0) = 48.4%');
 equal(pct1(weDist.share3c), '87.7%', 'worked example: formatted higher earner\'s share of child care = 87.7%');
 equal(pct0(weDist.gross_share), '64%', 'worked example: formatted post-transfer gross share = 64%');
 equal(pct0(weDist.net_share), '48%', 'worked example: formatted post-transfer net share = 48%');
@@ -506,9 +530,18 @@ var weFix = computeFixedRule(PAYOR_GROSS, RECIP_GROSS, { kids: KIDS, box: 1, hea
 close(weFix.fixed_rule_share, 0.6445081434447836, 1e-9, 'worked example fixed_rule_share (rule2b_share) = 64.5%');
 close(weFix.fixed_rule_order_wk, 1206.0781733947601, 1e-6, 'worked example fixed_rule_order_wk (rule2b_7d) = $1,206.08/wk');
 equal(Math.round(weFix.fixed_rule_order_wk), 1206,
-  'worked example: proposed-fix order rounds to $1,206/wk (calculator.js\'s fixedRuleSanityPasses() target)');
-equal(moneyWk(weFix.fixed_rule_order_wk), '$1,206/wk', 'worked example: formatted proposed-fix order = $1,206/wk');
-equal(moneyBare(sanityCc.order_wk), '$1,276', 'worked example: formatted current-rule order (the "was" figure) = $1,276');
+  'worked example: "on income after the order" rule rounds to $1,206/wk (calculator.js\'s fixedRuleSanityPasses() target)');
+equal(moneyWk(weFix.fixed_rule_order_wk), '$1,206/wk', 'worked example: formatted "on income after the order" order = $1,206/wk');
+equal(moneyWk(sanityCc.order_wk), '$1,276/wk', 'worked example: formatted Worksheet order (the comparison figure) = $1,276/wk');
+
+var weNet = computeNetRule(PAYOR_GROSS, RECIP_GROSS, { kids: KIDS, box: 1, healthLow: 33.0, healthHigh: 43.0 }, 300.0);
+close(weNet.net_rule_share, 0.4839833869380114, 1e-9, 'worked example net_rule_share = 48.4%');
+close(weNet.net_rule_order_wk, 1012.7257303613252, 1e-6, 'worked example net_rule_order_wk stays at the no-child-care order');
+close(weNet.net_rule_charge_wk, 145.19501608140342, 1e-6, 'worked example net_rule_charge_wk at $300/wk lower-earner child care = $145.20/wk');
+equal(Math.round(weNet.net_rule_order_wk), 1013,
+  'worked example: "on money after tax" rule order rounds to $1,013/wk, unchanged from the no-child-care order (calculator.js\'s netRuleSanityPasses() target)');
+equal(moneyWk(weNet.net_rule_order_wk), '$1,013/wk', 'worked example: formatted "on money after tax" order = $1,013/wk');
+equal(money(weNet.net_rule_charge_wk * 52), '$7,550/yr', 'worked example: formatted "on money after tax" annual charge at $300/wk = $7,550/yr');
 
 console.log('\n' + checks + ' checks, ' + failures + ' failed.');
 process.exit(failures ? 1 : 0);

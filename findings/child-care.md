@@ -85,7 +85,7 @@ but Line 6b never re-measures the shares against that transfer.
    alt="Bar chart of the payor's share of a $15,600 annual child care claim under three allocation rules, at the worked example."
    title="The payor's share of a $15,600 child care bill, three ways to split it."
    deck="Line 3c allocates 87.7 percent to the payor on pre-transfer income shares."
-   notes="Adjusting the shares by the base order, the letter's § 2 redline, gives 64.5 percent. Post-transfer net shares give 48.2 percent. The middle bar is the redline; the right bar is where the argument goes once net income is admitted."
+   notes="Post-transfer net shares, the letter's § 2 lead redline, give 48.2 percent. Adjusting the shares by the base order alone, the fallback offered if the Worksheet will not carry a tax computation, gives 64.5 percent. The right bar is the redline actually asked for; the middle bar is what it falls back to."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}
@@ -167,8 +167,8 @@ own parenting time.
 | Basis for the split | Payor's share | Payor funds |
 |---|---:|---:|
 | Line 3c, pre-transfer (what the form does today) | 87.7% | $13,678/yr (order rises to $1,276/wk) |
-| Shares adjusted by the base order (the redline proposed at Line 6b-1) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
-| Post-transfer net shares (income after the order and after tax) | 48.2% | $7,513/yr |
+| Shares adjusted by the base order (fallback redline at Line 6b-1, if net is not adopted) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
+| Post-transfer net shares (income after the order and after tax; the redline proposed) | 48.2% | $7,513/yr |
 
 (Source: `model/runs/childcare-post-transfer-run-2026-09-05.txt`, printed by
 `model/childcare_post_transfer.py`; the order figures are from

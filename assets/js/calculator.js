@@ -4,6 +4,36 @@
 // assets/js/lib/net-position.js -- checked to the dollar against the Commonwealth's own CJ-D 304
 // XFA calculate-scripts. See assets/js/calculator.test.js.
 //
+// v7 (2026-09-07, afternoon) adds a SECOND child-care allocation rule and cleans up the on/off
+// control, both from owner feedback on v6:
+//   1. THREE-WAY RULE SELECTOR replaces the single "apply the proposed fix" checkbox
+//      (data-calc-radio="ccRule", values worksheet/nettax/linebased):
+//        - "As the Worksheet does it" (default): today's Line 6b, unchanged.
+//        - "On money after tax" (computeNetRuleOrder): what this project recommends. Ported from
+//          childcare_post_transfer.py's rule3/4 -- algebraically the payor_after_share at the
+//          NO-CHILD-CARE order (the annual_childcare terms cancel out of both the numerator and
+//          the denominator at the fixed point, so rule3 and rule4 are always the same number; see
+//          that script's own docstring). This rule does NOT change the support order -- the higher
+//          earner pays their share of child care directly, the same way rule 3/4 does in Python.
+//        - "On income after the order" (computeFixedRuleOrder, unchanged arithmetic): the former
+//          sole toggle, now labelled a fallback for when post-tax figures cannot be computed.
+//      All three share one explanatory line (data-calc-cell="cc_rule_note") that states what the
+//      selected rule charges the higher earner and, where the rule changes the order, the result
+//      beside the Worksheet's own figure. Each rule has its own sanity gate
+//      (fixedRuleSanityPasses/netRuleSanityPasses); a rule that fails disables its own radio with a
+//      note instead of showing a wrong number, and reverts the selection to "As the Worksheet does
+//      it" if it was the one selected.
+//   2. THE DISTRIBUTION READOUT'S NET LEG now uses kidsUnder13 = 0, the same convention as every
+//      other figure in this calculator (previously min(2, kids), a deliberate exception to match
+//      the letter's worked-example figures). Dropped so the callout agrees with the "on money after
+//      tax" rule's own math at any input, not only the worked example -- the worked example's own
+//      number moves from 48.2% to 48.4% as a result (verified against net_position.py directly).
+//   3. CHILD CARE ON/OFF became a two-option segmented control (data-calc-radio="ccOn", values
+//      "0"/"1", reusing the same .segmented/.segmented-option classes as Children/Custody above it)
+//      instead of a bare checkbox. The heading itself now carries the state
+//      (data-calc-cc-state, "not included"/"included") so a reader does not have to find the
+//      control to know whether child care is on.
+//
 // v6 (2026-09-07) REMOVES THE TWO-TAB STRUCTURE. On a narrow phone the "Child care" tab button and
 // its panel could be a full screen apart (the shared controls sit between them), so tapping the
 // tab visibly did nothing. There is now ONE continuous readout and ONE child-care ON/OFF control
@@ -87,15 +117,16 @@
 //                                    (always the ACTIVE result -- no child care when ccOn is off,
 //                                    the two sliders' figures when it is on: one set of numbers)
 //   <div data-calc-childcare>
-//     <input data-calc-input="ccOn" type="checkbox" aria-expanded aria-controls="calc-childcare-body">
-//     <div id="calc-childcare-body" hidden>            (revealed in place when ccOn is checked)
+//     <input data-calc-radio="ccOn" type="radio" value="0"> <input data-calc-radio="ccOn" type="radio" value="1">
+//     <span data-calc-cc-state>                              (heading state, "not included"/"included")
+//     <div id="calc-childcare-body" hidden>            (revealed in place when ccOn radio "1" is checked)
 //       ... data-calc-cell="cc_dist_share3c" / "cc_dist_gross" / "cc_dist_net" ...
 //       <input data-calc-input="ccLower"> <input data-calc-input="ccHigher">  (child-care sliders)
 //       ... data-calc-cell="cc_order_wk" / "cc_delta_wk" / "cc_share_pct" / "cc_share_wk" ...
 //       ... data-calc-cell="cc_combined_line" (only filled in when BOTH sliders > 0) ...
-//       <input data-calc-input="ccFix" type="checkbox">  (the Line 6b-1 toggle)
-//       ... data-calc-cell="cc_fix_compare_wrap" > "cc_fix_order" / "cc_fix_was" (shown when checked) ...
-//       ... data-calc-note="cc_fix" (disable message if fixedRuleSanityPasses() fails) ...
+//       <input data-calc-radio="ccRule" type="radio" value="worksheet|nettax|linebased">  (the rule selector)
+//       ... data-calc-cell="cc_rule_note" (one sentence, full text set by rule) ...
+//       ... data-calc-note="cc_rule" (disable message if a rule's own sanity check fails) ...
 //     </div>
 //   </div>
 // </div>
@@ -125,7 +156,6 @@
   function moneyWk(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/wk'; }
   function pct1(v) { return (v * 100).toFixed(1) + '%'; }
   function pct0(v) { return Math.round(v * 100) + '%'; }
-  function moneyBare(v) { return '$' + Math.round(v).toLocaleString('en-US'); }
   function signedMoneyWk(v) {
     var sign = v >= 0 ? '+' : '−';
     return sign + '$' + Math.round(Math.abs(v)).toLocaleString('en-US') + '/wk';
@@ -196,7 +226,10 @@
   // what the net percentage mix is." Independent of facts.ccLower/facts.ccHigher; only
   // kids/box/healthLow/healthHigh matter. "Higher earner" is Parent B always (see header comment);
   // every fixture row this site has ever computed names B the payor, so this does not special-case
-  // a flip.
+  // a flip. net_share uses kidsUnder13 = 0 (the same convention as every other figure in this
+  // calculator, see v7 header comment) -- it is also the "on money after tax" rule's own share
+  // (computeNetRuleOrder), since the fixed point in childcare_post_transfer.py's rule4 always
+  // equals rule3's cc=0 share; no separate function needed for that number.
   function computeChildcareDistribution(higherAnnual, lowerAnnual, facts) {
     var lowerWk = lowerAnnual / 52.0, higherWk = higherAnnual / 52.0;
     var r0 = W.run(facts.box, lowerWk, higherWk, facts.kids, 0,
@@ -204,17 +237,29 @@
     var baseOrderWk = r0['7d'];
     var combinedGross = higherAnnual + lowerAnnual;
     var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
-    // Two of three children under 13 -- the site's own worked example's fact, not the zero
-    // convention this section's other cells use. See the header comment for why this one readout
-    // differs. Capped at facts.kids so a 1- or 2-child selection never claims more under-13
-    // children than the family has.
-    var kidsUnder13 = Math.min(2, facts.kids);
-    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, kidsUnder13);
+    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0);
     return {
       base_order_wk: baseOrderWk,
       share3c: r0.B_3c,
       gross_share: grossShare,
       net_share: pos.payor_after_share
+    };
+  }
+
+  // CHANGE 3 (v7) -- "on money after tax", the rule this project recommends. The higher earner's
+  // share of the combined child care is computeChildcareDistribution's own net_share (see the
+  // comment above for why that is also childcare_post_transfer.py's rule3/rule4 fixed point). This
+  // rule does not touch the support order -- it stays at the no-child-care base order -- and instead
+  // states what the higher earner would pay directly, the same decomposition
+  // childcare_post_transfer.py's rule3/4 print.
+  function computeNetRuleOrder(higherAnnual, lowerAnnual, facts) {
+    var dist = computeChildcareDistribution(higherAnnual, lowerAnnual, facts);
+    var totalChildcare = (facts.ccLower || 0) + (facts.ccHigher || 0);
+    return {
+      base_order_wk: dist.base_order_wk,
+      net_rule_share: dist.net_share,
+      net_rule_order_wk: dist.base_order_wk,
+      net_rule_charge_wk: dist.net_share * totalChildcare
     };
   }
 
@@ -250,15 +295,16 @@
   var SANITY_CC = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300, ccHigher: 0 };
 
   // The Change-1 readout's own sanity target: $33/$43 premiums, kids=3, box=1, worked-example
-  // incomes, no child care -- reproduces childcare_post_transfer.py's 87.7% / 64.3% / 48.2%
-  // (rule1_share / rule2_gross_share / rule3_share). If this fails it is as serious as the order
-  // itself being wrong, so it is folded into the main guard below, not the toggle-only one.
+  // incomes, no child care -- reproduces net_position.py's own 87.7% / 64.3% / 48.4% at
+  // kidsUnder13=0 (rule1_share / rule2_gross_share / rule3_share, the same convention as the rest
+  // of this calculator; see v7 header comment). If this fails it is as serious as the order itself
+  // being wrong, so it is folded into the main guard below, not the rule-selector-only one.
   function distributionSanityPasses() {
     try {
       var d = computeChildcareDistribution(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC);
       return Math.round(d.share3c * 1000) === 877 &&
              Math.round(d.gross_share * 100) === 64 &&
-             Math.round(d.net_share * 100) === 48;
+             Math.round(d.net_share * 1000) === 484;
     } catch (e) {
       if (window.console) console.error('calculator.js: distribution sanity check threw', e);
       return false;
@@ -277,17 +323,30 @@
     }
   }
 
-  // The Change-2 toggle's OWN gate, separate from the main guard above: worked example, $300
-  // lower-earner child care, fix on -> $1,206/wk (childcare_post_transfer.py's rule2b_7d). If this
-  // fails, only the toggle disables (see initCalculator) -- the rest of the calculator keeps
-  // working, per the brief: never show a wrong number, but don't take down the whole tool for one
-  // figure either.
+  // The "on income after the order" rule's OWN gate, separate from the main guard above: worked
+  // example, $300 lower-earner child care, this rule on -> $1,206/wk (childcare_post_transfer.py's
+  // rule2b_7d). If this fails, only that rule's radio disables (see initCalculator) -- the rest of
+  // the calculator keeps working, per the brief: never show a wrong number, but don't take down the
+  // whole tool for one figure either.
   function fixedRuleSanityPasses() {
     try {
       var f = computeFixedRuleOrder(SANITY_HIGHER, SANITY_LOWER, SANITY_CC);
       return Math.round(f.fixed_rule_order_wk) === 1206;
     } catch (e) {
       if (window.console) console.error('calculator.js: fixed-rule sanity check threw', e);
+      return false;
+    }
+  }
+
+  // The "on money after tax" rule's OWN gate, mirroring the one above: worked example, $300
+  // lower-earner child care, this rule keeps the order at the no-child-care base ($1,013/wk) and
+  // charges the higher earner net_share of it directly -- 48.4% (Math.round(share*1000)===484).
+  function netRuleSanityPasses() {
+    try {
+      var n = computeNetRuleOrder(SANITY_HIGHER, SANITY_LOWER, SANITY_CC);
+      return Math.round(n.net_rule_order_wk) === 1013 && Math.round(n.net_rule_share * 1000) === 484;
+    } catch (e) {
+      if (window.console) console.error('calculator.js: net-rule sanity check threw', e);
       return false;
     }
   }
@@ -371,15 +430,17 @@
     }
 
     function currentFacts() {
+      var ccOnRadio = document.querySelector('[data-calc-radio="ccOn"]:checked');
+      var ccRuleRadio = document.querySelector('[data-calc-radio="ccRule"]:checked');
       return {
         kids: Number(document.querySelector('[data-calc-radio="kids"]:checked').value),
         box: Number(document.querySelector('[data-calc-radio="box"]:checked').value),
         healthHigh: Number(inputs.healthHigh.value) || 0,
         healthLow: Number(inputs.healthLow.value) || 0,
-        ccOn: inputs.ccOn ? !!inputs.ccOn.checked : false,
+        ccOn: ccOnRadio ? ccOnRadio.value === '1' : false,
         ccLower: inputs.ccLower ? Number(inputs.ccLower.value) || 0 : 0,
         ccHigher: inputs.ccHigher ? Number(inputs.ccHigher.value) || 0 : 0,
-        ccFixOn: inputs.ccFix ? !!inputs.ccFix.checked : false
+        ccRule: ccRuleRadio ? ccRuleRadio.value : 'worksheet'
       };
     }
 
@@ -472,23 +533,49 @@
         }
       }
 
-      // -- Child care section: the "apply the proposed fix" toggle (Change 2). --
-      if (inputs.ccFix) {
-        if (fixedRuleSanityPasses()) {
-          inputs.ccFix.disabled = false;
-          setNote('cc_fix', '');
-          var fixResult = computeFixedRuleOrder(higher, lower, facts);
-          var showFix = facts.ccFixOn && (facts.ccLower > 0 || facts.ccHigher > 0);
-          if (cells.cc_fix_order) cells.cc_fix_order.textContent = moneyWk(fixResult.fixed_rule_order_wk);
-          if (cells.cc_fix_was) cells.cc_fix_was.textContent = moneyBare(ccResult.order_wk);
-          if (cells.cc_fix_compare_wrap) cells.cc_fix_compare_wrap.classList.toggle('visible', showFix);
-        } else {
-          inputs.ccFix.disabled = true;
-          inputs.ccFix.checked = false;
-          if (cells.cc_fix_compare_wrap) cells.cc_fix_compare_wrap.classList.remove('visible');
-          setNote('cc_fix', 'Proposed-fix figures unavailable.');
-        }
+      // -- Child care section: the three-way allocation-rule selector (v7). All three rules are
+      // computed every render, independent of which is selected, same policy as the rest of this
+      // section. A rule whose own sanity check fails disables its radio and falls back to "As the
+      // Worksheet does it" rather than showing a wrong number. --
+      var ccRuleRadios = {};
+      Array.prototype.slice.call(root.querySelectorAll('[data-calc-radio="ccRule"]')).forEach(function (el) {
+        ccRuleRadios[el.value] = el;
+      });
+      var fixOk = fixedRuleSanityPasses();
+      var netOk = netRuleSanityPasses();
+      if (ccRuleRadios.linebased) ccRuleRadios.linebased.disabled = !fixOk;
+      if (ccRuleRadios.nettax) ccRuleRadios.nettax.disabled = !netOk;
+      var selectedRule = facts.ccRule;
+      if ((selectedRule === 'linebased' && !fixOk) || (selectedRule === 'nettax' && !netOk)) {
+        selectedRule = 'worksheet';
+        if (ccRuleRadios.worksheet) ccRuleRadios.worksheet.checked = true;
       }
+      var unavailableRules = [];
+      if (!netOk) unavailableRules.push('on money after tax');
+      if (!fixOk) unavailableRules.push('on income after the order');
+      setNote('cc_rule', unavailableRules.length ? ('Unavailable: ' + unavailableRules.join(', ') + '.') : '');
+
+      var totalChildcareWk = facts.ccLower + facts.ccHigher;
+      var fixResult = computeFixedRuleOrder(higher, lower, facts);
+      var netResult = computeNetRuleOrder(higher, lower, facts);
+      var worksheetChargeWk = dist.share3c * totalChildcareWk;
+      var linebasedChargeWk = fixResult.fixed_rule_share * totalChildcareWk;
+      var ruleNote = '';
+      if (selectedRule === 'nettax') {
+        ruleNote = 'On money after tax, the higher earner would pay ' + pct1(netResult.net_rule_share) +
+          ' (' + money(netResult.net_rule_charge_wk * 52) + ') of the child care directly. The support ' +
+          'order stays at ' + moneyWk(netResult.net_rule_order_wk) + '; the Worksheet’s own figure is ' +
+          moneyWk(ccResult.order_wk) + '.';
+      } else if (selectedRule === 'linebased') {
+        ruleNote = 'On income after the order, the higher earner would be charged ' + pct1(fixResult.fixed_rule_share) +
+          ' (' + money(linebasedChargeWk * 52) + ') of the child care through the order. Resulting order ' +
+          moneyWk(fixResult.fixed_rule_order_wk) + ', the Worksheet gives ' + moneyWk(ccResult.order_wk) + '.';
+      } else {
+        ruleNote = 'The Worksheet charges the higher earner ' + pct1(dist.share3c) +
+          ' (' + money(worksheetChargeWk * 52) + ') of the child care, while he holds ' + pct0(dist.gross_share) +
+          ' of the money after the order on paper and ' + pct0(dist.net_share) + ' of it after tax.';
+      }
+      if (cells.cc_rule_note) cells.cc_rule_note.textContent = ruleNote;
 
       // -- Status strip: reflects whichever result is active (see `active` above). --
       setBadge('household', active.recip_after > active.payor_after,
@@ -497,15 +584,17 @@
         'The order takes ' + pct1(active.true_pct_net) + ' of the payor’s net income, past the 40 percent '
         + 'the Guidelines call a hardship.', '');
 
-      // -- Child care section: reveal the body in place directly under the control, and keep its
-      // label and aria-expanded state honest. --
-      if (inputs.ccOn) {
-        inputs.ccOn.setAttribute('aria-expanded', facts.ccOn ? 'true' : 'false');
-        if (ccStateLabel) ccStateLabel.textContent = 'Child care: ' + (facts.ccOn ? 'included' : 'not included');
-        if (ccBody) {
-          if (facts.ccOn) ccBody.removeAttribute('hidden');
-          else ccBody.setAttribute('hidden', '');
-        }
+      // -- Child care section: reveal the body in place directly under the control, and keep the
+      // heading's state text (and the "with child care" radio's aria-expanded) honest. --
+      var ccOnWithRadio = document.querySelector('[data-calc-radio="ccOn"][value="1"]');
+      if (ccOnWithRadio) ccOnWithRadio.setAttribute('aria-expanded', facts.ccOn ? 'true' : 'false');
+      if (ccStateLabel) {
+        ccStateLabel.textContent = facts.ccOn ? 'included' : 'not included';
+        ccStateLabel.classList.toggle('is-on', facts.ccOn);
+      }
+      if (ccBody) {
+        if (facts.ccOn) ccBody.removeAttribute('hidden');
+        else ccBody.setAttribute('hidden', '');
       }
     }
 
@@ -513,10 +602,8 @@
     inputs.lower && inputs.lower.addEventListener('input', render);
     inputs.healthHigh && inputs.healthHigh.addEventListener('input', render);
     inputs.healthLow && inputs.healthLow.addEventListener('input', render);
-    inputs.ccOn && inputs.ccOn.addEventListener('change', render);
     inputs.ccLower && inputs.ccLower.addEventListener('input', render);
     inputs.ccHigher && inputs.ccHigher.addEventListener('input', render);
-    inputs.ccFix && inputs.ccFix.addEventListener('change', render);
     radios.forEach(function (el) {
       el.addEventListener('change', function () {
         if (el.getAttribute('data-calc-radio') === 'kids') updateChildcareBounds(Number(el.value));
@@ -531,5 +618,6 @@
   window.MCSGCalculatorComputeWithFacts = computeWithFacts;
   window.MCSGCalculatorComputeChildcareDistribution = computeChildcareDistribution;
   window.MCSGCalculatorComputeFixedRuleOrder = computeFixedRuleOrder;
+  window.MCSGCalculatorComputeNetRuleOrder = computeNetRuleOrder;
   document.querySelectorAll('[data-calculator]').forEach(initCalculator);
 })();
