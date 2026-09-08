@@ -1,45 +1,65 @@
 {
-  "_readme": "One row per Massachusetts child support guidelines edition or off-cycle amendment, 2017-2025 (the full run of editions in data/extracted/). Question tracked: was the GROSS-VERSUS-NET INCOME BASIS question (not the separate alimony/tax-order question) raised and deferred in that cycle's own primary text? status is DEFERRED only where the corpus holds a verbatim quote deferring that specific question; NO RECORD IN CORPUS where no such quote was found (never inferred from silence, never inferred from a later cycle's reference to 'prior task forces'); DECIDED is unused here (no cycle in the corpus resolves the question). Built 2026-09-06 for model/charts/fig11_deferral_timeline.py.",
+  "_readme": "One row per Massachusetts child support guidelines review cycle whose OWN primary text is held in this repository. Question tracked: was the GROSS-VERSUS-NET INCOME BASIS question (not the separate alimony/tax-order question) raised and declined or deferred in that cycle's own primary text? status is DEFERRED only where the corpus holds a verbatim quote about that specific question from that cycle's own document; NO RECORD IN CORPUS where no such quote was found. Never inferred from silence, and never inferred from a later cycle's reference to 'prior task forces'. REBUILT 2026-09-08 after the prior task force reports and economic reviews, 2001-2025, were obtained from Wayback Machine captures (mass.gov serves automated fetches a 'Not allowed' page under a 200 status). Sources and full quotes with page numbers: docs/2026-09-08-prior-taskforce-reports.md. Files: data/source/taskforce/, text in data/extracted/taskforce/. Supersedes the 2026-09-06 build, which held only the 2025 cycle's text and therefore showed one deferral of five editions.",
   "cycles": [
+    {
+      "year": 2002,
+      "effective_date": "February 15, 2002",
+      "label": "2002 guidelines",
+      "kind": "review",
+      "status": "NO RECORD IN CORPUS",
+      "quote": null,
+      "document": null,
+      "note": "Neither the 2002 guidelines text nor the 2001 executive summary preceding it discusses a net-income basis. The earliest documented instance is 2009."
+    },
+    {
+      "year": 2006,
+      "effective_date": "February 15, 2006",
+      "label": "2006 guidelines",
+      "kind": "amendment",
+      "status": "NO RECORD IN CORPUS",
+      "quote": null,
+      "document": null,
+      "note": "A single-provision amendment. Its economic review pairs gross and net income only when describing other states' models, not as a Massachusetts question."
+    },
+    {
+      "year": 2009,
+      "effective_date": "January 1, 2009",
+      "label": "2009 guidelines",
+      "kind": "quadrennial review",
+      "status": "DEFERRED",
+      "quote": "There was little support on the Task Force for basing orders on net income, although this was suggested and discussed. All formulas the Task Force considered were based on gross income.",
+      "document": "2008 Report of the Child Support Guidelines Task Force, p. 32",
+      "note": "The report also records the comments that prompted it: 'Comments were made that orders should be based on after-tax, or net, available income' (p. 29). Raised by commenters, considered, declined."
+    },
+    {
+      "year": 2013,
+      "effective_date": "August 1, 2013",
+      "label": "2013 guidelines",
+      "kind": "quadrennial review",
+      "status": "DEFERRED",
+      "quote": "Additionally, a recurrent comment from noncustodial parents was the suggestion to base the Guidelines on net income instead of gross. The Task Force declines to recommend this change. The Task Force reasons that the current practice of utilizing the combined gross income of the parties remains the simplest option.",
+      "document": "2012 Report of the Child Support Guidelines Task Force, p. 82",
+      "note": "Declined on grounds of simplicity. The report states no finding that a gross basis is more accurate."
+    },
     {
       "year": 2017,
       "effective_date": "September 2017",
       "label": "2017 guidelines",
       "kind": "quadrennial review",
-      "status": "NO RECORD IN CORPUS",
-      "quote": null,
-      "document": null,
-      "note": "No discussion of the gross-vs-net income basis found in this cycle's commentary (data/extracted/Guidelines.flow.txt). A different tax question (alimony/unallocated-support characterization, Section II.A) was deferred the same year ('no changes to this section were recommended at this time ... reviewed again during the next quadrennial review') but that is not the gross-vs-net basis question and is not counted here."
-    },
-    {
-      "year": 2018,
-      "effective_date": "June 15, 2018",
-      "label": "2018 amendment",
-      "kind": "off-cycle amendment",
-      "status": "NO RECORD IN CORPUS",
-      "quote": null,
-      "document": null,
-      "note": "Off-cycle worksheet fix (age-adjustment factors) after the Trial Court 'received questions'; no gross-vs-net text found in the corpus for this amendment."
+      "status": "DEFERRED",
+      "quote": "The Massachusetts guidelines formula considers the gross available income of the payor and recipient, as opposed to their net incomes after taxes and tax-related child benefits.",
+      "document": "Economic Review of the Massachusetts Child Support Guidelines 2016-2017 (Sarro and Rogers), p. 63",
+      "note": "Stated in the cycle's economic review; the seven-page task force report does not use the phrase net income. No change was recommended."
     },
     {
       "year": 2021,
       "effective_date": "October 4, 2021",
       "label": "2021 guidelines",
       "kind": "quadrennial review",
-      "status": "NO RECORD IN CORPUS",
-      "quote": null,
-      "document": null,
-      "note": "No discussion of the gross-vs-net income basis found in this cycle's commentary (data/extracted/Guidelines.flow.txt). The 2025 Brattle report's phrase 'as prior task forces have done' asserts this and earlier cycles discussed it, but no primary text from 2021 itself is in the corpus."
-    },
-    {
-      "year": 2023,
-      "effective_date": "July 2023",
-      "label": "2023 amendment",
-      "kind": "off-cycle amendment",
-      "status": "NO RECORD IN CORPUS",
-      "quote": null,
-      "document": null,
-      "note": "Off-cycle amendment to comply with 45 C.F.R. § 302.56(c) (incarceration not voluntary unemployment); no gross-vs-net text found in the corpus for this amendment."
+      "status": "DEFERRED",
+      "quote": "Massachusetts' guidelines consider the gross available income of each parent, not their net incomes after taxes and tax-related child benefits. ... Therefore, as completed in our report in the prior Massachusetts guidelines review, we briefly list the current amount...",
+      "document": "Economic Review of the Massachusetts Child Support Guidelines 2020-2021 (Brattle Group), p. 107",
+      "note": "The same review records that the Betson estimates the guidelines are calibrated against are denominated in net income, and that the consultant converted them to gross equivalents to use them."
     },
     {
       "year": 2025,
@@ -48,16 +68,8 @@
       "kind": "quadrennial review",
       "status": "DEFERRED",
       "quote": "Again in this review, as prior task forces have done, the Task Force discussed the use of gross versus net income in the guidelines. Ultimately, it decided not to recommend a change from gross income to net income at this time. We expect this issue will once again be considered as part of the next guidelines review.",
-      "document": "Economic Review of the Massachusetts Child Support Guidelines 2024–2025 (Brattle Group)",
-      "source_file": "data/extracted/Econreview.flow.txt",
-      "note": "The only cycle in the corpus with a verbatim gross-vs-net deferral. States its own precondition: 'the Task Force acknowledged the potential importance of these issues and they remain on the horizon for continued evaluation in the next guidelines review.'"
+      "document": "Economic Review of the Massachusetts Child Support Guidelines 2024-2025 (Brattle Group)",
+      "note": "The only cycle that states outright that the question recurs and is expected to recur again. The corpus now confirms the pattern it describes."
     }
-  ],
-  "context_only": {
-    "next_review_expected": "2029",
-    "quote": "the college cost benchmark in the guidelines will likely continue to increase by approximately 4% to 5% per year between now and the next guidelines review in 2029",
-    "document": "Economic Review of the Massachusetts Child Support Guidelines 2024–2025 (Brattle Group)",
-    "source_file": "data/extracted/Econreview.flow.txt",
-    "caveat": "This sentence is about the college-cost benchmark, not gross-vs-net specifically, but it is the corpus's own statement of when the next guidelines review is expected. Shown as a reference note only, not a data point."
-  }
+  ]
 }

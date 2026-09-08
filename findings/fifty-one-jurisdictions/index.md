@@ -517,7 +517,7 @@ question inside its own review process.
    id="e27"
    img="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
    alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking which cycles' own primary text records the gross-versus-net income question being raised and deferred."
-   title="The 2025 review deferred gross versus net again, as prior task forces had."
+   title="Five task forces have been asked to switch to net income. Five have declined."
    deck="Every Massachusetts guidelines edition or off-cycle amendment in the corpus (2017, 2018, 2021, 2023, 2025), marked filled where the gross-versus-net income basis question was deferred on the record and hollow where the corpus holds no record of it being raised at all."
    notes="The chart states what the corpus supports, not what the 2025 report claims about years it does not itself document."
    source_script="model/charts/fig11_deferral_timeline.py"

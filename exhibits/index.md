@@ -50,7 +50,7 @@ comparison always carries its per-person counterpart.
 20. [In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.](#e13)
 21. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
 22. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
-23. [The 2025 review deferred gross versus net again, "as prior task forces have done."](#e27)
+23. [Five task forces have been asked to switch to net income. Five have declined.](#e27)
 
 ## Who holds more after the order
 
@@ -937,22 +937,22 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e27">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
-     data-caption="The 2025 review deferred gross versus net again, &quot;as prior task forces have done.&quot;"
+     data-caption="Five task forces have been asked to switch to net income. Five have declined."
      data-csv-href="/figures/working/fig11_deferral_timeline.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
          loading="lazy"
-         alt="Timeline of five Massachusetts child support guidelines editions and amendments from 2017 to 2025, marking whether the gross-versus-net income question was deferred on the record or not raised in the corpus.">
+         alt="Timeline of seven Massachusetts child support guidelines reviews from 2002 to 2025, marking the five whose own report or economic review declined to move from gross to net income.">
   </a>
   <figcaption>
     <p class="confidence-tag">Documentary: built only from primary-text quotes</p>
-    <h3 class="exhibit-title">The 2025 review deferred gross versus net again, "as prior task forces have done."</h3>
-    <p class="exhibit-deck">Each guidelines edition or amendment since 2017. Filled: deferred on the record in this corpus. Hollow: the earlier task force reports are not yet in the corpus, so no record either way.</p>
+    <h3 class="exhibit-title">Five task forces have been asked to switch to net income. Five have declined.</h3>
+    <p class="exhibit-deck">Massachusetts guidelines reviews since 2002. Filled: the cycle's own report or economic review declines the change.</p>
     <dl class="exhibit-facts">
       <div><dt>Question</dt><dd>Gross vs. net income basis (not the separate alimony/tax question)</dd></div>
-      <div><dt>Corpus</dt><dd>2025 Guidelines + embedded commentary, Brattle Econ. Review, Task Force report</dd></div>
-      <div><dt>Cycles</dt><dd>5, 2017 to 2025</dd></div>
+      <div><dt>Corpus</dt><dd>Every task force report and economic review, 2001 to 2025</dd></div>
+      <div><dt>Cycles</dt><dd>7 reviews, 2002 to 2025</dd></div>
     </dl>
-    <p class="exhibit-notes">Only 2025 carries a verbatim deferral, in the Brattle Economic Review, quoted on the chart. That report says prior task forces did the same, but their primary text isn't in this corpus, so 2017, 2018, 2021, and 2023 are marked no record rather than deferred: the chart states what the corpus supports, not what 2025 claims about years it doesn't document. A separate question, how a support order and an alimony order interact for tax purposes, was also deferred in 2017, but isn't counted here since it isn't the gross-versus-net question. The Economic Review expects the next quadrennial review in 2029.</p>
+    <p class="exhibit-notes">Every filled year carries a verbatim quote from that cycle's own report or economic review, with page numbers in the source file. The 2009 Task Force found "little support ... for basing orders on net income"; the 2012 Task Force "declines to recommend this change." The 2002 and 2006 cycles say nothing on the question.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig11_deferral_timeline.py</code> ·
       <a href="/data/deferrals-gross-vs-net.json">data (JSON)</a> ·
       <a href="/figures/working/fig11_deferral_timeline.csv">data (CSV)</a></p>
