@@ -19,11 +19,11 @@ disclosure:
 # Mission
 
 This project works to make the Massachusetts Child Support Guidelines fair and internally
-consistent, through economic analysis anyone can check. A support order should be computed on the
-income parents actually have, should credit parenting time for what it costs, and should allocate
-child care on the income split the order itself creates. Every figure here comes from a published
-model with tests, so a task force, a legislator, a journalist or a parent can rerun the arithmetic
-instead of taking a position on trust.
+consistent. The method is economic analysis anyone can rerun. A support order should be computed on
+the income parents actually have, credit parenting time for what it costs, and allocate child care on
+the income split the order itself creates. Every figure here comes from a published model with
+tests, so a task force, a legislator, a journalist or a parent can check the arithmetic instead of
+taking a position on trust.
 
 ## Who built this
 
