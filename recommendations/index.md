@@ -41,7 +41,7 @@ figure is reproduced in the model files linked at the bottom of this page.
 
 This part is analysis beyond what the comments ask for. It compares Massachusetts's Worksheet
 against other states' schedules and against the child support recommendations Chris has made from
-that comparison. Nothing here has been submitted to the Trial Court.
+that comparison.
 
 ### The joint-custody discount should come from a cross-credit, using the factor other states use
 
@@ -150,7 +150,7 @@ the basis it is actually paid from.
 Every figure above is printed by <a href="/model/recommendations.py"><code>model/recommendations.py</code></a>,
 checked by <a href="/model/test_recommendations.py"><code>model/test_recommendations.py</code></a>,
 and reproduced in the full run at
-<a href="/model/runs/recommendations-run-2026-09-07.txt">model/runs/recommendations-run-2026-09-07.txt</a>.
+<a href="/model/runs/recommendations-run-2026-09-08.txt">model/runs/recommendations-run-2026-09-08.txt</a>.
 The fifty-jurisdiction figures come from the same tiered dataset used throughout this site,
 <a href="/data/fifty-state/tier-50-2026-09-05.json">tier-50-2026-09-05.json</a>; Washington and
 California's own basis and income ceilings are in
@@ -161,7 +161,7 @@ California's own basis and income ceilings are in
   <ul>
     <li><a href="/model/recommendations.py"><code>model/recommendations.py</code></a></li>
     <li><a href="/model/test_recommendations.py"><code>model/test_recommendations.py</code></a></li>
-    <li><a href="/model/runs/recommendations-run-2026-09-07.txt">The full printed run</a></li>
+    <li><a href="/model/runs/recommendations-run-2026-09-08.txt">The full printed run</a></li>
     <li><a href="https://github.com/campbefs/checktheworksheet">The repository</a></li>
   </ul>
 </div>

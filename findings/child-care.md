@@ -82,10 +82,10 @@ but Line 6b never re-measures the shares against that transfer.
 {% include figure.html
    id="e06"
    img="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-   alt="Bar chart of the payor's share of a $15,600 annual child care claim under three allocation rules, at the worked example."
-   title="The payor's share of a $15,600 child care bill, three ways to split it."
+   alt="Bar chart of the payor's share of a $15,600 annual child care claim under four allocation rules, at the worked example."
+   title="The payor's share of a $15,600 child care bill, four ways to split it."
    deck="Line 3c allocates 87.7 percent to the payor on pre-transfer income shares."
-   notes="The comments' current lead redline measures the split net of tax on a withholding basis and reaches 53.0 percent, not yet plotted in this chart. The two bars shown here are the prior figures: 64.5 percent is the post-transfer gross fallback, renumbered Line 6b-2; 48.2 percent is the post-transfer net figure counting refundable tax credits, which now survives only as analysis, because the Worksheet has no field for which parent claims which child."
+   notes="The § 2 fallback, adjusting shares by the base order alone (Line 6b-2), gives 64.5 percent. The § 2 primary redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent. Counting refundable tax credits as well gives 48.2 percent, kept as analysis, not asked for, because the Worksheet has no field for which parent claims which child."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}
