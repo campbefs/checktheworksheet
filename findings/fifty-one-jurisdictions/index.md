@@ -267,7 +267,7 @@ split, or the number of children, and every ranking below could move, in either 
 
 <section id="credit-count" markdown="1">
 
-## A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23; Massachusetts is among the 23
+## In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.
 
 This is a count, not a dollar claim. Massachusetts's own Box 2, where one parent has the children
 about a third of the time, is its one-third case, and Massachusetts gives it no discrete formula
@@ -275,7 +275,7 @@ credit the way 28 other jurisdictions do.
 
 <figure class="exhibit" id="e13">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
-     data-caption="A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23."
+     data-caption="In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights."
      data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (JSON)">
   <img src="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
          width="1736" height="1554"
@@ -283,8 +283,8 @@ credit the way 28 other jurisdictions do.
          alt="Tile map of fifty-one jurisdictions showing which give a formula-based child support credit at 122 overnights, about one-third time, and which do not.">
   </a>
   <figcaption>
-    <h3 class="exhibit-title">A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23.</h3>
-    <p class="exhibit-deck">A count, not a dollar amount. Massachusetts is among the 23; its Box 2 is the one-third case.</p>
+    <h3 class="exhibit-title">In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.</h3>
+    <p class="exhibit-deck">Twenty-eight states give that parent a formula credit; 23 do not. A count, not a dollar amount.</p>
     <p class="exhibit-notes">In the one clean pairing with a credit-giving state the dollar effect runs the other way, so the count is a structural fact and nothing more.</p>
     <p class="exhibit-source">Source: <a href="/data/fifty-state/credit-at-122-2026-09-05.json">data (JSON)</a></p>
   </figcaption>

@@ -47,7 +47,7 @@ comparison always carries its per-person counterpart.
 17. [Two homes, one child each, cost 43 percent more on the schedule than one home with two.](#e24)
 18. [Equal parenting time: Massachusetts orders the most of fifty jurisdictions.](#e11)
 19. [Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts.](#e12)
-20. [A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23.](#e13)
+20. [In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.](#e13)
 21. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
 22. [Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.](#e17)
 23. [Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017 to 2025.](#e27)
@@ -671,7 +671,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e13">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
-     data-caption="A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23."
+     data-caption="In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights."
      data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (JSON)">
   <img src="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
          loading="lazy"
@@ -679,8 +679,8 @@ comparison always carries its per-person counterpart.
   </a>
   <figcaption>
     <p class="confidence-tag">Tiered: one fact pattern, not a distribution; see method</p>
-    <h3 class="exhibit-title">A parent with the children a third of the time gets a formula credit in 28 jurisdictions and none in 23.</h3>
-    <p class="exhibit-deck">Blue: a formula credit at 122 overnights a year. Grey: none.</p>
+    <h3 class="exhibit-title">In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.</h3>
+    <p class="exhibit-deck">Twenty-eight states give that parent a formula credit; 23 do not. Blue: a credit at 122 overnights a year. Grey: none.</p>
     <dl class="exhibit-facts">
       <div><dt>Counted</dt><dd>Any formula credit at 122 overnights</dd></div>
       <div><dt>Children</dt><dd>3</dd></div>

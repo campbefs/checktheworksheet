@@ -1,17 +1,17 @@
 ---
 layout: page
 title: Documents
-description: The two PDFs behind this site, and their status, stated plainly.
+description: The two PDFs behind this site.
 ---
 
-# Two documents, neither sent
+# The two PDFs behind this site
 
-Neither below has been submitted, posted, or sent to anyone yet.
+Every figure on this site comes from one of these two documents.
 
 <ul class="doc-list">
   <li class="doc-item">
     <span class="doc-title">Comments on the Massachusetts Child Support Guidelines and Guidelines Worksheet, with Attachments A and D</span>
-    <span class="confidence-tag">Prepared, not yet sent</span>
+    <span class="confidence-tag">Comments to the Trial Court</span>
     <span class="doc-context">To Hon. Heidi E. Brieger, Chief Justice of the Trial Court, dated
       3 September 2026: six numbered asks, plus Attachment A (the worked example) and Attachment
       D (the fifty-jurisdiction comparison). Every finding here traces to one of the six.
@@ -19,7 +19,7 @@ Neither below has been submitted, posted, or sent to anyone yet.
   </li>
   <li class="doc-item">
     <span class="doc-title">Attachment E: Figures</span>
-    <span class="confidence-tag">Working paper, not yet posted</span>
+    <span class="confidence-tag">Figures appendix</span>
     <span class="doc-context">Twenty-five pages, twenty-three figures (E01-E27), each stating
       custody, child count, child care status, and incomes used; built for the SSRN version, not
       the frozen package above. Also at <a href="/exhibits/">/exhibits/</a>, with each CSV.
