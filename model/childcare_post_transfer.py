@@ -73,13 +73,16 @@ def figures():
     f["rule2b_7d"] = base + f["rule2b_share"] * CC_WEEKLY
     f["rule2b_saving_yr"] = (cur["7d"] - f["rule2b_7d"]) * 52
 
-    pos = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, base, 0.0, 0.0, kids_under_13=KIDS_UNDER_13)
+    # box=1: this whole worked example is Box 1 (shared, equal time), so the credits
+    # follow the alternating-year rule in net_position.household_net_incomes(), not
+    # the recipient-claims-all default.
+    pos = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, base, 0.0, 0.0, kids_under_13=KIDS_UNDER_13, box=1)
     f["rule3_share"] = pos["payor_after_share"]
     f["payor_after"], f["recip_after"], f["recip_pp"] = pos["payor_after"], pos["recip_after"], pos["recip_per_person"]
 
     share = f["rule3_share"]
     for _ in range(50):
-        pos4 = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, base, CC_WEEKLY, share, kids_under_13=KIDS_UNDER_13)
+        pos4 = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, base, CC_WEEKLY, share, kids_under_13=KIDS_UNDER_13, box=1)
         new = pos4["payor_after_share"]
         if abs(new - share) < 1e-9:
             break

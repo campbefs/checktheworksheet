@@ -65,6 +65,12 @@ the worked-example incomes (kids=3, box=1): premiums (0,0) and (150,60) at no ch
 premiums (40,40) at cc=(100,0) -- the exact combination item 4 of the interface brief asks the
 Child care tab to default to.
 
+2026-09-08 fix: distribution()'s and add_row()'s npos.analyze() calls now pass box=box. Before this,
+both always used analyze()'s default (box=2, "recipient claims every child"), even for the Box 1
+(equal-time) rows this grid also generates -- so dist_net_share and payor_after/recip_after for
+every box=1 row were computed under the wrong custody assumption. See
+model/net_position.py's own 2026-09-08 docstring note and model/test_net_position.py.
+
 Run: python3 tools/gen_calculator_childcare_fixtures.py
 """
 import json
@@ -112,7 +118,9 @@ def distribution(higher, lower, kids, box, health_lo, health_hi):
     base = r0["7d"]
     combined_gross = higher + lower
     gross_share = (higher - base * 52) / combined_gross if combined_gross else 0.0
-    pos = npos.analyze(higher, lower, kids, base, 0.0, 0.0, kids_under_13=0)
+    # box=box (2026-09-08): who claims the children for tax purposes now follows the custody box
+    # this row is computed under -- see net_position.household_net_incomes().
+    pos = npos.analyze(higher, lower, kids, base, 0.0, 0.0, kids_under_13=0, box=box)
     # dist_net_withholding_share: net_position.net_income_withholding_basis (tax and FICA only, no
     # refundable credits) -- childcare_post_transfer.py's rule5, the basis THE ASK uses as of v4.9.
     pw = npos.net_income_withholding_basis(higher)
@@ -188,8 +196,10 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
         payor_own_cc = a_own_cc if r["payor"] == "A" else b_own_cc
         payor_childcare_share = (payor_own_cc / weekly_childcare) if weekly_childcare else 0.0
 
+        # box=box (2026-09-08): see distribution()'s comment above -- same fix, same call site
+        # pattern, applied here for the main readout's payor_after/recip_after.
         pos = npos.analyze(payor_gross, recip_gross, kids, r["7d"],
-                            weekly_childcare, payor_childcare_share, kids_under_13=0)
+                            weekly_childcare, payor_childcare_share, kids_under_13=0, box=box)
 
         # Higher (B) earner's dollar/percentage share of the lower (A) earner's own child care --
         # Line A_6b, as documented in the header comment above.

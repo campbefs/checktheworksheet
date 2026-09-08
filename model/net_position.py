@@ -22,12 +22,23 @@ VERIFICATION STATUS (2026-09-02)
   NOT been checked against MA DOR. The runtime banner says so on every run.
 Every constant lives in TAX_PARAMS so it can be corrected in one place.
 
+CORRECTED 2026-09-08 -- analyze() used to hardcode the recipient as claiming every child
+  and filing head of household in EVERY scenario, including Box 1 (equal parenting time),
+  which does not reflect a joint-custody arrangement where the dependency claim is commonly
+  shared or alternated by year. It now takes a `box` argument;
+  Box 1 averages the payor-claims and recipient-claims years (see household_net_incomes()).
+  This also required implementing the IRC s. 24(b) high-income Child Tax Credit taper
+  (previously absent) and decoupling the federal CTC from the "hoh"-only gate in
+  refundable_credits() -- both were latent bugs that produced a wrong number the moment a
+  scenario credited the payor. See model/test_net_position.py.
+
 Usage:
     python3 model/net_position.py
     python3 model/net_position.py --payor-gross 220000 --recipient-gross 31200 --kids 2
 """
 
 import argparse
+import math
 
 # ---------------------------------------------------------------------------
 # PARAMETERS -- federal verified TY2026; MA approximate (see module docstring)
@@ -72,6 +83,14 @@ TAX_PARAMS = {
     # Refundable credits that flow to the lower-income parent claiming the children.
     "ctc_per_child": 2_200,
     "ctc_refundable_cap": 1_700,
+    # IRC s. 24(b): the Child Tax Credit phases out $50 per $1,000 (or fraction) of
+    # MAGI over $200,000 for single/HoH filers ($400,000 MFJ -- not modelled, no
+    # filer in this project files jointly). A TAPER, not a cliff: at $201,000 with
+    # three children the reduction is $50 on a $6,600 credit; it does not reach zero
+    # until about $332,000. Added 2026-09-08 -- the payor's $201,000 gross is $1,000
+    # over the threshold, so any scenario crediting him the CTC needs this to be right.
+    "ctc_phaseout_threshold": {"single": 200_000, "hoh": 200_000},
+    "ctc_phaseout_per_1000": 50,
     # EITC by number of qualifying children -- TY2026 verified 2026-09-02.
     # (max credit, phaseout start HoH/single, phaseout end)
     "eitc": {
@@ -138,8 +157,21 @@ def _federal_eitc(gross, kids, params):
     return mx * (end - gross) / (end - start)
 
 
+def _ctc_entitlement_after_phaseout(gross, kids, status, params):
+    """IRC s. 24(b): CTC entitlement before the tax-liability/refundability split,
+    reduced $50 per $1,000 (or fraction) of gross over the filer's threshold. A
+    taper, not a cliff -- do not round the excess down to the nearest $1,000."""
+    entitlement = params["ctc_per_child"] * kids
+    threshold = params["ctc_phaseout_threshold"].get(status, params["ctc_phaseout_threshold"]["single"])
+    if gross <= threshold:
+        return entitlement
+    steps = math.ceil((gross - threshold) / 1_000.0)
+    reduction = params["ctc_phaseout_per_1000"] * steps
+    return max(0.0, entitlement - reduction)
+
+
 def refundable_credits(gross, kids, status, params):
-    """Federal CTC + EITC for the parent claiming the children.
+    """Federal CTC (any filing status) + EITC (custodial-parent proxy only).
 
     IRC s. 24(d): the refundable Additional Child Tax Credit is the LEAST of the
     entitlement remaining after it offsets tax liability, $1,700 per child, and
@@ -147,16 +179,31 @@ def refundable_credits(gross, kids, status, params):
     phase-in and added a flat credit on top of a fully-subtracted liability, which
     OVERSTATED the recipient by about $480/yr on the worked example. The docstring
     then called that "deliberately conservative" -- it was conservative in the wrong
-    direction, i.e. it flattered this project's own argument. Caught in QA 2026-09-02."""
-    if status != "hoh" or kids == 0:
+    direction, i.e. it flattered this project's own argument. Caught in QA 2026-09-02.
+
+    DECOUPLED FROM FILING STATUS 2026-09-08. The old code returned 0.0 for any
+    non-"hoh" filer, which is wrong for the CTC: a parent who claims a qualifying
+    child (via a custody order or a signed Form 8332) can claim the Child Tax
+    Credit filing single, and this project needs exactly that case once a Box 1
+    (equal-time) scenario alternates the claim between the two parents by year.
+    The EITC keeps ITS OWN rule, unchanged: it requires the child to have lived
+    with the claimant for more than half the year, which is what "hoh" stands in
+    for in this simplified model, so it is not extended to a "single, claims the
+    kids on paper only" filer. This is why "payor claims, his year" below models
+    the payor as HoH (he is the modelled physical custodian that year), not as a
+    single filer receiving only the CTC -- the two give materially different
+    numbers, and only the HoH treatment reproduces a defensible EITC/MA-credit
+    result for that year rather than silently zeroing out the whole household."""
+    if kids == 0:
         return 0.0
-    entitlement = params["ctc_per_child"] * kids
+    entitlement = _ctc_entitlement_after_phaseout(gross, kids, status, params)
     tax_owed = federal_tax(gross, status, params)
     nonrefundable = min(entitlement, tax_owed)
     refundable = min(entitlement - nonrefundable,
                      params["ctc_refundable_cap"] * kids,
                      0.15 * max(0.0, gross - 2_500))
-    return nonrefundable + refundable + _federal_eitc(gross, kids, params)
+    eitc = _federal_eitc(gross, kids, params) if status == "hoh" else 0.0
+    return nonrefundable + refundable + eitc
 
 
 def net_income(gross, status, kids, params, kids_under_13=None):
@@ -192,14 +239,55 @@ def net_income_withholding_basis(gross, params=TAX_PARAMS):
                     + ma_tax(gross, "single", params, 0))
 
 
+def household_net_incomes(payor_gross, recipient_gross, kids, params=TAX_PARAMS,
+                           kids_under_13=None, box=2):
+    """Each party's annual net income, given who claims the children for tax purposes.
+
+    Box 2 (primary custody, the DEFAULT -- matches every caller written before
+    2026-09-08): the recipient is the physical custodian, claims every child, and
+    files head of household. Unchanged from the original hardcoded behaviour.
+
+    Box 1 (equal parenting time): this corrects an error in the earlier version, which
+    hardcoded the recipient as claiming every child regardless of the custody arrangement.
+    At equal
+    time nothing makes one parent the physical custodian and a judgment commonly
+    alternates the dependency claim by year, so this returns the EXPECTED VALUE of
+    alternating: the payor-claims year and the recipient-claims year, averaged for
+    BOTH parties. This is not approximated as "half the credit" -- computing both
+    years separately is what makes the IRC s. 24(b) high-income taper apply
+    correctly to whichever party's income exceeds the threshold in their claiming
+    year, which a flat 50% haircut on the box-2 numbers would not reproduce.
+
+    In the payor's claiming year he is modelled as head of household (the
+    custodial-parent proxy this file uses throughout), not as a single filer
+    awarded only the Child Tax Credit -- see refundable_credits()'s docstring for
+    why those two give different, and differently defensible, numbers."""
+    if box == 1:
+        payor_net_recipient_claims = net_income(payor_gross, "single", 0, params)
+        recip_net_recipient_claims = net_income(recipient_gross, "hoh", kids, params, kids_under_13)
+        payor_net_payor_claims = net_income(payor_gross, "hoh", kids, params, kids_under_13)
+        recip_net_payor_claims = net_income(recipient_gross, "single", 0, params)
+        payor_net = (payor_net_recipient_claims + payor_net_payor_claims) / 2.0
+        recip_net = (recip_net_recipient_claims + recip_net_payor_claims) / 2.0
+    else:
+        payor_net = net_income(payor_gross, "single", 0, params)
+        recip_net = net_income(recipient_gross, "hoh", kids, params, kids_under_13)
+    return payor_net, recip_net
+
+
 def analyze(payor_gross, recipient_gross, kids, weekly_support, weekly_childcare,
-            payor_childcare_share, params=TAX_PARAMS, kids_under_13=None):
+            payor_childcare_share, params=TAX_PARAMS, kids_under_13=None, box=2):
+    """box: which custody box the credits should follow (see household_net_incomes()).
+    Defaults to 2 (recipient claims all children, unchanged pre-2026-09-08 behaviour)
+    so that a caller written before this parameter existed keeps producing the same
+    number it always did. A caller modelling a Box 1 (equal-time) scenario must pass
+    box=1 explicitly to get the corrected alternating-year treatment."""
     annual_support = weekly_support * 52.0
     annual_childcare = weekly_childcare * 52.0
     payor_cc = annual_childcare * payor_childcare_share
 
-    payor_net = net_income(payor_gross, "single", 0, params)
-    recip_net = net_income(recipient_gross, "hoh", kids, params, kids_under_13)
+    payor_net, recip_net = household_net_incomes(payor_gross, recipient_gross, kids,
+                                                  params, kids_under_13, box)
 
     payor_after = payor_net - annual_support - payor_cc
     # Support is received tax-free; recipient bears the remaining childcare cost.
@@ -229,13 +317,13 @@ def analyze(payor_gross, recipient_gross, kids, weekly_support, weekly_childcare
 
 
 def crossover(payor_gross, recipient_gross, kids, weekly_childcare, payor_childcare_share,
-              params=TAX_PARAMS, kids_under_13=None):
+              params=TAX_PARAMS, kids_under_13=None, box=2):
     """Weekly support at which the recipient household passes the payor in spendable income."""
     lo, hi = 0.0, 5_000.0
     for _ in range(200):
         mid = (lo + hi) / 2
         r = analyze(payor_gross, recipient_gross, kids, mid, weekly_childcare,
-                    payor_childcare_share, params, kids_under_13)
+                    payor_childcare_share, params, kids_under_13, box)
         if r["gap"] > 0:
             lo = mid
         else:

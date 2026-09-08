@@ -4,6 +4,19 @@
 // assets/js/lib/net-position.js -- checked to the dollar against the Commonwealth's own CJ-D 304
 // XFA calculate-scripts. See assets/js/calculator.test.js.
 //
+// v10 (2026-09-08) fixes both N.analyze() call sites (the main readout's computeWithFacts and the
+// Child care tab's computeChildcareDistribution) to pass the selected custody box (facts.box)
+// through to net-position.js's analyze(). Before this, analyze() always used its default (box=2,
+// "recipient claims every child and files head of household"), even when Box 1 (equal parenting
+// time) was selected -- so payor_after/recip_after/recip_per_person and the analytical net_share
+// were computed under the wrong custody assumption for every Box 1 scenario, which is most of what
+// this calculator is built to show. See assets/js/lib/net-position.js's own 2026-09-08 note and
+// model/net_position.py's docstring. THE HEADLINE CONSEQUENCE, at the worked example (Box 1, no
+// child care): the recipient household no longer holds more than the payor keeps -- $92,453 vs
+// $85,168, not the reverse. The order (order_wk, line_7e, Line-3a-based figures like the "on
+// income after the order" fallback) is unaffected -- those come from worksheet.js, which has no
+// tax logic and was never wrong.
+//
 // v9 (2026-09-08) fixes a mismatch between this calculator and the letter's own Section 2 ask:
 // "On money after tax" (computeNetRuleOrder) used to leave the support order at the no-child-care
 // figure and describe the higher earner's share as a private side payment. The letter's redline is
@@ -205,9 +218,11 @@
     var payorChildcareShare = weeklyChildcare > 0 ? payorOwnCc / weeklyChildcare : 0.0;
 
     // kids_under_13 fixed at 0 -- the generic-grid convention used across this site (no control
-    // for how many children are under 13); see CONVENTIONS.md SS11.
+    // for how many children are under 13); see CONVENTIONS.md SS11. box=facts.box (v10, 2026-09-08):
+    // who claims the children for tax purposes now follows the custody box the reader selected,
+    // instead of always defaulting to "recipient claims everyone" -- see the v10 header note.
     var pos = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare,
-      payorChildcareShare, undefined, 0);
+      payorChildcareShare, undefined, 0, facts.box);
 
     // Line A_6b: the higher earner's (B's) income-share x the lower earner's (A's) own
     // benchmarked child care -- literally "the higher earner's share of the lower earner's child
@@ -250,7 +265,9 @@
     var baseOrderWk = r0['7d'];
     var combinedGross = higherAnnual + lowerAnnual;
     var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
-    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0);
+    // box=facts.box (v10): see the v10 header note -- who claims the children now follows the
+    // selected custody box for this analytical figure too.
+    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0, facts.box);
     // v9: the withholding-basis post-transfer share -- tax and FICA only, single filer, no
     // exemptions, no refundable credits. This is what Section 2 of the comments asks for as of
     // v4.9, because CJ-D 304 collects neither filing status nor who claims which child; net_share
@@ -324,16 +341,18 @@
   var SANITY_CC = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300, ccHigher: 0 };
 
   // The Change-1 readout's own sanity target: $33/$43 premiums, kids=3, box=1, worked-example
-  // incomes, no child care -- reproduces net_position.py's own 87.7% / 64.3% / 48.4% at
+  // incomes, no child care -- reproduces net_position.py's own 87.7% / 64.3% / 52.1% at
   // kidsUnder13=0 (rule1_share / rule2_gross_share / rule3_share, the same convention as the rest
-  // of this calculator; see v7 header comment). If this fails it is as serious as the order itself
-  // being wrong, so it is folded into the main guard below, not the rule-selector-only one.
+  // of this calculator; see v7 header comment). net_share was 48.4% before the 2026-09-08 box fix
+  // (net_share follows the custody box now, see the v10 header note). If this fails it is as
+  // serious as the order itself being wrong, so it is folded into the main guard below, not the
+  // rule-selector-only one.
   function distributionSanityPasses() {
     try {
       var d = computeChildcareDistribution(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC);
       return Math.round(d.share3c * 1000) === 877 &&
              Math.round(d.gross_share * 100) === 64 &&
-             Math.round(d.net_share * 1000) === 484;
+             Math.round(d.net_share * 1000) === 521;
     } catch (e) {
       if (window.console) console.error('calculator.js: distribution sanity check threw', e);
       return false;
@@ -518,8 +537,9 @@
       if (cells.cc_dist_gross) cells.cc_dist_gross.textContent = pct0(dist.gross_share);
       // Bound to the WITHHOLDING-basis share (the "on money after tax" rule below, and the
       // figure Section 2 of the comments asks for), not dist.net_share (credits-inclusive,
-      // 48%) -- the two were shown side by side until 2026-09-08 with nothing to say they used
-      // different tax bases, while the "What this project asks for" tag pointed at this cell.
+      // 52% at the worked example as of the same-day box fix; was 48%) -- the two were shown
+      // side by side until 2026-09-08 with nothing to say they used different tax bases, while
+      // the "What this project asks for" tag pointed at this cell.
       if (cells.cc_dist_net) cells.cc_dist_net.textContent = pct0(dist.net_withholding_share);
 
       if (inputs.ccLower) {

@@ -12,6 +12,15 @@
 // (payor effective rate +30.4%, recipient effective rate -38.9%, payor keeps $87,172 with no
 // child care) to the cent.
 //
+// 2026-09-08: ported net_position.py's fix for analyze() defaulting to "recipient claims every
+// child and files head of household" in EVERY custody arrangement, including Box 1 (equal
+// parenting time). analyze() and refundableCredits() now take a `box` argument (default 2, the
+// unchanged pre-fix behaviour); Box 1 averages the payor-claims and recipient-claims years via
+// the new householdNetIncomes(). This required the IRC s. 24(b) high-income Child Tax Credit
+// taper (ctcEntitlementAfterPhaseout(), previously absent here) and decoupling the federal CTC
+// from the 'hoh'-only gate in refundableCredits() -- see model/net_position.py's own docstring
+// for why both were latent bugs. See assets/js/calculator.test.js for the fidelity checks.
+//
 // Usage (browser): <script src="/assets/js/lib/net-position.js"></script> attaches
 // `window.MCSGNetPosition` (requires nothing else). Usage (Node, for tests):
 // `require('./lib/net-position.js')`.
@@ -53,6 +62,11 @@
     maCftcPerDependent: 440,
     ctcPerChild: 2200,
     ctcRefundableCap: 1700,
+    // IRC s. 24(b): the Child Tax Credit phases out $50 per $1,000 (or fraction) of MAGI over
+    // $200,000 for single/HoH filers ($400,000 MFJ -- not modelled, no filer in this project
+    // files jointly). A TAPER, not a cliff.
+    ctcPhaseoutThreshold: { single: 200000, hoh: 200000 },
+    ctcPhaseoutPer1000: 50,
     // EITC by number of qualifying children (TY2026): [max credit, phaseout start, phaseout end]
     eitc: {
       0: [664, 10860, 19540],
@@ -114,13 +128,35 @@
     return params.maEitcPct * fedEitc + params.maCftcPerDependent * kidsUnder13;
   }
 
-  // Federal CTC + EITC for the parent claiming the children. IRC s. 24(d): the refundable
-  // Additional Child Tax Credit is the LEAST of the entitlement remaining after it offsets tax
-  // liability, $1,700 per child, and 15% of earned income above $2,500.
+  // IRC s. 24(b): CTC entitlement before the tax-liability/refundability split, reduced $50 per
+  // $1,000 (or fraction) of gross over the filer's threshold. A taper, not a cliff -- do not
+  // round the excess down to the nearest $1,000.
+  function ctcEntitlementAfterPhaseout(gross, kids, status, params) {
+    params = params || TAX_PARAMS;
+    var entitlement = params.ctcPerChild * kids;
+    var threshold = (params.ctcPhaseoutThreshold && params.ctcPhaseoutThreshold[status] !== undefined)
+      ? params.ctcPhaseoutThreshold[status] : params.ctcPhaseoutThreshold.single;
+    if (gross <= threshold) return entitlement;
+    var steps = Math.ceil((gross - threshold) / 1000.0);
+    var reduction = params.ctcPhaseoutPer1000 * steps;
+    return Math.max(0.0, entitlement - reduction);
+  }
+
+  // Federal CTC (any filing status) + EITC (custodial-parent proxy only). IRC s. 24(d): the
+  // refundable Additional Child Tax Credit is the LEAST of the entitlement remaining after it
+  // offsets tax liability, $1,700 per child, and 15% of earned income above $2,500.
+  //
+  // DECOUPLED FROM FILING STATUS 2026-09-08. The CTC no longer returns 0 for a non-'hoh' filer --
+  // a parent who claims a qualifying child (via a custody order or a signed Form 8332) can claim
+  // the Child Tax Credit filing single, which is exactly the case a Box 1 (equal-time) scenario
+  // needs once the dependency claim alternates between the two parents by year. The EITC keeps
+  // ITS OWN rule, unchanged: it requires the child to have lived with the claimant for more than
+  // half the year, which is what 'hoh' stands in for in this simplified model, so it is not
+  // extended to a 'single, claims the kids on paper only' filer.
   function refundableCredits(gross, kids, status, params) {
     params = params || TAX_PARAMS;
-    if (status !== 'hoh' || kids === 0) return 0.0;
-    var entitlement = params.ctcPerChild * kids;
+    if (kids === 0) return 0.0;
+    var entitlement = ctcEntitlementAfterPhaseout(gross, kids, status, params);
     var taxOwed = federalTax(gross, status, params);
     var nonrefundable = Math.min(entitlement, taxOwed);
     var refundable = Math.min(
@@ -128,7 +164,8 @@
       params.ctcRefundableCap * kids,
       0.15 * Math.max(0.0, gross - 2500)
     );
-    return nonrefundable + refundable + federalEitc(gross, kids, params);
+    var eitc = status === 'hoh' ? federalEitc(gross, kids, params) : 0.0;
+    return nonrefundable + refundable + eitc;
   }
 
   // After-tax income including federal AND Massachusetts refundable credits.
@@ -148,6 +185,43 @@
     return gross - (federalTax(gross, 'single', params) + fica(gross, params) + maTax(gross, 'single', params, 0));
   }
 
+  // Each party's annual net income, given who claims the children for tax purposes. Mirrors
+  // net_position.py's household_net_incomes().
+  //
+  // Box 2 (primary custody, the DEFAULT -- matches every caller written before 2026-09-08): the
+  // recipient is the physical custodian, claims every child, and files head of household.
+  // Unchanged from the original hardcoded behaviour.
+  //
+  // Box 1 (equal parenting time): at equal time nothing makes one parent the physical custodian,
+  // and a judgment commonly alternates the dependency claim by year, so this returns the
+  // EXPECTED VALUE of alternating: the payor-claims year and the recipient-claims year, averaged
+  // for BOTH parties. This is not approximated as "half the credit" -- computing both years
+  // separately is what makes the IRC s. 24(b) high-income taper apply correctly to whichever
+  // party's income exceeds the threshold in their claiming year, which a flat 50% haircut on the
+  // box-2 numbers would not reproduce.
+  //
+  // In the payor's claiming year he is modelled as head of household (the custodial-parent proxy
+  // this file uses throughout), not as a single filer awarded only the Child Tax Credit -- see
+  // refundableCredits()'s comment for why those two give different, and differently defensible,
+  // numbers.
+  function householdNetIncomes(payorGross, recipientGross, kids, params, kidsUnder13, box) {
+    params = params || TAX_PARAMS;
+    box = box === undefined ? 2 : box;
+    var payorNet, recipNet;
+    if (box === 1) {
+      var payorNetRecipientClaims = netIncome(payorGross, 'single', 0, params);
+      var recipNetRecipientClaims = netIncome(recipientGross, 'hoh', kids, params, kidsUnder13);
+      var payorNetPayorClaims = netIncome(payorGross, 'hoh', kids, params, kidsUnder13);
+      var recipNetPayorClaims = netIncome(recipientGross, 'single', 0, params);
+      payorNet = (payorNetRecipientClaims + payorNetPayorClaims) / 2.0;
+      recipNet = (recipNetRecipientClaims + recipNetPayorClaims) / 2.0;
+    } else {
+      payorNet = netIncome(payorGross, 'single', 0, params);
+      recipNet = netIncome(recipientGross, 'hoh', kids, params, kidsUnder13);
+    }
+    return { payorNet: payorNet, recipNet: recipNet };
+  }
+
   /**
    * Post-transfer spendable-income comparison. Mirrors net_position.py's analyze().
    * @param {number} payorGross annual
@@ -158,16 +232,22 @@
    * @param {number} payorChildcareShare fraction of weeklyChildcare the payor bears directly
    * @param {object} [params]
    * @param {number} [kidsUnder13]
+   * @param {number} [box] which custody box the credits should follow (see
+   *   householdNetIncomes()). Defaults to 2 (recipient claims all children, the unchanged
+   *   pre-2026-09-08 behaviour) so a call site written before this parameter existed keeps
+   *   producing the same number it always did. A Box 1 (equal-time) scenario must pass box=1
+   *   explicitly to get the corrected alternating-year treatment.
    */
   function analyze(payorGross, recipientGross, kids, weeklySupport, weeklyChildcare,
-                    payorChildcareShare, params, kidsUnder13) {
+                    payorChildcareShare, params, kidsUnder13, box) {
     params = params || TAX_PARAMS;
     var annualSupport = weeklySupport * 52.0;
     var annualChildcare = weeklyChildcare * 52.0;
     var payorCc = annualChildcare * payorChildcareShare;
 
-    var payorNet = netIncome(payorGross, 'single', 0, params);
-    var recipNet = netIncome(recipientGross, 'hoh', kids, params, kidsUnder13);
+    var nets = householdNetIncomes(payorGross, recipientGross, kids, params, kidsUnder13, box);
+    var payorNet = nets.payorNet;
+    var recipNet = nets.recipNet;
 
     var payorAfter = payorNet - annualSupport - payorCc;
     // Support is received tax-free; recipient bears the remaining childcare cost.
@@ -203,9 +283,11 @@
     maTax: maTax,
     federalEitc: federalEitc,
     maRefundableCredits: maRefundableCredits,
+    ctcEntitlementAfterPhaseout: ctcEntitlementAfterPhaseout,
     refundableCredits: refundableCredits,
     netIncome: netIncome,
     netIncomeWithholdingBasis: netIncomeWithholdingBasis,
+    householdNetIncomes: householdNetIncomes,
     analyze: analyze
   };
 }));
