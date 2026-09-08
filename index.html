@@ -195,20 +195,21 @@ scripts:
               <label class="cc-rule-option">
                 <input type="radio" name="calc-cc-rule" value="worksheet" data-calc-radio="ccRule" checked>
                 <span>
-                  <span class="cc-rule-option-label">As the Worksheet does it</span>
+                  <span class="cc-rule-option-label">On gross income, before the order</span>
+                  <span class="cc-rule-option-tag">What the Worksheet does today</span>
                 </span>
               </label>
               <label class="cc-rule-option">
                 <input type="radio" name="calc-cc-rule" value="nettax" data-calc-radio="ccRule">
                 <span>
-                  <span class="cc-rule-option-label">On money after tax</span>
+                  <span class="cc-rule-option-label">On take-home pay, after the order</span>
                   <span class="cc-rule-option-tag">What this project asks for</span>
                 </span>
               </label>
               <label class="cc-rule-option">
                 <input type="radio" name="calc-cc-rule" value="linebased" data-calc-radio="ccRule">
                 <span>
-                  <span class="cc-rule-option-label">On income after the order</span>
+                  <span class="cc-rule-option-label">On gross income, after the order</span>
                   <span class="cc-rule-option-tag">Fallback if the form cannot compute tax</span>
                 </span>
               </label>
@@ -220,7 +221,9 @@ scripts:
           </div>
         </div>
 
-        <p class="tool-assumptions">The MA credit for children under 13 is fixed at zero throughout.</p>
+        <p class="tool-assumptions">The MA credit for children under 13 is fixed at zero throughout.
+        The payor-keeps and household-holds figures above count refundable tax credits. The child
+        care split does not, because the Worksheet has no field for which parent claims which child.</p>
 
         <details class="tool-detail">
           <summary>Assumptions and method</summary>
