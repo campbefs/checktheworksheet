@@ -4,10 +4,10 @@ Base order (no child care)          $1,013/wk  $52,662/yr
 1.  CURRENT (Line 3c, pre-transfer)       payor funds  87.7% of child care (+$13,678/yr; order $1,276/wk)
 2.  POST-TRANSFER GROSS shares            payor  64.3% -> funds $10,033/yr
 2b. POST-TRANSFER on Line 3a (redline)    payor  64.5% / recipient  35.5%  -> funds $10,054/yr; order $1,206/wk vs $1,276 (saves $3,624/yr)
-3.  POST-TRANSFER NET shares              payor  48.2% / recipient  51.8%  ($87,172 vs $93,821)  -> funds $7,513/yr
-4.  POST-TRANSFER NET incl. child care    payor  48.2% (fixed point; equals rule 3)
+3.  POST-TRANSFER NET shares              payor  52.0% / recipient  48.0%  ($92,893 vs $85,608)  -> funds $8,118/yr
+4.  POST-TRANSFER NET incl. child care    payor  52.0% (fixed point; equals rule 3)
 5.  POST-TRANSFER NET, withholding basis  payor  53.0% / recipient  47.0%  -> order $1,171.64/wk vs $1,275.77 (saves $5,415/yr)   <-- THE ASK
     payor net $139,834 (30.4% effective), recipient net $24,734 (16.6% effective)
 
 Pre-transfer gross share (Line 3c basis, approx): payor  87.1%
-Caveat that travels with every line: per person the payor still leads ($87,172 for one vs $23,455 each for four, rule 3).
+Caveat that travels with every line: per person the payor still leads ($92,893 for one vs $21,402 each for four, rule 3).

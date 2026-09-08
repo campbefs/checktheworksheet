@@ -278,7 +278,7 @@ bookkeeping and an Escape-to-close on top).
 <section class="hero">
   <p class="eyebrow">Massachusetts Child Support Guidelines Worksheet, verified in code</p>
   <h1>Massachusetts's hardship presumption does not kick in until the payor is at
-    <span class="figure">57 percent</span> of net income.</h1>
+    <span class="figure">55 percent</span> of net income.</h1>
   <p class="lede">One or two sentences restating that number with its reference class...</p>
 </section>
 
@@ -289,7 +289,7 @@ bookkeeping and an Escape-to-close on top).
   </div>
   <span class="numeral-arrow" aria-hidden="true">&rarr;</span>
   <div class="numeral">
-    <span class="numeral-value">57</span>
+    <span class="numeral-value">55</span>
     <p class="numeral-caption">True share of net income, percent</p>
   </div>
 </div>
@@ -321,7 +321,7 @@ built by the include in §5) / `.content-col` (max `var(--content-width)`, prose
       <h3><a href="/findings/hardship-test.html">The hardship test reads a different income than the order pays from</a></h3>
       <p>One mechanism sentence.</p>
       <div class="stat">
-        <span class="stat-value">57%</span>
+        <span class="stat-value">55%</span>
         <span class="stat-label">of the payor's net income, at the worked example, the point where the hardship presumption finally kicks in</span>
       </div>
     </div>
@@ -353,8 +353,8 @@ comment block) rather than hand-writing the `<figure>` markup:
    alt="Line chart of Line 7e's reported percentage versus the true share of the payor's net
         income, against child care claimed from $0 to $600 a week, at the worked example."
    title="The hardship valve fires late because it reads the wrong income."
-   notes="The true burden passes 40% of net at $80/week of child care; Line 7e reports 40% at
-          $590/week, by which point the true burden is 57%."
+   notes="The true burden passes 40% of net at $130/week of child care; Line 7e reports 40% at
+          $590/week, by which point the true burden is 55%."
    source_script="model/charts/fig6_valve.py"
    csv_href="/figures/working/fig6_valve_units_lag.csv" %}
 ```

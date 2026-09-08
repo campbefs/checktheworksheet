@@ -245,6 +245,11 @@ scripts:
           share beforehand; "on money after tax" allocates on each parent's share of the money
           after tax and FICA at the no-child-care order, leaving out the refundable credits CJ-D 304
           has no field for, and moves the order the same way "on income after the order" does.</p>
+          <p>The tax model uses the same income the Worksheet uses, not a filer's actual modified
+          adjusted gross income. A payor whose real return also counts bonuses or vested stock
+          could sit further into the Child Tax Credit phase-out than this tool shows. The
+          simplification runs one way: it can credit the payor with more money after tax than he
+          actually gets, never less.</p>
         </details>
       </div>
     </div>
@@ -303,7 +308,7 @@ scripts:
   </div>
   <span class="numeral-arrow" aria-hidden="true">&rarr;</span>
   <div class="numeral">
-    <span class="numeral-value">57</span>
+    <span class="numeral-value">55</span>
     <p class="numeral-caption">The payor's true share of net income when it finally does</p>
   </div>
 </div>
@@ -325,7 +330,7 @@ scripts:
       <h3><a href="/findings/hardship-test/">The hardship test reads a different income than the order pays from</a></h3>
       <p>Line 7e computes hardship on gross-derived income; the order is paid from net.</p>
       <div class="stat">
-        <span class="stat-value">57%</span>
+        <span class="stat-value">55%</span>
         <span class="stat-label">of net income, the point where the hardship presumption finally kicks in</span>
       </div>
     </div>

@@ -7,7 +7,7 @@ description: >-
   plus one fifty-one-jurisdiction comparison at a single fact pattern.
 disclosure:
   - >-
-    The stat on each card below (57%, 88 cents, 6.9%, 47 of 49) comes from the worked example
+    The stat on each card below (55%, 88 cents, 6.9%, 47 of 49) comes from the worked example
     used throughout this site: my own child support order, three children, my income and my
     children's mother's income entered as the Worksheet requires. Each finding page states why,
     and shows the same gap holding across a range of incomes as well as at my own figures.

@@ -201,7 +201,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>Rises to the $430/child ceiling (recipient)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">As claimed child care rises, the true burden passes 40 percent of net at $80 a week; Line 7e reports 40 percent only at $590 a week, by which point the true burden is 57 percent. Nothing on the form flags the gap. Child care is included in the order. Two of three children under 13 (MA credit); premiums $43/$33.</p>
+    <p class="exhibit-notes">As claimed child care rises, the true burden passes 40 percent of net at $130 a week; Line 7e reports 40 percent only at $590 a week, by which point the true burden is 55 percent. Nothing on the form flags the gap. Child care is included in the order. Two of three children under 13 (MA credit); premiums $43/$33.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig6_valve.py</code>; <code>model/submission_figures.py</code> ·
       <a href="/figures/working/fig6_valve_units_lag.csv">data (CSV)</a></p>
   </figcaption>
