@@ -289,7 +289,8 @@
     });
     allBadges.forEach(function (el) {
       el.textContent = 'Calculator unavailable';
-      el.className = 'tool-badge tool-badge--muted';
+      el.className = 'tool-flagline';
+      el.hidden = false;
     });
     if (window.console) console.error('calculator.js: sanity check failed -- worked example did not reproduce $1,013/$1,276');
   }
@@ -345,11 +346,21 @@
       else { el.textContent = ' '; el.classList.remove('visible'); }
     }
 
+    // A flag is an annotation, not a control: it appears only when its condition is true, and it
+    // is hidden outright otherwise (owner, 2026-09-07: the old always-on pills read as buttons a
+    // reader could click). `mutedText` is accepted and ignored so existing call sites still work.
     function setBadge(key, lit, litText, mutedText) {
       var el = badges[key];
       if (!el) return;
-      el.textContent = lit ? litText : mutedText;
-      el.className = 'tool-badge ' + (lit ? 'tool-badge--lit' : 'tool-badge--muted');
+      if (lit) {
+        el.textContent = litText;
+        el.className = 'tool-flagline';
+        el.hidden = false;
+      } else {
+        el.textContent = '';
+        el.className = 'tool-flagline';
+        el.hidden = true;
+      }
     }
 
     function currentFacts() {
@@ -480,10 +491,10 @@
       // -- Status strip: reflects whichever tab is active. --
       var active = activeTab === 'childcare' ? ccResult : baseResult;
       setBadge('household', active.recip_after > active.payor_after,
-        'Payee household ends up ahead', 'Payor ends up ahead');
+        'The recipient household ends up with more money than the payor.', '');
       setBadge('hardship', active.true_pct_net >= 0.40,
-        'Order above 40% of payor’s net (' + pct1(active.true_pct_net) + ')',
-        'Order below 40% of payor’s net (' + pct1(active.true_pct_net) + ')');
+        'The order takes ' + pct1(active.true_pct_net) + ' of the payor’s net income, past the 40 percent '
+        + 'the Guidelines call a hardship.', '');
     }
 
     function selectTab(name) {

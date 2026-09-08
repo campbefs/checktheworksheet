@@ -667,20 +667,25 @@ input[type="range"]::-moz-range-thumb {
 /* Status-badge strip: always visible on both tabs, above the readout. A leading glyph (filled
    circle for "lit," open circle for "muted") means colour is never the only channel (WCAG 1.4.1). */
 .tool-status-strip {
-  grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--space-3);
+  grid-column: 1 / -1; display: flex; flex-direction: column; gap: var(--space-2);
   margin: 0 0 var(--space-5);
 }
-.tool-badge {
-  display: inline-flex; align-items: center; gap: var(--space-2);
-  font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700;
-  padding: var(--space-2) var(--space-3); border-radius: 999px; border: 1.5px solid var(--accent);
-  line-height: 1.2;
+.tool-status-strip:empty { display: none; }
+/* A flag is an annotation, never a control. No fill, no radius, no border box: those read as a
+   button and invite a click that does nothing. A claret rule down the left and a claret mark
+   carry the emphasis, and the sentence itself carries the meaning, so colour is not the only
+   channel. Hidden outright when its condition is false. */
+.tool-flagline {
+  display: block; margin: 0; padding: 0 0 0 var(--space-3);
+  border-left: 3px solid var(--accent);
+  font-size: 0.9375rem; font-weight: 600; line-height: 1.45; color: var(--text-primary);
+  text-indent: 0;
 }
-.tool-badge::before { font-size: 0.7em; }
-.tool-badge--lit { background: var(--accent); color: var(--surface); border-color: var(--accent); }
-.tool-badge--lit::before { content: "\25CF"; } /* filled circle */
-.tool-badge--muted { background: transparent; color: var(--text-secondary); border-color: var(--rule-strong); }
-.tool-badge--muted::before { content: "\25CB"; } /* open circle */
+.tool-flagline[hidden] { display: none; }
+.tool-flagline::before {
+  content: "\0021"; /* exclamation mark */
+  color: var(--accent); font-weight: 700; margin-right: 0.5ch;
+}
 
 .tool-assumptions {
   grid-column: 1 / -1; font-size: 0.8125rem; color: var(--text-secondary);
