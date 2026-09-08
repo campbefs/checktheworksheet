@@ -58,14 +58,6 @@ scripts:
         <p class="tool-deck">A tested port of the Worksheet and the tax model runs in your
         browser &mdash; it does not look anything up in a precomputed table.</p>
 
-        <div class="tool-tabs" role="tablist" aria-label="Calculator sections">
-          <button type="button" class="tool-tab" role="tab" id="calc-tab-base"
-                  aria-selected="true" aria-controls="calc-panel-base" data-calc-tab="base">Base support</button>
-          <button type="button" class="tool-tab" role="tab" id="calc-tab-childcare"
-                  aria-selected="false" tabindex="-1" aria-controls="calc-panel-childcare"
-                  data-calc-tab="childcare">Child care</button>
-        </div>
-
         <div class="tool-slider-row">
           <label for="calc-higher">Higher earner, gross per year
             <output id="calc-higher-output" for="calc-higher">$201,000/yr</output>
@@ -111,7 +103,7 @@ scripts:
           <span class="tool-flagline" data-calc-badge="hardship" hidden></span>
         </p>
 
-        <div class="tool-panel" id="calc-panel-base" role="tabpanel" aria-labelledby="calc-tab-base" data-calc-panel="base">
+        <div class="tool-panel" data-calc-panel="main">
           <div class="tool-readout" aria-live="polite">
             <div>
               <p class="cell-label">Weekly order (Line 7d)</p>
@@ -140,68 +132,65 @@ scripts:
           </div>
         </div>
 
-        <div class="tool-panel" id="calc-panel-childcare" role="tabpanel" aria-labelledby="calc-tab-childcare" data-calc-panel="childcare" hidden>
-          <p class="tool-callout" data-calc-cell="cc_dist_wrap">
-            Higher earner&rsquo;s share of child care: <strong data-calc-cell="cc_dist_share3c">87.8%</strong>.
-            His share of income after the order: <strong data-calc-cell="cc_dist_gross">64%</strong> of gross,
-            <strong data-calc-cell="cc_dist_net">48%</strong> of net.
-          </p>
-          <p class="tool-callout-note">Child care is allocated on the first number. The order has
-          already moved the split to the other two.</p>
+        <div class="tool-panel tool-childcare" data-calc-childcare>
+          <h4 class="tool-childcare-heading">Child care</h4>
+          <label class="tool-checkbox tool-childcare-toggle">
+            <input type="checkbox" id="calc-cc-on" data-calc-input="ccOn"
+                   aria-expanded="false" aria-controls="calc-childcare-body">
+            <span data-calc-cc-state>Child care: not included</span>
+          </label>
 
-          <div class="tool-slider-row">
-            <label for="calc-cc-lower">Child care paid by the lower earner, per week
-              <output id="calc-cc-lower-output" for="calc-cc-lower">$100/wk</output>
-            </label>
-            <input type="range" id="calc-cc-lower" data-calc-input="ccLower"
-                   min="0" max="1290" step="10" value="100">
-          </div>
-          <div class="tool-slider-row">
-            <label for="calc-cc-higher">Child care paid by the higher earner, per week
-              <output id="calc-cc-higher-output" for="calc-cc-higher">$0/wk</output>
-            </label>
-            <input type="range" id="calc-cc-higher" data-calc-input="ccHigher"
-                   min="0" max="1290" step="10" value="0">
-          </div>
-          <div class="tool-readout" aria-live="polite">
-            <div>
-              <p class="cell-label">Weekly order, with child care</p>
-              <p class="cell-value" data-calc-cell="cc_order_wk">$1,103/wk</p>
-            </div>
-            <div>
-              <p class="cell-label">Change from no child care</p>
-              <p class="cell-value" data-calc-cell="cc_delta_wk">+$88/wk</p>
-            </div>
-            <div>
-              <p class="cell-label">Higher earner's share of the lower earner's child care</p>
-              <p class="cell-value" data-calc-cell="cc_share_pct">87.8%</p>
-              <p class="cell-sub">Per year: <strong data-calc-cell="cc_share_wk">$4,567/yr</strong></p>
-            </div>
-          </div>
-          <p class="cell-note" data-calc-cell="cc_combined_line">&nbsp;</p>
-          <div class="tool-readout tool-readout--pair" aria-live="polite">
-            <div>
-              <p class="cell-label">Payor keeps, per year</p>
-              <p class="cell-value" data-calc-cell="cc_payor_after">$82,476/yr</p>
-            </div>
-            <div>
-              <p class="cell-label">Recipient household holds, per year</p>
-              <p class="cell-value is-warning" data-calc-cell="cc_recip_after">$92,437/yr</p>
-              <p class="cell-sub">Per person: <strong data-calc-cell="cc_recip_per_person">$23,109/yr</strong></p>
-              <p class="cell-note visible" data-calc-note="cc_recip_after">Above the payor</p>
-            </div>
-          </div>
-
-          <div class="tool-toggle-row">
-            <label class="tool-checkbox">
-              <input type="checkbox" id="calc-cc-fix" data-calc-input="ccFix">
-              Apply the proposed fix: allocate child care on income after the order (the
-              comments&rsquo; Line 6b-1)
-            </label>
-            <p class="tool-fix-compare" data-calc-cell="cc_fix_compare_wrap">
-              <strong data-calc-cell="cc_fix_order">$1,080/wk</strong>, was <span data-calc-cell="cc_fix_was">$1,103</span>
+          <div class="tool-childcare-body" id="calc-childcare-body" hidden>
+            <p class="tool-callout" data-calc-cell="cc_dist_wrap">
+              Higher earner&rsquo;s share of child care: <strong data-calc-cell="cc_dist_share3c">87.8%</strong>.
+              His share of income after the order: <strong data-calc-cell="cc_dist_gross">64%</strong> of gross,
+              <strong data-calc-cell="cc_dist_net">48%</strong> of net.
             </p>
-            <p class="cell-note" data-calc-note="cc_fix">&nbsp;</p>
+            <p class="tool-callout-note">Child care is allocated on the first number. The order has
+            already moved the split to the other two.</p>
+
+            <div class="tool-slider-row">
+              <label for="calc-cc-lower">Child care paid by the lower earner, per week
+                <output id="calc-cc-lower-output" for="calc-cc-lower">$100/wk</output>
+              </label>
+              <input type="range" id="calc-cc-lower" data-calc-input="ccLower"
+                     min="0" max="1290" step="10" value="100">
+            </div>
+            <div class="tool-slider-row">
+              <label for="calc-cc-higher">Child care paid by the higher earner, per week
+                <output id="calc-cc-higher-output" for="calc-cc-higher">$0/wk</output>
+              </label>
+              <input type="range" id="calc-cc-higher" data-calc-input="ccHigher"
+                     min="0" max="1290" step="10" value="0">
+            </div>
+            <div class="tool-readout" aria-live="polite">
+              <div>
+                <p class="cell-label">Weekly order, with child care</p>
+                <p class="cell-value" data-calc-cell="cc_order_wk">$1,103/wk</p>
+              </div>
+              <div>
+                <p class="cell-label">Change from no child care</p>
+                <p class="cell-value" data-calc-cell="cc_delta_wk">+$88/wk</p>
+              </div>
+              <div>
+                <p class="cell-label">Higher earner's share of the lower earner's child care</p>
+                <p class="cell-value" data-calc-cell="cc_share_pct">87.8%</p>
+                <p class="cell-sub">Per year: <strong data-calc-cell="cc_share_wk">$4,567/yr</strong></p>
+              </div>
+            </div>
+            <p class="cell-note" data-calc-cell="cc_combined_line">&nbsp;</p>
+
+            <div class="tool-toggle-row">
+              <label class="tool-checkbox">
+                <input type="checkbox" id="calc-cc-fix" data-calc-input="ccFix">
+                Apply the proposed fix: allocate child care on income after the order (the
+                comments&rsquo; Line 6b-1)
+              </label>
+              <p class="tool-fix-compare" data-calc-cell="cc_fix_compare_wrap">
+                <strong data-calc-cell="cc_fix_order">$1,080/wk</strong>, was <span data-calc-cell="cc_fix_was">$1,103</span>
+              </p>
+              <p class="cell-note" data-calc-note="cc_fix">&nbsp;</p>
+            </div>
           </div>
         </div>
 
@@ -211,17 +200,17 @@ scripts:
           <summary>Assumptions and method</summary>
           <p>Box 2 puts the children primarily with the lower earner, who receives, while the
           higher earner pays. Child care above is a combined weekly total per parent, capped at
-          $430 per child; the Child care tab's own readout already reflects it in the order and in
-          the after-tax figures. The MA Child and Family Tax Credit for children under 13 is fixed
-          at zero, the same convention as every income-range chart on this site, so the household
-          figures here run slightly lower than the site's own worked example, which uses two of
-          three children under 13. This calculator models Massachusetts only; no other state's
-          worksheet is implemented here. Method:
+          $430 per child; switching the Child care section on already reflects it in the order and
+          in the after-tax figures above. The MA Child and Family Tax Credit for children under 13
+          is fixed at zero, the same convention as every income-range chart on this site, so the
+          household figures here run slightly lower than the site's own worked example, which uses
+          two of three children under 13. This calculator models Massachusetts only; no other
+          state's worksheet is implemented here. Method:
           <a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
           <a href="/model/net_position.py"><code>model/net_position.py</code></a>, ported and
           tested in <a href="/assets/js/lib/worksheet.js"><code>assets/js/lib/worksheet.js</code></a>
           and <a href="/assets/js/calculator.test.js"><code>assets/js/calculator.test.js</code></a>.
-          The Child care tab's toggle applies the redline drafted in
+          The proposed-fix toggle inside the Child care section applies the redline drafted in
           <a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>:
           once the base order is set, child care is split on each parent's resulting share of
           income, not their share beforehand.</p>

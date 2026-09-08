@@ -4,18 +4,35 @@
 // assets/js/lib/net-position.js -- checked to the dollar against the Commonwealth's own CJ-D 304
 // XFA calculate-scripts. See assets/js/calculator.test.js.
 //
-// v5 (2026-09-07) adds two things to the Child care tab only, both from
+// v6 (2026-09-07) REMOVES THE TWO-TAB STRUCTURE. On a narrow phone the "Child care" tab button and
+// its panel could be a full screen apart (the shared controls sit between them), so tapping the
+// tab visibly did nothing. There is now ONE continuous readout and ONE child-care ON/OFF control
+// (data-calc-input="ccOn", a checkbox), not two tabs:
+//   - The shared controls (incomes, children, custody, premiums) sit above, unchanged.
+//   - The MAIN readout (order_wk / line_7e / true_pct_net / payor_after / recip_after /
+//     recip_per_person) always shows the ACTIVE result: the no-child-care numbers when the
+//     checkbox is off, the child-care numbers (from the two sliders below) when it is on. There is
+//     only ever one set of numbers on the page for those six cells.
+//   - Below the main readout, a "Child care" heading holds the checkbox and, revealed directly
+//     underneath it when checked (data-calc-childcare-body, toggled via the native `hidden`
+//     attribute, aria-expanded/aria-controls on the checkbox), the distribution readout, the two
+//     child-care sliders, the with-child-care order and its change from the no-child-care order,
+//     the higher earner's share of the lower earner's child care, the combined-both-pay line, and
+//     the "apply the proposed fix" toggle. All of that is computed every render() regardless of
+//     whether it is visible, so switching the checkbox on never shows a stale number.
+//
+// v5 (2026-09-07) added two computations to the child-care figures, both from
 // model/childcare_post_transfer.py (not a new computation -- see that file's own docstring for the
 // five rules it prints and model/test_childcare_post_transfer.py for what pins them):
-//   1. AN ALWAYS-VISIBLE READOUT (computeChildcareDistribution): the higher earner's Line 3c income
+//   1. THE DISTRIBUTION READOUT (computeChildcareDistribution): the higher earner's Line 3c income
 //      share (the pre-order share Line 6b already uses to allocate child care), and where that same
 //      pair of incomes actually lands after the NO-CHILD-CARE order -- as a share of gross and, using
 //      net-position.js, of net. Independent of the two child-care sliders; it is a property of income,
 //      children and the custody box alone. Its net-share leg uses kidsUnder13 = min(2, kids) -- the
 //      site's own worked example's fact (two of three children are under 13), NOT the zero used
-//      everywhere else on this tab -- because the task was to reproduce childcare_post_transfer.py's
-//      87.7/64.3/48.2 at that worked example, and that script uses kidsUnder13=2. Every OTHER figure on
-//      this tab keeps the site-wide zero convention; only this one readout differs, and it says so.
+//      everywhere else in this section -- because the task was to reproduce childcare_post_transfer.py's
+//      87.7/64.3/48.2 at that worked example, and that script uses kidsUnder13=2. Every OTHER figure in
+//      this section keeps the site-wide zero convention; only this one readout differs, and it says so.
 //   2. A TOGGLE (computeFixedRuleOrder), "the comments' Line 6b-1": recomputes the child-care order by
 //      running the worksheet ONCE with no child care to get the base order and the Payor/Recipient
 //      designation Line 6f would give in that pass (avoids the circularity a 2026-09-05 review caught --
@@ -24,20 +41,14 @@
 //      sanity check (fixedRuleSanityPasses) gates the toggle alone: if it fails, the toggle disables
 //      with a note instead of showing a wrong number, without taking down the rest of the calculator.
 //
-// v4 (2026-09-07) is an interface rebuild, not a new computation. Three changes:
-//   1. TABS. "Base support" (no child care) and "Child care" (two sliders, one per parent) are
-//      real tabs (role="tablist"/"tab"/"tabpanel", arrow-key navigation), not a third radio
-//      group. Income, children, custody and the two premium inputs are SHARED state above the
-//      tabs; each tab computes its own order from that shared state plus its own child-care
-//      inputs (Base support always uses $0/$0 child care).
-//   2. PREMIUMS became two number inputs (was a fixed $33/$43 constant), default $40/$40 each --
-//      so the default reading no longer reproduces the site's own $1,013 worked example, which
-//      uses $33/$43. Said plainly in the tool's one-line assumptions text.
-//   3. STATUS BADGES. A two-badge strip sits above both tabs' readouts and updates for whichever
-//      tab is active: which household is ahead after tax, and whether the order is at or above
-//      40% of the payor's net income (the true share, INCLUDING the payor's own child care on the
-//      Child care tab). This replaces the old data-calc-flag / data-calc-flag-household text
-//      flags, which said the same two things in prose.
+// v4 (2026-09-07) was an interface rebuild, not a new computation. Two of its three changes remain
+// true today (PREMIUMS and STATUS BADGES); its tab structure is what v6 above removes:
+//   2. PREMIUMS became two number inputs (was a fixed $33/$43 constant).
+//   3. STATUS BADGES. A two-badge strip sits above the readout and updates with it: which
+//      household is ahead after tax, and whether the order is at or above 40% of the payor's net
+//      income (the true share, INCLUDING the payor's own child care once the section is switched
+//      on). This replaces the old data-calc-flag / data-calc-flag-household text flags, which said
+//      the same two things in prose.
 //
 // CHILD CARE COMPOSITION: each of the two child-care sliders is a COMBINED weekly dollar amount
 // (one parent's total across all children), spread evenly across `kids` array elements before
@@ -67,33 +78,34 @@
 // MARKUP CONTRACT (see index.html's #calculator section for the actual markup)
 // ---------------------------------------------------------------------------------------------
 // <div class="tool tool-two-up" data-calculator>
-//   <div class="tool-tabs" role="tablist">
-//     <button role="tab" data-calc-tab="base" aria-selected="true" ...>Base support</button>
-//     <button role="tab" data-calc-tab="childcare" aria-selected="false" tabindex="-1" ...>Child care</button>
-//   </div>
 //   <input data-calc-input="higher"> <input data-calc-input="lower">   (income sliders, shared)
 //   <input data-calc-radio="kids">   <input data-calc-radio="box">     (shared)
 //   <input data-calc-input="healthHigh"> <input data-calc-input="healthLow">  (number inputs, shared)
 //   <span data-calc-badge="household">  <span data-calc-badge="hardship">    (status strip, shared)
-//   <div data-calc-panel="base">    ... data-calc-cell="order_wk" / "line_7e" / "true_pct_net" ...
+//   <div data-calc-panel="main">    ... data-calc-cell="order_wk" / "line_7e" / "true_pct_net" ...
 //                                    ... data-calc-cell="payor_after" / "recip_after" / "recip_per_person" ...
-//   <div data-calc-panel="childcare" hidden>
-//     ... data-calc-cell="cc_dist_share3c" / "cc_dist_gross" / "cc_dist_net" (always visible) ...
-//     <input data-calc-input="ccLower"> <input data-calc-input="ccHigher">  (child-care sliders)
-//     ... data-calc-cell="cc_order_wk" / "cc_delta_wk" / "cc_share_pct" / "cc_share_wk" ...
-//     ... data-calc-cell="cc_payor_after" / "cc_recip_after" / "cc_recip_per_person" ...
-//     ... data-calc-cell="cc_combined_line" (only filled in when BOTH sliders > 0) ...
-//     <input data-calc-input="ccFix" type="checkbox">  (the Line 6b-1 toggle)
-//     ... data-calc-cell="cc_fix_compare_wrap" > "cc_fix_order" / "cc_fix_was" (shown when checked) ...
-//     ... data-calc-note="cc_fix" (disable message if fixedRuleSanityPasses() fails) ...
+//                                    (always the ACTIVE result -- no child care when ccOn is off,
+//                                    the two sliders' figures when it is on: one set of numbers)
+//   <div data-calc-childcare>
+//     <input data-calc-input="ccOn" type="checkbox" aria-expanded aria-controls="calc-childcare-body">
+//     <div id="calc-childcare-body" hidden>            (revealed in place when ccOn is checked)
+//       ... data-calc-cell="cc_dist_share3c" / "cc_dist_gross" / "cc_dist_net" ...
+//       <input data-calc-input="ccLower"> <input data-calc-input="ccHigher">  (child-care sliders)
+//       ... data-calc-cell="cc_order_wk" / "cc_delta_wk" / "cc_share_pct" / "cc_share_wk" ...
+//       ... data-calc-cell="cc_combined_line" (only filled in when BOTH sliders > 0) ...
+//       <input data-calc-input="ccFix" type="checkbox">  (the Line 6b-1 toggle)
+//       ... data-calc-cell="cc_fix_compare_wrap" > "cc_fix_order" / "cc_fix_was" (shown when checked) ...
+//       ... data-calc-note="cc_fix" (disable message if fixedRuleSanityPasses() fails) ...
+//     </div>
+//   </div>
 // </div>
 //
 // - Every `data-calc-*` element MUST already contain the real, precomputed defaults as static
-//   text (no-JS fallback) -- see index.html. A no-JS visitor sees the default reading stated
-//   correctly and only loses the ability to change it or to reach the Child care tab (the tab
-//   button is a plain <button>; without JS it does nothing, so the Child care tab's numbers are
-//   simply unreachable without JavaScript -- an acceptable narrowing of the existing no-JS
-//   fallback, since the Base support tab still renders a complete, correct, static reading).
+//   text (no-JS fallback) -- see index.html. A no-JS visitor sees the default (no-child-care)
+//   reading stated correctly and only loses the ability to change any control, including turning
+//   child care on -- the checkbox is inert without JS, so the child-care body (already `hidden` in
+//   the markup) stays unreachable, an acceptable narrowing of the existing no-JS fallback, since
+//   the main readout still renders a complete, correct, static reading.
 // - SANITY GUARD: before wiring up any control, this script recomputes TWO fixed scenarios,
 //   independent of whatever the UI currently shows or whatever premiums/child-care the reader has
 //   entered -- $33/$43 premiums, kids=3, box=1, at the worked-example incomes, with $0 and then
@@ -178,7 +190,7 @@
     };
   }
 
-  // CHANGE 1 -- the always-visible Child care tab readout. Port of
+  // CHANGE 1 -- the Child care section's distribution readout. Port of
   // model/childcare_post_transfer.py's rule1_share (Line 3c) / rule2_gross_share / rule3_share, at
   // the NO-CHILD-CARE order -- Chris: "have the base support calculated first and then figure out
   // what the net percentage mix is." Independent of facts.ccLower/facts.ccHigher; only
@@ -193,7 +205,7 @@
     var combinedGross = higherAnnual + lowerAnnual;
     var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
     // Two of three children under 13 -- the site's own worked example's fact, not the zero
-    // convention this tab's other cells use. See the header comment for why this one readout
+    // convention this section's other cells use. See the header comment for why this one readout
     // differs. Capped at facts.kids so a 1- or 2-child selection never claims more under-13
     // children than the family has.
     var kidsUnder13 = Math.min(2, facts.kids);
@@ -320,11 +332,8 @@
     Array.prototype.slice.call(root.querySelectorAll('[data-calc-badge]')).forEach(function (el) {
       badges[el.getAttribute('data-calc-badge')] = el;
     });
-    var tabs = Array.prototype.slice.call(root.querySelectorAll('[data-calc-tab]'));
-    var panels = {};
-    Array.prototype.slice.call(root.querySelectorAll('[data-calc-panel]')).forEach(function (el) {
-      panels[el.getAttribute('data-calc-panel')] = el;
-    });
+    var ccBody = root.querySelector('[data-calc-childcare] .tool-childcare-body');
+    var ccStateLabel = root.querySelector('[data-calc-cc-state]');
 
     if (!sanityCheckPasses()) {
       showUnavailable(root, allInputs, radios,
@@ -332,8 +341,6 @@
         Object.keys(badges).map(function (k) { return badges[k]; }));
       return;
     }
-
-    var activeTab = 'base';
 
     function outputFor(input) {
       return document.getElementById(input.id + '-output') || root.querySelector('output[for="' + input.id + '"]');
@@ -369,6 +376,7 @@
         box: Number(document.querySelector('[data-calc-radio="box"]:checked').value),
         healthHigh: Number(inputs.healthHigh.value) || 0,
         healthLow: Number(inputs.healthLow.value) || 0,
+        ccOn: inputs.ccOn ? !!inputs.ccOn.checked : false,
         ccLower: inputs.ccLower ? Number(inputs.ccLower.value) || 0 : 0,
         ccHigher: inputs.ccHigher ? Number(inputs.ccHigher.value) || 0 : 0,
         ccFixOn: inputs.ccFix ? !!inputs.ccFix.checked : false
@@ -408,8 +416,13 @@
       var noCcFacts = { kids: facts.kids, box: facts.box, healthHigh: facts.healthHigh, healthLow: facts.healthLow, ccLower: 0, ccHigher: 0 };
       var baseResult = computeWithFacts(higher, lower, noCcFacts);
       var ccResult = computeWithFacts(higher, lower, facts);
+      // The single set of numbers the main readout shows: the no-child-care result when the
+      // Child care section is off, the two sliders' result when it is on. Computed every render
+      // regardless of visibility, so the child-care section never reveals a stale figure.
+      var active = facts.ccOn ? ccResult : baseResult;
 
-      // -- Child care tab: the always-visible pre/post-order distribution readout (Change 1). --
+      // -- Child care section: the distribution readout (Change 1), computed either way so the
+      // numbers are already correct the instant the section is revealed. --
       var dist = computeChildcareDistribution(higher, lower, noCcFacts);
       if (cells.cc_dist_share3c) cells.cc_dist_share3c.textContent = pct1(dist.share3c);
       if (cells.cc_dist_gross) cells.cc_dist_gross.textContent = pct0(dist.gross_share);
@@ -424,23 +437,24 @@
         if (ccHighOut) ccHighOut.textContent = moneyWk(facts.ccHigher);
       }
 
-      // -- Base support panel --
-      if (cells.order_wk) cells.order_wk.textContent = moneyWk(baseResult.order_wk);
-      if (cells.line_7e) cells.line_7e.textContent = pct1(baseResult.line_7e);
+      // -- Main readout: always the ACTIVE result (one set of numbers, not two). --
+      if (cells.order_wk) cells.order_wk.textContent = moneyWk(active.order_wk);
+      if (cells.line_7e) cells.line_7e.textContent = pct1(active.line_7e);
       if (cells.true_pct_net) {
-        cells.true_pct_net.textContent = pct1(baseResult.true_pct_net);
-        cells.true_pct_net.classList.toggle('is-warning', baseResult.true_pct_net >= 0.40);
+        cells.true_pct_net.textContent = pct1(active.true_pct_net);
+        cells.true_pct_net.classList.toggle('is-warning', active.true_pct_net >= 0.40);
       }
-      if (cells.payor_after) cells.payor_after.textContent = money(baseResult.payor_after);
+      if (cells.payor_after) cells.payor_after.textContent = money(active.payor_after);
       if (cells.recip_after) {
-        cells.recip_after.textContent = money(baseResult.recip_after);
-        var baseAhead = baseResult.recip_after > baseResult.payor_after;
-        cells.recip_after.classList.toggle('is-warning', baseAhead);
-        setNote('recip_after', baseAhead ? 'Above the payor' : '');
+        cells.recip_after.textContent = money(active.recip_after);
+        var ahead = active.recip_after > active.payor_after;
+        cells.recip_after.classList.toggle('is-warning', ahead);
+        setNote('recip_after', ahead ? 'Above the payor' : '');
       }
-      if (cells.recip_per_person) cells.recip_per_person.textContent = money(baseResult.recip_per_person);
+      if (cells.recip_per_person) cells.recip_per_person.textContent = money(active.recip_per_person);
 
-      // -- Child care panel --
+      // -- Child care section body: the with-child-care order, its change from the no-child-care
+      // order above, the allocation, and the combined-both-pay line. --
       if (cells.cc_order_wk) cells.cc_order_wk.textContent = moneyWk(ccResult.order_wk);
       if (cells.cc_delta_wk) cells.cc_delta_wk.textContent = signedMoneyWk(ccResult.order_wk - baseResult.order_wk);
       if (cells.cc_share_pct) cells.cc_share_pct.textContent = facts.ccLower > 0 ? pct1(ccResult.higher_share_of_lower_pct) : '—';
@@ -457,20 +471,8 @@
           cells.cc_combined_line.classList.remove('visible');
         }
       }
-      if (cells.cc_true_pct_net) {
-        cells.cc_true_pct_net.textContent = pct1(ccResult.true_pct_net);
-        cells.cc_true_pct_net.classList.toggle('is-warning', ccResult.true_pct_net >= 0.40);
-      }
-      if (cells.cc_payor_after) cells.cc_payor_after.textContent = money(ccResult.payor_after);
-      if (cells.cc_recip_after) {
-        cells.cc_recip_after.textContent = money(ccResult.recip_after);
-        var ccAhead = ccResult.recip_after > ccResult.payor_after;
-        cells.cc_recip_after.classList.toggle('is-warning', ccAhead);
-        setNote('cc_recip_after', ccAhead ? 'Above the payor' : '');
-      }
-      if (cells.cc_recip_per_person) cells.cc_recip_per_person.textContent = money(ccResult.recip_per_person);
 
-      // -- Child care tab: the "apply the proposed fix" toggle (Change 2). --
+      // -- Child care section: the "apply the proposed fix" toggle (Change 2). --
       if (inputs.ccFix) {
         if (fixedRuleSanityPasses()) {
           inputs.ccFix.disabled = false;
@@ -488,44 +490,30 @@
         }
       }
 
-      // -- Status strip: reflects whichever tab is active. --
-      var active = activeTab === 'childcare' ? ccResult : baseResult;
+      // -- Status strip: reflects whichever result is active (see `active` above). --
       setBadge('household', active.recip_after > active.payor_after,
         'The recipient household ends up with more money than the payor.', '');
       setBadge('hardship', active.true_pct_net >= 0.40,
         'The order takes ' + pct1(active.true_pct_net) + ' of the payor’s net income, past the 40 percent '
         + 'the Guidelines call a hardship.', '');
-    }
 
-    function selectTab(name) {
-      activeTab = name;
-      tabs.forEach(function (btn) {
-        var selected = btn.getAttribute('data-calc-tab') === name;
-        btn.setAttribute('aria-selected', selected ? 'true' : 'false');
-        btn.tabIndex = selected ? 0 : -1;
-      });
-      Object.keys(panels).forEach(function (key) {
-        if (key === name) panels[key].removeAttribute('hidden');
-        else panels[key].setAttribute('hidden', '');
-      });
-      render();
+      // -- Child care section: reveal the body in place directly under the control, and keep its
+      // label and aria-expanded state honest. --
+      if (inputs.ccOn) {
+        inputs.ccOn.setAttribute('aria-expanded', facts.ccOn ? 'true' : 'false');
+        if (ccStateLabel) ccStateLabel.textContent = 'Child care: ' + (facts.ccOn ? 'included' : 'not included');
+        if (ccBody) {
+          if (facts.ccOn) ccBody.removeAttribute('hidden');
+          else ccBody.setAttribute('hidden', '');
+        }
+      }
     }
-
-    tabs.forEach(function (btn, i) {
-      btn.addEventListener('click', function () { selectTab(btn.getAttribute('data-calc-tab')); });
-      btn.addEventListener('keydown', function (e) {
-        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-        e.preventDefault();
-        var next = e.key === 'ArrowRight' ? (i + 1) % tabs.length : (i - 1 + tabs.length) % tabs.length;
-        tabs[next].focus();
-        selectTab(tabs[next].getAttribute('data-calc-tab'));
-      });
-    });
 
     inputs.higher && inputs.higher.addEventListener('input', render);
     inputs.lower && inputs.lower.addEventListener('input', render);
     inputs.healthHigh && inputs.healthHigh.addEventListener('input', render);
     inputs.healthLow && inputs.healthLow.addEventListener('input', render);
+    inputs.ccOn && inputs.ccOn.addEventListener('change', render);
     inputs.ccLower && inputs.ccLower.addEventListener('input', render);
     inputs.ccHigher && inputs.ccHigher.addEventListener('input', render);
     inputs.ccFix && inputs.ccFix.addEventListener('change', render);
