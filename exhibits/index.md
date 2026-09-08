@@ -50,7 +50,7 @@ comparison always carries its per-person counterpart.
 20. [In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.](#e13)
 21. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
 22. [Massachusetts's equal-time order exceeds the primary-custody order of 47 of the 49 other ranked jurisdictions.](#e17)
-23. [Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017 to 2025.](#e27)
+23. [The 2025 review deferred gross versus net again, "as prior task forces have done."](#e27)
 
 ## Who holds more after the order
 
@@ -937,7 +937,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e27">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
-     data-caption="Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017 to 2025."
+     data-caption="The 2025 review deferred gross versus net again, "as prior task forces have done.""
      data-csv-href="/figures/working/fig11_deferral_timeline.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"
          loading="lazy"
@@ -945,8 +945,8 @@ comparison always carries its per-person counterpart.
   </a>
   <figcaption>
     <p class="confidence-tag">Documentary: built only from primary-text quotes</p>
-    <h3 class="exhibit-title">Gross versus net was deferred in 1 of 5 documented guidelines cycles, 2017 to 2025.</h3>
-    <p class="exhibit-deck">Each Massachusetts guidelines edition or amendment; filled means deferred on the record, hollow means no record in the corpus.</p>
+    <h3 class="exhibit-title">The 2025 review deferred gross versus net again, "as prior task forces have done."</h3>
+    <p class="exhibit-deck">Each guidelines edition or amendment since 2017. Filled: deferred on the record in this corpus. Hollow: the earlier task force reports are not yet in the corpus, so no record either way.</p>
     <dl class="exhibit-facts">
       <div><dt>Question</dt><dd>Gross vs. net income basis (not the separate alimony/tax question)</dd></div>
       <div><dt>Corpus</dt><dd>2025 Guidelines + embedded commentary, Brattle Econ. Review, Task Force report</dd></div>
