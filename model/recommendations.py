@@ -177,6 +177,8 @@ def commentary_blocks():
     sometimes inserts a space: 'Comm entary'). Returns a list of (year, block_text)
     in document order; the guidelines embed several blocks per year, one per section
     the commentary addresses, so a year can appear more than once."""
+    if not os.path.exists(GUIDELINES_FLOW):
+        return {}
     text = open(GUIDELINES_FLOW, encoding="utf-8").read()
     matches = list(COMMENTARY_MARKER_RE.finditer(text))
     blocks = []
@@ -206,6 +208,8 @@ def as_prior_task_forces_sentences():
     """Every sentence containing 'as prior task forces' (case-insensitive) across
     every *.flow.txt in data/extracted, with the source file."""
     hits = []
+    if not os.path.isdir(EXTRACTED_DIR):
+        return []
     for fname in sorted(os.listdir(EXTRACTED_DIR)):
         if not fname.endswith(".flow.txt"):
             continue
@@ -406,6 +410,9 @@ def main():
     print("BLOCK E -- corpus check: was gross-vs-net deferred, and how many times")
     print("-" * 78)
     by_year = gross_and_net_sentences_by_year()
+    if not by_year:
+        print("  Corpus not present in this checkout (data/extracted/Guidelines.flow.txt);"
+              " block E is reported in the committed run output only.")
     total_hits = 0
     for year in sorted(by_year):
         info = by_year[year]
