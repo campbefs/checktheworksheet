@@ -4,6 +4,21 @@
 // assets/js/lib/net-position.js -- checked to the dollar against the Commonwealth's own CJ-D 304
 // XFA calculate-scripts. See assets/js/calculator.test.js.
 //
+// v12 (2026-09-08, later the same day) ports net_position.py's SECOND Box 1 fix (private commit
+// 723a7bf) into assets/js/lib/net-position.js. The v10 fix below had the two parents swap
+// EVERYTHING in alternating years -- filing status, the EITC, and the CTC. The statute does not
+// allow that: a s. 152(e)/Form 8332 release moves ONLY the dependency claim and the federal
+// CTC/ACTC family; head of household and the EITC stay with the physical-custodian recipient
+// regardless of any release (IRC ss. 2(b)(1)(A)(i), 32(c)(3)(A)). See net-position.js's
+// householdNetIncomes()/payorNetClaimsCtc()/custodialNetNoCtc() and
+// docs/2026-09-08-filing-status-and-credit-allocation.md. THE REVISED HEADLINE CONSEQUENCE, at the
+// worked example (Box 1, no child care, this calculator's kidsUnder13=0 convention): the recipient
+// household again holds slightly more than the payor keeps -- $90,631 vs $90,447 (not the v10
+// entry's $85,168 vs $92,453). At the site's real fact pattern (two of three children under 13,
+// used elsewhere on this site) the corrected figures are $91,512 vs $90,447. Every dollar figure
+// and sanity-guard constant below reflects this correction; see calculator.test.js for the pinned
+// values.
+//
 // v11 (2026-09-08) adds the CREDITS-OFF SWITCH (data-calc-radio="credits", values "1"/"0",
 // default "1" -- matches every figure this site has published, so the switch changes no number
 // on load). "Count them" (default) is unchanged. "Leave them out" removes every federal and
@@ -369,18 +384,21 @@
   var SANITY_CC = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300, ccHigher: 0 };
 
   // The Change-1 readout's own sanity target: $33/$43 premiums, kids=3, box=1, worked-example
-  // incomes, no child care -- reproduces net_position.py's own 87.7% / 64.3% / 52.1% at
+  // incomes, no child care -- reproduces net_position.py's own 87.7% / 64.3% / 49.9% at
   // kidsUnder13=0 (rule1_share / rule2_gross_share / rule3_share, the same convention as the rest
-  // of this calculator; see v7 header comment). net_share was 48.4% before the 2026-09-08 box fix
-  // (net_share follows the custody box now, see the v10 header note). If this fails it is as
-  // serious as the order itself being wrong, so it is folded into the main guard below, not the
+  // of this calculator; see v7 header comment). net_share went 48.4% (pre-box-fix) -> 52.1% (the
+  // FIRST, superseded Box 1 fix, which swapped filing status/EITC along with the CTC) -> 49.9%
+  // (v12, 2026-09-08 same day, ported from private commit 723a7bf: only the CTC/dependency claim
+  // alternates by year; head of household and the EITC stay with the physical-custodian recipient
+  // in both years -- see net-position.js's householdNetIncomes()). If this fails it is as serious
+  // as the order itself being wrong, so it is folded into the main guard below, not the
   // rule-selector-only one.
   function distributionSanityPasses() {
     try {
       var d = computeChildcareDistribution(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC);
       return Math.round(d.share3c * 1000) === 877 &&
              Math.round(d.gross_share * 100) === 64 &&
-             Math.round(d.net_share * 1000) === 521;
+             Math.round(d.net_share * 1000) === 499;
     } catch (e) {
       if (window.console) console.error('calculator.js: distribution sanity check threw', e);
       return false;
@@ -389,14 +407,20 @@
 
   // The credits-off switch's own sanity target: worked example, no child care, credits off ->
   // both parties' net income is net_position.py's net_income_withholding_basis() alone, payor
-  // keeps $87,172, recipient household holds $77,396 (53.0% payor share) -- the "no credits to
-  // either" reference row model/test_net_position.py pins. If this fails the switch is wrong,
-  // which is as serious as the order itself being wrong, so it is folded into the main guard.
+  // keeps $87,172, recipient household holds $77,395. FIXED 2026-09-08 (found during v12 browser
+  // verification, unrelated to the box fix -- credits-off mode ignores box entirely): this used to
+  // say $77,396, model/test_net_position.py's pinned figure for a FIXED, rounded-to-cents order of
+  // $1,012.73/wk. computeWithFacts() here instead feeds the LIVE, unrounded worksheet order
+  // ($1,012.7257303613252/wk), which is correct -- the calculator never rounds the order before
+  // using it in a downstream computation, only for display -- but it lands at $77,395.48, which
+  // rounds to $77,395, not $77,396. Verified against Python at the identical unrounded order. If
+  // this fails the switch is wrong, which is as serious as the order itself being wrong, so it is
+  // folded into the main guard.
   var SANITY_NO_CC_NOCREDITS = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 0, ccHigher: 0, credits: false };
   function creditsOffSanityPasses() {
     try {
       var r = computeWithFacts(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC_NOCREDITS);
-      return Math.round(r.payor_after) === 87172 && Math.round(r.recip_after) === 77396;
+      return Math.round(r.payor_after) === 87172 && Math.round(r.recip_after) === 77395;
     } catch (e) {
       if (window.console) console.error('calculator.js: credits-off sanity check threw', e);
       return false;

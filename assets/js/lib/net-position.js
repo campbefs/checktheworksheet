@@ -19,7 +19,17 @@
 // the new householdNetIncomes(). This required the IRC s. 24(b) high-income Child Tax Credit
 // taper (ctcEntitlementAfterPhaseout(), previously absent here) and decoupling the federal CTC
 // from the 'hoh'-only gate in refundableCredits() -- see model/net_position.py's own docstring
-// for why both were latent bugs. See assets/js/calculator.test.js for the fidelity checks.
+// for why both were latent bugs.
+//
+// 2026-09-08 (later, same day): a second fix, ported from private commit 723a7bf. The FIRST Box 1
+// fix above had the two parents swap EVERYTHING in alternating years -- filing status, the EITC,
+// and the CTC. The statute (IRC ss. 2(b)(1)(A)(i), 32(c)(3)(A)) does not allow that: head of
+// household and the EITC stay with the physical custodian regardless of a s. 152(e)/Form 8332
+// release; only the CTC/ACTC family moves. Added payorNetClaimsCtc() and custodialNetNoCtc(),
+// ports of net_position._payor_net_claims_ctc()/_custodial_net_no_ctc(), and householdNetIncomes()
+// now uses them for Box 1's payor-claims year instead of swapping filing status outright. See
+// docs/2026-09-08-filing-status-and-credit-allocation.md. See assets/js/calculator.test.js for the
+// fidelity checks.
 //
 // Usage (browser): <script src="/assets/js/lib/net-position.js"></script> attaches
 // `window.MCSGNetPosition` (requires nothing else). Usage (Node, for tests):
@@ -168,6 +178,39 @@
     return nonrefundable + refundable + eitc;
   }
 
+  // Port of net_position._payor_net_claims_ctc(). The payor's net income in the year a s.
+  // 152(e)/Form 8332 release moves the Child Tax Credit to him. He never gains head-of-household
+  // status, the EITC, the MA EITC, or the MA Child and Family Tax Credit -- none of the four is
+  // movable by a release (IRC ss. 2(b)(1)(A)(i), 32(c)(3)(A); the MA credits piggyback on the
+  // federal EITC/HoH test). He files single. `kids` here drives ONLY the CTC computation; maTax
+  // below is always called with 0 dependents for the payor, matching the Python.
+  function payorNetClaimsCtc(gross, kids, params) {
+    params = params || TAX_PARAMS;
+    var tax = federalTax(gross, 'single', params) + fica(gross, params) + maTax(gross, 'single', params, 0);
+    var entitlement = ctcEntitlementAfterPhaseout(gross, kids, 'single', params);
+    var taxOwed = federalTax(gross, 'single', params);
+    var nonrefundable = Math.min(entitlement, taxOwed);
+    var refundable = Math.min(
+      entitlement - nonrefundable,
+      params.ctcRefundableCap * kids,
+      0.15 * Math.max(0.0, gross - 2500)
+    );
+    return gross - tax + nonrefundable + refundable;
+  }
+
+  // Port of net_position._custodial_net_no_ctc(). The majority-nights parent's net income in a
+  // year where the s. 152(e)/Form 8332 release moves the federal Child Tax Credit to the other
+  // parent. Head of household, the federal EITC, the MA EITC (40% of federal), and the MA Child
+  // and Family Tax Credit are all UNAFFECTED by the release. Only the federal CTC/ACTC family
+  // drops out for this parent this year -- maTax below still carries the full dependent count.
+  function custodialNetNoCtc(gross, kids, kidsUnder13, params) {
+    params = params || TAX_PARAMS;
+    var tax = federalTax(gross, 'hoh', params) + fica(gross, params) + maTax(gross, 'hoh', params, kids);
+    var fedEitc = kids ? federalEitc(gross, kids, params) : 0.0;
+    var maCredits = maRefundableCredits(gross, kids, 'hoh', params, kidsUnder13);
+    return gross - tax + fedEitc + maCredits;
+  }
+
   // After-tax income including federal AND Massachusetts refundable credits.
   function netIncome(gross, status, kids, params, kidsUnder13) {
     params = params || TAX_PARAMS;
@@ -192,18 +235,28 @@
   // recipient is the physical custodian, claims every child, and files head of household.
   // Unchanged from the original hardcoded behaviour.
   //
-  // Box 1 (equal parenting time): at equal time nothing makes one parent the physical custodian,
-  // and a judgment commonly alternates the dependency claim by year, so this returns the
-  // EXPECTED VALUE of alternating: the payor-claims year and the recipient-claims year, averaged
-  // for BOTH parties. This is not approximated as "half the credit" -- computing both years
-  // separately is what makes the IRC s. 24(b) high-income taper apply correctly to whichever
-  // party's income exceeds the threshold in their claiming year, which a flat 50% haircut on the
-  // box-2 numbers would not reproduce.
+  // Box 1 (equal parenting time): CORRECTED AGAIN 2026-09-08, same day, against
+  // docs/2026-09-08-filing-status-and-credit-allocation.md, a primary-source read of IRC ss.
+  // 2(b), 7703(b), 152(c)/(e), 21(e)(5), 24(b)/(h), 32(c)(3)(A), and the corresponding MA
+  // statutes. The FIRST attempt at this fix (same day, superseded) had the two parents swap
+  // EVERYTHING in alternating years -- filing status, the EITC, and the CTC. The statute does
+  // not allow that: a s. 152(e)/Form 8332 release moves ONLY the dependency claim and the
+  // federal CTC/ACTC family (s. 152(e)(1)-(2), s. 24(c)(1)). Head of household stays with the
+  // physical custodian regardless of any release (s. 2(b)(1)(A)(i): the qualifying-child test is
+  // "determined without regard to section 152(e)"). The EITC stays with the physical custodian
+  // too, on the identical "without regard to ... section 152(e)" language in s. 32(c)(3)(A).
+  // This project's own 182/183-overnight convention (recipient holds 183, the majority) makes
+  // the RECIPIENT the physical custodian in every year; the PAYOR never receives head-of-
+  // household status or the EITC in Box 1, in either claiming year.
   //
-  // In the payor's claiming year he is modelled as head of household (the custodial-parent proxy
-  // this file uses throughout), not as a single filer awarded only the Child Tax Credit -- see
-  // refundableCredits()'s comment for why those two give different, and differently defensible,
-  // numbers.
+  // So this returns the expected value of alternating ONLY the CTC/dependency claim: the
+  // payor-claims year (recipient keeps HoH/EITC/MA EITC/MA CFTC, payor gets only the CTC as a
+  // single filer -- see payorNetClaimsCtc()) and the recipient-claims year (identical to Box 2
+  // in every respect -- the recipient already had everything, so nothing changes when she also
+  // claims the CTC), averaged for both parties. This is not approximated as "half the credit" --
+  // computing both years separately is what makes the IRC s. 24(b) high-income taper apply
+  // correctly in the payor's claiming year, which a flat 50% haircut would not reproduce.
+  //
   // countRefundableCredits=false (added 2026-09-08 -- the credits-off switch) lets a reader
   // who does not accept any assumption about which parent claims which child -- an economist,
   // most pointedly -- validate the arithmetic anyway. In this mode BOTH parties' net income
@@ -223,10 +276,16 @@
       };
     }
     if (box === 1) {
+      // Year A: the recipient (majority-nights parent) claims the CTC too -- identical to Box 2
+      // in every respect, since she already had HoH, the EITC, and the MA credits regardless of
+      // the CTC claim.
       var payorNetRecipientClaims = netIncome(payorGross, 'single', 0, params);
       var recipNetRecipientClaims = netIncome(recipientGross, 'hoh', kids, params, kidsUnder13);
-      var payorNetPayorClaims = netIncome(payorGross, 'hoh', kids, params, kidsUnder13);
-      var recipNetPayorClaims = netIncome(recipientGross, 'single', 0, params);
+      // Year B: the s. 152(e)/Form 8332 release moves ONLY the CTC to the payor. He never
+      // becomes HoH and never gets the EITC; she keeps both, plus the MA EITC and MA CFTC, and
+      // simply loses the federal CTC for that year.
+      var payorNetPayorClaims = payorNetClaimsCtc(payorGross, kids, params);
+      var recipNetPayorClaims = custodialNetNoCtc(recipientGross, kids, kidsUnder13, params);
       payorNet = (payorNetRecipientClaims + payorNetPayorClaims) / 2.0;
       recipNet = (recipNetRecipientClaims + recipNetPayorClaims) / 2.0;
     } else {
@@ -304,6 +363,8 @@
     maRefundableCredits: maRefundableCredits,
     ctcEntitlementAfterPhaseout: ctcEntitlementAfterPhaseout,
     refundableCredits: refundableCredits,
+    payorNetClaimsCtc: payorNetClaimsCtc,
+    custodialNetNoCtc: custodialNetNoCtc,
     netIncome: netIncome,
     netIncomeWithholdingBasis: netIncomeWithholdingBasis,
     householdNetIncomes: householdNetIncomes,

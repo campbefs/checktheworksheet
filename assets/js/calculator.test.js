@@ -132,18 +132,20 @@ close(we['7e'], 0.2649460565232583, 1e-9, 'worked example 7e (Line 7e reading)')
 equal(we.payor, 'B', 'worked example payor is Parent B (the $201,000 earner)');
 
 // box=1 (2026-09-08): this worked example is Box 1 (equal parenting time) -- the worksheet run
-// two lines up is itself Box 1 -- so the credits-averaging fix applies. Values below were the
-// box=2 (recipient-claims-all) treatment before the 2026-09-08 fix; see model/test_net_position.py
-// for the pinned Python values this reproduces.
+// two lines up is itself Box 1 -- so the credits-averaging fix applies. Values below reflect the
+// SECOND, corrected fix (private commit 723a7bf, ported here 2026-09-08 later the same day): only
+// the CTC/dependency claim alternates by year; head of household and the EITC stay with the
+// physical-custodian recipient in both years. See model/test_net_position.py for the pinned
+// Python values this reproduces and net-position.js's householdNetIncomes() for why.
 var pos = N.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, we['7d'], 0.0, 0.0, undefined, KIDS_UNDER_13, 1);
 
-close(pos.support_pct_of_payor_net, 0.36179958076870533, 1e-9, 'worked example true % of net = 36.2%');
-equal(pos.support_pct_of_payor_net.toFixed(3), '0.362', 'worked example true % of net rounds to 36.2%');
-close(pos.payor_eff_rate, 0.27584577114427866, 1e-9, 'payor effective tax rate = +27.6%');
-close(pos.recip_eff_rate, -0.11156154890998482, 1e-9, 'recipient effective tax rate = -11.2%');
-close(pos.payor_after, 92893.26202121109, 1e-4, 'payor keeps $92,893/yr');
-close(pos.recip_after, 85608.42228848086, 1e-4, 'recipient household holds $85,608/yr');
-equal(Math.round(pos.payor_eff_rate * 1000) / 1000, 0.276, 'payor effective rate rounds to 27.6%');
+close(pos.support_pct_of_payor_net, 0.36798469677754225, 1e-9, 'worked example true % of net = 36.8%');
+equal(pos.support_pct_of_payor_net.toFixed(3), '0.368', 'worked example true % of net rounds to 36.8%');
+close(pos.payor_eff_rate, 0.28801741293532335, 1e-9, 'payor effective tax rate = +28.8%');
+close(pos.recip_eff_rate, -0.31071621522887627, 1e-9, 'recipient effective tax rate = -31.1%');
+close(pos.payor_after, 90446.76202121109, 1e-4, 'payor keeps $90,447/yr');
+close(pos.recip_after, 91511.3665981728, 1e-4, 'recipient household holds $91,511/yr -- narrowly ahead');
+equal(Math.round(pos.payor_eff_rate * 1000) / 1000, 0.288, 'payor effective rate rounds to 28.8%');
 
 // ---------------------------------------------------------------------------------------------
 // PART 3 -- the calculator.js compute() function itself, end to end, at the worked example.
@@ -174,13 +176,13 @@ equal(Math.round(calcResult.order_wk), 1013, 'calculator.js compute(): weekly or
 equal(calcResult.line_7e.toFixed(3), '0.265', 'calculator.js compute(): Line 7e rounds to 26.5%');
 // The calculator passes kids_under_13=0 (matching model/charts/_common.py's generic-grid
 // convention -- MCSGCalculatorFacts has no slider for how many children are under 13, since the
-// brief specifies only two income inputs). Before the 2026-09-08 box fix, kids_under_13 changed
-// ONLY the recipient's refundable MA credit, so this readout was identical to the worked example's
-// kids_under_13=2 figure regardless. That is no longer true: at Box 1, kids_under_13 also enters
-// the PAYOR's net income in his own claiming year (household_net_incomes()'s "payor claims" leg
-// files him HoH with the CFTC), so this compute() (kids_under_13=0) and PART 2's worked example
-// (kids_under_13=2) now differ slightly -- 36.3% here versus 36.2% there.
-equal(calcResult.true_pct_net.toFixed(3), '0.363', 'calculator.js compute(): true % of net rounds to 36.3%');
+// brief specifies only two income inputs). kids_under_13 changes ONLY the recipient's refundable MA
+// Child and Family Tax Credit -- under the corrected Box 1 fix (v12, private commit 723a7bf), the
+// payor's claiming year is payorNetClaimsCtc(), which takes no kids_under_13 argument at all, so
+// his net income (and therefore support_pct_of_payor_net = annual_support / payor_net) is IDENTICAL
+// regardless of kids_under_13. This compute() (kids_under_13=0) and PART 2's worked example
+// (kids_under_13=2) therefore agree exactly -- both 36.8%.
+equal(calcResult.true_pct_net.toFixed(3), '0.368', 'calculator.js compute(): true % of net rounds to 36.8%');
 
 // The mounted page's own static markup (index.html, MARKUP CONTRACT in calculator.js) hardcodes
 // the sliders' default values and the data-calc-cell spans' starting text as the no-JS fallback.
@@ -188,16 +190,20 @@ equal(calcResult.true_pct_net.toFixed(3), '0.363', 'calculator.js compute(): tru
 function moneyWk(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/wk'; }
 function money(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/yr'; }
 function pct1(v) { return (v * 100).toFixed(1) + '%'; }
+// NOTE (2026-09-08, v12 correction): index.html's static no-JS fallback markup still shows the
+// PRE-correction figures ($92,453/$85,168/36.3%/$21,292, payor ahead). That markup is page prose,
+// out of scope for this port fix -- see the stale-prose worklist in this session's report. The
+// values below are what the live, JS-computed readout now shows, which is what this test checks.
 equal(moneyWk(calcResult.order_wk), '$1,013/wk', 'mounted defaults: formatted weekly order matches the markup\'s static $1,013/wk');
 equal(pct1(calcResult.line_7e), '26.5%', 'mounted defaults: formatted Line 7e matches the markup\'s static 26.5%');
-equal(pct1(calcResult.true_pct_net), '36.3%', 'mounted defaults: formatted true share of net matches the markup\'s static 36.3%');
-equal(money(calcResult.payor_after), '$92,453/yr', 'mounted defaults: formatted payor-keeps matches the markup\'s static $92,453/yr');
-equal(money(calcResult.recip_after), '$85,168/yr', 'mounted defaults: formatted recipient-household-holds matches the markup\'s static $85,168/yr');
-equal(money(calcResult.recip_per_person), '$21,292/yr', 'mounted defaults: formatted recipient per-person matches the markup\'s static $21,292/yr');
-equal(calcResult.recip_after > calcResult.payor_after, false,
-  'mounted defaults: payor keeps exceeds recipient household (2026-09-08 box fix), so the is-warning class and "Above the payor" note are correctly OFF by default');
+equal(pct1(calcResult.true_pct_net), '36.8%', 'mounted defaults: formatted true share of net = 36.8% (markup\'s static fallback is stale at 36.3%)');
+equal(money(calcResult.payor_after), '$90,447/yr', 'mounted defaults: formatted payor-keeps = $90,447/yr (markup\'s static fallback is stale at $92,453/yr)');
+equal(money(calcResult.recip_after), '$90,631/yr', 'mounted defaults: formatted recipient-household-holds = $90,631/yr (markup\'s static fallback is stale at $85,168/yr)');
+equal(money(calcResult.recip_per_person), '$22,658/yr', 'mounted defaults: formatted recipient per-person = $22,658/yr (markup\'s static fallback is stale at $21,292/yr)');
+equal(calcResult.recip_after > calcResult.payor_after, true,
+  'mounted defaults: recipient household narrowly exceeds payor keeps (v12 correction), so the is-warning class and "Above the payor" note should be ON by default');
 equal(calcResult.true_pct_net > 0.40, false,
-  'mounted defaults: true share of net (36.3%) is below 40%, so the is-warning class is correctly OFF by default');
+  'mounted defaults: true share of net (36.8%) is below 40%, so the is-warning class is correctly OFF by default');
 
 // ---------------------------------------------------------------------------------------------
 // PART 4 -- the sanity guard (calculator.js's sanityCheckPasses()) fires on a broken constant and
@@ -373,7 +379,7 @@ equal(Math.round(sanityNoCc.order_wk), 1013, 'sanity guard target 1: $33/$43, no
 var sanityCc = computeV4(201000, 29640, { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300, ccHigher: 0 });
 equal(Math.round(sanityCc.order_wk), 1276, 'sanity guard target 2: $33/$43, $300/wk lower-earner child care, rounds to $1,276/wk');
 equal(pct1(sanityCc.line_7e), '33.4%', 'sanity guard target 2: Line 7e rounds to 33.4%');
-equal(pct1(sanityCc.true_pct_net), '45.7%', 'sanity guard target 2: true share of net rounds to 45.7% (was 47.4% before the 2026-09-08 box fix)');
+equal(pct1(sanityCc.true_pct_net), '46.4%', 'sanity guard target 2: true share of net rounds to 46.4% (v12 correction, private commit 723a7bf; was 47.4% pre-box-fix, 45.7% under the first, superseded Box 1 fix)');
 
 // ---------------------------------------------------------------------------------------------
 // PART 6b -- THE CREDITS-OFF SWITCH (added 2026-09-08), tested directly against N.analyze() at a
@@ -382,8 +388,10 @@ equal(pct1(sanityCc.true_pct_net), '45.7%', 'sanity guard target 2: true share o
 // treatment in isolation from worksheet.js's box-dependent order (Box 2's own order is a
 // different figure; that is a worksheet fact, not a tax-model fact, and is checked separately by
 // PART 6's fixture rows). The four-combination table is the one model/test_net_position.py pins.
-// Reproduces model/net_position.py exactly: box=2/credits-on is the only combination where the
-// recipient household holds more than the payor keeps.
+// Reproduces model/net_position.py exactly (v12 correction, 2026-09-08, private commit 723a7bf):
+// box=2/credits-on and box=1/credits-on BOTH have the recipient household ahead of the payor --
+// narrowly (+$1,065) at box=1, by a wider margin (+$6,650) at box=2. credits-off has the payor
+// ahead in both boxes.
 // ---------------------------------------------------------------------------------------------
 console.log('\n=== PART 6b: the credits-off switch, worked example, both custody boxes, fixed order ===\n');
 
@@ -393,8 +401,8 @@ var box1CreditsOff = N.analyze(WE_PAYOR_GROSS, WE_RECIP_GROSS, 3, WE_SUPPORT_WK,
 var box2CreditsOn = N.analyze(WE_PAYOR_GROSS, WE_RECIP_GROSS, 3, WE_SUPPORT_WK, 0.0, 0.0, undefined, 2, 2, true);
 var box2CreditsOff = N.analyze(WE_PAYOR_GROSS, WE_RECIP_GROSS, 3, WE_SUPPORT_WK, 0.0, 0.0, undefined, 2, 2, false);
 
-equal(Math.round(box1CreditsOn.payor_after), 92893, 'box=1, credits ON: payor keeps $92,893');
-equal(Math.round(box1CreditsOn.recip_after), 85609, 'box=1, credits ON: recipient household holds $85,609 -- payor ahead');
+equal(Math.round(box1CreditsOn.payor_after), 90447, 'box=1, credits ON: payor keeps $90,447 (v12 correction)');
+equal(Math.round(box1CreditsOn.recip_after), 91512, 'box=1, credits ON: recipient household holds $91,512 -- narrowly ahead (v12 correction)');
 equal(Math.round(box2CreditsOn.payor_after), 87172, 'box=2, credits ON: payor keeps $87,172');
 equal(Math.round(box2CreditsOn.recip_after), 93822, 'box=2, credits ON: recipient household holds $93,822 -- RECIPIENT AHEAD');
 equal(Math.round(box1CreditsOff.payor_after), 87172, 'box=1, credits OFF: payor keeps $87,172');
@@ -420,14 +428,14 @@ console.log('\n=== PART 7: a fixed $40/$40-premium scenario and status badges (n
 var baseDefault = computeV4(201000, 29640, { kids: 3, box: 1, healthLow: 40.0, healthHigh: 40.0, ccLower: 0, ccHigher: 0 });
 equal(moneyWk(baseDefault.order_wk), '$1,015/wk', 'Base support tab default: order = $1,015/wk');
 equal(pct1(baseDefault.line_7e), '26.5%', 'Base support tab default: Line 7e = 26.5%');
-equal(pct1(baseDefault.true_pct_net), '36.4%', 'Base support tab default: true share of net = 36.4%');
-equal(money(baseDefault.payor_after), '$92,325/yr', 'Base support tab default: payor keeps $92,325/yr');
-equal(money(baseDefault.recip_after), '$85,297/yr', 'Base support tab default: recipient household holds $85,297/yr');
-equal(money(baseDefault.recip_per_person), '$21,324/yr', 'Base support tab default: recipient per person $21,324/yr');
-equal(baseDefault.recip_after > baseDefault.payor_after, false,
-  'Base support tab default: household badge is OFF (2026-09-08 box fix: payor keeps exceeds recipient household)');
+equal(pct1(baseDefault.true_pct_net), '36.9%', 'Base support tab default: true share of net = 36.9% (v12 correction; was 36.4%)');
+equal(money(baseDefault.payor_after), '$90,318/yr', 'Base support tab default: payor keeps $90,318/yr (v12 correction; was $92,325/yr)');
+equal(money(baseDefault.recip_after), '$90,760/yr', 'Base support tab default: recipient household holds $90,760/yr (v12 correction; was $85,297/yr)');
+equal(money(baseDefault.recip_per_person), '$22,690/yr', 'Base support tab default: recipient per person $22,690/yr (v12 correction; was $21,324/yr)');
+equal(baseDefault.recip_after > baseDefault.payor_after, true,
+  'Base support tab default: household badge is ON (v12 correction: recipient household narrowly exceeds payor keeps)');
 equal(baseDefault.true_pct_net >= 0.40, false,
-  'Base support tab default: hardship badge is muted (36.4% is below 40%)');
+  'Base support tab default: hardship badge is muted (36.9% is below 40%)');
 
 var ccDefault = computeV4(201000, 29640, { kids: 3, box: 1, healthLow: 40.0, healthHigh: 40.0, ccLower: 100.0, ccHigher: 0.0 });
 equal(moneyWk(ccDefault.order_wk), '$1,103/wk', 'Child care tab default: order = $1,103/wk');
@@ -437,14 +445,14 @@ equal(pct1(ccDefault.higher_share_of_lower_pct), '87.8%',
   'Child care tab default: higher earner\'s share of the lower earner\'s child care = 87.8% (unaffected -- worksheet-only)');
 equal(money(ccDefault.higher_share_of_lower_wk * 52), '$4,567/yr',
   'Child care tab default: same share, per year, = $4,567/yr (unaffected -- worksheet-only)');
-equal(money(ccDefault.payor_after), '$87,758/yr', 'Child care tab default: payor keeps $87,758/yr');
-equal(money(ccDefault.recip_after), '$84,664/yr', 'Child care tab default: recipient household holds $84,664/yr');
-equal(money(ccDefault.recip_per_person), '$21,166/yr', 'Child care tab default: recipient per person $21,166/yr');
-equal(ccDefault.recip_after > ccDefault.payor_after, false,
-  'Child care tab default: household badge is OFF (2026-09-08 box fix: payor keeps exceeds recipient household)');
-equal(ccDefault.true_pct_net >= 0.40, false,
-  'Child care tab default: hardship badge is muted (39.5% is below 40%, was 41.0% before the 2026-09-08 box fix)');
-equal(pct1(ccDefault.true_pct_net), '39.5%', 'Child care tab default: true share of net (shown in the badge text) is 39.5%');
+equal(money(ccDefault.payor_after), '$85,751/yr', 'Child care tab default: payor keeps $85,751/yr (v12 correction; was $87,758/yr)');
+equal(money(ccDefault.recip_after), '$90,127/yr', 'Child care tab default: recipient household holds $90,127/yr (v12 correction; was $84,664/yr)');
+equal(money(ccDefault.recip_per_person), '$22,532/yr', 'Child care tab default: recipient per person $22,532/yr (v12 correction; was $21,166/yr)');
+equal(ccDefault.recip_after > ccDefault.payor_after, true,
+  'Child care tab default: household badge is ON (v12 correction: recipient household exceeds payor keeps)');
+equal(ccDefault.true_pct_net >= 0.40, true,
+  'Child care tab default: hardship badge is LIT (40.1% is at/above 40%, v12 correction; was 39.5% muted, 41.0% before the first box fix)');
+equal(pct1(ccDefault.true_pct_net), '40.1%', 'Child care tab default: true share of net (shown in the badge text) is 40.1% (v12 correction; was 39.5%)');
 
 // The combined-child-care line (calculator.js's cc_combined_line) only fires in the DOM when BOTH
 // sliders are above zero -- at the default (higher earner's slider is $0), calculator.js's own
@@ -529,8 +537,8 @@ equal(pct1(distDefault.share3c), '87.8%',
   'Child care tab default: higher earner\'s share of child care (Line 3c) = 87.8% (unaffected -- worksheet-only)');
 equal(pct0(distDefault.gross_share), '64%',
   'Child care tab default: post-transfer gross share = 64% (unaffected -- worksheet-only)');
-equal(pct0(distDefault.net_share), '52%',
-  'Child care tab default: post-transfer net share = 52% (was 48% before the 2026-09-08 box fix)');
+equal(pct0(distDefault.net_share), '50%',
+  'Child care tab default: post-transfer net share = 50% (v12 correction, private commit 723a7bf; was 48% pre-box-fix, 52% under the first, superseded Box 1 fix)');
 
 var fixDefault = computeFixedRule(201000, 29640, { kids: 3, box: 1, healthLow: 40.0, healthHigh: 40.0, ccLower: 100.0, ccHigher: 0.0 });
 equal(moneyWk(fixDefault.fixed_rule_order_wk), '$1,080/wk',
@@ -575,10 +583,12 @@ ccFixtures.rows.forEach(function (row) {
 // PART 10 -- FIDELITY PIN: model/childcare_post_transfer.py's own worked example (PAYOR_GROSS
 // $201,000, RECIP_WEEKLY $570/wk, three children, Box 1, health $33/$43, $300/wk lower-earner
 // child care) must reproduce that script's rule1_share/rule2_gross_share/rule3_share (87.7% /
-// 64.3% / 52.1% at kids_under_13=0, the site-wide convention -- the script itself prints 52.0% at
-// its own KIDS_UNDER_13=2, a different, real-fact-pattern constant this calculator does not use;
-// both reflect the 2026-09-08 box=1 alternating-year credit fix, ported to this script's two
-// analyze() calls the same day, replacing the pre-fix 48.4%/48.2%) and rule2b_share/rule2b_7d
+// 64.3% / 49.9% at kids_under_13=0, the site-wide convention -- the script itself prints a
+// slightly different figure at its own KIDS_UNDER_13=2, a different, real-fact-pattern constant
+// this calculator does not use; both reflect the SECOND, corrected 2026-09-08 box=1
+// alternating-year credit fix (private commit 723a7bf: only the CTC/dependency claim alternates;
+// head of household and the EITC stay with the physical-custodian recipient) -- replacing the
+// pre-fix 48.4%/48.2% and the first, superseded fix's 52.1%/52.0%) and rule2b_share/rule2b_7d
 // (64.5% / $1,206.08/wk, unaffected by the box fix -- gross-basis, no net_position call) to the
 // value it actually prints -- run 2026-09-08 (see model/childcare_post_transfer.py's own
 // docstring). This is also calculator.js's fixedRuleSanityPasses() target: worked example, $300
@@ -587,16 +597,16 @@ ccFixtures.rows.forEach(function (row) {
 // unaffected by the box fix (net_income_withholding_basis has no box parameter) -- the letter's
 // Line 6b-1 redline changes the order, matching childcare_post_transfer.py's rule5.
 // ---------------------------------------------------------------------------------------------
-console.log('\n=== PART 10: childcare_post_transfer.py fidelity -- 87.7% / 64.3% / 52.1%, rule2b $1,206/wk ===\n');
+console.log('\n=== PART 10: childcare_post_transfer.py fidelity -- 87.7% / 64.3% / 49.9%, rule2b $1,206/wk ===\n');
 
 var weDist = computeDistribution(PAYOR_GROSS, RECIP_GROSS, { kids: KIDS, box: 1, healthLow: 33.0, healthHigh: 43.0 });
 close(weDist.share3c, 0.8768174760022585, 1e-9, 'worked example dist_share3c (rule1_share) = 87.7%');
 close(weDist.gross_share, 0.6431593046358441, 1e-9, 'worked example dist_gross_share (rule2_gross_share) = 64.3%');
-close(weDist.net_share, 0.5205066170863146, 1e-9, 'worked example dist_net_share (rule3_share, kids_under_13=0) = 52.1%');
+close(weDist.net_share, 0.4994902626331263, 1e-9, 'worked example dist_net_share (rule3_share, kids_under_13=0) = 49.9% (v12 correction; was 52.1% under the first, superseded fix)');
 close(weDist.net_withholding_share, 0.5297030078478019, 1e-9, 'worked example dist_net_withholding_share (rule5_share) = 53.0%');
 equal(pct1(weDist.share3c), '87.7%', 'worked example: formatted higher earner\'s share of child care = 87.7%');
 equal(pct0(weDist.gross_share), '64%', 'worked example: formatted post-transfer gross share = 64%');
-equal(pct0(weDist.net_share), '52%', 'worked example: formatted post-transfer net share = 52%');
+equal(pct0(weDist.net_share), '50%', 'worked example: formatted post-transfer net share = 50% (v12 correction; was 52%)');
 equal(pct0(weDist.net_withholding_share), '53%', 'worked example: formatted post-transfer net withholding share = 53%');
 
 var weFix = computeFixedRule(PAYOR_GROSS, RECIP_GROSS, { kids: KIDS, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300.0, ccHigher: 0.0 });
