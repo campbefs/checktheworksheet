@@ -76,19 +76,19 @@ hypothetical. ** The submission discloses this; the figures are real either way.
 == SECTION 2.1 -- BOTH parents pay child care under equal shared parenting ==
   The realistic 50-50 case: each parent needs care during their own parenting time.
   neither pays child care            order $ 1,013/wk  7e 26.5%
-                                     he keeps $   87,172   she holds $   93,821   his share 48.2%
-                                     order+his own care = 37.7% of his net
+                                     he keeps $   92,893   she holds $   85,608   his share 52.0%
+                                     order+his own care = 36.2% of his net
   only the recipient pays $300/wk    order $ 1,276/wk  7e 33.4%
-                                     he keeps $   73,493   she holds $   91,900   his share 44.4%
-                                     order+his own care = 47.4% of his net
+                                     he keeps $   79,215   she holds $   83,687   his share 48.6%
+                                     order+his own care = 45.6% of his net
   BOTH pay $300/wk                   order $ 1,271/wk  7e 33.2%
-                                     he keeps $   58,163   she holds $   91,630   his share 38.8%
-                                     order+his own care = 58.4% of his net
+                                     he keeps $   63,885   she holds $   83,417   his share 43.4%
+                                     order+his own care = 56.1% of his net
   Combined child care across both households: $31,200/yr
     borne by the payor:     $   29,008  (93%)
     borne by the recipient: $    2,192  (7%)
   The payor's OWN $15,600 of child care reduces the order by $270/yr -- the Line 6e clip.
-  CAVEAT, state it: per person the payor still leads -- $58,163 for one against $22,907 each for four.
+  CAVEAT, state it: per person the payor still leads -- $63,885 for one against $20,854 each for four.
 
 == CAVEATS THAT TRAVEL WITH EVERY FIGURE ==
   1. Per person the payor leads. Say it before the household comparison.

@@ -131,10 +131,11 @@ def main():
          "Per person, the payor holds more almost everywhere",
          "Recipient household net ÷ 4, minus payor net. Companion to E01.", pairs=F3,
          notes="Payor ahead in 99% of cells. " + NOTE_MASK + NOTE_CONV)
+    pct40 = pct_positive([{"order_pct_payor_net": r["order_pct_payor_net"] - 0.40} for r in g3], "order_pct_payor_net")
     heat("E04-order-as-share-of-payor-net-3-children.png", g3, "order_pct_payor_net",
-         "The order exceeds 40% of the payor's net income only where the lower earner makes about \\$25,000 or less",
+         "The order exceeds 40% of the payor's net income only where the lower earner makes about \\$20,000 or less",
          "Order as a share of payor net; line at 40%.", diverging=False, contour=0.40, pct=True, vmax=0.60, pairs=F3,
-         notes="15% of cells. Scale fixed 0–60%. " + NOTE_MASK + NOTE_CONV)
+         notes=f"{pct40:.0f}% of cells. Scale fixed 0–60%. " + NOTE_MASK + NOTE_CONV)
 
     # --- E18/E19: the 1-child and 2-child panels split from fig1_headline_household_gap (was E03). ---
     # The 3-child panel is E01 above; fig1_headline_household_gap.png stays as the working figure for

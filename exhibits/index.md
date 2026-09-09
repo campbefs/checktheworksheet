@@ -373,7 +373,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>$0 / $300 / $300 per wk (see scenarios)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">The Worksheet allocates the recipient's cost to the payor through Line 6b, but credits the payor's own cost back through Line 6e at about two cents on the dollar: his $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 58 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads ($58,163 vs. $22,907 each for four). Two of three children under 13; premiums $43/$33.</p>
+    <p class="exhibit-notes">The Worksheet allocates the recipient's cost to the payor through Line 6b, but credits the payor's own cost back through Line 6e at about two cents on the dollar: his $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 56 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads ($63,885 vs. $20,854 each for four). Two of three children under 13; premiums $43/$33.</p>
     <p class="exhibit-source">Source: <code>model/submission_figures.py</code> § 2.1; <code>model/charts/fig8_both_pay.py</code> ·
       <a href="/figures/working/fig8_both_pay.csv">data (CSV)</a></p>
   </figcaption>

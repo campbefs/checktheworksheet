@@ -152,7 +152,7 @@ own parenting time.
    alt="Bar chart comparing net income outcomes when both parents pay $300 a week of child care under equal shared parenting, three scenarios: neither pays, only the recipient pays, both pay."
    title="Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192."
    deck="Each parent's net position under three scenarios: neither pays, only the recipient pays $300 a week, both pay $300 a week."
-   notes="The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so his own $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 58 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads."
+   notes="The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so his own $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 56 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads."
    source_script="model/charts/fig8_both_pay.py"
    csv_href="/figures/working/fig8_both_pay.csv" %}
 </div>
@@ -198,8 +198,8 @@ This is one worked example, and how far a typical claim sits from it is not know
 this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Even in the scenario where both parents pay
-for care and he is charged 93 percent of the combined bill, he still holds $58,163 for himself
-against $22,907 each for the recipient's household of four.</p>
+for care and he is charged 93 percent of the combined bill, he still holds $63,885 for himself
+against $20,854 each for the recipient's household of four.</p>
 
 </section>
 

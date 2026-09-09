@@ -210,9 +210,14 @@ def main():
 
     print("== SECTION 2.1 -- BOTH parents pay child care under equal shared parenting ==")
     print("  The realistic 50-50 case: each parent needs care during their own parenting time.")
-    pn = npos.net_income(PAYOR_GROSS, "single", 0, npos.TAX_PARAMS)
-    rn = npos.net_income(RECIP_GROSS, "hoh", KIDS, npos.TAX_PARAMS,
-                         kids_under_13=KIDS_UNDER_13)
+    # CORRECTED 2026-09-08: this section used to compute each party's net income by
+    # calling net_income() directly with the recipient hardcoded as "hoh" claiming all
+    # three children -- the same recipient-claims-all default analyze() no longer uses
+    # for Box 1. Now routed through analyze(box=1) like every other call in this module,
+    # so the credits follow the alternating-year rule at equal parenting time. The two
+    # child-care streams (hers via a_childcare, his via b_childcare) are combined into
+    # one weekly total and one payor share, which reproduces the same payor_after /
+    # recip_after arithmetic analyze() already uses for the single-payer scenarios above.
     kk = dict(a_gross=RECIP_WEEKLY, b_gross=PAYOR_GROSS / 52.0, children_under18=KIDS,
               a_health=33.0, b_health=43.0)
     rows = [("neither pays child care", (0, 0, 0), (0, 0, 0)),
@@ -221,13 +226,18 @@ def main():
     out = {}
     for label, a, b in rows:
         r = w.run(box=1, a_childcare=a, b_childcare=b, **kk)
-        order, his_cc, her_cc = r["7d"] * 52, sum(b) * 52, sum(a) * 52
-        him, her = pn - order - his_cc, rn + order - her_cc
+        order_wk, his_cc_wk, her_cc_wk = r["7d"], sum(b), sum(a)
+        total_cc_wk = his_cc_wk + her_cc_wk
+        share = his_cc_wk / total_cc_wk if total_cc_wk else 0.0
+        p = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, order_wk, total_cc_wk, share,
+                          kids_under_13=KIDS_UNDER_13, box=1)
+        order, his_cc, her_cc = order_wk * 52, his_cc_wk * 52, her_cc_wk * 52
+        him, her = p["payor_after"], p["recip_after"]
         out[label] = (order, his_cc, him, her)
         print(f"  {label:<34} order ${r['7d']:>6,.0f}/wk  7e {r['7e']:>5.1%}")
         print(f"  {'':<34} he keeps ${him:>9,.0f}   she holds ${her:>9,.0f}   "
               f"his share {him/(him+her):>5.1%}")
-        print(f"  {'':<34} order+his own care = {(order+his_cc)/pn:.1%} of his net")
+        print(f"  {'':<34} order+his own care = {(order+his_cc)/p['payor_net']:.1%} of his net")
     o_none = out["neither pays child care"]
     o_both = out["BOTH pay $300/wk"]
     o_hers = out["only the recipient pays $300/wk"]

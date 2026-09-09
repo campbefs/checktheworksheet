@@ -107,7 +107,7 @@ often a deviation motion the parties did not simply agree to still succeeds.
 At the worked example, the payor keeps $92,893 a year and the recipient's household holds
 $85,608, $21,402 per person. Which parent claims the children on a given year's taxes moves this
 figure: equal parenting time gives neither parent sole claim to the dependency credits, so this
-figure averages the two years a divorced or separated couple typically alternates that claim.
+figure averages the two years a separated couple typically alternates that claim.
 Across a wider range of incomes the recipient's household still ends up ahead in total in about 15
 percent of combinations, even though the payor holds more per person in 99 percent of them (E01,
 E02).
