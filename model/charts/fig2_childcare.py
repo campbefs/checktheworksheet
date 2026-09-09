@@ -1,5 +1,10 @@
 """Figure 2: who funds the child care. Payor's funded share under three allocation rules, by the
-payor's pre-transfer income share, for 1/2/3 children; plus the worked-example bars (88 / 64 / 48)."""
+payor's pre-transfer income share, for 1/2/3 children; plus the worked-example bars (four rules:
+worksheet today, the section 2 gross fallback, the section 2 primary redline (withholding basis,
+the ask), and credits-inclusive, not proposed). The "Post-transfer net shares" line and the
+credits-inclusive bar both pass count_refundable_credits=True explicitly, matching
+childcare_post_transfer.py's rule 3 -- this is the credits-included ANALYSIS the comments do not
+propose, not the withholding-basis ask (rule 5)."""
 import numpy as np
 import matplotlib.pyplot as plt
 from _common import order, npos, write_csv, out, theme, SOURCE_SRC, NOTE_CONV, KIDS_UNDER_13, EXAMPLE, facts, top_header, bottom_footer
@@ -18,7 +23,11 @@ def shares(kids, lo):
     r1 = (with_cc["7d"] - base["7d"]) * 52 / (cc * 52)
     b = base["7d"] * 52
     r2 = (HI - b) / ((HI - b) + (lo + b))
-    pos = npos.analyze(HI, lo, kids, base["7d"], 0.0, 0.0, kids_under_13=KIDS_UNDER_13, box=1)
+    # count_refundable_credits=True explicit: this is the credits-included ANALYSIS
+    # line (matches childcare_post_transfer.py's rule 3), not the withholding-basis
+    # ask -- analyze()'s own default became False 2026-09-09 (Task 3).
+    pos = npos.analyze(HI, lo, kids, base["7d"], 0.0, 0.0, kids_under_13=KIDS_UNDER_13, box=1,
+                        count_refundable_credits=True)
     r3 = pos["payor_after_share"]
     return base["B_3c"], r1, r2, r3
 

@@ -75,14 +75,20 @@ def figures():
 
     # box=1: this whole worked example is Box 1 (shared, equal time), so the credits
     # follow the alternating-year rule in net_position.household_net_incomes(), not
-    # the recipient-claims-all default.
-    pos = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, base, 0.0, 0.0, kids_under_13=KIDS_UNDER_13, box=1)
+    # the recipient-claims-all default. count_refundable_credits=True is EXPLICIT here
+    # -- rule 3/4 are the credits-included ANALYSIS the module docstring documents as
+    # distinct from rule 5 (the ask, withholding basis). Since 2026-09-09 (Task 3)
+    # analyze()'s own default is False; without this explicit True these two rules
+    # would silently collapse onto rule 5 and lose their documented meaning.
+    pos = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, base, 0.0, 0.0, kids_under_13=KIDS_UNDER_13,
+                        box=1, count_refundable_credits=True)
     f["rule3_share"] = pos["payor_after_share"]
     f["payor_after"], f["recip_after"], f["recip_pp"] = pos["payor_after"], pos["recip_after"], pos["recip_per_person"]
 
     share = f["rule3_share"]
     for _ in range(50):
-        pos4 = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, base, CC_WEEKLY, share, kids_under_13=KIDS_UNDER_13, box=1)
+        pos4 = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, base, CC_WEEKLY, share, kids_under_13=KIDS_UNDER_13,
+                             box=1, count_refundable_credits=True)
         new = pos4["payor_after_share"]
         if abs(new - share) < 1e-9:
             break

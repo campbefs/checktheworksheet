@@ -8,6 +8,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import net_position as npos  # noqa: E402
+import worksheet as w  # noqa: E402
 
 FAILS = []
 N = [0]
@@ -75,11 +76,15 @@ check("kids=0 still returns zero regardless of status",
 
 # ---------------------------------------------------------------------------
 # 3. BOX 2 (primary custody) IS UNCHANGED: recipient claims all, files HoH.
+#    count_refundable_credits=True pinned explicitly on both calls below --
+#    since 2026-09-09 (Task 3) that is no longer the default, and this section
+#    is specifically about the credits-ON path (box's own default, still 2,
+#    is what "no-box-argument default" tests).
 # ---------------------------------------------------------------------------
 r_box2 = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
-                       kids_under_13=KIDS_UNDER_13, box=2)
+                       kids_under_13=KIDS_UNDER_13, box=2, count_refundable_credits=True)
 r_default = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
-                          kids_under_13=KIDS_UNDER_13)
+                          kids_under_13=KIDS_UNDER_13, count_refundable_credits=True)
 check("box=2 matches the no-box-argument default (backward compatible)",
       abs(r_box2["payor_after"] - r_default["payor_after"]) < 0.01
       and abs(r_box2["recip_after"] - r_default["recip_after"]) < 0.01)
@@ -102,7 +107,7 @@ check("box=2: payor's share 48.2%", round(r_box2["payor_after_share"], 3) == 0.4
 #    recipient household is back ahead, by a much narrower margin than Box 2.
 # ---------------------------------------------------------------------------
 r_box1 = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
-                       kids_under_13=KIDS_UNDER_13, box=1)
+                       kids_under_13=KIDS_UNDER_13, box=1, count_refundable_credits=True)
 check("box=1: payor keeps $90,447", round(r_box1["payor_after"]) == 90_447,
       r_box1["payor_after"])
 check("box=1: recipient household holds $91,511 (+/-$1 rounding)",
@@ -218,9 +223,10 @@ check("withholding-basis recipient net is still $24,733.74",
       round(npos.net_income_withholding_basis(RECIP_GROSS), 2) == 24_733.74)
 
 # ---------------------------------------------------------------------------
-# 6. THE CREDITS-OFF SWITCH (added 2026-09-08): count_refundable_credits=False lets
-#    an economist validate the arithmetic without accepting any assumption about
-#    which parent claims which child. box=2 default (True) is unchanged.
+# 6. THE CREDITS-OFF SWITCH (added 2026-09-08; MADE THE DEFAULT 2026-09-09,
+#    Task 3): count_refundable_credits=False lets an economist validate the
+#    arithmetic without accepting any assumption about which parent claims
+#    which child. box's own default (2) is unchanged.
 # ---------------------------------------------------------------------------
 r_box1_nocred = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
                               kids_under_13=KIDS_UNDER_13, box=1,
@@ -248,10 +254,13 @@ check("credits-off recipient net EXACTLY equals net_income_withholding_basis(rec
       r_box1_nocred["recip_net"] == npos.net_income_withholding_basis(RECIP_GROSS),
       (r_box1_nocred["recip_net"], npos.net_income_withholding_basis(RECIP_GROSS)))
 
-check("default (no argument passed) keeps count_refundable_credits=True (backward compatible)",
+check("default (no count_refundable_credits argument passed) is now False, the "
+      "published withholding basis, since 2026-09-09 (Task 3) -- NOT backward "
+      "compatible with the pre-2026-09-09 True default; that is the whole point "
+      "of this task",
       npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
                    kids_under_13=KIDS_UNDER_13, box=2)["payor_after"]
-      == r_box2["payor_after"])
+      == r_box2_nocred["payor_after"])
 
 # The four-combination worked-example table (payor $201,000, recipient $29,640, 3 kids,
 # no child care, order $1,012.73/wk). Credits-off collapses box 1 and box 2 to one row.
@@ -273,6 +282,170 @@ check("box=1, credits OFF: payor $87,172, recipient $77,396 -- payor ahead (same
       round(r_box1_nocred["payor_after"]) == 87_172
       and round(r_box1_nocred["recip_after"]) == 77_396,
       (r_box1_nocred["payor_after"], r_box1_nocred["recip_after"]))
+
+# ---------------------------------------------------------------------------
+# 7. FEDERAL CONSTANTS FIX (2026-09-09, docs/2026-09-08-federal-tax-constants-verified.md):
+#    the HoH 24%/32% bracket boundary was copied from the SINGLE schedule ($201,775
+#    instead of $201,750, Rev. Proc. 2025-32), and the EITC returned the plateau
+#    maximum for any income up to the phase-out start instead of phasing in from $0.
+# ---------------------------------------------------------------------------
+# Rev. Proc. 2025-32: the head-of-household 24%/32% boundary is $201,750.
+# $201,775 belongs to the SINGLE schedule and had been copied across.
+check("hoh 24%/32% boundary is 201,750",
+      dict(npos.TAX_PARAMS["brackets"]["hoh"]).get(0.24) == 201_750,
+      dict(npos.TAX_PARAMS["brackets"]["hoh"]).get(0.24))
+check("single 24%/32% boundary is unchanged at 201,775",
+      dict(npos.TAX_PARAMS["brackets"]["single"]).get(0.24) == 201_775,
+      dict(npos.TAX_PARAMS["brackets"]["single"]).get(0.24))
+
+# IRC s.32(b): the EITC phases IN below the plateau. The model returned the
+# maximum for ANY income up to the phase-out start, overstating it below about
+# $18,290 of earned income. Exact at the $29,640 actually used.
+check("EITC at $29,640, three children, is 7,020.06",
+      abs(npos._federal_eitc(29_640.0, 3, npos.TAX_PARAMS) - 7_020.06) < 0.02,
+      npos._federal_eitc(29_640.0, 3, npos.TAX_PARAMS))
+check("EITC phases in: $5,000 of earnings yields less than the maximum",
+      npos._federal_eitc(5_000.0, 3, npos.TAX_PARAMS) < npos.TAX_PARAMS["eitc"][3][0],
+      npos._federal_eitc(5_000.0, 3, npos.TAX_PARAMS))
+check("EITC is zero with no earnings",
+      npos._federal_eitc(0.0, 3, npos.TAX_PARAMS) == 0.0)
+
+# Neither figure the letter quotes may move.
+check("CTC reaching HoH at $29,640 is 4,620",
+      round(npos.refundable_credits(29_640.0, 3, "hoh", npos.TAX_PARAMS)
+            - npos._federal_eitc(29_640.0, 3, npos.TAX_PARAMS)) == 4_620)
+
+# IRC s.24(d)(1)(B)(ii): the alternative ACTC path for 3+ children, added 2026-09-09.
+# It must actually be wired in, not dead code -- prove it binds somewhere, and prove
+# it stays out of the way for kids < 3 and at this project's own two incomes.
+check("path (ii) binds for a single filer, 3 kids, very low earned income "
+      "(FICA of $76.50 exceeds his zero EITC, 15%-of-earnings floor is $0 below $2,500)",
+      abs(npos.refundable_credits(1_000.0, 3, "single", npos.TAX_PARAMS) - 76.5) < 0.01,
+      npos.refundable_credits(1_000.0, 3, "single", npos.TAX_PARAMS))
+check("path (ii) is inert for 2 children at the same low income (statute limits it to 3+)",
+      npos.refundable_credits(1_000.0, 2, "single", npos.TAX_PARAMS) == 0.0,
+      npos.refundable_credits(1_000.0, 2, "single", npos.TAX_PARAMS))
+check("path (ii) does not move the recipient's credit at her real $29,640 -- "
+      "her EITC ($7,020.06) exceeds her FICA ($2,267.46), so the excess is zero "
+      "and path (i) ($4,071) governs, matching the pinned 4,620 CTC-reaching-HoH check",
+      npos.fica(29_640.0, npos.TAX_PARAMS) < npos._federal_eitc(29_640.0, 3, npos.TAX_PARAMS))
+check("path (ii) does not move the payor's credit at his real $201,000 -- his tax "
+      "liability alone absorbs the full CTC entitlement, so the refundable portion "
+      "(the only place either path matters) is zero regardless of which path governs",
+      npos._ctc_entitlement_after_phaseout(201_000.0, 3, "single", npos.TAX_PARAMS)
+      <= npos.federal_tax(201_000.0, "single", npos.TAX_PARAMS))
+
+# ---------------------------------------------------------------------------
+# 8. VALID INCOME RANGE for the credits-ON model (documents the omissions the
+#    verification report flagged that are NOT implemented, so no one relies on
+#    this model outside the range where they are provably inert):
+#      - the s.32(i) investment-income disqualifier ($12,200 ceiling) is not
+#        modelled at any income -- assumed $0 investment income for both parties;
+#      - itemized deductions are not modelled -- both filers are assumed to take
+#        the standard deduction (see net_income()'s docstring for the direction
+#        this cuts, and output/ATTACHMENT-A-method.md for the disclosure).
+#    Neither omission has a known dollar effect at this project's two published
+#    incomes ($201,000 and $29,640); both are unverified assumptions outside them.
+# ---------------------------------------------------------------------------
+check("the two published incomes this project quotes are the ones the omissions "
+      "above are confirmed inert at -- $201,000 (payor) and $29,640 (recipient)",
+      PAYOR_GROSS == 201_000.0 and RECIP_GROSS == 29_640.0,
+      (PAYOR_GROSS, RECIP_GROSS))
+
+# ---------------------------------------------------------------------------
+# 9. MASSACHUSETTS FOLLOW-THROUGH (2026-09-09,
+#    docs/2026-09-08-massachusetts-tax-constants-verified.md). Every MA constant
+#    re-verified directly against M.G.L. c.62 and DOR's 2025 Form 1 instructions --
+#    stronger sourcing than the 2026-09-02 pass, which relied on a budget summary
+#    quoting the statute. Nothing here moves a published figure.
+# ---------------------------------------------------------------------------
+check("MA flat rate is 5% (M.G.L. c.62 s.4(b))", P["ma_rate"] == 0.05)
+check("MA personal exemption: single $4,400, HoH $6,800 (c.62 s.3(B)(b)(1)/(1A))",
+      P["ma_personal_exemption"] == {"single": 4_400, "hoh": 6_800})
+check("MA dependent exemption is $1,000/dependent (c.62 s.3(B)(b)(3))",
+      P["ma_dependent_exemption"] == 1_000)
+check("MA EITC is 40% of the federal credit (c.62 s.6(h)(1))", P["ma_eitc_pct"] == 0.40)
+check("MA Child and Family Tax Credit is $440/dependent (c.62 s.6(x); "
+      "St. 2023 c.50 ss.21-22)", P["ma_cftc_per_dependent"] == 440)
+
+# The three CONFIRMED-to-the-cent figures at the worked example (recipient
+# $29,640, HoH, 3 children, 2 under 13) -- report section 7 recomputed each
+# independently from the statute; pinned here so a future edit cannot move them
+# silently.
+check("MA income tax at the worked example is $992.00 (5% x ($29,640 - $6,800 - "
+      "3x$1,000))", npos.ma_tax(29_640.0, "hoh", P, 3) == 992.00,
+      npos.ma_tax(29_640.0, "hoh", P, 3))
+
+_fed_eitc_worked = npos._federal_eitc(29_640.0, 3, P)
+_ma_eitc_worked = P["ma_eitc_pct"] * _fed_eitc_worked
+check("MA EITC at the worked example is $2,808 (40% of the federal $7,020.06)",
+      round(_ma_eitc_worked) == 2_808, _ma_eitc_worked)
+
+_ma_cftc_worked = P["ma_cftc_per_dependent"] * KIDS_UNDER_13
+check("MA Child and Family Tax Credit at the worked example is $880 "
+      "($440 x 2 children under 13)", _ma_cftc_worked == 880.0, _ma_cftc_worked)
+
+check("ma_refundable_credits() combines the two: $3,688.03 at the worked example",
+      round(npos.ma_refundable_credits(29_640.0, 3, "hoh", P, KIDS_UNDER_13), 2)
+      == 3_688.03,
+      npos.ma_refundable_credits(29_640.0, 3, "hoh", P, KIDS_UNDER_13))
+
+# The surtax comment was stale ("$1,000,000"); M.G.L. c.62 s.4(d) indexes the
+# threshold annually and the TY2026 figure is $1,107,750. Surtax still not
+# computed anywhere -- $0 effect either way.
+check("ma_tax's docstring states the current TY2026 surtax threshold, not the "
+      "stale claim that $1,000,000 IS the operative threshold",
+      "1,107,750" in npos.ma_tax.__doc__
+      and "surtax on income over $1,000,000 is not modelled" not in npos.ma_tax.__doc__)
+
+# UNVERIFIED-as-DOR-position row (report section 4): does CFTC prong (i) require
+# household membership, same as prongs (ii)/(iii)? No DOR ruling either way, but
+# it is provably moot -- the CFTC is gated on status == "hoh" and the payor is
+# never modelled as the household-maintaining parent, so the question never
+# actually gets asked for him.
+check("the CFTC prong (i) household-membership question cannot move any output: "
+      "the payor's MA refundable credits are zero regardless of which reading "
+      "governs, because status != 'hoh' already returns 0.0",
+      npos.ma_refundable_credits(201_000.0, 3, "single", P, 2) == 0.0)
+
+# ---------------------------------------------------------------------------
+# 10. THE PUBLISHED DEFAULT IS THE WITHHOLDING BASIS (2026-09-09, Task 3 of
+#    docs/plans/2026-09-09-simplify-to-withholding-basis.md). The credits are real
+#    but "too complex to reproduce at scale" -- an economist reviewing this work
+#    will not accept a model that computes every household's filing arrangement. The published method: net = gross - federal
+#    income tax (single filer, standard deduction) - Social Security and
+#    Medicare - Massachusetts income tax. Same formula for both parents. No
+#    refundable credits, no filing status, no dependents. This is the
+#    Commonwealth's own consultant's method, verbatim from the Economic Review:
+#    "we calculated the net income equivalents of gross weekly income amounts
+#    for Massachusetts, since the guidelines use gross income and Dr. Betson's
+#    study uses net income. We made this adjustment using state-specific income
+#    withholding tables for Massachusetts and standard withholding for Social
+#    Security and Medicare."
+# ---------------------------------------------------------------------------
+_o1 = w.run(box=1, a_gross=570.0, b_gross=201_000.0 / 52, children_under18=3,
+            a_health=33.0, b_health=43.0)["7d"]
+_d = npos.analyze(201_000.0, 29_640.0, 3, _o1, 0.0, 0.0, kids_under_13=2, box=1)
+check("default is credits-off: payor keeps 87,172", round(_d["payor_after"]) == 87_172,
+      _d["payor_after"])
+check("default is credits-off: recipient holds 77,395", round(_d["recip_after"]) == 77_395,
+      _d["recip_after"])
+
+# The basis must not depend on the custody box, because no per-parent tax fact enters.
+_o2 = w.run(box=2, a_gross=570.0, b_gross=201_000.0 / 52, children_under18=3,
+            a_health=33.0, b_health=43.0)["7d"]
+_b1 = npos.analyze(201_000.0, 29_640.0, 3, _o1, 0.0, 0.0, kids_under_13=2, box=1)
+_b2 = npos.analyze(201_000.0, 29_640.0, 3, _o2, 0.0, 0.0, kids_under_13=2, box=2)
+check("payor net before the order is identical in both boxes",
+      abs(_b1["payor_net"] - _b2["payor_net"]) < 0.01)
+check("recipient net before the order is identical in both boxes",
+      abs(_b1["recip_net"] - _b2["recip_net"]) < 0.01)
+
+# The credits remain reachable for the teaching page.
+_on = npos.analyze(201_000.0, 29_640.0, 3, _o1, 0.0, 0.0, kids_under_13=2, box=1,
+                    count_refundable_credits=True)
+check("credits-on is still available and differs", _on["recip_after"] > _d["recip_after"] + 5_000,
+      (_on["recip_after"], _d["recip_after"]))
 
 if FAILS:
     print("\n".join(FAILS))

@@ -56,7 +56,11 @@
         [0.32, 256225], [0.35, 640600], [0.37, Infinity]
       ],
       hoh: [
-        [0.10, 17700], [0.12, 67450], [0.22, 105700], [0.24, 201775],
+        [0.10, 17700], [0.12, 67450], [0.22, 105700],
+        // Rev. Proc. 2025-32, head of household: 201750, not the single-filer figure
+        // 201775 copied here in error. Fixed 2026-09-09, porting model/net_position.py
+        // commit 5597a50. No dollar effect at either income this project models.
+        [0.24, 201750],
         [0.32, 256200], [0.35, 640600], [0.37, Infinity]
       ]
     },
@@ -83,7 +87,13 @@
       1: [4427, 23890, 51593],
       2: [7316, 23890, 58629],
       3: [8231, 23890, 62974]
-    }
+    },
+    // IRC s. 32(b)(1): the EITC phases IN below the plateau at a statutory credit
+    // percentage of earned income. Added 2026-09-09, porting model/net_position.py
+    // commit 5597a50 -- federalEitc() previously returned the plateau maximum for
+    // ANY income up to the phaseout-start figure above, overstating the credit
+    // below roughly $18,290 of earned income (3+ children).
+    eitcPhaseInRate: { 0: 0.0765, 1: 0.34, 2: 0.40, 3: 0.45 }
   };
 
   function federalTax(gross, status, params) {
@@ -118,11 +128,15 @@
     return params.maRate * Math.max(0.0, gross - exempt);
   }
 
+  // IRC s. 32(b): phases IN at a statutory rate from $0 of earned income, plateaus at the
+  // maximum once the phase-in reaches it, holds flat until phaseout-start, then phases OUT
+  // linearly to zero. Fixed 2026-09-09, porting model/net_position.py commit 5597a50.
   function federalEitc(gross, kids, params) {
     params = params || TAX_PARAMS;
     var e = params.eitc[Math.min(kids, 3)];
     var mx = e[0], start = e[1], end = e[2];
-    if (gross <= start) return mx;
+    var rate = params.eitcPhaseInRate[Math.min(kids, 3)];
+    if (gross <= start) return Math.min(rate * gross, mx);
     if (gross >= end) return 0.0;
     return mx * (end - gross) / (end - start);
   }
@@ -163,18 +177,30 @@
   // ITS OWN rule, unchanged: it requires the child to have lived with the claimant for more than
   // half the year, which is what 'hoh' stands in for in this simplified model, so it is not
   // extended to a 'single, claims the kids on paper only' filer.
+  // ALTERNATIVE ACTC FORMULA FOR 3+ CHILDREN, ported 2026-09-09 from model/net_position.py
+  // commit 5597a50 (docs/2026-09-08-federal-tax-constants-verified.md section 5). IRC
+  // s. 24(d)(1)(B) takes the GREATER of: (i) 15% of earned income above $2,500, or (ii),
+  // for 3+ qualifying children, the excess of the taxpayer's full employee-side FICA (fica())
+  // over the s. 32 EITC computed above. Only matters at low income with 3+ children; $0 at
+  // every income this project publishes for the payor.
   function refundableCredits(gross, kids, status, params) {
     params = params || TAX_PARAMS;
     if (kids === 0) return 0.0;
     var entitlement = ctcEntitlementAfterPhaseout(gross, kids, status, params);
     var taxOwed = federalTax(gross, status, params);
     var nonrefundable = Math.min(entitlement, taxOwed);
+    var eitc = status === 'hoh' ? federalEitc(gross, kids, params) : 0.0;
+    var pathI = 0.15 * Math.max(0.0, gross - 2500);
+    var refundableFormula = pathI;
+    if (kids >= 3) {
+      var pathII = Math.max(0.0, fica(gross, params) - eitc);
+      refundableFormula = Math.max(pathI, pathII);
+    }
     var refundable = Math.min(
       entitlement - nonrefundable,
       params.ctcRefundableCap * kids,
-      0.15 * Math.max(0.0, gross - 2500)
+      refundableFormula
     );
-    var eitc = status === 'hoh' ? federalEitc(gross, kids, params) : 0.0;
     return nonrefundable + refundable + eitc;
   }
 
@@ -267,7 +293,11 @@
   function householdNetIncomes(payorGross, recipientGross, kids, params, kidsUnder13, box, countRefundableCredits) {
     params = params || TAX_PARAMS;
     box = box === undefined ? 2 : box;
-    countRefundableCredits = countRefundableCredits === undefined ? true : countRefundableCredits;
+    // Default flipped to false 2026-09-09 (Task 3, private repo's simplify-to-withholding-basis
+    // plan), mirroring net_position.py's analyze()/household_net_incomes(): the published
+    // default is the withholding basis (no refundable credits), the Commonwealth's own
+    // consultant's method for converting gross to net.
+    countRefundableCredits = countRefundableCredits === undefined ? false : countRefundableCredits;
     var payorNet, recipNet;
     if (!countRefundableCredits) {
       return {
@@ -310,9 +340,9 @@
    *   pre-2026-09-08 behaviour) so a call site written before this parameter existed keeps
    *   producing the same number it always did. A Box 1 (equal-time) scenario must pass box=1
    *   explicitly to get the corrected alternating-year treatment.
-   * @param {boolean} [countRefundableCredits] the credits-off switch (added 2026-09-08,
-   *   defaults to true so every existing call site keeps producing the same number it always
-   *   did). false removes every refundable credit from every figure this function returns:
+   * @param {boolean} [countRefundableCredits] the credits-off switch (added 2026-09-08;
+   *   DEFAULT FLIPPED TO FALSE 2026-09-09, the published withholding basis). false removes
+   *   every refundable credit from every figure this function returns:
    *   both parties' net income comes from netIncomeWithholdingBasis() alone, and box /
    *   kidsUnder13 stop mattering. See householdNetIncomes()'s comment.
    */

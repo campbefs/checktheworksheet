@@ -261,8 +261,11 @@ def main():
     print("     child care near the benchmark is unknown -- which is why the submission")
     print("     supports better data collection rather than asserting a prevalence.")
     print("  4. The MA Child and Family Tax Credit ($440/dependent) requires the child to be")
-    print(f"     UNDER 13. At two under 13 and one aged 13 to 17 exactly {KIDS_UNDER_13} of the 3 qualify, which is what")
-    print("     the figures above use. Sensitivity across the whole range:")
+    print(f"     UNDER 13. At two under 13 and one aged 13 to 17 exactly {KIDS_UNDER_13} of the 3 qualify. NOTE: since")
+    print("     2026-09-09 the figures above are computed on the withholding basis (no refundable")
+    print("     credits), so this caveat and the sensitivity below describe the credits-included")
+    print("     ANALYSIS view only (net_income(), not analyze()'s published default) -- kept for")
+    print("     the teaching tab, not a caveat on any figure printed above:")
     import net_position as _n
     for k13 in (3, 2, 1, 0):
         net = _n.net_income(RECIP_GROSS, "hoh", KIDS, _n.TAX_PARAMS, kids_under_13=k13)

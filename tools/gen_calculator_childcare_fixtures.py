@@ -120,7 +120,14 @@ def distribution(higher, lower, kids, box, health_lo, health_hi):
     gross_share = (higher - base * 52) / combined_gross if combined_gross else 0.0
     # box=box (2026-09-08): who claims the children for tax purposes now follows the custody box
     # this row is computed under -- see net_position.household_net_incomes().
-    pos = npos.analyze(higher, lower, kids, base, 0.0, 0.0, kids_under_13=0, box=box)
+    # count_refundable_credits=True EXPLICIT (2026-09-09, Task 3 of the private repo's
+    # simplify-to-withholding-basis plan): dist_net_share is documented above as the
+    # credits-included ANALYSIS figure (48.4%), matching childcare_post_transfer.py's rule 3.
+    # analyze()'s own default became False this same task; without this explicit True,
+    # dist_net_share would silently collapse onto dist_net_withholding_share and lose its
+    # documented meaning.
+    pos = npos.analyze(higher, lower, kids, base, 0.0, 0.0, kids_under_13=0, box=box,
+                        count_refundable_credits=True)
     # dist_net_withholding_share: net_position.net_income_withholding_basis (tax and FICA only, no
     # refundable credits) -- childcare_post_transfer.py's rule5, the basis THE ASK uses as of v4.9.
     pw = npos.net_income_withholding_basis(higher)
@@ -198,6 +205,10 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
 
         # box=box (2026-09-08): see distribution()'s comment above -- same fix, same call site
         # pattern, applied here for the main readout's payor_after/recip_after.
+        # NO explicit count_refundable_credits here (2026-09-09, Task 3): this call now picks up
+        # analyze()'s new published default (False, the withholding basis), matching the project's
+        # governing 2026-09-08 decision that the main readout is credits-off everywhere. Before
+        # Task 3 this was the credits-ON reading; it is not any more.
         pos = npos.analyze(payor_gross, recip_gross, kids, r["7d"],
                             weekly_childcare, payor_childcare_share, kids_under_13=0, box=box)
 
@@ -205,7 +216,10 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
         # kids_under_13 stop mattering in this mode (see net_position.household_net_incomes()),
         # so this is NOT re-run per box for a different reason -- it is re-run per row so every
         # combination in this grid gets its own credits-off reference figure to check the JS
-        # switch against, not because the result depends on box.
+        # switch against, not because the result depends on box. NOTE (2026-09-09): since `pos`
+        # immediately above is now ALSO credits-off by default, this column is redundant with it
+        # -- kept rather than removed (Task 3 does not redesign the fixture format), flagged for
+        # whoever next touches the calculator's credits-toggle UI.
         pos_no_credits = npos.analyze(payor_gross, recip_gross, kids, r["7d"],
                                        weekly_childcare, payor_childcare_share, kids_under_13=0,
                                        box=box, count_refundable_credits=False)

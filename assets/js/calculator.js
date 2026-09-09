@@ -257,9 +257,10 @@
     // for how many children are under 13); see CONVENTIONS.md SS11. box=facts.box (v10, 2026-09-08):
     // who claims the children for tax purposes now follows the custody box the reader selected,
     // instead of always defaulting to "recipient claims everyone" -- see the v10 header note.
-    // credits (v11, 2026-09-08): the credits-off switch, defaults to true when facts.credits is
-    // undefined so a call site written before this control existed keeps its old number.
-    var countCredits = facts.credits === undefined ? true : facts.credits;
+    // credits (v11, 2026-09-08; DEFAULT FLIPPED TO FALSE 2026-09-09, Task 3): the credits-off
+    // switch, defaults to false when facts.credits is undefined, matching net_position.py's
+    // analyze() -- the published withholding basis.
+    var countCredits = facts.credits === undefined ? false : facts.credits;
     var pos = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare,
       payorChildcareShare, undefined, 0, facts.box, countCredits);
 
@@ -305,12 +306,13 @@
     var combinedGross = higherAnnual + lowerAnnual;
     var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
     // box=facts.box (v10): see the v10 header note -- who claims the children now follows the
-    // selected custody box for this analytical figure too. credits (v11): the credits-off switch,
-    // same default-true-if-undefined rule as computeWithFacts. This affects only net_share, the
-    // credits-inclusive figure that is not currently bound to any visible cell (cc_dist_net shows
+    // selected custody box for this analytical figure too. credits: FIXED TRUE (2026-09-09,
+    // Task 3), no longer tracking facts.credits -- net_share is the credits-included ANALYSIS
+    // figure (matches childcare_post_transfer.py's rule 3, the fixture generator's
+    // distribution(), and calculator.test.js's own computeDistribution()), not the
+    // withholding-basis ask. It is not currently bound to any visible cell (cc_dist_net shows
     // net_withholding_share, which never counts credits) -- kept correct here regardless.
-    var countCreditsDist = facts.credits === undefined ? true : facts.credits;
-    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0, facts.box, countCreditsDist);
+    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0, facts.box, true);
     // v9: the withholding-basis post-transfer share -- tax and FICA only, single filer, no
     // exemptions, no refundable credits. This is what Section 2 of the comments asks for as of
     // v4.9, because CJ-D 304 collects neither filing status nor who claims which child; net_share
@@ -558,9 +560,10 @@
         ccLower: inputs.ccLower ? Number(inputs.ccLower.value) || 0 : 0,
         ccHigher: inputs.ccHigher ? Number(inputs.ccHigher.value) || 0 : 0,
         ccRule: ccRuleRadio ? ccRuleRadio.value : 'worksheet',
-        // The credits-off switch (added 2026-09-08). Defaults to true (count them) if the
-        // control is missing from the markup, matching every figure this site has published.
-        credits: creditsRadio ? creditsRadio.value === '1' : true
+        // The credits-off switch (added 2026-09-08; DEFAULT FLIPPED TO FALSE 2026-09-09, Task 3).
+        // Defaults to false (leave them out, the withholding basis) if the control is missing
+        // from the markup, matching every figure this site now publishes.
+        credits: creditsRadio ? creditsRadio.value === '1' : false
       };
     }
 
