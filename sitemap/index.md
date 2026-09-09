@@ -26,8 +26,8 @@ description: Every page here, with a one-line purpose for each.
     <span class="doc-context">The four refundable tax credits the model leaves out by default,
       one income, one source each.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/documents/">Documents</a></span>
-    <span class="doc-context">The Trial Court comments and Attachment E, as PDFs, both
-      unsent.</span></li>
+    <span class="doc-context">The Trial Court comments and Attachment E, as
+      PDFs.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/about/">About</a></span>
     <span class="doc-context">Who built this, the disclosure, what isn't claimed.</span></li>
   <li class="doc-item"><span class="doc-title">Sitemap</span>

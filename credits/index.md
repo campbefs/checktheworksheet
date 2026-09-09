@@ -40,7 +40,7 @@ agreement, except the Child Tax Credit, which a signed release can move to the o
 year. Massachusetts's credits follow the same split. CJ-D 304, the Worksheet, has no field that
 records who claims whom, so no figure that depends on it can be reproduced from the form alone.</p>
 
-<p class="caveat">No number in any letter this project has sent, and no number on this site's home
+<p class="caveat">No number in any letter this project writes, and no number on this site's home
 page or any finding page, uses any figure from this table. They are held to the withholding basis
 described above. This page exists so a reader can see what the credits are worth and judge the
 simplification for themselves, not to smuggle a larger number back in.</p>
