@@ -22,6 +22,9 @@ description: Every page here, with a one-line purpose for each.
       XFA harness, and commands to reproduce every number.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/the-data/">The data</a></span>
     <span class="doc-context">Six datasets behind the model, each rated for confidence.</span></li>
+  <li class="doc-item"><span class="doc-title"><a href="/credits/">Credits</a></span>
+    <span class="doc-context">The four refundable tax credits the model leaves out by default,
+      one income, one source each.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/documents/">Documents</a></span>
     <span class="doc-context">The Trial Court comments and Attachment E, as PDFs, both
       unsent.</span></li>
