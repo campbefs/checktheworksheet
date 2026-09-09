@@ -85,7 +85,7 @@ but Line 6b never re-measures the shares against that transfer.
    alt="Bar chart of the payor's share of a $15,600 annual child care claim under four allocation rules, at the worked example."
    title="The payor's share of a $15,600 child care bill, four ways to split it."
    deck="Line 3c allocates 87.7 percent to the payor on pre-transfer income shares."
-   notes="The § 2 fallback, adjusting shares by the base order alone (Line 6b-2), gives 64.5 percent. The § 2 primary redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent. Counting refundable tax credits as well gives 52.0 percent, kept as analysis, not asked for, because the Worksheet has no field for which parent claims which child."
+   notes="The § 2 fallback, adjusting shares by the base order alone (Line 6b-2), gives 64.5 percent. The § 2 primary redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent. Counting refundable tax credits as well gives 49.7 percent, kept as analysis, not asked for, because the Worksheet has no field for which parent claims which child."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}
@@ -169,7 +169,7 @@ own parenting time.
 | Line 3c, pre-transfer (what the form does today) | 87.7% | $13,678/yr (order rises to $1,276/wk) |
 | Shares adjusted by the base order (fallback redline at Line 6b-2, without a net computation) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
 | Post-transfer net shares, withholding basis (the redline proposed, Line 6b-1; order $1,172/wk, $5,415/yr less than today) | 53.0% | $8,263/yr |
-| Post-transfer net shares counting refundable tax credits (analysis only, not proposed) | 52.0% | $8,118/yr |
+| Post-transfer net shares counting refundable tax credits, alternating-year Child Tax Credit convention (analysis only, not proposed) | 49.7% | $7,754/yr |
 
 (Source: `model/runs/childcare-post-transfer-run-2026-09-08.txt`, printed by
 `model/childcare_post_transfer.py` (the 2026-09-05 run predates rule 5, the withholding-basis
@@ -213,7 +213,7 @@ against $20,854 each for the recipient's household of four.</p>
     order, post-transfer net on a withholding basis, and post-transfer net counting refundable
     credits.</li>
   <li><strong><a href="/model/test_childcare_post_transfer.py">Its test suite</a></strong>
-    Pins the 87.7%, 64.5%, 53.0%, 52.0%, and resulting order figures quoted above.</li>
+    Pins the 87.7%, 64.5%, 53.0%, 49.7%, and resulting order figures quoted above.</li>
   <li><strong><a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
     <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a></strong>
     The Line 6a/6b/6e implementation, including the test that the payor bears roughly 93 percent

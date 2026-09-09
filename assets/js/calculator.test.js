@@ -192,17 +192,17 @@ equal(calcResult.true_pct_net.toFixed(3), '0.377', 'calculator.js compute(): tru
 function moneyWk(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/wk'; }
 function money(v) { return '$' + Math.round(v).toLocaleString('en-US') + '/yr'; }
 function pct1(v) { return (v * 100).toFixed(1) + '%'; }
-// NOTE (2026-09-09, v13 default flip, Task 3): index.html's static no-JS fallback markup was
-// ALREADY stale at the v12 credits-ON correction ($92,453/$85,168/36.3%/$21,292) and is now
-// doubly stale under the credits-off default computed below. That markup is page prose, out of
-// scope for this port fix -- flagged in this task's report, not fixed here. The values below are
-// what the live, JS-computed readout now shows, which is what this test checks.
+// NOTE (2026-09-09, Task 5): index.html's static no-JS fallback markup was stale at the v12
+// credits-ON correction ($92,453/$85,168/36.3%/$21,292) and, before this fix, doubly stale under
+// the credits-off default computed below. Fixed in index.html the same day this comment was
+// updated -- the markup now reads $87,172/$77,395/37.7%/$19,349, matching the live, JS-computed
+// readout the equal() calls below check.
 equal(moneyWk(calcResult.order_wk), '$1,013/wk', 'mounted defaults: formatted weekly order matches the markup\'s static $1,013/wk');
 equal(pct1(calcResult.line_7e), '26.5%', 'mounted defaults: formatted Line 7e matches the markup\'s static 26.5%');
-equal(pct1(calcResult.true_pct_net), '37.7%', 'mounted defaults: formatted true share of net = 37.7% (credits off; markup\'s static fallback is stale)');
-equal(money(calcResult.payor_after), '$87,172/yr', 'mounted defaults: formatted payor-keeps = $87,172/yr (credits off; markup\'s static fallback is stale)');
-equal(money(calcResult.recip_after), '$77,395/yr', 'mounted defaults: formatted recipient-household-holds = $77,395/yr (credits off; markup\'s static fallback is stale)');
-equal(money(calcResult.recip_per_person), '$19,349/yr', 'mounted defaults: formatted recipient per-person = $19,349/yr (credits off; markup\'s static fallback is stale)');
+equal(pct1(calcResult.true_pct_net), '37.7%', 'mounted defaults: formatted true share of net = 37.7% (credits off), matches the markup');
+equal(money(calcResult.payor_after), '$87,172/yr', 'mounted defaults: formatted payor-keeps = $87,172/yr (credits off), matches the markup');
+equal(money(calcResult.recip_after), '$77,395/yr', 'mounted defaults: formatted recipient-household-holds = $77,395/yr (credits off), matches the markup');
+equal(money(calcResult.recip_per_person), '$19,349/yr', 'mounted defaults: formatted recipient per-person = $19,349/yr (credits off), matches the markup');
 equal(calcResult.recip_after > calcResult.payor_after, false,
   'mounted defaults: payor keeps more than the recipient household under the credits-off default (v13), so the is-warning class and "Above the payor" note should be OFF by default');
 equal(calcResult.true_pct_net > 0.40, false,

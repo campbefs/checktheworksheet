@@ -28,10 +28,10 @@ comparison always carries its per-person counterpart.
 
 ## Contents
 
-1. [With three children, the recipient household holds more after the order in 15 percent of income combinations.](#e01)
+1. [With three children, the recipient household holds more after the order in 10 percent of income combinations.](#e01)
 2. [Per person, the payor holds more almost everywhere.](#e02)
 3. [With one child, the recipient household holds more after the order in no income combinations.](#e18)
-4. [With two children, the recipient household holds more after the order in 1 percent of income combinations.](#e19)
+4. [With two children, the recipient household holds more after the order in 0 percent of income combinations.](#e19)
 5. [The order exceeds 40 percent of the payor's net income only where the lower earner makes about $20,000 or less.](#e04)
 6. [The hardship valve fires late because it reads the wrong income.](#e05)
 7. [Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
@@ -58,14 +58,14 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e01">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E01-who-holds-more-3-children.png"
-     data-caption="With three children, the recipient household holds more after the order in 15 percent of income combinations."
+     data-caption="With three children, the recipient household holds more after the order in 10 percent of income combinations."
      data-csv-href="/figures/working/fig1_heatmap_3child_box1.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E01-who-holds-more-3-children.png"
          alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, across combinations of higher-earner gross income from $60,000 to $300,000 and lower-earner gross income from $0 to $120,000, three children, equal parenting time, no child care.">
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">With three children, the recipient household holds more after the order in 15 percent of income combinations.</h3>
+    <h3 class="exhibit-title">With three children, the recipient household holds more after the order in 10 percent of income combinations.</h3>
     <p class="exhibit-deck">Recipient household net minus payor net, per year.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
@@ -73,7 +73,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
     </dl>
-    <p class="exhibit-notes">Of the 15 percent of the grid where the recipient household is ahead, 76 percent sits below $150,000 of higher-earner income, and none above $175,000. The closed contour inside the red region is Line 6e's limitation, which stops binding once the payor's Line 6d crosses 10 percent; the order then drops about $110 a week in one step. Per person the payor still leads almost everywhere (E02). Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">Of the 10 percent of the grid where the recipient household is ahead, 75 percent sits below $150,000 of higher-earner income, and none above $175,000. The closed contour inside the red region is Line 6e's limitation, which stops binding once the payor's Line 6d crosses 10 percent; the order then drops about $110 a week in one step. Per person the payor still leads almost everywhere (E02). Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero; no refundable tax credits counted.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig1_heatmaps.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig1_heatmap_3child_box1.csv">data (CSV)</a></p>
   </figcaption>
@@ -133,7 +133,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e19">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E19-who-holds-more-2-children.png"
-     data-caption="With two children, the recipient household holds more after the order in 1 percent of income combinations."
+     data-caption="With two children, the recipient household holds more after the order in 0 percent of income combinations."
      data-csv-href="/figures/working/fig1_heatmap_2child_box1.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E19-who-holds-more-2-children.png"
          loading="lazy"
@@ -141,7 +141,7 @@ comparison always carries its per-person counterpart.
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">With two children, the recipient household holds more after the order in 1 percent of income combinations.</h3>
+    <h3 class="exhibit-title">With two children, the recipient household holds more after the order in 0 percent of income combinations.</h3>
     <p class="exhibit-deck">Recipient household net minus payor net, per year. Companion to E01/E18 (same grid, one and three children).</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
@@ -149,7 +149,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
     </dl>
-    <p class="exhibit-notes">Same grid and colour scale as E01 and E18. The share rises from none at one child to 1 percent at two to 15 percent at three, a child-count effect, not an artifact of one income pair. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">Same grid and colour scale as E01 and E18. The share stays at zero at one child and two, and rises to 10 percent at three, a child-count effect, not an artifact of one income pair. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero; no refundable tax credits counted.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig1_heatmaps.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig1_heatmap_2child_box1.csv">data (CSV)</a></p>
   </figcaption>
@@ -251,7 +251,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>$300/wk, paid by the recipient</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Line 3c allocates 87.7 percent to the payor on pre-transfer income shares. The second bar is the fallback (new Line 6b-2), adjusting shares by the base order on a gross basis: 64.5 percent. The third bar is what the comments ask for: the same adjustment measured after federal and Massachusetts income tax and FICA, for a single filer claiming no exemptions, giving 53.0 percent. The fourth bar adds the refundable tax credits back in, 52.0 percent; that basis is not asked for, because CJ-D 304 collects neither parent's filing status nor which parent claims which child. Child care is included in the order. Two of three children under 13 (MA credit); premiums $43/$33.</p>
+    <p class="exhibit-notes">Line 3c allocates 87.7 percent to the payor on pre-transfer income shares. The second bar is the fallback (new Line 6b-2), adjusting shares by the base order on a gross basis: 64.5 percent. The third bar is what the comments ask for: the same adjustment measured after federal and Massachusetts income tax and FICA, for a single filer claiming no exemptions, giving 53.0 percent. The fourth bar adds the refundable tax credits back in, under the alternating-year Child Tax Credit convention Box 1 now uses, 49.7 percent; that basis is not asked for, because CJ-D 304 collects neither parent's filing status nor which parent claims which child. Child care is included in the order. Two of three children under 13 (MA credit); premiums $43/$33.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig2_childcare.py</code>; <code>model/childcare_post_transfer.py</code> ·
       <a href="/figures/working/fig2_childcare_worked_example.csv">data (CSV)</a></p>
   </figcaption>

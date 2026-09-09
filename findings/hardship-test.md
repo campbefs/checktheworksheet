@@ -5,7 +5,7 @@ permalink: /findings/hardship-test/
 description: >-
   Worksheet Line 7e tests for hardship by dividing the support order by a gross-derived income
   figure, but the order is paid from net income. At the author's own order, the hardship
-  presumption does not kick in until the payor is at 55 percent of net income.
+  presumption does not kick in until the payor is at 57 percent of net income.
 disclosure:
   - >-
     The worked example throughout (the payor, the $201,000 income, the child care figures) is my
@@ -39,18 +39,18 @@ sections:
 <section class="hero" markdown="1">
 <p class="eyebrow">Finding 1 of 4</p>
 
-# The hardship presumption does not kick in until the payor is at 55 percent of net income
+# The hardship presumption does not kick in until the payor is at 57 percent of net income
 
 <p class="lede">Section IV.C presumes hardship once a support order reaches 40 percent of the
 payor's available income. The Worksheet's own test for that threshold divides the order by a
 figure computed before tax, while the order is paid out of what's left after tax. At the worked
-example, the presumption doesn't actually kick in until the payor is at 55 percent of his net
+example, the presumption doesn't actually kick in until the payor is at 57 percent of his net
 income.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
   <div class="numeral">
-    <span class="numeral-value">15</span>
+    <span class="numeral-value">17</span>
     <p class="numeral-caption">Point gap, at the worked example, between what Line 7e reports and the payor's true share of net income at the moment the hardship presumption finally kicks in</p>
   </div>
 </div>
@@ -83,7 +83,7 @@ about spendable income with a figure that has no tax adjustment at all.
    alt="Line chart of Line 7e's reported percentage versus the true share of the payor's net income, against child care claimed from $0 to $600 a week, at the worked example."
    title="The hardship valve fires late because it reads the wrong income."
    deck="At the worked example, Line 7e divides the order by gross-derived available income while the order is paid from net income."
-   notes="As child care claimed by the recipient rises, the true burden passes 40 percent of net at $130 a week of child care; Line 7e reports 40 percent at $590 a week, by which point the true burden is 55 percent. Nothing on the form flags the gap."
+   notes="As child care claimed by the recipient rises, the true burden passes 40 percent of net at $80 a week of child care; Line 7e reports 40 percent at $589 a week, by which point the true burden is 56.9 percent. Nothing on the form flags the gap."
    source_script="model/charts/fig6_valve.py"
    csv_href="/figures/working/fig6_valve_units_lag.csv"
    lazy="false" %}
@@ -111,15 +111,15 @@ payor's true share of net income at each point.
 
 | Child care claimed | Order | Order (annual) | Line 7e reads | True share of net |
 |---:|---:|---:|---:|---:|
-| $0/wk | $1,013/wk | $52,662/yr | 26.5% | 36.2% |
-| $100/wk | $1,100/wk | $57,221/yr | 28.8% | 39.3% |
-| $300/wk | $1,276/wk | $66,340/yr | 33.4% | 45.6% |
-| $589/wk | $1,529/wk | $79,506/yr | 40.0% | 54.6% |
-| $1,290/wk (ceiling) | $2,144/wk | $111,479/yr | 56.1% | 76.6% |
+| $0/wk | $1,013/wk | $52,662/yr | 26.5% | 37.7% |
+| $100/wk | $1,100/wk | $57,221/yr | 28.8% | 40.9% |
+| $300/wk | $1,276/wk | $66,340/yr | 33.4% | 47.4% |
+| $589/wk | $1,529/wk | $79,506/yr | 40.0% | 56.9% |
+| $1,290/wk (ceiling) | $2,144/wk | $111,479/yr | 56.1% | 79.7% |
 
 Line 7e does not reach 40 percent until $589 a week of claimed child care, 46 percent of the $1,290
 statutory ceiling for three children, by which point the payor's true burden is 54.6 percent of his
-net income. That 15-point lag narrows as claimed child care falls, to about 11 points at $100 a
+net income. That 17-point lag narrows as claimed child care falls, to about 12 points at $100 a
 week. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
 `model/submission_figures.py`.)
 
@@ -132,14 +132,14 @@ week. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
 ## What this isn't
 
 <p class="caveat">The valve does eventually fire; this isn't a claim that Section IV.C's hardship
-presumption is unreachable, only that it fires 15 points late. $1,290 a week for three children is
+presumption is unreachable, only that it fires 17 points late. $1,290 a week for three children is
 the statutory ceiling on allowable child care, not a typical claim. This is one worked example, and
 how often actual claims sit near that benchmark isn't known from anything in this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Across the full grid behind the heatmap
 above, the payor holds more per person than the recipient's household in 99 percent of the 1,147
-modelled cells, and now also holds more per household in 85 percent of them, including the 15
-percent of cells where the recipient's household still holds more in total.</p>
+modelled cells, and holds more per household too in 90 percent of them. The recipient's household
+still holds more in total in the remaining 10 percent.</p>
 
 </section>
 
