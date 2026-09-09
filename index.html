@@ -84,6 +84,11 @@ scripts:
             <label class="segmented-option"><input type="radio" name="calc-custody" value="1" data-calc-radio="box" checked> Shared, equal time (Box 1)</label>
             <label class="segmented-option"><input type="radio" name="calc-custody" value="2" data-calc-radio="box"> Primary with the lower earner (Box 2)</label>
           </fieldset>
+          <fieldset class="segmented">
+            <legend>Refundable tax credits</legend>
+            <label class="segmented-option"><input type="radio" name="calc-credits" value="1" data-calc-radio="credits" checked> Count them</label>
+            <label class="segmented-option"><input type="radio" name="calc-credits" value="0" data-calc-radio="credits"> Leave them out</label>
+          </fieldset>
         </div>
         <div class="tool-controls-row tool-controls-row--premiums">
           <div class="tool-number-field">
@@ -222,8 +227,11 @@ scripts:
         </div>
 
         <p class="tool-assumptions">The MA credit for children under 13 is fixed at zero throughout.
-        The payor-keeps and household-holds figures above count refundable tax credits. The child
-        care split does not, because the Worksheet has no field for which parent claims which child.</p>
+        The refundable tax credits above depend on which parent claims which child, and the
+        Worksheet has no field for that. Counting them is the default; the "Leave them out" option
+        recomputes the payor-keeps and household-holds figures from gross income and the published
+        tax schedules alone, so the arithmetic can be checked without agreeing to that assumption.
+        The child care split already leaves them out either way.</p>
 
         <details class="tool-detail">
           <summary>Assumptions and method</summary>

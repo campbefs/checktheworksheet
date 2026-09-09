@@ -14,11 +14,11 @@
       "payor": "B",
       "order_wk": 581.0772204531697,
       "line_7e": 0.1520195581874224,
-      "true_pct_net": 0.21150047571878924,
-      "payor_net": 142865.0,
-      "payor_after": 112648.98453643518,
-      "recip_after": 59004.35165892273,
-      "recip_per_person": 29502.175829461365
+      "true_pct_net": 0.21443713802620015,
+      "payor_net": 140908.5,
+      "payor_after": 110692.48453643518,
+      "recip_after": 61958.94785428063,
+      "recip_per_person": 30979.473927140316
     },
     {
       "kids": 1,
@@ -28,11 +28,11 @@
       "payor": "B",
       "order_wk": 453.3802143959287,
       "line_7e": 0.1595501688407751,
-      "true_pct_net": 0.21517120632111067,
-      "payor_net": 109567.5,
-      "payor_after": 85991.72885141171,
-      "recip_after": 52598.69719269904,
-      "recip_per_person": 26299.34859634952
+      "true_pct_net": 0.21908328282971345,
+      "payor_net": 107611.0,
+      "payor_after": 84035.22885141171,
+      "recip_after": 55516.623236809784,
+      "recip_per_person": 27758.311618404892
     },
     {
       "kids": 1,
@@ -42,11 +42,11 @@
       "payor": "B",
       "order_wk": 574.3286761719899,
       "line_7e": 0.12053846063569959,
-      "true_pct_net": 0.172450657902844,
-      "payor_net": 173180.5,
-      "payor_after": 143315.40883905653,
-      "recip_after": 79196.09116094347,
-      "recip_per_person": 39598.045580471735
+      "true_pct_net": 0.1747498049229586,
+      "payor_net": 170902.0,
+      "payor_after": 141036.90883905653,
+      "recip_after": 79817.09116094347,
+      "recip_per_person": 39908.545580471735
     },
     {
       "kids": 1,
@@ -56,11 +56,11 @@
       "payor": "B",
       "order_wk": 135.67261141698418,
       "line_7e": 0.05990774594683586,
-      "true_pct_net": 0.07800207630722394,
-      "payor_net": 90446.0,
-      "payor_after": 83391.02420631683,
-      "recip_after": 70780.97579368317,
-      "recip_per_person": 35390.48789684159
+      "true_pct_net": 0.07965423725508837,
+      "payor_net": 88570.0,
+      "payor_after": 81515.02420631683,
+      "recip_after": 72076.97579368317,
+      "recip_per_person": 36038.48789684159
     },
     {
       "kids": 1,
@@ -70,11 +70,11 @@
       "payor": "B",
       "order_wk": 866.623076923077,
       "line_7e": 0.15134267406402385,
-      "true_pct_net": 0.22221583922236982,
-      "payor_net": 202795.625,
-      "payor_after": 157731.225,
-      "recip_after": 48163.3,
-      "recip_per_person": 24081.65
+      "true_pct_net": 0.22487590242855734,
+      "payor_net": 200396.75,
+      "payor_after": 155332.35,
+      "recip_after": 51262.200000000004,
+      "recip_per_person": 25631.100000000002
     },
     {
       "kids": 1,
@@ -84,11 +84,11 @@
       "payor": "B",
       "order_wk": 173.6256516602217,
       "line_7e": 0.10287286229355463,
-      "true_pct_net": 0.12759194876176888,
-      "payor_net": 70761.0,
-      "payor_after": 61732.46611366847,
-      "recip_after": 47794.536961810714,
-      "recip_per_person": 23897.268480905357
+      "true_pct_net": 0.13091472321223124,
+      "payor_net": 68965.0,
+      "payor_after": 59936.46611366847,
+      "recip_after": 49153.0400372899,
+      "recip_per_person": 24576.52001864495
     },
     {
       "kids": 1,
@@ -182,11 +182,11 @@
       "payor": "B",
       "order_wk": 834.9881086344376,
       "line_7e": 0.2184469101496788,
-      "true_pct_net": 0.30154442425856487,
-      "payor_net": 143990.0,
-      "payor_after": 100570.61835100924,
-      "recip_after": 74925.06051884884,
-      "recip_per_person": 24975.020172949615
+      "true_pct_net": 0.3057519912469377,
+      "payor_net": 142008.5,
+      "payor_after": 98589.11835100924,
+      "recip_after": 79722.49938870693,
+      "recip_per_person": 26574.16646290231
     },
     {
       "kids": 2,
@@ -196,11 +196,11 @@
       "payor": "B",
       "order_wk": 656.4892232312231,
       "line_7e": 0.23102676976816816,
-      "true_pct_net": 0.3083988491363336,
-      "payor_net": 110692.5,
-      "payor_after": 76555.0603919764,
-      "recip_after": 65882.90752016846,
-      "recip_per_person": 21960.969173389487
+      "true_pct_net": 0.31402010475502573,
+      "payor_net": 108711.0,
+      "payor_after": 74573.5603919764,
+      "recip_after": 70630.8754323133,
+      "recip_per_person": 23543.625144104433
     },
     {
       "kids": 2,
@@ -210,11 +210,11 @@
       "payor": "B",
       "order_wk": 848.8939927946319,
       "line_7e": 0.17816344434752773,
-      "true_pct_net": 0.2534659406410987,
-      "payor_net": 174155.5,
-      "payor_after": 130013.01237467915,
-      "recip_after": 94598.48762532085,
-      "recip_per_person": 31532.829208440282
+      "true_pct_net": 0.2568633919030378,
+      "payor_net": 171852.0,
+      "payor_after": 127709.51237467915,
+      "recip_after": 95244.48762532085,
+      "recip_per_person": 31748.162541773618
     },
     {
       "kids": 2,
@@ -224,11 +224,11 @@
       "payor": "B",
       "order_wk": 189.94165598377776,
       "line_7e": 0.08387084432557015,
-      "true_pct_net": 0.10786128917622875,
-      "payor_net": 91571.0,
-      "payor_after": 81694.03388884355,
-      "recip_after": 74727.96611115645,
-      "recip_per_person": 24909.32203705215
+      "true_pct_net": 0.11014794369528765,
+      "payor_net": 89670.0,
+      "payor_after": 79793.03388884355,
+      "recip_after": 76048.96611115645,
+      "recip_per_person": 25349.655370385484
     },
     {
       "kids": 2,
@@ -238,11 +238,11 @@
       "payor": "B",
       "order_wk": 1219.2723076923075,
       "line_7e": 0.21292755336440936,
-      "true_pct_net": 0.31260213304243584,
-      "payor_net": 202820.625,
-      "payor_after": 139418.46500000003,
-      "recip_after": 68523.35999999999,
-      "recip_per_person": 22841.119999999995
+      "true_pct_net": 0.31638317487683804,
+      "payor_net": 200396.75,
+      "payor_after": 136994.59000000003,
+      "recip_after": 73644.55999999998,
+      "recip_per_person": 24548.18666666666
     },
     {
       "kids": 2,
@@ -252,11 +252,11 @@
       "payor": "B",
       "order_wk": 240.83382305015658,
       "line_7e": 0.1426935736589962,
-      "true_pct_net": 0.17421137354433605,
-      "payor_net": 71886.0,
-      "payor_after": 59362.64120139186,
-      "recip_after": 53686.03680603495,
-      "recip_per_person": 17895.34560201165
+      "true_pct_net": 0.1787391536231805,
+      "payor_net": 70065.0,
+      "payor_after": 57541.64120139186,
+      "recip_after": 56341.21481346176,
+      "recip_per_person": 18780.404937820585
     },
     {
       "kids": 2,
@@ -350,11 +350,11 @@
       "payor": "B",
       "order_wk": 1012.7257303613252,
       "line_7e": 0.2649460565232583,
-      "true_pct_net": 0.3628965853205314,
-      "payor_net": 145115.0,
-      "payor_after": 92453.26202121109,
-      "recip_after": 85168.42228848086,
-      "recip_per_person": 21292.105572120214
+      "true_pct_net": 0.36798469677754225,
+      "payor_net": 143108.5,
+      "payor_after": 90446.76202121109,
+      "recip_after": 90631.3665981728,
+      "recip_per_person": 22657.8416495432
     },
     {
       "kids": 3,
@@ -364,11 +364,11 @@
       "payor": "B",
       "order_wk": 798.6655294159294,
       "line_7e": 0.2810603904173434,
-      "true_pct_net": 0.3714142019775825,
-      "payor_net": 111817.5,
-      "payor_after": 70286.89247037168,
-      "recip_after": 74304.08122218795,
-      "recip_per_person": 18576.020305546986
+      "true_pct_net": 0.37820079527213424,
+      "payor_net": 109811.0,
+      "payor_after": 68280.39247037168,
+      "recip_after": 79717.55491474757,
+      "recip_per_person": 19929.388728686892
     },
     {
       "kids": 3,
@@ -378,11 +378,11 @@
       "payor": "B",
       "order_wk": 1041.0897144304813,
       "line_7e": 0.2185009329458074,
-      "true_pct_net": 0.308857318129427,
-      "payor_net": 175280.5,
-      "payor_after": 121143.83484961497,
-      "recip_after": 106156.08741525045,
-      "recip_per_person": 26539.021853812614
+      "true_pct_net": 0.31301554853592345,
+      "payor_net": 172952.0,
+      "payor_after": 118815.33484961497,
+      "recip_after": 107265.50968011587,
+      "recip_per_person": 26816.377420028966
     },
     {
       "kids": 3,
@@ -392,11 +392,11 @@
       "payor": "B",
       "order_wk": 227.92998718053343,
       "line_7e": 0.10064501319068424,
-      "true_pct_net": 0.12786268375536958,
-      "payor_net": 92696.0,
-      "payor_after": 80843.64066661226,
-      "recip_after": 77828.35933338774,
-      "recip_per_person": 19457.089833346934
+      "true_pct_net": 0.13057573353958069,
+      "payor_net": 90770.0,
+      "payor_after": 78917.64066661226,
+      "recip_after": 79174.35933338774,
+      "recip_per_person": 19793.589833346934
     },
     {
       "kids": 3,
@@ -406,11 +406,11 @@
       "payor": "B",
       "order_wk": 1466.1267692307692,
       "line_7e": 0.25603696887467925,
-      "true_pct_net": 0.3743689165922421,
-      "payor_net": 203645.625,
-      "payor_after": 127407.033,
-      "recip_after": 82000.292,
-      "recip_per_person": 20500.073
+      "true_pct_net": 0.3789255641554846,
+      "payor_net": 201196.75,
+      "payor_after": 124958.158,
+      "recip_after": 87761.992,
+      "recip_per_person": 21940.498
     },
     {
       "kids": 3,
@@ -420,11 +420,11 @@
       "payor": "B",
       "order_wk": 289.000587660188,
       "line_7e": 0.1712322883907955,
-      "true_pct_net": 0.20583241646231082,
-      "payor_net": 73011.0,
-      "payor_after": 57982.969441670226,
-      "recip_after": 57956.22853704229,
-      "recip_per_person": 14489.057134260573
+      "true_pct_net": 0.2111716512095802,
+      "payor_net": 71165.0,
+      "payor_after": 56136.969441670226,
+      "recip_after": 61276.92651575481,
+      "recip_per_person": 15319.231628938702
     },
     {
       "kids": 3,

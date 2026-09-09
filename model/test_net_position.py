@@ -93,41 +93,110 @@ check("box=2: payor's share 48.2%", round(r_box2["payor_after_share"], 3) == 0.4
       r_box2["payor_after_share"])
 
 # ---------------------------------------------------------------------------
-# 4. BOX 1 (equal time): the NEW default the owner asked for -- alternating
-#    years, averaged for both parties. THE HEADLINE CONSEQUENCE: the recipient
-#    household no longer holds more.
+# 4. BOX 1 (equal time), CORRECTED AGAIN 2026-09-08 against the primary-source
+#    read in docs/2026-09-08-filing-status-and-credit-allocation.md. The payor
+#    NEVER receives head-of-household status or the EITC -- IRC ss. 2(b)(1)(A)(i)
+#    and 32(c)(3)(A) both key those to the physical custodian "determined
+#    without regard to section 152(e)", so a Form 8332 release cannot move them.
+#    Only the federal Child Tax Credit alternates. THE HEADLINE CONSEQUENCE: the
+#    recipient household is back ahead, by a much narrower margin than Box 2.
 # ---------------------------------------------------------------------------
 r_box1 = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
                        kids_under_13=KIDS_UNDER_13, box=1)
-check("box=1: payor keeps $92,893", round(r_box1["payor_after"]) == 92_893,
+check("box=1: payor keeps $90,447", round(r_box1["payor_after"]) == 90_447,
       r_box1["payor_after"])
-check("box=1: recipient household holds $85,608 (+/-$1 rounding)",
-      abs(r_box1["recip_after"] - 85_608) <= 1.0, r_box1["recip_after"])
-check("box=1: per person $21,402", round(r_box1["recip_per_person"]) == 21_402,
+check("box=1: recipient household holds $91,511 (+/-$1 rounding)",
+      abs(r_box1["recip_after"] - 91_511) <= 1.0, r_box1["recip_after"])
+check("box=1: per person $22,878", round(r_box1["recip_per_person"]) == 22_878,
       r_box1["recip_per_person"])
-check("box=1: payor's share 52.0%", round(r_box1["payor_after_share"], 3) == 0.520,
+check("box=1: payor's share 49.7%", round(r_box1["payor_after_share"], 3) == 0.497,
       r_box1["payor_after_share"])
-check("HEADLINE: at equal time the payor is now AHEAD of the recipient household",
-      r_box1["payor_after"] > r_box1["recip_after"],
+check("HEADLINE: at equal time the recipient household is (narrowly) AHEAD again, "
+      "reversing the one-day-old averaging-error version of this model",
+      r_box1["recip_after"] > r_box1["payor_after"],
       (r_box1["payor_after"], r_box1["recip_after"]))
+check("the recipient's margin is small: about $1,064, ~1.2% -- do not soften or round this away",
+      950 < (r_box1["recip_after"] - r_box1["payor_after"]) < 1_150,
+      r_box1["recip_after"] - r_box1["payor_after"])
 check("box=1 is not simply half the box=2 credit (averaging both years, not haircutting one)",
       abs(r_box1["payor_after"] - r_box2["payor_after"] / 2.0) > 100)
 
-check("box=1 averaging: payor_net is the mean of his two claiming-year net incomes",
+check("box=1 averaging: payor_net is the mean of his two claiming-year net incomes "
+      "(her year = box=2's payor number; his year = CTC only, single, no EITC/HoH)",
       abs(2 * npos.household_net_incomes(PAYOR_GROSS, RECIP_GROSS, KIDS, kids_under_13=KIDS_UNDER_13, box=1)[0]
           - (npos.net_income(PAYOR_GROSS, "single", 0, P)
-             + npos.net_income(PAYOR_GROSS, "hoh", KIDS, P, KIDS_UNDER_13))) < 0.01)
+             + npos._payor_net_claims_ctc(PAYOR_GROSS, KIDS, P))) < 0.01)
 
-# "Payor claims, his year" (not the default -- an intermediate check that the
-# averaged figure sits between the two years, and reproduces the target row).
-_p_payor_claims = npos.net_income(PAYOR_GROSS, "hoh", KIDS, P, KIDS_UNDER_13) - ANNUAL_SUPPORT
-_r_payor_claims = npos.net_income(RECIP_GROSS, "single", 0, P) + ANNUAL_SUPPORT
-check("payor-claims-year: he keeps $98,615", round(_p_payor_claims) == 98_615, _p_payor_claims)
-check("payor-claims-year: recipient household holds $77,395 (+/-$1 rounding)",
-      abs(_r_payor_claims - 77_395) <= 1.0, _r_payor_claims)
-check("the box=1 average sits between the two single-year figures for the payor",
-      r_box2["payor_after"] < r_box1["payor_after"] < _p_payor_claims,
-      (r_box2["payor_after"], r_box1["payor_after"], _p_payor_claims))
+# ---------------------------------------------------------------------------
+# 4a. THE PAYOR NEVER GETS HEAD-OF-HOUSEHOLD OR THE EITC IN BOX 1, IN EITHER YEAR.
+#     Pin this directly against the two year-level helpers, not just the average.
+# ---------------------------------------------------------------------------
+_p_A = npos.net_income(PAYOR_GROSS, "single", 0, P)                       # her year
+_r_A = npos.net_income(RECIP_GROSS, "hoh", KIDS, P, KIDS_UNDER_13)        # her year
+_p_B = npos._payor_net_claims_ctc(PAYOR_GROSS, KIDS, P)                   # his year (CTC only)
+_r_B = npos._custodial_net_no_ctc(RECIP_GROSS, KIDS, KIDS_UNDER_13, P)    # his year
+
+check("her year (recipient claims CTC): payor keeps $87,172 -- IDENTICAL to box=2 "
+      "(nothing changes for either party when the physical custodian also claims the CTC)",
+      round(_p_A - ANNUAL_SUPPORT) == 87_172, _p_A - ANNUAL_SUPPORT)
+check("her year: recipient household holds $93,822 (+/-$1 rounding), same as box=2",
+      abs((_r_A + ANNUAL_SUPPORT) - 93_822) <= 1.0, _r_A + ANNUAL_SUPPORT)
+
+check("his year (payor claims CTC): payor keeps $93,722 (+/-$1 rounding)",
+      abs((_p_B - ANNUAL_SUPPORT) - 93_722) <= 1.0, _p_B - ANNUAL_SUPPORT)
+check("his year: recipient household holds $89,201 (+/-$1 rounding)",
+      abs((_r_B + ANNUAL_SUPPORT) - 89_201) <= 1.0, _r_B + ANNUAL_SUPPORT)
+
+check("the payor's CTC-claiming year uses the SINGLE bracket, not HoH -- his standard "
+      "deduction is $16,100, not $24,150, because he never qualifies for HoH",
+      npos.federal_tax(PAYOR_GROSS, "single", P) > npos.federal_tax(PAYOR_GROSS, "hoh", P))
+
+check("the recipient's federal EITC is IDENTICAL in both years -- a Form 8332 release "
+      "cannot move it (IRC s. 32(c)(3)(A))",
+      abs(npos._federal_eitc(RECIP_GROSS, KIDS, P) - npos._federal_eitc(RECIP_GROSS, KIDS, P)) < 0.001)
+check("the recipient's MA-credit package (MA EITC + MA CFTC) is identical whether or not "
+      "she claims the CTC that year",
+      npos.ma_refundable_credits(RECIP_GROSS, KIDS, "hoh", P, KIDS_UNDER_13)
+      == npos.ma_refundable_credits(RECIP_GROSS, KIDS, "hoh", P, KIDS_UNDER_13))
+check("ONLY THE CTC DIFFERS between the recipient's two years -- her net income excluding "
+      "the CTC amount is identical in year A and year B",
+      abs((_r_A - 4_620.0) - _r_B) < 1.0, (_r_A - 4_620.0, _r_B))
+
+# ---------------------------------------------------------------------------
+# 4b. THE CTC-VALUE-INVERSION FINDING (checkable on its own, no household
+#     assumption needed): the credit is worth MORE to the $201,000 earner than
+#     to the $29,640 earner, because her refundable cap and earned-income
+#     phase-in bind while his tax liability comfortably absorbs the whole,
+#     tapered entitlement.
+# ---------------------------------------------------------------------------
+_her_ctc_entitlement = npos._ctc_entitlement_after_phaseout(RECIP_GROSS, KIDS, "hoh", P)
+_her_ctc_owed = npos.federal_tax(RECIP_GROSS, "hoh", P)
+_her_ctc_nonref = min(_her_ctc_entitlement, _her_ctc_owed)
+_her_ctc_ref = min(_her_ctc_entitlement - _her_ctc_nonref,
+                    P["ctc_refundable_cap"] * KIDS, 0.15 * max(0.0, RECIP_GROSS - 2_500))
+HER_CTC = _her_ctc_nonref + _her_ctc_ref
+
+_his_ctc_entitlement = npos._ctc_entitlement_after_phaseout(PAYOR_GROSS, KIDS, "single", P)
+_his_ctc_owed = npos.federal_tax(PAYOR_GROSS, "single", P)
+_his_ctc_nonref = min(_his_ctc_entitlement, _his_ctc_owed)
+_his_ctc_ref = min(_his_ctc_entitlement - _his_ctc_nonref,
+                    P["ctc_refundable_cap"] * KIDS, 0.15 * max(0.0, PAYOR_GROSS - 2_500))
+HIS_CTC = _his_ctc_nonref + _his_ctc_ref
+
+check("her (recipient's) claiming-year CTC is $4,620", round(HER_CTC) == 4_620, HER_CTC)
+check("his (payor's) claiming-year CTC is $6,550 (after the s.24(b) taper)",
+      round(HIS_CTC) == 6_550, HIS_CTC)
+check("FINDING: the credit is worth MORE to the $201,000 earner than the $29,640 earner "
+      "-- her refundable cap/earned-income phase-in binds, his tax liability does not",
+      HIS_CTC > HER_CTC, (HIS_CTC, HER_CTC))
+check("her CTC is capped below the full $6,600 entitlement (refundability, not the taper, "
+      "is what limits her)",
+      HER_CTC < 3 * P["ctc_per_child"] and _her_ctc_entitlement == 3 * P["ctc_per_child"],
+      (HER_CTC, _her_ctc_entitlement))
+check("his CTC is reduced by the taper, not by refundability (his tax liability exceeds "
+      "the entire tapered entitlement, so all of it is nonrefundable)",
+      HIS_CTC < 3 * P["ctc_per_child"] and _his_ctc_nonref == _his_ctc_entitlement,
+      (HIS_CTC, _his_ctc_entitlement, _his_ctc_nonref))
 
 # "No credits to either" reference row -- both single filers, no children claimed.
 _p_none = npos.net_income(PAYOR_GROSS, "single", 0, P) - ANNUAL_SUPPORT
@@ -147,6 +216,63 @@ check("withholding-basis payor net is still $139,833.50",
       round(npos.net_income_withholding_basis(PAYOR_GROSS), 2) == 139_833.50)
 check("withholding-basis recipient net is still $24,733.74",
       round(npos.net_income_withholding_basis(RECIP_GROSS), 2) == 24_733.74)
+
+# ---------------------------------------------------------------------------
+# 6. THE CREDITS-OFF SWITCH (added 2026-09-08): count_refundable_credits=False lets
+#    an economist validate the arithmetic without accepting any assumption about
+#    which parent claims which child. box=2 default (True) is unchanged.
+# ---------------------------------------------------------------------------
+r_box1_nocred = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
+                              kids_under_13=KIDS_UNDER_13, box=1,
+                              count_refundable_credits=False)
+r_box2_nocred = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
+                              kids_under_13=KIDS_UNDER_13, box=2,
+                              count_refundable_credits=False)
+
+check("credits-off is IDENTICAL for box=1 and box=2 apart from the order itself "
+      "(no per-parent tax fact enters the calculation once credits are off)",
+      abs(r_box1_nocred["payor_after"] - r_box2_nocred["payor_after"]) < 0.01
+      and abs(r_box1_nocred["recip_after"] - r_box2_nocred["recip_after"]) < 0.01,
+      (r_box1_nocred["payor_after"], r_box2_nocred["payor_after"]))
+
+check("credits-off is identical regardless of kids_under_13 too (irrelevant once credits are off)",
+      abs(npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
+                        kids_under_13=0, box=1, count_refundable_credits=False)["payor_after"]
+          - r_box1_nocred["payor_after"]) < 0.01)
+
+check("credits-off payor net EXACTLY equals net_income_withholding_basis(payor_gross)",
+      r_box1_nocred["payor_net"] == npos.net_income_withholding_basis(PAYOR_GROSS),
+      (r_box1_nocred["payor_net"], npos.net_income_withholding_basis(PAYOR_GROSS)))
+
+check("credits-off recipient net EXACTLY equals net_income_withholding_basis(recipient_gross)",
+      r_box1_nocred["recip_net"] == npos.net_income_withholding_basis(RECIP_GROSS),
+      (r_box1_nocred["recip_net"], npos.net_income_withholding_basis(RECIP_GROSS)))
+
+check("default (no argument passed) keeps count_refundable_credits=True (backward compatible)",
+      npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, SUPPORT_WK, 0.0, 0.0,
+                   kids_under_13=KIDS_UNDER_13, box=2)["payor_after"]
+      == r_box2["payor_after"])
+
+# The four-combination worked-example table (payor $201,000, recipient $29,640, 3 kids,
+# no child care, order $1,012.73/wk). Credits-off collapses box 1 and box 2 to one row.
+check("box=2, credits ON: payor $87,172, recipient $93,822 -- RECIPIENT AHEAD (unchanged)",
+      round(r_box2["payor_after"]) == 87_172 and round(r_box2["recip_after"]) == 93_822,
+      (r_box2["payor_after"], r_box2["recip_after"]))
+
+check("box=1, credits ON: payor $90,447, recipient $91,511 -- recipient narrowly ahead",
+      round(r_box1["payor_after"]) == 90_447 and abs(r_box1["recip_after"] - 91_511) <= 1.0,
+      (r_box1["payor_after"], r_box1["recip_after"]))
+
+check("box=2, credits OFF: payor $87,172, recipient $77,396 -- payor ahead "
+      "(SIGN CHANGE from the credits-ON row above: same box, opposite winner)",
+      round(r_box2_nocred["payor_after"]) == 87_172
+      and round(r_box2_nocred["recip_after"]) == 77_396,
+      (r_box2_nocred["payor_after"], r_box2_nocred["recip_after"]))
+
+check("box=1, credits OFF: payor $87,172, recipient $77,396 -- payor ahead (same as box=2 off)",
+      round(r_box1_nocred["payor_after"]) == 87_172
+      and round(r_box1_nocred["recip_after"]) == 77_396,
+      (r_box1_nocred["payor_after"], r_box1_nocred["recip_after"]))
 
 if FAILS:
     print("\n".join(FAILS))

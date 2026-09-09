@@ -112,9 +112,10 @@ check("rule 5 payor's childcare share is about 53.0%", abs(rule5["share"] - 0.53
 
 check("headline 'before' share matches rule 1's share", abs(headline["before_share"] - rule1["share"]) < 1e-9)
 check("headline 'after gross' share is about 64.3%", abs(headline["after_gross_share"] - 0.6432) < 0.001)
-check("headline 'after net' share (credits-inclusive, analysis) is about 52.0% "
-      "(box=1 alternating-year credit averaging, fixed 2026-09-08)",
-      abs(headline["after_net_share"] - 0.5204) < 0.001)
+check("headline 'after net' share (credits-inclusive, analysis) is about 49.7% "
+      "(box=1 alternating-year CTC-only averaging, corrected 2026-09-08 -- the "
+      "payor never gets head-of-household status or the EITC)",
+      abs(headline["after_net_share"] - 0.4971) < 0.001)
 
 # C3: the letter's Line 6b-1 sits inside 6b -> 6c -> 6e -> 6g -> 7b -> 7d, so the order
 # moves. A private side payment is a different remedy -- no contempt, no wage assignment,

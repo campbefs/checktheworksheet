@@ -302,7 +302,13 @@ function computeV4(higherAnnual, lowerAnnual, facts) {
   var weeklyChildcare = aOwnCc + bOwnCc;
   var payorOwnCc = r.payor === 'A' ? aOwnCc : bOwnCc;
   var payorChildcareShare = weeklyChildcare > 0 ? payorOwnCc / weeklyChildcare : 0.0;
-  var p = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare, payorChildcareShare, undefined, 0, facts.box);
+  // credits (v11, 2026-09-08): the credits-off switch. Defaults to true when facts.credits is
+  // undefined, matching calculator.js's own computeWithFacts() default rule.
+  var countCredits = facts.credits === undefined ? true : facts.credits;
+  var p = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare, payorChildcareShare, undefined, 0, facts.box, countCredits);
+  // Always compute the credits-off figures too, independent of facts.credits, so a single call
+  // to computeV4 can check both the ON and OFF fixture columns without a second call.
+  var pNoCredits = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare, payorChildcareShare, undefined, 0, facts.box, false);
   var higherShareOfLowerWk = r.A_6b;
   var higherShareOfLowerPct = r.A_6a ? r.A_6b / r.A_6a : 0.0;
   var higherBearsWk = bOwnCc - r.B_6b + r.A_6b;
@@ -310,6 +316,9 @@ function computeV4(higherAnnual, lowerAnnual, facts) {
   return {
     order_wk: r['7d'], line_7e: r['7e'], true_pct_net: p.burden_pct_of_payor_net,
     payor_after: p.payor_after, recip_after: p.recip_after, recip_per_person: p.recip_per_person,
+    true_pct_net_no_credits: pNoCredits.burden_pct_of_payor_net,
+    payor_after_no_credits: pNoCredits.payor_after, recip_after_no_credits: pNoCredits.recip_after,
+    recip_per_person_no_credits: pNoCredits.recip_per_person,
     combined_wk: weeklyChildcare,
     higher_share_of_lower_wk: higherShareOfLowerWk, higher_share_of_lower_pct: higherShareOfLowerPct,
     higher_bears_wk: higherBearsWk, higher_bears_pct: higherBearsPct
@@ -343,6 +352,13 @@ ccFixtures.rows.forEach(function (row) {
   close(got.higher_bears_wk, row.higher_bears_wk, 1e-4, label + ': higher_bears_wk matches Python');
   close(got.higher_bears_pct, row.higher_bears_pct, 1e-6, label + ': higher_bears_pct matches Python');
 
+  // The credits-off switch (added 2026-09-08): every row's count_refundable_credits=False figures,
+  // independent of which mode facts.credits selects -- see computeV4's own comment above.
+  close(got.payor_after_no_credits, row.payor_after_no_credits, 1e-4, label + ': payor_after_no_credits matches Python to the dollar');
+  close(got.recip_after_no_credits, row.recip_after_no_credits, 1e-4, label + ': recip_after_no_credits matches Python to the dollar');
+  close(got.recip_per_person_no_credits, row.recip_per_person_no_credits, 1e-4, label + ': recip_per_person_no_credits matches Python to the dollar');
+  close(got.true_pct_net_no_credits, row.true_pct_net_no_credits, 0.001, label + ': true_pct_net_no_credits matches Python to 0.001');
+
   equal(got.true_pct_net >= 0.40, row.true_pct_net >= 0.40,
     label + ': true_pct_net >= 40% threshold agrees with the fixture (drives the hardship badge)');
   equal(got.recip_after > got.payor_after, row.recip_after > row.payor_after,
@@ -358,6 +374,37 @@ var sanityCc = computeV4(201000, 29640, { kids: 3, box: 1, healthLow: 33.0, heal
 equal(Math.round(sanityCc.order_wk), 1276, 'sanity guard target 2: $33/$43, $300/wk lower-earner child care, rounds to $1,276/wk');
 equal(pct1(sanityCc.line_7e), '33.4%', 'sanity guard target 2: Line 7e rounds to 33.4%');
 equal(pct1(sanityCc.true_pct_net), '45.7%', 'sanity guard target 2: true share of net rounds to 45.7% (was 47.4% before the 2026-09-08 box fix)');
+
+// ---------------------------------------------------------------------------------------------
+// PART 6b -- THE CREDITS-OFF SWITCH (added 2026-09-08), tested directly against N.analyze() at a
+// FIXED weekly support ($1,012.73, the worked example's Box 1 order) -- mirroring
+// model/test_net_position.py's own methodology exactly, so this checks net-position.js's tax
+// treatment in isolation from worksheet.js's box-dependent order (Box 2's own order is a
+// different figure; that is a worksheet fact, not a tax-model fact, and is checked separately by
+// PART 6's fixture rows). The four-combination table is the one model/test_net_position.py pins.
+// Reproduces model/net_position.py exactly: box=2/credits-on is the only combination where the
+// recipient household holds more than the payor keeps.
+// ---------------------------------------------------------------------------------------------
+console.log('\n=== PART 6b: the credits-off switch, worked example, both custody boxes, fixed order ===\n');
+
+var WE_PAYOR_GROSS = 201000.0, WE_RECIP_GROSS = 570.0 * 52.0, WE_SUPPORT_WK = 1012.73;
+var box1CreditsOn = N.analyze(WE_PAYOR_GROSS, WE_RECIP_GROSS, 3, WE_SUPPORT_WK, 0.0, 0.0, undefined, 2, 1, true);
+var box1CreditsOff = N.analyze(WE_PAYOR_GROSS, WE_RECIP_GROSS, 3, WE_SUPPORT_WK, 0.0, 0.0, undefined, 2, 1, false);
+var box2CreditsOn = N.analyze(WE_PAYOR_GROSS, WE_RECIP_GROSS, 3, WE_SUPPORT_WK, 0.0, 0.0, undefined, 2, 2, true);
+var box2CreditsOff = N.analyze(WE_PAYOR_GROSS, WE_RECIP_GROSS, 3, WE_SUPPORT_WK, 0.0, 0.0, undefined, 2, 2, false);
+
+equal(Math.round(box1CreditsOn.payor_after), 92893, 'box=1, credits ON: payor keeps $92,893');
+equal(Math.round(box1CreditsOn.recip_after), 85609, 'box=1, credits ON: recipient household holds $85,609 -- payor ahead');
+equal(Math.round(box2CreditsOn.payor_after), 87172, 'box=2, credits ON: payor keeps $87,172');
+equal(Math.round(box2CreditsOn.recip_after), 93822, 'box=2, credits ON: recipient household holds $93,822 -- RECIPIENT AHEAD');
+equal(Math.round(box1CreditsOff.payor_after), 87172, 'box=1, credits OFF: payor keeps $87,172');
+equal(Math.round(box1CreditsOff.recip_after), 77396, 'box=1, credits OFF: recipient household holds $77,396 -- payor ahead');
+equal(Math.round(box2CreditsOff.payor_after), 87172, 'box=2, credits OFF: payor keeps $87,172');
+equal(Math.round(box2CreditsOff.recip_after), 77396, 'box=2, credits OFF: recipient household holds $77,396 -- payor ahead (SIGN CHANGE from box=2 credits-ON, same box)');
+equal(box1CreditsOff.payor_after, box2CreditsOff.payor_after, 'credits OFF: box has no effect on payor_after (box only matters through credits)');
+equal(box1CreditsOff.recip_after, box2CreditsOff.recip_after, 'credits OFF: box has no effect on recip_after');
+close(N.netIncomeWithholdingBasis(WE_PAYOR_GROSS), 139833.50, 1e-2, 'credits OFF: netIncomeWithholdingBasis(payor gross) reproduces the pinned $139,833.50');
+close(N.netIncomeWithholdingBasis(WE_RECIP_GROSS), 24733.74, 1e-2, 'credits OFF: netIncomeWithholdingBasis(recipient gross) reproduces the pinned $24,733.74');
 
 // ---------------------------------------------------------------------------------------------
 // PART 7 -- a fixed $40/$40-premium scenario, three children, Box 1, worked-example incomes.

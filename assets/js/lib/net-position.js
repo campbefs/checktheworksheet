@@ -204,10 +204,24 @@
   // this file uses throughout), not as a single filer awarded only the Child Tax Credit -- see
   // refundableCredits()'s comment for why those two give different, and differently defensible,
   // numbers.
-  function householdNetIncomes(payorGross, recipientGross, kids, params, kidsUnder13, box) {
+  // countRefundableCredits=false (added 2026-09-08 -- the credits-off switch) lets a reader
+  // who does not accept any assumption about which parent claims which child -- an economist,
+  // most pointedly -- validate the arithmetic anyway. In this mode BOTH parties' net income
+  // comes from netIncomeWithholdingBasis() and box/kidsUnder13 are ignored entirely: filing
+  // status and who claims which child matter ONLY because they gate the refundable credits, so
+  // once the credits are off there is nothing left for either fact to change. Mirrors
+  // net_position.py's household_net_incomes() -- see that function's docstring.
+  function householdNetIncomes(payorGross, recipientGross, kids, params, kidsUnder13, box, countRefundableCredits) {
     params = params || TAX_PARAMS;
     box = box === undefined ? 2 : box;
+    countRefundableCredits = countRefundableCredits === undefined ? true : countRefundableCredits;
     var payorNet, recipNet;
+    if (!countRefundableCredits) {
+      return {
+        payorNet: netIncomeWithholdingBasis(payorGross, params),
+        recipNet: netIncomeWithholdingBasis(recipientGross, params)
+      };
+    }
     if (box === 1) {
       var payorNetRecipientClaims = netIncome(payorGross, 'single', 0, params);
       var recipNetRecipientClaims = netIncome(recipientGross, 'hoh', kids, params, kidsUnder13);
@@ -237,15 +251,20 @@
    *   pre-2026-09-08 behaviour) so a call site written before this parameter existed keeps
    *   producing the same number it always did. A Box 1 (equal-time) scenario must pass box=1
    *   explicitly to get the corrected alternating-year treatment.
+   * @param {boolean} [countRefundableCredits] the credits-off switch (added 2026-09-08,
+   *   defaults to true so every existing call site keeps producing the same number it always
+   *   did). false removes every refundable credit from every figure this function returns:
+   *   both parties' net income comes from netIncomeWithholdingBasis() alone, and box /
+   *   kidsUnder13 stop mattering. See householdNetIncomes()'s comment.
    */
   function analyze(payorGross, recipientGross, kids, weeklySupport, weeklyChildcare,
-                    payorChildcareShare, params, kidsUnder13, box) {
+                    payorChildcareShare, params, kidsUnder13, box, countRefundableCredits) {
     params = params || TAX_PARAMS;
     var annualSupport = weeklySupport * 52.0;
     var annualChildcare = weeklyChildcare * 52.0;
     var payorCc = annualChildcare * payorChildcareShare;
 
-    var nets = householdNetIncomes(payorGross, recipientGross, kids, params, kidsUnder13, box);
+    var nets = householdNetIncomes(payorGross, recipientGross, kids, params, kidsUnder13, box, countRefundableCredits);
     var payorNet = nets.payorNet;
     var recipNet = nets.recipNet;
 

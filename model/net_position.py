@@ -189,11 +189,23 @@ def refundable_credits(gross, kids, status, params):
     The EITC keeps ITS OWN rule, unchanged: it requires the child to have lived
     with the claimant for more than half the year, which is what "hoh" stands in
     for in this simplified model, so it is not extended to a "single, claims the
-    kids on paper only" filer. This is why "payor claims, his year" below models
-    the payor as HoH (he is the modelled physical custodian that year), not as a
-    single filer receiving only the CTC -- the two give materially different
-    numbers, and only the HoH treatment reproduces a defensible EITC/MA-credit
-    result for that year rather than silently zeroing out the whole household."""
+    kids on paper only" filer.
+
+    CORRECTED AGAIN 2026-09-08 (same day): the sentence that used to end this
+    docstring said the payor should be modelled as HoH "he is the modelled
+    physical custodian that year" in his CTC-claiming year. That is not what the
+    statute allows and is not what this file does anymore. IRC s. 2(b)(1)(A)(i)
+    defines head of household "determined without regard to section 152(e))" --
+    a Form 8332 release cannot move HoH status, and s. 32(c)(3)(A) keeps the
+    EITC with the physical custodian on the same "without regard to section
+    152(e)" language. Only the CTC/ACTC family moves with the release (s. 152(e)
+    itself, which s. 24(c)(1) inherits and neither s. 2(b) nor s. 32(c) does).
+    See docs/2026-09-08-filing-status-and-credit-allocation.md. The payor's
+    CTC-claiming year is now modelled by `_payor_net_claims_ctc()` below: single
+    filer, CTC only, no EITC, no HoH, no MA EITC, no MA Child and Family Tax
+    Credit -- ever. The physical custodian's non-claiming year is modelled by
+    `_custodial_net_no_ctc()`: HoH, EITC, MA EITC and MA CFTC unaffected by the
+    release; only the federal CTC drops out."""
     if kids == 0:
         return 0.0
     entitlement = _ctc_entitlement_after_phaseout(gross, kids, status, params)
@@ -239,34 +251,110 @@ def net_income_withholding_basis(gross, params=TAX_PARAMS):
                     + ma_tax(gross, "single", params, 0))
 
 
+def _payor_net_claims_ctc(gross, kids, params):
+    """The payor's net income in the year a s. 152(e)/Form 8332 release moves the
+    Child Tax Credit to him. He never gains head-of-household status, the EITC, the
+    MA EITC, or the MA Child and Family Tax Credit -- none of the four is movable by
+    a release (IRC ss. 2(b)(1)(A)(i), 32(c)(3)(A); the MA credits piggyback on the
+    federal EITC/HoH test). He files single. The MA per-dependent exemption is
+    modelled as tracking physical custody, not the CTC release, like the four
+    credits above -- there is no statute or DOR ruling on point for that specific
+    MA exemption (docs/2026-09-08-filing-status-and-credit-allocation.md, item 21),
+    but treating it like the other custody-linked benefits is what this project's
+    own worked-example arithmetic requires, and it is consistent with the same
+    physical-custody logic as the rest of this function. So `kids` here drives ONLY
+    the CTC computation; ma_tax() below is always called with 0 dependents for the
+    payor. See docs/2026-09-08-filing-status-and-credit-allocation.md Q1/Q3/Q4/Q6."""
+    tax = federal_tax(gross, "single", params) + fica(gross, params) + ma_tax(gross, "single", params, 0)
+    entitlement = _ctc_entitlement_after_phaseout(gross, kids, "single", params)
+    tax_owed = federal_tax(gross, "single", params)
+    nonrefundable = min(entitlement, tax_owed)
+    refundable = min(entitlement - nonrefundable,
+                     params["ctc_refundable_cap"] * kids,
+                     0.15 * max(0.0, gross - 2_500))
+    return gross - tax + nonrefundable + refundable
+
+
+def _custodial_net_no_ctc(gross, kids, kids_under_13, params):
+    """The majority-nights parent's net income in a year where the s. 152(e)/Form
+    8332 release moves the federal Child Tax Credit to the other parent. Head of
+    household, the federal EITC, the MA EITC (40% of federal), and the MA Child and
+    Family Tax Credit are all UNAFFECTED by the release -- see the four statutory
+    anchors in docs/2026-09-08-filing-status-and-credit-allocation.md Q3's table
+    (IRC ss. 2(b)(1)(A)(i), 32(c)(3)(A), 21(e)(5)). The MA per-dependent exemption is
+    modelled as staying with this parent too (see _payor_net_claims_ctc()'s
+    docstring). Only the federal CTC/ACTC family drops out for this parent this
+    year -- ma_tax() below still carries the full dependent count."""
+    tax = federal_tax(gross, "hoh", params) + fica(gross, params) + ma_tax(gross, "hoh", params, kids)
+    fed_eitc = _federal_eitc(gross, kids, params) if kids else 0.0
+    ma_credits = ma_refundable_credits(gross, kids, "hoh", params, kids_under_13)
+    return gross - tax + fed_eitc + ma_credits
+
+
 def household_net_incomes(payor_gross, recipient_gross, kids, params=TAX_PARAMS,
-                           kids_under_13=None, box=2):
+                           kids_under_13=None, box=2, count_refundable_credits=True):
     """Each party's annual net income, given who claims the children for tax purposes.
+
+    count_refundable_credits=False (added 2026-09-08 -- the credits-off switch) lets a reader
+    who does not accept any assumption about which parent claims which child -- an economist,
+    most pointedly -- validate the arithmetic anyway. In this mode BOTH parties' net income
+    comes from net_income_withholding_basis() -- tax and FICA only, a single filer claiming no
+    exemptions -- and `box` and `kids_under_13` are ignored entirely: filing status and who
+    claims which child matter ONLY because they gate the refundable credits computed below, so
+    once the credits are off there is nothing left for either fact to change. That is the point
+    of the mode, not an approximation of it -- it is the basis the Commonwealth's own consultant
+    uses each review cycle ("state-specific income withholding tables ... and standard
+    withholding for Social Security and Medicare"), which contains no refundable credits, and
+    it is the basis net_income_withholding_basis() already documents for the Section 2
+    child-care ask.
 
     Box 2 (primary custody, the DEFAULT -- matches every caller written before
     2026-09-08): the recipient is the physical custodian, claims every child, and
     files head of household. Unchanged from the original hardcoded behaviour.
 
-    Box 1 (equal parenting time): this corrects an error in the earlier version, which
-    hardcoded the recipient as claiming every child regardless of the custody arrangement.
-    At equal
-    time nothing makes one parent the physical custodian and a judgment commonly
-    alternates the dependency claim by year, so this returns the EXPECTED VALUE of
-    alternating: the payor-claims year and the recipient-claims year, averaged for
-    BOTH parties. This is not approximated as "half the credit" -- computing both
-    years separately is what makes the IRC s. 24(b) high-income taper apply
-    correctly to whichever party's income exceeds the threshold in their claiming
-    year, which a flat 50% haircut on the box-2 numbers would not reproduce.
+    Box 1 (equal parenting time): CORRECTED AGAIN 2026-09-08, same day, against
+    docs/2026-09-08-filing-status-and-credit-allocation.md, a primary-source read
+    of IRC ss. 2(b), 7703(b), 152(c)/(e), 21(e)(5), 24(b)/(h), 32(c)(3)(A), and the
+    corresponding MA statutes. The FIRST attempt at this fix (same day, superseded)
+    had the two parents swap EVERYTHING in alternating years -- filing status, the
+    EITC, and the CTC. The statute does not allow that: a s. 152(e)/Form 8332
+    release moves ONLY the dependency claim and the federal CTC/ACTC family (s.
+    152(e)(1)-(2), s. 24(c)(1)). Head of household stays with the physical
+    custodian regardless of any release (s. 2(b)(1)(A)(i): the qualifying-child
+    test is "determined without regard to section 152(e)"). The EITC stays with
+    the physical custodian too, on the identical "without regard to ... section
+    152(e)" language in s. 32(c)(3)(A). The child and dependent care credit is
+    likewise pinned to the custodial parent by s. 21(e)(5) (not modelled here --
+    this project's Box 1 child-care scenarios are computed elsewhere -- but the
+    same statutory pattern). This project's own 182/183-overnight convention
+    (recipient holds 183, the majority) makes the RECIPIENT the physical
+    custodian in every year; the PAYOR never receives head-of-household status or
+    the EITC in Box 1, in either claiming year.
 
-    In the payor's claiming year he is modelled as head of household (the
-    custodial-parent proxy this file uses throughout), not as a single filer
-    awarded only the Child Tax Credit -- see refundable_credits()'s docstring for
-    why those two give different, and differently defensible, numbers."""
+    So this returns the expected value of alternating ONLY the CTC/dependency
+    claim: the payor-claims year (recipient keeps HoH/EITC/MA EITC/MA CFTC, payor
+    gets only the CTC as a single filer -- see `_payor_net_claims_ctc()`) and the
+    recipient-claims year (identical to Box 2 in every respect -- the recipient
+    already had everything, so nothing changes when she also claims the CTC),
+    averaged for both parties. This is not approximated as "half the credit" --
+    computing both years separately is what makes the IRC s. 24(b) high-income
+    taper apply correctly in the payor's claiming year, which a flat 50% haircut
+    would not reproduce. Pinned in model/test_net_position.py; see that file and
+    the source doc for the reproduced worked-example figures."""
+    if not count_refundable_credits:
+        return (net_income_withholding_basis(payor_gross, params),
+                net_income_withholding_basis(recipient_gross, params))
     if box == 1:
+        # Year A: the recipient (majority-nights parent) claims the CTC too --
+        # identical to Box 2 in every respect, since she already had HoH, the
+        # EITC, and the MA credits regardless of the CTC claim.
         payor_net_recipient_claims = net_income(payor_gross, "single", 0, params)
         recip_net_recipient_claims = net_income(recipient_gross, "hoh", kids, params, kids_under_13)
-        payor_net_payor_claims = net_income(payor_gross, "hoh", kids, params, kids_under_13)
-        recip_net_payor_claims = net_income(recipient_gross, "single", 0, params)
+        # Year B: the s. 152(e)/Form 8332 release moves ONLY the CTC to the payor.
+        # He never becomes HoH and never gets the EITC; she keeps both, plus the
+        # MA EITC and MA CFTC, and simply loses the federal CTC for that year.
+        payor_net_payor_claims = _payor_net_claims_ctc(payor_gross, kids, params)
+        recip_net_payor_claims = _custodial_net_no_ctc(recipient_gross, kids, kids_under_13, params)
         payor_net = (payor_net_recipient_claims + payor_net_payor_claims) / 2.0
         recip_net = (recip_net_recipient_claims + recip_net_payor_claims) / 2.0
     else:
@@ -276,18 +364,32 @@ def household_net_incomes(payor_gross, recipient_gross, kids, params=TAX_PARAMS,
 
 
 def analyze(payor_gross, recipient_gross, kids, weekly_support, weekly_childcare,
-            payor_childcare_share, params=TAX_PARAMS, kids_under_13=None, box=2):
+            payor_childcare_share, params=TAX_PARAMS, kids_under_13=None, box=2,
+            count_refundable_credits=True):
     """box: which custody box the credits should follow (see household_net_incomes()).
     Defaults to 2 (recipient claims all children, unchanged pre-2026-09-08 behaviour)
     so that a caller written before this parameter existed keeps producing the same
     number it always did. A caller modelling a Box 1 (equal-time) scenario must pass
-    box=1 explicitly to get the corrected alternating-year treatment."""
+    box=1 explicitly to get the corrected alternating-year treatment.
+
+    count_refundable_credits: the credits-off switch (added 2026-09-08, defaults to True
+    so every existing caller keeps producing the same number it always did). True includes
+    the federal and Massachusetts refundable credits (EITC, Child Tax Credit, MA EITC, the
+    MA Child and Family Tax Credit) in both parties' net income, which requires assuming a
+    filing status and who claims which child -- exactly the assumption `box` supplies.
+    False removes every refundable credit from every figure this function returns: both
+    parties' net income is computed from gross income and the published federal and
+    Massachusetts tax schedules alone (net_income_withholding_basis()), `box` and
+    `kids_under_13` stop mattering, and a reader who does not accept the who-claims-which-
+    child assumption can check the arithmetic without accepting it. See
+    household_net_incomes()'s docstring for the reasoning."""
     annual_support = weekly_support * 52.0
     annual_childcare = weekly_childcare * 52.0
     payor_cc = annual_childcare * payor_childcare_share
 
     payor_net, recip_net = household_net_incomes(payor_gross, recipient_gross, kids,
-                                                  params, kids_under_13, box)
+                                                  params, kids_under_13, box,
+                                                  count_refundable_credits)
 
     payor_after = payor_net - annual_support - payor_cc
     # Support is received tax-free; recipient bears the remaining childcare cost.
@@ -317,13 +419,17 @@ def analyze(payor_gross, recipient_gross, kids, weekly_support, weekly_childcare
 
 
 def crossover(payor_gross, recipient_gross, kids, weekly_childcare, payor_childcare_share,
-              params=TAX_PARAMS, kids_under_13=None, box=2):
-    """Weekly support at which the recipient household passes the payor in spendable income."""
+              params=TAX_PARAMS, kids_under_13=None, box=2, count_refundable_credits=True):
+    """Weekly support at which the recipient household passes the payor in spendable income.
+
+    count_refundable_credits: threaded straight through to analyze() -- see that function's
+    docstring. Defaults to True, unchanged behaviour for every existing caller."""
     lo, hi = 0.0, 5_000.0
     for _ in range(200):
         mid = (lo + hi) / 2
         r = analyze(payor_gross, recipient_gross, kids, mid, weekly_childcare,
-                    payor_childcare_share, params, kids_under_13, box)
+                    payor_childcare_share, params, kids_under_13, box,
+                    count_refundable_credits)
         if r["gap"] > 0:
             lo = mid
         else:

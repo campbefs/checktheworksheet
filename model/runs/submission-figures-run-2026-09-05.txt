@@ -7,24 +7,24 @@ hypothetical. ** The submission discloses this; the figures are real either way.
     Box 1 -- shared financial responsibility and parenting time
 
 == TAX POSITION (net_position.py; federal AND MA constants verified 2026-09-02) ==
-  payor effective rate      +27.6%
-  recipient effective rate  -11.2%   (negative = net refundable credits)
-  spread                    39 points
+  payor effective rate      +28.8%
+  recipient effective rate  -31.1%   (negative = net refundable credits)
+  spread                    60 points
 
 == SECTION 1 -- the Line 7e units lag ==
    child care/wk   order/wk    order/yr  7e reads  true % of net   box
-               0      1,013      52,662     26.5%          36.2%     -
-             100      1,100      57,221     28.8%          39.3%     -
-             300      1,276      66,340     33.4%          45.6%     -
-             589      1,529      79,506     40.0%          54.6%     -
-           1,290      2,144     111,479     56.1%          76.6%   YES
+               0      1,013      52,662     26.5%          36.8%     -
+             100      1,100      57,221     28.8%          40.0%     -
+             300      1,276      66,340     33.4%          46.4%     -
+             589      1,529      79,506     40.0%          55.6%     -
+           1,290      2,144     111,479     56.1%          77.9%   YES
   Line 7e first reaches 40% at $589/wk of child care (196/child), which is 46% of the $1,290 statutory benchmark.
-  At that point the payor's true burden is 54.6% of net -- a lag of 15 points.
+  At that point the payor's true burden is 55.6% of net -- a lag of 16 points.
 
 == SECTION 2 -- household standard of living (IV.B.13) ==
-  no child care        payor keeps $   92,893   recipient household $   85,608   payor share 52.0%
-  $300/wk child care   payor keeps $   79,215   recipient household $   83,687   payor share 48.6%
-  Per person the payor still leads: $92,893 for one against $21,402 each for four. State this.
+  no child care        payor keeps $   90,447   recipient household $   91,511   payor share 49.7%
+  $300/wk child care   payor keeps $   76,768   recipient household $   89,590   payor share 46.1%
+  Per person the payor still leads: $90,447 for one against $22,878 each for four. State this.
 
 == SECTION 4 -- who funds claimed child care ==
   claimed by recipient          $15,600/yr ($300/wk)
@@ -76,19 +76,19 @@ hypothetical. ** The submission discloses this; the figures are real either way.
 == SECTION 2.1 -- BOTH parents pay child care under equal shared parenting ==
   The realistic 50-50 case: each parent needs care during their own parenting time.
   neither pays child care            order $ 1,013/wk  7e 26.5%
-                                     he keeps $   92,893   she holds $   85,608   his share 52.0%
-                                     order+his own care = 36.2% of his net
+                                     he keeps $   90,447   she holds $   91,511   his share 49.7%
+                                     order+his own care = 36.8% of his net
   only the recipient pays $300/wk    order $ 1,276/wk  7e 33.4%
-                                     he keeps $   79,215   she holds $   83,687   his share 48.6%
-                                     order+his own care = 45.6% of his net
+                                     he keeps $   76,768   she holds $   89,590   his share 46.1%
+                                     order+his own care = 46.4% of his net
   BOTH pay $300/wk                   order $ 1,271/wk  7e 33.2%
-                                     he keeps $   63,885   she holds $   83,417   his share 43.4%
-                                     order+his own care = 56.1% of his net
+                                     he keeps $   61,438   she holds $   89,320   his share 40.8%
+                                     order+his own care = 57.1% of his net
   Combined child care across both households: $31,200/yr
     borne by the payor:     $   29,008  (93%)
     borne by the recipient: $    2,192  (7%)
   The payor's OWN $15,600 of child care reduces the order by $270/yr -- the Line 6e clip.
-  CAVEAT, state it: per person the payor still leads -- $63,885 for one against $20,854 each for four.
+  CAVEAT, state it: per person the payor still leads -- $61,438 for one against $22,330 each for four.
 
 == CAVEATS THAT TRAVEL WITH EVERY FIGURE ==
   1. Per person the payor leads. Say it before the household comparison.

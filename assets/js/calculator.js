@@ -4,6 +4,21 @@
 // assets/js/lib/net-position.js -- checked to the dollar against the Commonwealth's own CJ-D 304
 // XFA calculate-scripts. See assets/js/calculator.test.js.
 //
+// v11 (2026-09-08) adds the CREDITS-OFF SWITCH (data-calc-radio="credits", values "1"/"0",
+// default "1" -- matches every figure this site has published, so the switch changes no number
+// on load). "Count them" (default) is unchanged. "Leave them out" removes every federal and
+// Massachusetts refundable tax credit from payor_after/recip_after/recip_per_person/true_pct_net:
+// both parties' net income comes from net_position.js's netIncomeWithholdingBasis() alone, and
+// custody box / who-claims-which-child stop mattering, because credits are the only place either
+// fact enters this calculator's tax math. This lets a reader who does not accept the
+// who-claims-which-child assumption behind Box 1's alternating-year averaging -- an economist,
+// most pointedly -- validate the arithmetic without accepting it. See
+// assets/js/lib/net-position.js's analyze()/householdNetIncomes() and model/net_position.py's
+// matching docstring. Sanity-gated by creditsOffSanityPasses() (folded into the main guard, since
+// this switch reaches the main readout, not a fallback control): worked example, no child care,
+// credits off -> payor $87,172, recipient household $77,396 (the "no credits to either" row
+// model/test_net_position.py pins).
+//
 // v10 (2026-09-08) fixes both N.analyze() call sites (the main readout's computeWithFacts and the
 // Child care tab's computeChildcareDistribution) to pass the selected custody box (facts.box)
 // through to net-position.js's analyze(). Before this, analyze() always used its default (box=2,
@@ -136,6 +151,7 @@
 // <div class="tool tool-two-up" data-calculator>
 //   <input data-calc-input="higher"> <input data-calc-input="lower">   (income sliders, shared)
 //   <input data-calc-radio="kids">   <input data-calc-radio="box">     (shared)
+//   <input data-calc-radio="credits" value="1|0">                     (shared, default "1")
 //   <input data-calc-input="healthHigh"> <input data-calc-input="healthLow">  (number inputs, shared)
 //   <span data-calc-badge="household">  <span data-calc-badge="hardship">    (status strip, shared)
 //   <div data-calc-panel="main">    ... data-calc-cell="order_wk" / "line_7e" / "true_pct_net" ...
@@ -198,8 +214,13 @@
   }
 
   // The single computation this whole tool is built on. `facts` = { kids, box, healthLow,
-  // healthHigh, ccLower, ccHigher }. ccLower/ccHigher are the two child-care sliders' combined
-  // weekly totals (Parent A = lower earner, Parent B = higher earner, always -- see header).
+  // healthHigh, ccLower, ccHigher, credits }. ccLower/ccHigher are the two child-care sliders'
+  // combined weekly totals (Parent A = lower earner, Parent B = higher earner, always -- see
+  // header). `credits` (added 2026-09-08, defaults to true if omitted) is the credits-off switch:
+  // false removes every refundable tax credit from payor_after/recip_after/recip_per_person/
+  // true_pct_net, so a reader who does not accept the who-claims-which-child assumption behind
+  // those credits -- an economist, most pointedly -- can check the arithmetic without it. See
+  // assets/js/lib/net-position.js's analyze() and model/net_position.py's own docstring.
   // Exported on window for calculator.test.js and a manual console spot-check.
   function computeWithFacts(higherAnnual, lowerAnnual, facts) {
     var lowerWk = lowerAnnual / 52.0;
@@ -221,8 +242,11 @@
     // for how many children are under 13); see CONVENTIONS.md SS11. box=facts.box (v10, 2026-09-08):
     // who claims the children for tax purposes now follows the custody box the reader selected,
     // instead of always defaulting to "recipient claims everyone" -- see the v10 header note.
+    // credits (v11, 2026-09-08): the credits-off switch, defaults to true when facts.credits is
+    // undefined so a call site written before this control existed keeps its old number.
+    var countCredits = facts.credits === undefined ? true : facts.credits;
     var pos = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare,
-      payorChildcareShare, undefined, 0, facts.box);
+      payorChildcareShare, undefined, 0, facts.box, countCredits);
 
     // Line A_6b: the higher earner's (B's) income-share x the lower earner's (A's) own
     // benchmarked child care -- literally "the higher earner's share of the lower earner's child
@@ -266,8 +290,12 @@
     var combinedGross = higherAnnual + lowerAnnual;
     var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
     // box=facts.box (v10): see the v10 header note -- who claims the children now follows the
-    // selected custody box for this analytical figure too.
-    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0, facts.box);
+    // selected custody box for this analytical figure too. credits (v11): the credits-off switch,
+    // same default-true-if-undefined rule as computeWithFacts. This affects only net_share, the
+    // credits-inclusive figure that is not currently bound to any visible cell (cc_dist_net shows
+    // net_withholding_share, which never counts credits) -- kept correct here regardless.
+    var countCreditsDist = facts.credits === undefined ? true : facts.credits;
+    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0, facts.box, countCreditsDist);
     // v9: the withholding-basis post-transfer share -- tax and FICA only, single filer, no
     // exemptions, no refundable credits. This is what Section 2 of the comments asks for as of
     // v4.9, because CJ-D 304 collects neither filing status nor who claims which child; net_share
@@ -359,12 +387,28 @@
     }
   }
 
+  // The credits-off switch's own sanity target: worked example, no child care, credits off ->
+  // both parties' net income is net_position.py's net_income_withholding_basis() alone, payor
+  // keeps $87,172, recipient household holds $77,396 (53.0% payor share) -- the "no credits to
+  // either" reference row model/test_net_position.py pins. If this fails the switch is wrong,
+  // which is as serious as the order itself being wrong, so it is folded into the main guard.
+  var SANITY_NO_CC_NOCREDITS = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 0, ccHigher: 0, credits: false };
+  function creditsOffSanityPasses() {
+    try {
+      var r = computeWithFacts(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC_NOCREDITS);
+      return Math.round(r.payor_after) === 87172 && Math.round(r.recip_after) === 77396;
+    } catch (e) {
+      if (window.console) console.error('calculator.js: credits-off sanity check threw', e);
+      return false;
+    }
+  }
+
   function sanityCheckPasses() {
     try {
       var noCc = computeWithFacts(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC);
       var withCc = computeWithFacts(SANITY_HIGHER, SANITY_LOWER, SANITY_CC);
       return Math.round(noCc.order_wk) === 1013 && Math.round(withCc.order_wk) === 1276 &&
-             distributionSanityPasses();
+             distributionSanityPasses() && creditsOffSanityPasses();
     } catch (e) {
       if (window.console) console.error('calculator.js: sanity check threw', e);
       return false;
@@ -480,6 +524,7 @@
     function currentFacts() {
       var ccOnRadio = document.querySelector('[data-calc-radio="ccOn"]:checked');
       var ccRuleRadio = document.querySelector('[data-calc-radio="ccRule"]:checked');
+      var creditsRadio = document.querySelector('[data-calc-radio="credits"]:checked');
       return {
         kids: Number(document.querySelector('[data-calc-radio="kids"]:checked').value),
         box: Number(document.querySelector('[data-calc-radio="box"]:checked').value),
@@ -488,7 +533,10 @@
         ccOn: ccOnRadio ? ccOnRadio.value === '1' : false,
         ccLower: inputs.ccLower ? Number(inputs.ccLower.value) || 0 : 0,
         ccHigher: inputs.ccHigher ? Number(inputs.ccHigher.value) || 0 : 0,
-        ccRule: ccRuleRadio ? ccRuleRadio.value : 'worksheet'
+        ccRule: ccRuleRadio ? ccRuleRadio.value : 'worksheet',
+        // The credits-off switch (added 2026-09-08). Defaults to true (count them) if the
+        // control is missing from the markup, matching every figure this site has published.
+        credits: creditsRadio ? creditsRadio.value === '1' : true
       };
     }
 
@@ -522,7 +570,7 @@
       renderIncomeOutputs(higher, lower);
 
       var facts = currentFacts();
-      var noCcFacts = { kids: facts.kids, box: facts.box, healthHigh: facts.healthHigh, healthLow: facts.healthLow, ccLower: 0, ccHigher: 0 };
+      var noCcFacts = { kids: facts.kids, box: facts.box, healthHigh: facts.healthHigh, healthLow: facts.healthLow, ccLower: 0, ccHigher: 0, credits: facts.credits };
       var baseResult = computeWithFacts(higher, lower, noCcFacts);
       var ccResult = computeWithFacts(higher, lower, facts);
       // The single set of numbers the main readout shows: the no-child-care result when the

@@ -20,8 +20,9 @@ check("current order with $300/wk child care is $1,276/wk", round(f["current_7d"
 check("redline (rule 2b): payor share 64.5% on Line 3a", round(f["rule2b_share"], 3) == 0.645, f["rule2b_share"])
 check("redline order is $1,206/wk", round(f["rule2b_7d"]) == 1206, f["rule2b_7d"])
 check("redline saves $3,624/yr", round(f["rule2b_saving_yr"]) == 3624, f["rule2b_saving_yr"])
-check("after-tax shares: payor 52.0% (box=1 alternating-year credit averaging, fixed 2026-09-08)",
-      round(f["rule3_share"], 3) == 0.520, f["rule3_share"])
+check("after-tax shares: payor 49.7% (box=1 alternating-year CTC-only averaging, "
+      "corrected 2026-09-08 -- the payor never gets HoH or the EITC)",
+      round(f["rule3_share"], 3) == 0.497, f["rule3_share"])
 check("rule 4 (fixed point) equals rule 3", abs(f["rule4_share"] - f["rule3_share"]) < 1e-6, (f["rule3_share"], f["rule4_share"]))
 check("gross post-transfer share 64.3% (not the letter's number)", round(f["rule2_gross_share"], 3) == 0.643, f["rule2_gross_share"])
 check("the two 6b-2 fallback shares sum to one", abs(f["rule2b_share"] + (1 - f["rule2b_share"]) - 1) < 1e-12)

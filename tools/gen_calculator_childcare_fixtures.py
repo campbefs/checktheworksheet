@@ -201,6 +201,15 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
         pos = npos.analyze(payor_gross, recip_gross, kids, r["7d"],
                             weekly_childcare, payor_childcare_share, kids_under_13=0, box=box)
 
+        # The credits-off switch (2026-09-08): same call, count_refundable_credits=False. box and
+        # kids_under_13 stop mattering in this mode (see net_position.household_net_incomes()),
+        # so this is NOT re-run per box for a different reason -- it is re-run per row so every
+        # combination in this grid gets its own credits-off reference figure to check the JS
+        # switch against, not because the result depends on box.
+        pos_no_credits = npos.analyze(payor_gross, recip_gross, kids, r["7d"],
+                                       weekly_childcare, payor_childcare_share, kids_under_13=0,
+                                       box=box, count_refundable_credits=False)
+
         # Higher (B) earner's dollar/percentage share of the lower (A) earner's own child care --
         # Line A_6b, as documented in the header comment above.
         higher_share_of_lower_wk = r["A_6b"]
@@ -229,6 +238,10 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
             "payor_after": pos["payor_after"],
             "recip_after": pos["recip_after"],
             "recip_per_person": pos["recip_after"] / (1 + kids),
+            "true_pct_net_no_credits": pos_no_credits["burden_pct_of_payor_net"],
+            "payor_after_no_credits": pos_no_credits["payor_after"],
+            "recip_after_no_credits": pos_no_credits["recip_after"],
+            "recip_per_person_no_credits": pos_no_credits["recip_after"] / (1 + kids),
             "higher_share_of_lower_wk": higher_share_of_lower_wk,
             "higher_share_of_lower_pct": higher_share_of_lower_pct,
             "higher_bears_wk": higher_bears_wk,
@@ -294,7 +307,14 @@ with open(out_path, "w") as f:
                     "tax', what this project recommends) are childcare_post_transfer.py's rule5 as "
                     "of 2026-09-08 -- see net_rule() above; net_rule_order_wk is dist_base_order_wk "
                     "plus net_rule_share times the row's combined child care, because this rule is a "
-                    "Worksheet-line redline (like fixed_rule) and changes the order.",
+                    "Worksheet-line redline (like fixed_rule) and changes the order. "
+                    "true_pct_net_no_credits/payor_after_no_credits/recip_after_no_credits/"
+                    "recip_per_person_no_credits (the credits-off switch, added 2026-09-08) are the "
+                    "same four figures with count_refundable_credits=False: both parties' net income "
+                    "comes from net_position.net_income_withholding_basis() alone, and box/"
+                    "kids_under_13 stop mattering, because credits are the only place either fact "
+                    "enters the calculation once they are off. See net_position.py's "
+                    "household_net_incomes() docstring.",
         },
         "rows": rows,
         "disabled": disabled,
