@@ -105,8 +105,8 @@ often a deviation motion the parties did not simply agree to still succeeds.
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
 At the worked example, the payor keeps $87,172 a year and the recipient's household holds
-$77,395, $19,349 per person. That figure comes from the withholding basis — federal and
-Massachusetts income tax, Social Security and Medicare, no refundable credits — because a figure
+$77,395, $19,349 per person. That figure comes from the withholding basis: federal and
+Massachusetts income tax, Social Security and Medicare, no refundable credits. It is used because a figure
 that turns on which parent claims which child on a given year's taxes is not one CJ-D 304 collects
 or a reader can reproduce from published rate tables alone.
 Across a wider range of incomes the recipient's household still ends up ahead in total in about
