@@ -1,0 +1,109 @@
+** These are the author's own case parameters, not a constructed
+hypothetical. ** The submission discloses this; the figures are real either way. Parameters, all weekly except where noted:
+
+    Parent B (payor)      $201,000/yr gross, health premium $43
+    Parent A (recipient)  $570/wk gross,     health premium $33
+    Three children, two under 13 and one aged 13 to 17
+    Box 1 -- shared financial responsibility and parenting time
+
+== TAX POSITION (net_position.py; federal AND MA constants verified 2026-09-02) ==
+  payor effective rate      +30.4%
+  recipient effective rate  +16.6%   (negative = net refundable credits)
+  spread                    14 points
+
+== SECTION 1 -- the Line 7e units lag ==
+   child care/wk   order/wk    order/yr  7e reads  true % of net   box
+               0      1,013      52,662     26.5%          37.7%     -
+             100      1,100      57,221     28.8%          40.9%     -
+             300      1,276      66,340     33.4%          47.4%     -
+             589      1,529      79,506     40.0%          56.9%     -
+           1,290      2,144     111,479     56.1%          79.7%   YES
+  Line 7e first reaches 40% at $589/wk of child care (196/child), which is 46% of the $1,290 statutory benchmark.
+  At that point the payor's true burden is 56.9% of net -- a lag of 17 points.
+
+== SECTION 2 -- household standard of living (IV.B.13) ==
+  no child care        payor keeps $   87,172   recipient household $   77,395   payor share 53.0%
+  $300/wk child care   payor keeps $   73,493   recipient household $   75,474   payor share 49.3%
+  Per person the payor still leads: $87,172 for one against $19,349 each for four. State this.
+
+== SECTION 4 -- who funds claimed child care ==
+  claimed by recipient          $15,600/yr ($300/wk)
+  increase in the order         $13,678/yr ($263/wk)
+  payor's 6b allocation         87.68% (= recipient's 3c is 12.32%; payor's 3c is 87.68%)
+  share of the expense funded by the payor via the order: 88%
+
+== SECTION 5 -- the shared-parenting differential ==
+  Box 2 (children reside with A ~2/3 of the time)  $1,088/wk ($56,571/yr)
+  Box 1 (shared equally)                           $1,013/wk ($52,662/yr)
+  difference 6.9%  =  $3,909/yr for moving from about one third of the parenting time to half of it.
+  Mechanism (CJ-D 304 6f/6g): at Box 2 the payor's column carries 0 children,
+  so Table B = 0.00 and 6g reduces to the difference in income shares. No
+  parenting-time quantity enters the arithmetic at any line.
+
+== SECTION 5 -- the shared-parenting adjustment across income disparity ==
+   payor 3c    Box 2    Box 1  reduction
+      56.3%      934      209      77.6%
+      60.8%      958      340      64.5%
+      66.0%      985      478      51.5%
+      70.9%    1,010      596      41.0%
+      76.6%    1,040      826      20.5%
+      83.3%    1,069      949      11.2%
+      87.7%    1,088    1,013       6.9%
+      91.2%    1,103    1,075       2.6%
+      95.8%    1,123    1,108       1.3%
+  Same children, same equal-parenting arrangement. Only the other parent's
+  income varies. No parenting-time quantity enters any line of the worksheet.
+
+== SECTION 5.1 -- Box 3 (split): identical care, different box ==
+  Box 1  shared 50-50 of 2 children   $   835/wk   (payor: 2 x 50% = 1.0 child-share)
+  Box 3  one child residing with each $   581/wk   (payor: 1 x 100% = 1.0 child-share)
+  difference 30.4%  =  $13,203/yr
+  driver: 6g nets the columns on the ONE-child schedule. TableB(1)/TableB(2) = 0.714
+  but a split DESTROYS the economies of scale Table B exists to capture:
+  combined factor across two homes is 2.00 vs 1.40 in one home (+43% more expensive).
+
+  3 children, split A=2 B=1: $840/wk vs Box 1 $1,013  (17.0% lower)
+  3 children, split A=1 B=2: $576/wk vs Box 1 $1,013  (43.1% lower)
+
+== SECTION 2 -- child care ignores the parenting box; the payor's own credit is clipped ==
+  recipient pays $300/wk: payor's 6b share $263.05/wk under Box 1, $263.05 under Box 2 (identical; no parenting-time term)
+  payor pays $300/wk himself, Box 2: order falls $36.95/wk (12.3% of face value)
+  payor pays $300/wk himself, Box 1: order falls $5.19/wk (1.7% of face value)
+  payor's Line 6d where the payor pays $300/wk child care under Box 1 = 4.97% (below 10%, so 6e limits)
+  payor's share of combined GROSS income = 87.15%
+  clip factor under Box 1 = recipient 3a / payor 3a = 537/3822 = 14.0%
+
+== SECTION 2.1 -- BOTH parents pay child care under equal shared parenting ==
+  The realistic 50-50 case: each parent needs care during their own parenting time.
+  neither pays child care            order $ 1,013/wk  7e 26.5%
+                                     he keeps $   87,172   she holds $   77,395   his share 53.0%
+                                     order+his own care = 37.7% of his net
+  only the recipient pays $300/wk    order $ 1,276/wk  7e 33.4%
+                                     he keeps $   73,493   she holds $   75,474   his share 49.3%
+                                     order+his own care = 47.4% of his net
+  BOTH pay $300/wk                   order $ 1,271/wk  7e 33.2%
+                                     he keeps $   58,163   she holds $   75,204   his share 43.6%
+                                     order+his own care = 58.4% of his net
+  Combined child care across both households: $31,200/yr
+    borne by the payor:     $   29,008  (93%)
+    borne by the recipient: $    2,192  (7%)
+  The payor's OWN $15,600 of child care reduces the order by $270/yr -- the Line 6e clip.
+  CAVEAT, state it: per person the payor still leads -- $58,163 for one against $18,801 each for four.
+
+== CAVEATS THAT TRAVEL WITH EVERY FIGURE ==
+  1. Per person the payor leads. Say it before the household comparison.
+  2. $430/child is a statutory ceiling, not a typical amount. Lead with the
+     $589/wk trigger point, never the $1,290 maximum.
+  3. One worked example is not a distribution. The frequency of claimed
+     child care near the benchmark is unknown -- which is why the submission
+     supports better data collection rather than asserting a prevalence.
+  4. The MA Child and Family Tax Credit ($440/dependent) requires the child to be
+     UNDER 13. At two under 13 and one aged 13 to 17 exactly 2 of the 3 qualify. NOTE: since
+     2026-09-09 the figures above are computed on the withholding basis (no refundable
+     credits), so this caveat and the sensitivity below describe the credits-included
+     ANALYSIS view only (net_income(), not analyze()'s published default) -- kept for
+     the teaching tab, not a caveat on any figure printed above:
+       3 child(ren) under 13: -40.3%
+       2 child(ren) under 13: -38.9%
+       1 child(ren) under 13: -37.4%
+       0 child(ren) under 13: -35.9%

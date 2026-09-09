@@ -31,7 +31,7 @@ comparison always carries its per-person counterpart.
 1. [With three children, the recipient household holds more after the order in 10 percent of income combinations.](#e01)
 2. [Per person, the payor holds more almost everywhere.](#e02)
 3. [With one child, the recipient household holds more after the order in no income combinations.](#e18)
-4. [With two children, the recipient household holds more after the order in 0 percent of income combinations.](#e19)
+4. [With two children, the recipient household holds more after the order in 4 of 1,147 income combinations (0.3 percent).](#e19)
 5. [The order exceeds 40 percent of the payor's net income only where the lower earner makes about $20,000 or less.](#e04)
 6. [The hardship valve fires late because it reads the wrong income.](#e05)
 7. [Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
@@ -133,7 +133,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e19">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E19-who-holds-more-2-children.png"
-     data-caption="With two children, the recipient household holds more after the order in 0 percent of income combinations."
+     data-caption="With two children, the recipient household holds more after the order in 4 of 1,147 income combinations (0.3 percent)."
      data-csv-href="/figures/working/fig1_heatmap_2child_box1.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E19-who-holds-more-2-children.png"
          loading="lazy"
@@ -141,7 +141,7 @@ comparison always carries its per-person counterpart.
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">With two children, the recipient household holds more after the order in 0 percent of income combinations.</h3>
+    <h3 class="exhibit-title">With two children, the recipient household holds more after the order in 4 of 1,147 income combinations (0.3 percent).</h3>
     <p class="exhibit-deck">Recipient household net minus payor net, per year. Companion to E01/E18 (same grid, one and three children).</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
@@ -149,7 +149,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
     </dl>
-    <p class="exhibit-notes">Same grid and colour scale as E01 and E18. The share stays at zero at one child and two, and rises to 10 percent at three, a child-count effect, not an artifact of one income pair. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero; no refundable tax credits counted.</p>
+    <p class="exhibit-notes">Same grid and colour scale as E01 and E18. The share is a genuine zero at one child, rises to 4 of 1,147 cells at two (all at a lower earner of $20,000, higher earner $60,000 to $75,000), and to 10 percent at three, a child-count effect, not an artifact of one income pair. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero; no refundable tax credits counted.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig1_heatmaps.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig1_heatmap_2child_box1.csv">data (CSV)</a></p>
   </figcaption>

@@ -17,7 +17,7 @@
 //     model/run_official_xfa.py uses, reproduced here by running python3 model/worksheet.py
 //     with the identical arguments on 2026-09-06 to recover full precision, since the .txt file
 //     itself only prints two decimal places)
-//   - model/runs/submission-figures-run-2026-09-05.txt (the worked example: PAYOR_GROSS
+//   - model/runs/submission-figures-run-2026-09-09.txt (the worked example: PAYOR_GROSS
 //     $201,000/yr, RECIP_WEEKLY $570/wk -> $29,640/yr, three children, two under 13, Box 1,
 //     no child care -- "child care/wk 0" row, and the "TAX POSITION" block)
 
@@ -116,8 +116,8 @@ CASES.forEach(function (c) {
 // ---------------------------------------------------------------------------------------------
 // PART 2 -- the worked example: $201,000/yr payor, $29,640/yr recipient, three children, two
 // under 13, Box 1, no child care. Must reproduce $1,013/week (model/runs/submission-figures-run-
-// 2026-09-05.txt's "child care/wk 0" row: order 1,013, 7e 26.5%, true % of net 37.7%), plus the
-// TAX POSITION block (payor +30.4%, recipient -38.9%).
+// 2026-09-09.txt's "child care/wk 0" row: order 1,013, 7e 26.5%, true % of net 37.7%), plus the
+// TAX POSITION block (payor +30.4%, recipient +16.6%).
 // ---------------------------------------------------------------------------------------------
 console.log('=== PART 2: the worked example ($201,000 / $29,640, three children, Box 1, no child care) ===\n');
 

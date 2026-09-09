@@ -247,11 +247,13 @@ scripts:
           and <a href="/assets/js/calculator.test.js"><code>assets/js/calculator.test.js</code></a>.
           The Child care section's three rules all come from
           <a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>:
-          "as the Worksheet does it" is today's Line 6b; "on income after the order" allocates on
-          each parent's resulting share of income once the base order is set, instead of their
-          share beforehand; "on money after tax" allocates on each parent's share of the money
-          after tax and FICA at the no-child-care order, leaving out the refundable credits CJ-D 304
-          has no field for, and moves the order the same way "on income after the order" does.</p>
+          "On gross income, before the order" is today's Line 6b; "On take-home pay, after the
+          order," the rule this project asks for (new Worksheet Line 6b-1), allocates on each
+          parent's share of the money after tax and FICA at the no-child-care order, leaving out
+          the refundable credits CJ-D 304 has no field for; "On gross income, after the order," the
+          fallback if the Worksheet cannot compute tax (new Line 6b-2), allocates on each parent's
+          resulting share of income once the base order is set, instead of their share beforehand.
+          Both of the last two move the order itself, the same way.</p>
           <p>The tax model uses the same income the Worksheet uses, not a filer's actual modified
           adjusted gross income. A payor whose real return also counts bonuses or vested stock
           could sit further into the Child Tax Credit phase-out than this tool shows. The
@@ -759,7 +761,7 @@ scripts:
       <h2>Check it yourself</h2>
       <ul>
         <li><strong>Hardship test:</strong> <code>model/test_worksheet.py</code>;
-        <a href="/model/runs/submission-figures-run-2026-09-05.txt">printed run</a>.</li>
+        <a href="/model/runs/submission-figures-run-2026-09-09.txt">printed run</a>.</li>
         <li><strong>Child care:</strong> <code>model/childcare_post_transfer.py</code> and
         its <a href="/model/test_childcare_post_transfer.py">tests</a>.</li>
         <li><strong>Parenting time:</strong> <code>model/box1_fix.py</code> and its

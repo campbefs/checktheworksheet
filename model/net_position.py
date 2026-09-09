@@ -360,13 +360,17 @@ def net_income_withholding_basis(gross, params=TAX_PARAMS):
     Why the credits are excluded, although they are large and real: the refundable
     credits and head-of-household status both turn on which parent claims which
     child, CJ-D 304 collects neither fact, and in a shared-parenting case the
-    claim is commonly alternated by year. Measured in tools/net_basis_sensitivity.py:
-    who claims the children moves the post-transfer share 7.8 points, more than the
-    credits themselves are worth (4.8 points). A Worksheet line cannot rest on an
-    input the Worksheet does not have.
+    claim is commonly alternated by year. tools/net_basis_sensitivity.py brackets
+    it: across the two extreme filing conventions who claims the children moves
+    the post-transfer share 7.8 points, and the credits alone (both filing single)
+    are worth up to 4.8 points against the no-credit figure at the top of that
+    bracket. A Worksheet line cannot rest on an input the Worksheet does not have.
 
-    The omission runs AGAINST the payor: including the credits would put his share
-    at 48.2% rather than 53.0%, so the rule as proposed understates the case for it.
+    The omission runs AGAINST the payor: including the credits, under the
+    alternating-year convention `net_income()` above now uses (statutory fix,
+    2026-09-08 -- only the Child Tax Credit moves; head-of-household, the EITC and
+    the MA EITC stay with whoever has more overnights), puts his share at 49.7%
+    rather than 53.0%, so the rule as proposed understates the case for it.
     """
     return gross - (federal_tax(gross, "single", params)
                     + fica(gross, params)

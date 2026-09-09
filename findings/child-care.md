@@ -174,7 +174,7 @@ own parenting time.
 (Source: `model/runs/childcare-post-transfer-run-2026-09-08.txt`, printed by
 `model/childcare_post_transfer.py` (the 2026-09-05 run predates rule 5, the withholding-basis
 figure this table quotes, and is kept alongside for the record); the order figures are from
-`model/runs/submission-figures-run-2026-09-05.txt`.) Exhibits E25 and E26 above show the same
+`model/runs/submission-figures-run-2026-09-09.txt`.) Exhibits E25 and E26 above show the same
 mechanism when both parents pay for care: Line 6e limits how much of the payor's own claim he can
 recover once his income share puts him outside the low-income protection the line was written for.
 
@@ -220,7 +220,7 @@ against $20,854 each for the recipient's household of four.</p>
     of combined child care when both parents pay for it under equal shared parenting.</li>
   <li><strong><a href="/model/runs/childcare-post-transfer-run-2026-09-08.txt">The printed runs</a></strong>
     Behind every figure above, alongside
-    <a href="/model/runs/submission-figures-run-2026-09-05.txt">the base-order run</a>.</li>
+    <a href="/model/runs/submission-figures-run-2026-09-09.txt">the base-order run</a>.</li>
 </ul>
 </div>
 

@@ -529,19 +529,22 @@ design:
 
 ## 11. Calculator v2 (2026-09-07) — the under-13 discrepancy, and the jurisdiction finder
 
-**The calculator's "after tax and the order" row runs slightly lower than this site's own
-worked-example figures elsewhere, and that is expected, not a bug.** The calculator fixes
-`kids_under_13 = 0` for every combination (same generic-grid convention as
-`model/charts/_common.py`'s `KIDS_UNDER_13 = 0` — there is no third slider for how many children
-are under 13), while the worked example quoted in `model/runs/submission-figures-run-2026-09-05.txt`
-and repeated around the rest of the site uses `kids_under_13 = 2` (two of the worked example's three
-children). The MA Child and Family Tax Credit is $440/child/year for qualifying dependents under
-13, so the calculator's recipient-household figure is understated by up to $880/yr relative to the
-site's other worked-example numbers at three children — the direction that weakens, not flatters,
-the site's own argument. The method paragraph next to the calculator states this in one sentence;
-do not remove it if the copy is edited, and do not "fix" the calculator to use `kids_under_13 = 2`
-by default — that would silently change every other combination it can compute to a fact pattern
-(two of *N* children under 13) that stops making sense once the children slider leaves 3.
+**As of 2026-09-09 the calculator's "after tax and the order" row matches this site's own
+worked-example figures elsewhere exactly ($87,172/$77,395), because the published model's default
+excludes refundable tax credits everywhere.** The calculator fixes `kids_under_13 = 0` for every
+combination (same generic-grid convention as `model/charts/_common.py`'s `KIDS_UNDER_13 = 0`, since
+there is no third slider for how many children are under 13), and the worked example quoted in
+`model/runs/submission-figures-run-2026-09-09.txt` and repeated around the rest of the site is
+computed on the same credits-off, withholding basis. Under that basis `kids_under_13` does not
+change any figure the site prints, because the MA Child and Family Tax Credit it would otherwise
+affect is a refundable credit, and refundable credits are not counted. The convention only matters
+if a reader switches the credits toggle on, where it still governs the labelled analysis view (the
+credits-inclusive figures move by up to $880/yr per qualifying child, and depend on which parent
+claims which child, which is why they are analysis rather than the ask). The method paragraph next
+to the calculator should keep saying this in one sentence; do not remove it if the copy is edited,
+and do not give the calculator a fourth slider for how many children are under 13, since that would
+change every combination it can compute to a fact pattern that stops making sense once the
+children slider leaves 3, for a control that presently affects nothing under the default basis.
 
 **Warning-colour thresholds added by v2** (see §7 for the colour itself): the true-share-of-net
 cell warns above 40% of the payor's net income (Line 7e's own substantial-hardship threshold); the

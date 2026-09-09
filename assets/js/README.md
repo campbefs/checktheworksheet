@@ -61,7 +61,7 @@ Commonwealth's own CJ-D 304 XFA calculate-scripts), both in "round every line" m
 official scripts to the dollar on all six) and in the default unrounded mode (matches
 `model/worksheet.py`'s own output to six decimal places — this is what the letter, the paper and
 this site's own copy quote); the worked example's tax position from
-`model/runs/submission-figures-run-2026-09-05.txt` to the cent; the sanity guard firing/clearing;
+`model/runs/submission-figures-run-2026-09-09.txt` to the cent; the sanity guard firing/clearing;
 (v2, 2026-09-07) the full **children x custody x six-income-pair fixture grid**,
 `fixtures/calculator-v2.json` (36 rows, 0 disabled), generated straight from `model/worksheet.py`
 and `model/net_position.py` in the private repo and checked to the dollar and to 0.001 on ratios;
@@ -296,7 +296,7 @@ earner, at which the payor's income share of the combined household, `payor_3c`,
 ```
 
 Default `value="0.877"` is the worked example's own payor income share (87.7%), where
-`reduction_current` = 6.9% — matches `model/runs/submission-figures-run-2026-09-05.txt`'s
+`reduction_current` = 6.9% — matches `model/runs/submission-figures-run-2026-09-09.txt`'s
 "SECTION 5" table row `87.7% 1,088 1,013 6.9%`. Front matter:
 `scripts: ["/assets/js/csv-slider.js"]` (same file as the valve slider — a page using both tools
 loads it once). No-JS fallback: render the "SECTION 5" table from the same run file as a plain

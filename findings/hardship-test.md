@@ -18,7 +18,7 @@ disclosure:
     <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked by
     <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a> against the
     form's own calculation scripts, with
-    <a href="/model/runs/submission-figures-run-2026-09-05.txt">the printed run</a> behind the
+    <a href="/model/runs/submission-figures-run-2026-09-09.txt">the printed run</a> behind the
     table below.
 rail_label: "On this page"
 sections:
@@ -120,7 +120,7 @@ payor's true share of net income at each point.
 Line 7e does not reach 40 percent until $589 a week of claimed child care, 46 percent of the $1,290
 statutory ceiling for three children, by which point the payor's true burden is 54.6 percent of his
 net income. That 17-point lag narrows as claimed child care falls, to about 12 points at $100 a
-week. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
+week. (Source: `model/runs/submission-figures-run-2026-09-09.txt`, printed by
 `model/submission_figures.py`.)
 
 </details>
@@ -156,7 +156,7 @@ chart.</p>
   <li><strong><a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a></strong>
     Pins Line 7e's behavior as child care rises, including that it does not fire at $300/week
     ("7e ≈ 33.4%") and that it rises monotonically with claimed child care.</li>
-  <li><strong><a href="/model/runs/submission-figures-run-2026-09-05.txt">The printed run</a></strong>
+  <li><strong><a href="/model/runs/submission-figures-run-2026-09-09.txt">The printed run</a></strong>
     The output behind the table above.</li>
   <li><strong><a href="/figures/working/fig6_valve_units_lag.csv">fig6_valve_units_lag.csv</a></strong>
     The 130-row data file behind the line chart.</li>

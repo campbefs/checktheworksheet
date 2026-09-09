@@ -8,8 +8,8 @@
 // change a number here without making the identical change there.
 //
 // TESTED FIDELITY (assets/js/calculator.test.js, run with `node assets/js/calculator.test.js`):
-// reproduces the worked example's tax position from model/runs/submission-figures-run-2026-09-05.txt
-// (payor effective rate +30.4%, recipient effective rate -38.9%, payor keeps $87,172 with no
+// reproduces the worked example's tax position from model/runs/submission-figures-run-2026-09-09.txt
+// (payor effective rate +30.4%, recipient effective rate +16.6%, payor keeps $87,172 with no
 // child care) to the cent.
 //
 // 2026-09-08: ported net_position.py's fix for analyze() defaulting to "recipient claims every

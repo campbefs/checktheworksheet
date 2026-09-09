@@ -119,7 +119,7 @@
 //      everywhere else in this section -- because the task was to reproduce childcare_post_transfer.py's
 //      87.7/64.3/48.2 at that worked example, and that script uses kidsUnder13=2. Every OTHER figure in
 //      this section keeps the site-wide zero convention; only this one readout differs, and it says so.
-//   2. A TOGGLE (computeFixedRuleOrder), "the comments' Line 6b-1": recomputes the child-care order by
+//   2. A TOGGLE (computeFixedRuleOrder), "the comments' Line 6b-2 fallback": recomputes the child-care order by
 //      running the worksheet ONCE with no child care to get the base order and the Payor/Recipient
 //      designation Line 6f would give in that pass (avoids the circularity a 2026-09-05 review caught --
 //      see childcare_post_transfer.py's own header), then allocates the combined child-care dollars on
@@ -358,8 +358,9 @@
   // run the worksheet with NO child care to get the base order and the Payor/Recipient designation
   // Line 6f would give in that pass, then allocate the COMBINED weekly child care on that payor's
   // post-transfer Line 3a share (Line 3a moved by the base order, over Line 3b) instead of the
-  // pre-order Line 3c share Line 6b uses today. This is the letter's Section 2 redline, new
-  // Worksheet Line 6b-1. Uses r0.payor generically (not a hardcoded "B") to match the Python's own
+  // pre-order Line 3c share Line 6b uses today. This is the letter's Section 2 gross fallback, new
+  // Worksheet Line 6b-2 (the primary ask is the withholding-basis Line 6b-1, computed elsewhere in
+  // this file). Uses r0.payor generically (not a hardcoded "B") to match the Python's own
   // "whichever parent Line 6f names payor in that pass" -- see the file's header comment on why a
   // literal Payor/Recipient label from an EARLIER pass, not the current one, avoids a circularity a
   // 2026-09-05 review caught.
@@ -679,8 +680,8 @@
         if (ccRuleRadios.worksheet) ccRuleRadios.worksheet.checked = true;
       }
       var unavailableRules = [];
-      if (!netOk) unavailableRules.push('on money after tax');
-      if (!fixOk) unavailableRules.push('on income after the order');
+      if (!netOk) unavailableRules.push('on take-home pay, after the order');
+      if (!fixOk) unavailableRules.push('on gross income, after the order');
       setNote('cc_rule', unavailableRules.length ? ('Unavailable: ' + unavailableRules.join(', ') + '.') : '');
 
       var totalChildcareWk = facts.ccLower + facts.ccHigher;
@@ -690,11 +691,11 @@
       var linebasedChargeWk = fixResult.fixed_rule_share * totalChildcareWk;
       var ruleNote = '';
       if (selectedRule === 'nettax') {
-        ruleNote = 'On money after tax, the higher earner would carry ' + pct1(netResult.net_rule_share) +
+        ruleNote = 'On take-home pay, after the order, the higher earner would carry ' + pct1(netResult.net_rule_share) +
           ' (' + money(netResult.net_rule_charge_wk * 52) + ') of the child care, and the order would be ' +
           moneyWk(netResult.net_rule_order_wk) + ' instead of the Worksheet’s ' + moneyWk(ccResult.order_wk) + '.';
       } else if (selectedRule === 'linebased') {
-        ruleNote = 'On income after the order, the higher earner would be charged ' + pct1(fixResult.fixed_rule_share) +
+        ruleNote = 'On gross income, after the order, the higher earner would be charged ' + pct1(fixResult.fixed_rule_share) +
           ' (' + money(linebasedChargeWk * 52) + ') of the child care through the order. Resulting order ' +
           moneyWk(fixResult.fixed_rule_order_wk) + ', the Worksheet gives ' + moneyWk(ccResult.order_wk) + '.';
       } else {
