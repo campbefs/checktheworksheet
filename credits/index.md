@@ -40,16 +40,20 @@ agreement, except the Child Tax Credit, which a signed release can move to the o
 year. Massachusetts's credits follow the same split. CJ-D 304, the Worksheet, has no field that
 records who claims whom, so no figure that depends on it can be reproduced from the form alone.</p>
 
-<p class="caveat">No number in any letter this project writes, and no number on this site's home
-page or any finding page, uses any figure from this table. They are held to the withholding basis
-described above. This page exists so a reader can see what the credits are worth and judge the
-simplification for themselves, not to smuggle a larger number back in.</p>
+<p class="caveat">No number in any letter this project writes, and no figure on any finding page,
+in the comments, or in any chart uses anything from this table. Those are all held to the
+withholding basis described above, so a reader can rebuild them from published tables without
+knowing anything about either parent's tax return. The one place these credits are counted is the
+calculator on the home page, which counts them by default and says so; switch it to "Leave them
+out" to see the basis every other page uses.</p>
 
 ## See it with credits counted
 
 The <a href="/#calculator">calculator on the home page</a> has a "Refundable tax credits" control.
-"Leave them out" is the default, and it is what every other page on this site uses. "Count them"
-adds the four credits above under the statutory rule: head-of-household status and both Earned
+"Count them" is the default there, because these are real money a low-income household receives and
+leaving them out understates it. "Leave them out" switches to the withholding basis, which is what
+every other page on this site and every figure in the comments uses. Counting them applies the four
+credits above under the statutory rule: head-of-household status and both Earned
 Income Tax Credits stay with whichever parent has the children more of the time, every year, and
 cannot be moved by agreement. Only the Child Tax Credit can move, by a signed release. At equal
 parenting time, the calculator averages a year each parent claims it; at primary custody, nothing

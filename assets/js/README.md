@@ -209,12 +209,16 @@ whichever slider is currently lower and $43/wk to whichever is currently higher 
 convention already used by every heatmap exhibit in this project, `model/charts/_common.py`'s
 `order()`), and the MA Child and Family Tax Credit for children under 13 fixed at zero qualifying
 children (same generic-grid convention as every heatmap on this site — there is no fourth control
-for how many of the children are under 13). Under the credits-off default (the published figure
-as of 2026-09-09), that convention has nothing left to bite: no refundable credit is counted, so
-kids-under-13 does not change any figure this tool prints, and the tool's after-tax row matches
-the site's own worked-example figures elsewhere exactly ($87,172/$77,395). The convention only
-matters if a reader switches the credits toggle on, where it still governs the labelled analysis
-view.
+for how many of the children are under 13). **The tool now counts the refundable credits by default** (changed 2026-09-09 evening at Chris's
+request; `net_position.py`'s `analyze()` still defaults to credits-off, and every published figure
+in the comments, on the finding pages and in the charts stays on that withholding basis). So the
+kids-under-13 convention DOES bite the tool's default readout: the Massachusetts Child and Family
+Tax Credit is held at zero qualifying children, which understates the recipient household by $440
+per child under 13 against the site's own worked example. That runs against this project's own
+argument, which is the safe direction, and it is why the tool's after-tax row can sit slightly
+below the worked-example figures. Switch the credits toggle to "Leave them out" and the convention
+has nothing left to bite: no refundable credit is counted, kids-under-13 changes nothing, and the
+after-tax row matches the site's worked example exactly ($87,172/$77,395).
 **Children (1/2/3, default 3), custody (Box 1/Box 2, default Box 1), and (v3, 2026-09-07) child
 care (None/Recipient pays/Both pay, default None) are all real controls** — real
 `<input type="radio">` elements in a `<fieldset>`/`<legend>`, keyboard-operable, each group's
