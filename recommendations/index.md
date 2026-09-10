@@ -138,13 +138,97 @@ which child and that claim is often alternated year to year.
 
 ### The hardship test should be measured on the same income basis it is paid from
 
-Section IV.C's presumption of substantial hardship does not kick in until the payor is at 55
-percent of net income, even though Line 7e itself reports only 40 percent at that point. This is
+Section IV.C's presumption of substantial hardship does not kick in until the payor is at 57 percent of net income,
+even though Line 7e itself reports only 40 percent at that point. This is
 the same units mismatch as Part one's first ask, stated here because it is the standing condition
 the parenting-time and child care recommendations above operate under: a test that reads gross-derived
 income cannot see a burden priced in net income, however either credit is redesigned. The comments
 ask the Trial Court to measure the combined obligation, child support and child care together, on
 the basis it is actually paid from.
+
+**What would fix it: a ceiling, not a presumption.** A presumption has to be raised by a party,
+argued, and decided, which costs more than it returns in most cases. A ceiling is arithmetic the
+form performs. The Worksheet would gain one line: the order is the lesser of Line 7d and 40 percent
+of the payor's net weekly income.
+
+Forty percent is not a new number. It is the figure Section IV.C already names. The only change is
+the quantity it is measured against, from Line 3a available income to net pay.
+
+**What it would cost, measured on the same income grids as the rest of this site.** With one child
+or two, a 40 percent ceiling changes nothing at all: no primary-custody order anywhere on either
+grid reaches it. With three children it reaches 41.2 percent of the grid.
+At the worked example the order falls 1.1 percent,
+from $1,087.90 a week
+down to $1,075.64. It is a backstop for the worst cases, not a rewrite of the schedule.
+
+The number the backstop catches is worth stating on its own. At primary custody with no child care
+at all, the worked example's order is 40.5 percent of the payor's net pay, past the point Section
+IV.C itself calls substantial hardship, while Line 7e reports 28.5 percent.
+
+**A net ceiling is not a new idea, though no state applies one to the order.** Federal law already
+caps what may be garnished for child support at 50 to 65 percent of a worker's disposable earnings,
+under the Consumer Credit Protection Act. That limits collection, not the order, so a court may
+enter an order larger than may lawfully be withheld to satisfy it. Oregon's 2024 guidelines review,
+prepared by the Center for Policy Research, states the principle while explaining why Oregon's
+schedule stops at six children: "It makes no sense to assess child support at percentages more than
+can legally be held from a parent's paycheck." West Virginia uses 40 percent of weekly disposable
+earnings as the trigger for a right to petition to restructure payments, though only for one narrow
+group of parents.
+
+The Massachusetts Guidelines, the economic review and the Task Force report mention the Consumer
+Credit Protection Act zero times, and disposable earnings zero times.
+
+### Both ceilings need one new number, and it fits in ten rows
+
+A ceiling on net pay needs a net figure, and the Worksheet holds none. That is the real obstacle:
+five reviews have taken up gross versus net and none changed it.
+
+It does not require anyone to do their taxes. Net income on the withholding basis is a straight line
+between a small number of breakpoints, so a conversion table takes the same shape Table A already
+uses, a starting amount and a rate per bracket, in ten rows. A parent reads one row and multiplies
+once. At the worked example, $3,865.38 of gross a week gives $2,689.11 net a week, and the table and
+the model agree to within five cents a week anywhere on the schedule.
+
+The conversion itself is not new to these Guidelines either. The economic review commissioned for
+every cycle since at least 2013 converts gross to net exactly this way, using withholding tables and
+standard Social Security and Medicare, because the study the schedule is calibrated against is
+denominated in net. The table would publish the conversion the Commonwealth's own consultant already
+performs and then sets aside.
+
+## A lower ceiling at joint custody, which no state has yet
+
+This part is a policy position, not a correction of an arithmetic error, and it is separated from
+the two parts above for that reason. Nothing here is asked of the Trial Court in the comments.
+
+### Equal parenting time should carry a lower ceiling than primary custody
+
+Where the children are with each parent about half the time, both households carry the fixed cost of
+housing them, a bedroom in each home kept year round. Every income-shares state that credits shared
+parenting through a cross-credit recognises this: 23 states apply a 1.5 duplication factor, and
+Indiana's Guideline 6 Commentary puts the duplicated share of the basic obligation at 50 percent.
+The Massachusetts Worksheet contains no parenting-time quantity in any line, so its credit for equal
+time is only the difference in income shares, and it collapses as the income gap widens.
+
+The position: at equal time the order should not exceed 25 percent of the payor's net pay, against
+40 percent at primary custody.
+
+**No state does this, and that should be said first.** The fifty-one jurisdiction corpus behind this
+site contains no state that caps a support order at a share of net income as a general rule. The
+support for a ceiling in principle, the federal garnishment cap and the Center for Policy Research
+statement quoted in part two, is support for the idea of a net ceiling, not for this number.
+
+**What it would cost, and it is not a backstop.** A 25 percent ceiling reaches 9.6 percent of
+one-child equal-time orders on the published grid, 48.2 percent of two-child orders,
+and 62.2 percent of three-child orders.
+At the worked example it would take the order from $1,012.73 a week
+down to $672.28. That is a different schedule for shared custody, and it should be argued as one.
+
+**Where it bites is the argument for it.** The share of net an order takes is driven by the gap
+between the two incomes, not by either income alone. Holding the higher earner at $201,000 with
+three children at equal time, the ceiling binds while the other parent earns under about $85,000 and
+stops binding above it. That is the same region where the equal-time credit collapses from 75
+percent of the primary-custody order to under 7 percent. The ceiling reaches the cases the Worksheet
+already handles worst.
 
 ## The numbers behind this page
 
