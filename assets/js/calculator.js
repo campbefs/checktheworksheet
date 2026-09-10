@@ -257,10 +257,13 @@
     // for how many children are under 13); see CONVENTIONS.md SS11. box=facts.box (v10, 2026-09-08):
     // who claims the children for tax purposes now follows the custody box the reader selected,
     // instead of always defaulting to "recipient claims everyone" -- see the v10 header note.
-    // credits (v11, 2026-09-08; DEFAULT FLIPPED TO FALSE 2026-09-09, Task 3): the credits-off
-    // switch, defaults to false when facts.credits is undefined, matching net_position.py's
-    // analyze() -- the published withholding basis.
-    var countCredits = facts.credits === undefined ? false : facts.credits;
+    // credits (v11, 2026-09-08; default false 2026-09-09 Task 3; DEFAULT FLIPPED BACK TO TRUE
+    // 2026-09-09 evening, Chris: "let's leave refundable tax credits on with the option to turn
+    // them off because I think that's better for the default"). This is the TOOL's default only.
+    // net_position.py's analyze() still defaults to FALSE, and every figure in the comments, on
+    // the finding pages and in the charts is computed on that withholding basis -- the tool
+    // passes an explicit value either way, so the two never disagree. Fixtures cover both.
+    var countCredits = facts.credits === undefined ? true : facts.credits;
     var pos = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare,
       payorChildcareShare, undefined, 0, facts.box, countCredits);
 
@@ -562,9 +565,10 @@
         ccHigher: inputs.ccHigher ? Number(inputs.ccHigher.value) || 0 : 0,
         ccRule: ccRuleRadio ? ccRuleRadio.value : 'worksheet',
         // The credits-off switch (added 2026-09-08; DEFAULT FLIPPED TO FALSE 2026-09-09, Task 3).
-        // Defaults to false (leave them out, the withholding basis) if the control is missing
-        // from the markup, matching every figure this site now publishes.
-        credits: creditsRadio ? creditsRadio.value === '1' : false
+        // Defaults to TRUE (count them) if the control is missing from the markup, matching the
+        // tool's own default as of 2026-09-09 evening. The published figures elsewhere on this
+        // site remain on the withholding basis; see the note at countCredits above.
+        credits: creditsRadio ? creditsRadio.value === '1' : true
       };
     }
 

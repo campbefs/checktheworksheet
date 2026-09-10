@@ -86,8 +86,8 @@ scripts:
           </fieldset>
           <fieldset class="segmented">
             <legend>Refundable tax credits (<a href="/credits/">see the four</a>)</legend>
-            <label class="segmented-option"><input type="radio" name="calc-credits" value="1" data-calc-radio="credits"> Count them</label>
-            <label class="segmented-option"><input type="radio" name="calc-credits" value="0" data-calc-radio="credits" checked> Leave them out</label>
+            <label class="segmented-option"><input type="radio" name="calc-credits" value="1" data-calc-radio="credits" checked> Count them</label>
+            <label class="segmented-option"><input type="radio" name="calc-credits" value="0" data-calc-radio="credits"> Leave them out</label>
           </fieldset>
         </div>
         <div class="tool-controls-row tool-controls-row--premiums">
@@ -227,10 +227,13 @@ scripts:
         </div>
 
         <p class="tool-assumptions">The MA credit for children under 13 is fixed at zero throughout.
-        Leaving the refundable tax credits out is the default, computed from gross income and the
-        published tax schedules alone. "Count them" adds the four credits explained on the
-        <a href="/credits/">credits page</a>; they depend on which parent claims which child, and
-        the Worksheet has no field for that. The child care split leaves them out either way.</p>
+        Counting the refundable tax credits is the default here, because they are real money a
+        low-income parent receives and leaving them out understates that household. The four are
+        set out on the <a href="/credits/">credits page</a>, with a source for each. They depend on
+        which parent claims which child, and the Worksheet has no field for that, so every figure
+        in the comments and on the finding pages leaves them out instead and is computed from gross
+        income and the published tax schedules alone. "Leave them out" switches this tool to that
+        basis. The child care split leaves them out either way.</p>
 
         <details class="tool-detail">
           <summary>Assumptions and method</summary>
