@@ -21,11 +21,17 @@ tab's new readout line and "apply the proposed fix" toggle --
 "on money after tax", what this project recommends, per the owner: "it should be net, that's
 absurd" that the higher-earning parent is charged most of the child care while holding less of the
 household's money after the order once tax is counted) -- childcare_post_transfer.py's rule3/rule4.
-Those two are algebraically identical (the annual_childcare terms cancel out of the fixed point),
-so this is exactly dist_net_share applied to the row's combined child care, with the order left
-unchanged at the no-child-care base -- see net_rule() below. This is also why dist_net_share itself
-was changed to the kids_under_13=0 convention this same day: the recommended rule needs to agree
-with itself at any input, not just the worked example.
+
+2026-09-08 fix: the mechanism above did not match the letter it is supposed to demonstrate. The
+letter's Section 2 ask is a new Worksheet Line 6b-1 inside the chain 6b -> 6c -> 6e -> 6g -> 7b ->
+7d, so adopting it CHANGES THE ORDER; this generator instead computed a private side payment that
+left the order at the no-child-care base. Fixed: net_rule_share is now dist_net_withholding_share
+(net_position.net_income_withholding_basis -- tax and FICA only, single filer, no exemptions, NO
+refundable credits, childcare_post_transfer.py's rule5, the figure Section 2 asks for as of v4.9,
+because CJ-D 304 collects neither filing status nor who claims which child), and net_rule_order_wk
+is dist_base_order_wk + net_rule_share * weekly_childcare, the same linear step fixed_rule already
+uses. dist_net_share (credits included) is unchanged and stays as the analytical figure shown in
+the distribution callout; it is not what a Worksheet line can compute.
 
 Correctness gate for the calculator's premium inputs and Child care tab (rebuilt 2026-09-07:
 premiums became two number inputs, default $40/$40, and child care became two continuous
@@ -58,6 +64,12 @@ Grid: children 1/2/3 x custody box 1/2 x premiums {(33,43), (40,40)} x child car
 the worked-example incomes (kids=3, box=1): premiums (0,0) and (150,60) at no child care, and
 premiums (40,40) at cc=(100,0) -- the exact combination item 4 of the interface brief asks the
 Child care tab to default to.
+
+2026-09-08 fix: distribution()'s and add_row()'s npos.analyze() calls now pass box=box. Before this,
+both always used analyze()'s default (box=2, "recipient claims every child"), even for the Box 1
+(equal-time) rows this grid also generates -- so dist_net_share and payor_after/recip_after for
+every box=1 row were computed under the wrong custody assumption. See
+model/net_position.py's own 2026-09-08 docstring note and model/test_net_position.py.
 
 Run: python3 tools/gen_calculator_childcare_fixtures.py
 """
@@ -106,12 +118,28 @@ def distribution(higher, lower, kids, box, health_lo, health_hi):
     base = r0["7d"]
     combined_gross = higher + lower
     gross_share = (higher - base * 52) / combined_gross if combined_gross else 0.0
-    pos = npos.analyze(higher, lower, kids, base, 0.0, 0.0, kids_under_13=0)
+    # box=box (2026-09-08): who claims the children for tax purposes now follows the custody box
+    # this row is computed under -- see net_position.household_net_incomes().
+    # count_refundable_credits=True EXPLICIT (2026-09-09, Task 3 of the private repo's
+    # simplify-to-withholding-basis plan): dist_net_share is documented above as the
+    # credits-included ANALYSIS figure (48.4%), matching childcare_post_transfer.py's rule 3.
+    # analyze()'s own default became False this same task; without this explicit True,
+    # dist_net_share would silently collapse onto dist_net_withholding_share and lose its
+    # documented meaning.
+    pos = npos.analyze(higher, lower, kids, base, 0.0, 0.0, kids_under_13=0, box=box,
+                        count_refundable_credits=True)
+    # dist_net_withholding_share: net_position.net_income_withholding_basis (tax and FICA only, no
+    # refundable credits) -- childcare_post_transfer.py's rule5, the basis THE ASK uses as of v4.9.
+    pw = npos.net_income_withholding_basis(higher)
+    rw = npos.net_income_withholding_basis(lower)
+    aw, bw = pw - base * 52, rw + base * 52
+    net_withholding_share = aw / (aw + bw) if (aw + bw) else 0.0
     return {
         "dist_base_order_wk": base,
         "dist_share3c": r0["B_3c"],
         "dist_gross_share": gross_share,
         "dist_net_share": pos["payor_after_share"],
+        "dist_net_withholding_share": net_withholding_share,
     }
 
 
@@ -130,15 +158,17 @@ def fixed_rule(higher, lower, kids, box, health_lo, health_hi, weekly_childcare)
 
 
 def net_rule(dist, weekly_childcare):
-    """Change 3 (2026-09-07): "on money after tax" -- what this project recommends. The higher
-    earner's share is childcare_post_transfer.py's rule3/rule4 (algebraically identical -- the
-    annual_childcare terms cancel out of the fixed point, so it is exactly dist_net_share at the
-    NO-CHILD-CARE order, no separate worksheet run needed). Unlike fixed_rule, this rule does NOT
-    change the order: the higher earner pays their share of the combined child care directly."""
+    """Change 3 (2026-09-07, mechanism fixed 2026-09-08): "on money after tax" -- what this
+    project recommends. The higher earner's share is dist_net_withholding_share
+    (childcare_post_transfer.py's rule5, the withholding basis -- no refundable credits). The
+    order MOVES: base order plus that share of the combined child care, the same linear step
+    fixed_rule already uses, because the letter's Line 6b-1 redline sits inside the Worksheet's
+    own 6b -> 6c -> 6e -> 6g -> 7b -> 7d chain."""
+    share = dist["dist_net_withholding_share"]
     return {
-        "net_rule_share": dist["dist_net_share"],
-        "net_rule_order_wk": dist["dist_base_order_wk"],
-        "net_rule_charge_wk": dist["dist_net_share"] * weekly_childcare,
+        "net_rule_share": share,
+        "net_rule_order_wk": dist["dist_base_order_wk"] + share * weekly_childcare,
+        "net_rule_charge_wk": share * weekly_childcare,
     }
 
 
@@ -173,8 +203,26 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
         payor_own_cc = a_own_cc if r["payor"] == "A" else b_own_cc
         payor_childcare_share = (payor_own_cc / weekly_childcare) if weekly_childcare else 0.0
 
+        # box=box (2026-09-08): see distribution()'s comment above -- same fix, same call site
+        # pattern, applied here for the main readout's payor_after/recip_after.
+        # NO explicit count_refundable_credits here (2026-09-09, Task 3): this call now picks up
+        # analyze()'s new published default (False, the withholding basis), matching the project's
+        # governing 2026-09-08 decision that the main readout is credits-off everywhere. Before
+        # Task 3 this was the credits-ON reading; it is not any more.
         pos = npos.analyze(payor_gross, recip_gross, kids, r["7d"],
-                            weekly_childcare, payor_childcare_share, kids_under_13=0)
+                            weekly_childcare, payor_childcare_share, kids_under_13=0, box=box)
+
+        # The credits-off switch (2026-09-08): same call, count_refundable_credits=False. box and
+        # kids_under_13 stop mattering in this mode (see net_position.household_net_incomes()),
+        # so this is NOT re-run per box for a different reason -- it is re-run per row so every
+        # combination in this grid gets its own credits-off reference figure to check the JS
+        # switch against, not because the result depends on box. NOTE (2026-09-09): since `pos`
+        # immediately above is now ALSO credits-off by default, this column is redundant with it
+        # -- kept rather than removed (Task 3 does not redesign the fixture format), flagged for
+        # whoever next touches the calculator's credits-toggle UI.
+        pos_no_credits = npos.analyze(payor_gross, recip_gross, kids, r["7d"],
+                                       weekly_childcare, payor_childcare_share, kids_under_13=0,
+                                       box=box, count_refundable_credits=False)
 
         # Higher (B) earner's dollar/percentage share of the lower (A) earner's own child care --
         # Line A_6b, as documented in the header comment above.
@@ -204,6 +252,10 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
             "payor_after": pos["payor_after"],
             "recip_after": pos["recip_after"],
             "recip_per_person": pos["recip_after"] / (1 + kids),
+            "true_pct_net_no_credits": pos_no_credits["burden_pct_of_payor_net"],
+            "payor_after_no_credits": pos_no_credits["payor_after"],
+            "recip_after_no_credits": pos_no_credits["recip_after"],
+            "recip_per_person_no_credits": pos_no_credits["recip_after"] / (1 + kids),
             "higher_share_of_lower_wk": higher_share_of_lower_wk,
             "higher_share_of_lower_pct": higher_share_of_lower_pct,
             "higher_bears_wk": higher_bears_wk,
@@ -212,6 +264,7 @@ def add_row(kids, box, health_lo, health_hi, cc_lower, cc_higher, higher, lower)
             "dist_share3c": dist["dist_share3c"],
             "dist_gross_share": dist["dist_gross_share"],
             "dist_net_share": dist["dist_net_share"],
+            "dist_net_withholding_share": dist["dist_net_withholding_share"],
             "fixed_rule_share": fixed["fixed_rule_share"],
             "fixed_rule_order_wk": fixed["fixed_rule_order_wk"],
             "net_rule_share": net["net_rule_share"],
@@ -256,15 +309,26 @@ with open(out_path, "w") as f:
             "cc_pairs": CC_PAIRS,
             "note": "cc_lower/cc_higher are COMBINED weekly totals, spread evenly across `kids` "
                     "array elements before being passed to worksheet.run() -- see spread() above. "
-                    "dist_share3c/dist_gross_share/dist_net_share (Change 1) are independent of "
-                    "cc_lower/cc_higher -- see distribution() above; dist_net_share uses "
-                    "kids_under_13=0, the same convention as every other figure here. "
+                    "dist_share3c/dist_gross_share/dist_net_share/dist_net_withholding_share "
+                    "(Change 1) are independent of cc_lower/cc_higher -- see distribution() above; "
+                    "dist_net_share uses kids_under_13=0, the same convention as every other figure "
+                    "here, and includes refundable credits (analytical figure only). "
+                    "dist_net_withholding_share is net_position.net_income_withholding_basis -- tax "
+                    "and FICA only, no refundable credits -- and is the basis THE ASK uses. "
                     "fixed_rule_share/fixed_rule_order_wk (Change 2, 'on income after the order', "
                     "a fallback) are childcare_post_transfer.py's rule2b -- see fixed_rule() above. "
                     "net_rule_share/net_rule_order_wk/net_rule_charge_wk (Change 3, 'on money after "
-                    "tax', what this project recommends) are childcare_post_transfer.py's rule3/4 -- "
-                    "see net_rule() above; net_rule_order_wk always equals dist_base_order_wk "
-                    "because this rule does not change the order, only who pays the child care.",
+                    "tax', what this project recommends) are childcare_post_transfer.py's rule5 as "
+                    "of 2026-09-08 -- see net_rule() above; net_rule_order_wk is dist_base_order_wk "
+                    "plus net_rule_share times the row's combined child care, because this rule is a "
+                    "Worksheet-line redline (like fixed_rule) and changes the order. "
+                    "true_pct_net_no_credits/payor_after_no_credits/recip_after_no_credits/"
+                    "recip_per_person_no_credits (the credits-off switch, added 2026-09-08) are the "
+                    "same four figures with count_refundable_credits=False: both parties' net income "
+                    "comes from net_position.net_income_withholding_basis() alone, and box/"
+                    "kids_under_13 stop mattering, because credits are the only place either fact "
+                    "enters the calculation once they are off. See net_position.py's "
+                    "household_net_incomes() docstring.",
         },
         "rows": rows,
         "disabled": disabled,

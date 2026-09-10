@@ -84,6 +84,11 @@ scripts:
             <label class="segmented-option"><input type="radio" name="calc-custody" value="1" data-calc-radio="box" checked> Shared, equal time (Box 1)</label>
             <label class="segmented-option"><input type="radio" name="calc-custody" value="2" data-calc-radio="box"> Primary with the lower earner (Box 2)</label>
           </fieldset>
+          <fieldset class="segmented">
+            <legend>Refundable tax credits (<a href="/credits/">see the four</a>)</legend>
+            <label class="segmented-option"><input type="radio" name="calc-credits" value="1" data-calc-radio="credits"> Count them</label>
+            <label class="segmented-option"><input type="radio" name="calc-credits" value="0" data-calc-radio="credits" checked> Leave them out</label>
+          </fieldset>
         </div>
         <div class="tool-controls-row tool-controls-row--premiums">
           <div class="tool-number-field">
@@ -99,7 +104,7 @@ scripts:
         </div>
 
         <p class="tool-status-strip" data-calc-status>
-          <span class="tool-flagline" data-calc-badge="household">The recipient household ends up with more money than the payor.</span>
+          <span class="tool-flagline" data-calc-badge="household" hidden></span>
           <span class="tool-flagline" data-calc-badge="hardship" hidden></span>
         </p>
 
@@ -125,9 +130,9 @@ scripts:
             </div>
             <div>
               <p class="cell-label">Recipient household holds, per year</p>
-              <p class="cell-value is-warning" data-calc-cell="recip_after">$92,941/yr</p>
-              <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,235/yr</strong></p>
-              <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
+              <p class="cell-value" data-calc-cell="recip_after">$77,395/yr</p>
+              <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$19,349/yr</strong></p>
+              <p class="cell-note" data-calc-note="recip_after">&nbsp;</p>
             </div>
           </div>
         </div>
@@ -154,7 +159,7 @@ scripts:
             <p class="tool-callout" data-calc-cell="cc_dist_wrap">
               Higher earner&rsquo;s share of child care: <strong data-calc-cell="cc_dist_share3c">87.7%</strong>.
               His share of income after the order: <strong data-calc-cell="cc_dist_gross">64%</strong> of gross,
-              <strong data-calc-cell="cc_dist_net">48%</strong> of net.
+              <strong data-calc-cell="cc_dist_net">53%</strong> after tax.
             </p>
             <p class="tool-callout-note">Child care is allocated on the first number. The order has
             already moved the split to the other two.</p>
@@ -195,20 +200,21 @@ scripts:
               <label class="cc-rule-option">
                 <input type="radio" name="calc-cc-rule" value="worksheet" data-calc-radio="ccRule" checked>
                 <span>
-                  <span class="cc-rule-option-label">As the Worksheet does it</span>
+                  <span class="cc-rule-option-label">On gross income, before the order</span>
+                  <span class="cc-rule-option-tag">What the Worksheet does today</span>
                 </span>
               </label>
               <label class="cc-rule-option">
                 <input type="radio" name="calc-cc-rule" value="nettax" data-calc-radio="ccRule">
                 <span>
-                  <span class="cc-rule-option-label">On money after tax</span>
+                  <span class="cc-rule-option-label">On take-home pay, after the order</span>
                   <span class="cc-rule-option-tag">What this project asks for</span>
                 </span>
               </label>
               <label class="cc-rule-option">
                 <input type="radio" name="calc-cc-rule" value="linebased" data-calc-radio="ccRule">
                 <span>
-                  <span class="cc-rule-option-label">On income after the order</span>
+                  <span class="cc-rule-option-label">On gross income, after the order</span>
                   <span class="cc-rule-option-tag">Fallback if the form cannot compute tax</span>
                 </span>
               </label>
@@ -216,11 +222,15 @@ scripts:
             </fieldset>
             <p class="cc-rule-note" data-calc-cell="cc_rule_note">The Worksheet charges the higher
             earner 87.7% ($4,559/yr) of the child care, while he holds 64% of the money after the
-            order on paper and 48% of it after tax.</p>
+            order on paper and 53% of it after tax.</p>
           </div>
         </div>
 
-        <p class="tool-assumptions">The MA credit for children under 13 is fixed at zero throughout.</p>
+        <p class="tool-assumptions">The MA credit for children under 13 is fixed at zero throughout.
+        Leaving the refundable tax credits out is the default, computed from gross income and the
+        published tax schedules alone. "Count them" adds the four credits explained on the
+        <a href="/credits/">credits page</a>; they depend on which parent claims which child, and
+        the Worksheet has no field for that. The child care split leaves them out either way.</p>
 
         <details class="tool-detail">
           <summary>Assumptions and method</summary>
@@ -237,11 +247,18 @@ scripts:
           and <a href="/assets/js/calculator.test.js"><code>assets/js/calculator.test.js</code></a>.
           The Child care section's three rules all come from
           <a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>:
-          "as the Worksheet does it" is today's Line 6b; "on income after the order" allocates on
-          each parent's resulting share of income once the base order is set, instead of their
-          share beforehand; "on money after tax" allocates on each parent's share of what the
-          household actually holds after tax at the no-child-care order, and does not change the
-          order itself.</p>
+          "On gross income, before the order" is today's Line 6b; "On take-home pay, after the
+          order," the rule this project asks for (new Worksheet Line 6b-1), allocates on each
+          parent's share of the money after tax and FICA at the no-child-care order, leaving out
+          the refundable credits CJ-D 304 has no field for; "On gross income, after the order," the
+          fallback if the Worksheet cannot compute tax (new Line 6b-2), allocates on each parent's
+          resulting share of income once the base order is set, instead of their share beforehand.
+          Both of the last two move the order itself, the same way.</p>
+          <p>The tax model uses the same income the Worksheet uses, not a filer's actual modified
+          adjusted gross income. A payor whose real return also counts bonuses or vested stock
+          could sit further into the Child Tax Credit phase-out than this tool shows. The
+          simplification runs one way: it can credit the payor with more money after tax than he
+          actually gets, never less.</p>
         </details>
       </div>
     </div>
@@ -332,10 +349,10 @@ scripts:
     <div class="thumb">
       <a class="lightbox-trigger" data-lightbox
          href="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-         data-caption="The payor's share of a $15,600 child care bill, three ways to split it."
+         data-caption="The payor's share of a $15,600 child care bill, four ways to split it."
          data-csv-href="/figures/working/fig2_childcare_worked_example.csv" data-csv-label="Data (CSV)">
         <img src="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-             alt="Bar chart comparing the payor's share of claimed child care under three income measures: pre-transfer gross, post-transfer gross, and post-transfer net.">
+             alt="Bar chart comparing the payor's share of claimed child care under four allocation rules: the Worksheet today, the fallback, what the comments ask for, and the credits-inclusive figure.">
       </a>
     </div>
     <div class="body">
@@ -744,7 +761,7 @@ scripts:
       <h2>Check it yourself</h2>
       <ul>
         <li><strong>Hardship test:</strong> <code>model/test_worksheet.py</code>;
-        <a href="/model/runs/submission-figures-run-2026-09-05.txt">printed run</a>.</li>
+        <a href="/model/runs/submission-figures-run-2026-09-09.txt">printed run</a>.</li>
         <li><strong>Child care:</strong> <code>model/childcare_post_transfer.py</code> and
         its <a href="/model/test_childcare_post_transfer.py">tests</a>.</li>
         <li><strong>Parenting time:</strong> <code>model/box1_fix.py</code> and its

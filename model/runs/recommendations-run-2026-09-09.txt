@@ -1,0 +1,142 @@
+==============================================================================
+RECOMMENDATIONS PAGE -- EVERY NUMBER, PRINTED FROM CODE
+==============================================================================
+
+------------------------------------------------------------------------------
+BLOCK A -- the fifty-jurisdiction medians and Massachusetts's distance
+------------------------------------------------------------------------------
+Source: data/fifty-state/tier-50-2026-09-05.json (Georgia held out; see
+docs/2026-09-05-georgia-worked-example.md). S1 = equal parenting time,
+S2 = the other parent has primary custody. Monthly figures throughout,
+as the tier-50 dataset states them.
+
+  S1 (equal time):
+    ranked jurisdictions           50
+    median                          $  2,172.95/mo
+    Massachusetts                   $  4,388.48/mo   rank 1 of 50
+    MA above the median              $ 2,215.52/mo    102.0%
+  S2 (primary custody):
+    ranked jurisdictions           50
+    median                          $  2,859.29/mo
+    Massachusetts                   $  4,714.22/mo   rank 2 of 50
+    MA above the median              $ 1,854.93/mo     64.9%
+
+------------------------------------------------------------------------------
+BLOCK B -- Washington, California, New Jersey, Connecticut, New York
+------------------------------------------------------------------------------
+Basis and cap note: data/fifty-state/ceilings-2026-09-06.json.
+
+  Washington   S1 $ 2,819.56/mo   S2 $ 2,819.56/mo   basis: net    cap: $600,000/yr ($50,000/month combined net income (RCW 26.19.020, eff. 1/1/2026)) -- Raised from the $480,000/yr figure in Brattle Figure 34 (based on the pre-2026 statute) by 2025 c 272 s 14, effective January 1, 2026. Per task instructions the profile's newer figure is used here; Brattle's is recorded separately.
+  California   S1 $ 2,424.32/mo   S2 $ 3,436.04/mo   basis: net    cap: no stated ceiling -- No stated combined- or obligor-income figure at which the schedule stops; other model. See cap field (may be truncated) for the mechanism.
+               row note: attack-corrected figures (EITC input)
+  New Jersey   S1 $ 3,002.31/mo   S2 $ 3,002.31/mo   basis: net    cap: $187,200/yr ($3,600/week combined net income (Appendix IX-F, revised eff. 9/1/2025)) -- This is a genuine 2025 revision, LOWER than Brattle Figure 34's $208,000 (based on the pre-revision Appendix IX-F table). Per task instructions, the profile's newer figure is used; Brattle's is recorded separately.
+  Connecticut  S1 $ 3,138.20/mo   S2 $ 3,138.20/mo   basis: net    cap: $312,000/yr ($6,000.00/week) --  Basis corrected to net 2026-09-06: the citation itself says combined NET income.
+  New York     S1 $ 4,067.61/mo   S2 $ 4,067.61/mo   basis: gross  cap: $193,000/yr ($193,000.00/year)
+
+  Washington present at the ranked tier: True
+  California present at the ranked tier: True
+
+------------------------------------------------------------------------------
+BLOCK C -- candidate credits for equal parenting time, worked example
+------------------------------------------------------------------------------
+Payor $201,000/yr gross, health premium $43; recipient $570/wk gross,
+health premium $33; three children; no child care. Sources: worksheet.py,
+box1_fix.py (variants A, B, C), and the linear rule applied here to
+worksheet.py's own Box 2 figure.
+
+  Today's Box 2 (primary) order    $ 1,087.90/wk   $ 4,714.22/mo
+  Today's Box 1 (shared)  order    $ 1,012.73/wk   $ 4,388.48/mo
+
+  candidate                                                         wk         mo   vs Box1  vs median      vs WA      vs CA
+  (i) Variant A -- 6e limitation moved to the transfer       $ 935.06 $4,051.93    -7.7%     86.5%     43.7%     67.1%
+  (ii) Variant B -- cross-credit at duplication 1.5          $ 701.30 $3,038.95   -30.8%     39.9%      7.8%     25.4%
+  (iii) Variant C at equal time (payor 50% of overnights)    $ 701.30 $3,038.95   -30.8%     39.9%      7.8%     25.4%
+  (iv) Linear time-proportional discount at 50% of overnights $ 543.95 $2,357.11   -46.3%      8.5%    -16.4%     -2.8%
+  (v-a) Linear time-proportional discount at 45% of overnights $ 707.13 $3,064.24   -30.2%     41.0%      8.7%     26.4%
+  (v-b) Linear time-proportional discount at 40% of overnights $ 870.32 $3,771.38   -14.1%     73.6%     33.8%     55.6%
+
+  ('vs median/WA/CA' = the candidate's monthly figure, percent above (+) or
+   below (-) the fifty-state S1 median / Washington's S1 / California's S1.)
+
+  Check: Variant C at equal time reproduces Variant B exactly, as box1_fix.py's
+  own docstring says ('at equal time this is identical to B'): True
+
+------------------------------------------------------------------------------
+BLOCK D -- the Box 1 reduction that reaches the median, WA, and CA
+------------------------------------------------------------------------------
+  Starting point: today's Box 1 order $1,012.73/wk ($4,388.48/mo).
+
+  To reach the fifty-state S1 median ($2,172.95/mo): cut $511.27/wk ($26,586/yr), 50.5% off today's Box 1 order.
+  To reach Washington's S1 ($2,819.56/mo): cut $362.06/wk ($18,827/yr), 35.8% off today's Box 1 order.
+  To reach California's S1 ($2,424.32/mo): cut $453.27/wk ($23,570/yr), 44.8% off today's Box 1 order.
+
+------------------------------------------------------------------------------
+BLOCK E -- corpus check: was gross-vs-net deferred, and how many times
+------------------------------------------------------------------------------
+  Commentary 2017: 6 block(s) in Guidelines.flow.txt, 0 sentence(s) containing both 'gross' and 'net':
+  Commentary 2018: 2 block(s) in Guidelines.flow.txt, 0 sentence(s) containing both 'gross' and 'net':
+  Commentary 2021: 6 block(s) in Guidelines.flow.txt, 0 sentence(s) containing both 'gross' and 'net':
+  Commentary 2023: 2 block(s) in Guidelines.flow.txt, 0 sentence(s) containing both 'gross' and 'net':
+  Commentary 2025: 5 block(s) in Guidelines.flow.txt, 0 sentence(s) containing both 'gross' and 'net':
+
+  Total sentences with both terms inside a Guidelines.flow.txt commentary block: 0
+
+  'as prior task forces' across data/extracted/*.flow.txt: 1 hit(s)
+
+  FULL CORPUS (data/deferrals-gross-vs-net.json, 7 reviews):
+  5 cycles take up gross versus net and none change it:
+      2009  task force report
+      2013  task force report
+      2017  economic review by the Commonwealth's consultant
+      2021  economic review by the Commonwealth's consultant
+      2025  economic review by the Commonwealth's consultant
+  Task force decisions: [2009, 2013].  Economic review statements: [2017, 2021, 2025].
+  Never write 'five task forces declined'; only the first list is task force decisions.
+      Econreview.flow.txt: "Again in this review, as prior task forces have done, the Task Force discussed the use of gross versus net income in the guidelines."
+
+  CONCLUSION: 0 sentence(s) mentioning both gross and net appear inside the year-tagged commentary blocks embedded in the Guidelines PDF itself (2017, 2018, 2021, 2023, 2025 all checked, zero hits). The explicit deferral -- "as prior task forces have done ... decided not to recommend a change from gross income to net income at this time" -- lives in Econreview.flow.txt, the Brattle economic review, not in the Guidelines' own embedded commentary, and it does not itself name which prior years deferred it. State it as: one document in this corpus (the 2025 economic review) records a gross-vs-net deferral and says prior task forces did the same; the Guidelines' own year-tagged commentary blocks contain no sentence discussing gross vs. net at all.
+
+------------------------------------------------------------------------------
+BLOCK F -- the author's childcare recommendation, worked example
+------------------------------------------------------------------------------
+Payor $201,000/yr gross ($43 health premium), recipient $570/wk gross
+($29,640/yr, $33 health premium), three children (two under 13), Box 1,
+recipient pays $300/wk child care, payor pays $0 directly. Source:
+model/childcare_post_transfer.py (reused, not reimplemented) and
+model/net_position.py's analyze().
+
+  Total annual child care at issue: $15,600/yr ($300/wk)
+
+  1. Current worksheet (Line 6b on pre-order Line 3c shares)
+       order            $ 1,275.77/wk   $ 5,528.34/mo
+       payor's share of the $15,600/yr child care:  87.7%  ($13,678.35/yr)
+       after tax: payor keeps $73,493.41   recipient household holds $75,473.83
+  2. Childcare removed from the worksheet (each parent bears what they pay)
+       order            $ 1,012.73/wk   $ 4,388.48/mo
+       payor's share of the $15,600/yr child care:   0.0%  ($     0.00/yr)
+       after tax: payor keeps $87,171.76   recipient household holds $61,795.48
+  3. Base support first, then childcare split 50-50
+       order            $ 1,012.73/wk   $ 4,388.48/mo
+       payor's share of the $15,600/yr child care:  50.0%  ($ 7,800.00/yr)
+       after tax: payor keeps $79,371.76   recipient household holds $69,595.48
+  4. Post-transfer GROSS shares on Line 3a (comments' fallback, Line 6b-2)
+       order            $ 1,206.08/wk   $ 5,226.34/mo
+       payor's share of the $15,600/yr child care:  64.5%  ($10,054.33/yr)
+       after tax: payor keeps $77,117.43   recipient household holds $71,849.81
+  5. Post-transfer NET shares on the withholding basis (comments' Line 6b-1 redline, RECOMMENDED)
+       order            $ 1,171.64/wk   $ 5,077.09/mo
+       payor's share of the $15,600/yr child care:  53.0%  ($ 8,263.37/yr)
+       after tax: payor keeps $78,908.40   recipient household holds $70,058.84
+
+  The sentence the site makes (rule 1, current worksheet):
+    before the order, the payor's share of the parties' combined available
+    income (Line 3c) is 87.7%;
+    after the order, his share of POST-TRANSFER GROSS income is 64.3%;
+    after the order, his share of POST-TRANSFER NET income, withholding basis (the ask) is 53.0%;
+    after the order, his share of POST-TRANSFER NET income counting refundable credits (analysis only) is 49.7%;
+    and child care is allocated on the 87.7% figure --
+    the income split BEFORE the order, not any figure after it.
+
+==============================================================================
+END OF RUN
+==============================================================================

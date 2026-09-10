@@ -4,17 +4,73 @@
 // assets/js/lib/net-position.js -- checked to the dollar against the Commonwealth's own CJ-D 304
 // XFA calculate-scripts. See assets/js/calculator.test.js.
 //
+// v12 (2026-09-08, later the same day) ports net_position.py's SECOND Box 1 fix (private commit
+// 723a7bf) into assets/js/lib/net-position.js. The v10 fix below had the two parents swap
+// EVERYTHING in alternating years -- filing status, the EITC, and the CTC. The statute does not
+// allow that: a s. 152(e)/Form 8332 release moves ONLY the dependency claim and the federal
+// CTC/ACTC family; head of household and the EITC stay with the physical-custodian recipient
+// regardless of any release (IRC ss. 2(b)(1)(A)(i), 32(c)(3)(A)). See net-position.js's
+// householdNetIncomes()/payorNetClaimsCtc()/custodialNetNoCtc() and
+// docs/2026-09-08-filing-status-and-credit-allocation.md. THE REVISED HEADLINE CONSEQUENCE, at the
+// worked example (Box 1, no child care, this calculator's kidsUnder13=0 convention): the recipient
+// household again holds slightly more than the payor keeps -- $90,631 vs $90,447 (not the v10
+// entry's $85,168 vs $92,453). At the site's real fact pattern (two of three children under 13,
+// used elsewhere on this site) the corrected figures are $91,512 vs $90,447. Every dollar figure
+// and sanity-guard constant below reflects this correction; see calculator.test.js for the pinned
+// values.
+//
+// v11 (2026-09-08) adds the CREDITS-OFF SWITCH (data-calc-radio="credits", values "1"/"0",
+// default "1" -- matches every figure this site has published, so the switch changes no number
+// on load). "Count them" (default) is unchanged. "Leave them out" removes every federal and
+// Massachusetts refundable tax credit from payor_after/recip_after/recip_per_person/true_pct_net:
+// both parties' net income comes from net_position.js's netIncomeWithholdingBasis() alone, and
+// custody box / who-claims-which-child stop mattering, because credits are the only place either
+// fact enters this calculator's tax math. This lets a reader who does not accept the
+// who-claims-which-child assumption behind Box 1's alternating-year averaging -- an economist,
+// most pointedly -- validate the arithmetic without accepting it. See
+// assets/js/lib/net-position.js's analyze()/householdNetIncomes() and model/net_position.py's
+// matching docstring. Sanity-gated by creditsOffSanityPasses() (folded into the main guard, since
+// this switch reaches the main readout, not a fallback control): worked example, no child care,
+// credits off -> payor $87,172, recipient household $77,396 (the "no credits to either" row
+// model/test_net_position.py pins).
+//
+// v10 (2026-09-08) fixes both N.analyze() call sites (the main readout's computeWithFacts and the
+// Child care tab's computeChildcareDistribution) to pass the selected custody box (facts.box)
+// through to net-position.js's analyze(). Before this, analyze() always used its default (box=2,
+// "recipient claims every child and files head of household"), even when Box 1 (equal parenting
+// time) was selected -- so payor_after/recip_after/recip_per_person and the analytical net_share
+// were computed under the wrong custody assumption for every Box 1 scenario, which is most of what
+// this calculator is built to show. See assets/js/lib/net-position.js's own 2026-09-08 note and
+// model/net_position.py's docstring. THE HEADLINE CONSEQUENCE, at the worked example (Box 1, no
+// child care): the recipient household no longer holds more than the payor keeps -- $92,453 vs
+// $85,168, not the reverse. The order (order_wk, line_7e, Line-3a-based figures like the "on
+// income after the order" fallback) is unaffected -- those come from worksheet.js, which has no
+// tax logic and was never wrong.
+//
+// v9 (2026-09-08) fixes a mismatch between this calculator and the letter's own Section 2 ask:
+// "On money after tax" (computeNetRuleOrder) used to leave the support order at the no-child-care
+// figure and describe the higher earner's share as a private side payment. The letter's redline is
+// a Worksheet LINE (new Line 6b-1) inside the chain 6b -> 6c -> 6e -> 6g -> 7b -> 7d, so adopting it
+// changes the order itself -- an amount inside a court order carries contempt, wage assignment and
+// state collection; a side payment carries none of that. Two changes fix it:
+//   1. THE SHARE is now `net_withholding_share` (computeChildcareDistribution), the post-transfer
+//      share on net_position.net_income_withholding_basis -- tax and FICA only, single filer, no
+//      exemptions, NO refundable credits. Ported from model/childcare_post_transfer.py's rule5, the
+//      figure Section 2 asks for as of v4.9. `net_share` (credits included) is unchanged and still
+//      shown as the analytical figure in the distribution callout; it is not what a Worksheet line
+//      can compute, because CJ-D 304 collects neither filing status nor who claims which child.
+//   2. THE ORDER moves: net_rule_order_wk = base_order_wk + net_rule_share * totalChildcare, the
+//      same linear step the "on income after the order" fallback already uses, because both are
+//      now Worksheet-line redlines, not a private payment.
+//
 // v7 (2026-09-07, afternoon) adds a SECOND child-care allocation rule and cleans up the on/off
 // control, both from owner feedback on v6:
 //   1. THREE-WAY RULE SELECTOR replaces the single "apply the proposed fix" checkbox
 //      (data-calc-radio="ccRule", values worksheet/nettax/linebased):
 //        - "As the Worksheet does it" (default): today's Line 6b, unchanged.
-//        - "On money after tax" (computeNetRuleOrder): what this project recommends. Ported from
-//          childcare_post_transfer.py's rule3/4 -- algebraically the payor_after_share at the
-//          NO-CHILD-CARE order (the annual_childcare terms cancel out of both the numerator and
-//          the denominator at the fixed point, so rule3 and rule4 are always the same number; see
-//          that script's own docstring). This rule does NOT change the support order -- the higher
-//          earner pays their share of child care directly, the same way rule 3/4 does in Python.
+//        - "On money after tax" (computeNetRuleOrder): what this project recommends, as of v9 a
+//          Worksheet-line redline like the fallback below, not a side payment -- see the v9 note
+//          above.
 //        - "On income after the order" (computeFixedRuleOrder, unchanged arithmetic): the former
 //          sole toggle, now labelled a fallback for when post-tax figures cannot be computed.
 //      All three share one explanatory line (data-calc-cell="cc_rule_note") that states what the
@@ -63,7 +119,7 @@
 //      everywhere else in this section -- because the task was to reproduce childcare_post_transfer.py's
 //      87.7/64.3/48.2 at that worked example, and that script uses kidsUnder13=2. Every OTHER figure in
 //      this section keeps the site-wide zero convention; only this one readout differs, and it says so.
-//   2. A TOGGLE (computeFixedRuleOrder), "the comments' Line 6b-1": recomputes the child-care order by
+//   2. A TOGGLE (computeFixedRuleOrder), "the comments' Line 6b-2 fallback": recomputes the child-care order by
 //      running the worksheet ONCE with no child care to get the base order and the Payor/Recipient
 //      designation Line 6f would give in that pass (avoids the circularity a 2026-09-05 review caught --
 //      see childcare_post_transfer.py's own header), then allocates the combined child-care dollars on
@@ -110,6 +166,7 @@
 // <div class="tool tool-two-up" data-calculator>
 //   <input data-calc-input="higher"> <input data-calc-input="lower">   (income sliders, shared)
 //   <input data-calc-radio="kids">   <input data-calc-radio="box">     (shared)
+//   <input data-calc-radio="credits" value="1|0">                     (shared, default "1")
 //   <input data-calc-input="healthHigh"> <input data-calc-input="healthLow">  (number inputs, shared)
 //   <span data-calc-badge="household">  <span data-calc-badge="hardship">    (status strip, shared)
 //   <div data-calc-panel="main">    ... data-calc-cell="order_wk" / "line_7e" / "true_pct_net" ...
@@ -172,8 +229,13 @@
   }
 
   // The single computation this whole tool is built on. `facts` = { kids, box, healthLow,
-  // healthHigh, ccLower, ccHigher }. ccLower/ccHigher are the two child-care sliders' combined
-  // weekly totals (Parent A = lower earner, Parent B = higher earner, always -- see header).
+  // healthHigh, ccLower, ccHigher, credits }. ccLower/ccHigher are the two child-care sliders'
+  // combined weekly totals (Parent A = lower earner, Parent B = higher earner, always -- see
+  // header). `credits` (added 2026-09-08, defaults to true if omitted) is the credits-off switch:
+  // false removes every refundable tax credit from payor_after/recip_after/recip_per_person/
+  // true_pct_net, so a reader who does not accept the who-claims-which-child assumption behind
+  // those credits -- an economist, most pointedly -- can check the arithmetic without it. See
+  // assets/js/lib/net-position.js's analyze() and model/net_position.py's own docstring.
   // Exported on window for calculator.test.js and a manual console spot-check.
   function computeWithFacts(higherAnnual, lowerAnnual, facts) {
     var lowerWk = lowerAnnual / 52.0;
@@ -192,9 +254,15 @@
     var payorChildcareShare = weeklyChildcare > 0 ? payorOwnCc / weeklyChildcare : 0.0;
 
     // kids_under_13 fixed at 0 -- the generic-grid convention used across this site (no control
-    // for how many children are under 13); see CONVENTIONS.md SS11.
+    // for how many children are under 13); see CONVENTIONS.md SS11. box=facts.box (v10, 2026-09-08):
+    // who claims the children for tax purposes now follows the custody box the reader selected,
+    // instead of always defaulting to "recipient claims everyone" -- see the v10 header note.
+    // credits (v11, 2026-09-08; DEFAULT FLIPPED TO FALSE 2026-09-09, Task 3): the credits-off
+    // switch, defaults to false when facts.credits is undefined, matching net_position.py's
+    // analyze() -- the published withholding basis.
+    var countCredits = facts.credits === undefined ? false : facts.credits;
     var pos = N.analyze(payorGross, recipGross, facts.kids, r['7d'], weeklyChildcare,
-      payorChildcareShare, undefined, 0);
+      payorChildcareShare, undefined, 0, facts.box, countCredits);
 
     // Line A_6b: the higher earner's (B's) income-share x the lower earner's (A's) own
     // benchmarked child care -- literally "the higher earner's share of the lower earner's child
@@ -222,8 +290,8 @@
 
   // CHANGE 1 -- the Child care section's distribution readout. Port of
   // model/childcare_post_transfer.py's rule1_share (Line 3c) / rule2_gross_share / rule3_share, at
-  // the NO-CHILD-CARE order -- Chris: "have the base support calculated first and then figure out
-  // what the net percentage mix is." Independent of facts.ccLower/facts.ccHigher; only
+  // the NO-CHILD-CARE order -- the author's direction: "have the base support calculated first and
+  // then figure out what the net percentage mix is." Independent of facts.ccLower/facts.ccHigher; only
   // kids/box/healthLow/healthHigh matter. "Higher earner" is Parent B always (see header comment);
   // every fixture row this site has ever computed names B the payor, so this does not special-case
   // a flip. net_share uses kidsUnder13 = 0 (the same convention as every other figure in this
@@ -237,29 +305,52 @@
     var baseOrderWk = r0['7d'];
     var combinedGross = higherAnnual + lowerAnnual;
     var grossShare = combinedGross ? (higherAnnual - baseOrderWk * 52) / combinedGross : 0.0;
-    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0);
+    // box=facts.box (v10): see the v10 header note -- who claims the children now follows the
+    // selected custody box for this analytical figure too. credits: FIXED TRUE (2026-09-09,
+    // Task 3), no longer tracking facts.credits -- net_share is the credits-included ANALYSIS
+    // figure (matches childcare_post_transfer.py's rule 3, the fixture generator's
+    // distribution(), and calculator.test.js's own computeDistribution()), not the
+    // withholding-basis ask. It is not currently bound to any visible cell (cc_dist_net shows
+    // net_withholding_share, which never counts credits) -- kept correct here regardless.
+    var pos = N.analyze(higherAnnual, lowerAnnual, facts.kids, baseOrderWk, 0.0, 0.0, undefined, 0, facts.box, true);
+    // v9: the withholding-basis post-transfer share -- tax and FICA only, single filer, no
+    // exemptions, no refundable credits. This is what Section 2 of the comments asks for as of
+    // v4.9, because CJ-D 304 collects neither filing status nor who claims which child; net_share
+    // above (credits included) stays as the analytical figure shown in the distribution callout.
+    var pw = N.netIncomeWithholdingBasis(higherAnnual);
+    var rw = N.netIncomeWithholdingBasis(lowerAnnual);
+    var aw = pw - baseOrderWk * 52, bw = rw + baseOrderWk * 52;
+    var netWithholdingShare = (aw + bw) ? aw / (aw + bw) : 0.0;
     return {
       base_order_wk: baseOrderWk,
       share3c: r0.B_3c,
       gross_share: grossShare,
-      net_share: pos.payor_after_share
+      net_share: pos.payor_after_share,
+      net_withholding_share: netWithholdingShare
     };
   }
 
-  // CHANGE 3 (v7) -- "on money after tax", the rule this project recommends. The higher earner's
-  // share of the combined child care is computeChildcareDistribution's own net_share (see the
-  // comment above for why that is also childcare_post_transfer.py's rule3/rule4 fixed point). This
-  // rule does not touch the support order -- it stays at the no-child-care base order -- and instead
-  // states what the higher earner would pay directly, the same decomposition
-  // childcare_post_transfer.py's rule3/4 print.
+  // CHANGE 3 (v7, mechanism fixed v9) -- "on money after tax", the rule this project recommends.
+  // The higher earner's share is computeChildcareDistribution's own net_withholding_share (v9: the
+  // withholding basis, no refundable credits -- childcare_post_transfer.py's rule5, the figure
+  // Section 2 of the comments asks for as of v4.9). The order MOVES: base_order_wk plus that share
+  // of the combined child care, because the letter's Line 6b-1 redline sits inside the Worksheet's
+  // own 6b -> 6c -> 6e -> 6g -> 7b -> 7d chain, the same linear step the "on income after the
+  // order" fallback below already uses. (Superseded description: v7-v8 kept the order at the
+  // no-child-care base and described this as a private side payment -- that modelled a different
+  // remedy from the one the letter proposes and was fixed 2026-09-08.)
   function computeNetRuleOrder(higherAnnual, lowerAnnual, facts) {
     var dist = computeChildcareDistribution(higherAnnual, lowerAnnual, facts);
     var totalChildcare = (facts.ccLower || 0) + (facts.ccHigher || 0);
+    // v9: the share is the WITHHOLDING-basis post-transfer net share, and the child care
+    // it allocates moves through the ORDER, because the letter's Line 6b-1 feeds
+    // 6b -> 6c -> 6e -> 6g -> 7b -> 7d. Same linear step the gross fallback (linebased) uses.
+    var share = dist.net_withholding_share;
     return {
       base_order_wk: dist.base_order_wk,
-      net_rule_share: dist.net_share,
-      net_rule_order_wk: dist.base_order_wk,
-      net_rule_charge_wk: dist.net_share * totalChildcare
+      net_rule_share: share,
+      net_rule_order_wk: dist.base_order_wk + share * totalChildcare,
+      net_rule_charge_wk: share * totalChildcare
     };
   }
 
@@ -267,8 +358,9 @@
   // run the worksheet with NO child care to get the base order and the Payor/Recipient designation
   // Line 6f would give in that pass, then allocate the COMBINED weekly child care on that payor's
   // post-transfer Line 3a share (Line 3a moved by the base order, over Line 3b) instead of the
-  // pre-order Line 3c share Line 6b uses today. This is the letter's Section 2 redline, new
-  // Worksheet Line 6b-1. Uses r0.payor generically (not a hardcoded "B") to match the Python's own
+  // pre-order Line 3c share Line 6b uses today. This is the letter's Section 2 gross fallback, new
+  // Worksheet Line 6b-2 (the primary ask is the withholding-basis Line 6b-1, computed elsewhere in
+  // this file). Uses r0.payor generically (not a hardcoded "B") to match the Python's own
   // "whichever parent Line 6f names payor in that pass" -- see the file's header comment on why a
   // literal Payor/Recipient label from an EARLIER pass, not the current one, avoids a circularity a
   // 2026-09-05 review caught.
@@ -295,18 +387,45 @@
   var SANITY_CC = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 300, ccHigher: 0 };
 
   // The Change-1 readout's own sanity target: $33/$43 premiums, kids=3, box=1, worked-example
-  // incomes, no child care -- reproduces net_position.py's own 87.7% / 64.3% / 48.4% at
+  // incomes, no child care -- reproduces net_position.py's own 87.7% / 64.3% / 49.9% at
   // kidsUnder13=0 (rule1_share / rule2_gross_share / rule3_share, the same convention as the rest
-  // of this calculator; see v7 header comment). If this fails it is as serious as the order itself
-  // being wrong, so it is folded into the main guard below, not the rule-selector-only one.
+  // of this calculator; see v7 header comment). net_share went 48.4% (pre-box-fix) -> 52.1% (the
+  // FIRST, superseded Box 1 fix, which swapped filing status/EITC along with the CTC) -> 49.9%
+  // (v12, 2026-09-08 same day, ported from private commit 723a7bf: only the CTC/dependency claim
+  // alternates by year; head of household and the EITC stay with the physical-custodian recipient
+  // in both years -- see net-position.js's householdNetIncomes()). If this fails it is as serious
+  // as the order itself being wrong, so it is folded into the main guard below, not the
+  // rule-selector-only one.
   function distributionSanityPasses() {
     try {
       var d = computeChildcareDistribution(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC);
       return Math.round(d.share3c * 1000) === 877 &&
              Math.round(d.gross_share * 100) === 64 &&
-             Math.round(d.net_share * 1000) === 484;
+             Math.round(d.net_share * 1000) === 499;
     } catch (e) {
       if (window.console) console.error('calculator.js: distribution sanity check threw', e);
+      return false;
+    }
+  }
+
+  // The credits-off switch's own sanity target: worked example, no child care, credits off ->
+  // both parties' net income is net_position.py's net_income_withholding_basis() alone, payor
+  // keeps $87,172, recipient household holds $77,395. FIXED 2026-09-08 (found during v12 browser
+  // verification, unrelated to the box fix -- credits-off mode ignores box entirely): this used to
+  // say $77,396, model/test_net_position.py's pinned figure for a FIXED, rounded-to-cents order of
+  // $1,012.73/wk. computeWithFacts() here instead feeds the LIVE, unrounded worksheet order
+  // ($1,012.7257303613252/wk), which is correct -- the calculator never rounds the order before
+  // using it in a downstream computation, only for display -- but it lands at $77,395.48, which
+  // rounds to $77,395, not $77,396. Verified against Python at the identical unrounded order. If
+  // this fails the switch is wrong, which is as serious as the order itself being wrong, so it is
+  // folded into the main guard.
+  var SANITY_NO_CC_NOCREDITS = { kids: 3, box: 1, healthLow: 33.0, healthHigh: 43.0, ccLower: 0, ccHigher: 0, credits: false };
+  function creditsOffSanityPasses() {
+    try {
+      var r = computeWithFacts(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC_NOCREDITS);
+      return Math.round(r.payor_after) === 87172 && Math.round(r.recip_after) === 77395;
+    } catch (e) {
+      if (window.console) console.error('calculator.js: credits-off sanity check threw', e);
       return false;
     }
   }
@@ -316,7 +435,7 @@
       var noCc = computeWithFacts(SANITY_HIGHER, SANITY_LOWER, SANITY_NO_CC);
       var withCc = computeWithFacts(SANITY_HIGHER, SANITY_LOWER, SANITY_CC);
       return Math.round(noCc.order_wk) === 1013 && Math.round(withCc.order_wk) === 1276 &&
-             distributionSanityPasses();
+             distributionSanityPasses() && creditsOffSanityPasses();
     } catch (e) {
       if (window.console) console.error('calculator.js: sanity check threw', e);
       return false;
@@ -339,12 +458,12 @@
   }
 
   // The "on money after tax" rule's OWN gate, mirroring the one above: worked example, $300
-  // lower-earner child care, this rule keeps the order at the no-child-care base ($1,013/wk) and
-  // charges the higher earner net_share of it directly -- 48.4% (Math.round(share*1000)===484).
+  // lower-earner child care, withholding-basis share 53.0%, order $1,172/wk (rounds from
+  // model/childcare_post_transfer.py's rule5_7d, $1,171.64).
   function netRuleSanityPasses() {
     try {
       var n = computeNetRuleOrder(SANITY_HIGHER, SANITY_LOWER, SANITY_CC);
-      return Math.round(n.net_rule_order_wk) === 1013 && Math.round(n.net_rule_share * 1000) === 484;
+      return Math.round(n.net_rule_order_wk) === 1172 && Math.round(n.net_rule_share * 1000) === 530;
     } catch (e) {
       if (window.console) console.error('calculator.js: net-rule sanity check threw', e);
       return false;
@@ -432,6 +551,7 @@
     function currentFacts() {
       var ccOnRadio = document.querySelector('[data-calc-radio="ccOn"]:checked');
       var ccRuleRadio = document.querySelector('[data-calc-radio="ccRule"]:checked');
+      var creditsRadio = document.querySelector('[data-calc-radio="credits"]:checked');
       return {
         kids: Number(document.querySelector('[data-calc-radio="kids"]:checked').value),
         box: Number(document.querySelector('[data-calc-radio="box"]:checked').value),
@@ -440,7 +560,11 @@
         ccOn: ccOnRadio ? ccOnRadio.value === '1' : false,
         ccLower: inputs.ccLower ? Number(inputs.ccLower.value) || 0 : 0,
         ccHigher: inputs.ccHigher ? Number(inputs.ccHigher.value) || 0 : 0,
-        ccRule: ccRuleRadio ? ccRuleRadio.value : 'worksheet'
+        ccRule: ccRuleRadio ? ccRuleRadio.value : 'worksheet',
+        // The credits-off switch (added 2026-09-08; DEFAULT FLIPPED TO FALSE 2026-09-09, Task 3).
+        // Defaults to false (leave them out, the withholding basis) if the control is missing
+        // from the markup, matching every figure this site now publishes.
+        credits: creditsRadio ? creditsRadio.value === '1' : false
       };
     }
 
@@ -474,7 +598,7 @@
       renderIncomeOutputs(higher, lower);
 
       var facts = currentFacts();
-      var noCcFacts = { kids: facts.kids, box: facts.box, healthHigh: facts.healthHigh, healthLow: facts.healthLow, ccLower: 0, ccHigher: 0 };
+      var noCcFacts = { kids: facts.kids, box: facts.box, healthHigh: facts.healthHigh, healthLow: facts.healthLow, ccLower: 0, ccHigher: 0, credits: facts.credits };
       var baseResult = computeWithFacts(higher, lower, noCcFacts);
       var ccResult = computeWithFacts(higher, lower, facts);
       // The single set of numbers the main readout shows: the no-child-care result when the
@@ -487,7 +611,12 @@
       var dist = computeChildcareDistribution(higher, lower, noCcFacts);
       if (cells.cc_dist_share3c) cells.cc_dist_share3c.textContent = pct1(dist.share3c);
       if (cells.cc_dist_gross) cells.cc_dist_gross.textContent = pct0(dist.gross_share);
-      if (cells.cc_dist_net) cells.cc_dist_net.textContent = pct0(dist.net_share);
+      // Bound to the WITHHOLDING-basis share (the "on money after tax" rule below, and the
+      // figure Section 2 of the comments asks for), not dist.net_share (credits-inclusive,
+      // 52% at the worked example as of the same-day box fix; was 48%) -- the two were shown
+      // side by side until 2026-09-08 with nothing to say they used different tax bases, while
+      // the "What this project asks for" tag pointed at this cell.
+      if (cells.cc_dist_net) cells.cc_dist_net.textContent = pct0(dist.net_withholding_share);
 
       if (inputs.ccLower) {
         var ccLowOut = outputFor(inputs.ccLower);
@@ -551,8 +680,8 @@
         if (ccRuleRadios.worksheet) ccRuleRadios.worksheet.checked = true;
       }
       var unavailableRules = [];
-      if (!netOk) unavailableRules.push('on money after tax');
-      if (!fixOk) unavailableRules.push('on income after the order');
+      if (!netOk) unavailableRules.push('on take-home pay, after the order');
+      if (!fixOk) unavailableRules.push('on gross income, after the order');
       setNote('cc_rule', unavailableRules.length ? ('Unavailable: ' + unavailableRules.join(', ') + '.') : '');
 
       var totalChildcareWk = facts.ccLower + facts.ccHigher;
@@ -562,18 +691,17 @@
       var linebasedChargeWk = fixResult.fixed_rule_share * totalChildcareWk;
       var ruleNote = '';
       if (selectedRule === 'nettax') {
-        ruleNote = 'On money after tax, the higher earner would pay ' + pct1(netResult.net_rule_share) +
-          ' (' + money(netResult.net_rule_charge_wk * 52) + ') of the child care directly. The support ' +
-          'order stays at ' + moneyWk(netResult.net_rule_order_wk) + '; the Worksheet’s own figure is ' +
-          moneyWk(ccResult.order_wk) + '.';
+        ruleNote = 'On take-home pay, after the order, the higher earner would carry ' + pct1(netResult.net_rule_share) +
+          ' (' + money(netResult.net_rule_charge_wk * 52) + ') of the child care, and the order would be ' +
+          moneyWk(netResult.net_rule_order_wk) + ' instead of the Worksheet’s ' + moneyWk(ccResult.order_wk) + '.';
       } else if (selectedRule === 'linebased') {
-        ruleNote = 'On income after the order, the higher earner would be charged ' + pct1(fixResult.fixed_rule_share) +
+        ruleNote = 'On gross income, after the order, the higher earner would be charged ' + pct1(fixResult.fixed_rule_share) +
           ' (' + money(linebasedChargeWk * 52) + ') of the child care through the order. Resulting order ' +
           moneyWk(fixResult.fixed_rule_order_wk) + ', the Worksheet gives ' + moneyWk(ccResult.order_wk) + '.';
       } else {
         ruleNote = 'The Worksheet charges the higher earner ' + pct1(dist.share3c) +
           ' (' + money(worksheetChargeWk * 52) + ') of the child care, while he holds ' + pct0(dist.gross_share) +
-          ' of the money after the order on paper and ' + pct0(dist.net_share) + ' of it after tax.';
+          ' of the money after the order on paper and ' + pct0(dist.net_withholding_share) + ' of it after tax.';
       }
       if (cells.cc_rule_note) cells.cc_rule_note.textContent = ruleNote;
 

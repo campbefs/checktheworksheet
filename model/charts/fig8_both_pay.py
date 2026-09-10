@@ -13,17 +13,26 @@ theme.apply("light"); P = theme.P
 
 
 def scenarios():
-    pn = npos.net_income(sf.PAYOR_GROSS, "single", 0, npos.TAX_PARAMS)
-    rn = npos.net_income(sf.RECIP_GROSS, "hoh", sf.KIDS, npos.TAX_PARAMS, kids_under_13=sf.KIDS_UNDER_13)
+    # CORRECTED 2026-09-08: routed through npos.analyze(box=1), same fix as
+    # submission_figures.py section 2.1 -- this used to call net_income() directly with
+    # the recipient hardcoded as "hoh" claiming all three children regardless of custody,
+    # which is the recipient-claims-all default analyze() no longer uses for Box 1.
     kk = dict(a_gross=sf.RECIP_WEEKLY, b_gross=sf.PAYOR_GROSS / 52.0, children_under18=sf.KIDS, a_health=33.0, b_health=43.0)
     spec = [("Neither pays\nchild care", (0, 0, 0), (0, 0, 0)),
             ("Only the recipient\npays $300/wk", (100, 100, 100), (0, 0, 0)),
             ("Both pay\n$300/wk", (100, 100, 100), (100, 100, 100))]
     out_ = []
+    pn = rn = None
     for label, a, b in spec:
         r = w.run(box=1, a_childcare=a, b_childcare=b, **kk)
-        order, his_cc, her_cc = r["7d"] * 52, sum(b) * 52, sum(a) * 52
-        out_.append(dict(label=label, order_wk=r["7d"], e7=r["7e"], him=pn - order - his_cc, her=rn + order - her_cc,
+        order_wk, his_cc_wk, her_cc_wk = r["7d"], sum(b), sum(a)
+        total_cc_wk = his_cc_wk + her_cc_wk
+        share = his_cc_wk / total_cc_wk if total_cc_wk else 0.0
+        p = npos.analyze(sf.PAYOR_GROSS, sf.RECIP_GROSS, sf.KIDS, order_wk, total_cc_wk, share,
+                          kids_under_13=sf.KIDS_UNDER_13, box=1)
+        pn, rn = p["payor_net"], p["recip_net"]
+        order, his_cc, her_cc = order_wk * 52, his_cc_wk * 52, her_cc_wk * 52
+        out_.append(dict(label=label, order_wk=r["7d"], e7=r["7e"], him=p["payor_after"], her=p["recip_after"],
                          his_cc=his_cc, her_cc=her_cc, burden_net=(order + his_cc) / pn))
     return out_, pn, rn
 

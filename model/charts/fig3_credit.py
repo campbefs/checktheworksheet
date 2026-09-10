@@ -38,8 +38,8 @@ def main():
     ax.plot(x, [r[9] for r in rows], color=P["series"][2], lw=2.2, label="Duplication factor 1.5 (as in Variant B)")
     ax.plot(x, [r[10] for r in rows], color=P["series"][1], lw=2.2, label="Duplication factor 2.0")
     ax.axhline(0.5, color=P["axis"], lw=1, ls="--"); ax.text(0.51, 0.51, "actual: 50% of overnights", fontsize=8.5, color=P["text_2"])
-    ax.set_title("(b) Overnight share the order implies", loc="left", fontsize=10.5)
-    ax.set_ylim(0, 0.6); ax.set_ylabel("Implied payor overnight share")
+    ax.set_title("(b) Overnight share a cross-credit would need to match the order", loc="left", fontsize=10.5)
+    ax.set_ylim(0, 0.6); ax.set_ylabel("Overnight share under a cross-credit")
     for ax in axs:
         ax.set_xlim(0.5, 1.0)
         ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
@@ -47,8 +47,8 @@ def main():
         ax.set_xlabel("Payor's share of combined available income")
         ax.axvline(0.877, color=P["text_mute"], lw=0.8); ax.text(0.879, ax.get_ylim()[1] * 0.93, "worked\nexample", fontsize=8, color=P["text_mute"])
         ax.legend(loc="upper left", bbox_to_anchor=(0, -0.16), ncols=3, frameon=False, fontsize=9)
-    fig.subplots_adjust(top=top_header(fig, "The equal-time credit collapses with the income gap; a cross-credit only narrows",
-        "Reduction in the order for equal time vs the one-third-time order, and the overnight share it implies.",
+    fig.subplots_adjust(top=top_header(fig, "The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing",
+        "Reduction in the order for equal time against the Box 2 order, and the overnight share a cross-credit would need to match it.",
         facts("1v2", 3, "None (base support)", f"\\${HI:,.0f} / varies")))
     bottom_footer(fig, "Implied share blank below the Line 5c floor; sensitive to the factor. Variants: box1_fix.py. " + NOTE_CONV, SOURCE_SRC)
     fig.savefig(out("fig3_credit_collapse.png"), dpi=170); fig.savefig(out("fig3_credit_collapse.svg")); plt.close(fig)

@@ -18,7 +18,7 @@ disclosure:
     <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked by
     <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a> against the
     form's own calculation scripts, with
-    <a href="/model/runs/submission-figures-run-2026-09-05.txt">the printed run</a> behind the
+    <a href="/model/runs/submission-figures-run-2026-09-09.txt">the printed run</a> behind the
     table below.
 rail_label: "On this page"
 sections:
@@ -83,7 +83,7 @@ about spendable income with a figure that has no tax adjustment at all.
    alt="Line chart of Line 7e's reported percentage versus the true share of the payor's net income, against child care claimed from $0 to $600 a week, at the worked example."
    title="The hardship valve fires late because it reads the wrong income."
    deck="At the worked example, Line 7e divides the order by gross-derived available income while the order is paid from net income."
-   notes="As child care claimed by the recipient rises, the true burden passes 40 percent of net at $80 a week of child care; Line 7e reports 40 percent at $590 a week, by which point the true burden is 57 percent. Nothing on the form flags the gap."
+   notes="As child care claimed by the recipient rises, the true burden passes 40 percent of net at $80 a week of child care; Line 7e reports 40 percent at $589 a week, by which point the true burden is 56.9 percent. Nothing on the form flags the gap."
    source_script="model/charts/fig6_valve.py"
    csv_href="/figures/working/fig6_valve_units_lag.csv"
    lazy="false" %}
@@ -92,9 +92,9 @@ about spendable income with a figure that has no tax adjustment at all.
    id="e04"
    img="/figures/exhibits/E04-order-as-share-of-payor-net-3-children.png"
    alt="Heatmap of the support order as a share of the payor's net income across a grid of higher-earner and lower-earner gross incomes, three children, Box 1, with a 40 percent contour line."
-   title="The order exceeds 40 percent of the payor's net income only where the lower earner makes about $25,000 or less."
+   title="The order exceeds 40 percent of the payor's net income only where the lower earner makes about $20,000 or less."
    deck="Order as a share of the payor's net income, three children, Box 1, across a grid of both incomes."
-   notes="The 40 percent contour, computed on net income, sits at a lower-earner income of about $25,000, up to roughly $235,000 of higher-earner income; above that the order never reaches 40 percent of net on the grid. Section IV.C's hardship presumption targets this region; E05 shows what the Worksheet reports there."
+   notes="The 40 percent contour, computed on net income, sits at a lower-earner income of about $20,000, up to roughly $205,000 of higher-earner income; above that the order never reaches 40 percent of net on the grid. Section IV.C's hardship presumption targets this region; E05 shows what the Worksheet reports there."
    source_script="model/charts/fig1_heatmaps.py"
    csv_href="/figures/working/fig1_heatmap_3child_box1.csv" %}
 
@@ -118,9 +118,9 @@ payor's true share of net income at each point.
 | $1,290/wk (ceiling) | $2,144/wk | $111,479/yr | 56.1% | 79.7% |
 
 Line 7e does not reach 40 percent until $589 a week of claimed child care, 46 percent of the $1,290
-statutory ceiling for three children, by which point the payor's true burden is 56.9 percent of his
+statutory ceiling for three children, by which point the payor's true burden is 54.6 percent of his
 net income. That 17-point lag narrows as claimed child care falls, to about 12 points at $100 a
-week. (Source: `model/runs/submission-figures-run-2026-09-05.txt`, printed by
+week. (Source: `model/runs/submission-figures-run-2026-09-09.txt`, printed by
 `model/submission_figures.py`.)
 
 </details>
@@ -138,8 +138,8 @@ how often actual claims sit near that benchmark isn't known from anything in thi
 
 <p class="caveat">Per person, the payor remains ahead. Across the full grid behind the heatmap
 above, the payor holds more per person than the recipient's household in 99 percent of the 1,147
-modelled cells, even in the 55 percent of cells where the recipient's household holds more in
-total.</p>
+modelled cells, and holds more per household too in 90 percent of them. The recipient's household
+still holds more in total in the remaining 10 percent.</p>
 
 </section>
 
@@ -156,7 +156,7 @@ chart.</p>
   <li><strong><a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a></strong>
     Pins Line 7e's behavior as child care rises, including that it does not fire at $300/week
     ("7e ≈ 33.4%") and that it rises monotonically with claimed child care.</li>
-  <li><strong><a href="/model/runs/submission-figures-run-2026-09-05.txt">The printed run</a></strong>
+  <li><strong><a href="/model/runs/submission-figures-run-2026-09-09.txt">The printed run</a></strong>
     The output behind the table above.</li>
   <li><strong><a href="/figures/working/fig6_valve_units_lag.csv">fig6_valve_units_lag.csv</a></strong>
     The 130-row data file behind the line chart.</li>

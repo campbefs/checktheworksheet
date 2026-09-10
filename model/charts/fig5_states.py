@@ -27,7 +27,7 @@ TILES = {"AK": (0, 0), "ME": (0, 10), "VT": (1, 9), "NH": (1, 10),
 assert len(TILES) == 51 and set(TILES) == set(ABBR.values())
 
 
-def strip(rows, key, title, name, custody, xmax=None, subtitle="Monthly order at one fact pattern. Georgia held out."):
+def strip(rows, key, title, name, custody, xmax=None, subtitle="Monthly order at one fact pattern. Georgia held out.", notes_extra=""):
     rows = sorted(rows, key=lambda r: r[key])
     fig, ax = theme.figure(9, 10)
     fig.subplots_adjust(bottom=0.05, top=0.90)
@@ -45,7 +45,7 @@ def strip(rows, key, title, name, custody, xmax=None, subtitle="Monthly order at
                  comma=False,
                  pairs=facts(custody, 3, "None (base support)", "\\$201,000 / \\$29,640"),
                  notes="Each row profiled from primary sources, computed twice blind, reconciled, attacked. Own premiums "
-                       "(\\$43/\\$33) as each state treats them. One fact pattern only.",
+                       "(\\$43/\\$33) as each state treats them. One fact pattern only." + notes_extra,
                  source="data/fifty-state/tier-50-2026-09-05.json")
     theme.save(fig, out(name))
 
@@ -56,9 +56,9 @@ def main():
     # Shared with fig10_ma_shared_vs_primary.py (E17): same formula, so the lead pair E12/E17
     # renders at an identical x-axis range. Do not change one without the other.
     pair_xmax = max(max(r["s2"] for r in tier), ma["s1"]) * 1.08
-    strip(tier, "s1", "Equal parenting time: Massachusetts orders the most of fifty jurisdictions", "fig5a_states_S1.png", 1)
-    strip(tier, "s2", "Lower earner primary: only Hawaii's Melson formula orders more than Massachusetts", "fig5b_states_S2.png", 2, xmax=pair_xmax,
-          subtitle="First of a pair with E17: same states, same axis, same colours. Monthly order at one fact pattern. Georgia held out.")
+    strip(tier, "s1", "At equal parenting time, Massachusetts orders the most of the fifty states", "fig5a_states_S1.png", 1)
+    strip(tier, "s2", "With the lower earner primary, only Hawaii orders more than Massachusetts", "fig5b_states_S2.png", 2, xmax=pair_xmax,
+          notes_extra=" Same states, axis, and colors as E17, so the two read as a pair.")
     write_csv("fig5_states.csv", ["state", "s1", "s2"], [(r["state"], r["s1"], r["s2"]) for r in tier])
 
     cr = json.load(open(os.path.join(D, "credit-at-122-2026-09-05.json")))
@@ -72,11 +72,12 @@ def main():
                 color=P["surface"] if yes else P["text"])
     ax.set_xlim(-0.2, 11.2); ax.set_ylim(-7.3, 1.2); ax.set_aspect("equal"); ax.axis("off")
     t = cr["tally"]
-    theme.finish(ax, title=f"A parent with the children a third of the time gets a formula credit in {t['Y']} jurisdictions and none in {t['N']}",
+    theme.finish(ax, title=f"In Massachusetts and {t['N'] - 1} other states, a parent with the children one night in three pays the same as a parent with no overnights",
                  subtitle="Blue: a formula credit at 122 overnights a year. Grey: none.",
                  pairs=[("Counted", "Any formula credit at 122 overnights"), ("Children", "3"),
                         ("Child care", "None"), ("Incomes", "\\$201,000 / \\$29,640")],
-                 notes="A count, not a dollar amount. Massachusetts's Box 2 is the one-third case.",
+                 notes="A count, not a dollar amount. Massachusetts's Box 2 already assumes a parent has the children "
+                       "about a third of the time, without a discrete credit for it.",
                  source="data/fifty-state/credit-at-122-2026-09-05.json")
     theme.save(fig, out("fig5c_credit_at_122_tilemap.png"))
     print("fig5 written")

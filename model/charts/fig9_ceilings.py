@@ -19,6 +19,7 @@ def main():
     others = [r for r in rows if r["category"] != "combined-ceiling" or not r["annual_ceiling"]]
     n_gross = sum(r["basis"] == "gross" for r in ranked)
     n_net = sum(r["basis"] == "net" for r in ranked)
+    n_other = len(ranked) - n_gross - n_net  # Vermont states neither; the parenthetical must sum
     fig, ax = theme.figure(9, 0.24 * len(ranked) + 1.5)
     fig.subplots_adjust(left=0.24, right=0.97, bottom=0.06, top=0.92)
     y = range(len(ranked))
@@ -44,7 +45,7 @@ def main():
     theme.finish(ax, title=f"Massachusetts's presumptive formula runs to \\$450,000; {len(above)} schedules run higher, {len(ranked) - len(above) - 1} stop lower",
                  subtitle="Combined income at which each state's presumptive schedule ends; above it, support is discretionary.",
                  comma=False, legend=False,
-                 pairs=[("Ranked", f"{len(ranked)} combined-income schedules ({n_gross} gross, {n_net} net)"),
+                 pairs=[("Ranked", f"{len(ranked)} combined-income schedules ({n_gross} gross, {n_net} net" + (f", {n_other} other)" if n_other else ")")),
                         ("Not ranked", f"{len(others)}: percentage-of-obligor, Melson or open formula"),
                         ("Basis", "Annual; monthly ×12, weekly ×52")],
                  notes=f"Median of the {len(ranked)}: \\${med:,.0f}; {at480} stop at exactly \\$40,000 a month. Net-income ceilings are not dollar-for-dollar "

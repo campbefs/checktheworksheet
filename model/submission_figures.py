@@ -59,9 +59,13 @@ def position(r, cc_total):
     7d by $263/wk. So `payor_childcare_share` is 0 here -- charging him 6b again
     on top of 7d double-counts it, which an earlier version of this script did.
     The recipient pays the provider and is reimbursed through the order, so the
-    full child care amount is subtracted from her side."""
+    full child care amount is subtracted from her side.
+
+    box=1: every call site in this module builds `r` from sheet(), which defaults
+    to Box 1 (this file's worked example is shared parenting throughout), so the
+    credits follow the alternating-year rule, not the recipient-claims-all default."""
     return npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, r["7d"], cc_total, 0.0,
-                        kids_under_13=KIDS_UNDER_13)
+                        kids_under_13=KIDS_UNDER_13, box=1)
 
 
 def solve_7e_40():
@@ -206,9 +210,14 @@ def main():
 
     print("== SECTION 2.1 -- BOTH parents pay child care under equal shared parenting ==")
     print("  The realistic 50-50 case: each parent needs care during their own parenting time.")
-    pn = npos.net_income(PAYOR_GROSS, "single", 0, npos.TAX_PARAMS)
-    rn = npos.net_income(RECIP_GROSS, "hoh", KIDS, npos.TAX_PARAMS,
-                         kids_under_13=KIDS_UNDER_13)
+    # CORRECTED 2026-09-08: this section used to compute each party's net income by
+    # calling net_income() directly with the recipient hardcoded as "hoh" claiming all
+    # three children -- the same recipient-claims-all default analyze() no longer uses
+    # for Box 1. Now routed through analyze(box=1) like every other call in this module,
+    # so the credits follow the alternating-year rule at equal parenting time. The two
+    # child-care streams (hers via a_childcare, his via b_childcare) are combined into
+    # one weekly total and one payor share, which reproduces the same payor_after /
+    # recip_after arithmetic analyze() already uses for the single-payer scenarios above.
     kk = dict(a_gross=RECIP_WEEKLY, b_gross=PAYOR_GROSS / 52.0, children_under18=KIDS,
               a_health=33.0, b_health=43.0)
     rows = [("neither pays child care", (0, 0, 0), (0, 0, 0)),
@@ -217,13 +226,18 @@ def main():
     out = {}
     for label, a, b in rows:
         r = w.run(box=1, a_childcare=a, b_childcare=b, **kk)
-        order, his_cc, her_cc = r["7d"] * 52, sum(b) * 52, sum(a) * 52
-        him, her = pn - order - his_cc, rn + order - her_cc
+        order_wk, his_cc_wk, her_cc_wk = r["7d"], sum(b), sum(a)
+        total_cc_wk = his_cc_wk + her_cc_wk
+        share = his_cc_wk / total_cc_wk if total_cc_wk else 0.0
+        p = npos.analyze(PAYOR_GROSS, RECIP_GROSS, KIDS, order_wk, total_cc_wk, share,
+                          kids_under_13=KIDS_UNDER_13, box=1)
+        order, his_cc, her_cc = order_wk * 52, his_cc_wk * 52, her_cc_wk * 52
+        him, her = p["payor_after"], p["recip_after"]
         out[label] = (order, his_cc, him, her)
         print(f"  {label:<34} order ${r['7d']:>6,.0f}/wk  7e {r['7e']:>5.1%}")
         print(f"  {'':<34} he keeps ${him:>9,.0f}   she holds ${her:>9,.0f}   "
               f"his share {him/(him+her):>5.1%}")
-        print(f"  {'':<34} order+his own care = {(order+his_cc)/pn:.1%} of his net")
+        print(f"  {'':<34} order+his own care = {(order+his_cc)/p['payor_net']:.1%} of his net")
     o_none = out["neither pays child care"]
     o_both = out["BOTH pay $300/wk"]
     o_hers = out["only the recipient pays $300/wk"]
@@ -247,8 +261,11 @@ def main():
     print("     child care near the benchmark is unknown -- which is why the submission")
     print("     supports better data collection rather than asserting a prevalence.")
     print("  4. The MA Child and Family Tax Credit ($440/dependent) requires the child to be")
-    print(f"     UNDER 13. At two under 13 and one aged 13 to 17 exactly {KIDS_UNDER_13} of the 3 qualify, which is what")
-    print("     the figures above use. Sensitivity across the whole range:")
+    print(f"     UNDER 13. At two under 13 and one aged 13 to 17 exactly {KIDS_UNDER_13} of the 3 qualify. NOTE: since")
+    print("     2026-09-09 the figures above are computed on the withholding basis (no refundable")
+    print("     credits), so this caveat and the sensitivity below describe the credits-included")
+    print("     ANALYSIS view only (net_income(), not analyze()'s published default) -- kept for")
+    print("     the teaching tab, not a caveat on any figure printed above:")
     import net_position as _n
     for k13 in (3, 2, 1, 0):
         net = _n.net_income(RECIP_GROSS, "hoh", KIDS, _n.TAX_PARAMS, kids_under_13=k13)

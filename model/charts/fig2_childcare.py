@@ -1,5 +1,10 @@
 """Figure 2: who funds the child care. Payor's funded share under three allocation rules, by the
-payor's pre-transfer income share, for 1/2/3 children; plus the worked-example bars (88 / 64 / 48)."""
+payor's pre-transfer income share, for 1/2/3 children; plus the worked-example bars (four rules:
+worksheet today, the section 2 gross fallback, the section 2 primary redline (withholding basis,
+the ask), and credits-inclusive, not proposed). The "Post-transfer net shares" line and the
+credits-inclusive bar both pass count_refundable_credits=True explicitly, matching
+childcare_post_transfer.py's rule 3 -- this is the credits-included ANALYSIS the comments do not
+propose, not the withholding-basis ask (rule 5)."""
 import numpy as np
 import matplotlib.pyplot as plt
 from _common import order, npos, write_csv, out, theme, SOURCE_SRC, NOTE_CONV, KIDS_UNDER_13, EXAMPLE, facts, top_header, bottom_footer
@@ -18,7 +23,11 @@ def shares(kids, lo):
     r1 = (with_cc["7d"] - base["7d"]) * 52 / (cc * 52)
     b = base["7d"] * 52
     r2 = (HI - b) / ((HI - b) + (lo + b))
-    pos = npos.analyze(HI, lo, kids, base["7d"], 0.0, 0.0, kids_under_13=KIDS_UNDER_13)
+    # count_refundable_credits=True explicit: this is the credits-included ANALYSIS
+    # line (matches childcare_post_transfer.py's rule 3), not the withholding-basis
+    # ask -- analyze()'s own default became False 2026-09-09 (Task 3).
+    pos = npos.analyze(HI, lo, kids, base["7d"], 0.0, 0.0, kids_under_13=KIDS_UNDER_13, box=1,
+                        count_refundable_credits=True)
     r3 = pos["payor_after_share"]
     return base["B_3c"], r1, r2, r3
 
@@ -51,25 +60,31 @@ def main():
     fig.savefig(out("fig2_childcare_rules.png"), dpi=170); fig.savefig(out("fig2_childcare_rules.svg")); plt.close(fig)
     write_csv("fig2_childcare_rules.csv", ["children", "lower_gross", "payor_3c", "rule1_current", "rule2_post_gross", "rule3_post_net"], rows)
 
-    # worked-example bars, the letter's figures (childcare_post_transfer.figures(); rule 2b is the redline on Line 3a)
+    # worked-example bars, the letter's figures (childcare_post_transfer.figures(); v4.9: rule 5 is
+    # the § 2 primary redline (withholding basis), rule 2b the § 2 fallback (gross basis), rule 3 the
+    # credits-inclusive analysis the comments do not ask for). Ordered by value, descending.
     import childcare_post_transfer as cpt  # noqa
     F = cpt.figures()
-    r1, r2, r3 = F["rule1_share"], F["rule2b_share"], F["rule3_share"]
+    r1, r2b, r5, r3 = F["rule1_share"], F["rule2b_share"], F["rule5_share"], F["rule3_share"]
+    vals = [r1, r2b, r5, r3]
     fig, ax = theme.figure(8, 4.6)
-    labels = ["Worksheet today\n(Line 3c, pre-transfer)", "Shares adjusted by the base order\n(Line 6b-1, the § 2 redline)", "Post-transfer\nnet shares"]
-    theme.bars(ax, np.arange(3), [r1, r2, r3], color=P["series"][0])
-    ax.set_xticks(np.arange(3)); ax.set_xticklabels(labels)
-    theme.label_ends(ax, np.arange(3), [r1, r2, r3], fmt="{:.1%}")
-    theme.finish(ax, title="The payor's share of a \\$15,600 child care bill, three ways",
-                 subtitle="Middle bar: the letter's § 2 redline (Line 6b-1).",
+    # Short, one-line ticks: the line numbers and basis move to Notes, per the chart-anatomy
+    # text budget (a two-line tick ending in a long parenthetical overlaps its neighbour once
+    # there are four bars instead of three).
+    labels = ["Worksheet today", "§ 2 fallback", "§ 2 primary redline", "Credits-inclusive"]
+    theme.bars(ax, np.arange(4), vals, color=P["series"][0])
+    ax.set_xticks(np.arange(4)); ax.set_xticklabels(labels)
+    theme.label_ends(ax, np.arange(4), vals, fmt="{:.1%}")
+    theme.finish(ax, title="The payor's share of a \\$15,600 child care bill, four ways to split it",
+                 subtitle="Payor's share of the same \\$15,600 bill under four allocation rules.",
                  pct=True,
                  pairs=facts(1, 3, "\\$300/wk, paid by the recipient", "\\$201,000 / \\$29,640"),
-                 notes="Child care is included in the order. Two of three children under 13 (MA credit); premiums \\$43/\\$33.",
+                 notes="Fallback is new Line 6b-2, gross basis; primary redline is new Lines 6b-1a and 6b-1, withholding basis. Last bar counts refundable credits, not proposed. Two of three children under 13; premiums \\$43/\\$33.",
                  source="model/childcare_post_transfer.py")
     ax.set_ylim(0, 1)
     theme.save(fig, out("fig2_childcare_worked_example.png"))
-    write_csv("fig2_childcare_worked_example.csv", ["rule", "payor_share"], list(zip(labels, [r1, r2, r3])))
-    print("fig2 written", f"{r1:.3f} {r2:.3f} {r3:.3f}")
+    write_csv("fig2_childcare_worked_example.csv", ["rule", "payor_share"], list(zip(labels, vals)))
+    print("fig2 written", " ".join(f"{v:.3f}" for v in vals))
 
 
 if __name__ == "__main__":

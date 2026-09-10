@@ -101,18 +101,32 @@ rule3 = next(r for r in f_rows if r["n"] == 3)
 check("rule 3 (50-50 split) payor's childcare share is 50%", rule3["share"] == 0.5)
 
 rule4 = next(r for r in f_rows if r["n"] == 4)
-check("rule 4 (post-transfer GROSS / Line 6b-1) order reproduces $1,206.08/wk",
+check("rule 4 (post-transfer GROSS / Line 6b-2 fallback) order reproduces $1,206.08/wk",
       abs(rule4["order_wk"] - 1206.08) < 0.01)
 check("rule 4 payor's childcare share is about 64.5%", abs(rule4["share"] - 0.6445) < 0.001)
 
 rule5 = next(r for r in f_rows if r["n"] == 5)
-check("rule 5 (post-transfer NET) order equals the no-childcare Box 1 order",
-      abs(rule5["order_wk"] - b1) < 0.005)
-check("rule 5 payor's childcare share is about 48.2%", abs(rule5["share"] - 0.4816) < 0.001)
+check("rule 5 (post-transfer NET, withholding basis, Line 6b-1 RECOMMENDED) "
+      "order reproduces $1,171.64/wk", abs(rule5["order_wk"] - 1171.64) < 0.01)
+check("rule 5 payor's childcare share is about 53.0%", abs(rule5["share"] - 0.530) < 0.001)
 
 check("headline 'before' share matches rule 1's share", abs(headline["before_share"] - rule1["share"]) < 1e-9)
 check("headline 'after gross' share is about 64.3%", abs(headline["after_gross_share"] - 0.6432) < 0.001)
-check("headline 'after net' share matches rule 5's share", abs(headline["after_net_share"] - rule5["share"]) < 1e-9)
+check("headline 'after net' share (credits-inclusive, analysis) is about 49.7% "
+      "(box=1 alternating-year CTC-only averaging, corrected 2026-09-08 -- the "
+      "payor never gets head-of-household status or the EITC)",
+      abs(headline["after_net_share"] - 0.4971) < 0.001)
+
+# C3: the letter's Line 6b-1 sits inside 6b -> 6c -> 6e -> 6g -> 7b -> 7d, so the order
+# moves. A private side payment is a different remedy -- no contempt, no wage assignment,
+# no DOR collection -- and the site must demonstrate what the letter asks for.
+_rec = [r for r in f_rows if r["n"] == 5][0]
+_cur = [r for r in f_rows if r["n"] == 1][0]
+_none = [r for r in f_rows if r["n"] == 2][0]
+check("recommended child care share is 53.0%", round(_rec["share"], 3) == 0.530)
+check("recommended order is $1,171.64/wk", round(_rec["order_wk"], 2) == 1171.64)
+check("the recommended order is NOT the no-child-care order", _rec["order_wk"] > _none["order_wk"])
+check("and it is below the current worksheet order", _rec["order_wk"] < _cur["order_wk"])
 
 
 def main():

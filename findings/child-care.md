@@ -18,7 +18,7 @@ disclosure:
     <a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>,
     checked by <a href="/model/test_childcare_post_transfer.py">its test suite</a> against
     <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, with
-    <a href="/model/runs/childcare-post-transfer-run-2026-09-05.txt">the printed run</a> behind
+    <a href="/model/runs/childcare-post-transfer-run-2026-09-08.txt">the printed run</a> behind
     the table below.
 rail_label: "On this page"
 sections:
@@ -77,15 +77,15 @@ but Line 6b never re-measures the shares against that transfer.
 
 <section id="exhibits" markdown="1">
 
-## The payor's share falls from 88 cents to 48 cents once the split is measured after the order and after tax
+## The payor's share falls from 88 cents to 53 cents once the split is measured after the order and after tax
 
 {% include figure.html
    id="e06"
    img="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-   alt="Bar chart of the payor's share of a $15,600 annual child care claim under three allocation rules, at the worked example."
-   title="The payor's share of a $15,600 child care bill, three ways to split it."
+   alt="Bar chart of the payor's share of a $15,600 annual child care claim under four allocation rules, at the worked example."
+   title="The payor's share of a $15,600 child care bill, four ways to split it."
    deck="Line 3c allocates 87.7 percent to the payor on pre-transfer income shares."
-   notes="Post-transfer net shares, the letter's § 2 lead redline, give 48.2 percent. Adjusting the shares by the base order alone, the fallback offered if the Worksheet will not carry a tax computation, gives 64.5 percent. The right bar is the redline actually asked for; the middle bar is what it falls back to."
+   notes="The § 2 fallback, adjusting shares by the base order alone (Line 6b-2), gives 64.5 percent. The § 2 primary redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent. Counting refundable tax credits as well gives 49.7 percent, kept as analysis, not asked for, because the Worksheet has no field for which parent claims which child."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}
@@ -104,7 +104,7 @@ children.
    id="e20"
    img="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
    alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, one child, across a range of income shares."
-   title="With one child, post-transfer child care funds the payor 28 points below his income share."
+   title="With one child, post-transfer child care funds the payor 26 points below his income share."
    deck="Share of the child care bill the payor funds against his pre-transfer income share (Line 3c), one child, $100 a week paid by the lower earner, under two post-transfer rules."
    notes="The gap is measured at the highest income share plotted."
    source_script="model/charts/fig2_childcare.py"
@@ -114,7 +114,7 @@ children.
    id="e21"
    img="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
    alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, two children, across a range of income shares."
-   title="With two children, post-transfer child care funds the payor 39 points below his income share."
+   title="With two children, post-transfer child care funds the payor 36 points below his income share."
    deck="Same construction as the one-child exhibit, two children."
    notes="The gap widens with the number of children."
    source_script="model/charts/fig2_childcare.py"
@@ -124,7 +124,7 @@ children.
    id="e22"
    img="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
    alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, three children, across a range of income shares."
-   title="With three children, post-transfer child care funds the payor 46 points below his income share."
+   title="With three children, post-transfer child care funds the payor 43 points below his income share."
    deck="Same construction as the one- and two-child exhibits, three children, the worked example's own child count."
    notes="This is the worked example's own child count."
    source_script="model/charts/fig2_childcare.py"
@@ -152,7 +152,7 @@ own parenting time.
    alt="Bar chart comparing net income outcomes when both parents pay $300 a week of child care under equal shared parenting, three scenarios: neither pays, only the recipient pays, both pay."
    title="Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192."
    deck="Each parent's net position under three scenarios: neither pays, only the recipient pays $300 a week, both pay $300 a week."
-   notes="The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so his own $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 58 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads."
+   notes="The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so his own $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 56 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads."
    source_script="model/charts/fig8_both_pay.py"
    csv_href="/figures/working/fig8_both_pay.csv" %}
 </div>
@@ -162,19 +162,25 @@ own parenting time.
 <section id="method" markdown="1">
 
 <details markdown="1">
-<summary>Method: the full split table, three ways to measure the same $15,600 bill</summary>
+<summary>Method: the full split table, four ways to measure the same $15,600 bill</summary>
 
 | Basis for the split | Payor's share | Payor funds |
 |---|---:|---:|
 | Line 3c, pre-transfer (what the form does today) | 87.7% | $13,678/yr (order rises to $1,276/wk) |
-| Shares adjusted by the base order (fallback redline at Line 6b-1, without a net computation) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
-| Post-transfer net shares (income after the order and after tax; the redline proposed) | 48.2% | $7,513/yr |
+| Shares adjusted by the base order (fallback redline at Line 6b-2, without a net computation) | 64.5% | $10,054/yr (order $1,206/wk, $3,624/yr less than today) |
+| Post-transfer net shares, withholding basis (the redline proposed, Line 6b-1; order $1,172/wk, $5,415/yr less than today) | 53.0% | $8,263/yr |
+| Post-transfer net shares counting refundable tax credits, alternating-year Child Tax Credit convention (analysis only, not proposed) | 49.7% | $7,754/yr |
 
-(Source: `model/runs/childcare-post-transfer-run-2026-09-05.txt`, printed by
-`model/childcare_post_transfer.py`; the order figures are from
-`model/runs/submission-figures-run-2026-09-05.txt`.) Exhibits E25 and E26 above show the same
+(Source: `model/runs/childcare-post-transfer-run-2026-09-08.txt`, printed by
+`model/childcare_post_transfer.py` (the 2026-09-05 run predates rule 5, the withholding-basis
+figure this table quotes, and is kept alongside for the record); the order figures are from
+`model/runs/submission-figures-run-2026-09-09.txt`.) Exhibits E25 and E26 above show the same
 mechanism when both parents pay for care: Line 6e limits how much of the payor's own claim he can
 recover once his income share puts him outside the low-income protection the line was written for.
+
+The calculator on the home page reports the same 53.0 percent. Unlike the figures that count the
+refundable credits, this one does not depend on the children's ages, so the site and the comments
+print one number, not two.
 
 </details>
 
@@ -192,8 +198,8 @@ This is one worked example, and how far a typical claim sits from it is not know
 this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Even in the scenario where both parents pay
-for care and he is charged 93 percent of the combined bill, he still holds $58,163 for himself
-against $22,907 each for the recipient's household of four.</p>
+for care and he is charged 93 percent of the combined bill, he still holds $63,885 for himself
+against $20,854 each for the recipient's household of four.</p>
 
 </section>
 
@@ -203,17 +209,18 @@ against $22,907 each for the recipient's household of four.</p>
 <h2>Check it yourself</h2>
 <ul>
   <li><strong><a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a></strong>
-    Computes all three allocation rules: pre-transfer, post-transfer gross adjusted by the base
-    order, and post-transfer net.</li>
+    Computes all four allocation rules: pre-transfer, post-transfer gross adjusted by the base
+    order, post-transfer net on a withholding basis, and post-transfer net counting refundable
+    credits.</li>
   <li><strong><a href="/model/test_childcare_post_transfer.py">Its test suite</a></strong>
-    Pins the 87.7%, 64.5%, and resulting order figures quoted above.</li>
+    Pins the 87.7%, 64.5%, 53.0%, 49.7%, and resulting order figures quoted above.</li>
   <li><strong><a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and
     <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a></strong>
     The Line 6a/6b/6e implementation, including the test that the payor bears roughly 93 percent
     of combined child care when both parents pay for it under equal shared parenting.</li>
-  <li><strong><a href="/model/runs/childcare-post-transfer-run-2026-09-05.txt">The printed runs</a></strong>
+  <li><strong><a href="/model/runs/childcare-post-transfer-run-2026-09-08.txt">The printed runs</a></strong>
     Behind every figure above, alongside
-    <a href="/model/runs/submission-figures-run-2026-09-05.txt">the base-order run</a>.</li>
+    <a href="/model/runs/submission-figures-run-2026-09-09.txt">the base-order run</a>.</li>
 </ul>
 </div>
 

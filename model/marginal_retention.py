@@ -22,7 +22,7 @@ def keep(payor_gross, cc_total_wk, box=1):
     per = cc_total_wk / 3.0
     r = w.run(box=box, a_gross=RECIP_WEEKLY, b_gross=payor_gross / 52.0, children_under18=KIDS,
               a_health=33.0, b_health=43.0, a_childcare=(per, per, per), b_childcare=(0, 0, 0))
-    p = npos.analyze(payor_gross, RECIP_GROSS, KIDS, r["7d"], cc_total_wk, 0.0, kids_under_13=KIDS_UNDER_13)
+    p = npos.analyze(payor_gross, RECIP_GROSS, KIDS, r["7d"], cc_total_wk, 0.0, kids_under_13=KIDS_UNDER_13, box=box)
     k = [v for kname, v in p.items() if "payor" in kname and ("keep" in kname or "spend" in kname or "after" in kname)]
     if not k:
         raise SystemExit(f"could not find payor keep key in {sorted(p)}")

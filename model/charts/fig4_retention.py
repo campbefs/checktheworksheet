@@ -20,7 +20,7 @@ def main():
     ax.axhline(0.5, color=P["axis"], lw=1, ls="--")
     ax.set_ylim(0, 0.7); ax.set_xlim(100_000, 400_000)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v/1000:.0f}k"))
-    theme.finish(ax, title="Of the next dollar, the payor keeps between a third and a half",
+    theme.finish(ax, title="Of the payor's next dollar, the payor keeps between a third and a half",
                  subtitle="After federal and state tax and the change in the order.",
                  xlabel="Payor gross income", pct=True,
                  pairs=facts(1, 3, "None vs \\$300/wk (recipient)", "Varies / \\$29,640"),

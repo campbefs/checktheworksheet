@@ -7,7 +7,7 @@ description: >-
   plus one fifty-one-jurisdiction comparison at a single fact pattern.
 disclosure:
   - >-
-    The stat on each card below (57%, 88 cents, 6.9%, 47 of 49) comes from the worked example
+    The stat on each card below (55%, 88 cents, 6.9%, 47 of 49) comes from the worked example
     used throughout this site: my own child support order, three children, my income and my
     children's mother's income entered as the Worksheet requires. Each finding page states why,
     and shows the same gap holding across a range of incomes as well as at my own figures.
@@ -35,10 +35,10 @@ afterward.
 {% include figure.html
    id="e06"
    img="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-   alt="Bar chart of the payor's share of a $15,600 annual child care claim under three allocation rules, at the worked example."
-   title="The payor's share of a $15,600 child care bill, three ways to split it."
+   alt="Bar chart of the payor's share of a $15,600 annual child care claim under four allocation rules, at the worked example."
+   title="The payor's share of a $15,600 child care bill, four ways to split it."
    deck="Line 3c allocates 87.7 percent to the payor on pre-transfer income shares."
-   notes="Adjusting the shares by the base order, the letter's § 2 redline, gives 64.5 percent. Post-transfer net shares give 48.2 percent. The middle bar is the redline; the right bar is where the argument goes once net income is admitted."
+   notes="Adjusting the shares by the base order alone, the fallback confined to the Worksheet's existing gross-based lines (Line 6b-2), gives 64.5 percent. The letter's current § 2 redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent. Post-transfer net shares counting refundable tax credits, under the alternating-year Child Tax Credit convention Box 1 now uses, give 49.7 percent, kept as analysis, not the ask."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}
@@ -100,22 +100,26 @@ dollars a year can cost more than the amount in dispute. The Commonwealth publis
 presumption is rebutted, but not the one number that would say whether contesting is worth it: how
 often a deviation motion the parties did not simply agree to still succeeds.
 
-## 5. After tax and the order, the recipient household holds $93,821 to the payor's $87,172, though the payor still holds more per person
+## 5. After tax and the order, the payor holds more than the recipient household, in total and per person
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
-Divided across household size, the payor still holds more for himself than the recipient's
-household holds per person, $87,172 for one against $23,455 each for four. Both figures are true
-at once; which one answers a reader's question depends on whether the question is about the
-household or about the person in it.
+At the worked example, the payor keeps $87,172 a year and the recipient's household holds
+$77,395, $19,349 per person. That figure comes from the withholding basis: federal and
+Massachusetts income tax, Social Security and Medicare, no refundable credits. It is used because a figure
+that turns on which parent claims which child on a given year's taxes is not one CJ-D 304 collects
+or a reader can reproduce from published rate tables alone.
+Across a wider range of incomes the recipient's household still ends up ahead in total in about
+10 percent of combinations, even though the payor holds more per person in 99 percent of them
+(E01, E02).
 
 {% include figure.html
    id="e01"
    img="/figures/exhibits/E01-who-holds-more-3-children.png"
    alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, across combinations of higher-earner gross income from $60,000 to $300,000 and lower-earner gross income from $0 to $120,000, three children, equal parenting time, no child care."
-   title="With three children, the recipient household holds more after the order in 55 percent of income combinations."
+   title="With three children, the recipient household holds more after the order in 10 percent of income combinations."
    deck="Recipient household net minus payor net, per year."
-   notes="The recipient household is ahead in 96 percent of the grid below $150,000 of higher-earner income, and nowhere above $230,000. The closed contour inside the red region is Line 6e's limitation, which stops binding once the payor's Line 6d crosses 10 percent; the order then drops about $110 a week in one step. Per person the payor still leads almost everywhere (E02). Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero."
+   notes="Of the 10 percent of the grid where the recipient household is ahead, 75 percent sits below $150,000 of higher-earner income, and none above $175,000. The closed contour inside the red region is Line 6e's limitation, which stops binding once the payor's Line 6d crosses 10 percent; the order then drops about $110 a week in one step. Per person the payor still leads almost everywhere (E02). Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero; no refundable tax credits counted."
    source_script="model/charts/fig1_heatmaps.py · model/worksheet.py · model/net_position.py"
    csv_href="/figures/working/fig1_heatmap_3child_box1.csv" %}
 

@@ -278,7 +278,7 @@ bookkeeping and an Escape-to-close on top).
 <section class="hero">
   <p class="eyebrow">Massachusetts Child Support Guidelines Worksheet, verified in code</p>
   <h1>Massachusetts's hardship presumption does not kick in until the payor is at
-    <span class="figure">57 percent</span> of net income.</h1>
+    <span class="figure">55 percent</span> of net income.</h1>
   <p class="lede">One or two sentences restating that number with its reference class...</p>
 </section>
 
@@ -289,7 +289,7 @@ bookkeeping and an Escape-to-close on top).
   </div>
   <span class="numeral-arrow" aria-hidden="true">&rarr;</span>
   <div class="numeral">
-    <span class="numeral-value">57</span>
+    <span class="numeral-value">55</span>
     <p class="numeral-caption">True share of net income, percent</p>
   </div>
 </div>
@@ -321,7 +321,7 @@ built by the include in §5) / `.content-col` (max `var(--content-width)`, prose
       <h3><a href="/findings/hardship-test.html">The hardship test reads a different income than the order pays from</a></h3>
       <p>One mechanism sentence.</p>
       <div class="stat">
-        <span class="stat-value">57%</span>
+        <span class="stat-value">55%</span>
         <span class="stat-label">of the payor's net income, at the worked example, the point where the hardship presumption finally kicks in</span>
       </div>
     </div>
@@ -353,14 +353,14 @@ comment block) rather than hand-writing the `<figure>` markup:
    alt="Line chart of Line 7e's reported percentage versus the true share of the payor's net
         income, against child care claimed from $0 to $600 a week, at the worked example."
    title="The hardship valve fires late because it reads the wrong income."
-   notes="The true burden passes 40% of net at $80/week of child care; Line 7e reports 40% at
-          $590/week, by which point the true burden is 57%."
+   notes="The true burden passes 40% of net at $130/week of child care; Line 7e reports 40% at
+          $590/week, by which point the true burden is 55%."
    source_script="model/charts/fig6_valve.py"
    csv_href="/figures/working/fig6_valve_units_lag.csv" %}
 ```
 
-Copy `title`/`notes` wording **verbatim** from the exhibit's own reviewed caption in
-`/Users/christophercampbell/Desktop/src/projects/child-support-reform/output/DRAFT-attachment-E-figures.md`
+Copy `title`/`notes` wording **verbatim** from the exhibit's own reviewed caption in the private
+repository's `output/DRAFT-attachment-E-figures.md`
 (read-only reference outside this repo — copy the wording in, never link that file from the site).
 Drop `lazy="false"` on the first figure on a page (never lazy-load an above-the-fold image).
 
@@ -529,19 +529,22 @@ design:
 
 ## 11. Calculator v2 (2026-09-07) — the under-13 discrepancy, and the jurisdiction finder
 
-**The calculator's "after tax and the order" row runs slightly lower than this site's own
-worked-example figures elsewhere, and that is expected, not a bug.** The calculator fixes
-`kids_under_13 = 0` for every combination (same generic-grid convention as
-`model/charts/_common.py`'s `KIDS_UNDER_13 = 0` — there is no third slider for how many children
-are under 13), while the worked example quoted in `model/runs/submission-figures-run-2026-09-05.txt`
-and repeated around the rest of the site uses `kids_under_13 = 2` (two of Chris's own three
-children). The MA Child and Family Tax Credit is $440/child/year for qualifying dependents under
-13, so the calculator's recipient-household figure is understated by up to $880/yr relative to the
-site's other worked-example numbers at three children — the direction that weakens, not flatters,
-the site's own argument. The method paragraph next to the calculator states this in one sentence;
-do not remove it if the copy is edited, and do not "fix" the calculator to use `kids_under_13 = 2`
-by default — that would silently change every other combination it can compute to a fact pattern
-(two of *N* children under 13) that stops making sense once the children slider leaves 3.
+**As of 2026-09-09 the calculator's "after tax and the order" row matches this site's own
+worked-example figures elsewhere exactly ($87,172/$77,395), because the published model's default
+excludes refundable tax credits everywhere.** The calculator fixes `kids_under_13 = 0` for every
+combination (same generic-grid convention as `model/charts/_common.py`'s `KIDS_UNDER_13 = 0`, since
+there is no third slider for how many children are under 13), and the worked example quoted in
+`model/runs/submission-figures-run-2026-09-09.txt` and repeated around the rest of the site is
+computed on the same credits-off, withholding basis. Under that basis `kids_under_13` does not
+change any figure the site prints, because the MA Child and Family Tax Credit it would otherwise
+affect is a refundable credit, and refundable credits are not counted. The convention only matters
+if a reader switches the credits toggle on, where it still governs the labelled analysis view (the
+credits-inclusive figures move by up to $880/yr per qualifying child, and depend on which parent
+claims which child, which is why they are analysis rather than the ask). The method paragraph next
+to the calculator should keep saying this in one sentence; do not remove it if the copy is edited,
+and do not give the calculator a fourth slider for how many children are under 13, since that would
+change every combination it can compute to a fact pattern that stops making sense once the
+children slider leaves 3, for a control that presently affects nothing under the default basis.
 
 **Warning-colour thresholds added by v2** (see §7 for the colour itself): the true-share-of-net
 cell warns above 40% of the payor's net income (Line 7e's own substantial-hardship threshold); the

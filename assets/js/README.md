@@ -61,7 +61,7 @@ Commonwealth's own CJ-D 304 XFA calculate-scripts), both in "round every line" m
 official scripts to the dollar on all six) and in the default unrounded mode (matches
 `model/worksheet.py`'s own output to six decimal places — this is what the letter, the paper and
 this site's own copy quote); the worked example's tax position from
-`model/runs/submission-figures-run-2026-09-05.txt` to the cent; the sanity guard firing/clearing;
+`model/runs/submission-figures-run-2026-09-09.txt` to the cent; the sanity guard firing/clearing;
 (v2, 2026-09-07) the full **children x custody x six-income-pair fixture grid**,
 `fixtures/calculator-v2.json` (36 rows, 0 disabled), generated straight from `model/worksheet.py`
 and `model/net_position.py` in the private repo and checked to the dollar and to 0.001 on ratios;
@@ -157,9 +157,9 @@ arguments — the same `analyze()` call v2 already made, not a new function.
       </div>
       <div>
         <p class="cell-label">Recipient household holds</p>
-        <p class="cell-value is-warning" data-calc-cell="recip_after">$92,941/yr</p>
-        <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$23,235/yr</strong></p>
-        <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
+        <p class="cell-value" data-calc-cell="recip_after">$77,395/yr</p>
+        <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$19,349/yr</strong></p>
+        <p class="cell-note" data-calc-note="recip_after">&nbsp;</p>
       </div>
     </div>
     <p class="tool-flag" data-calc-flag-household>&nbsp;</p>
@@ -196,7 +196,7 @@ does nothing if either is missing (fails safe onto the static markup below, see 
 **No-JS / load-failure fallback is REQUIRED and is not automatic**: every `data-calc-cell` span,
 both sliders' `value` attributes, all three radio groups' `checked` attributes, and the
 `is-warning` class / note text on `recip_after` must already contain the real worked-example
-numbers exactly as written above ($1,013/wk, 26.5%, 37.7%, $87,172/yr, $92,941/yr, $23,235/yr,
+numbers exactly as written above ($1,013/wk, 26.5%, 37.7%, $87,172/yr, $77,395/yr, $19,349/yr,
 $201,000/yr, $29,640/yr, kids=3, box=1, childcare=0) — copy them verbatim, they are tested
 (`calculator.test.js` PART 3). A reader with JavaScript off, or whose browser fails to load one of
 the two `lib/` scripts, sees the worked example stated correctly, including which of the two
@@ -209,11 +209,12 @@ whichever slider is currently lower and $43/wk to whichever is currently higher 
 convention already used by every heatmap exhibit in this project, `model/charts/_common.py`'s
 `order()`), and the MA Child and Family Tax Credit for children under 13 fixed at zero qualifying
 children (same generic-grid convention as every heatmap on this site — there is no fourth control
-for how many of the children are under 13). Because of that last one, **this tool's "after tax"
-row runs slightly lower than the site's own worked-example figures elsewhere** (which use two of
-the three children under 13): $92,941/yr here vs $93,821/yr in
-`model/runs/submission-figures-run-2026-09-05.txt` and quoted around the rest of the site. The
-method paragraph in the markup above says so; do not remove that clause if you edit the copy.
+for how many of the children are under 13). Under the credits-off default (the published figure
+as of 2026-09-09), that convention has nothing left to bite: no refundable credit is counted, so
+kids-under-13 does not change any figure this tool prints, and the tool's after-tax row matches
+the site's own worked-example figures elsewhere exactly ($87,172/$77,395). The convention only
+matters if a reader switches the credits toggle on, where it still governs the labelled analysis
+view.
 **Children (1/2/3, default 3), custody (Box 1/Box 2, default Box 1), and (v3, 2026-09-07) child
 care (None/Recipient pays/Both pay, default None) are all real controls** — real
 `<input type="radio">` elements in a `<fieldset>`/`<legend>`, keyboard-operable, each group's
@@ -295,7 +296,7 @@ earner, at which the payor's income share of the combined household, `payor_3c`,
 ```
 
 Default `value="0.877"` is the worked example's own payor income share (87.7%), where
-`reduction_current` = 6.9% — matches `model/runs/submission-figures-run-2026-09-05.txt`'s
+`reduction_current` = 6.9% — matches `model/runs/submission-figures-run-2026-09-09.txt`'s
 "SECTION 5" table row `87.7% 1,088 1,013 6.9%`. Front matter:
 `scripts: ["/assets/js/csv-slider.js"]` (same file as the valve slider — a page using both tools
 loads it once). No-JS fallback: render the "SECTION 5" table from the same run file as a plain

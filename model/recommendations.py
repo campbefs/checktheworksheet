@@ -228,9 +228,12 @@ def as_prior_task_forces_sentences():
 def childcare_rules():
     """Five childcare rules at the worked example ($300/wk paid by the recipient,
     $0 by the payor): the current worksheet, removing childcare from the worksheet
-    entirely, a flat 50-50 split after base support, the Line 6b-1 post-transfer
-    GROSS redline (childcare_post_transfer.py rule 2b), and the post-transfer NET
-    version from the same module (rule 3/4, its fixed point).
+    entirely, a flat 50-50 split after base support, the post-transfer GROSS
+    fallback (childcare_post_transfer.py rule 2b, comments' Line 6b-2), and the
+    post-transfer NET withholding-basis rule (rule 5) -- the comments' Line 6b-1
+    redline and the RECOMMENDED row. Row 5 runs through the order itself, the same
+    as row 4, because Line 6b-1 sits inside the 6b -> 6c -> 6e -> 6g -> 7b -> 7d
+    chain; it is not a private side payment beside an unchanged order.
 
     Each row reports the worksheet order (weekly/monthly), the payor's effective
     share of the $15,600/yr childcare cost in percent and dollars, and both
@@ -245,8 +248,10 @@ def childcare_rules():
     CC_WEEKLY = cpt.CC_WEEKLY               # $300/wk
 
     def after_tax(support_weekly, payor_share_direct):
+        # box=1: the worked example throughout this module is Box 1 (shared, equal
+        # time), so credits follow the alternating-year rule, not recipient-claims-all.
         return npos.analyze(PAYOR_GROSS_YR, RECIP_GROSS_YR, KIDS, support_weekly,
-                             CC_WEEKLY, payor_share_direct, kids_under_13=KIDS_UNDER_13)
+                             CC_WEEKLY, payor_share_direct, kids_under_13=KIDS_UNDER_13, box=1)
 
     rows = []
 
@@ -281,23 +286,27 @@ def childcare_rules():
     order4 = f["rule2b_7d"]
     share4 = f["rule2b_share"]
     pos4 = after_tax(order4, 0.0)
-    rows.append({"n": 4, "label": "Post-transfer GROSS shares on Line 3a (comments' Line 6b-1 redline)",
+    rows.append({"n": 4, "label": "Post-transfer GROSS shares on Line 3a (comments' fallback, Line 6b-2)",
                  "order_wk": order4, "share": share4, "pos": pos4})
 
-    # 5. Post-transfer NET shares -- the paper's version. The worksheet order stays
-    # at the no-childcare figure; childcare is allocated directly at the
-    # post-transfer NET income share, which childcare_post_transfer.py finds is a
-    # fixed point equal to rule 3's (no-childcare) net share.
-    order5 = base
-    share5 = f["rule3_share"]
-    pos5 = after_tax(order5, share5)
-    rows.append({"n": 5, "label": "Post-transfer NET shares (paper's version, fixed point)",
+    # 5. THE RECOMMENDATION as of v4.9: post-transfer NET shares on the withholding
+    # basis, applied AS A WORKSHEET LINE. Line 6b-1 feeds 6b -> 6c -> 6e -> 6g -> 7b
+    # -> 7d, so the order itself moves; this is the same linear step rule 2b (row 4)
+    # uses, and it is what the comments' Section 2 actually asks for. Modelling it as
+    # a private side payment -- which this row did before 2026-09-08 -- proposed a
+    # different remedy from the letter and was the audit's finding C3.
+    order5 = f["rule5_7d"]
+    share5 = f["rule5_share"]
+    pos5 = after_tax(order5, 0.0)   # the child-care transfer is inside the order
+    rows.append({"n": 5, "label": "Post-transfer NET shares on the withholding basis "
+                                  "(comments' Line 6b-1 redline, RECOMMENDED)",
                  "order_wk": order5, "share": share5, "pos": pos5})
 
     headline = {
-        "before_share": f["rule1_share"],            # Line 3c, "before the order"
-        "after_gross_share": f["rule2_gross_share"],  # post-transfer GROSS
-        "after_net_share": f["rule3_share"],          # post-transfer NET
+        "before_share": f["rule1_share"],                      # Line 3c, "before the order"
+        "after_gross_share": f["rule2_gross_share"],            # post-transfer GROSS
+        "after_net_share": f["rule3_share"],                    # post-transfer NET, credits included (analysis)
+        "after_net_withholding_share": f["rule5_share"],        # post-transfer NET, withholding basis (the ask)
     }
     return rows, cc_annual, headline
 
@@ -425,6 +434,24 @@ def main():
           f"block: {total_hits}")
     prior_hits = as_prior_task_forces_sentences()
     print(f"\n  'as prior task forces' across data/extracted/*.flow.txt: {len(prior_hits)} hit(s)")
+
+    # The Guidelines PDF's own commentary is not the whole corpus any more. Since 2026-09-08 the
+    # prior task force reports and economic reviews, 2001-2025, are in data/source/taskforce/ and
+    # data/deferrals-gross-vs-net.json records what each cycle's OWN document says. Print that here
+    # so this run output cannot be read as the complete picture.
+    import json as _json
+    _dp = os.path.join(REPO, "data", "deferrals-gross-vs-net.json")
+    if os.path.exists(_dp):
+        _d = _json.load(open(_dp))
+        _def = [c for c in _d["cycles"] if c["status"] == "DEFERRED"]
+        print(f"\n  FULL CORPUS (data/deferrals-gross-vs-net.json, {len(_d['cycles'])} reviews):")
+        print(f"  {len(_def)} cycles take up gross versus net and none change it:")
+        for c in _def:
+            print(f"      {c['year']}  {c.get('source_kind', 'unknown source')}")
+        _tf = [c['year'] for c in _def if c.get('source_kind') == 'task force report']
+        _er = [c['year'] for c in _def if c.get('source_kind', '').startswith('economic review')]
+        print(f"  Task force decisions: {_tf}.  Economic review statements: {_er}.")
+        print("  Never write 'five task forces declined'; only the first list is task force decisions.")
     for fname, sentence in prior_hits:
         print(f"      {fname}: \"{sentence}\"")
     files_with_hit = sorted({fname for fname, _ in prior_hits})
@@ -466,10 +493,12 @@ def main():
     print(f"    income (Line 3c) is {headline['before_share']:.1%};")
     print(f"    after the order, his share of POST-TRANSFER GROSS income is "
           f"{headline['after_gross_share']:.1%};")
-    print(f"    after the order, his share of POST-TRANSFER NET income is "
-          f"{headline['after_net_share']:.1%};")
+    print(f"    after the order, his share of POST-TRANSFER NET income, withholding basis "
+          f"(the ask) is {headline['after_net_withholding_share']:.1%};")
+    print(f"    after the order, his share of POST-TRANSFER NET income counting refundable "
+          f"credits (analysis only) is {headline['after_net_share']:.1%};")
     print(f"    and child care is allocated on the {headline['before_share']:.1%} figure --")
-    print(f"    the income split BEFORE the order, not either figure after it.")
+    print(f"    the income split BEFORE the order, not any figure after it.")
     print()
 
     print("=" * 78)

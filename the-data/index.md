@@ -47,7 +47,7 @@ not to recommend a change from gross income to net income at this time." **Read 
 ## What is not in these files
 
 No fifty-state child care estimate, no deviation rate net of imputed income and defaults, no
-distribution of real orders. None of it exists here, or in any finding on this site.
+distribution of the orders judges actually enter. None of it exists here, or in any finding on this site.
 
 <div class="ask">
   <h2>Check it yourself</h2>
