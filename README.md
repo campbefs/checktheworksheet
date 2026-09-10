@@ -20,15 +20,17 @@ drawn from them. Everything a reader needs to check a number is here.
    allocates child care on pre-transfer income shares after base support has moved money between the
    households. [E06](figures/exhibits/E06-child-care-share-three-rules-worked-example.png)
 3. **The credit for equal parenting time contains no parenting-time term.** It is the difference in
-   income shares, clipped by Line 6e, so it shrinks as the income gap widens: 75 percent of the
-   one-third-time order at a 57 percent payor income share, 7 percent at 88 percent.
+   income shares, clipped by Line 6e, so it shrinks as the income gap widens. Going from a third of
+   the time to half lowers the order 75 percent when the parents earn about the same, and 7 percent
+   when one parent earns 88 percent of the total.
    [E08](figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png)
-4. **At equal parenting time, Massachusetts orders more than 47 of 49 other jurisdictions do at
-   primary custody**, one fact pattern.
+4. **Massachusetts charges more for equal parenting time than 47 states charge a parent who has the
+   children a third of the time.** Only Hawaii and Wisconsin charge more. One fact pattern.
    [E17](figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png)
-5. **The gross-versus-net income question has a verbatim deferral in only one of the five documented
-   guidelines cycles (2017-2025).** The Commonwealth's own 2025 review says prior task forces
-   discussed it too, but their primary text is not in the public record checked here.
+5. **Five reviews have taken up gross versus net. None changed it.** Two are task force decisions in
+   the task forces' own reports (2009, 2013); three are statements by the Commonwealth's consultants
+   in the economic reviews (2017, 2021, 2025). The 2012 report declines on grounds of simplicity and
+   states no finding that a gross basis is more accurate.
    [E27](figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png)
 
 The worked example throughout is the author's own order, and the comments disclose that plainly. The claims are about the internal consistency of a computation, not about whether
