@@ -165,10 +165,36 @@ The number the backstop catches is worth stating on its own. At primary custody 
 at all, the worked example's order is 40.5 percent of the payor's net pay, past the point Section
 IV.C itself calls substantial hardship, while Line 7e reports 28.5 percent.
 
+That is not one unlucky family. Across the same three-child grid the rest of this site uses, the
+order passes that threshold in 473
+of 1,147 income combinations, and Line 7e passes it in none of them.
+
+{% include figure.html
+   id="e28"
+   img="/figures/exhibits/E28-hardship-test-vs-share-of-net-3-children-primary.png"
+   alt="Scatter plot of Line 7e against the order as a share of the payor's net pay, one point per income combination on the three-child primary-custody grid, with the 40 percent threshold marked on both axes."
+   title="The order passes 40 percent of net pay in 473 of 1,147 income combinations"
+   deck="The Worksheet's own hardship test flags none of them. Each dot is one pair of incomes."
+   notes="Across is what Line 7e prints; up is what the order actually takes. Every point sits above the dashed diagonal because Line 7e divides by a gross-derived figure, and the widest gap on this grid is 13.0 percentage points. Net is the withholding basis: gross less federal income tax at the single filing status with the standard deduction, Social Security and Medicare, and Massachusetts income tax."
+   source_script="model/charts/fig12_net_pay_ceiling.py"
+   csv_href="/figures/working/fig12_net_pay_ceiling.csv" %}
+
+The threshold here is not ours. It is Section IV.C's own figure, in the units the order is actually
+paid from.
+
 **A net ceiling is not a new idea, though no state applies one to the order.** Federal law already
 caps what may be garnished for child support at 50 to 65 percent of a worker's disposable earnings,
-under the Consumer Credit Protection Act. That limits collection, not the order, so a court may
-enter an order larger than may lawfully be withheld to satisfy it. Oregon's 2024 guidelines review,
+under the Consumer Credit Protection Act: 50 percent where the payor supports another spouse or
+child and 60 percent where he does not, each rising five points where the arrears are more than
+twelve weeks old. That limits collection, not the order, so a court may enter an order larger than
+may lawfully be withheld to satisfy it.
+
+The definition behind those percentages matters more than the percentages do. 15 U.S.C. 1672(b)
+defines disposable earnings as earnings less "any amounts required by law to be withheld", which is
+the same measure this page uses and the same one the Commonwealth's own consultant builds in every
+review. So a net figure for child support is not an untried idea needing a new methodology. Congress
+wrote the definition, and every employer in the country applies it to an income withholding order
+each payday. The Worksheet is the one place in the chain that does not hold the number. Oregon's 2024 guidelines review,
 prepared by the Center for Policy Research, states the principle while explaining why Oregon's
 schedule stops at six children: "It makes no sense to assess child support at percentages more than
 can legally be held from a parent's paycheck." West Virginia uses 40 percent of weekly disposable
