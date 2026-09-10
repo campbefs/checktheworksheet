@@ -355,6 +355,25 @@ header.topbar { border-bottom: 1px solid var(--rule); }
    exist so CSS can scope a rule to "the home page" / "a finding page" without a body-class fight. */
 .finding, .page { display: block; }
 
+/* `.page` needed a gutter of its own. The four pages using `layout: page` (/about/,
+   /credits/, /documents/, /recommendations/) never opted into the `.page-shell` +
+   `.content-col` markup described in _layouts/page.html, so they rendered full-bleed:
+   body text ran to the viewport edge while the masthead above stayed inset. Chris
+   reported it 2026-09-09 from /credits/. These values mirror `.page-shell` and
+   `.content-col` so a page reads at the same width and measure as a finding page, and
+   the same 960px breakpoint drops it to the narrower gutter. A page that later wants the
+   chapter rail still opts in the documented way; this only stops text touching the edge. */
+.page {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6) var(--space-9);
+}
+.page > * { max-width: var(--content-width); }
+.page p, .page ul, .page ol { max-width: var(--measure); }
+@media (max-width: 960px) {
+  .page { padding: 0 var(--space-5) var(--space-9); }
+}
+
 /* ---- 8. Findings grid (home page) ---------------------------------------- */
 
 .finding-grid {
