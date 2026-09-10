@@ -227,7 +227,7 @@ care (None/Recipient pays/Both pay, default None) are all real controls** — re
 better than a continuous range); "Recipient pays" assigns the whole $300/wk to Parent A (the lower
 earner), "Both pay" gives $300/wk to each parent. The two income sliders remain independent
 controls; if a reader drags "lower" past "higher" the script silently swaps which value plays
-which role so the labels stay honest — it does not clamp or block the drag. **This calculator
+which role so each label still names the parent it describes — it does not clamp or block the drag. **This calculator
 models Massachusetts only** — the method paragraph says so in one clause; no other jurisdiction's
 worksheet is ported here (contrast the fifty-jurisdiction table below, which is a lookup across
 all 51, not a computation).
