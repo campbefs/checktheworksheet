@@ -710,6 +710,16 @@
       if (cells.cc_rule_note) cells.cc_rule_note.textContent = ruleNote;
 
       // -- Status strip: reflects whichever result is active (see `active` above). --
+      // "impossible" (2026-09-10, red team F2): an extreme but slider-reachable combination
+      // (a low income, high claimed child care) can make the order bigger than the payor has
+      // anything left to pay it from. The Worksheet's own arithmetic does not stop that -- it
+      // is a defect this site documents, not a bug to hide -- so the figures stay on screen,
+      // but never without this flag naming what they are.
+      setBadge('impossible', active.payor_after < 0,
+        'This combination makes the order bigger than the payor has left after tax. The '
+        + 'Worksheet’s own formula allows that -- it is one of the defects this site documents -- '
+        + 'so read the figures below as what the formula produces, not an order a court could '
+        + 'actually collect.', '');
       setBadge('household', active.recip_after > active.payor_after,
         'The recipient household ends up with more money than the payor.', '');
       setBadge('hardship', active.true_pct_net >= 0.40,
