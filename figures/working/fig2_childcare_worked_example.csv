@@ -1,5 +1,7 @@
 rule,payor_share
-Worksheet today,0.8768174760022585
-§ 2 fallback,0.6445081434447836
-§ 2 primary redline,0.5297030078478019
-Credits-inclusive,0.49707458912377406
+"As the Worksheet
+splits it today",0.8768174760022585
+"If split on income
+after the order",0.6445081434447836
+"If split on
+take-home pay",0.5297030078478019

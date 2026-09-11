@@ -82,7 +82,7 @@ about spendable income with a figure that has no tax adjustment at all.
    id="e05"
    img="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
    alt="Line chart of Line 7e's reported percentage versus the true share of the payor's net income, against child care claimed from $0 to $600 a week, at the worked example."
-   title="The hardship valve fires late because it reads the wrong income."
+   title="The hardship test fires late because it reads the wrong income."
    deck="At the worked example, Line 7e divides the order by gross-derived available income while the order is paid from net income."
    notes="As child care claimed by the recipient rises, the true burden passes 40 percent of net at $80 a week of child care; Line 7e reports 40 percent at $589 a week, by which point the true burden is 56.9 percent. Nothing on the form flags the gap."
    source_script="model/charts/fig6_valve.py"

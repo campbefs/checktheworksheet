@@ -188,7 +188,7 @@ runs, not enlarging a credit for its own sake.
    id="e08"
    img="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
    alt="Line chart of the percentage reduction in the order for equal parenting time versus the Box 2 order, against the payor's share of combined available income, for the current Worksheet and two redline variants."
-   title="The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing."
+   title="The Worksheet's equal-time credit collapses as the income gap widens."
    deck="Reduction in the order for equal time, against the Box 2 order (the paying parent has the children about a third of the time)."
    notes="The reduction falls from about 75 percent at a 57 percent payor income share to 7 percent at 88 percent and 1 percent at 96 percent: no parenting-time quantity enters any line. Variant A, applying Line 6e once, lifts the curve. Variant B, the standard cross-credit at a 1.5 duplication factor used by 23 states, stops it collapsing. Both are the letter's § 5 redlines."
    source_script="model/box1_fix.py"

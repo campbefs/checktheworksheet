@@ -83,10 +83,10 @@ but Line 6b never re-measures the shares against that transfer.
 {% include figure.html
    id="e06"
    img="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-   alt="Bar chart of the payor's share of a $15,600 annual child care claim under four allocation rules, at the worked example."
-   title="The payor's share of a $15,600 child care bill, four ways to split it."
+   alt="Bar chart of the payor's share of a $15,600 annual child care claim under three allocation rules, at the worked example."
+   title="The payor's share of a $15,600 child care bill, three ways to split it."
    deck="Line 3c allocates 87.7 percent to the payor on pre-transfer income shares."
-   notes="The § 2 fallback, adjusting shares by the base order alone (Line 6b-2), gives 64.5 percent. The § 2 primary redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent. Counting refundable tax credits as well gives 49.7 percent, kept as analysis, not asked for, because the Worksheet has no field for which parent claims which child."
+   notes="The § 2 fallback, adjusting shares by the base order alone (Line 6b-2), gives 64.5 percent. The § 2 primary redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}
@@ -104,9 +104,9 @@ children.
 {% include figure.html
    id="e20"
    img="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
-   alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, one child, across a range of income shares."
-   title="With one child, post-transfer child care funds the payor 26 points below his income share."
-   deck="Share of the child care bill the payor funds against his pre-transfer income share (Line 3c), one child, $100 a week paid by the lower earner, under two post-transfer rules."
+   alt="Line chart of the gap between the payor's income share before the order and the share of child care he actually funds under the current rule and one alternative, one child, across a range of income shares."
+   title="With one child, splitting child care on income after the order funds the payor 17 points below his income share."
+   deck="Share of the child care bill the payor funds against his income share before the order (Line 3c), one child, $100 a week paid by the lower earner, under the current rule and one alternative."
    notes="The gap is measured at the highest income share plotted."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_rules.csv" %}
@@ -114,8 +114,8 @@ children.
 {% include figure.html
    id="e21"
    img="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
-   alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, two children, across a range of income shares."
-   title="With two children, post-transfer child care funds the payor 36 points below his income share."
+   alt="Line chart of the gap between the payor's income share before the order and the share of child care he actually funds under the current rule and one alternative, two children, across a range of income shares."
+   title="With two children, splitting child care on income after the order funds the payor 24 points below his income share."
    deck="Same construction as the one-child exhibit, two children."
    notes="The gap widens with the number of children."
    source_script="model/charts/fig2_childcare.py"
@@ -124,8 +124,8 @@ children.
 {% include figure.html
    id="e22"
    img="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
-   alt="Line chart of the gap between the payor's pre-transfer income share and the share of child care he actually funds under two post-transfer rules, three children, across a range of income shares."
-   title="With three children, post-transfer child care funds the payor 43 points below his income share."
+   alt="Line chart of the gap between the payor's income share before the order and the share of child care he actually funds under the current rule and one alternative, three children, across a range of income shares."
+   title="With three children, splitting child care on income after the order funds the payor 29 points below his income share."
    deck="Same construction as the one- and two-child exhibits, three children, the worked example's own child count."
    notes="This is the worked example's own child count."
    source_script="model/charts/fig2_childcare.py"

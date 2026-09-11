@@ -352,7 +352,7 @@ comment block) rather than hand-writing the `<figure>` markup:
    img="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
    alt="Line chart of Line 7e's reported percentage versus the true share of the payor's net
         income, against child care claimed from $0 to $600 a week, at the worked example."
-   title="The hardship valve fires late because it reads the wrong income."
+   title="The hardship test fires late because it reads the wrong income."
    notes="The true burden passes 40% of net at $130/week of child care; Line 7e reports 40% at
           $590/week, by which point the true burden is 55%."
    source_script="model/charts/fig6_valve.py"

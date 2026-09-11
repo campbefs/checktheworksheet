@@ -82,7 +82,7 @@ the income gap, the less equal time is worth.
    id="e08"
    img="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
    alt="Line chart of the Box 1 order's percentage reduction from the primary-custody order, across the payor's share of combined income, for the current Worksheet and two redlined variants, three children."
-   title="The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing."
+   title="The Worksheet's equal-time credit collapses as the income gap widens."
    deck="The discount for equal time, against the primary-custody order, falls from about 75 percent at a 57 percent payor income share to 7 percent at 88 percent and 1 percent at 96 percent, because no parenting-time quantity enters any line."
    notes="Variant A, applying Line 6e once, raises the discount to 14.0 percent. Variant B, the cross-credit design 23 states use at a 1.5 duplication factor, raises it to 35.5 percent and stops it collapsing."
    source_script="model/box1_fix.py · model/charts/fig3_credit.py"

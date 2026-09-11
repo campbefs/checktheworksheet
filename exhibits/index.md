@@ -33,15 +33,15 @@ comparison always carries its per-person counterpart.
 3. [With one child, the recipient household holds more after the order in no income combinations.](#e18)
 4. [With two children, the recipient household holds more after the order in 4 of 1,147 income combinations (0.3 percent).](#e19)
 5. [The order exceeds 40 percent of the payor's net income only where the lower earner makes about $20,000 or less.](#e04)
-6. [The hardship valve fires late because it reads the wrong income.](#e05)
+6. [The hardship test fires late because it reads the wrong income.](#e05)
 7. [Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
-8. [The payor's share of a $15,600 child care bill, four ways to split it.](#e06)
-9. [With one child, post-transfer child care funds the payor 26 points below his income share.](#e20)
-10. [With two children, post-transfer child care funds the payor 36 points below his income share.](#e21)
-11. [With three children, post-transfer child care funds the payor 43 points below his income share.](#e22)
+8. [The payor's share of a $15,600 child care bill, three ways to split it.](#e06)
+9. [With one child, splitting child care on income after the order funds the payor 17 points below his income share.](#e20)
+10. [With two children, splitting child care on income after the order funds the payor 24 points below his income share.](#e21)
+11. [With three children, splitting child care on income after the order funds the payor 29 points below his income share.](#e22)
 12. [The payor bears 93 percent of the combined child care while earning 87 percent of the gross income.](#e25)
 13. [Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192.](#e26)
-14. [The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing.](#e08)
+14. [The Worksheet's equal-time credit collapses as the income gap widens.](#e08)
 15. [The equal-time credit is what a standard formula pays a parent who has the children one night in three.](#e09)
 16. [Splitting two children across two homes cuts the weekly order by 30 percent.](#e23)
 17. [Two homes, one child each, cost 43 percent more on the schedule than one home with two.](#e24)
@@ -185,7 +185,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e05">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
-     data-caption="The hardship valve fires late because it reads the wrong income."
+     data-caption="The hardship test fires late because it reads the wrong income."
      data-csv-href="/figures/working/fig6_valve_units_lag.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
          loading="lazy"
@@ -193,7 +193,7 @@ comparison always carries its per-person counterpart.
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">The hardship valve fires late because it reads the wrong income.</h3>
+    <h3 class="exhibit-title">The hardship test fires late because it reads the wrong income.</h3>
     <p class="exhibit-deck">Line 7e's reading vs the true share of net income as claimed child care rises.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
@@ -235,15 +235,15 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e06">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
-     data-caption="The payor's share of a $15,600 child care bill, four ways to split it."
+     data-caption="The payor's share of a $15,600 child care bill, three ways to split it."
      data-csv-href="/figures/working/fig2_childcare_worked_example.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
          loading="lazy"
-         alt="Bar chart of the payor's share of a $15,600 annual child care bill under four allocation rules, at the worked example.">
+         alt="Bar chart of the payor's share of a $15,600 annual child care bill under three allocation rules, at the worked example.">
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">The payor's share of a $15,600 child care bill, four ways to split it.</h3>
+    <h3 class="exhibit-title">The payor's share of a $15,600 child care bill, three ways to split it.</h3>
     <p class="exhibit-deck">Third bar: what the comments ask for (new Lines 6b-1a and 6b-1).</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
@@ -251,7 +251,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>$300/wk, paid by the recipient</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Line 3c allocates 87.7 percent to the payor on pre-transfer income shares. The second bar is the fallback (new Line 6b-2), adjusting shares by the base order on a gross basis: 64.5 percent. The third bar is what the comments ask for: the same adjustment measured after federal and Massachusetts income tax and FICA, for a single filer claiming no exemptions, giving 53.0 percent. The fourth bar adds the refundable tax credits back in, under the alternating-year Child Tax Credit convention Box 1 now uses, 49.7 percent; that basis is not asked for, because CJ-D 304 collects neither parent's filing status nor which parent claims which child. Child care is included in the order. Two of three children under 13 (MA credit); premiums $43/$33.</p>
+    <p class="exhibit-notes">Line 3c allocates 87.7 percent to the payor on pre-transfer income shares. The second bar is the fallback (new Line 6b-2), adjusting shares by the base order on a gross basis: 64.5 percent. The third bar is what the comments ask for: the same adjustment measured after federal and Massachusetts income tax and FICA, for a single filer claiming no exemptions, giving 53.0 percent. Child care is included in the order. Two of three children under 13 (MA credit); premiums $43/$33.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig2_childcare.py</code>; <code>model/childcare_post_transfer.py</code> ·
       <a href="/figures/working/fig2_childcare_worked_example.csv">data (CSV)</a></p>
   </figcaption>
@@ -259,16 +259,16 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e20">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
-     data-caption="With one child, post-transfer child care funds the payor 26 points below his income share."
+     data-caption="With one child, splitting child care on income after the order funds the payor 17 points below his income share."
      data-csv-href="/figures/working/fig2_childcare_rules.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
          loading="lazy"
-         alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, one child, $100 a week paid by the lower earner.">
+         alt="Line chart of the payor's funded share of a child care bill against his income share before the order, under the current rule and one alternative, one child, $100 a week paid by the lower earner.">
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">With one child, post-transfer child care funds the payor 26 points below his income share.</h3>
-    <p class="exhibit-deck">Share of the child care bill the payor funds, by his pre-transfer income share, two post-transfer rules.</p>
+    <h3 class="exhibit-title">With one child, splitting child care on income after the order funds the payor 17 points below his income share.</h3>
+    <p class="exhibit-deck">Share of the child care bill the payor funds, by his income share before the order, under the current rule and one alternative.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
       <div><dt>Children</dt><dd>1</dd></div>
@@ -283,23 +283,23 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e21">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
-     data-caption="With two children, post-transfer child care funds the payor 36 points below his income share."
+     data-caption="With two children, splitting child care on income after the order funds the payor 24 points below his income share."
      data-csv-href="/figures/working/fig2_childcare_rules.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
          loading="lazy"
-         alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, two children, $100 a week per child paid by the lower earner.">
+         alt="Line chart of the payor's funded share of a child care bill against his income share before the order, under the current rule and one alternative, two children, $100 a week per child paid by the lower earner.">
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">With two children, post-transfer child care funds the payor 36 points below his income share.</h3>
-    <p class="exhibit-deck">Share of the child care bill the payor funds, by his pre-transfer income share, two post-transfer rules.</p>
+    <h3 class="exhibit-title">With two children, splitting child care on income after the order funds the payor 24 points below his income share.</h3>
+    <p class="exhibit-deck">Share of the child care bill the payor funds, by his income share before the order, under the current rule and one alternative.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
       <div><dt>Children</dt><dd>2</dd></div>
       <div><dt>Child care</dt><dd>$100/child/wk, paid by the lower earner</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / varies</dd></div>
     </dl>
-    <p class="exhibit-notes">Same construction as E20, two children instead of one: the gap grows from 26 points to 36. Child care is included in the order. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">Same construction as E20, two children instead of one: the gap grows from 17 points to 24. Child care is included in the order. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig2_childcare.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig2_childcare_rules.csv">data (CSV)</a></p>
   </figcaption>
@@ -307,23 +307,23 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e22">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
-     data-caption="With three children, post-transfer child care funds the payor 43 points below his income share."
+     data-caption="With three children, splitting child care on income after the order funds the payor 29 points below his income share."
      data-csv-href="/figures/working/fig2_childcare_rules.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
          loading="lazy"
-         alt="Line chart of the payor's funded share of a child care bill against his pre-transfer income share, under two post-transfer allocation rules, three children, $100 a week per child paid by the lower earner.">
+         alt="Line chart of the payor's funded share of a child care bill against his income share before the order, under the current rule and one alternative, three children, $100 a week per child paid by the lower earner.">
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">With three children, post-transfer child care funds the payor 43 points below his income share.</h3>
-    <p class="exhibit-deck">Share of the child care bill the payor funds, by his pre-transfer income share, two post-transfer rules.</p>
+    <h3 class="exhibit-title">With three children, splitting child care on income after the order funds the payor 29 points below his income share.</h3>
+    <p class="exhibit-deck">Share of the child care bill the payor funds, by his income share before the order, under the current rule and one alternative.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
       <div><dt>Children</dt><dd>3</dd></div>
       <div><dt>Child care</dt><dd>$100/child/wk, paid by the lower earner</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / varies</dd></div>
     </dl>
-    <p class="exhibit-notes">Same construction as E20 and E21, three children, the worked example's own count: the gap reaches 43 points. Child care is included in the order. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">Same construction as E20 and E21, three children, the worked example's own count: the gap reaches 29 points. Child care is included in the order. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig2_childcare.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig2_childcare_rules.csv">data (CSV)</a></p>
   </figcaption>
@@ -385,7 +385,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e08">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
-     data-caption="The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing."
+     data-caption="The Worksheet's equal-time credit collapses as the income gap widens."
      data-csv-href="/figures/working/fig3_credit_collapse.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
          loading="lazy"
@@ -393,7 +393,7 @@ comparison always carries its per-person counterpart.
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing.</h3>
+    <h3 class="exhibit-title">The Worksheet's equal-time credit collapses as the income gap widens.</h3>
     <p class="exhibit-deck">Reduction in the order for equal time, against the Box 2 order (the paying parent has the children about a third of the time).</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint (Box 1) vs primary (Box 2)</dd></div>
@@ -418,7 +418,7 @@ comparison always carries its per-person counterpart.
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">The equal-time credit is what a standard formula pays a parent who has the children one night in three.</h3>
-    <p class="exhibit-deck">Massachusetts's credit for half the nights, converted into the overnight share a cross-credit formula would need to produce it.</p>
+    <p class="exhibit-deck">Massachusetts's credit for half the nights, converted into the overnight share a standard formula would need to produce it.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint (Box 1) vs primary (Box 2)</dd></div>
       <div><dt>Children</dt><dd>3</dd></div>
@@ -469,7 +469,7 @@ comparison always carries its per-person counterpart.
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
     <h3 class="exhibit-title">Two homes, one child each, cost 43 percent more on the schedule than one home with two.</h3>
-    <p class="exhibit-deck">Table B's cost multiple: one home raising two children vs two homes each raising one.</p>
+    <p class="exhibit-deck">What the guidelines assume each arrangement costs: one home raising two children vs two homes each raising one.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint (Box 1) vs split (Box 3)</dd></div>
       <div><dt>Children</dt><dd>2</dd></div>
