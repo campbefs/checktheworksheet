@@ -499,8 +499,17 @@
     Array.prototype.slice.call(root.querySelectorAll('[data-calc-input]')).forEach(function (el) {
       inputs[el.getAttribute('data-calc-input')] = el;
     });
+    // The editable income fields (data-calc-income-edit="higher"/"lower") are a second, typed
+    // path to the SAME two sliders in `inputs` above -- not a new fact. Kept in their own map so
+    // they can be disabled by showUnavailable() and wired below without disturbing `inputs`,
+    // which the rest of this file treats as "the slider is the source of truth."
+    var incomeEdits = {};
+    Array.prototype.slice.call(root.querySelectorAll('[data-calc-income-edit]')).forEach(function (el) {
+      incomeEdits[el.getAttribute('data-calc-income-edit')] = el;
+    });
     var radios = Array.prototype.slice.call(root.querySelectorAll('[data-calc-radio]'));
-    var allInputs = Object.keys(inputs).map(function (k) { return inputs[k]; });
+    var allInputs = Object.keys(inputs).map(function (k) { return inputs[k]; })
+      .concat(Object.keys(incomeEdits).map(function (k) { return incomeEdits[k]; }));
     var cells = {};
     Array.prototype.slice.call(root.querySelectorAll('[data-calc-cell]')).forEach(function (el) {
       cells[el.getAttribute('data-calc-cell')] = el;
@@ -516,6 +525,34 @@
     var ccBody = root.querySelector('[data-calc-childcare] .tool-childcare-body');
     var ccStateLabel = root.querySelector('[data-calc-cc-state]');
 
+    // The two incomes' EXACT committed values, independent of what a <input type="range"> can
+    // hold. A range input's own value-sanitization algorithm snaps whatever is assigned to
+    // `.value` onto the step grid -- confirmed empirically (assigning "187450" to a step=120
+    // slider reads back "187440"), which is exactly the $29,640-snapped-to-$30,000 bug this
+    // typed-input feature exists to not repeat. So `committed` is the one source of truth render()
+    // computes from; the sliders are a second, approximate INPUT path that happens to always land
+    // on-step (a drag can only stop at a step), and their on-screen thumb position is a third,
+    // purely VISUAL approximation of `committed` that may itself snap to the nearest step when an
+    // off-step typed value is written into it -- never read back for computation.
+    var committed = { higher: Number(inputs.higher.value), lower: Number(inputs.lower.value) };
+
+    // Visual-only: sets a slider's thumb position from `committed`. May snap to the slider's own
+    // step grid (see the note above) -- that is fine, since nothing downstream reads it back.
+    function syncSliderVisual(which) {
+      var slider = inputs[which];
+      if (slider) slider.value = String(committed[which]);
+    }
+
+    // Same rule slider-dragging has always used (touch, never cross), now applied to `committed`
+    // instead of the sliders' own .value, so it works whether the crossing was produced by a drag
+    // or by a typed edit.
+    function clampCrossedCommitted(moved) {
+      if (committed.higher < committed.lower) {
+        if (moved === 'lower') committed.lower = committed.higher;
+        else committed.higher = committed.lower;
+      }
+    }
+
     if (!sanityCheckPasses()) {
       showUnavailable(root, allInputs, radios,
         Object.keys(cells).map(function (k) { return cells[k]; }),
@@ -525,6 +562,16 @@
 
     function outputFor(input) {
       return document.getElementById(input.id + '-output') || root.querySelector('output[for="' + input.id + '"]');
+    }
+
+    // outputFor() resolves both a plain <output> (child-care sliders) and the editable income
+    // <input type="text"> (higher/lower earner) by the same "id + '-output'" convention -- an
+    // <output>'s display text is its child text node, an <input>'s is its `value` property. This
+    // is the one place that distinction has to be made explicit.
+    function setDisplayText(el, text) {
+      if (!el) return;
+      if (el.tagName === 'INPUT') el.value = text;
+      else el.textContent = text;
     }
 
     function setNote(key, text) {
@@ -585,18 +632,58 @@
 
     function renderIncomeOutputs(higher, lower) {
       var out = outputFor(inputs.higher);
-      if (out) out.textContent = money(higher);
+      setDisplayText(out, money(higher));
       inputs.higher.setAttribute('aria-valuetext', 'Higher earner: ' + money(higher).replace('/yr', '') + ' a year');
       var outLo = outputFor(inputs.lower);
-      if (outLo) outLo.textContent = money(lower);
+      setDisplayText(outLo, money(lower));
       inputs.lower.setAttribute('aria-valuetext', 'Lower earner: ' + money(lower).replace('/yr', '') + ' a year');
     }
 
+    // Parses whatever a visitor typed into an income field: strips everything but digits and a
+    // single decimal point (so "$187,450", "187450", " 187,450.00 " and "187450 dollars" all
+    // parse; a bare "-" is treated the same as any other non-digit and dropped, so a typed
+    // negative reads as its magnitude rather than erroring). Returns NaN -- never a rejected
+    // number -- for empty or non-numeric input, so the caller knows to abandon rather than commit.
+    function parseIncomeInput(raw) {
+      if (raw == null) return NaN;
+      var cleaned = String(raw).replace(/[^0-9.]/g, '');
+      if (!cleaned) return NaN;
+      var firstDot = cleaned.indexOf('.');
+      if (firstDot !== -1) {
+        cleaned = cleaned.slice(0, firstDot + 1) + cleaned.slice(firstDot + 1).replace(/\./g, '');
+      }
+      var n = parseFloat(cleaned);
+      return isFinite(n) ? Math.round(n) : NaN;
+    }
+
+    // Commits a typed income: parse, clamp into the slider's own [min, max] (a typed $5,000,000
+    // lands at the slider's $300,000 ceiling, not off the model's tested range), apply the same
+    // higher/lower crossing rule dragging uses, then render. The clamped value goes straight into
+    // `committed` -- NEVER through a slider's own .value setter, which would snap it onto the
+    // $120 step grid (see the note above `committed`'s declaration). That exact figure is what
+    // every downstream computation uses; the sliders' thumb positions are re-synced from it purely
+    // for display and may visually approximate it. Invalid input (empty, no digits) is rejected
+    // outright: nothing is parsed or applied, and render() just redraws the field with the
+    // last-committed value, so a rejected input is never the source of a displayed number.
+    function commitIncomeEdit(which, editEl) {
+      var slider = inputs[which];
+      if (!slider || !editEl) return;
+      var parsed = parseIncomeInput(editEl.value);
+      if (isNaN(parsed)) { render(); return; }
+      var min = Number(slider.min), max = Number(slider.max);
+      committed[which] = Math.min(max, Math.max(min, parsed));
+      clampCrossedCommitted(which);
+      syncSliderVisual('higher');
+      syncSliderVisual('lower');
+      render();
+    }
+
     function render() {
-      var higherRaw = Number(inputs.higher.value);
-      var lowerRaw = Number(inputs.lower.value);
-      // Sliders are independent; normalise so labels stay honest regardless of which a reader
-      // dragged past the other.
+      // `committed` (not the sliders' own .value) is the source of truth -- see its declaration
+      // above for why. Math.max/min stay as defense in depth; clampCrossedCommitted already
+      // enforces higher >= lower at every write.
+      var higherRaw = committed.higher;
+      var lowerRaw = committed.lower;
       var higher = Math.max(higherRaw, lowerRaw);
       var lower = Math.min(higherRaw, lowerRaw);
       renderIncomeOutputs(higher, lower);
@@ -745,25 +832,22 @@
     // own Math.max/min swap already computed the correct higher/lower VALUES either way, but
     // left the two sliders' own thumb positions and on-screen labels free to disagree with
     // which slider a reader is actually looking at -- confusing even though the arithmetic
-    // underneath was right. Clamp the slider being moved at the other slider's current value
-    // so the two can touch but never cross; the labels then always describe the control a
-    // reader is looking at, and the swap in render() becomes pure defense in depth.
-    function clampCrossedIncomeSliders(moved) {
-      if (!inputs.higher || !inputs.lower) return;
-      var hi = Number(inputs.higher.value);
-      var lo = Number(inputs.lower.value);
-      if (hi < lo) {
-        if (moved === 'lower') { inputs.lower.value = String(hi); }
-        else { inputs.higher.value = String(lo); }
-      }
-    }
-
+    // underneath was right. clampCrossedCommitted (declared above, by `committed`) now carries
+    // this rule; a drag re-derives `committed` from the slider that just moved, clamps it against
+    // the crossing rule, then re-syncs BOTH thumb positions from `committed` so the two can touch
+    // but never cross, and the swap in render() stays pure defense in depth.
     inputs.higher && inputs.higher.addEventListener('input', function () {
-      clampCrossedIncomeSliders('higher');
+      committed.higher = Number(inputs.higher.value);
+      clampCrossedCommitted('higher');
+      syncSliderVisual('higher');
+      syncSliderVisual('lower');
       render();
     });
     inputs.lower && inputs.lower.addEventListener('input', function () {
-      clampCrossedIncomeSliders('lower');
+      committed.lower = Number(inputs.lower.value);
+      clampCrossedCommitted('lower');
+      syncSliderVisual('higher');
+      syncSliderVisual('lower');
       render();
     });
     // 'change' resync (2026-09-10 red team F3): a malformed automation call was observed
@@ -773,10 +857,44 @@
     // synchronously with every value change as part of the browser's own slider
     // implementation, so render() cannot be skipped by a real gesture -- but 'change' (which
     // fires when a drag or key sequence ends, regardless of what fired mid-drag) costs nothing
-    // to also call render() from, so any future desync of this kind self-heals the instant the
-    // interaction completes rather than waiting for the next unrelated click.
-    inputs.higher && inputs.higher.addEventListener('change', render);
-    inputs.lower && inputs.lower.addEventListener('change', render);
+    // to also re-derive `committed` from, so any future desync of this kind self-heals the
+    // instant the interaction completes rather than waiting for the next unrelated click.
+    inputs.higher && inputs.higher.addEventListener('change', function () {
+      committed.higher = Number(inputs.higher.value);
+      clampCrossedCommitted('higher');
+      syncSliderVisual('higher');
+      syncSliderVisual('lower');
+      render();
+    });
+    inputs.lower && inputs.lower.addEventListener('change', function () {
+      committed.lower = Number(inputs.lower.value);
+      clampCrossedCommitted('lower');
+      syncSliderVisual('higher');
+      syncSliderVisual('lower');
+      render();
+    });
+
+    // Typed income fields (data-calc-income-edit). Nothing is parsed or applied while the visitor
+    // is still typing -- only on Enter or blur, per spec ("commit on both Enter and blur"). Escape
+    // abandons the edit: since the underlying slider is never touched mid-edit, redrawing via
+    // render() alone restores the last-committed, correctly formatted text with nothing parsed.
+    Object.keys(incomeEdits).forEach(function (which) {
+      var el = incomeEdits[which];
+      el.addEventListener('focus', function () { el.select(); });
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          commitIncomeEdit(which, el);
+          el.blur();
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          render();
+          el.blur();
+        }
+      });
+      el.addEventListener('blur', function () { commitIncomeEdit(which, el); });
+    });
+
     inputs.healthHigh && inputs.healthHigh.addEventListener('input', render);
     inputs.healthLow && inputs.healthLow.addEventListener('input', render);
     inputs.ccLower && inputs.ccLower.addEventListener('input', render);

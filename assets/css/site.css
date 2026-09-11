@@ -563,10 +563,29 @@ article table tbody tr:last-child { border-bottom: 0; }
 
 .tool-slider-row { margin-bottom: var(--space-6); }
 .tool-slider-row label {
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2);
-  font-family: var(--font-mono); font-size: 0.875rem; margin-bottom: var(--space-3); color: var(--text-secondary);
+  font-family: var(--font-mono); font-size: 0.875rem; color: var(--text-secondary);
 }
 .tool-slider-row label output { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; font-size: 1rem; }
+
+/* Editable income field (replaces the old read-only <output>): a real text input a visitor can
+   click to type an exact salary, styled to look like the same bold accent-coloured number but with
+   a dotted underline signalling it takes typed input -- the site's rule is that a control carries
+   no pill/fill/border box, but something clickable still has to LOOK clickable, so the underline is
+   the one allowed hint. Width sized for "$300,000/yr" (12 characters) plus padding. */
+.tool-slider-label-row {
+  display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+.tool-income-edit {
+  font-family: var(--font-mono); font-weight: 700; font-size: 1rem; font-variant-numeric: tabular-nums;
+  color: var(--accent); background: transparent; border: none;
+  border-bottom: 1px dashed var(--accent); border-radius: 0;
+  padding: 0 2px 1px; width: 12ch; text-align: right; cursor: text;
+}
+.tool-income-edit:hover { border-bottom-style: solid; }
+.tool-income-edit:focus-visible { border-bottom-style: solid; }
+.tool-income-edit:disabled { cursor: not-allowed; opacity: 0.6; }
+@media (max-width: 480px) { .tool-income-edit { width: 10.5ch; font-size: 0.9375rem; } }
 
 input[type="range"] {
   width: 100%; height: 44px; /* WCAG 2.5.5 44px touch target, brief §3.10 */

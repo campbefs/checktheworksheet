@@ -60,18 +60,26 @@ scripts:
         browser &mdash; it does not look anything up in a precomputed table.</p>
 
         <div class="tool-slider-row">
-          <label for="calc-higher">Higher earner, gross per year
-            <output id="calc-higher-output" for="calc-higher">$201,000/yr</output>
-          </label>
+          <div class="tool-slider-label-row">
+            <label for="calc-higher">Higher earner, gross per year</label>
+            <input type="text" inputmode="numeric" class="tool-income-edit"
+                   id="calc-higher-output" data-calc-income-edit="higher"
+                   value="$201,000/yr" aria-label="Higher earner, gross per year -- type an exact amount">
+          </div>
           <input type="range" id="calc-higher" data-calc-input="higher"
-                 min="60000" max="300000" step="120" value="201000">
+                 min="60000" max="300000" step="120" value="201000"
+                 aria-describedby="calc-higher-output">
         </div>
         <div class="tool-slider-row">
-          <label for="calc-lower">Lower earner, gross per year
-            <output id="calc-lower-output" for="calc-lower">$29,640/yr</output>
-          </label>
+          <div class="tool-slider-label-row">
+            <label for="calc-lower">Lower earner, gross per year</label>
+            <input type="text" inputmode="numeric" class="tool-income-edit"
+                   id="calc-lower-output" data-calc-income-edit="lower"
+                   value="$29,640/yr" aria-label="Lower earner, gross per year -- type an exact amount">
+          </div>
           <input type="range" id="calc-lower" data-calc-input="lower"
-                 min="0" max="120000" step="120" value="29640">
+                 min="0" max="120000" step="120" value="29640"
+                 aria-describedby="calc-lower-output">
         </div>
         <div class="tool-controls-row">
           <fieldset class="segmented">
