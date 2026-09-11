@@ -12,8 +12,10 @@ description: >-
 This page has three parts. Part one lists the redlines the comments actually ask the Trial Court
 to adopt, each with its modelled effect. Part two adds two proposals that don't change a dollar
 figure at all, drawn from a coalition that generally argues the other side of everything else on
-this page. Part three goes beyond all of that to ask what a reform matching other states would
-look like for the amount itself, using the same worked example throughout.
+this page, plus a separate proposal for a formula covering extraordinary medical expenses, a gap
+the Guidelines' own commentary currently leaves case-by-case. Part three goes beyond all of that
+to ask what a reform matching other states would look like for the amount itself, using the same
+worked example throughout.
 
 ## What the comments ask the Trial Court to change
 
@@ -94,30 +96,6 @@ deviation up or down. It is close to a straight port of MFAC's own proposal. It 
 producing a number the <a href="/findings/">findings page</a> on this site already says is missing:
 how often a deviation motion that the parties didn't simply agree to actually succeeds.
 
-### A formula for extraordinary uninsured medical expenses
-
-Massachusetts's own Guidelines commentary admits this gap in its own words. The first $250 a year
-of combined out-of-pocket and uninsured medical, dental and vision costs is split by income share
-like everything else on Line 3c. Above that, the commentary says the cost "shall be treated on a
-case-by-case basis," and that "the guidelines do not establish any presumptive allocation of these
-costs."
-
-Missouri, Washington and Vermont all worksheet this the same way Massachusetts already worksheets
-child care. Missouri's Form 14 has a line for uninsured extraordinary medical costs, divided among
-the children when a per-child figure isn't available. Washington's worksheet has an "Uninsured
-Monthly Healthcare Expenses Paid for Child(ren)" line, one column per parent. Vermont's order form
-adds "Extraordinary Medical Expenses" directly into the calculation.
-
-The fix: a new line, in the same family as the existing child care lines, allocating the cost
-above $250 a year on the same Line 3c income share the Worksheet already uses for the amount below
-it, replacing "case-by-case" with a formula, while leaving either parent free to ask for a
-different split by agreement or through the new deviation section above.
-
-In most families the parent who takes a child to the orthodontist or the counselor is the
-recipient, so a formula that doesn't require a motion or an agreement mainly reduces her cost of
-collecting it. That is the same trade this site's own child care finding makes for the payor,
-applied to a cost that more often runs the other way.
-
 ### What was considered and left out
 
 A fourth idea, also drawn from other states, would set a default income for a parent who won't
@@ -133,6 +111,36 @@ the Worksheet, the same shape as the net-pay ceiling proposed further down this 
 precedented in other states. So is crediting a claimed child care expense with the tax credit it
 already carries. Both still reduce what the payor owes, the same direction as everything else on
 this page, so neither belongs on a list meant to run the other way.
+
+## A presumptive formula for extraordinary medical expenses
+
+Massachusetts's own Guidelines commentary admits this gap in its own words. The first $250 a year
+of combined out-of-pocket and uninsured medical, dental and vision costs is split by income share
+like everything else on Line 3c. Above that, the commentary says the cost "shall be treated on a
+case-by-case basis," and that "the guidelines do not establish any presumptive allocation of these
+costs." Case-by-case means whoever can least afford to argue it in court is the one who ends up
+absorbing it or negotiating it away.
+
+Missouri, Washington and Vermont all worksheet this the same way Massachusetts already worksheets
+child care. Missouri's Form 14 has a line for uninsured extraordinary medical costs, divided among
+the children when a per-child figure isn't available. Washington's worksheet has an "Uninsured
+Monthly Healthcare Expenses Paid for Child(ren)" line, one column per parent. Vermont's order form
+adds "Extraordinary Medical Expenses" directly into the calculation.
+
+The fix: a new line, in the same family as the existing child care lines, that replaces
+"case-by-case" with a formula for the amount above $250 a year. The point of this ask is that a
+formula exists at all, not which basis it uses or which parent it favors, so the line should take
+its basis from whatever the Worksheet uses to
+allocate child care, whatever that turns out to be, rather than fixing one on its own. Today that
+is the pre-transfer Line 3c share Line 6b uses; if the comments' own child care redline above is
+adopted, this line should move to the same post-transfer basis, so the two stay consistent with
+each other instead of pulling in different directions. Either parent stays free to ask for a
+different split by agreement or through the new deviation section above.
+
+A formula does not by itself decide who pays more here; it decides whether the split gets argued
+over every time or set in advance. In most families the parent who takes a child to the
+orthodontist or the counselor is the recipient, so a formula that needs no motion or agreement
+mainly lowers her cost of collecting it, whatever basis the line ends up using.
 
 ## What would put Massachusetts in line with other states
 
@@ -168,6 +176,13 @@ the fifty-jurisdiction median ($2,172.95), Washington's equal-time order ($2,819
 California's equal-time order ($2,424.32). Today's Box 1 order's own distance from Washington and
 California isn't printed by the model; its distance from the median (102.0 percent) is. Reaching
 the median exactly would take a 50.5 percent cut to today's order, down to $511.27 a week.
+
+Research on custody decided mainly by a financial incentive finds children can fare worse under it
+(Fernandez-Kranz, Roff and Sun 2021), an argument against pricing parenting time by formula in
+either direction, whether a credit shrinks or grows. The cross-credit recommended here and the
+linear alternative both still price it by formula, so that caution applies to this proposal the
+same way it applies to today's line. What it argues for is fixing the line the Worksheet already
+runs, not enlarging a credit for its own sake.
 
 {% include figure.html
    id="e08"

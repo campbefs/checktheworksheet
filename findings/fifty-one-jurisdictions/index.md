@@ -451,56 +451,56 @@ almost everywhere else.
   </thead>
   <tbody>
     <tr><td>1</td><td>Hawaii</td><td>primary</td><td class="numeric">$5,821.00</td></tr>
-    <tr class="is-reader-state"><td>2</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td>primary (for scale)</td><td class="numeric">$4,714.22</td></tr>
-    <tr><td>3</td><td>Wisconsin</td><td>primary</td><td class="numeric">$4,491.71</td></tr>
-    <tr class="is-reader-state"><td>4</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td>equal</td><td class="numeric">$4,388.48</td></tr>
-    <tr><td>5</td><td>New York</td><td>primary</td><td class="numeric">$4,067.61</td></tr>
-    <tr><td>6</td><td>Delaware</td><td>primary</td><td class="numeric">$3,990.73</td></tr>
-    <tr><td>7</td><td>New Hampshire</td><td>primary</td><td class="numeric">$3,838.66</td></tr>
-    <tr><td>8</td><td>Kansas</td><td>primary</td><td class="numeric">$3,838.03</td></tr>
-    <tr><td>9</td><td>Iowa</td><td>primary</td><td class="numeric">$3,744.73</td></tr>
-    <tr><td>10</td><td>Texas</td><td>primary</td><td class="numeric">$3,510.00</td></tr>
-    <tr><td>11</td><td>District of Columbia</td><td>primary</td><td class="numeric">$3,467.96</td></tr>
-    <tr><td>12</td><td>Alaska</td><td>primary</td><td class="numeric">$3,462.96</td></tr>
-    <tr><td>13</td><td>California</td><td>primary</td><td class="numeric">$3,436.04</td></tr>
-    <tr><td>14</td><td>Maryland</td><td>primary</td><td class="numeric">$3,295.11</td></tr>
-    <tr><td>15</td><td>Louisiana</td><td>primary</td><td class="numeric">$3,269.06</td></tr>
-    <tr><td>16</td><td>North Dakota</td><td>primary</td><td class="numeric">$3,219.00</td></tr>
-    <tr><td>17</td><td>Missouri</td><td>primary</td><td class="numeric">$3,139.00</td></tr>
-    <tr><td>18</td><td>Connecticut</td><td>primary</td><td class="numeric">$3,138.20</td></tr>
-    <tr><td>19</td><td>Rhode Island</td><td>primary</td><td class="numeric">$3,123.22</td></tr>
-    <tr><td>20</td><td>Colorado</td><td>primary</td><td class="numeric">$3,090.30</td></tr>
-    <tr><td>21</td><td>Pennsylvania</td><td>primary</td><td class="numeric">$3,086.76</td></tr>
-    <tr><td>22</td><td>Montana</td><td>primary</td><td class="numeric">$3,073.50</td></tr>
-    <tr><td>23</td><td>Illinois</td><td>primary</td><td class="numeric">$3,037.90</td></tr>
-    <tr><td>24</td><td>New Jersey</td><td>primary</td><td class="numeric">$3,002.31</td></tr>
-    <tr><td>25</td><td>North Carolina</td><td>primary</td><td class="numeric">$2,934.30</td></tr>
-    <tr><td>26</td><td>Maine</td><td>primary</td><td class="numeric">$2,899.02</td></tr>
-    <tr><td>27</td><td>Washington</td><td>primary</td><td class="numeric">$2,819.56</td></tr>
-    <tr><td>28</td><td>Michigan</td><td>primary</td><td class="numeric">$2,808.44</td></tr>
-    <tr><td>29</td><td>Wyoming</td><td>primary</td><td class="numeric">$2,801.97</td></tr>
-    <tr><td>30</td><td>New Mexico</td><td>primary</td><td class="numeric">$2,795.32</td></tr>
-    <tr><td>31</td><td>Alabama</td><td>primary</td><td class="numeric">$2,736.00</td></tr>
-    <tr><td>32</td><td>Virginia</td><td>primary</td><td class="numeric">$2,672.09</td></tr>
-    <tr><td>33</td><td>South Carolina</td><td>primary</td><td class="numeric">$2,669.21</td></tr>
-    <tr><td>34</td><td>South Dakota</td><td>primary</td><td class="numeric">$2,623.12</td></tr>
-    <tr><td>35</td><td>Vermont</td><td>primary</td><td class="numeric">$2,594.42</td></tr>
-    <tr><td>36</td><td>Mississippi</td><td>primary</td><td class="numeric">$2,564.76</td></tr>
-    <tr><td>37</td><td>Ohio</td><td>primary</td><td class="numeric">$2,564.15</td></tr>
-    <tr><td>38</td><td>Idaho</td><td>primary</td><td class="numeric">$2,549.85</td></tr>
-    <tr><td>39</td><td>Indiana</td><td>primary</td><td class="numeric">$2,548.03</td></tr>
-    <tr><td>40</td><td>West Virginia</td><td>primary</td><td class="numeric">$2,518.77</td></tr>
-    <tr><td>41</td><td>Florida</td><td>primary</td><td class="numeric">$2,512.99</td></tr>
-    <tr><td>42</td><td>Nevada</td><td>primary</td><td class="numeric">$2,485.00</td></tr>
-    <tr><td>43</td><td>Nebraska</td><td>primary</td><td class="numeric">$2,402.03</td></tr>
-    <tr><td>44</td><td>Arkansas</td><td>primary</td><td class="numeric">$2,349.64</td></tr>
-    <tr><td>45</td><td>Utah</td><td>primary</td><td class="numeric">$2,332.66</td></tr>
-    <tr><td>46</td><td>Arizona</td><td>primary</td><td class="numeric">$2,290.06</td></tr>
-    <tr><td>47</td><td>Minnesota</td><td>primary</td><td class="numeric">$2,271.30</td></tr>
-    <tr><td>48</td><td>Tennessee</td><td>primary</td><td class="numeric">$2,031.00</td></tr>
-    <tr><td>49</td><td>Oklahoma</td><td>primary</td><td class="numeric">$2,008.78</td></tr>
-    <tr><td>50</td><td>Kentucky</td><td>primary</td><td class="numeric">$1,871.67</td></tr>
-    <tr><td>51</td><td>Oregon</td><td>primary</td><td class="numeric">$1,772.00</td></tr>
+    <tr class="is-reader-state"><td>&mdash;</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td>primary (for scale, not ranked)</td><td class="numeric">$4,714.22</td></tr>
+    <tr><td>2</td><td>Wisconsin</td><td>primary</td><td class="numeric">$4,491.71</td></tr>
+    <tr class="is-reader-state"><td>3</td><td>Massachusetts<span class="visually-hidden">, this page&rsquo;s worked example</span></td><td>equal</td><td class="numeric">$4,388.48</td></tr>
+    <tr><td>4</td><td>New York</td><td>primary</td><td class="numeric">$4,067.61</td></tr>
+    <tr><td>5</td><td>Delaware</td><td>primary</td><td class="numeric">$3,990.73</td></tr>
+    <tr><td>6</td><td>New Hampshire</td><td>primary</td><td class="numeric">$3,838.66</td></tr>
+    <tr><td>7</td><td>Kansas</td><td>primary</td><td class="numeric">$3,838.03</td></tr>
+    <tr><td>8</td><td>Iowa</td><td>primary</td><td class="numeric">$3,744.73</td></tr>
+    <tr><td>9</td><td>Texas</td><td>primary</td><td class="numeric">$3,510.00</td></tr>
+    <tr><td>10</td><td>District of Columbia</td><td>primary</td><td class="numeric">$3,467.96</td></tr>
+    <tr><td>11</td><td>Alaska</td><td>primary</td><td class="numeric">$3,462.96</td></tr>
+    <tr><td>12</td><td>California</td><td>primary</td><td class="numeric">$3,436.04</td></tr>
+    <tr><td>13</td><td>Maryland</td><td>primary</td><td class="numeric">$3,295.11</td></tr>
+    <tr><td>14</td><td>Louisiana</td><td>primary</td><td class="numeric">$3,269.06</td></tr>
+    <tr><td>15</td><td>North Dakota</td><td>primary</td><td class="numeric">$3,219.00</td></tr>
+    <tr><td>16</td><td>Missouri</td><td>primary</td><td class="numeric">$3,139.00</td></tr>
+    <tr><td>17</td><td>Connecticut</td><td>primary</td><td class="numeric">$3,138.20</td></tr>
+    <tr><td>18</td><td>Rhode Island</td><td>primary</td><td class="numeric">$3,123.22</td></tr>
+    <tr><td>19</td><td>Colorado</td><td>primary</td><td class="numeric">$3,090.30</td></tr>
+    <tr><td>20</td><td>Pennsylvania</td><td>primary</td><td class="numeric">$3,086.76</td></tr>
+    <tr><td>21</td><td>Montana</td><td>primary</td><td class="numeric">$3,073.50</td></tr>
+    <tr><td>22</td><td>Illinois</td><td>primary</td><td class="numeric">$3,037.90</td></tr>
+    <tr><td>23</td><td>New Jersey</td><td>primary</td><td class="numeric">$3,002.31</td></tr>
+    <tr><td>24</td><td>North Carolina</td><td>primary</td><td class="numeric">$2,934.30</td></tr>
+    <tr><td>25</td><td>Maine</td><td>primary</td><td class="numeric">$2,899.02</td></tr>
+    <tr><td>26</td><td>Washington</td><td>primary</td><td class="numeric">$2,819.56</td></tr>
+    <tr><td>27</td><td>Michigan</td><td>primary</td><td class="numeric">$2,808.44</td></tr>
+    <tr><td>28</td><td>Wyoming</td><td>primary</td><td class="numeric">$2,801.97</td></tr>
+    <tr><td>29</td><td>New Mexico</td><td>primary</td><td class="numeric">$2,795.32</td></tr>
+    <tr><td>30</td><td>Alabama</td><td>primary</td><td class="numeric">$2,736.00</td></tr>
+    <tr><td>31</td><td>Virginia</td><td>primary</td><td class="numeric">$2,672.09</td></tr>
+    <tr><td>32</td><td>South Carolina</td><td>primary</td><td class="numeric">$2,669.21</td></tr>
+    <tr><td>33</td><td>South Dakota</td><td>primary</td><td class="numeric">$2,623.12</td></tr>
+    <tr><td>34</td><td>Vermont</td><td>primary</td><td class="numeric">$2,594.42</td></tr>
+    <tr><td>35</td><td>Mississippi</td><td>primary</td><td class="numeric">$2,564.76</td></tr>
+    <tr><td>36</td><td>Ohio</td><td>primary</td><td class="numeric">$2,564.15</td></tr>
+    <tr><td>37</td><td>Idaho</td><td>primary</td><td class="numeric">$2,549.85</td></tr>
+    <tr><td>38</td><td>Indiana</td><td>primary</td><td class="numeric">$2,548.03</td></tr>
+    <tr><td>39</td><td>West Virginia</td><td>primary</td><td class="numeric">$2,518.77</td></tr>
+    <tr><td>40</td><td>Florida</td><td>primary</td><td class="numeric">$2,512.99</td></tr>
+    <tr><td>41</td><td>Nevada</td><td>primary</td><td class="numeric">$2,485.00</td></tr>
+    <tr><td>42</td><td>Nebraska</td><td>primary</td><td class="numeric">$2,402.03</td></tr>
+    <tr><td>43</td><td>Arkansas</td><td>primary</td><td class="numeric">$2,349.64</td></tr>
+    <tr><td>44</td><td>Utah</td><td>primary</td><td class="numeric">$2,332.66</td></tr>
+    <tr><td>45</td><td>Arizona</td><td>primary</td><td class="numeric">$2,290.06</td></tr>
+    <tr><td>46</td><td>Minnesota</td><td>primary</td><td class="numeric">$2,271.30</td></tr>
+    <tr><td>47</td><td>Tennessee</td><td>primary</td><td class="numeric">$2,031.00</td></tr>
+    <tr><td>48</td><td>Oklahoma</td><td>primary</td><td class="numeric">$2,008.78</td></tr>
+    <tr><td>49</td><td>Kentucky</td><td>primary</td><td class="numeric">$1,871.67</td></tr>
+    <tr><td>50</td><td>Oregon</td><td>primary</td><td class="numeric">$1,772.00</td></tr>
   </tbody>
 </table>
 </div>
