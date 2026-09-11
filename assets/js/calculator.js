@@ -258,8 +258,8 @@
     // who claims the children for tax purposes now follows the custody box the reader selected,
     // instead of always defaulting to "recipient claims everyone" -- see the v10 header note.
     // credits (v11, 2026-09-08; default false 2026-09-09 Task 3; DEFAULT FLIPPED BACK TO TRUE
-    // 2026-09-09 evening, Chris: "let's leave refundable tax credits on with the option to turn
-    // them off because I think that's better for the default"). This is the TOOL's default only.
+    // 2026-09-09 evening: leave refundable tax credits on with the option to turn them off,
+    // as the better default for the tool. This is the TOOL's default only.
     // net_position.py's analyze() still defaults to FALSE, and every figure in the comments, on
     // the finding pages and in the charts is computed on that withholding basis -- the tool
     // passes an explicit value either way, so the two never disagree. Fixtures cover both.

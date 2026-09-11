@@ -209,8 +209,8 @@ whichever slider is currently lower and $43/wk to whichever is currently higher 
 convention already used by every heatmap exhibit in this project, `model/charts/_common.py`'s
 `order()`), and the MA Child and Family Tax Credit for children under 13 fixed at zero qualifying
 children (same generic-grid convention as every heatmap on this site — there is no fourth control
-for how many of the children are under 13). **The tool now counts the refundable credits by default** (changed 2026-09-09 evening at Chris's
-request; `net_position.py`'s `analyze()` still defaults to credits-off, and every published figure
+for how many of the children are under 13). **The tool now counts the refundable credits by default** (changed 2026-09-09 evening, as the
+better default for the tool; `net_position.py`'s `analyze()` still defaults to credits-off, and every published figure
 in the comments, on the finding pages and in the charts stays on that withholding basis). So the
 kids-under-13 convention DOES bite the tool's default readout: the Massachusetts Child and Family
 Tax Credit is held at zero qualifying children, which understates the recipient household by $440
