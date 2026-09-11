@@ -70,7 +70,7 @@ dollar between the two households, and never revisits it.</p>
 Line 3c is each parent's share of combined available income, computed before the base support
 amount at Line 7d exists. Line 6a is the child care one parent actually pays; Line 6b multiplies
 the *other* parent's Line 3c share by that amount, so if the recipient pays the provider, the
-payor's Line 6b charge is his Line 3c share of her cost. By the time child care is added at Line 6,
+payor's Line 6b charge is the payor's own Line 3c share of the recipient's cost. By the time child care is added at Line 6,
 the base order has already moved a large share of the payor's income to the recipient's household,
 but Line 6b never re-measures the shares against that transfer.
 
@@ -105,9 +105,9 @@ children.
 {% include figure.html
    id="e20"
    img="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
-   alt="Line chart of the gap between the payor's income share before the order and the share of child care he actually funds under the current rule and one alternative, one child, across a range of income shares."
-   title="With one child, splitting child care on income after the order funds the payor 17 points below his income share."
-   deck="Share of the child care bill the payor funds against his income share before the order (Line 3c), one child, $100 a week paid by the lower earner, under the current rule and one alternative."
+   alt="Line chart of the gap between the payor's income share before the order and the share of child care the payor actually funds under the current rule and one alternative, one child, across a range of income shares."
+   title="With one child, splitting child care on income after the order funds the payor 17 points below the payor's income share."
+   deck="Share of the child care bill the payor funds against the payor's income share before the order (Line 3c), one child, $100 a week paid by the lower earner, under the current rule and one alternative."
    notes="The gap is measured at the highest income share plotted."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_rules.csv" %}
@@ -115,8 +115,8 @@ children.
 {% include figure.html
    id="e21"
    img="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
-   alt="Line chart of the gap between the payor's income share before the order and the share of child care he actually funds under the current rule and one alternative, two children, across a range of income shares."
-   title="With two children, splitting child care on income after the order funds the payor 24 points below his income share."
+   alt="Line chart of the gap between the payor's income share before the order and the share of child care the payor actually funds under the current rule and one alternative, two children, across a range of income shares."
+   title="With two children, splitting child care on income after the order funds the payor 24 points below the payor's income share."
    deck="Same construction as the one-child exhibit, two children."
    notes="The gap widens with the number of children."
    source_script="model/charts/fig2_childcare.py"
@@ -125,14 +125,14 @@ children.
 {% include figure.html
    id="e22"
    img="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
-   alt="Line chart of the gap between the payor's income share before the order and the share of child care he actually funds under the current rule and one alternative, three children, across a range of income shares."
-   title="With three children, splitting child care on income after the order funds the payor 29 points below his income share."
+   alt="Line chart of the gap between the payor's income share before the order and the share of child care the payor actually funds under the current rule and one alternative, three children, across a range of income shares."
+   title="With three children, splitting child care on income after the order funds the payor 29 points below the payor's income share."
    deck="Same construction as the one- and two-child exhibits, three children, the worked example's own child count."
    notes="This is the worked example's own child count."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_rules.csv" %}
 
-## When both parents pay for care, the payor still bears more of it than his income share
+## When both parents pay for care, the payor still bears more of it than the payor's income share
 
 The same mechanism runs in the other direction, too, when both parents pay for care during their
 own parenting time.
@@ -141,7 +141,7 @@ own parenting time.
 {% include figure.html
    id="e25"
    img="/figures/exhibits/E25-both-pay-child-care-who-pays-3-children.png"
-   alt="Stacked bar chart comparing the payor's share of combined gross income against his share of a combined child care bill, equal shared parenting, three children."
+   alt="Stacked bar chart comparing the payor's share of combined gross income against the payor's share of a combined child care bill, equal shared parenting, three children."
    title="The payor bears 93 percent of the combined child care while earning 87 percent of the gross income."
    deck="Each parent pays $300 a week during their own parenting time, the ordinary case at equal time."
    notes="Two stacked bars: share of combined gross income and share of the combined $31,200 child care bill."
@@ -154,7 +154,7 @@ own parenting time.
    alt="Bar chart comparing net income outcomes when both parents pay $300 a week of child care under equal shared parenting, three scenarios: neither pays, only the recipient pays, both pay."
    title="Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192."
    deck="Each parent's net position under three scenarios: neither pays, only the recipient pays $300 a week, both pay $300 a week."
-   notes="The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so his own $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 56 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads."
+   notes="The Worksheet allocates the recipient's cost to the payor through Line 6b and passes the payor's own cost back through Line 6e at about two cents on the dollar, so that $15,600 reduces the order by only $270 a year. Order plus the payor's own child care reaches 58.4 percent of net income while Line 7e reads 33 percent. Per person the payor still leads."
    source_script="model/charts/fig8_both_pay.py"
    csv_href="/figures/working/fig8_both_pay.csv" %}
 </div>
@@ -177,8 +177,8 @@ own parenting time.
 `model/childcare_post_transfer.py` (the 2026-09-05 run predates rule 5, the withholding-basis
 figure this table quotes, and is kept alongside for the record); the order figures are from
 `model/runs/submission-figures-run-2026-09-09.txt`.) Exhibits E25 and E26 above show the same
-mechanism when both parents pay for care: Line 6e limits how much of the payor's own claim he can
-recover once his income share puts him outside the low-income protection the line was written for.
+mechanism when both parents pay for care: Line 6e limits how much of the payor's own claim can be
+recovered once the payor's income share crosses outside the low-income protection the line was written for.
 
 The calculator on the home page reports the same 53.0 percent. Unlike the figures that count the
 refundable credits, this one does not depend on the children's ages, so the site and the comments
@@ -199,8 +199,8 @@ This is one worked example, and how far a typical claim sits from it is not know
 this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Even in the scenario where both parents pay
-for care and he is charged 93 percent of the combined bill, he still holds $63,885 for himself
-against $20,854 each for the recipient's household of four.</p>
+for care and the payor is charged 93 percent of the combined bill, the payor still holds $58,163
+against $18,801 each for the recipient's household of four.</p>
 
 </section>
 

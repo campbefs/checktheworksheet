@@ -43,7 +43,7 @@ sections:
 <p class="lede">Section IV.C presumes hardship once a support order reaches 40 percent of the
 payor's available income. The Worksheet's own test for that threshold divides the order by a
 figure computed before tax, while the order is paid out of what's left after tax. At the worked
-example, the presumption doesn't actually kick in until the payor is at 57 percent of his net
+example, the presumption doesn't actually kick in until the payor is at 57 percent of net
 income.</p>
 </section>
 
@@ -119,7 +119,7 @@ payor's true share of net income at each point.
 | $1,290/wk (ceiling) | $2,144/wk | $111,479/yr | 56.1% | 79.7% |
 
 Line 7e does not reach 40 percent until $589 a week of claimed child care, 46 percent of the $1,290
-statutory ceiling for three children, by which point the payor's true burden is 54.6 percent of his
+statutory ceiling for three children, by which point the payor's true burden is 56.9 percent of
 net income. That 17-point lag narrows as claimed child care falls, to about 12 points at $100 a
 week. (Source: `model/runs/submission-figures-run-2026-09-09.txt`, printed by
 `model/submission_figures.py`.)

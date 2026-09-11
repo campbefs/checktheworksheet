@@ -84,7 +84,7 @@ the income gap, the less equal time is worth.
    alt="Line chart of the Box 1 order's percentage reduction from the primary-custody order, across the payor's share of combined income, for the current Worksheet and two redlined variants, three children."
    title="The Worksheet's equal-time credit collapses as the income gap widens."
    deck="The discount for equal time, against the primary-custody order, falls from about 75 percent at a 57 percent payor income share to 7 percent at 88 percent and 1 percent at 96 percent, because no parenting-time quantity enters any line."
-   notes="Variant A, applying Line 6e once, raises the discount to 14.0 percent. Variant B, the cross-credit design 23 states use at a 1.5 duplication factor, raises it to 35.5 percent and stops it collapsing."
+   notes="Variant A, applying Line 6e once, raises the discount to 14.0 percent. Variant B, the cross-credit design 23 states use at a 1.5 duplication factor, raises it to 35.5 percent and stops it collapsing. This chart's continuous sweep runs from a 57.3 percent payor income share; the discrete sweep behind the numeral above and the table below reaches slightly further, to a 56.3 percent share, where the discount is 77.6 percent."
    source_script="model/box1_fix.py · model/charts/fig3_credit.py"
    csv_href="/figures/working/fig3_credit_collapse.csv"
    lazy="false" %}
@@ -142,7 +142,7 @@ cross-credit. (Source: `model/runs/box1-fix-run-2026-09-05.txt`, printed by `mod
 Both boxes on the form (CJ-D 304) start from the same total at Line 4c: $1,240.73 a week at the worked example (three
 children, a payor at $201,000 a year, the other parent at $570 a week). Line 5b splits that by
 income share, giving the payor 87.68 percent, or $1,087.90; this is the Box 2 order. Box 1 then
-subtracts one credit at Line 6g, the payor's own Line 6e, capped low because his column's Line 6d
+subtracts one credit at Line 6g, the payor's own Line 6e, capped low because the payor's column's Line 6d
 sits below 10 percent. The credit comes to
 $75.17, leaving $1,012.73. Nothing between Line 4c and Line 6g asks how many overnights either
 parent has.

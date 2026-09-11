@@ -45,10 +45,10 @@ $1,171.64 a week.
 instead of the 87.7 percent pre-order split the Worksheet uses today.**
 
 At the worked example, three children, $300 a week in child care paid by the recipient: the payor's
-Line 3c income share before the order is 87.7 percent, and Line 6b charges him that share of the
+Line 3c income share before the order is 87.7 percent, and Line 6b charges the payor that share of the
 $15,600 a year. But the order has already moved money between the households: after the transfer,
-his share of the combined gross is 64.3 percent, and on a withholding basis, income tax and FICA
-for a single filer claiming no exemptions, his share of combined net is 53.0 percent.
+the payor's share of the combined gross is 64.3 percent, and on a withholding basis, income tax and FICA
+for a single filer claiming no exemptions, the payor's share of combined net is 53.0 percent.
 
 The recommended fix, and now the comments' own lead redline, allocates child care on that
 post-transfer net split, using new Worksheet Lines 6b-1a and 6b-1. It changes the order itself,
@@ -193,7 +193,7 @@ parent's available income. It is a protection for a low earner. With the childre
 one parent, the Worksheet applies that cap at Line 7b, to what the payor owes.
 
 With the parents splitting time equally it applies the cap earlier, at Line 6e. At equal time
-Line 6e is not what the payor owes: it is the credit he receives for having the children half the
+Line 6e is not what the payor owes: it is the credit the payor receives for having the children half the
 week. So a rule written to protect a low earner reduces the higher earner's credit instead. At the
 worked example it takes that credit from $152.84 to $75.17 a week. Slightly more than half of it
 is gone.
@@ -265,7 +265,7 @@ of 1,147 income combinations, and Line 7e passes it in none of them.
 **A net ceiling is not a new idea, though no state applies one to the order.** Federal law already
 caps what may be garnished for child support at 50 to 65 percent of a worker's disposable earnings,
 under the Consumer Credit Protection Act: 50 percent where the payor supports another spouse or
-child and 60 percent where he does not, each rising five points where the arrears are more than
+child, otherwise 60 percent, each rising five points where the arrears are more than
 twelve weeks old. That limits collection, not the order, so a court may enter an order larger than
 may lawfully be withheld to satisfy it.
 
@@ -413,7 +413,7 @@ different split by agreement or through the new deviation section above.
 A formula does not by itself decide who pays more here; it decides whether the split gets argued
 over every time or set in advance. In most families the parent who takes a child to the
 orthodontist or the counselor is the recipient, so a formula that needs no motion or agreement
-mainly lowers her cost of collecting it, whatever basis the line ends up using.
+mainly lowers the recipient's cost of collecting it, whatever basis the line ends up using.
 </details>
 
 </div>

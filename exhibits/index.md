@@ -37,9 +37,9 @@ comparison always carries its per-person counterpart.
 6. [The hardship test fires late because it reads the wrong income.](#e05)
 7. [Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
 8. [The payor's share of a $15,600 child care bill, three ways to split it.](#e06)
-9. [With one child, splitting child care on income after the order funds the payor 17 points below his income share.](#e20)
-10. [With two children, splitting child care on income after the order funds the payor 24 points below his income share.](#e21)
-11. [With three children, splitting child care on income after the order funds the payor 29 points below his income share.](#e22)
+9. [With one child, splitting child care on income after the order funds the payor 17 points below the payor's income share.](#e20)
+10. [With two children, splitting child care on income after the order funds the payor 24 points below the payor's income share.](#e21)
+11. [With three children, splitting child care on income after the order funds the payor 29 points below the payor's income share.](#e22)
 12. [The payor bears 93 percent of the combined child care while earning 87 percent of the gross income.](#e25)
 13. [Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192.](#e26)
 14. [The Worksheet's equal-time credit collapses as the income gap widens.](#e08)
@@ -176,7 +176,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
     </dl>
-    <p class="exhibit-notes">The 40 percent contour sits near $20,000 of lower-earner income up to about $205,000 of higher-earner income; above that, the order never reaches 40 percent of net on the grid (11 percent of cells). Scale fixed 0 to 60 percent. Section IV.C's hardship presumption is written for the region under this contour; E05 shows what the Worksheet reports there. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
+    <p class="exhibit-notes">The 40 percent contour sits near $20,000 of lower-earner income up to about $205,000 of higher-earner income; above that, the order never reaches 40 percent of net on the grid (15.4 percent of cells, 177 of 1,147). Scale fixed 0 to 60 percent. Section IV.C's hardship presumption is written for the region under this contour; E05 shows what the Worksheet reports there. Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig1_heatmaps.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code> ·
       <a href="/figures/working/fig1_heatmap_3child_box1.csv">data (CSV)</a></p>
   </figcaption>
@@ -260,16 +260,16 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e20">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
-     data-caption="With one child, splitting child care on income after the order funds the payor 17 points below his income share."
+     data-caption="With one child, splitting child care on income after the order funds the payor 17 points below the payor's income share."
      data-csv-href="/figures/working/fig2_childcare_rules.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E20-child-care-funding-gap-1-child.png"
          loading="lazy"
-         alt="Line chart of the payor's funded share of a child care bill against his income share before the order, under the current rule and one alternative, one child, $100 a week paid by the lower earner.">
+         alt="Line chart of the payor's funded share of a child care bill against the payor's income share before the order, under the current rule and one alternative, one child, $100 a week paid by the lower earner.">
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">With one child, splitting child care on income after the order funds the payor 17 points below his income share.</h3>
-    <p class="exhibit-deck">Share of the child care bill the payor funds, by his income share before the order, under the current rule and one alternative.</p>
+    <h3 class="exhibit-title">With one child, splitting child care on income after the order funds the payor 17 points below the payor's income share.</h3>
+    <p class="exhibit-deck">Share of the child care bill the payor funds, by the payor's income share before the order, under the current rule and one alternative.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
       <div><dt>Children</dt><dd>1</dd></div>
@@ -284,16 +284,16 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e21">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
-     data-caption="With two children, splitting child care on income after the order funds the payor 24 points below his income share."
+     data-caption="With two children, splitting child care on income after the order funds the payor 24 points below the payor's income share."
      data-csv-href="/figures/working/fig2_childcare_rules.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E21-child-care-funding-gap-2-children.png"
          loading="lazy"
-         alt="Line chart of the payor's funded share of a child care bill against his income share before the order, under the current rule and one alternative, two children, $100 a week per child paid by the lower earner.">
+         alt="Line chart of the payor's funded share of a child care bill against the payor's income share before the order, under the current rule and one alternative, two children, $100 a week per child paid by the lower earner.">
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">With two children, splitting child care on income after the order funds the payor 24 points below his income share.</h3>
-    <p class="exhibit-deck">Share of the child care bill the payor funds, by his income share before the order, under the current rule and one alternative.</p>
+    <h3 class="exhibit-title">With two children, splitting child care on income after the order funds the payor 24 points below the payor's income share.</h3>
+    <p class="exhibit-deck">Share of the child care bill the payor funds, by the payor's income share before the order, under the current rule and one alternative.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
       <div><dt>Children</dt><dd>2</dd></div>
@@ -308,16 +308,16 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e22">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
-     data-caption="With three children, splitting child care on income after the order funds the payor 29 points below his income share."
+     data-caption="With three children, splitting child care on income after the order funds the payor 29 points below the payor's income share."
      data-csv-href="/figures/working/fig2_childcare_rules.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E22-child-care-funding-gap-3-children.png"
          loading="lazy"
-         alt="Line chart of the payor's funded share of a child care bill against his income share before the order, under the current rule and one alternative, three children, $100 a week per child paid by the lower earner.">
+         alt="Line chart of the payor's funded share of a child care bill against the payor's income share before the order, under the current rule and one alternative, three children, $100 a week per child paid by the lower earner.">
   </a>
   <figcaption>
     <p class="confidence-tag">Verified against the form's own calculation scripts</p>
-    <h3 class="exhibit-title">With three children, splitting child care on income after the order funds the payor 29 points below his income share.</h3>
-    <p class="exhibit-deck">Share of the child care bill the payor funds, by his income share before the order, under the current rule and one alternative.</p>
+    <h3 class="exhibit-title">With three children, splitting child care on income after the order funds the payor 29 points below the payor's income share.</h3>
+    <p class="exhibit-deck">Share of the child care bill the payor funds, by the payor's income share before the order, under the current rule and one alternative.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
       <div><dt>Children</dt><dd>3</dd></div>
@@ -374,7 +374,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>$0 / $300 / $300 per wk (see scenarios)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">The Worksheet allocates the recipient's cost to the payor through Line 6b, but credits the payor's own cost back through Line 6e at about two cents on the dollar: his $15,600 reduces the order by only $270 a year. Order plus his own child care reaches 56 percent of his net income while Line 7e reads 33 percent. Per person the payor still leads ($63,885 vs. $20,854 each for four). Two of three children under 13; premiums $43/$33.</p>
+    <p class="exhibit-notes">The Worksheet allocates the recipient's cost to the payor through Line 6b, but credits the payor's own cost back through Line 6e at about two cents on the dollar: that $15,600 reduces the order by only $270 a year. Order plus the payor's own child care reaches 58.4 percent of net income while Line 7e reads 33 percent. Per person the payor still leads ($58,163 vs. $18,801 each for four). Two of three children under 13; premiums $43/$33.</p>
     <p class="exhibit-source">Source: <code>model/submission_figures.py</code> § 2.1; <code>model/charts/fig8_both_pay.py</code> ·
       <a href="/figures/working/fig8_both_pay.csv">data (CSV)</a></p>
   </figcaption>
