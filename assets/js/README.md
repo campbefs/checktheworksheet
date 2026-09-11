@@ -143,7 +143,7 @@ arguments — the same `analyze()` call v2 already made, not a new function.
     </div>
     <div>
       <p class="cell-label">True share of the payor's net income</p>
-      <p class="cell-value" data-calc-cell="true_pct_net">37.7%</p>
+      <p class="cell-value" data-calc-cell="true_pct_net">36.8%</p>
       <p class="cell-note" data-calc-note="true_pct_net">&nbsp;</p>
     </div>
   </div>
@@ -153,12 +153,12 @@ arguments — the same `analyze()` call v2 already made, not a new function.
     <div class="tool-readout tool-readout--pair" aria-live="polite">
       <div>
         <p class="cell-label">Payor keeps</p>
-        <p class="cell-value" data-calc-cell="payor_after">$87,172/yr</p>
+        <p class="cell-value" data-calc-cell="payor_after">$90,447/yr</p>
       </div>
       <div>
         <p class="cell-label">Recipient household holds</p>
-        <p class="cell-value" data-calc-cell="recip_after">$77,395/yr</p>
-        <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$19,349/yr</strong></p>
+        <p class="cell-value" data-calc-cell="recip_after">$90,631/yr</p>
+        <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$22,658/yr</strong></p>
         <p class="cell-note" data-calc-note="recip_after">&nbsp;</p>
       </div>
     </div>
@@ -196,8 +196,8 @@ does nothing if either is missing (fails safe onto the static markup below, see 
 **No-JS / load-failure fallback is REQUIRED and is not automatic**: every `data-calc-cell` span,
 both sliders' `value` attributes, all three radio groups' `checked` attributes, and the
 `is-warning` class / note text on `recip_after` must already contain the real worked-example
-numbers exactly as written above ($1,013/wk, 26.5%, 37.7%, $87,172/yr, $77,395/yr, $19,349/yr,
-$201,000/yr, $29,640/yr, kids=3, box=1, childcare=0) — copy them verbatim, they are tested
+numbers exactly as written above ($1,013/wk, 26.5%, 36.8%, $90,447/yr, $90,631/yr, $22,658/yr,
+$201,000/yr, $29,640/yr, kids=3, box=1, childcare=0, credits on) — copy them verbatim, they are tested
 (`calculator.test.js` PART 3). A reader with JavaScript off, or whose browser fails to load one of
 the two `lib/` scripts, sees the worked example stated correctly, including which of the two
 warning colours is on, and only loses the ability to change it. The `<details open>` renders its

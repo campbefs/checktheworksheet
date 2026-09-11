@@ -807,8 +807,19 @@
         + 'Worksheet’s own formula allows that -- it is one of the defects this site documents -- '
         + 'so read the figures below as what the formula produces, not an order a court could '
         + 'actually collect.', '');
+      // The seam (2026-09-11, cold read): with credits counted -- the default -- this flag lights
+      // at the site's own worked example, while every findings page, on the published
+      // credits-off withholding basis, has the payor ahead. Both are right under their own basis,
+      // and which basis you use is itself one of the findings. But a reader who meets the
+      // contradiction here and finds no explanation until a block 100 lines down has simply been
+      // contradicted. Name the cause where the flip is visible, and point at the control that
+      // undoes it rather than asserting a counterfactual figure the reader cannot check.
       setBadge('household', active.recip_after > active.payor_after,
-        'The recipient household ends up with more money than the payor.', '');
+        'The recipient household ends up with more money than the payor.'
+        + (facts.credits
+            ? ' Counting the refundable tax credits is what puts it there; every published figure'
+              + ' on this site leaves them out. Switch them off above to see the difference.'
+            : ''), '');
       setBadge('hardship', active.true_pct_net >= 0.40,
         'The order takes ' + pct1(active.true_pct_net) + ' of the payor’s net income, past the 40 percent '
         + 'the Guidelines call a hardship.', '');

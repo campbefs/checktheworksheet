@@ -97,7 +97,8 @@ but Line 6b never re-measures the shares against that transfer.
 
 ## The gap widens with the number of children, in both directions the money can move
 
-The same pre-transfer-versus-post-transfer gap shows up whichever parent pays the provider. Three
+The same gap — the split before the order moves money, versus after — shows up whichever parent
+pays the provider. Three
 exhibits below hold the arrangement fixed at $100 a week per child and vary only the number of
 children.
 
@@ -209,9 +210,9 @@ against $20,854 each for the recipient's household of four.</p>
 <h2>Check it yourself</h2>
 <ul>
   <li><strong><a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a></strong>
-    Computes all four allocation rules: pre-transfer, post-transfer gross adjusted by the base
-    order, post-transfer net on a withholding basis, and post-transfer net counting refundable
-    credits.</li>
+    Computes all four allocation rules: before the order, after the order on gross adjusted by
+    the base order, after the order net on a withholding basis, and after the order net counting
+    refundable credits.</li>
   <li><strong><a href="/model/test_childcare_post_transfer.py">Its test suite</a></strong>
     Pins the 87.7%, 64.5%, 53.0%, 49.7%, and resulting order figures quoted above.</li>
   <li><strong><a href="/model/worksheet.py"><code>model/worksheet.py</code></a> and

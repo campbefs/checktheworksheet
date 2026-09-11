@@ -262,9 +262,6 @@ of 1,147 income combinations, and Line 7e passes it in none of them.
    source_script="model/charts/fig12_net_pay_ceiling.py"
    csv_href="/figures/working/fig12_net_pay_ceiling.csv" %}
 
-Section IV.C set this threshold; only the units measured against it change. The order is actually
-paid from.
-
 **A net ceiling is not a new idea, though no state applies one to the order.** Federal law already
 caps what may be garnished for child support at 50 to 65 percent of a worker's disposable earnings,
 under the Consumer Credit Protection Act: 50 percent where the payor supports another spouse or
@@ -299,7 +296,7 @@ rules live in different chapters that never refer to each other. The Guidelines 
 economic review and the Task Force report mention the Consumer Credit Protection Act zero times and
 disposable earnings zero times.
 
-Two limits on all of this, because they matter. The federal ceiling governs what may be collected,
+The federal ceiling governs what may be collected,
 not what may be ordered, so a court can order more than a paycheck may lawfully give up and the
 difference becomes arrears. And Massachusetts adopts the federal number rather than setting a lower
 one of its own. What the statute book supports is measuring this obligation in net pay, and reducing

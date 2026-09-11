@@ -26,8 +26,8 @@ description: Every page here, with a one-line purpose for each.
     <span class="doc-context">The four refundable tax credits the model leaves out by default,
       one income, one source each.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/contact/">Contact</a></span>
-    <span class="doc-context">Report an error, a broken link, or a question — a form, no email
-      address on the page.</span></li>
+    <span class="doc-context">Report an error, a broken link, or a question — a mailto link,
+      no form.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/about/">About</a></span>
     <span class="doc-context">Who built this, the disclosure, what isn't claimed.</span></li>
   <li class="doc-item"><span class="doc-title">Sitemap</span>
