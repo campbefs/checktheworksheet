@@ -19,22 +19,27 @@ The Worksheet splits child care on each parent's share of income before the orde
 
 <div class="accordion" markdown="0">
 <details class="ask" markdown="1" id="ask-childcare-transfer">
-<summary><span class="ask-head"><span class="ask-title">Split child care after the base order, on each parent's income before tax</span><span class="effect">Payor's child care share, 87.7 percent before the order, falls to 53.0 percent after it; the order with $300 a week of child care falls from $1,275.77 to $1,171.64 a week.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Split child care after the base order, on each parent's income before tax</span><span class="effect">The higher earner's child care share falls from 87.7 to 64.5 percent; the order with $300 a week of child care falls from $1,275.77 to $1,206.08 a week.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
-- **Allocate child care on the income split the order has already produced, instead of the split
-  before it.** The lead redline measures that split net of tax, on a withholding basis (income tax
-  and FICA for a single filer claiming no exemptions), taking the payor's child care share from
-  87.7 percent to 53.0 percent and the order with $300 a week of child care from $1,275.77 to
-  $1,171.64 a week, a $5,415-a-year change. Counting the refundable tax credits as well, under the
-  alternating-year convention Box 1 now uses, would take the share to 49.7 percent; the comments
-  stop short of that version, because the Worksheet has no
-  field for which parent claims which child. A fallback confined to the Worksheet's existing
-  gross-based lines, renumbered Line 6b-2, takes the share to 64.5 percent and the order to
-  $1,206.08 a week. Part two below carries this further.
+Line 6b charges each parent a share of the child care bill, and it uses the income split from
+before any support is paid. At the worked example that makes the higher earner responsible for
+87.7 percent of it, even though the base order has already moved money to the other household.
+
+This change uses the same income the Worksheet already computes, Line 3a available income, but
+reads it **after** the base order rather than before. The higher earner's share becomes 64.5
+percent, and the order with $300 a week of child care falls from $1,275.77 to
+$1,206.08 a week. In the comments this is the fallback, renumbered Line 6b-2.
+
+It is the fallback rather than the ask for one reason: available income is measured before tax,
+and the household that receives the order pays tax at a very different rate from the one that
+sends it. Measuring after tax is the next row, and it is what the comments lead with. This version
+exists because it needs no tax computation at all, and no field the Worksheet does not already
+have. Measured after tax instead, the same rule takes the order to
+$1,171.64 a week.
 </details>
 
 <details class="ask" markdown="1" id="ask-childcare-net-split">
-<summary><span class="ask-head"><span class="ask-title">Split child care after the base order, on each parent's income after tax (recommended)</span><span class="effect">The payor's share of child care falls to 53.0 percent.</span><span class="tag-origin">Beyond the comments</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Split child care after the base order, on each parent's income after tax (recommended)</span><span class="effect">The higher earner's child care share falls from 87.7 to 53.0 percent; the order with $300 a week of child care falls from $1,275.77 to $1,171.64 a week, a $5,415-a-year change.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 **Child care should be allocated on each parent's share of after-tax resources following the order,
 instead of the 87.7 percent pre-order split the Worksheet uses today.**
@@ -70,9 +75,9 @@ order at the no-child-care figure.
 
 Counting the refundable credits as well, under the alternating-year Child Tax Credit convention
 this model now uses (head-of-household status and the Earned Income Tax Credits stay with
-whoever has the children more), puts the higher earner's share at 49.7 percent, not 53.0. The
-comments ask for the narrower figure, because the worksheet has no field for which parent claims
-which child and that claim is often alternated year to year.
+whoever has the children more), the higher earner's share would instead be
+49.7 percent. The comments ask for the narrower figure, because the worksheet has no field for
+which parent claims which child and that claim is often alternated year to year.
 </details>
 
 </div>
