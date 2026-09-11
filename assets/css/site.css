@@ -474,6 +474,26 @@ header.topbar { border-bottom: 1px solid var(--rule); }
    JS: renders as a complete, pre-sorted table (S1 descending, MA at the top per the brief); the
    header buttons are real <button> elements, submitting nothing without JS rather than doing
    nothing invisibly. */
+/* Markdown tables. Jekyll emits a bare <table>, which had no styling at all, so a
+   multi-line cell ran into its neighbour with nothing to track along. Hairlines only,
+   no vertical rules: the same treatment .exhibit-table already uses. */
+.prose table, .page-body table, article table {
+  width: 100%; border-collapse: collapse; font-size: 0.9375rem;
+  margin: var(--space-5) 0;
+}
+.prose table th, .page-body table th, article table th,
+.prose table td, .page-body table td, article table td {
+  padding: var(--space-2) var(--space-3); text-align: left; vertical-align: top;
+}
+.prose table thead th, .page-body table thead th, article table thead th {
+  border-bottom: 2px solid var(--rule-strong);
+}
+.prose table tbody tr, .page-body table tbody tr, article table tbody tr {
+  border-bottom: 1px solid var(--rule);
+}
+.prose table tbody tr:last-child, .page-body table tbody tr:last-child,
+article table tbody tr:last-child { border-bottom: 0; }
+
 .exhibit-table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
 .exhibit-table caption { text-align: left; margin-bottom: var(--space-3); color: var(--text-secondary); }
 .exhibit-table th, .exhibit-table td { padding: var(--space-2) var(--space-3); text-align: left; }
