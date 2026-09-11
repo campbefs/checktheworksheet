@@ -150,6 +150,11 @@ header.topbar { border-bottom: 1px solid var(--rule); }
    simplified 16px mark. */
 .wordmark-mark { width: 28px; height: 28px; display: block; flex: none; }
 
+/* Footer sign-off mark. 40px, comfortably above the ~26px floor where the box, heart and
+   rows merge. Centred above the footer nav so it reads as a close, not a second header. */
+.footer-mark-link { display: block; width: 40px; margin: 0 auto var(--space-4); }
+.footer-mark { width: 40px; height: 40px; display: block; }
+
 .site-nav { display: flex; gap: var(--space-5); flex-wrap: wrap; }
 .site-nav a { color: var(--text-secondary); text-decoration: none; }
 .site-nav a:hover { color: var(--accent); }
