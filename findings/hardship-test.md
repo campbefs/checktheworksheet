@@ -30,7 +30,7 @@ sections:
   - id: method
     label: "Method: the full lag table"
   - id: caveats
-    label: "What this isn't"
+    label: "Limits"
   - id: check
     label: "Check it yourself"
 ---
@@ -130,10 +130,9 @@ week. (Source: `model/runs/submission-figures-run-2026-09-09.txt`, printed by
 
 <section id="caveats" markdown="1">
 
-## What this isn't
+## Limits
 
-<p class="caveat">The valve does eventually fire; this isn't a claim that Section IV.C's hardship
-presumption is unreachable, only that it fires 17 points late. $1,290 a week for three children is
+<p class="caveat">The presumption does eventually fire, 17 points late. $1,290 a week for three children is
 the statutory ceiling on allowable child care, not a typical claim. This is one worked example, and
 how often actual claims sit near that benchmark isn't known from anything in this repository.</p>
 

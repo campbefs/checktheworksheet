@@ -234,7 +234,7 @@ argued, and decided, which costs more than it returns in most cases. A ceiling i
 form performs. The Worksheet would gain one line: the order is the lesser of Line 7d and 40 percent
 of the payor's net weekly income.
 
-Forty percent is not a new number. It is the figure Section IV.C already names. The only change is
+Forty percent is Section IV.C's own figure. The only change is
 the quantity it is measured against, from Line 3a available income to net pay.
 
 **What it would cost, measured on the same income grids as the rest of this site.** With one child
@@ -262,7 +262,7 @@ of 1,147 income combinations, and Line 7e passes it in none of them.
    source_script="model/charts/fig12_net_pay_ceiling.py"
    csv_href="/figures/working/fig12_net_pay_ceiling.csv" %}
 
-The threshold here is not ours. It is Section IV.C's own figure, in the units the order is actually
+Section IV.C set this threshold; only the units measured against it change. The order is actually
 paid from.
 
 **A net ceiling is not a new idea, though no state applies one to the order.** Federal law already
@@ -275,7 +275,7 @@ may lawfully be withheld to satisfy it.
 The definition behind those percentages matters more than the percentages do. 15 U.S.C. 1672(b)
 defines disposable earnings as earnings less "any amounts required by law to be withheld", which is
 the same measure this page uses and the same one the Commonwealth's own consultant builds in every
-review. So a net figure for child support is not an untried idea needing a new methodology. Congress
+review. Congress
 wrote the definition, and every employer in the country applies it to an income withholding order
 each payday. The Worksheet is the one place in the chain that does not hold the number. Oregon's 2024 guidelines review,
 prepared by the Center for Policy Research, states the principle while explaining why Oregon's

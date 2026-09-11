@@ -25,10 +25,9 @@ had a proper review. No task force has examined how its math actually works econ
 figure on this site comes from a published model with tests, so anyone can check the arithmetic
 instead of taking a position on trust.
 
-An independent Massachusetts child support payor built this site, with no institution behind it,
-and no lawyer, economist or organisation stands behind the numbers either. I pay child support in
-Massachusetts myself, so I have a stake in what the Guidelines say. That is the reason the code and
-the data are published rather than summarised: the arithmetic is meant to be checked, not believed.
+An independent Massachusetts child support payor built this site, with no institution, lawyer or
+economist behind the numbers. That is the reason the code and the data are published rather than
+summarised: the arithmetic is meant to be checked, not believed.
 
 {% include disclosure.html %}
 

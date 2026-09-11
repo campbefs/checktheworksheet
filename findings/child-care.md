@@ -32,7 +32,7 @@ sections:
   - id: method
     label: "Method: the full split table"
   - id: caveats
-    label: "What this isn't"
+    label: "Limits"
   - id: check
     label: "Check it yourself"
 ---
@@ -189,11 +189,10 @@ print one number, not two.
 
 <section id="caveats" markdown="1">
 
-## What this isn't
+## Limits
 
-<p class="caveat">Allocating child care in proportion to income is not, by itself, an unreasonable
-rule. The objection here is to which income the proportion is measured against, not to
-proportionality as a concept. $300 a week is a real but not extreme claim relative to the
+<p class="caveat">Allocating child care in proportion to income is a defensible rule. The
+objection is to which income the proportion is measured against. $300 a week is a real but not extreme claim relative to the
 $430-per-child statutory ceiling; a smaller claim moves the split by less, a larger one by more.
 This is one worked example, and how far a typical claim sits from it is not known from anything in
 this repository.</p>

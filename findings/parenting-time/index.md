@@ -29,7 +29,7 @@ sections:
   - id: cross-credit
     label: "What a cross-credit formula would say"
   - id: caveats
-    label: "What this isn't"
+    label: "Limits"
   - id: check
     label: "Check it yourself"
 ---
@@ -192,7 +192,7 @@ parent actually has.
 
 <section id="caveats" markdown="1">
 
-## What this isn't
+## Limits
 
 <p class="caveat">Every figure on this page comes from one fact pattern: three children, equal
 parenting time, no child care claimed, at the incomes stated. The mechanism, Box 1's discount

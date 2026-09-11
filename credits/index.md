@@ -32,7 +32,7 @@ Re-derived from <a href="/model/net_position.py"><code>model/net_position.py</co
 page: <code>_federal_eitc()</code>, <code>refundable_credits()</code>, and
 <code>ma_refundable_credits()</code>.
 
-## What this page is not
+## A limit on this table
 
 <p class="caveat">Every figure above depends on which parent claims which child. The federal
 credit follows the parent the children lived with more than half the year regardless of any

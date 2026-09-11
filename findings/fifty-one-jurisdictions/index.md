@@ -34,7 +34,7 @@ sections:
   - id: gross-net
     label: "Why gross vs. net complicates this"
   - id: caveats
-    label: "What this isn't"
+    label: "Limits"
   - id: check
     label: "Check it yourself"
 ---
@@ -545,7 +545,7 @@ The three economic reviews since then were commissioned by the Commonwealth and 
 
 <section id="caveats" markdown="1">
 
-## What this isn't
+## Limits
 
 <p class="caveat">One fact pattern is not a distribution. Nothing here says what a lower-income
 family, a two-child family, or a family with claimed child care would see in any of these fifty
