@@ -17,7 +17,15 @@
   keyboard or screen-reader tab order. See CONVENTIONS.md "Header / top bar" for the CSS contract.
 {% endcomment %}
 <div class="topbar-inner">
-  <a class="wordmark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <a class="wordmark" href="{{ '/' | relative_url }}">
+    {%- comment -%}
+      The mark is decorative here: the link text beside it already says the site name, so
+      alt="" keeps a screen reader from reading the name twice. Same file the browser uses
+      as the favicon, so the two cannot drift; regenerate both with tools/make_favicon.py.
+    {%- endcomment -%}
+    <img class="wordmark-mark" src="{{ '/assets/favicon.svg' | relative_url }}" alt="" width="28" height="28">
+    <span>{{ site.title }}</span>
+  </a>
 
   <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
   <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
