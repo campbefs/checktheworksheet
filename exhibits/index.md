@@ -518,7 +518,7 @@ comparison always carries its per-person counterpart.
 
   <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E11">
     <table class="exhibit-table" id="e11-table">
-    <caption>Monthly order, equal parenting time (S1) &mdash; full data behind <a href="#e11">E11</a></caption>
+    <caption>Monthly order, equal parenting time &mdash; full data behind <a href="#e11">E11</a></caption>
     <thead>
       <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col" class="numeric">Monthly order</th></tr>
     </thead>
@@ -609,7 +609,7 @@ comparison always carries its per-person counterpart.
 
   <div class="table-scroll" tabindex="0" role="region" aria-label="Scrollable data table for E12">
     <table class="exhibit-table" id="e12-table">
-    <caption>Monthly order, children primarily with the lower earner (S2) &mdash; full data behind <a href="#e12">E12</a></caption>
+    <caption>Monthly order, children primarily with the lower earner &mdash; full data behind <a href="#e12">E12</a></caption>
     <thead>
       <tr><th scope="col">Rank</th><th scope="col">Jurisdiction</th><th scope="col" class="numeric">Monthly order</th></tr>
     </thead>
