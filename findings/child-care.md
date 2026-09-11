@@ -1,6 +1,6 @@
 ---
 layout: finding
-title: Child care is split on income shares the order has already changed
+title: Child care is split on money the order has already moved to the other parent
 permalink: /findings/child-care/
 description: >-
   Worksheet Line 6b allocates child care using each parent's share of income before the base
@@ -42,7 +42,7 @@ sections:
 <section class="hero" markdown="1">
 <p class="eyebrow">Finding 2 of 4</p>
 
-# Line 6b charges the payor 88 cents of every dollar of child care, using an income split base support has already moved
+# The payor funds 88 cents of every dollar of child care, on money the order has already moved to the other parent
 
 <p class="lede">At the worked example, the payor funds 88 cents of every dollar of the recipient's
 $15,600-a-year child care claim. Massachusetts allocates child care in proportion to income; the

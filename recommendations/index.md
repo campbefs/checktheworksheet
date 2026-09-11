@@ -207,7 +207,7 @@ which is the scale this recommendation is measured against.
    source_script="model/charts/fig10_ma_shared_vs_primary.py"
    csv_href="/figures/working/fig10_ma_shared_vs_primary.csv" %}
 
-### Child care should be split on the income mix the order has already created
+### Child care should be split on the money each parent actually holds after the order
 
 **Child care should be allocated on each parent's share of after-tax resources following the order,
 instead of the 87.7 percent pre-order split the Worksheet uses today.**

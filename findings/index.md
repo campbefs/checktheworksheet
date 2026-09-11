@@ -25,7 +25,7 @@ disclosure:
 Each finding traces to a script in this repository, or, for the fourth, to the guidelines' own
 text on deviation.
 
-## 1. The payor funds 88 cents of every dollar of child care on an income split the order has already moved
+## 1. The payor funds 88 cents of every dollar of child care, on money the order has already moved to the other parent
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
