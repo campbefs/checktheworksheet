@@ -33,11 +33,11 @@ MARK_PX = 96
 
 # The site's own <h1>, verbatim. Not a slogan invented for the card.
 HEADLINE = (
-    "Massachusetts charges the most child support of any state, "
-    "even when the parents split time equally."
+    "Massachusetts charges the most child support of any state "
+    "when the parents split time equally."
 )
 WORDMARK = "checktheworksheet.org"
-FOOTLINE = "One fact pattern, run through fifty jurisdictions. Every figure published with its code."
+FOOTLINE = "The same two incomes and three children, run through fifty states."
 
 # Georgia stands in for Charter, the site's first-choice serif, which is not a
 # system font. Same genre: a transitional serif with a large x-height.
