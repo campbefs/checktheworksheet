@@ -9,7 +9,7 @@ disclosure:
   - >-
     The stat on each card below (55%, 88 cents, 6.9%, 47 of 49) comes from the worked example
     used throughout this site: three children, the payor's income and the other parent's income
-    entered as the Worksheet requires. I pay child support in Massachusetts myself, so I
+    entered as the Worksheet requires. They are Worksheet figures from a real Massachusetts case, and neither is either parent's current income. I pay child support in Massachusetts myself, so I
     have a stake in the outcome. Each finding page states why, and shows the same gap holding
     across a range of incomes as well as at this example's figures.
   - >-

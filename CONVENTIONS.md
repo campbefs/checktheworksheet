@@ -238,7 +238,7 @@ disclosure:
   - >-
     The worked example throughout — the payor, the $201,000 income, the child care figures —
     runs three children, the payor's income and the other parent's income entered as the
-    Worksheet requires. I pay child support in Massachusetts myself, so I have a stake in the
+    Worksheet requires. They are Worksheet figures from a real Massachusetts case, and neither is either parent's current income. I pay child support in Massachusetts myself, so I have a stake in the
     outcome; a reader should be able to check whether the arithmetic changes when the numbers
     move. It doesn't: the same 17-point gap holds across the income and child-care ranges charted
     below, not only at this example's figures.
