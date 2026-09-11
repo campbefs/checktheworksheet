@@ -580,12 +580,11 @@ article table tbody tr:last-child { border-bottom: 0; }
   font-family: var(--font-mono); font-weight: 700; font-size: 1rem; font-variant-numeric: tabular-nums;
   color: var(--accent); background: transparent; border: none;
   border-bottom: 1px dashed var(--accent); border-radius: 0;
-  padding: 0 2px 1px; width: 12ch; text-align: right; cursor: text;
+  padding: 0 2px 1px; width: 13.5ch; text-align: right; cursor: text;
 }
 .tool-income-edit:hover { border-bottom-style: solid; }
 .tool-income-edit:focus-visible { border-bottom-style: solid; }
 .tool-income-edit:disabled { cursor: not-allowed; opacity: 0.6; }
-@media (max-width: 480px) { .tool-income-edit { width: 10.5ch; font-size: 0.9375rem; } }
 
 input[type="range"] {
   width: 100%; height: 44px; /* WCAG 2.5.5 44px touch target, brief §3.10 */
@@ -905,6 +904,73 @@ a.lightbox-trigger:focus-visible { outline: 3px solid var(--accent); outline-off
 .doc-item:first-child, .finding-list .finding-card:first-child { border-top: 0; padding-top: 0; }
 .doc-title { display: block; font-family: var(--font-serif); font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-1); }
 .doc-context { display: block; color: var(--text-secondary); font-size: 0.9375rem; }
+
+/* ---- 12a. Contact form + toast --------------------------------------------
+   assets/js/contact.js has the full markup contract. `.form-field--honeypot` hides the trap
+   field from sighted users the same way `.vh` does (not `display:none`/`type=hidden` alone —
+   those are the first two things a scraper's own heuristics check for) and also removes it from
+   the tab order, since a human should never reach it either. `.btn` is the site's one real,
+   clickable button style — everywhere else a claret mark means an annotation (`.tool-flagline`,
+   §7), never a control, so this is the only place a filled claret box belongs. */
+
+.contact-form { max-width: var(--measure); }
+.form-field { margin-bottom: var(--space-5); }
+.form-field label {
+  display: block; font-family: var(--font-mono); font-size: 0.8125rem;
+  color: var(--text-secondary); margin-bottom: var(--space-2);
+}
+.field-optional { color: var(--text-muted); font-weight: 400; }
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field textarea {
+  width: 100%; font: inherit; font-size: 1rem; color: var(--text-primary);
+  background: var(--surface); border: 1px solid var(--rule-strong); border-radius: 4px;
+  padding: var(--space-3); min-height: 44px; /* WCAG 2.5.5 touch target */
+}
+.form-field textarea { min-height: 10rem; resize: vertical; }
+.form-field input:focus-visible, .form-field textarea:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 1px;
+}
+.form-field--honeypot {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; margin: 0;
+}
+.form-actions { display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+.btn {
+  display: inline-block; font: inherit; font-size: 0.9375rem; font-weight: 600;
+  color: var(--surface); background: var(--accent); border: 1px solid var(--accent);
+  border-radius: 4px; padding: var(--space-3) var(--space-6); min-height: 44px;
+  cursor: pointer;
+}
+.btn:hover { background: var(--text-primary); border-color: var(--text-primary); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.btn:disabled { cursor: not-allowed; opacity: 0.6; }
+.form-note { font-size: 0.8125rem; color: var(--text-secondary); margin: 0; max-width: 32ch; }
+
+/* Toast: a status message, not a control, so — same discipline as `.tool-flagline` (§7) — no
+   pill and no drop shadow standing in for meaning; a left rule plus the sentence itself carries
+   it, and colour is never the only channel (the heading text differs between the two states, not
+   only the rule colour). Fixed so it's visible without scrolling after a submit near the bottom
+   of a long form; a real, tabbable close button, not click-outside-to-dismiss, is the keyboard
+   path (auto-dismiss on top of that, not instead of it). */
+.toast {
+  position: fixed; left: var(--space-5); right: var(--space-5); bottom: var(--space-5);
+  z-index: 70; max-width: 32rem; margin: 0 auto;
+  background: var(--surface-raised); border-left: 4px solid var(--rule-strong);
+  border-radius: 4px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  padding: var(--space-4) var(--space-5);
+  display: flex; align-items: flex-start; gap: var(--space-4);
+}
+.toast[hidden] { display: none; }
+.toast.is-error { border-left-color: var(--accent); }
+.toast p { margin: 0; font-size: 0.9375rem; color: var(--text-primary); flex: 1; }
+.toast-close {
+  flex-shrink: 0; width: 32px; height: 32px; line-height: 1;
+  font-size: 1.25rem; color: var(--text-secondary); background: none; border: none;
+  cursor: pointer; padding: 0;
+}
+.toast-close:hover { color: var(--text-primary); }
+.toast-close:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 
 /* ---- 13. Tables (plain Markdown / kramdown output) ------------------------ */
 

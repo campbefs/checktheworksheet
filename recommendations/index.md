@@ -9,23 +9,52 @@ description: >-
 
 # What this project asks for, and what would put Massachusetts in line with other states
 
-This page has three parts. Part one lists the redlines the comments actually ask the Trial Court
-to adopt, each with its modelled effect. Part two adds two proposals that don't change a dollar
-figure at all, drawn from a coalition that generally argues the other side of everything else on
-this page, plus a separate proposal for a formula covering extraordinary medical expenses, a gap
-the Guidelines' own commentary currently leaves case-by-case. Part three goes beyond all of that
-to ask what a reform matching other states would look like for the amount itself, using the same
-worked example throughout.
+This page has three parts, and every recommendation in it is listed in the table just
+below before any of the detail. Part one lists the redlines the comments actually ask
+the Trial Court to adopt, each with its modelled effect. Part two adds proposals that
+don't change a dollar figure at all: two drawn from a coalition that generally argues
+the other side of everything else on this page, plus a formula for extraordinary
+medical expenses, a gap the Guidelines' own commentary currently leaves case-by-case.
+Part three goes beyond all of that, using the same worked example throughout, to ask
+what a reform matching other states would look like for the amount itself, and,
+further still, what a ceiling on net pay would look like even though no state has
+tried one yet. Each recommendation below opens into its own section: select a heading
+to read the full case for it.
+
+## Every recommendation, at a glance
+
+Nine rows. The first six are what the comments actually ask the Trial Court to adopt;
+the last three go further than the comments do.
+
+| Recommendation | Changes at the worked example | Asked of |
+|---|---|---|
+| [Measure the hardship test in net income, not gross](#ask-hardship-basis) | No dollar change. The 40 percent presumption doesn't apply until the payor reaches 57 percent of net income. | Trial Court comments |
+| [Allocate child care on the split the order already produced](#ask-childcare-transfer) | Payor's child care share, 87.7 percent before the order, falls to 53.0 percent after it; the order with $300 a week of child care falls from $1,275.77 to $1,171.64 a week. Fuller version in part three. | Trial Court comments |
+| [Apply the equal-parenting credit once, at the transfer](#ask-parenting-credit-a) | Equal-time order falls from $1,012.73 to $935.06 a week, a 7.7 percent cut. | Trial Court comments |
+| [Add a signed disclosure checklist to the Worksheet](#ask-disclosure-checklist) | No dollar change. | Trial Court comments |
+| [Move the deviation findings onto the Worksheet itself](#ask-deviations-worksheet) | No dollar change. | Trial Court comments |
+| [Give extraordinary medical costs a formula](#ask-medical-formula) | No dollar change. | Trial Court comments |
+| [Price equal parenting time with a cross-credit (recommended)](#ask-parenting-credit-crosscredit) | Equal-time order falls from $1,012.73 to $701.30 a week, a 30.8 percent cut. | Trial Court comments |
+| [Cap the order at 40 percent of net pay](#ask-hardship-ceiling) | Order falls from $1,087.90 to $1,075.64 a week; binds in 473 of 1,147 three-child cases. | Beyond the comments |
+| [A lower cap at equal time: 25 percent of net pay](#ask-joint-custody-ceiling) | Order falls from $1,012.73 to $672.28 a week. | Beyond the comments; no state does this |
 
 ## What the comments ask the Trial Court to change
 
 Three changes, each keyed to a Worksheet line, each with an effect measured at the worked example
 ($201,000 payor, $29,640 recipient, three children).
 
+<details markdown="1" id="ask-hardship-basis">
+<summary>Measure the hardship test on the same income basis the order is paid from. The 40 percent presumption doesn't apply until 57 percent of net.</summary>
+
 - **Measure the hardship test on the same income basis the order is paid from.** At $300 a week of
   claimed child care, Line 7e reads 33.4 percent of gross-derived income while the same order is
   47.4 percent of the payor's net; the presumption itself does not kick in until 56.9 percent of net.
   The fix changes what the form reports. It leaves every dollar amount untouched.
+</details>
+
+<details markdown="1" id="ask-childcare-transfer">
+<summary>Allocate child care on the split the order already produced. The payor's share falls from 87.7 to 53.0 percent.</summary>
+
 - **Allocate child care on the income split the order has already produced, instead of the split
   before it.** The lead redline measures that split net of tax, on a withholding basis (income tax
   and FICA for a single filer claiming no exemptions), taking the payor's child care share from
@@ -36,13 +65,19 @@ Three changes, each keyed to a Worksheet line, each with an effect measured at t
   field for which parent claims which child. A fallback confined to the Worksheet's existing
   gross-based lines, renumbered Line 6b-2, takes the share to 64.5 percent and the order to
   $1,206.08 a week. Part two below carries this further.
+</details>
+
+<details markdown="1" id="ask-parenting-credit-a">
+<summary>Apply the equal-parenting credit once, at the transfer. Cuts the equal-time order 7.7 percent.</summary>
+
 - **Apply the equal-parenting credit once, at the transfer, instead of clipping it as an entitlement.**
   Variant A takes the equal-time order from $1,012.73 to $935.06 a week, a 7.7 percent cut.
+</details>
 
 Nothing in this section changes the Worksheet's underlying schedule or its child-care ceiling. Every
 figure is reproduced in the model files linked at the bottom of this page.
 
-## Two proposals that don't change a dollar figure
+## Proposals that don't change a dollar figure
 
 Every proposal on this page that changes a dollar figure lowers what the payor owes. These two
 don't touch a dollar figure. Both come from the Massachusetts Family Advocacy Coalition (MFAC), a
@@ -51,7 +86,8 @@ filed with the 2024-2025 Task Force. The same Task Force this project is writing
 rejected both. They are proposed here anyway, because an accurate Worksheet should catch
 understatement in either direction, not just the one this site has argued so far.
 
-### A disclosure checklist, signed under penalty of perjury
+<details markdown="1" id="ask-disclosure-checklist">
+<summary>A disclosure checklist, signed under penalty of perjury. No dollar change.</summary>
 
 MFAC's own words:
 
@@ -77,8 +113,10 @@ entered on this Worksheet are true and complete to the best of my knowledge." It
 payor who understates income, which is what MFAC is asking for. It would also catch a parent who
 overstates a child care claim, the same claim the <a href="/findings/child-care/">child care
 finding</a> on this site says currently needs nothing more than that parent's own word.
+</details>
 
-### A deviations section on the Worksheet, not buried on a separate form
+<details markdown="1" id="ask-deviations-worksheet">
+<summary>A deviations section on the Worksheet, not buried on a separate form. No dollar change.</summary>
 
 MFAC's own reasoning:
 
@@ -95,6 +133,7 @@ presumptive amount is computed, with a plain-language note that either parent ma
 deviation up or down. It is close to a straight port of MFAC's own proposal. It would also start
 producing a number the <a href="/findings/">findings page</a> on this site already says is missing:
 how often a deviation motion that the parties didn't simply agree to actually succeeds.
+</details>
 
 ### What was considered and left out
 
@@ -112,7 +151,8 @@ precedented in other states. So is crediting a claimed child care expense with t
 already carries. Both still reduce what the payor owes, the same direction as everything else on
 this page, so neither belongs on a list meant to run the other way.
 
-## A presumptive formula for extraordinary medical expenses
+<details markdown="1" id="ask-medical-formula">
+<summary>A presumptive formula for extraordinary medical expenses. No dollar change.</summary>
 
 Massachusetts's own Guidelines commentary admits this gap in its own words. The first $250 a year
 of combined out-of-pocket and uninsured medical, dental and vision costs is split by income share
@@ -141,6 +181,7 @@ A formula does not by itself decide who pays more here; it decides whether the s
 over every time or set in advance. In most families the parent who takes a child to the
 orthodontist or the counselor is the recipient, so a formula that needs no motion or agreement
 mainly lowers her cost of collecting it, whatever basis the line ends up using.
+</details>
 
 ## What would put Massachusetts in line with other states
 
@@ -148,7 +189,8 @@ This part is analysis beyond what the comments ask for. It compares Massachusett
 against other states' schedules and against the child support recommendations the author has made
 from that comparison.
 
-### The joint-custody discount should come from a cross-credit, using the factor other states use
+<details markdown="1" id="ask-parenting-credit-crosscredit">
+<summary>The joint-custody discount should come from a cross-credit, using the factor other states use. Recommended: cuts the order 30.8 percent.</summary>
 
 **At equal parenting time, Massachusetts's order should fall to what a standard cross-credit
 formula produces, using the 1.5 duplication factor twenty-three other states already use.**
@@ -206,8 +248,10 @@ which is the scale this recommendation is measured against.
    notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time. Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison. One fact pattern; Georgia held out."
    source_script="model/charts/fig10_ma_shared_vs_primary.py"
    csv_href="/figures/working/fig10_ma_shared_vs_primary.csv" %}
+</details>
 
-### Child care should be split on the money each parent actually holds after the order
+<details markdown="1" id="ask-childcare-net-split">
+<summary>Child care should be split on the money each parent actually holds after the order. Recommended: the payor's share falls to 53.0 percent.</summary>
 
 **Child care should be allocated on each parent's share of after-tax resources following the order,
 instead of the 87.7 percent pre-order split the Worksheet uses today.**
@@ -246,8 +290,10 @@ this model now uses (head-of-household status and the Earned Income Tax Credits 
 whoever has the children more), puts the higher earner's share at 49.7 percent, not 53.0. The
 comments ask for the narrower figure, because the worksheet has no field for which parent claims
 which child and that claim is often alternated year to year.
+</details>
 
-### The hardship test should be measured on the same income basis it is paid from
+<details markdown="1" id="ask-hardship-ceiling">
+<summary>The hardship test should be measured on the same income basis it is paid from. Binds in 473 of 1,147 three-child cases.</summary>
 
 Section IV.C's presumption of substantial hardship does not kick in until the payor is at 57 percent of net income,
 even though Line 7e itself reports only 40 percent at that point. This is
@@ -332,8 +378,10 @@ not what may be ordered, so a court can order more than a paycheck may lawfully 
 difference becomes arrears. And Massachusetts adopts the federal number rather than setting a lower
 one of its own. What the statute book supports is measuring this obligation in net pay, and reducing
 an amount automatically when the measure is exceeded. It does not supply the 25 or the 40.
+</details>
 
-### Both ceilings need one new number, and it fits in ten rows
+<details markdown="1" id="ask-net-income-table">
+<summary>Both ceilings need one new number, and it fits in ten rows. Accurate to five cents a week.</summary>
 
 A ceiling on net pay needs a net figure, and the Worksheet holds none. That is the real obstacle:
 five reviews have taken up gross versus net and none changed it.
@@ -349,13 +397,14 @@ every cycle since at least 2013 converts gross to net exactly this way, using wi
 standard Social Security and Medicare, because the study the schedule is calibrated against is
 denominated in net. The table would publish the conversion the Commonwealth's own consultant already
 performs and then sets aside.
+</details>
 
-## A lower ceiling at joint custody, which no state has yet
+This is a policy position, not a correction of an arithmetic error, and it goes
+further than the rest of this part does. Nothing here is asked of the Trial Court in
+the comments.
 
-This part is a policy position, not a correction of an arithmetic error, and it is separated from
-the two parts above for that reason. Nothing here is asked of the Trial Court in the comments.
-
-### Equal parenting time should carry a lower ceiling than primary custody
+<details markdown="1" id="ask-joint-custody-ceiling">
+<summary>Equal parenting time should carry a lower ceiling than primary custody. No state has tried this yet.</summary>
 
 Where the children are with each parent about half the time, both households carry the fixed cost of
 housing them, a bedroom in each home kept year round. Every income-shares state that credits shared
@@ -384,6 +433,7 @@ three children at equal time, the ceiling binds while the other parent earns und
 stops binding above it. That is the same region where the equal-time credit collapses from 75
 percent of the primary-custody order to under 7 percent. The ceiling reaches the cases the Worksheet
 already handles worst.
+</details>
 
 ## The numbers behind this page
 

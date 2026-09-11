@@ -56,7 +56,7 @@ with no parenting-time term, shrinks as the income gap widens.
 - **Massachusetts isn't claimed to be "the worst state,"** or ranked against all fifty. See
   [the data](/the-data/) for the fixed fact pattern.
 - **No claim is made about anyone else's case.**
-- **This isn't a legal filing** and creates no obligation on anyone. See [documents](/documents/).
+- **This isn't a legal filing** and creates no obligation on anyone.
 
 ## License
 

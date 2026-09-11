@@ -17,7 +17,8 @@ chart sweeps a range of incomes, this example's
 figures are marked as one point among many. The worksheet behind these figures is
 <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked against the official
 form's own scripts on <a href="/the-model/">the model page</a>. These figures were built for the
-working paper and the public comments described on the <a href="/documents/">Documents</a> page.</p>
+working paper and the public comments; see <a href="/the-model/">the model</a> for the scripts
+behind both.</p>
 </div>
 
 Every chart below has one set of axes; an earlier set of exhibits mixed several panels into one

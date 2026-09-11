@@ -19,6 +19,17 @@ markdown: kramdown
 # reintroduces that theme's layouts and overrides these files — it happened once already on this
 # branch (a prior commit reduced this file to `theme: minima`); don't reintroduce it.
 
+# Contact form (contact/index.md), added 2026-09-11 when the Documents section came down and the
+# owner's name/email/GitHub link came off the site — this is the one route left for a reader to
+# report an error. The site is static (GitHub Pages), so the form POSTs to a third-party form
+# backend; this is the single place that endpoint lives, read by the form's `action` attribute and
+# by assets/js/contact.js's fetch call (which reads it off `form.action`, not from here a second
+# time). THE PLACEHOLDER BELOW WILL 404 UNTIL REPLACED — everything else (the toast, the no-JS
+# fallback landing on the provider's own confirmation, the honeypot) already works once this is a
+# real endpoint. Provider comparison and how to get one:
+# docs/plans/redteam/CONTACT-FORM.md in the private child-support-reform repo.
+contact_form_endpoint: "https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"
+
 plugins:
   - jekyll-seo-tag     # {% seo %} in _layouts/default.html: meta/OG tags from front matter + this file
   - jekyll-sitemap     # generates /sitemap.xml (machine-readable). The human-readable /sitemap/
