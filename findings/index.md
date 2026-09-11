@@ -18,7 +18,7 @@ disclosure:
     against the form's own calculation scripts. More on <a href="/about/">About</a>.
 ---
 
-# Six measurable effects in the worksheet's own arithmetic, ranked by how much each one changes the outcome
+# Seven measurable effects in the worksheet's own arithmetic, ranked by how much each one changes the outcome
 
 {% include disclosure.html %}
 
@@ -71,7 +71,20 @@ from that caution.
 
 [Read the full finding →](/findings/parenting-time/)
 
-## 3. The payor keeps 48 cents of the next dollar he earns
+## 3. The hardship test reads one income while the order is paid from another
+
+<p class="confidence-tag">Verified against the form's own calculation scripts</p>
+
+Section IV.C treats an order at 40 percent of income as a presumptive hardship, and Line 7e is the
+box on the Worksheet that tests for it. Line 7e divides by Line 3a available income, which is a
+gross figure, while the order itself is paid out of net. So the test and the payment are in
+different units, and the gap between them widens as the payor's tax rate rises. At the worked
+example the presumption does not kick in until the payor is at 57 percent of net pay, 17 points
+past the level the Guidelines themselves call a hardship.
+
+[Read the full finding →](/findings/hardship-test/)
+
+## 4. The payor keeps 48 cents of the next dollar he earns
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
@@ -91,7 +104,7 @@ payor income.
    source_script="model/charts/fig4_retention.py · model/marginal_retention.py"
    csv_href="/figures/working/fig4_marginal_retention.csv" %}
 
-## 4. Rebutting the presumptive order takes four written findings, which can cost more than the amount in dispute
+## 5. Rebutting the presumptive order takes four written findings, which can cost more than the amount in dispute
 
 <p class="confidence-tag">The deviation data is the Commonwealth's own; the rate at which a contested deviation succeeds is not measured anywhere in it.</p>
 
@@ -104,7 +117,7 @@ dollars a year can cost more than the amount in dispute. The Commonwealth publis
 presumption is rebutted, but not the one number that would say whether contesting is worth it: how
 often a deviation motion the parties did not simply agree to still succeeds.
 
-## 5. After tax and the order, the payor holds more than the recipient household, in total and per person
+## 6. After tax and the order, the payor holds more than the recipient household, in total and per person
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
@@ -127,7 +140,7 @@ Across a wider range of incomes the recipient's household still ends up ahead in
    source_script="model/charts/fig1_heatmaps.py · model/worksheet.py · model/net_position.py"
    csv_href="/figures/working/fig1_heatmap_3child_box1.csv" %}
 
-## 6. Massachusetts charges more for equal parenting time than 47 states charge a parent who has the children a third of the time
+## 7. Massachusetts charges more for equal parenting time than 47 states charge a parent who has the children a third of the time
 
 <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
 
