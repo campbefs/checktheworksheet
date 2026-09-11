@@ -297,6 +297,98 @@ header.topbar { border-bottom: 1px solid var(--rule); }
 .disclosure .box p:last-child { margin-bottom: 0; }
 .disclosure a { color: var(--text-primary); }
 
+/* ---- Accordion rows (recommendations) ----------------------------------
+   Chris, 2026-09-11, asked for the structure of an FAQ page: a container, the
+   question inside it, a caret pointing right, and the detail opening IN PLACE
+   rather than scrolling the reader somewhere else. Built on <details>, so it
+   opens with a click, with Enter or Space, and with no JavaScript at all.
+
+   The closed row carries the outcome as well as the ask, because the summary
+   table this replaced let a reader scan every outcome without opening anything,
+   and losing that would trade one complaint for another. */
+.accordion { margin: 0 0 var(--space-7); }
+
+.accordion .ask {
+  /* padding:0 is load-bearing. A generic `details` rule elsewhere in this file gives every
+     <details> 48px 32px 96px, which put 144px of dead space in each closed row. Measured in a
+     browser 2026-09-11, not inferred. */
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--surface-raised);
+  margin-bottom: var(--space-3);
+}
+.accordion .ask[open] { border-color: var(--rule-strong); }
+
+.accordion .ask > summary {
+  display: grid;
+  grid-template-columns: 1em 1fr;
+  gap: var(--space-3);
+  align-items: start;
+  padding: var(--space-4) var(--space-5);
+  cursor: pointer;
+  list-style: none;                 /* Firefox */
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.4;
+}
+.accordion .ask > summary::-webkit-details-marker { display: none; }
+
+/* The caret. A CSS triangle rather than a glyph, so it cannot pick up a font
+   fallback, and it rotates instead of swapping characters. */
+.accordion .ask > summary::before {
+  content: "";
+  width: 0; height: 0;
+  margin-top: 0.45em;
+  border-left: 0.5em solid var(--accent);
+  border-top: 0.36em solid transparent;
+  border-bottom: 0.36em solid transparent;
+  transition: transform 120ms ease;
+  transform-origin: 0.22em 50%;
+}
+.accordion .ask[open] > summary::before { transform: rotate(90deg); }
+
+.accordion .ask > summary:hover { color: var(--accent); }
+.accordion .ask > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  border-radius: 6px;
+}
+
+/* The summary is a two-column grid: caret, then everything else. Everything else must be a
+   SINGLE grid child, or each span lands in the 1em caret column and wraps one word per line. */
+.accordion .ask-head { display: block; min-width: 0; }
+.accordion .ask-title { display: block; }
+
+/* The outcome, on the closed row. */
+.accordion .effect {
+  display: block;
+  margin-top: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+.accordion .ask .tag-origin {
+  display: inline-block;
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+/* The body. Indented to the caret column so it reads as belonging to the row. */
+.accordion .ask > *:not(summary) {
+  padding: 0 var(--space-5) 0 calc(var(--space-5) + 1em + var(--space-3));
+}
+.accordion .ask > *:last-child { padding-bottom: var(--space-5); }
+
+@media (max-width: 640px) {
+  .accordion .ask > summary { padding: var(--space-3) var(--space-4); }
+  .accordion .ask > *:not(summary) { padding-left: var(--space-4); padding-right: var(--space-4); }
+}
+
 /* ---- 6. Page shell: chapter rail + content column ----------------------- */
 
 .page-shell {
