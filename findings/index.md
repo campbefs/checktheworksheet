@@ -85,14 +85,14 @@ past the level the Guidelines themselves call a hardship.
 
 [Read the full finding →](/findings/hardship-test/)
 
-## 4. The payor keeps 48 cents of the next dollar he earns
+## 4. The payor keeps 48 cents of the next dollar earned
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
 Of the next $10,000 the payor earns at $201,000, 20.3 percent goes to the order and 31.3 percent to
-combined income and payroll tax, leaving him 48.3 percent — above Table A's own 10 percent top
-bracket, because the child-count multiplier and his rising income share both scale up with income.
-The same computation keeps his retention between 39 and 48 percent from $150,000 to $300,000 of
+combined income and payroll tax, leaving 48.3 percent — above Table A's own 10 percent top
+bracket, because the child-count multiplier and the payor's rising income share both scale up with income.
+The same computation keeps the payor's retention between 39 and 48 percent from $150,000 to $300,000 of
 payor income.
 
 {% include figure.html

@@ -23,10 +23,16 @@ disagreement over one dollar.
 ## A tax model computes what each party actually keeps
 
 [`model/net_position.py`](/model/net_position.py) converts gross income to spendable income after
-federal and Massachusetts tax, including the EITC, Child Tax Credit, and the refundable Child and
-Family Tax Credit, so a finding can compare an order against what a household spends.
+tax, so a finding can compare an order against what a household spends. Every published figure on
+this site uses its withholding basis: federal income tax, Massachusetts income tax, and Social
+Security and Medicare, the same formula for both parents, no filing status, no dependents, no
+credits — reproducible from a published table by anyone. The module can also compute a
+credits-inclusive figure, adding the EITC, Child Tax Credit, and the refundable Massachusetts
+Child and Family Tax Credit; that mode is not used for any published figure and is exposed only as
+the calculator's optional "count credits" view, [explained on its own
+page](/credits/).
 
-## Three extension models, and one script printing every quoted figure
+## Four extension models, and one script printing every quoted figure
 
 - [`model/box1_fix.py`](/model/box1_fix.py): the Box 1 equal-parenting credit, and three
   redlines that give it a parenting-time term.
@@ -36,6 +42,9 @@ Family Tax Credit, so a finding can compare an order against what a household sp
   dollar is kept after tax.
 - [`model/submission_figures.py`](/model/submission_figures.py): prints every figure quoted to
   the Trial Court, so none is quoted without a script producing it.
+- [`model/recommendations.py`](/model/recommendations.py): the figures behind the
+  [recommendations page](/recommendations/), including the fifty-state medians and the child-care
+  split options.
 
 ## Four test suites, 358 checks, all passing, gate every quoted number
 

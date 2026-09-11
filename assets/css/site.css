@@ -167,9 +167,18 @@ header.topbar { border-bottom: 1px solid var(--rule); }
 
 /* Hamburger: a real, keyboard-operable checkbox+label, no JavaScript required (design brief
    §3.3/§3.10). `nav-toggle.js` only adds `aria-expanded` bookkeeping for assistive tech above
-   640px-down; the CSS below is the entire functional mechanism either way. The nav is NEVER
-   `display:none` — collapsed state uses max-height so it stays in the tab order even visually
-   collapsed, satisfying "no visitor ever sees a broken control." */
+   640px-down; the CSS below is the entire functional mechanism either way.
+   CORRECTED 2026-09-11 (QA swarm, device-access F2): the collapsed nav used to stay in the tab
+   order on the theory that never using `display:none` meant "no visitor ever sees a broken
+   control" — but a keyboard user tabbing past the closed hamburger landed on six links with a
+   real, in-viewport bounding box that painted nothing (`elementFromPoint` at the link's own
+   center returned the hero section behind it, not the link), which is a broken control, just an
+   invisible one instead of a missing one. `visibility: hidden` removes an element from the tab
+   order the same way `display: none` does, without abandoning the max-height slide animation:
+   the transition-delay pair below holds `visibility: visible` for the whole 0.2s close animation
+   (so the links are still reachable and painted while they're sliding away) and only flips to
+   `hidden` once the slide finishes; opening flips back to `visible` immediately, before the
+   slide-open animation starts, so nothing is ever both invisible and focusable. */
 .nav-toggle-input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .nav-toggle-label {
   display: none;
@@ -190,10 +199,13 @@ header.topbar { border-bottom: 1px solid var(--rule); }
   .nav-toggle-label { display: flex; }
   .topbar-inner .site-nav {
     flex-basis: 100%; flex-direction: column; gap: 0;
-    max-height: 0; overflow: hidden;
-    transition: max-height 0.2s ease;
+    max-height: 0; overflow: hidden; visibility: hidden;
+    transition: max-height 0.2s ease, visibility 0s linear 0.2s;
   }
-  .nav-toggle-input:checked ~ .site-nav { max-height: 320px; }
+  .nav-toggle-input:checked ~ .site-nav {
+    max-height: 320px; visibility: visible;
+    transition: max-height 0.2s ease, visibility 0s linear 0s;
+  }
   .topbar-inner .site-nav a { padding: var(--space-3) 0; border-top: 1px solid var(--rule); }
 }
 
@@ -872,6 +884,10 @@ input[type="range"]::-moz-range-thumb {
   color: var(--text-primary);
 }
 .tool-number-field input[type="number"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+/* 2026-09-11 QA swarm F1/F2: a typed value outside the field's own min/max stays visible (never
+   silently rewritten -- see calculator.js) so the field is an honest record of what was typed;
+   this border colour is the visual half of that honesty, alongside the 'range' flagline. */
+.tool-number-field input[type="number"]:invalid { border-color: var(--accent); }
 
 /* Status-badge strip: always visible on both tabs, above the readout. A leading glyph (filled
    circle for "lit," open circle for "muted") means colour is never the only channel (WCAG 1.4.1). */
@@ -1017,8 +1033,17 @@ input[type="range"]::-moz-range-thumb {
 .lightbox-caption { padding: var(--space-4) var(--space-5) 0; font-size: 0.9375rem; color: var(--text-secondary); }
 .lightbox-source { padding: var(--space-2) var(--space-5) var(--space-4); font-size: 0.875rem; }
 .lightbox-close {
-  position: absolute; top: var(--space-3); right: var(--space-3);
-  width: 36px; height: 36px; border-radius: 50%; border: 0;
+  position: absolute; top: calc(var(--space-3) - 4px); right: calc(var(--space-3) - 4px);
+  width: 36px; height: 36px; border-radius: 50%; box-sizing: content-box;
+  /* 2026-09-11 QA swarm, device-access F3: a 4px transparent border on every side brings the
+     real hit/focus target to 44x44 (WCAG 2.5.5) without enlarging the visible circle or the ×
+     glyph -- the background paints inside the border by default (background-origin:
+     padding-box), so what's on screen is the same 36px circle, just easier to hit. The top/right
+     offsets above are reduced by the border width so the visible circle stays in the same
+     on-screen position as before this change. */
+  border: 4px solid transparent; background-clip: padding-box; padding: 0; /* a <button>'s
+  UA-default padding would otherwise add to the content-box width/height above the intended
+  44x44, since box-sizing is content-box here rather than the button default of border-box */
   background: var(--text-primary); color: var(--surface); font-size: 1.25rem; cursor: pointer;
   line-height: 1;
 }

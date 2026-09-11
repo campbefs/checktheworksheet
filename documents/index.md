@@ -20,7 +20,7 @@ Every figure on this site comes from one of these two documents.
   <li class="doc-item">
     <span class="doc-title">Attachment E: Figures</span>
     <span class="confidence-tag">Figures appendix</span>
-    <span class="doc-context">Twenty-five pages, twenty-three figures (E01-E27), each stating
+    <span class="doc-context">Twenty-six pages, twenty-three figures (E01-E27), each stating
       custody, child count, child care status, and incomes used; built for the SSRN version, not
       the frozen package above. Also at <a href="/exhibits/">/exhibits/</a>, with each CSV.
       <a href="/paper/Attachment-E-figures.pdf">PDF</a></span>

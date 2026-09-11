@@ -598,15 +598,39 @@
       }
     }
 
+    // Reads a numeric input's own declared min/max (2026-09-11 QA swarm, device-access/
+    // interactive-breaker F1/F2: a health-premium field with min="0" max="500" in the markup
+    // still let a typed 5000 or -50 straight through, because the model reads
+    // `Number(el.value) || 0` and never consults the browser's own `validity` object -- the
+    // attributes alone don't stop typed input, only a real keystroke-time check does). Empty or
+    // non-numeric text reads as 0, same as the pre-existing behaviour; a value outside [min, max]
+    // is clamped to the nearest limit rather than fed to the model as typed, so the two headline
+    // numbers (the order and Line 7e) can never be shown moving in contradictory directions from
+    // an input the tool never actually intended to model. `outOfRange` is reported back so the
+    // caller can say so, honestly, rather than silently substituting a different number.
+    function clampToDeclaredRange(el) {
+      if (!el) return { value: 0, outOfRange: false };
+      var raw = el.value;
+      var n = raw === '' ? 0 : Number(raw);
+      if (isNaN(n)) n = 0;
+      var min = (el.min !== '' && el.min != null) ? Number(el.min) : -Infinity;
+      var max = (el.max !== '' && el.max != null) ? Number(el.max) : Infinity;
+      var clamped = Math.min(max, Math.max(min, n));
+      return { value: clamped, outOfRange: clamped !== n };
+    }
+
     function currentFacts() {
       var ccOnRadio = document.querySelector('[data-calc-radio="ccOn"]:checked');
       var ccRuleRadio = document.querySelector('[data-calc-radio="ccRule"]:checked');
       var creditsRadio = document.querySelector('[data-calc-radio="credits"]:checked');
+      var healthHighClamp = clampToDeclaredRange(inputs.healthHigh);
+      var healthLowClamp = clampToDeclaredRange(inputs.healthLow);
       return {
         kids: Number(document.querySelector('[data-calc-radio="kids"]:checked').value),
         box: Number(document.querySelector('[data-calc-radio="box"]:checked').value),
-        healthHigh: Number(inputs.healthHigh.value) || 0,
-        healthLow: Number(inputs.healthLow.value) || 0,
+        healthHigh: healthHighClamp.value,
+        healthLow: healthLowClamp.value,
+        healthOutOfRange: healthHighClamp.outOfRange || healthLowClamp.outOfRange,
         ccOn: ccOnRadio ? ccOnRadio.value === '1' : false,
         ccLower: inputs.ccLower ? Number(inputs.ccLower.value) || 0 : 0,
         ccHigher: inputs.ccHigher ? Number(inputs.ccHigher.value) || 0 : 0,
@@ -791,12 +815,22 @@
           moneyWk(fixResult.fixed_rule_order_wk) + ', the Worksheet gives ' + moneyWk(ccResult.order_wk) + '.';
       } else {
         ruleNote = 'The Worksheet charges the higher earner ' + pct1(dist.share3c) +
-          ' (' + money(worksheetChargeWk * 52) + ') of the child care, while he holds ' + pct0(dist.gross_share) +
+          ' (' + money(worksheetChargeWk * 52) + ') of the child care, while they hold ' + pct0(dist.gross_share) +
           ' of the money after the order on paper and ' + pct0(dist.net_withholding_share) + ' of it after tax.';
       }
       if (cells.cc_rule_note) cells.cc_rule_note.textContent = ruleNote;
 
       // -- Status strip: reflects whichever result is active (see `active` above). --
+      // "range" (2026-09-11, QA swarm F1/F2): a health-premium field will take a typed value far
+      // outside its own declared min/max ($5,000/wk, or a negative number) and, unflagged, that
+      // drove the order and Line 7e in opposite directions -- the two numbers this whole tool
+      // exists to contrast. `currentFacts()` already clamps whatever is typed to the field's own
+      // declared range before it reaches the model, so the figures below are never computed from
+      // the out-of-range number; this flag is what makes that substitution honest rather than
+      // silent.
+      setBadge('range', facts.healthOutOfRange,
+        'A health insurance premium was typed outside the $0–$500 a week this tool models. The '
+        + 'figures below use the nearest limit instead of what was typed.', '');
       // "impossible" (2026-09-10, red team F2): an extreme but slider-reachable combination
       // (a low income, high claimed child care) can make the order bigger than the payor has
       // anything left to pay it from. The Worksheet's own arithmetic does not stop that -- it
@@ -906,6 +940,14 @@
       el.addEventListener('blur', function () { commitIncomeEdit(which, el); });
     });
 
+    // Deliberately does NOT rewrite the field's own text: whatever was typed stays on screen
+    // (matching the browser's own `validity.rangeOverflow`/`rangeUnderflow` on that same field),
+    // so the field is always an honest record of what the visitor typed. Every keystroke already
+    // renders from a value clamped to the field's own declared min/max (currentFacts() /
+    // clampToDeclaredRange above), so the model is never handed the raw out-of-range number, and
+    // the 'range' badge (see render()) explains the substitution for as long as the field holds
+    // a value outside its own range -- it goes live and dark on the same keystroke that makes it
+    // true or false, with nothing to fall out of sync.
     inputs.healthHigh && inputs.healthHigh.addEventListener('input', render);
     inputs.healthLow && inputs.healthLow.addEventListener('input', render);
     inputs.ccLower && inputs.ccLower.addEventListener('input', render);

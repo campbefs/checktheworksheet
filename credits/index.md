@@ -9,9 +9,10 @@ description: >-
 
 # Four refundable tax credits are worth $15,328 a year here, and the model leaves them out by default
 
-The calculator and every finding on this site compute net income on a withholding basis: federal
+Every published figure on this site computes net income on a withholding basis: federal
 income tax, Massachusetts income tax, and Social Security and Medicare, the same formula for both
-parents, no filing status, no dependents, no credits. That basis is reproducible from a published
+parents, no filing status, no dependents, no credits. The calculator is the one exception, and
+defaults to counting them — see below. The withholding basis is reproducible from a published
 table by anyone. It also understates a low-income parent's real spendable income, because it
 leaves out credits that pay out in cash. This page states what those credits are worth at the
 recipient's income in the worked example, $29,640 a year, three children, two of them under 13,

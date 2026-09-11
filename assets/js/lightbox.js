@@ -45,6 +45,16 @@
 // visible without scrolling on most screens). Without JavaScript every trigger is a plain working
 // `<a>` straight to the full-size PNG — never a broken control; the trigger's own keyboard
 // behaviour (Tab to focus, Enter to activate) needs no extra work because it already is a link.
+//
+// FOCUS TRAP (2026-09-11, QA swarm, device-access F1): while the dialog is open, Tab and
+// Shift+Tab cycle only among the dialog's own focusable elements (the close button and, when
+// present, the CSV link) instead of escaping to the page underneath, which is still fully
+// present in the DOM and still covered by the modal on screen. Before this fix, two Tabs from
+// open moved focus onto the header nav links with nothing on screen to show where it went — the
+// modal looked the same, but the keyboard was now operating a page the visitor could not see.
+// The trap is recomputed on every open() (the CSV link's `hidden` state changes per image, so
+// the "last focusable element" is not always the same node), and Escape still closes the dialog
+// from anywhere inside it, per the existing behaviour above.
 
 (function () {
   'use strict';
@@ -89,8 +99,26 @@
     if (lastTrigger) lastTrigger.focus();
   }
 
+  // The dialog's own focusable elements, in DOM (= visual) order, recomputed on every open()
+  // since csvPara's `hidden` state (and so whether csvLink is focusable) changes per image.
+  function focusableInDialog() {
+    return Array.prototype.slice.call(dialog.querySelectorAll('button, a[href]'))
+      .filter(function (el) { return !el.hidden && el.offsetParent !== null; });
+  }
+
   function onKeydown(e) {
-    if (e.key === 'Escape') close();
+    if (e.key === 'Escape') { close(); return; }
+    if (e.key !== 'Tab') return;
+    var focusable = focusableInDialog();
+    if (!focusable.length) { e.preventDefault(); dialog.focus(); return; }
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    var active = document.activeElement;
+    if (e.shiftKey) {
+      if (active === first || !dialog.contains(active)) { e.preventDefault(); last.focus(); }
+    } else {
+      if (active === last || !dialog.contains(active)) { e.preventDefault(); first.focus(); }
+    }
   }
 
   document.querySelectorAll('[data-lightbox]').forEach(function (trigger) {
