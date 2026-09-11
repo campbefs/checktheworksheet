@@ -30,7 +30,7 @@ the last three go further than the comments do.
 |---|---|---|
 | [Measure the hardship test in net income, not gross](#ask-hardship-basis) | No dollar change. The 40 percent presumption doesn't apply until the payor reaches 57 percent of net income. | Trial Court comments |
 | [Allocate child care on the split the order already produced](#ask-childcare-transfer) | Payor's child care share, 87.7 percent before the order, falls to 53.0 percent after it; the order with $300 a week of child care falls from $1,275.77 to $1,171.64 a week. Fuller version in part three. | Trial Court comments |
-| [Apply the equal-parenting credit once, at the transfer](#ask-parenting-credit-a) | Equal-time order falls from $1,012.73 to $935.06 a week, a 7.7 percent cut. | Trial Court comments |
+| [Stop the low-income limit from cutting the equal-parenting credit](#ask-parenting-credit-a) | Equal-time order falls from $1,012.73 to $935.06 a week, a 7.7 percent cut. | Trial Court comments |
 | [Add a signed disclosure checklist to the Worksheet](#ask-disclosure-checklist) | No dollar change. | Trial Court comments |
 | [Move the deviation findings onto the Worksheet itself](#ask-deviations-worksheet) | No dollar change. | Trial Court comments |
 | [Give extraordinary medical costs a formula](#ask-medical-formula) | No dollar change. | Trial Court comments |
@@ -68,10 +68,23 @@ Three changes, each keyed to a Worksheet line, each with an effect measured at t
 </details>
 
 <details markdown="1" id="ask-parenting-credit-a">
-<summary>Apply the equal-parenting credit once, at the transfer. Cuts the equal-time order 7.7 percent.</summary>
+<summary>Stop the low-income limit from cutting the equal-parenting credit. Cuts the equal-time order 7.7 percent.</summary>
 
-- **Apply the equal-parenting credit once, at the transfer, instead of clipping it as an entitlement.**
-  Variant A takes the equal-time order from $1,012.73 to $935.06 a week, a 7.7 percent cut.
+**Apply the Worksheet's low-income limit at the transfer, where a primary-custody case already
+applies it, instead of applying it to the equal-parenting credit.**
+
+The Guidelines cap a parent's support figure when it would come to less than 10 percent of that
+parent's available income. It is a protection for a low earner. With the children primarily with
+one parent, the Worksheet applies that cap at Line 7b, to what the payor owes.
+
+With the parents splitting time equally it applies the cap earlier, at Line 6e. At equal time
+Line 6e is not what the payor owes: it is the credit he receives for having the children half the
+week. So a rule written to protect a low earner reduces the higher earner's credit instead. At the
+worked example it takes that credit from $152.84 to $75.17 a week. Slightly more than half of it
+is gone.
+
+Applying the cap at Line 7b, the way a primary-custody case already does, takes the equal-time
+order from $1,012.73 to $935.06 a week, a 7.7 percent cut.
 </details>
 
 Nothing in this section changes the Worksheet's underlying schedule or its child-care ceiling. Every
