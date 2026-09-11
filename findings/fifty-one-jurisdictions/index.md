@@ -40,7 +40,7 @@ sections:
 ---
 
 <section class="hero" markdown="1">
-<p class="eyebrow">Finding 4 of 4: the weakest finding on this site</p>
+<p class="eyebrow">The fifty-state comparison, the weakest finding on this site</p>
 
 # One fact pattern ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
 

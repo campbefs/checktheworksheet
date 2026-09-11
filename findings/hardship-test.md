@@ -36,7 +36,7 @@ sections:
 ---
 
 <section class="hero" markdown="1">
-<p class="eyebrow">Finding 1 of 4</p>
+<p class="eyebrow">The hardship test</p>
 
 # The hardship presumption does not kick in until the payor is at 57 percent of net income
 

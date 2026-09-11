@@ -38,7 +38,7 @@ sections:
 ---
 
 <section class="hero" markdown="1">
-<p class="eyebrow">Finding 2 of 4</p>
+<p class="eyebrow">Child care</p>
 
 # The payor funds 88 cents of every dollar of child care, on money the order has already moved to the other parent
 

@@ -35,7 +35,7 @@ sections:
 ---
 
 <section class="hero" markdown="1">
-<p class="eyebrow">Finding 3 of 4</p>
+<p class="eyebrow">Parenting time</p>
 
 # Going from a third of the time to half lowers the order by 6.9 percent
 
