@@ -201,8 +201,26 @@ can legally be held from a parent's paycheck." West Virginia uses 40 percent of 
 earnings as the trigger for a right to petition to restructure payments, though only for one narrow
 group of parents.
 
-The Massachusetts Guidelines, the economic review and the Task Force report mention the Consumer
-Credit Protection Act zero times, and disposable earnings zero times.
+**Massachusetts already uses that measure. It just does not use it where the amount is decided.**
+The Commonwealth's income withholding statute, G.L. c. 119A section 12, points at the federal
+ceiling three separate times: on what an employer may withhold, on what it may take toward health
+insurance premiums, and on arrears. The third one is a hardship provision, and it reads like the
+ceiling proposed above. Where paying arrears at a quarter of the order "creates an undue hardship
+upon the obligor or that the withholding would exceed the maximum amount permitted by the Consumer
+Credit Protection Act, 15 USC 1673(b), the rate at which such arrearage must be paid shall be
+reduced to a rate that is fair and reasonable." No motion, no four written findings. The measure is
+exceeded, so the payment comes down.
+
+So the state measures in net when it collects and in gross when it decides the amount, and the two
+rules live in different chapters that never refer to each other. The Guidelines themselves, the
+economic review and the Task Force report mention the Consumer Credit Protection Act zero times and
+disposable earnings zero times.
+
+Two limits on all of this, because they matter. The federal ceiling governs what may be collected,
+not what may be ordered, so a court can order more than a paycheck may lawfully give up and the
+difference becomes arrears. And Massachusetts adopts the federal number rather than setting a lower
+one of its own. What the statute book supports is measuring this obligation in net pay, and reducing
+an amount automatically when the measure is exceeded. It does not supply the 25 or the 40.
 
 ### Both ceilings need one new number, and it fits in ten rows
 
