@@ -20,20 +20,15 @@ disclosure:
 # Mission
 
 This project aims to advocate for reform of the Massachusetts Child Support Guidelines, to make
-them more fair and to hold the Commonwealth accountable for the Worksheet.
+them more fair and to hold the Commonwealth accountable for the Worksheet. The Worksheet has never
+had a proper review. No task force has examined how its math actually works economically.
 
-The Worksheet has never had a proper review. No task force has examined how its math actually works
-economically.
-
-A Worksheet that sets a presumptive order should be accurate whichever way it's off. The three
-checkable claims below name where it isn't: an income basis that changes partway through the
-calculation, a child care split measured before the order moves money between the households, and
-a parenting-time credit with no parenting-time term in it. The
-[recommendations](/recommendations/) page goes further, and not only toward a lower order. It
-proposes redlines for those three claims, and separately, two changes that don't lower any order
-at all, a sworn disclosure requirement and a deviations section that isn't buried on a separate
-form, both first proposed by an advocacy coalition that argues the opposite side of most of what's
-here. Every figure here comes from a published model with tests. Anyone can check the arithmetic.
+A Worksheet that sets a presumptive order should be accurate whichever way it's off, and the three
+checkable claims below name where it isn't. The [recommendations](/recommendations/) page goes
+further, and not every proposal there lowers an order: alongside redlines for those three, it asks
+for two changes that lower none at all, both first proposed by an advocacy coalition that argues
+the opposite side of most of what's here. Every figure comes from a published model with tests. Anyone
+can check the arithmetic.
 
 ## Who built this
 
