@@ -302,6 +302,17 @@ article.finding > .confidence-tag {
   margin: 0 auto var(--space-8);
   padding: var(--space-5) var(--space-6);
 }
+/* On a `.page`, `.page > *` already caps this at --content-width, and the `margin: 0 auto`
+   above then centres that narrower box inside the page's full width — so it sat 180px right
+   of the h1 it belongs under, aligned with nothing. Measured 2026-09-11: box left edge 212px
+   against a 32px text edge at 1280, 372px against 172px at 1600. The page owns the horizontal
+   frame; the disclosure just fills it. */
+.page > .disclosure {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
 .disclosure .box {
   border-left: 3px solid var(--rule-strong);
   padding: var(--space-5) var(--space-6);
@@ -637,6 +648,18 @@ article.finding > .confidence-tag {
 }
 .prose table tbody tr:last-child, .page-body table tbody tr:last-child,
 article table tbody tr:last-child { border-bottom: 0; }
+
+/* A table wider than the phone used to push the WHOLE PAGE sideways — measured 2026-09-11 at
+   390px: /the-model/ scrolled 159px, /credits/ 10px, every other page zero. `display: block`
+   makes the table its own scroll container, so the overflow stays inside the table instead of
+   becoming a page-level horizontal scrollbar, which reads as a broken site. Same treatment the
+   fifty-jurisdictions page already gets from its `.table-scroll` wrapper, without needing one. */
+@media (max-width: 700px) {
+  .page > table, .content-col > table { display: block; overflow-x: auto; max-width: 100%; }
+  /* A long path in inline code (`model/test_childcare_post_transfer.py`) is one unbreakable
+     token and pushed the page 6px sideways on its own after the table stopped doing it. */
+  code { overflow-wrap: anywhere; }
+}
 
 .exhibit-table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
 .exhibit-table caption { text-align: left; margin-bottom: var(--space-3); color: var(--text-secondary); }
@@ -1016,10 +1039,14 @@ a.lightbox-trigger:focus-visible { outline: 3px solid var(--accent); outline-off
   color: var(--text-secondary);
 }
 
+/* One recurring element, so one width everywhere. It used to resolve against --page-max on a
+   bare `.page` and against --content-width inside `.content-col`, which measured 1216px vs
+   920px and a 288px difference in where it started — the same box in two sizes depending on
+   which page you were on. --content-width is what every other block on both templates uses. */
 .check-yourself, .ask {
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: var(--space-7) var(--space-6) var(--space-9);
+  max-width: var(--content-width);
+  margin: 0;
+  padding: var(--space-7) 0 var(--space-9);
   border-top: 1px solid var(--rule);
 }
 .content-col .check-yourself, .content-col .ask { max-width: none; padding: var(--space-7) 0 0; margin-bottom: 0; }
