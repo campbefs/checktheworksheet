@@ -884,6 +884,10 @@ input[type="range"]::-moz-range-thumb {
   color: var(--text-primary);
 }
 .tool-number-field input[type="number"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+/* 2026-09-11 QA swarm F1/F2: a typed value outside the field's own min/max stays visible (never
+   silently rewritten -- see calculator.js) so the field is an honest record of what was typed;
+   this border colour is the visual half of that honesty, alongside the 'range' flagline. */
+.tool-number-field input[type="number"]:invalid { border-color: var(--accent); }
 
 /* Status-badge strip: always visible on both tabs, above the readout. A leading glyph (filled
    circle for "lit," open circle for "muted") means colour is never the only channel (WCAG 1.4.1). */
@@ -1037,7 +1041,9 @@ input[type="range"]::-moz-range-thumb {
      padding-box), so what's on screen is the same 36px circle, just easier to hit. The top/right
      offsets above are reduced by the border width so the visible circle stays in the same
      on-screen position as before this change. */
-  border: 4px solid transparent; background-clip: padding-box;
+  border: 4px solid transparent; background-clip: padding-box; padding: 0; /* a <button>'s
+  UA-default padding would otherwise add to the content-box width/height above the intended
+  44x44, since box-sizing is content-box here rather than the button default of border-box */
   background: var(--text-primary); color: var(--surface); font-size: 1.25rem; cursor: pointer;
   line-height: 1;
 }

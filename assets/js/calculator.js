@@ -940,21 +940,16 @@
       el.addEventListener('blur', function () { commitIncomeEdit(which, el); });
     });
 
-    // Every keystroke already renders from a clamped value (see currentFacts()/
-    // clampToDeclaredRange above), so the figures on screen are never wrong while typing. On
-    // blur, also rewrite the field itself to the clamped number, so a field left showing "5000"
-    // or "-50" after the visitor moves on would be a second, silent lie about what the tool
-    // actually used -- matching it removes that.
-    function commitHealthEdit(el) {
-      if (!el) return;
-      var clamp = clampToDeclaredRange(el);
-      el.value = String(clamp.value);
-      render();
-    }
+    // Deliberately does NOT rewrite the field's own text: whatever was typed stays on screen
+    // (matching the browser's own `validity.rangeOverflow`/`rangeUnderflow` on that same field),
+    // so the field is always an honest record of what the visitor typed. Every keystroke already
+    // renders from a value clamped to the field's own declared min/max (currentFacts() /
+    // clampToDeclaredRange above), so the model is never handed the raw out-of-range number, and
+    // the 'range' badge (see render()) explains the substitution for as long as the field holds
+    // a value outside its own range -- it goes live and dark on the same keystroke that makes it
+    // true or false, with nothing to fall out of sync.
     inputs.healthHigh && inputs.healthHigh.addEventListener('input', render);
     inputs.healthLow && inputs.healthLow.addEventListener('input', render);
-    inputs.healthHigh && inputs.healthHigh.addEventListener('blur', function () { commitHealthEdit(inputs.healthHigh); });
-    inputs.healthLow && inputs.healthLow.addEventListener('blur', function () { commitHealthEdit(inputs.healthLow); });
     inputs.ccLower && inputs.ccLower.addEventListener('input', render);
     inputs.ccHigher && inputs.ccHigher.addEventListener('input', render);
     radios.forEach(function (el) {

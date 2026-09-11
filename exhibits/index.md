@@ -2,7 +2,7 @@
 layout: page
 title: Exhibits
 description: >-
-  Twenty-three figures behind the paper's findings, one chart each, every one traced to the model
+  Twenty-four figures behind the paper's findings, one chart each, every one traced to the model
   script or the fifty-jurisdiction dataset that produced it, with the plotted values in a CSV or
   dataset beside every chart.
 ---
@@ -52,6 +52,7 @@ comparison always carries its per-person counterpart.
 21. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
 22. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
 23. [Five reviews have taken up gross versus net. None changed it.](#e27)
+24. [The order passes 40 percent of net pay in 473 of 1,147 income combinations.](#e28)
 
 ## Who holds more after the order
 
@@ -229,6 +230,30 @@ comparison always carries its per-person counterpart.
     <p class="exhibit-notes">The order's marginal take runs near 20 percent, above Table A's 10 percent top bracket, because the child-count multiplier and the rising income share both scale with the payor's income. $5,000 steps. Dashed line: 50 cents. Two of three children under 13 (MA credit); premiums $43/$33.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig4_retention.py</code>; <code>model/marginal_retention.py</code> ·
       <a href="/figures/working/fig4_marginal_retention.csv">data (CSV)</a></p>
+  </figcaption>
+</figure>
+
+<figure class="exhibit" id="e28">
+  <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E28-hardship-test-vs-share-of-net-3-children-primary.png"
+     data-caption="The order passes 40 percent of net pay in 473 of 1,147 income combinations."
+     data-csv-href="/figures/working/fig12_net_pay_ceiling.csv" data-csv-label="Data (CSV)">
+  <img src="/figures/exhibits/E28-hardship-test-vs-share-of-net-3-children-primary.png"
+         loading="lazy"
+         alt="Scatter plot of Line 7e against the order as a share of the payor's net pay, one point per income combination on the three-child primary-custody grid, with the 40 percent threshold marked on both axes.">
+  </a>
+  <figcaption>
+    <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+    <h3 class="exhibit-title">The order passes 40 percent of net pay in 473 of 1,147 income combinations.</h3>
+    <p class="exhibit-deck">The Worksheet's own hardship test flags none of them. Each dot is one pair of incomes.</p>
+    <dl class="exhibit-facts">
+      <div><dt>Custody</dt><dd>Primary with the lower earner (Box 2)</dd></div>
+      <div><dt>Children</dt><dd>3</dd></div>
+      <div><dt>Child care</dt><dd>None (base support)</dd></div>
+      <div><dt>Incomes</dt><dd>Vary (axes)</dd></div>
+    </dl>
+    <p class="exhibit-notes">Across is what Line 7e prints; up is what the order actually takes. Every point sits above the dashed diagonal because Line 7e divides by a gross-derived figure, and the widest gap on this grid is 13.0 percentage points. Net is the withholding basis: gross less federal income tax at the single filing status with the standard deduction, Social Security and Medicare, and Massachusetts income tax.</p>
+    <p class="exhibit-source">Source: <code>model/charts/fig12_net_pay_ceiling.py</code> ·
+      <a href="/figures/working/fig12_net_pay_ceiling.csv">data (CSV)</a></p>
   </figcaption>
 </figure>
 

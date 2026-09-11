@@ -47,8 +47,10 @@ instead of the 87.7 percent pre-order split the Worksheet uses today.**
 At the worked example, three children, $300 a week in child care paid by the recipient: the payor's
 Line 3c income share before the order is 87.7 percent, and Line 6b charges the payor that share of the
 $15,600 a year. But the order has already moved money between the households: after the transfer,
-the payor's share of the combined gross is 64.3 percent, and on a withholding basis, income tax and FICA
-for a single filer claiming no exemptions, the payor's share of combined net is 53.0 percent.
+the payor's raw share of combined gross is 64.3 percent (a different quantity from the 64.5 percent
+Line 6b-2 fallback figure below, which measures Line 3a available income, not gross), and on a
+withholding basis, income tax and FICA for a single filer claiming no exemptions, the payor's share
+of combined net is 53.0 percent.
 
 The recommended fix, and now the comments' own lead redline, allocates child care on that
 post-transfer net split, using new Worksheet Lines 6b-1a and 6b-1. It changes the order itself,
@@ -155,8 +157,9 @@ which is the scale this recommendation is measured against.
 
 Where the children are with each parent about half the time, both households carry the fixed cost of
 housing them, a bedroom in each home kept year round. Every income-shares state that credits shared
-parenting through a cross-credit recognises this: 23 states apply a 1.5 duplication factor, and
-Indiana's Guideline 6 Commentary puts the duplicated share of the basic obligation at 50 percent.
+parenting through a cross-credit recognises this: 23 states apply a 1.5 duplication factor (a few
+use no multiplier, or one other than 1.5), and Indiana's Guideline 6 Commentary puts the duplicated
+share of the basic obligation at 50 percent.
 The Massachusetts Worksheet contains no parenting-time quantity in any line, so its credit for equal
 time is only the difference in income shares, and it collapses as the income gap widens.
 

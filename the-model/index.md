@@ -32,7 +32,7 @@ Child and Family Tax Credit; that mode is not used for any published figure and 
 the calculator's optional "count credits" view, [explained on its own
 page](/credits/).
 
-## Three extension models, and one script printing every quoted figure
+## Four extension models, and one script printing every quoted figure
 
 - [`model/box1_fix.py`](/model/box1_fix.py): the Box 1 equal-parenting credit, and three
   redlines that give it a parenting-time term.
