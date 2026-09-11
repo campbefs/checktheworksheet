@@ -269,6 +269,23 @@ header.topbar { border-bottom: 1px solid var(--rule); }
   margin: 0; max-width: 22ch;
   font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-secondary);
 }
+/* 22ch is right for a PAIR of numerals sharing a row. Under a single numeral it left the caption
+   172px wide and SEVEN lines deep, measured 2026-09-11 on the fifty-jurisdictions page, which read
+   as a broken column rather than a caption. A solo numeral has the row to itself. */
+.numeral-pair--solo .numeral-caption { max-width: 52ch; }
+
+/* A .confidence-tag sitting directly in `article.finding` has no container to give it a width or
+   padding: measured left:0, hard against the viewport edge, while the content column began at 320.
+   The rule below gives it the same box the numeral pair above it uses, so the two line up. Tags
+   INSIDE a card, hero or figure are unaffected — those containers already supply padding. */
+article.finding > .confidence-tag {
+  max-width: var(--page-max);
+  margin: 0 auto var(--space-6);
+  padding: 0 var(--space-6);
+}
+@media (max-width: 700px) {
+  article.finding > .confidence-tag { padding: 0 var(--space-5); }
+}
 .numeral-arrow {
   font-family: var(--font-sans); font-weight: 300; font-size: clamp(2rem, 1.5rem + 3vw, 4rem);
   color: var(--rule-strong); align-self: center;
@@ -383,6 +400,25 @@ header.topbar { border-bottom: 1px solid var(--rule); }
   padding: 0 var(--space-5) 0 calc(var(--space-5) + 1em + var(--space-3));
 }
 .accordion .ask > *:last-child { padding-bottom: var(--space-5); }
+
+/* A markdown table inside an open row cannot be told to wrap, and the comparison table in the
+   recommended child-care row pushed 40px past its own box at 390px, putting a horizontal
+   scrollbar on the whole page. Measured by the device reviewer 2026-09-11. Scroll the table
+   inside its own row instead, the same treatment .table-scroll gives elsewhere. */
+.accordion .ask table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Contact: the address is the page, so give it the weight of one. */
+.contact-email { margin: var(--space-5) 0 var(--space-6); }
+.contact-email a {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 0.7rem + 1.6vw, 1.5rem);
+  word-break: break-all;
+}
 
 @media (max-width: 640px) {
   .accordion .ask > summary { padding: var(--space-3) var(--space-4); }

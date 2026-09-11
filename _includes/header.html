@@ -34,6 +34,12 @@
   </label>
 
   <nav class="site-nav" aria-label="Primary">
+    {%- comment -%}
+      Home is a deliberate repeat of the wordmark. Chris, 2026-09-11: the wordmark is a link but
+      does not look like one, so a reader has no obvious way back. Duplicated affordance beats a
+      hidden one.
+    {%- endcomment -%}
+    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
     <a href="{{ '/findings/' | relative_url }}"{% if page.url contains '/findings/' and page.url != '/findings/fifty-one-jurisdictions/' %} aria-current="page"{% endif %}>Findings</a>
     <a href="{{ '/recommendations/' | relative_url }}"{% if page.url contains '/recommendations/' %} aria-current="page"{% endif %}>Recommendations</a>
     <a href="{{ '/findings/fifty-one-jurisdictions/' | relative_url }}"{% if page.url contains 'fifty-one-jurisdictions' %} aria-current="page"{% endif %}>Fifty jurisdictions</a>
