@@ -10,9 +10,10 @@ description: >-
 # Every exhibit here is a single chart, drawn from a committed script, with its plotted values linked beside it
 
 <div class="disclosure">
-<p>Many charts below use my own child support order: $201,000 and $29,640 a year, three children,
-computed under Massachusetts's 2025 Worksheet. I disclose it so you can check the arithmetic
-against real numbers as well as hypothetical ones. Where a chart sweeps a range of incomes, my own
+<p>Many charts below use a fixed worked example: $201,000 and $29,640 a year, three children,
+computed under Massachusetts's 2025 Worksheet. I pay child support in Massachusetts myself, so I
+have a stake in the outcome, and I disclose it so you can check the arithmetic yourself. Where a
+chart sweeps a range of incomes, this example's
 figures are marked as one point among many. The worksheet behind these figures is
 <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked against the official
 form's own scripts on <a href="/the-model/">the model page</a>. None of these figures has been
@@ -969,6 +970,5 @@ actually plotted.</p>
 <ul>
   <li><a href="/the-model/">The model</a></li>
   <li><a href="/the-data/">The data</a></li>
-  <li><a href="https://github.com/campbefs/checktheworksheet">The repository</a></li>
 </ul>
 </div>

@@ -22,7 +22,7 @@ no disagreement over one dollar** ([`model/test_guidelines.py`](/model/test_guid
 
 ## Three fifty-one-jurisdiction datasets, one fixed pattern
 
-All three use the author's own order (disclosed on [about](/about/)): payor $201,000/yr, other
+All three use the same fixed fact pattern (disclosed on [about](/about/)): payor $201,000/yr, other
 parent $570/wk, three children, no child care. Not a general claim.
 
 - [`tier-50-2026-09-05.json`](/data/fifty-state/tier-50-2026-09-05.json): the monthly order in 50
@@ -55,6 +55,5 @@ distribution of the orders judges actually enter. None of it exists here, or in 
   <ul>
     <li><a href="/the-model/">The model</a> that reads these files</li>
     <li><a href="/findings/">The findings</a> built from them</li>
-    <li><a href="https://github.com/campbefs/checktheworksheet">The repository</a></li>
   </ul>
 </div>

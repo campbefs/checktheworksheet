@@ -73,6 +73,5 @@ above runs as `python3 <path>`. Redrawing the figures needs `matplotlib` and `nu
   <ul>
     <li><a href="/the-data/">The data</a></li>
     <li><a href="/findings/">The findings the model produces</a></li>
-    <li><a href="https://github.com/campbefs/checktheworksheet">The repository</a></li>
   </ul>
 </div>

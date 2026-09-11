@@ -8,10 +8,10 @@ description: >-
   two incomes. No line measures time.
 disclosure:
   - >-
-    The worked example below is my own child support order: three children, equal parenting time,
-    my income and my children's mother's income entered as the Worksheet requires. I disclose it
-    because a reader should be able to check whether the arithmetic changes when the numbers are
-    real, not hypothetical.
+    The worked example below runs three children, equal parenting time, the payor's income and
+    the other parent's income entered as the Worksheet requires. I pay child
+    support in Massachusetts myself, so I have a stake in the outcome; a reader should be able to
+    check whether the arithmetic changes when the numbers move.
   - >-
     The model that produced every figure on this page is
     <a href="/model/box1_fix.py"><code>model/box1_fix.py</code></a>, checked against
@@ -211,7 +211,6 @@ care</a> findings for that comparison at the same worked example.</p>
     Behind every figure on this page.</li>
   <li><strong><a href="/figures/working/fig3_credit_collapse.csv">fig3_credit_collapse.csv</a></strong>
     The data behind Exhibits E08 and E09.</li>
-  <li><strong><a href="https://github.com/campbefs/checktheworksheet">The repository</a></strong></li>
 </ul>
 </div>
 

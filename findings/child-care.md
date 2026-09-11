@@ -4,15 +4,16 @@ title: Child care is split on income shares the order has already changed
 permalink: /findings/child-care/
 description: >-
   Worksheet Line 6b allocates child care using each parent's share of income before the base
-  support order transfers any money between households. At the author's own order, that charges
-  the payor 88 cents of every dollar of a $15,600 claim.
+  support order transfers any money between households. At the worked example run throughout
+  this site, that charges the payor 88 cents of every dollar of a $15,600 claim.
 disclosure:
   - >-
-    The worked example throughout (the payor, the recipient's $300-a-week child care claim) is my
-    own child support order: three children, my income and my children's mother's income entered
-    as the Worksheet requires. I disclose it because a reader should be able to check whether the
-    arithmetic changes when the numbers are real, not hypothetical. It doesn't: the same
-    allocation gap holds across income levels and child counts as well as at my own figures.
+    The worked example throughout (the payor, the recipient's $300-a-week child care claim) runs
+    three children, the payor's income and the other parent's income entered as the
+    Worksheet requires. I pay child support in Massachusetts myself, so I have a stake in the
+    outcome; a reader should be able to check whether the arithmetic changes when the numbers
+    move. It doesn't: the same allocation gap holds across income levels and child counts as
+    well as at this example's figures.
   - >-
     The model behind every number on this page is
     <a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>,

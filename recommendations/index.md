@@ -291,6 +291,5 @@ California's own basis and income ceilings are in
     <li><a href="/model/recommendations.py"><code>model/recommendations.py</code></a></li>
     <li><a href="/model/test_recommendations.py"><code>model/test_recommendations.py</code></a></li>
     <li><a href="/model/runs/recommendations-run-2026-09-09.txt">The full printed run</a></li>
-    <li><a href="https://github.com/campbefs/checktheworksheet">The repository</a></li>
   </ul>
 </div>

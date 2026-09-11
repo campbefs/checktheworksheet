@@ -4,15 +4,16 @@ title: The hardship test reads the wrong income
 permalink: /findings/hardship-test/
 description: >-
   Worksheet Line 7e tests for hardship by dividing the support order by a gross-derived income
-  figure, but the order is paid from net income. At the author's own order, the hardship
-  presumption does not kick in until the payor is at 57 percent of net income.
+  figure, but the order is paid from net income. At the worked example run throughout this site,
+  the hardship presumption does not kick in until the payor is at 57 percent of net income.
 disclosure:
   - >-
-    The worked example throughout (the payor, the $201,000 income, the child care figures) is my
-    own child support order: three children, my income and my children's mother's income entered
-    as the Worksheet requires. I disclose it because a reader should be able to check whether the
-    arithmetic changes when the numbers are real, not hypothetical. It doesn't: the same 17-point
-    gap holds across the income and child-care ranges charted below as well as at my own figures.
+    The worked example throughout (the payor, the $201,000 income, the child care figures) runs
+    three children, the payor's income and the other parent's income entered as the Worksheet
+    requires. I pay child support in Massachusetts myself, so I have a stake in the
+    outcome; a reader should be able to check whether the arithmetic changes when the numbers
+    move. It doesn't: the same 17-point gap holds across the income and child-care ranges charted
+    below as well as at this example's figures.
   - >-
     The model behind every number on this page is
     <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked by

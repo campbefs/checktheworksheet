@@ -9,10 +9,11 @@ description: >-
   pattern tested.
 disclosure:
   - >-
-    The fact pattern run through all fifty-one jurisdictions on this page is my own: three
+    The fact pattern run through all fifty-one jurisdictions on this page is fixed: three
     children, a payor at $201,000 a year, the other parent at $29,640 a year ($570 a week), no
-    child care claimed. I disclose it because the ranking below only means what it says if the
-    reader can see exactly what was held fixed.
+    child care claimed. I pay child support in Massachusetts myself, so I have a stake in the
+    outcome; the ranking below only means what it says if the reader can see exactly what was
+    held fixed.
   - >-
     The data behind every figure on this page is described on
     <a href="/the-data/">the data</a> page, which links each of the underlying files directly.
@@ -558,7 +559,6 @@ profile-compute-reconcile-attack process described above.</p>
   <li><strong><a href="/data/fifty-state/ceilings-2026-09-06.json"><code>ceilings-2026-09-06.json</code></a></strong></li>
   <li><strong><a href="/data/deferrals-gross-vs-net.json"><code>deferrals-gross-vs-net.json</code></a></strong>
     The gross-vs-net deferral timeline's own source, grepped from <code>data/extracted/*.flow.txt</code>.</li>
-  <li><strong><a href="https://github.com/campbefs/checktheworksheet">The repository</a></strong></li>
 </ul>
 </div>
 

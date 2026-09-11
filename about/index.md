@@ -4,16 +4,17 @@ title: Mission
 description: The mission, the disclosure of a personal stake, and what this project does not claim.
 disclosure:
   - >-
-    The worked example running through every finding on this site (the $201,000 payor, the
-    $570-a-week other parent, three children) is my own child support order, computed under
-    Massachusetts's 2025 worksheet. A reader should reasonably wonder whether an interested party
+    The worked example running through every finding on this site (a payor at $201,000, another
+    parent at $570 a week, three children, equal parenting time) is computed under
+    Massachusetts's 2025 worksheet. I pay child support in Massachusetts myself, so I have a
+    stake in the outcome, and a reader should reasonably wonder whether an interested party
     shaded a number in his own favor. So every figure is published with the code that produced it. Check
     it yourself.
   - >-
     The worksheet that produced these figures is
     <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked against the
     official form's own scripts on <a href="/the-model/">the model page</a>. Run it on any
-    numbers you choose, mine included.
+    numbers you choose.
 ---
 
 # Mission
@@ -32,7 +33,7 @@ Anyone can check the arithmetic.
 
 ## Who built this
 
-Christopher Campbell built this site, with no institution behind it. Every number stands on being
+An independent Massachusetts child support payor built this site, with no institution behind it. Every number stands on being
 checkable. That is why the disclosure and the [model](/the-model/)/[data](/the-data/) pages exist.
 
 {% include disclosure.html %}
@@ -46,16 +47,16 @@ with no parenting-time term, shrinks as the income gap widens.
 
 ## What this project does not claim
 
-- **No order, including my own, is claimed to be wrong.** An inconsistent computation isn't a
+- **No order is claimed to be wrong.** An inconsistent computation isn't a
   finding about the correct number.
 - **Massachusetts isn't claimed to be "the worst state,"** or ranked against all fifty. See
   [the data](/the-data/) for the fixed fact pattern.
-- **No claim is made about anyone else's case**, including the other parent in my order.
+- **No claim is made about anyone else's case.**
 - **This isn't a legal filing** and creates no obligation on anyone. See [documents](/documents/).
 
 ## License
 
-Code: <a href="https://github.com/campbefs/checktheworksheet/blob/main/LICENSE-CODE.txt">MIT</a>;
+Code: <a href="/LICENSE-CODE.txt">MIT</a>;
 documents/figures: CC BY 4.0.
 
 <div class="ask">
@@ -63,6 +64,5 @@ documents/figures: CC BY 4.0.
   <ul>
     <li><a href="/the-model/">The model</a></li>
     <li><a href="/the-data/">The data</a></li>
-    <li><a href="https://github.com/campbefs/checktheworksheet">Repository</a></li>
   </ul>
 </div>

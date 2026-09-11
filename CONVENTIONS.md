@@ -236,12 +236,12 @@ The **home page has no chapter rail** (brief §3.3) — do not call `chapter-rai
 layout: finding
 disclosure:
   - >-
-    The worked example throughout — the payor, the $201,000 income, the child care figures — is
-    my own child support order: three children, my income and my children's mother's income
-    entered as the Worksheet requires. I disclose it because a reader should be able to check
-    whether the arithmetic changes when the numbers are real, not hypothetical. It doesn't: the
-    same 17-point gap holds across the income and child-care ranges charted below, not only at
-    my own figures.
+    The worked example throughout — the payor, the $201,000 income, the child care figures —
+    runs three children, the payor's income and the other parent's income entered as the
+    Worksheet requires. I pay child support in Massachusetts myself, so I have a stake in the
+    outcome; a reader should be able to check whether the arithmetic changes when the numbers
+    move. It doesn't: the same 17-point gap holds across the income and child-care ranges charted
+    below, not only at this example's figures.
   - >-
     The model behind every number here is <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>,
     checked by <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a>

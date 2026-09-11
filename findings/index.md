@@ -8,9 +8,10 @@ description: >-
 disclosure:
   - >-
     The stat on each card below (55%, 88 cents, 6.9%, 47 of 49) comes from the worked example
-    used throughout this site: my own child support order, three children, my income and my
-    children's mother's income entered as the Worksheet requires. Each finding page states why,
-    and shows the same gap holding across a range of incomes as well as at my own figures.
+    used throughout this site: three children, the payor's income and the other parent's income
+    entered as the Worksheet requires. I pay child support in Massachusetts myself, so I
+    have a stake in the outcome. Each finding page states why, and shows the same gap holding
+    across a range of incomes as well as at this example's figures.
   - >-
     Every number traces to <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>,
     checked by <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a>
