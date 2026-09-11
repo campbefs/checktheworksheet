@@ -39,8 +39,6 @@ sections:
     label: "Check it yourself"
 ---
 
-{% include disclosure.html %}
-
 <section class="hero" markdown="1">
 <p class="eyebrow">Finding 4 of 4: the weakest finding on this site</p>
 
@@ -59,6 +57,8 @@ pattern tested, Massachusetts's equal-parenting order ranks first of fifty.</p>
 </div>
 
 <p class="confidence-tag">Tiered: see method below. One fact pattern; the ranking generalizes to nothing else.</p>
+
+{% include disclosure.html %}
 
 <div class="page-shell" markdown="1">
 {% include chapter-rail.html %}

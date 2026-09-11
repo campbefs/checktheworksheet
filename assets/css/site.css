@@ -304,9 +304,12 @@ article.finding > .confidence-tag {
 }
 .disclosure .box {
   border-left: 3px solid var(--rule-strong);
-  padding: var(--space-4) var(--space-5);
+  padding: var(--space-5) var(--space-6);
   background: var(--surface-raised);
-  max-width: 62ch;
+  /* 62ch left a 517px island against a 1320px shell, which read as a stray box rather than part
+     of the page. 78ch keeps the line length readable and gives it the weight of a section.
+     Chris, 2026-09-11: "i think boxes should be centered btw if anything or stretched across". */
+  max-width: 78ch;
   font-size: 0.9375rem;
   color: var(--text-secondary); /* NOT --text-muted — see the token comment above */
 }

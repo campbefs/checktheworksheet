@@ -37,8 +37,6 @@ sections:
     label: "Check it yourself"
 ---
 
-{% include disclosure.html %}
-
 <section class="hero" markdown="1">
 <p class="eyebrow">Finding 2 of 4</p>
 
@@ -58,6 +56,8 @@ dollar between the two households, and never revisits it.</p>
 </div>
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+
+{% include disclosure.html %}
 
 <div class="page-shell" markdown="1">
 {% include chapter-rail.html %}

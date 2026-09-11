@@ -87,26 +87,6 @@ which parent claims which child and that claim is often alternated year to year.
 Splitting the week equally cuts the order 6.9 percent, and that credit shrinks as the income gap widens, because no line in the form contains a parenting-time term.
 
 <div class="accordion" markdown="0">
-<details class="ask" markdown="1" id="ask-parenting-credit-a">
-<summary><span class="ask-head"><span class="ask-title">Apply the low-income cap to what the payor owes, not to his equal-time credit</span><span class="effect">Equal-time order falls from $1,012.73 to $935.06 a week, a 7.7 percent cut.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
-
-**Apply the Worksheet's low-income limit at the transfer, where a primary-custody case already
-applies it, instead of applying it to the equal-parenting credit.**
-
-The Guidelines cap a parent's support figure when it would come to less than 10 percent of that
-parent's available income. It is a protection for a low earner. With the children primarily with
-one parent, the Worksheet applies that cap at Line 7b, to what the payor owes.
-
-With the parents splitting time equally it applies the cap earlier, at Line 6e. At equal time
-Line 6e is not what the payor owes: it is the credit he receives for having the children half the
-week. So a rule written to protect a low earner reduces the higher earner's credit instead. At the
-worked example it takes that credit from $152.84 to $75.17 a week. Slightly more than half of it
-is gone.
-
-Applying the cap at Line 7b, the way a primary-custody case already does, takes the equal-time
-order from $1,012.73 to $935.06 a week, a 7.7 percent cut.
-</details>
-
 <details class="ask" markdown="1" id="ask-parenting-credit-crosscredit">
 <summary><span class="ask-head"><span class="ask-title">Set the equal-time discount with the cross-credit formula 23 states use (recommended)</span><span class="effect">Equal-time order falls from $1,012.73 to $701.30 a week, a 30.8 percent cut.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
@@ -202,6 +182,26 @@ percent of the primary-custody order to under 7 percent. The ceiling reaches the
 already handles worst.
 </details>
 
+<details class="ask" markdown="1" id="ask-parenting-credit-a">
+<summary><span class="ask-head"><span class="ask-title">Stop a rule written for low earners from shrinking the equal-time discount</span><span class="effect">Equal-time order falls from $1,012.73 to $935.06 a week, a 7.7 percent cut.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+
+**Apply the Worksheet's low-income limit at the transfer, where a primary-custody case already
+applies it, instead of applying it to the equal-parenting credit.**
+
+The Guidelines cap a parent's support figure when it would come to less than 10 percent of that
+parent's available income. It is a protection for a low earner. With the children primarily with
+one parent, the Worksheet applies that cap at Line 7b, to what the payor owes.
+
+With the parents splitting time equally it applies the cap earlier, at Line 6e. At equal time
+Line 6e is not what the payor owes: it is the credit he receives for having the children half the
+week. So a rule written to protect a low earner reduces the higher earner's credit instead. At the
+worked example it takes that credit from $152.84 to $75.17 a week. Slightly more than half of it
+is gone.
+
+Applying the cap at Line 7b, the way a primary-custody case already does, takes the equal-time
+order from $1,012.73 to $935.06 a week, a 7.7 percent cut.
+</details>
+
 </div>
 
 ## The hardship test
@@ -219,7 +219,7 @@ Section IV.C calls 40 percent of income a hardship, then measures it on gross wh
 </details>
 
 <details class="ask" markdown="1" id="ask-hardship-ceiling">
-<summary><span class="ask-head"><span class="ask-title">Cap the order at 40 percent of net pay</span><span class="effect">Order falls from $1,087.90 to $1,075.64 a week; binds in 473 of 1,147 three-child cases.</span><span class="tag-origin">Beyond the comments</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Cap the order at 40 percent of net pay, the hardship level the Worksheet already names</span><span class="effect">Order falls from $1,087.90 to $1,075.64 a week; binds in 473 of 1,147 three-child cases.</span><span class="tag-origin">Beyond the comments</span></span></summary>
 
 Section IV.C's presumption of substantial hardship does not kick in until the payor is at 57 percent of net income,
 even though Line 7e itself reports only 40 percent at that point. This is
