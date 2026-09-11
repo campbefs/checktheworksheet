@@ -195,6 +195,8 @@ from that comparison.
 **At equal parenting time, Massachusetts's order should fall to what a standard cross-credit
 formula produces, using the 1.5 duplication factor twenty-three other states already use.**
 
+Both figures are Oldham and Venohr's: "The cross-credit formula is used by 23 states," which "increase the basic obligation owed by both parents by 50% to account for some child-rearing expenses being duplicated when both parents have substantial access" (*The Relationship Between Child Support and Parenting Time*, 54 Fam. L.Q. 141, 152-53 (2020)). A few states use no multiplier, or one other than 1.5.
+
 A cross-credit at a 1.5 duplication factor is already what the comments ask the Trial Court to
 adopt as Variant B: it's what most states with a cross-credit use, and it's the one candidate that
 keeps working as the income gap widens instead of collapsing the way today's credit does. It cuts

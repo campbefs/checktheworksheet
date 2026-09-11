@@ -91,7 +91,10 @@ the income gap, the less equal time is worth.
 
 The chart also shows the two redlines in the comments. Variant A applies the Line 6e limit once
 and gives $935.06. Variant B rebuilds the credit as the cross-credit 23 states use and gives $701.30,
-a 30.8 percent drop from today's $1,012.73. Neither redline adds a term for how much time either
+a 30.8 percent drop from today's $1,012.73. The count and the factor are Oldham and Venohr's
+(*The Relationship Between Child Support and Parenting Time*, 54 Fam. L.Q. 141, 152-53 (2020)),
+who record that those states raise the basic obligation by 50 percent for the expenses both
+households duplicate; a few use no multiplier, or one other than 1.5. Neither redline adds a term for how much time either
 parent actually has.
 
 Research on custody decided mainly by a financial incentive finds children can fare worse under it
