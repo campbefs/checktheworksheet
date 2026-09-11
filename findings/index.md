@@ -76,8 +76,9 @@ from that caution.
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
 Section IV.C treats an order at 40 percent of income as a presumptive hardship, and Line 7e is the
-box on the Worksheet that tests for it. Line 7e divides by Line 3a available income, which is a
-gross figure, while the order itself is paid out of net. So the test and the payment are in
+box on the Worksheet that tests for it. Line 7e divides by Line 3a available income, which is
+gross income less health premiums and any other support orders, and carries no tax adjustment of
+any kind, while the order itself is paid out of net. So the test and the payment are in
 different units, and the gap between them widens as the payor's tax rate rises. At the worked
 example the presumption does not kick in until the payor is at 57 percent of net pay, 17 points
 past the level the Guidelines themselves call a hardship.
