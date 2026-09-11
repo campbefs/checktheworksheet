@@ -5,8 +5,7 @@ permalink: /findings/fifty-one-jurisdictions/
 description: >-
   One fact pattern, computed for all fifty states and the District of Columbia, profiled from each
   jurisdiction's own primary documents, computed twice independently, reconciled and adversarially
-  checked. This is the weakest claim on this site and generalizes to nothing beyond the fact
-  pattern tested.
+  checked. It rests on a single fact pattern and generalizes to nothing beyond the one tested.
 disclosure:
   - >-
     The fact pattern run through all fifty-one jurisdictions on this page is fixed: three
@@ -40,13 +39,15 @@ sections:
 ---
 
 <section class="hero" markdown="1">
-<p class="eyebrow">The fifty-state comparison, the weakest finding on this site</p>
+<p class="eyebrow">The fifty-state comparison</p>
 
 # One fact pattern ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
 
 <p class="lede">Fifty of fifty-one jurisdictions were profiled from their own primary documents,
 computed twice independently, reconciled, and adversarially attacked for defects. At the one fact
-pattern tested, Massachusetts's equal-parenting order ranks first of fifty.</p>
+pattern tested, Massachusetts's equal-parenting order ranks first of fifty. This is the weakest
+claim on this site, because it rests on a single fact pattern and generalizes to nothing beyond
+it.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
