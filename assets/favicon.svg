@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" width="64" height="64" role="img" aria-label="Check the Worksheet">
-  <rect width="1" height="1" rx="0.18" fill="#7A1330"/>
-  <path d="M 0.245 0.525 L 0.425 0.7 L 0.76 0.32" fill="none" stroke="#FBF3EA" stroke-width="0.125" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="64" height="64" role="img" aria-label="Check the Worksheet">
+  <rect width="100" height="100" rx="18" fill="#7A1330"/>
+  <rect x="19" y="31" width="37" height="37" rx="6.5" fill="none" stroke="#FBF3EA" stroke-width="7"/>
+  <path d="M 37.5 58.19 C 29.66 52.44 26 48.26 26 44.08 C 26 40.42 28.88 37.81 32.27 37.81 C 34.62 37.81 36.45 39.11 37.5 40.94 C 38.55 39.11 40.38 37.81 42.73 37.81 C 46.12 37.81 49 40.42 49 44.08 C 49 48.26 45.34 52.44 37.5 58.19 Z" fill="#FBF3EA"/>
+  <rect x="64" y="35.5" width="20" height="7" rx="3.5" fill="#FBF3EA"/>
+  <rect x="64" y="48.5" width="26" height="7" rx="3.5" fill="#FBF3EA"/>
+  <rect x="64" y="61.5" width="14" height="7" rx="3.5" fill="#FBF3EA"/>
 </svg>
