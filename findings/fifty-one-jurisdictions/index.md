@@ -295,11 +295,18 @@ overnights.
 
 <section id="ceilings" markdown="1">
 
-## Massachusetts's presumptive formula ceiling ranks 13th of the 41 jurisdictions that state one
+## Massachusetts keeps its formula running past the income where most states hand the decision to a judge
+
+**This is a ceiling on income, not a ceiling on support.** Most states stop applying their formula
+once the parents' combined income passes a stated figure. Above it a judge decides the amount
+instead of the schedule. Nothing here caps what anyone pays.
+
+Massachusetts runs its formula up to $450,000 of combined parental income. That is the 13th highest
+income ceiling among the 41 states that set one, so most of them stop before Massachusetts does,
+and a family whose income they would leave to a judge is still inside the formula here. Ten states set no income ceiling at all, so their formula never stops.
 
 This corrects an earlier comparison this project made against nine benchmark states, where
-Massachusetts appeared second. Measured against the 41 jurisdictions that state a combined-income
-ceiling, Massachusetts's $450,000 ranks 13th.
+Massachusetts appeared second.
 
 <figure class="exhibit" id="e16">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E16-where-each-presumptive-schedule-stops-51.png"
