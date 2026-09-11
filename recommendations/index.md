@@ -9,9 +9,11 @@ description: >-
 
 # What this project asks for, and what would put Massachusetts in line with other states
 
-This page has two parts. Part one lists the redlines the comments actually ask the Trial Court to
-adopt, each with its modelled effect. Part two goes beyond those comments to ask what a reform
-matching other states would look like, using the same worked example throughout.
+This page has three parts. Part one lists the redlines the comments actually ask the Trial Court
+to adopt, each with its modelled effect. Part two adds two proposals that don't change a dollar
+figure at all, drawn from a coalition that generally argues the other side of everything else on
+this page. Part three goes beyond all of that to ask what a reform matching other states would
+look like for the amount itself, using the same worked example throughout.
 
 ## What the comments ask the Trial Court to change
 
@@ -37,6 +39,100 @@ Three changes, each keyed to a Worksheet line, each with an effect measured at t
 
 Nothing in this section changes the Worksheet's underlying schedule or its child-care ceiling. Every
 figure is reproduced in the model files linked at the bottom of this page.
+
+## Two proposals that don't change a dollar figure
+
+Every proposal on this page that changes a dollar figure lowers what the payor owes. These two
+don't touch a dollar figure. Both come from the Massachusetts Family Advocacy Coalition (MFAC), a
+coalition that generally argues the other side of this whole subject, in a 72-page comment it
+filed with the 2024-2025 Task Force. The same Task Force this project is writing to already
+rejected both. They are proposed here anyway, because an accurate Worksheet should catch
+understatement in either direction, not just the one this site has argued so far.
+
+### A disclosure checklist, signed under penalty of perjury
+
+MFAC's own words:
+
+> "There is no Guideline to curb obstructionist tactics that parties, particularly economic
+> superior parties and abusers, use to evade mandatory financial disclosure requirements...
+> Add a disclosure checklist to the Guidelines Worksheet for each party to complete and sign under
+> the penalty of perjury."
+
+Five states already put a sworn statement directly on the worksheet document itself, not on a
+separate form. New York's reads, in part, "under the penalties of perjury, under the laws of New
+York... that the foregoing is true." Washington's: "I declare under penalty of perjury under the
+laws of the State of Washington the information contained in these Worksheets is complete, true,
+and correct." Hawaii, Iowa and Indiana carry versions of the same line.
+
+Massachusetts's Worksheet, CJ-D 304, has none of it. A search of the form's own fields and its
+printed text for "perjury," "certif," "signature," "sworn" and "declare" returns zero hits. The
+form has a line for who prepared it and when, and no line that puts either parent's own name to
+the numbers entered.
+
+The fix: a signature line at the foot of the Worksheet, one per party, along the lines of "I
+certify under the penalty of perjury that the income, child care and health insurance figures I
+entered on this Worksheet are true and complete to the best of my knowledge." It would catch a
+payor who understates income, which is what MFAC is asking for. It would also catch a parent who
+overstates a child care claim, the same claim the <a href="/findings/child-care/">child care
+finding</a> on this site says currently needs nothing more than that parent's own word.
+
+### A deviations section on the Worksheet, not buried on a separate form
+
+MFAC's own reasoning:
+
+> "The current deviation process works against custodial parents. First, many custodial parents
+> are unaware they can ask for an upward deviation to increase support."
+
+Today the four findings a judge must make to depart from the Worksheet amount live on a separate
+form, CJ-D 305, not on the Worksheet itself. New Jersey's own worksheet carries a "Comments,
+Rebuttals, and Justification for Deviations" section directly below its order line. Missouri keeps
+the deviation analysis inside the same numbered form as the calculation.
+
+The fix: move CJ-D 305's four required findings onto CJ-D 304, printed on the same page the
+presumptive amount is computed, with a plain-language note that either parent may ask for a
+deviation up or down. It is close to a straight port of MFAC's own proposal. It would also start
+producing a number the <a href="/findings/">findings page</a> on this site already says is missing:
+how often a deviation motion that the parties didn't simply agree to actually succeeds.
+
+### A formula for extraordinary uninsured medical expenses
+
+Massachusetts's own Guidelines commentary admits this gap in its own words. The first $250 a year
+of combined out-of-pocket and uninsured medical, dental and vision costs is split by income share
+like everything else on Line 3c. Above that, the commentary says the cost "shall be treated on a
+case-by-case basis," and that "the guidelines do not establish any presumptive allocation of these
+costs."
+
+Missouri, Washington and Vermont all worksheet this the same way Massachusetts already worksheets
+child care. Missouri's Form 14 has a line for uninsured extraordinary medical costs, divided among
+the children when a per-child figure isn't available. Washington's worksheet has an "Uninsured
+Monthly Healthcare Expenses Paid for Child(ren)" line, one column per parent. Vermont's order form
+adds "Extraordinary Medical Expenses" directly into the calculation.
+
+The fix: a new line, in the same family as the existing child care lines, allocating the cost
+above $250 a year on the same Line 3c income share the Worksheet already uses for the amount below
+it, replacing "case-by-case" with a formula, while leaving either parent free to ask for a
+different split by agreement or through the new deviation section above.
+
+In most families the parent who takes a child to the orthodontist or the counselor is the
+recipient, so a formula that doesn't require a motion or an agreement mainly reduces her cost of
+collecting it. That is the same trade this site's own child care finding makes for the payor,
+applied to a cost that more often runs the other way.
+
+### What was considered and left out
+
+A fourth idea, also drawn from other states, would set a default income for a parent who won't
+disclose income or won't appear, the way several other states do with a stated wage standard. It
+would help a recipient facing exactly that situation. It is left out of the two proposals above
+because it sets a substantive number rather than a form field or a relocation, a harder ask for a
+Task Force to adopt, even though Massachusetts's own Worksheet already sets a minimum order at the
+bottom of its own income scale, precedent for the Task Force setting a number like this one without
+legislative action.
+
+Two more ideas were checked and dropped for a plainer reason. A self-support reserve enforced on
+the Worksheet, the same shape as the net-pay ceiling proposed further down this page, is real and
+precedented in other states. So is crediting a claimed child care expense with the tax credit it
+already carries. Both still reduce what the payor owes, the same direction as everything else on
+this page, so neither belongs on a list meant to run the other way.
 
 ## What would put Massachusetts in line with other states
 

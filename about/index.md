@@ -25,11 +25,15 @@ them more fair and to hold the Commonwealth accountable for the Worksheet.
 The Worksheet has never had a proper review. No task force has examined how its math actually works
 economically.
 
-Three things should change. A support order should be computed on the income parents actually have.
-Equal parenting time should earn a real reduction, in line with what other states give. Hawaii cuts
-the order 52 percent for equal time and Utah 55 percent. Massachusetts cuts it 6.9 percent. And child care should be split on the income each parent holds after the order rather than
-before it. Every figure here comes from a published model with tests.
-Anyone can check the arithmetic.
+A Worksheet that sets a presumptive order should be accurate whichever way it's off. The three
+checkable claims below name where it isn't: an income basis that changes partway through the
+calculation, a child care split measured before the order moves money between the households, and
+a parenting-time credit with no parenting-time term in it. The
+[recommendations](/recommendations/) page goes further, and not only toward a lower order. It
+proposes redlines for those three claims, and separately, two changes that don't lower any order
+at all, a sworn disclosure requirement and a deviations section that isn't buried on a separate
+form, both first proposed by an advocacy coalition that argues the opposite side of most of what's
+here. Every figure here comes from a published model with tests. Anyone can check the arithmetic.
 
 ## Who built this
 
