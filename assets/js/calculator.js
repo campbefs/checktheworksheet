@@ -740,8 +740,43 @@
       }
     }
 
-    inputs.higher && inputs.higher.addEventListener('input', render);
-    inputs.lower && inputs.lower.addEventListener('input', render);
+    // F1 fix (2026-09-10 red team): the two income sliders' native ranges overlap
+    // ($60,000-$120,000 on both), so an ordinary drag can push one past the other. render()'s
+    // own Math.max/min swap already computed the correct higher/lower VALUES either way, but
+    // left the two sliders' own thumb positions and on-screen labels free to disagree with
+    // which slider a reader is actually looking at -- confusing even though the arithmetic
+    // underneath was right. Clamp the slider being moved at the other slider's current value
+    // so the two can touch but never cross; the labels then always describe the control a
+    // reader is looking at, and the swap in render() becomes pure defense in depth.
+    function clampCrossedIncomeSliders(moved) {
+      if (!inputs.higher || !inputs.lower) return;
+      var hi = Number(inputs.higher.value);
+      var lo = Number(inputs.lower.value);
+      if (hi < lo) {
+        if (moved === 'lower') { inputs.lower.value = String(hi); }
+        else { inputs.higher.value = String(lo); }
+      }
+    }
+
+    inputs.higher && inputs.higher.addEventListener('input', function () {
+      clampCrossedIncomeSliders('higher');
+      render();
+    });
+    inputs.lower && inputs.lower.addEventListener('input', function () {
+      clampCrossedIncomeSliders('lower');
+      render();
+    });
+    // 'change' resync (2026-09-10 red team F3): a malformed automation call was observed
+    // leaving a slider's raw .value ahead of its own aria-valuetext and the readout below,
+    // because that call never dispatched the 'input' event render() listens for. No ordinary
+    // mouse, touch or keyboard drag can do this -- a native range input fires 'input'
+    // synchronously with every value change as part of the browser's own slider
+    // implementation, so render() cannot be skipped by a real gesture -- but 'change' (which
+    // fires when a drag or key sequence ends, regardless of what fired mid-drag) costs nothing
+    // to also call render() from, so any future desync of this kind self-heals the instant the
+    // interaction completes rather than waiting for the next unrelated click.
+    inputs.higher && inputs.higher.addEventListener('change', render);
+    inputs.lower && inputs.lower.addEventListener('change', render);
     inputs.healthHigh && inputs.healthHigh.addEventListener('input', render);
     inputs.healthLow && inputs.healthLow.addEventListener('input', render);
     inputs.ccLower && inputs.ccLower.addEventListener('input', render);
