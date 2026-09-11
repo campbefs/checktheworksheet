@@ -16,9 +16,8 @@ have a stake in the outcome, and I disclose it so you can check the arithmetic y
 chart sweeps a range of incomes, this example's
 figures are marked as one point among many. The worksheet behind these figures is
 <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>, checked against the official
-form's own scripts on <a href="/the-model/">the model page</a>. None of these figures has been
-sent to the Trial Court, and neither has anything else on this site (see
-<a href="/documents/">Documents</a>); they were built for the working paper.</p>
+form's own scripts on <a href="/the-model/">the model page</a>. These figures were built for the
+working paper and the public comments described on the <a href="/documents/">Documents</a> page.</p>
 </div>
 
 Every chart below has one set of axes; an earlier set of exhibits mixed several panels into one

@@ -410,6 +410,10 @@ The same fact pattern, recombined: Massachusetts under Box 1 (children half the 
 parent) is placed on the same scale as every other jurisdiction computed with the children primarily
 with the lower earner. Only Hawaii and Wisconsin order more at primary custody than Massachusetts
 does at equal time; Massachusetts's own primary-custody order, $4,714.22, is included for scale.
+Both jurisdictions are checked against a primary document: Hawaii's own 2024 Guidelines compute the
+order on net income, converting each parent's gross pay through a published table before the
+worksheet runs; Wisconsin's own court-form worksheets set the percentage-of-income schedule on gross
+income, the same basis Massachusetts uses.
 
 The Commonwealth's own consultant attributes Massachusetts's higher amounts to cost of living, not
 formula design (see
@@ -510,9 +514,11 @@ almost everywhere else.
 ## Two task forces were asked to move to net income and declined; three economic reviews since have reported the amounts running above the benchmarks
 
 Every ranking above uses each jurisdiction's own income basis, gross or net as its guidelines define
-it (noted in the ceiling table above), because that's how each state actually calculates its order.
-Massachusetts uses gross throughout, and whether gross is the right basis is a live, unresolved
-question inside its own review process.
+it, because that's how each state actually calculates its order. The ceiling table above states the
+basis for jurisdictions with a stated combined-income cap; the two jurisdictions that outrank
+Massachusetts in the comparison above are noted where that claim is made. Massachusetts uses gross
+throughout, and whether gross is the right basis is a live, unresolved question inside its own
+review process.
 
 {% include figure.html
    id="e27"

@@ -53,8 +53,11 @@ afterward.
 Line 6g nets the two parents' Line 6e amounts, which reduce to the gap between their income shares
 once Box 1 puts zero children in the payor's column; no line measures overnights. That gap shrinks
 the discount from 77.6 percent at a narrower income share to 6.9 percent at this family's. Research
-on custody decided mainly by financial incentive finds children can fare worse under it
-(Fernandez-Kranz et al. 2021), an argument against pricing parenting time by formula at all.
+on custody decided mainly by a financial incentive finds children can fare worse under it
+(Fernandez-Kranz, Roff and Sun 2021), an argument against pricing parenting time by formula in
+either direction, whether a credit shrinks or grows. The
+<a href="/recommendations/">recommendations</a> page's proposal for a larger credit is not exempt
+from that caution.
 
 {% include figure.html
    id="e08"

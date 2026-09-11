@@ -94,6 +94,11 @@ and gives $935.06. Variant B rebuilds the credit as the cross-credit 23 states u
 a 30.8 percent drop from today's $1,012.73. Neither redline adds a term for how much time either
 parent actually has.
 
+Research on custody decided mainly by a financial incentive finds children can fare worse under it
+(Fernandez-Kranz, Roff and Sun 2021), an argument against pricing parenting time by formula in
+either direction, whether a credit shrinks or grows. Both variants above still price it by formula;
+the caution applies to them the same way it applies to today's line.
+
 <details markdown="1">
 <summary>Method: the credit at eight other incomes for the other parent</summary>
 

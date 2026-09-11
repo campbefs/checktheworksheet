@@ -105,6 +105,7 @@ scripts:
         </div>
 
         <p class="tool-status-strip" data-calc-status>
+          <span class="tool-flagline" data-calc-badge="impossible" hidden></span>
           <span class="tool-flagline" data-calc-badge="household" hidden></span>
           <span class="tool-flagline" data-calc-badge="hardship" hidden></span>
         </p>
@@ -265,6 +266,12 @@ scripts:
           actually gets, never less.</p>
         </details>
       </div>
+      <noscript>
+        <style>[data-calculator] { display: none; }</style>
+        <p class="tool-deck">This calculator needs JavaScript to compute your own numbers, so it
+        is hidden here rather than shown frozen at one fixed example. The findings pages on this
+        site work through the same arithmetic as static examples you can read without it.</p>
+      </noscript>
     </div>
   </div>
 </section>
