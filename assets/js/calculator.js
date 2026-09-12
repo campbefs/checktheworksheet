@@ -795,7 +795,7 @@
         if (ccRuleRadios.worksheet) ccRuleRadios.worksheet.checked = true;
       }
       var unavailableRules = [];
-      if (!netOk) unavailableRules.push('on take-home pay, after the order');
+      if (!netOk) unavailableRules.push('on net income, after the order');
       if (!fixOk) unavailableRules.push('on gross income, after the order');
       setNote('cc_rule', unavailableRules.length ? ('Unavailable: ' + unavailableRules.join(', ') + '.') : '');
 
@@ -806,7 +806,7 @@
       var linebasedChargeWk = fixResult.fixed_rule_share * totalChildcareWk;
       var ruleNote = '';
       if (selectedRule === 'nettax') {
-        ruleNote = 'On take-home pay, after the order, the higher earner would carry ' + pct1(netResult.net_rule_share) +
+        ruleNote = 'On net income, after the order, the higher earner would carry ' + pct1(netResult.net_rule_share) +
           ' (' + money(netResult.net_rule_charge_wk * 52) + ') of the child care, and the order would be ' +
           moneyWk(netResult.net_rule_order_wk) + ' instead of the Worksheet’s ' + moneyWk(ccResult.order_wk) + '.';
       } else if (selectedRule === 'linebased') {
@@ -819,6 +819,27 @@
           ' of the money after the order on paper and ' + pct0(dist.net_withholding_share) + ' of it after tax.';
       }
       if (cells.cc_rule_note) cells.cc_rule_note.textContent = ruleNote;
+
+      // -- The shift callout (owner, 2026-09-11): picking a rule used to change nothing but the
+      // wording of the paragraph above, so the one thing the selector exists to show -- how far
+      // the allocation moves -- was buried in a sentence. The share is the number, so it gets
+      // read as a number: the Worksheet's share, an arrow, and the selected rule's share.
+      // Selecting the Worksheet's own rule shows one figure and no arrow, because nothing moved.
+      var shiftTo = null, shiftSub = 'As the Worksheet splits it today.';
+      if (selectedRule === 'nettax') {
+        shiftTo = netResult.net_rule_share;
+        shiftSub = 'If it were split on net income, after the order. This is what the comments ask for.';
+      } else if (selectedRule === 'linebased') {
+        shiftTo = fixResult.fixed_rule_share;
+        shiftSub = 'If it were split on gross income, after the order. The fallback rule.';
+      }
+      if (cells.cc_shift_from) cells.cc_shift_from.textContent = pct1(dist.share3c);
+      if (cells.cc_shift_arrow) cells.cc_shift_arrow.hidden = (shiftTo === null);
+      if (cells.cc_shift_to) {
+        cells.cc_shift_to.hidden = (shiftTo === null);
+        cells.cc_shift_to.textContent = shiftTo === null ? '' : pct1(shiftTo);
+      }
+      if (cells.cc_shift_sub) cells.cc_shift_sub.textContent = shiftSub;
 
       // -- Status strip: reflects whichever result is active (see `active` above). --
       // "range" (2026-09-11, QA swarm F1/F2): a health-premium field will take a typed value far
