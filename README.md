@@ -23,8 +23,8 @@ drawn from them. Everything a reader needs to check a number is here.
    the time to half lowers the order 75 percent when the parents earn about the same, and 7 percent
    when one parent earns 88 percent of the total.
    [E08](figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png)
-4. **Massachusetts charges more for equal parenting time than 47 states charge a parent who has the
-   children a third of the time.** Only Hawaii and Wisconsin charge more. One fact pattern.
+4. **Massachusetts charges more for joint custody than 47 states charge when the recipient has
+   primary custody.** Only Hawaii and Wisconsin charge more. One fact pattern.
    [E17](figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png)
 5. **Five reviews have taken up gross versus net. None changed it.** Two are task force decisions in
    the task forces' own reports (2009, 2013); three are statements by the Commonwealth's consultants

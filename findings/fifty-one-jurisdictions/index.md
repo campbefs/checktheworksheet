@@ -412,7 +412,7 @@ Massachusetts appeared second.
 
 <section id="combined" markdown="1">
 
-## Massachusetts charges more for equal parenting time than 47 states charge a parent who has the children a third of the time
+## Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody
 
 The same fact pattern, recombined: Massachusetts under Box 1 (children half the time with each
 parent) is placed on the same scale as every other jurisdiction computed with the children primarily

@@ -72,14 +72,15 @@ from that caution.
 
 [Read the full finding →](/findings/parenting-time/)
 
-## 3. Massachusetts charges more for equal parenting time than 47 states charge a parent who has the children a third of the time
+## 3. Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody
 
 <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
 
 Massachusetts orders more under equal parenting time than any of the fifty states modeled, and
-more under primary custody than every one of them but Hawaii. It charges more for equal parenting
-time than 47 states charge a parent who has the children a third of the time. Georgia is held out:
-its enacted formula orders less at equal time than at primary custody.
+more under primary custody than every one of them but Hawaii. Its joint-custody order is higher
+than what 47 states charge a parent whose children live mainly with the other parent; only Hawaii
+and Wisconsin charge more. Georgia is held out: its enacted formula orders less at equal time than
+at primary custody.
 
 {% include figure.html
    id="e11"
