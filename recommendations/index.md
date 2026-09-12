@@ -388,14 +388,17 @@ how often a deviation motion that the parties didn't simply agree to actually su
 </details>
 
 <details class="ask" markdown="1" id="ask-medical-formula">
-<summary><span class="ask-head"><span class="ask-title">Give medical costs above $250 a year a formula instead of case-by-case</span><span class="effect">No dollar change.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Give uninsured medical costs a formula instead of leaving them case-by-case</span><span class="effect">No dollar change.</span><span class="tag-origin">Beyond the comments</span></span></summary>
 
-Massachusetts's own Guidelines commentary admits this gap in its own words. The first $250 a year
-of combined out-of-pocket and uninsured medical, dental and vision costs is split by income share
-like everything else on Line 3c. Above that, the commentary says the cost "shall be treated on a
-case-by-case basis," and that "the guidelines do not establish any presumptive allocation of these
-costs." Case-by-case means whoever can least afford to argue it in court is the one who ends up
-absorbing it or negotiating it away.
+The Guidelines say in their own words that they have no formula here. The recipient pays the first
+$250 a year of routine out-of-pocket and uninsured medical, dental and vision costs alone. Above
+that, Section II.J.1 says only that the Court "shall enter an order allocating expenses between the
+parties," and may, but need not, use the Line 3c income share to do it. For the expensive kind, which
+the Guidelines illustrate with orthodontia and psychological counseling, there is no rule at all:
+absent an agreement between the parents they are "treated on a case-by-case basis," and the
+commentary adds that "the guidelines do not establish any presumptive allocation of these costs."
+Case-by-case means whoever can least afford to argue it in court is the one who ends up absorbing it
+or negotiating it away.
 
 Missouri, Washington and Vermont all worksheet this the same way Massachusetts already worksheets
 child care. Missouri's Form 14 has a line for uninsured extraordinary medical costs, divided among
@@ -404,7 +407,7 @@ Monthly Healthcare Expenses Paid for Child(ren)" line, one column per parent. Ve
 adds "Extraordinary Medical Expenses" directly into the calculation.
 
 The fix: a new line, in the same family as the existing child care lines, that replaces
-"case-by-case" with a formula for the amount above $250 a year. The point of this ask is that a
+"case-by-case" with a formula for the costs above the recipient's first $250. The point of this ask is that a
 formula exists at all, not which basis it uses or which parent it favors, so the line should take
 its basis from whatever the Worksheet uses to
 allocate child care, whatever that turns out to be, rather than fixing one on its own. Today that
