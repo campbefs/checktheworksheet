@@ -47,7 +47,7 @@ afterward.
 
 [Read the full finding →](/findings/child-care/)
 
-## 2. Splitting the children's time equally cuts the order by 6.9%. Utah cuts it by 55%, Montana by 53%, Hawaii by 52%
+## 2. Splitting the children's time equally cuts the order by 6.9%. Utah cuts it by 55%, Montana and Hawaii by 52%
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
