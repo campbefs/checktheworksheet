@@ -9,4 +9,4 @@ description: >-
 
 <p class="contact-email"><a href="mailto:checktheworksheet@gmail.com">checktheworksheet@gmail.com</a></p>
 
-Questions, corrections, or anything else. One person reads it, so allow a couple of days.
+Questions, corrections, or anything else.
