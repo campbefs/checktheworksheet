@@ -23,7 +23,7 @@ scripts:
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-text">
-      <p class="eyebrow">Massachusetts Child Support Guidelines Worksheet, verified in code</p>
+      <p class="eyebrow">The Massachusetts Child Support Guidelines Worksheet, checked against the form&rsquo;s own code</p>
       <h1>Massachusetts charges the most child support of any state when the parents split time equally.</h1>
       <p class="lede"><strong>That is the comparison at equal time. Set it against primary custody
       elsewhere, and Massachusetts still charges more than 47 states do.</strong>
@@ -34,7 +34,7 @@ scripts:
         <span class="stat-value">Highest of 50 states</span>
         <span class="stat-label">child support order at equal parenting time</span>
       </div>
-      <p class="confidence-tag">The same two incomes and three children, in every state. See the method.</p>
+      <p class="confidence-tag">The same two incomes and three children, in every state.</p>
     </div>
     <div class="hero-visual">
       {% include figure.html
@@ -170,7 +170,7 @@ scripts:
           <div class="tool-childcare-body" id="calc-childcare-body" hidden>
             <p class="tool-callout" data-calc-cell="cc_dist_wrap">
               Higher earner&rsquo;s share of child care: <strong data-calc-cell="cc_dist_share3c">87.7%</strong>.
-              His share of income after the order: <strong data-calc-cell="cc_dist_gross">64%</strong> of gross,
+              Their share of income after the order: <strong data-calc-cell="cc_dist_gross">64%</strong> of gross,
               <strong data-calc-cell="cc_dist_net">53%</strong> after tax.
             </p>
             <p class="tool-callout-note">Child care is allocated on the first number. The order has
@@ -219,7 +219,7 @@ scripts:
               <label class="cc-rule-option">
                 <input type="radio" name="calc-cc-rule" value="nettax" data-calc-radio="ccRule">
                 <span>
-                  <span class="cc-rule-option-label">On take-home pay, after the order</span>
+                  <span class="cc-rule-option-label">On net income, after the order</span>
                   <span class="cc-rule-option-tag">What this project asks for</span>
                 </span>
               </label>
@@ -232,8 +232,17 @@ scripts:
               </label>
               <p class="cell-note" data-calc-note="cc_rule">&nbsp;</p>
             </fieldset>
+            <div class="cc-shift" aria-live="polite">
+              <p class="cc-shift-label">Higher earner&rsquo;s share of the child care</p>
+              <p class="cc-shift-figures">
+                <span class="cc-shift-from" data-calc-cell="cc_shift_from">87.7%</span>
+                <span class="cc-shift-arrow" data-calc-cell="cc_shift_arrow" hidden>&rarr;</span>
+                <span class="cc-shift-to" data-calc-cell="cc_shift_to" hidden></span>
+              </p>
+              <p class="cc-shift-sub" data-calc-cell="cc_shift_sub">As the Worksheet splits it today.</p>
+            </div>
             <p class="cc-rule-note" data-calc-cell="cc_rule_note">The Worksheet charges the higher
-            earner 87.7% ($4,559/yr) of the child care, while he holds 64% of the money after the
+            earner 87.7% ($4,559/yr) of the child care, while they hold 64% of the money after the
             order on paper and 53% of it after tax.</p>
           </div>
         </div>
@@ -260,7 +269,7 @@ scripts:
           and <a href="/assets/js/calculator.test.js"><code>assets/js/calculator.test.js</code></a>.
           The Child care section's three rules all come from
           <a href="/model/childcare_post_transfer.py"><code>model/childcare_post_transfer.py</code></a>:
-          "On gross income, before the order" is today's Line 6b; "On take-home pay, after the
+          "On gross income, before the order" is today's Line 6b; "On net income, after the
           order," the rule this project asks for (new Worksheet Line 6b-1), allocates on each
           parent's share of the money after tax and FICA at the no-child-care order, leaving out
           the refundable credits CJ-D 304 has no field for; "On gross income, after the order," the

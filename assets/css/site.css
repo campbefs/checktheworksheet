@@ -1000,6 +1000,38 @@ input[type="range"]::-moz-range-thumb {
   font-size: 0.9375rem; color: var(--text-primary); margin: var(--space-3) 0 0; max-width: var(--measure);
 }
 
+/* The child-care shift callout (owner, 2026-09-11): picking an allocation rule used to change
+   nothing on screen but the wording of a paragraph, so the one quantity the selector exists to
+   move -- the share of the child care the higher earner carries -- had to be read out of a
+   sentence. It is a number, so it is set as one. The arrow and the second figure are `hidden`
+   when the Worksheet's own rule is selected, because nothing has moved; the :has() rule below
+   then promotes the single remaining figure to full size and accent colour so the callout never
+   reads as a greyed-out before-state with no after. */
+.cc-shift {
+  margin: var(--space-4) 0 0; padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--accent); background: var(--accent-tint);
+  max-width: var(--measure);
+}
+.cc-shift [hidden] { display: none; }
+.cc-shift-label {
+  font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase;
+  letter-spacing: 0.04em; color: var(--text-secondary); margin: 0;
+}
+.cc-shift-figures {
+  display: flex; align-items: baseline; gap: var(--space-3); flex-wrap: wrap;
+  margin: var(--space-1) 0 0;
+  font-family: var(--font-mono); font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.cc-shift-from { font-size: 2rem; color: var(--text-secondary); }
+.cc-shift-arrow { font-size: 1.5rem; color: var(--text-secondary); }
+.cc-shift-to { font-size: 2.75rem; color: var(--accent); line-height: 1.1; }
+.cc-shift-figures:has(.cc-shift-to[hidden]) .cc-shift-from {
+  font-size: 2.75rem; color: var(--accent); line-height: 1.1;
+}
+.cc-shift-sub {
+  font-size: 0.875rem; color: var(--text-secondary); margin: var(--space-2) 0 0;
+}
+
 @media (max-width: 480px) {
   .tool-status-strip { flex-direction: column; align-items: flex-start; }
 }
