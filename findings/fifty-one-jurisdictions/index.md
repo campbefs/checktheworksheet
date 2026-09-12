@@ -269,7 +269,7 @@ split, or the number of children, and every ranking below could move, in either 
 
 <section id="credit-count" markdown="1">
 
-## In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.
+## In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.
 
 Massachusetts's primary-custody box already assumes the paying parent has the children about a
 third of the time and gives nothing for it: the order is the same as for a parent with no
@@ -277,7 +277,7 @@ overnights.
 
 <figure class="exhibit" id="e13">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
-     data-caption="In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights."
+     data-caption="In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing."
      data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (JSON)">
   <img src="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
          width="1736" height="1554"
@@ -285,7 +285,7 @@ overnights.
          alt="Tile map of fifty-one jurisdictions showing which give a formula-based child support credit at 122 overnights, about one-third time, and which do not.">
   </a>
   <figcaption>
-    <h3 class="exhibit-title">In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.</h3>
+    <h3 class="exhibit-title">In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.</h3>
     <p class="exhibit-deck">Twenty-eight states give that parent a formula credit; 23 do not. A count, not a dollar amount.</p>
     <p class="exhibit-notes">In the one clean pairing with a credit-giving state the dollar effect runs the other way, so the count is a structural fact and nothing more.</p>
     <p class="exhibit-source">Source: <a href="/data/fifty-state/credit-at-122-2026-09-05.json">data (JSON)</a></p>

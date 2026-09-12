@@ -18,7 +18,7 @@ drawn from them. Everything a reader needs to check a number is here.
 2. **Child care is split on an income measure the form has already adjusted away from.** Line 6b
    allocates child care on pre-transfer income shares after base support has moved money between the
    households. [E06](figures/exhibits/E06-child-care-share-three-rules-worked-example.png)
-3. **The credit for equal parenting time contains no parenting-time term.** It is the difference in
+3. **At wide income gaps, the credit for equal parenting time is extremely small.** It is the difference in
    income shares, clipped by Line 6e, so it shrinks as the income gap widens. Going from a third of
    the time to half lowers the order 75 percent when the parents earn about the same, and 7 percent
    when one parent earns 88 percent of the total.

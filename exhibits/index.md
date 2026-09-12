@@ -48,7 +48,7 @@ comparison always carries its per-person counterpart.
 17. [Two homes, one child each, cost 43 percent more on the schedule than one home with two.](#e24)
 18. [At equal parenting time, Massachusetts orders the most of the fifty states.](#e11)
 19. [With the lower earner primary, only Hawaii orders more than Massachusetts.](#e12)
-20. [In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.](#e13)
+20. [In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.](#e13)
 21. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
 22. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
 23. [Five reviews have taken up gross versus net. None changed it.](#e27)
@@ -697,7 +697,7 @@ comparison always carries its per-person counterpart.
 
 <figure class="exhibit" id="e13">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
-     data-caption="In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights."
+     data-caption="In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing."
      data-csv-href="/data/fifty-state/credit-at-122-2026-09-05.json" data-csv-label="Data (JSON)">
   <img src="/figures/exhibits/E13-credit-at-122-overnights-28-of-51.png"
          loading="lazy"
@@ -705,7 +705,7 @@ comparison always carries its per-person counterpart.
   </a>
   <figcaption>
     <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
-    <h3 class="exhibit-title">In Massachusetts and 22 other states, a parent with the children one night in three pays the same as a parent with no overnights.</h3>
+    <h3 class="exhibit-title">In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.</h3>
     <p class="exhibit-deck">Twenty-eight states give that parent a formula credit; 23 do not. Blue: a credit at 122 overnights a year. Grey: none.</p>
     <dl class="exhibit-facts">
       <div><dt>Counted</dt><dd>Any formula credit at 122 overnights</dd></div>

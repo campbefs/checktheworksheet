@@ -7,23 +7,24 @@ description: >-
   plus one fifty-one-jurisdiction comparison at a single fact pattern.
 disclosure:
   - >-
-    The stat on each card below (55%, 88 cents, 6.9%, 47 of 49) comes from the worked example
-    used throughout this site: three children, the payor's income and the other parent's income
-    entered as the Worksheet requires. They are Worksheet figures from a real Massachusetts case, and neither is either parent's current income. I pay child support in Massachusetts myself, so I
-    have a stake in the outcome. Each finding page states why, and shows the same gap holding
-    across a range of incomes as well as at this example's figures.
+    The figures below (88 cents, 6.9%, 57%, 48%) come from the worked example used throughout this
+    site: three children, the payor's income and the other parent's income entered as the
+    Worksheet requires. They are Worksheet figures from a real Massachusetts case, and neither is
+    either parent's current income. I pay child support in Massachusetts myself, so I have a stake
+    in the outcome. Each finding page shows the same gap holding across a range of incomes as
+    well as at this example's figures.
   - >-
     Every number traces to <a href="/model/worksheet.py"><code>model/worksheet.py</code></a>,
     checked by <a href="/model/test_worksheet.py"><code>model/test_worksheet.py</code></a>
     against the form's own calculation scripts. More on <a href="/about/">About</a>.
 ---
 
-# Seven measurable effects in the worksheet's own arithmetic, ranked by how much each one changes the outcome
+# Seven problems with the Massachusetts child support guidelines
 
 {% include disclosure.html %}
 
-Each finding traces to a script in this repository, or, for the fourth, to the guidelines' own
-text on deviation.
+Each one traces to a script in this repository, or, for the sixth, to the guidelines' own text
+on deviation. Biggest first.
 
 ## 1. The payor funds 88 cents of every dollar of child care, on money the order has already moved to the other parent
 
@@ -71,77 +72,7 @@ from that caution.
 
 [Read the full finding →](/findings/parenting-time/)
 
-## 3. The hardship test reads one income while the order is paid from another
-
-<p class="confidence-tag">Verified against the form's own calculation scripts</p>
-
-Section IV.C treats an order at 40 percent of income as a presumptive hardship, and Line 7e is the
-box on the Worksheet that tests for it. Line 7e divides by Line 3a available income, which is
-gross income less health premiums and any other support orders, and carries no tax adjustment of
-any kind, while the order itself is paid out of net. So the test and the payment are in
-different units, and the gap between them widens as the payor's tax rate rises. At the worked
-example the presumption does not kick in until the payor is at 57 percent of net pay, 17 points
-past the level the Guidelines themselves call a hardship.
-
-[Read the full finding →](/findings/hardship-test/)
-
-## 4. The payor keeps 48 cents of the next dollar earned
-
-<p class="confidence-tag">Verified against the form's own calculation scripts</p>
-
-Of the next $10,000 the payor earns at $201,000, 20.3 percent goes to the order and 31.3 percent to
-combined income and payroll tax, leaving 48.3 percent — above Table A's own 10 percent top
-bracket, because the child-count multiplier and the payor's rising income share both scale up with income.
-The same computation keeps the payor's retention between 39 and 48 percent from $150,000 to $300,000 of
-payor income.
-
-{% include figure.html
-   id="e10"
-   img="/figures/exhibits/E10-cents-kept-of-next-dollar-worked-example.png"
-   alt="Line chart of cents kept of the payor's next dollar of income, from $100,000 to $400,000 of payor income, both with and without $300 a week of child care."
-   title="Of the payor's next dollar, the payor keeps between a third and a half."
-   deck="Marginal retention after federal and state tax and the change in the order."
-   notes="The order's marginal take runs near 20 percent, above Table A's 10 percent top bracket, because the child-count multiplier and the rising income share both scale with the payor's income. $5,000 steps. Dashed line: 50 cents. Two of three children under 13 (MA credit); premiums $43/$33."
-   source_script="model/charts/fig4_retention.py · model/marginal_retention.py"
-   csv_href="/figures/working/fig4_marginal_retention.csv" %}
-
-## 5. Rebutting the presumptive order takes four written findings, which can cost more than the amount in dispute
-
-<p class="confidence-tag">The deviation data is the Commonwealth's own; the rate at which a contested deviation succeeds is not measured anywhere in it.</p>
-
-Federal law requires the guidelines amount to carry a rebuttable presumption, and Massachusetts's
-own guidelines make rebutting it conditional on a judge making four specific findings: the
-guidelines amount, that applying it would be unjust or inappropriate, the facts justifying
-departure, and that departure is consistent with the child's best interest. Meeting that bar costs
-legal time, so contesting a child care claim or a parenting-time credit worth a few thousand
-dollars a year can cost more than the amount in dispute. The Commonwealth publishes how often the
-presumption is rebutted, but not the one number that would say whether contesting is worth it: how
-often a deviation motion the parties did not simply agree to still succeeds.
-
-## 6. After tax and the order, the payor holds more than the recipient household, in total and per person
-
-<p class="confidence-tag">Verified against the form's own calculation scripts</p>
-
-At the worked example, the payor keeps $87,172 a year and the recipient's household holds
-$77,395, $19,349 per person. That figure comes from the withholding basis: federal and
-Massachusetts income tax, Social Security and Medicare, no refundable credits. It is used because a figure
-that turns on which parent claims which child on a given year's taxes is not one CJ-D 304 collects
-or a reader can reproduce from published rate tables alone.
-Across a wider range of incomes the recipient's household still ends up ahead in total in about
-10 percent of combinations, even though the payor holds more per person in 99 percent of them
-(E01, E02).
-
-{% include figure.html
-   id="e01"
-   img="/figures/exhibits/E01-who-holds-more-3-children.png"
-   alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, across combinations of higher-earner gross income from $60,000 to $300,000 and lower-earner gross income from $0 to $120,000, three children, equal parenting time, no child care."
-   title="With three children, the recipient household holds more after the order in 10 percent of income combinations."
-   deck="Recipient household net minus payor net, per year."
-   notes="Of the 10 percent of the grid where the recipient household is ahead, 75 percent sits below $150,000 of higher-earner income, and none above $175,000. The closed contour inside the red region is Line 6e's limitation, which stops binding once the payor's Line 6d crosses 10 percent; the order then drops about $110 a week in one step. Per person the payor still leads almost everywhere (E02). Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero; no refundable tax credits counted."
-   source_script="model/charts/fig1_heatmaps.py · model/worksheet.py · model/net_position.py"
-   csv_href="/figures/working/fig1_heatmap_3child_box1.csv" %}
-
-## 7. Massachusetts charges more for equal parenting time than 47 states charge a parent who has the children a third of the time
+## 3. Massachusetts charges more for equal parenting time than 47 states charge a parent who has the children a third of the time
 
 <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
 
@@ -161,6 +92,81 @@ its enacted formula orders less at equal time than at primary custody.
    csv_href="/figures/working/fig5_states.csv" %}
 
 [Read the full finding →](/findings/fifty-one-jurisdictions/)
+
+## 4. The hardship test measures gross income when it should measure net
+
+<p class="confidence-tag">Verified against the form's own calculation scripts</p>
+
+**The hardship presumption is supposed to fire at 40% of the payor's income. It does not fire
+until the order takes 57% of the payor's net pay.**
+
+Section IV.C calls an order at 40% of income a presumptive hardship, and Line 7e is the box on the
+Worksheet that tests for it. But Line 7e divides by Line 3a, which is gross income less health
+premiums and any other support orders and carries no tax adjustment at all, while the order is
+paid out of net. The test is in gross, the payment is in net, and the gap between them widens as
+the payor's tax rate rises. At the worked example that gap is 17 points.
+
+[Read the full finding →](/findings/hardship-test/)
+
+## 5. The payor keeps less than half of every extra dollar earned
+
+<p class="confidence-tag">Verified against the form's own calculation scripts</p>
+
+At $201,000, of the next $10,000 the payor earns, 20.3% goes to the order and 31.3% to income and
+payroll tax. The payor keeps 48.3%. The order's share of a raise is roughly double Table A's own
+10% top bracket, because the child-count multiplier and the payor's rising income share both scale
+up with income. Across $150,000 to $300,000 of payor income the share kept stays between 39% and
+48%, so the effect is not particular to this example.
+
+{% include figure.html
+   id="e10"
+   img="/figures/exhibits/E10-cents-kept-of-next-dollar-worked-example.png"
+   alt="Line chart of cents kept of the payor's next dollar of income, from $100,000 to $400,000 of payor income, both with and without $300 a week of child care."
+   title="Of the payor's next dollar, the payor keeps between a third and a half."
+   deck="Marginal retention after federal and state tax and the change in the order."
+   notes="The order's marginal take runs near 20 percent, above Table A's 10 percent top bracket, because the child-count multiplier and the rising income share both scale with the payor's income. $5,000 steps. Dashed line: 50 cents. Two of three children under 13 (MA credit); premiums $43/$33."
+   source_script="model/charts/fig4_retention.py · model/marginal_retention.py"
+   csv_href="/figures/working/fig4_marginal_retention.csv" %}
+
+## 6. Challenging the order can cost more than it saves, so wrong orders go uncontested
+
+<p class="confidence-tag">The deviation data is the Commonwealth's own; the rate at which a contested deviation succeeds is not measured anywhere in it.</p>
+
+Federal law requires the guidelines amount to carry a rebuttable presumption, and Massachusetts's
+own guidelines make rebutting it conditional on a judge making four specific findings: the
+guidelines amount, that applying it would be unjust or inappropriate, the facts justifying
+departure, and that departure is consistent with the child's best interest. Meeting that bar costs
+legal time, so contesting a child care claim or a parenting-time credit worth a few thousand
+dollars a year can cost more than the amount in dispute. The Commonwealth publishes how often the
+presumption is rebutted, but not the one number that would say whether contesting is worth it: how
+often a deviation motion the parties did not simply agree to still succeeds.
+
+## 7. At equal parenting time, the recipient household ends up with more money than the payor in 10% of income combinations
+
+<p class="confidence-tag">Verified against the form's own calculation scripts</p>
+
+Across the three-child equal-time grid, the recipient's household ends up holding more money than
+the payor in about 10% of income combinations. The payor still holds more per person in
+99% of them, because that household is supporting four people and the payor one (E01, E02).
+
+At this site's own worked example the payor is the one ahead, keeping $87,172 a year
+against the recipient household's $77,395,
+which is $19,349 each for the four people in it.
+
+Both figures come from the withholding basis — federal and Massachusetts income tax, Social
+Security and Medicare, no refundable credits — because a figure that turns on which parent claims
+which child in a given year is not something CJ-D 304 collects or a reader can reproduce from
+published rate tables.
+
+{% include figure.html
+   id="e01"
+   img="/figures/exhibits/E01-who-holds-more-3-children.png"
+   alt="Heatmap of the recipient household's net income minus the payor's, in dollars per year, across combinations of higher-earner gross income from $60,000 to $300,000 and lower-earner gross income from $0 to $120,000, three children, equal parenting time, no child care."
+   title="With three children, the recipient household holds more after the order in 10 percent of income combinations."
+   deck="Recipient household net minus payor net, per year."
+   notes="Of the 10 percent of the grid where the recipient household is ahead, 75 percent sits below $150,000 of higher-earner income, and none above $175,000. The closed contour inside the red region is Line 6e's limitation, which stops binding once the payor's Line 6d crosses 10 percent; the order then drops about $110 a week in one step. Per person the payor still leads almost everywhere (E02). Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero; no refundable tax credits counted."
+   source_script="model/charts/fig1_heatmaps.py · model/worksheet.py · model/net_position.py"
+   csv_href="/figures/working/fig1_heatmap_3child_box1.csv" %}
 
 <div class="ask">
   <h2>Check it yourself</h2>
