@@ -47,9 +47,12 @@ afterward.
 
 [Read the full finding →](/findings/child-care/)
 
-## 2. Equal parenting time earns a 6.9 percent discount, and it shrinks as the income gap widens
+## 2. Splitting the children's time equally cuts the order by 6.9%. Utah cuts it by 55%, Montana by 53%, Hawaii by 52%
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
+
+**Taking the children half the nights instead of a third of them is worth 6.9% off the order. At
+the same two incomes, the states that give the largest reductions give more than half.**
 
 Line 6g nets the two parents' Line 6e amounts, which reduce to the gap between their income shares
 once Box 1 puts zero children in the payor's column; no line measures overnights. That gap shrinks
