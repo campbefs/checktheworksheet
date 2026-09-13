@@ -28,9 +28,11 @@ this site uses its withholding basis: federal income tax, Massachusetts income t
 Security and Medicare, the same formula for both parents, no filing status, no dependents, no
 credits — reproducible from a published table by anyone. The module can also compute a
 credits-inclusive figure, adding the EITC, Child Tax Credit, and the refundable Massachusetts
-Child and Family Tax Credit; that mode is not used for any published figure and is exposed only as
-the calculator's optional "count credits" view, [explained on its own
-page](/credits/).
+Child and Family Tax Credit; that mode is not used for any headline figure, and is exposed as the
+calculator's optional "count credits" view, [explained on its own page](/credits/). One figure
+computed on it is published: the 49.7 percent child care share on the
+[recommendations page](/recommendations/), shown there beside the narrower figure the comments
+actually ask for.
 
 ## Four extension models, and one script printing every quoted figure
 
