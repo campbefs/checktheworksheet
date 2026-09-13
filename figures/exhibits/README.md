@@ -31,3 +31,4 @@ The per-person exhibit (E02) travels with E01/E18/E19. The lead pair is E12 then
 - `E25-both-pay-child-care-who-pays-3-children.png`
 - `E26-both-pay-child-care-net-position-3-children.png`
 - `E27-gross-vs-net-deferred-1-of-5-cycles.png`
+- `E28-hardship-test-vs-share-of-net-3-children-primary.png`

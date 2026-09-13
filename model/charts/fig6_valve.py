@@ -23,7 +23,7 @@ def main():
     ax.plot(ccs, tru, color=P["series"][1], lw=2.2, label="Order as a share of the payor's NET income")
     ax.plot(ccs, e7, color=P["series"][0], lw=2.2, label="Line 7e: order as a share of Line 3a (gross-derived)")
     ax.axhline(0.40, color=P["axis"], lw=1, ls="--")
-    ax.text(300, 0.405, "Section IV.C threshold, 40%", fontsize=8.5, color=P["text_2"])
+    ax.text(300, 0.405, "40% hardship threshold", fontsize=8.5, color=P["text_2"])
     if true40 is not None:
         ax.axvline(true40, color=P["series"][1], lw=0.8, ls=":")
         ax.text(true40 + 8, 0.08, f"true burden reaches 40%\nat \\${true40:,.0f}/wk", fontsize=8.5, color=P["text"])
@@ -32,12 +32,12 @@ def main():
         ax.text(fire + 8, 0.16, f"Line 7e reaches 40%\nat \\${fire:,.0f}/wk; true burden {tru[np.argmax(e7 >= 0.40)]:.0%}", fontsize=8.5, color=P["text"])
     ax.set_xlim(0, 1290); ax.set_ylim(0, 0.8)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:,.0f}"))
-    theme.finish(ax, title="The hardship valve fires late because it reads the wrong income",
+    theme.finish(ax, title="The hardship test fires late because it reads the wrong income",
                  subtitle="Line 7e's reading vs the true share of net income as claimed child care rises.",
                  xlabel="Child care claimed, per week", pct=True,
                  pairs=facts(1, 3, "Rises to the \\$430/child ceiling (recipient)", "\\$201,000 / \\$29,640"),
-                 notes="Child care is included in the order. 7e is what the form computes; net is what is paid. "
-                       "Two of three children under 13 (MA credit); premiums \\$43/\\$33.",
+                 notes="Child care is included in the order. 7e is what the form computes (Guidelines Section IV.C); "
+                       "net is what is paid. Two of three children under 13 (MA credit); premiums \\$43/\\$33.",
                  source="model/submission_figures.py")
     theme.save(fig, out("fig6_valve_units_lag.png"))
     write_csv("fig6_valve_units_lag.csv", ["childcare_wk", "order_wk", "line_7e", "order_pct_payor_net"], rows)

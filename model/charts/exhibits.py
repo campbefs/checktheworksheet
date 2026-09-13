@@ -92,24 +92,25 @@ def copy(src, dst):
 
 
 def childcare_rule_split(fname, rows_all, kids, exhibit_no):
-    """One exhibit per child count, split from fig2_childcare_rules.csv (was the 3-panel E07)."""
+    """One exhibit per child count, split from fig2_childcare_rules.csv (was the 3-panel E07).
+    The credits-inclusive rule (fig2's dropped 'post-transfer net' line) is not plotted here
+    either, per the same 2026-09-11 call: it is never a proposal and does not belong in a
+    lineup of allocation rules."""
     rs = sorted([r for r in rows_all if int(r["children"]) == kids], key=lambda r: r["payor_3c"])
     x = [r["payor_3c"] for r in rs]
     gross = [r["rule2_post_gross"] for r in rs]
-    net = [r["rule3_post_net"] for r in rs]
-    gap_pts = (x[-1] - net[-1]) * 100  # measured from the CSV's own last (highest-share) row
+    gap_pts = (x[-1] - gross[-1]) * 100  # measured from the CSV's own last (highest-share) row
 
     fig, ax = theme.figure(8.6, 5.0)
-    ax.plot(x, gross, color=P["series"][0], lw=2.2, label="Post-transfer gross shares")
-    ax.plot(x, net, color=P["series"][2], lw=2.2, label="Post-transfer net shares")
-    ax.plot(x, x, color=P["axis"], lw=1, ls="--", label="Current rule (Line 3c) = income share")
-    ax.annotate(f"{gap_pts:.0f} points below\nincome share", (x[-1], net[-1]), xytext=(-90, -6),
+    ax.plot(x, x, color=P["axis"], lw=1, ls="--", label="As the Worksheet splits it today")
+    ax.plot(x, gross, color=P["series"][0], lw=2.2, label="If split on income after the order")
+    ax.annotate(f"{gap_pts:.0f} points below\nincome share", (x[-1], gross[-1]), xytext=(-90, -6),
                 textcoords="offset points", fontsize=8.7, color=P["text_2"])
     ax.set_xlim(0.5, 1.0); ax.set_ylim(0, 1.0)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
-    theme.finish(ax, title=f"With {word_children(kids)}, post-transfer child care funds the payor {gap_pts:.0f} points below his income share",
-                 subtitle="Share of the child care bill the payor funds, by his pre-transfer income share, two post-transfer rules.",
-                 pct=True, xlabel="Payor's share of combined available income (Line 3c)", ylabel="Share of child care the payor funds",
+    theme.finish(ax, title=f"With {word_children(kids)}, splitting child care on income after the order funds the payor {gap_pts:.0f} points below his income share",
+                 subtitle="Share of the child care bill the payor funds, by his income share before the order, under the current rule and one alternative.",
+                 pct=True, xlabel="Payor's share of combined income (before the order)", ylabel="Share of child care the payor funds",
                  pairs=facts(1, kids, "\\$100/child/wk, paid by the lower earner", f"\\${EXAMPLE['payor']:,.0f} / varies"),
                  notes="Child care is included in the order. Gap measured at the highest income share plotted. " + NOTE_CONV,
                  source=SOURCE_SRC + "; fig2_childcare.py")
@@ -172,32 +173,32 @@ def main():
 
     fig, ax = theme.figure(9.5, 5.2)
     ax.plot(x, [r["reduction_current"] for r in r3], color=P["series"][3], lw=2.2, label="Worksheet today (Box 1 vs Box 2)")
-    ax.plot(x, [r["reduction_A"] for r in r3], color=P["series"][0], lw=2.2, label="Variant A: Line 6e applied once")
-    ax.plot(x, [r["reduction_B"] for r in r3], color=P["series"][2], lw=2.2, label="Variant B: cross-credit, factor 1.5")
+    ax.plot(x, [r["reduction_A"] for r in r3], color=P["series"][0], lw=2.2, label="Fix A: apply the credit's limit once, not twice")
+    ax.plot(x, [r["reduction_B"] for r in r3], color=P["series"][2], lw=2.2, label="Fix B: the credit formula used by 23 other states")
     ax.set_xlim(0.5, 1.0); ax.set_ylim(0, 1)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
     ax.axvline(0.877, color=P["text_mute"], lw=0.8); ax.text(0.879, 0.93, "worked\nexample", fontsize=8, color=P["text_mute"])
-    theme.finish(ax, title="The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing",
+    theme.finish(ax, title="The Worksheet's equal-time credit collapses as the income gap widens",
                  subtitle="Reduction in the order for equal time, against the Box 2 order (the paying parent has the children about a third of the time).",
-                 xlabel="Payor's share of combined available income (Line 3c)", ylabel="Reduction vs the Box 2 order", pct=True,
+                 xlabel="Payor's share of combined income (before the order)", ylabel="Reduction vs the Box 2 order", pct=True,
                  pairs=facts("1v2", 3, "None (base support)", f"\\${EXAMPLE['payor']:,.0f} / varies"),
-                 notes="Variants A and B: the letter's § 5 redlines (box1_fix.py). " + NOTE_CONV,
+                 notes="Fix A and Fix B are this project's proposed redlines (letter § 5; box1_fix.py). " + NOTE_CONV,
                  source=SOURCE_SRC)
     theme.save(fig, ex("E08-credit-shrinks-as-gap-widens-3-children.png")); print("E08")
 
     fig, ax = theme.figure(9.5, 5.2)
-    ax.plot(x, [r["implied_share_1.5"] for r in r3], color=P["series"][2], lw=2.2, label="Duplication factor 1.5 (Indiana; Variant B)")
-    ax.plot(x, [r["implied_share_2.0"] for r in r3], color=P["series"][1], lw=2.2, label="Duplication factor 2.0 (Box 1's own structure)")
+    ax.plot(x, [r["implied_share_1.5"] for r in r3], color=P["series"][2], lw=2.2, label="If half the cost is assumed to double across two homes")
+    ax.plot(x, [r["implied_share_2.0"] for r in r3], color=P["series"][1], lw=2.2, label="If the whole cost is assumed to double across two homes")
     ax.axhline(0.5, color=P["axis"], lw=1, ls="--"); ax.text(0.51, 0.51, "actual: 50% of overnights", fontsize=8.5, color=P["text_2"])
     ax.set_xlim(0.5, 1.0); ax.set_ylim(0, 0.6)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
     ax.axvline(0.877, color=P["text_mute"], lw=0.8); ax.text(0.879, 0.56, "worked\nexample", fontsize=8, color=P["text_mute"])
     theme.finish(ax, title="The equal-time credit is what a standard formula pays a parent who has the children one night in three",
-                 subtitle="Massachusetts's credit for half the nights, converted into the overnight share a cross-credit "
+                 subtitle="Massachusetts's credit for half the nights, converted into the overnight share a standard "
                           "formula would need to produce it.",
-                 xlabel="Payor's share of combined available income (Line 3c)", ylabel="Overnight share under a cross-credit", pct=True,
+                 xlabel="Payor's share of combined income (before the order)", ylabel="Overnight share that would explain the discount", pct=True,
                  pairs=facts(1, 3, "None (base support)", f"\\${EXAMPLE['payor']:,.0f} / varies"),
-                 notes="At the worked example (87.7% payor income share): 33% of overnights at factor 1.5, 47% at factor 2.0. "
+                 notes="\"Double across two homes\" is the duplication factor: 33% of overnights at 1.5 (Indiana's assumption), 47% at 2.0 (Box 1's own structure). "
                        "Blank below the Line 5c floor. " + NOTE_CONV,
                  source=SOURCE_SRC + "; box1_fix.py")
     theme.save(fig, ex("E09-implied-overnight-share-by-factor-3-children.png")); print("E09")
@@ -231,14 +232,14 @@ def main():
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
     theme.finish(ax, title=f"Splitting two children across two homes cuts the weekly order by {ex_vals['reduction']:.0%}",
                  subtitle="Weekly order for the same two children: both shared equal time (Box 1) vs one child with each parent (Box 3).",
-                 xlabel="Payor's share of combined available income (Line 3c)", ylabel="Weekly order, Line 7d", money=True,
+                 xlabel="Payor's share of combined income (before the order)", ylabel="Weekly order", money=True,
                  pairs=facts("1v3", 2, "None (base support)", f"\\${EXAMPLE['payor']:,.0f} / varies"),
                  notes="Companion to E24 (the schedule's own cost moves the opposite way). Letter § 5.1. " + NOTE_CONV,
                  source=SOURCE_SRC + "; fig7_box3_split.py")
     theme.save(fig, ex("E23-split-siblings-weekly-order-2-children.png")); print("E23")
 
     fig, ax = theme.figure(6.6, 5.0)
-    labels = ["One home,\ntwo children\n(Table B ×1.40)", "Two homes,\none child each\n(Table B ×1.00, twice)"]
+    labels = ["One home,\ntwo children", "Two homes,\none child each"]
     vals = [ex_vals["tableB_one_home_two_children"], ex_vals["tableB_two_homes_one_each"]]
     pct_more = vals[1] / vals[0] - 1
     theme.bars(ax, np.arange(2), vals, color=P["series"][3])
@@ -247,8 +248,8 @@ def main():
     ax.set_ylim(0, 2.4); ax.set_yticks([0, 0.5, 1.0, 1.5, 2.0])
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.1f}"))
     theme.finish(ax, title=f"Two homes, one child each, cost {pct_more:.0%} more on the schedule than one home with two",
-                 subtitle="Table B's cost multiple: one home raising two children vs two homes each raising one.",
-                 ylabel="Multiple of the one-child schedule amount", legend=False, comma=False,
+                 subtitle="What the guidelines assume each arrangement costs: one home raising two children vs two homes each raising one.",
+                 ylabel="Multiple of what one child costs in one home", legend=False, comma=False,
                  pairs=facts("1v3", 2, "None (base support)", f"\\${EXAMPLE['payor']:,.0f} / varies"),
                  notes="Companion to E23 (the order itself falls even as the schedule's own cost rises). Letter § 5.1.",
                  source=SOURCE_SRC + "; fig7_box3_split.py")
@@ -312,6 +313,9 @@ def main():
 
     # --- E27: the deferral timeline (new, item 5 of the 2026-09-06 direction) ---
     copy("fig11_deferral_timeline.png", "E27-gross-vs-net-deferred-1-of-5-cycles.png")
+
+    # --- E28: the hardship test against what the order actually takes ---
+    copy("fig12_net_pay_ceiling.png", "E28-hardship-test-vs-share-of-net-3-children-primary.png")
 
     # --- Retire the old multi-panel exhibits from a prior run (never delete: moved, not removed) ---
     RETIRED_DIR = ex("_retired-2026-09-06-multi-panel")

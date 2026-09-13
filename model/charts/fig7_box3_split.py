@@ -43,22 +43,22 @@ def main():
     ax.set_xlim(0.5, 1.0)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:,.0f}"))
-    ax.set_xlabel("Payor's share of combined available income (Line 3c)")
-    ax.set_ylabel("Weekly order, Line 7d")
+    ax.set_xlabel("Payor's share of combined income (before the order)")
+    ax.set_ylabel("Weekly order")
     ax.set_title("(a) Weekly order", loc="left", fontsize=10.5)
     ax.legend(loc="upper left", bbox_to_anchor=(0, -0.16), ncols=1, frameon=False, fontsize=9)
 
     ax = axs[1]
-    labels = ["One home,\ntwo children\n(Table B ×1.40)", "Two homes,\none child each\n(Table B ×1.00, twice)"]
+    labels = ["One home,\ntwo children", "Two homes,\none child each"]
     vals = [factor_one_home, factor_two_homes]
     theme.bars(ax, np.arange(2), vals, color=P["series"][3])
     ax.set_xticks(np.arange(2)); ax.set_xticklabels(labels, fontsize=9)
     theme.label_ends(ax, np.arange(2), vals, fmt="{:.2f}×")
-    ax.set_ylim(0, 2.4); ax.set_ylabel("Multiple of the one-child schedule amount")
-    ax.set_title("(b) Table B cost multiple", loc="left", fontsize=10.5)
+    ax.set_ylim(0, 2.4); ax.set_ylabel("Multiple of what one child costs in one home")
+    ax.set_title("(b) What the guidelines assume it costs", loc="left", fontsize=10.5)
 
     fig.subplots_adjust(top=top_header(fig, "Splitting the siblings cuts the order by a third while the schedule's own cost rises 43%",
-        "Weekly order under Box 1 and Box 3 for the same two children, and Table B's cost of each.",
+        "Weekly order under Box 1 and Box 3 for the same two children, and what the guidelines assume each arrangement costs.",
         facts("1v3", 2, "None (base support)", f"\\${HI:,.0f} / varies")))
     bottom_footer(fig, f"Box 3 = Table B(1)/B(2) = {w.TABLE_B[1] / w.TABLE_B[2]:.1%} of Box 1. Cuts against the lower earner. "
                   "Letter § 5.1. " + NOTE_CONV, SOURCE_SRC)

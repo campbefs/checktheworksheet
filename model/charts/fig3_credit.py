@@ -26,31 +26,31 @@ def main():
                      red["current"], red["A"], red["B"], imp15, imp20))
     rows.sort(key=lambda r: r[1])
     x = [r[1] for r in rows]
-    fig, axs = plt.subplots(1, 2, figsize=(15, 5.6))
-    fig.subplots_adjust(wspace=0.22, top=0.71, bottom=0.24)
+    fig, axs = plt.subplots(1, 2, figsize=(15, 6.3))
+    fig.subplots_adjust(wspace=0.22, top=0.68, bottom=0.28)
     ax = axs[0]
     ax.plot(x, [r[6] for r in rows], color=P["series"][3], lw=2.2, label="Worksheet today (Box 1 vs Box 2)")
-    ax.plot(x, [r[7] for r in rows], color=P["series"][0], lw=2.2, label="Variant A: 6e applied once")
-    ax.plot(x, [r[8] for r in rows], color=P["series"][2], lw=2.2, label="Variant B: cross-credit, factor 1.5")
+    ax.plot(x, [r[7] for r in rows], color=P["series"][0], lw=2.2, label="Fix A: apply the credit's limit once, not twice")
+    ax.plot(x, [r[8] for r in rows], color=P["series"][2], lw=2.2, label="Fix B: the credit formula used by 23 other states")
     ax.set_title("(a) Reduction in the order for equal time", loc="left", fontsize=10.5)
     ax.set_ylim(0, 1); ax.set_ylabel("Reduction")
     ax = axs[1]
-    ax.plot(x, [r[9] for r in rows], color=P["series"][2], lw=2.2, label="Duplication factor 1.5 (as in Variant B)")
-    ax.plot(x, [r[10] for r in rows], color=P["series"][1], lw=2.2, label="Duplication factor 2.0")
+    ax.plot(x, [r[9] for r in rows], color=P["series"][2], lw=2.2, label="If half the cost is assumed to double across two homes")
+    ax.plot(x, [r[10] for r in rows], color=P["series"][1], lw=2.2, label="If the whole cost is assumed to double across two homes")
     ax.axhline(0.5, color=P["axis"], lw=1, ls="--"); ax.text(0.51, 0.51, "actual: 50% of overnights", fontsize=8.5, color=P["text_2"])
-    ax.set_title("(b) Overnight share a cross-credit would need to match the order", loc="left", fontsize=10.5)
-    ax.set_ylim(0, 0.6); ax.set_ylabel("Overnight share under a cross-credit")
+    ax.set_title("(b) Overnight share a standard formula would need to give the same discount", loc="left", fontsize=10.5)
+    ax.set_ylim(0, 0.6); ax.set_ylabel("Overnight share that would explain the discount")
     for ax in axs:
         ax.set_xlim(0.5, 1.0)
         ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
         ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
-        ax.set_xlabel("Payor's share of combined available income")
+        ax.set_xlabel("Payor's share of combined income (before the order)")
         ax.axvline(0.877, color=P["text_mute"], lw=0.8); ax.text(0.879, ax.get_ylim()[1] * 0.93, "worked\nexample", fontsize=8, color=P["text_mute"])
-        ax.legend(loc="upper left", bbox_to_anchor=(0, -0.16), ncols=3, frameon=False, fontsize=9)
-    fig.subplots_adjust(top=top_header(fig, "The Worksheet's credit for equal parenting time collapses as the income gap widens; a cross-credit narrows without collapsing",
-        "Reduction in the order for equal time against the Box 2 order, and the overnight share a cross-credit would need to match it.",
+        ax.legend(loc="upper left", bbox_to_anchor=(0, -0.20), ncols=1, frameon=False, fontsize=9)
+    fig.subplots_adjust(top=top_header(fig, "The Worksheet's equal-time credit collapses as the income gap widens",
+        "Reduction in the order for equal time against the Box 2 order, and the overnight share a standard formula would need to give the same discount.",
         facts("1v2", 3, "None (base support)", f"\\${HI:,.0f} / varies")))
-    bottom_footer(fig, "Implied share blank below the Line 5c floor; sensitive to the factor. Variants: box1_fix.py. " + NOTE_CONV, SOURCE_SRC)
+    bottom_footer(fig, "Fix A/B are this project's proposed redlines (letter § 5; box1_fix.py). \"Double across two homes\" is the duplication factor (1.5 = Indiana's assumption, 2.0 = Box 1's own structure); implied share blank below the Line 5c floor. " + NOTE_CONV, SOURCE_SRC)
     fig.savefig(out("fig3_credit_collapse.png"), dpi=170); fig.savefig(out("fig3_credit_collapse.svg")); plt.close(fig)
     write_csv("fig3_credit_collapse.csv", ["lower_gross", "payor_3c", "box2_7d", "box1_7d", "variantA_7d", "variantB_7d",
                                            "reduction_current", "reduction_A", "reduction_B", "implied_share_1.5", "implied_share_2.0"], rows)

@@ -72,7 +72,7 @@ def main():
                 color=P["surface"] if yes else P["text"])
     ax.set_xlim(-0.2, 11.2); ax.set_ylim(-7.3, 1.2); ax.set_aspect("equal"); ax.axis("off")
     t = cr["tally"]
-    theme.finish(ax, title=f"In Massachusetts and {t['N'] - 1} other states, a parent with the children one night in three pays the same as a parent with no overnights",
+    theme.finish(ax, title=f"In Massachusetts and {t['N'] - 1} other states, having the children a third of the time lowers the order by nothing",
                  subtitle="Blue: a formula credit at 122 overnights a year. Grey: none.",
                  pairs=[("Counted", "Any formula credit at 122 overnights"), ("Children", "3"),
                         ("Child care", "None"), ("Incomes", "\\$201,000 / \\$29,640")],
