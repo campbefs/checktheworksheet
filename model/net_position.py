@@ -369,8 +369,17 @@ def net_income_withholding_basis(gross, params=TAX_PARAMS):
     The omission runs AGAINST the payor: including the credits, under the
     alternating-year convention `net_income()` above now uses (statutory fix,
     2026-09-08 -- only the Child Tax Credit moves; head-of-household, the EITC and
-    the MA EITC stay with whoever has more overnights), puts his share at 49.7%
-    rather than 53.0%, so the rule as proposed understates the case for it.
+    the MA EITC stay with whoever has more overnights), puts his share of the CHILD
+    CARE at 49.7% rather than 53.0%, so the rule as proposed understates the case
+    for it.
+
+    NAME THE SHARE, because two different ones both read 53.0% at this example and
+    the coincidence is real: the child-care allocation share above comes from
+    `childcare_post_transfer.py`, while section 4's payor share of post-transfer
+    RESOURCES is `position()['payor_after_share']`. On that second measure the
+    credits move the share about a point, not three -- `tools/net_basis_sensitivity.py`
+    prints both, and it is the authority for either number. Do not quote 49.7% as a
+    share of resources.
     """
     return gross - (federal_tax(gross, "single", params)
                     + fica(gross, params)
