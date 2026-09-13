@@ -19,9 +19,10 @@ the other parent at $29,640, three children. Open a row to read the case for it.
 Each proposal below carries one of three labels. **A correction** means the Worksheet applies two
 different measures inside one calculation, or tests a quantity against a threshold in different
 units; it is wrong on its own terms, whichever way you think support should go, and three of the
-five change a dollar figure. **A judgement** picks a number, a rate or a cap: someone who accepts
-every figure on this page can still disagree with it. **A disclosure** changes no dollar figure and
-catches a misstatement in either direction. Five, three and three of the eleven.
+five change a dollar figure. **A judgement** picks a number, a rate or a cap, or installs a rule where the
+form has none: someone who accepts every figure on this page can still disagree with it.
+**A disclosure** changes no dollar figure and records or surfaces something the form currently
+leaves unrecorded, in either direction. Five, four and two of the eleven.
 </p>
 
 The Worksheet splits child care on each parent's share of income before the order moves any money. These would split it on what each parent holds after.
@@ -397,7 +398,7 @@ how often a deviation motion that the parties didn't simply agree to actually su
 </details>
 
 <details class="ask" markdown="1" id="ask-medical-formula">
-<summary><span class="ask-head"><span class="ask-title">Give uninsured medical costs a formula instead of leaving them case-by-case</span><span class="effect">No dollar change.</span><span class="tag-kind">Disclosure</span><span class="tag-origin">Beyond the comments</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Give uninsured medical costs a formula instead of leaving them case-by-case</span><span class="effect">No change to the guidelines amount. Its main effect is to lower the recipient's cost of collecting what is already owed.</span><span class="tag-kind">Judgement</span><span class="tag-origin">Beyond the comments</span></span></summary>
 
 The Guidelines say in their own words that they have no formula here. The recipient pays the first
 $250 a year of routine out-of-pocket and uninsured medical, dental and vision costs alone. Above
