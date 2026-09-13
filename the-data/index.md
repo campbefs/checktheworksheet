@@ -10,8 +10,9 @@ Every number in a finding traces to one of these files, or a script in [the mode
 
 ## The form's own logic
 
-[`data/extracted/cjd304-xfa.xml`](/data/extracted/cjd304-xfa.xml) holds the 2025 CJ-D 304's own
-scripts, extracted by [`model/inspect_worksheet.py`](/model/inspect_worksheet.py). **Primary
+[`data/extracted/cjd304-xfa.xml`](/data/extracted/cjd304-xfa.xml) holds the calculation scripts
+built into the 2025 CJ-D 304, the Massachusetts child support guidelines worksheet, extracted by
+[`model/inspect_worksheet.py`](/model/inspect_worksheet.py). **Primary
 source, executed directly**; [the model](/the-model/) matches it on all six scenarios.
 
 ## The support chart
