@@ -22,7 +22,7 @@ units; it is wrong on its own terms, whichever way you think support should go, 
 five change a dollar figure. **A judgement** picks a number, a rate or a cap, or installs a rule where the
 form has none: someone who accepts every figure on this page can still disagree with it.
 **A disclosure** changes no dollar figure and records or surfaces something the form currently
-leaves unrecorded, in either direction. Five, four and two of the eleven.
+leaves unrecorded, in either direction. Four, four and three of the eleven.
 </p>
 
 <p class="kind-legend" markdown="1">
@@ -325,7 +325,7 @@ an amount automatically when the measure is exceeded. It does not supply the 25 
 </details>
 
 <details class="ask" markdown="1" id="ask-net-income-table">
-<summary><span class="ask-head"><span class="ask-title">Add a ten-row table that converts gross income to net</span><span class="effect">Accurate to five cents a week.</span><span class="tag-kind">Correction</span><span class="tag-origin">Beyond the comments</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Add a ten-row table that converts gross income to net</span><span class="effect">Accurate to five cents a week. No dollar change.</span><span class="tag-kind">Disclosure</span><span class="tag-origin">Beyond the comments</span></span></summary>
 
 A ceiling on net pay needs a net figure, and the Worksheet holds none. That is the real obstacle:
 five reviews have taken up gross versus net and none changed it.
