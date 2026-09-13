@@ -137,9 +137,9 @@ the statutory ceiling on allowable child care, not a typical claim. This is one 
 how often actual claims sit near that benchmark isn't known from anything in this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Across the full grid behind the heatmap
-above, the payor holds more per person than the recipient's household in 99 percent of the 1,147
-modelled cells, and holds more per household too in 90 percent of them. The recipient's household
-still holds more in total in the remaining 10 percent.</p>
+above, the payor holds more per person than the recipient's household in 98.9 percent (1,134 of
+1,147) of the modelled cells, and holds more per household too in all but 114 of them. The
+recipient's household still holds more in total in the remaining 9.9 percent (114 of 1,147).</p>
 
 </section>
 

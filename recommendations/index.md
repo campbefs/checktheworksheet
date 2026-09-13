@@ -171,9 +171,9 @@ site contains no state that caps a support order at a share of net income as a g
 support for a ceiling in principle, the federal garnishment cap and the Center for Policy Research
 statement quoted in part two, is support for the idea of a net ceiling, not for this number.
 
-**What it would cost, and it is not a backstop.** A 25 percent ceiling reaches 9.6 percent of
-one-child equal-time orders on the published grid, 48.2 percent of two-child orders,
-and 62.2 percent of three-child orders.
+**What it would cost, and it is not a backstop.** A 25 percent ceiling reaches 9.6 percent (110 of 1,147) of
+one-child equal-time orders on the published grid, 48.2 percent (553 of 1,147) of two-child orders,
+and 62.2 percent (714 of 1,147) of three-child orders.
 At the worked example it would take the order from $1,012.73 a week
 down to $672.28. That is a different schedule for shared custody, and it should be argued as one.
 
@@ -242,7 +242,7 @@ the quantity it is measured against, from Line 3a available income to net pay.
 
 **What it would cost, measured on the same income grids as the rest of this site.** With one child
 or two, a 40 percent ceiling changes nothing at all: no primary-custody order anywhere on either
-grid reaches it. With three children it reaches 41.2 percent of the grid.
+grid reaches it. With three children it reaches 41.2 percent (473 of 1,147) of the grid.
 At the worked example the order falls 1.1 percent,
 from $1,087.90 a week
 down to $1,075.64. It is a backstop for the worst cases, not a rewrite of the schedule.
