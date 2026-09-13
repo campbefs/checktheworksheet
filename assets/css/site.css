@@ -475,6 +475,24 @@ article.finding > .confidence-tag {
    and the prose already agree, which is why this read fine on a phone and wrong on a monitor.
    Scoped to `.finding >` so the home page hero, which has no rail, is untouched.
    Headline SIZE is unchanged -- this moves the left edge only. */
+/* The home page has NO chapter rail (design brief 3.3: "no persistent sidebar. Top bar only"),
+   but each of its four `.page-shell` blocks carries an empty `<div></div>` standing in the rail
+   column, so the grid reserved --rail-width + --space-7 for nothing and pushed every home-page
+   section 288px to the right of the h1. Measured 2026-09-13 at 1440px: h1 at 92px, content
+   column at 380px, first grid child an empty 240px-wide div 1748px tall. Found by layout check
+   A4, not by eye. Fixed in CSS rather than by deleting the four placeholders, so the markup is
+   untouched and this is one reversible line. */
+/* Below the rail breakpoint the shell switches to --space-5 (24px) while .hero keeps
+   --space-6 (32px), so the headline sat 8px off the prose under it at 768px. An 8px offset is
+   the worst kind: too small to read as a deliberate indent, big enough for the eye to catch.
+   Match the shell, since the shell is what the body text follows. */
+@media (max-width: 960px) {
+  .hero { padding-left: var(--space-5); padding-right: var(--space-5); }
+}
+
+.home .page-shell { grid-template-columns: 1fr; }
+.home .page-shell > div:empty { display: none; }
+
 @media (min-width: 961px) {
   .finding > .hero,
   .finding > .disclosure {
