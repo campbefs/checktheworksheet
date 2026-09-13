@@ -25,6 +25,14 @@ form has none: someone who accepts every figure on this page can still disagree 
 leaves unrecorded, in either direction. Five, four and two of the eleven.
 </p>
 
+<p class="kind-legend" markdown="1">
+**Every proposal here that changes a dollar figure lowers what the payor owes.** That is the
+direction the findings run, and it is worth saying before the first one rather than after the
+last. It is not a position taken in advance: the same model, the same fact pattern and the same
+form produced all eleven, and where the arithmetic runs the other way the page says so. Massachusetts
+sets high orders, and a page that reports what its Worksheet does will read accordingly.
+</p>
+
 The Worksheet splits child care on each parent's share of income before the order moves any money. These would split it on what each parent holds after.
 
 <div class="accordion" markdown="0">
@@ -341,8 +349,8 @@ performs and then sets aside.
 
 Three gaps that leave a judge without a figure. None of them changes any order.
 
-Every proposal on this page that does change a dollar figure lowers what the payor owes. These
-three don't. Two of them come from the Massachusetts Family Advocacy Coalition, which generally
+None of these three changes a dollar figure. Two of them come from the Massachusetts Family
+Advocacy Coalition, which generally
 argues the other side of this whole subject, in a 72-page comment it filed with the 2024-2025 Task
 Force; that Task Force rejected both. They are proposed here anyway, because an accurate Worksheet
 should catch understatement in either direction, not only the one this site has argued so far.
