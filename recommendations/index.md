@@ -15,11 +15,20 @@ the other parent at $29,640, three children. Open a row to read the case for it.
 
 ## Child care
 
+<p class="kind-legend" markdown="1">
+Each proposal below carries one of three labels. **A correction** means the Worksheet applies two
+different measures inside one calculation, or tests a quantity against a threshold in different
+units; it is wrong on its own terms, whichever way you think support should go, and three of the
+five change a dollar figure. **A judgement** picks a number, a rate or a cap: someone who accepts
+every figure on this page can still disagree with it. **A disclosure** changes no dollar figure and
+catches a misstatement in either direction. Five, three and three of the eleven.
+</p>
+
 The Worksheet splits child care on each parent's share of income before the order moves any money. These would split it on what each parent holds after.
 
 <div class="accordion" markdown="0">
 <details class="ask" markdown="1" id="ask-childcare-transfer">
-<summary><span class="ask-head"><span class="ask-title">Split child care after the base order, on each parent's income before tax</span><span class="effect">The higher earner's child care share falls from 87.7 to 64.5 percent; the order with $300 a week of child care falls from $1,275.77 to $1,206.08 a week.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Split child care after the base order, on each parent's income before tax</span><span class="effect">The higher earner's child care share falls from 87.7 to 64.5 percent; the order with $300 a week of child care falls from $1,275.77 to $1,206.08 a week.</span><span class="tag-kind">Correction</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 Line 6b charges each parent a share of the child care bill, and it uses the income split from
 before any support is paid. At the worked example that makes the higher earner responsible for
@@ -39,7 +48,7 @@ $1,171.64 a week.
 </details>
 
 <details class="ask" markdown="1" id="ask-childcare-net-split">
-<summary><span class="ask-head"><span class="ask-title">Split child care after the base order, on each parent's income after tax (recommended)</span><span class="effect">The higher earner's child care share falls from 87.7 to 53.0 percent; the order with $300 a week of child care falls from $1,275.77 to $1,171.64 a week, a $5,415-a-year change.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Split child care after the base order, on each parent's income after tax (recommended)</span><span class="effect">The higher earner's child care share falls from 87.7 to 53.0 percent; the order with $300 a week of child care falls from $1,275.77 to $1,171.64 a week, a $5,415-a-year change.</span><span class="tag-kind">Correction</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 **Child care should be allocated on each parent's share of after-tax resources following the order,
 instead of the 87.7 percent pre-order split the Worksheet uses today.**
@@ -90,7 +99,7 @@ Splitting the week equally cuts the order 6.9 percent, and that credit shrinks a
 
 <div class="accordion" markdown="0">
 <details class="ask" markdown="1" id="ask-parenting-credit-crosscredit">
-<summary><span class="ask-head"><span class="ask-title">Set the equal-time discount with the cross-credit formula 23 states use (recommended)</span><span class="effect">Equal-time order falls from $1,012.73 to $701.30 a week, a 30.8 percent cut.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Set the equal-time discount with the cross-credit formula 23 states use (recommended)</span><span class="effect">Equal-time order falls from $1,012.73 to $701.30 a week, a 30.8 percent cut.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 **At equal parenting time, Massachusetts's order should fall to what a standard cross-credit
 formula produces, using the 1.5 duplication factor twenty-three other states already use.**
@@ -153,7 +162,7 @@ which is the scale this recommendation is measured against.
 </details>
 
 <details class="ask" markdown="1" id="ask-joint-custody-ceiling">
-<summary><span class="ask-head"><span class="ask-title">Cap the order at 25 percent of net pay when the parents split time equally</span><span class="effect">Order falls from $1,012.73 to $672.28 a week.</span><span class="tag-origin">Beyond the comments. No state does this</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Cap the order at 25 percent of net pay when the parents split time equally</span><span class="effect">Order falls from $1,012.73 to $672.28 a week.</span><span class="tag-kind">Judgement</span><span class="tag-origin">Beyond the comments. No state does this</span></span></summary>
 
 Where the children are with each parent about half the time, both households carry the fixed cost of
 housing them, a bedroom in each home kept year round. Every income-shares state that credits shared
@@ -186,7 +195,7 @@ already handles worst.
 </details>
 
 <details class="ask" markdown="1" id="ask-parenting-credit-a">
-<summary><span class="ask-head"><span class="ask-title">Stop a rule written for low earners from shrinking the equal-time discount</span><span class="effect">Equal-time order falls from $1,012.73 to $935.06 a week, a 7.7 percent cut.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Stop a rule written for low earners from shrinking the equal-time discount</span><span class="effect">Equal-time order falls from $1,012.73 to $935.06 a week, a 7.7 percent cut.</span><span class="tag-kind">Correction</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 **Apply the Worksheet's low-income limit at the transfer, where a primary-custody case already
 applies it, instead of applying it to the equal-parenting credit.**
@@ -213,7 +222,7 @@ Section IV.C calls 40 percent of income a hardship, then measures it on gross wh
 
 <div class="accordion" markdown="0">
 <details class="ask" markdown="1" id="ask-hardship-basis">
-<summary><span class="ask-head"><span class="ask-title">Measure the 40 percent hardship test on net income, not on gross</span><span class="effect">No dollar change. The 40 percent presumption doesn't apply until the payor reaches 57 percent of net income.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Measure the 40 percent hardship test on net income, not on gross</span><span class="effect">No dollar change. The 40 percent presumption doesn't apply until the payor reaches 57 percent of net income.</span><span class="tag-kind">Correction</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 - **Measure the hardship test on the same income basis the order is paid from.** At $300 a week of
   claimed child care, Line 7e reads 33.4 percent of gross-derived income while the same order is
@@ -222,7 +231,7 @@ Section IV.C calls 40 percent of income a hardship, then measures it on gross wh
 </details>
 
 <details class="ask" markdown="1" id="ask-hardship-ceiling">
-<summary><span class="ask-head"><span class="ask-title">Cap the order at 40 percent of net pay, the hardship level the Worksheet already names</span><span class="effect">Order falls from $1,087.90 to $1,075.64 a week; binds in 473 of 1,147 three-child cases.</span><span class="tag-origin">Beyond the comments</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Cap the order at 40 percent of net pay, the hardship level the Worksheet already names</span><span class="effect">Order falls from $1,087.90 to $1,075.64 a week; binds in 473 of 1,147 three-child cases.</span><span class="tag-kind">Judgement</span><span class="tag-origin">Beyond the comments</span></span></summary>
 
 Section IV.C's presumption of substantial hardship does not kick in until the payor is at 57 percent of net income,
 even though Line 7e itself reports only 40 percent at that point. This is
@@ -307,7 +316,7 @@ an amount automatically when the measure is exceeded. It does not supply the 25 
 </details>
 
 <details class="ask" markdown="1" id="ask-net-income-table">
-<summary><span class="ask-head"><span class="ask-title">Add a ten-row table that converts gross income to net</span><span class="effect">Accurate to five cents a week.</span><span class="tag-origin">Beyond the comments</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Add a ten-row table that converts gross income to net</span><span class="effect">Accurate to five cents a week.</span><span class="tag-kind">Correction</span><span class="tag-origin">Beyond the comments</span></span></summary>
 
 A ceiling on net pay needs a net figure, and the Worksheet holds none. That is the real obstacle:
 five reviews have taken up gross versus net and none changed it.
@@ -339,7 +348,7 @@ should catch understatement in either direction, not only the one this site has 
 
 <div class="accordion" markdown="0">
 <details class="ask" markdown="1" id="ask-disclosure-checklist">
-<summary><span class="ask-head"><span class="ask-title">Add a financial disclosure checklist, signed under the penalties of perjury</span><span class="effect">No dollar change.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Add a financial disclosure checklist, signed under the penalties of perjury</span><span class="effect">No dollar change.</span><span class="tag-kind">Disclosure</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 MFAC's own words:
 
@@ -368,7 +377,7 @@ finding</a> on this site says currently needs nothing more than that parent's ow
 </details>
 
 <details class="ask" markdown="1" id="ask-deviations-worksheet">
-<summary><span class="ask-head"><span class="ask-title">Move the deviation findings onto the Worksheet from the separate form</span><span class="effect">No dollar change.</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Move the deviation findings onto the Worksheet from the separate form</span><span class="effect">No dollar change.</span><span class="tag-kind">Disclosure</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 MFAC's own reasoning:
 
@@ -388,7 +397,7 @@ how often a deviation motion that the parties didn't simply agree to actually su
 </details>
 
 <details class="ask" markdown="1" id="ask-medical-formula">
-<summary><span class="ask-head"><span class="ask-title">Give uninsured medical costs a formula instead of leaving them case-by-case</span><span class="effect">No dollar change.</span><span class="tag-origin">Beyond the comments</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Give uninsured medical costs a formula instead of leaving them case-by-case</span><span class="effect">No dollar change.</span><span class="tag-kind">Disclosure</span><span class="tag-origin">Beyond the comments</span></span></summary>
 
 The Guidelines say in their own words that they have no formula here. The recipient pays the first
 $250 a year of routine out-of-pocket and uninsured medical, dental and vision costs alone. Above
