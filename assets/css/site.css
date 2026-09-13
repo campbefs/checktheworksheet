@@ -466,6 +466,22 @@ article.finding > .confidence-tag {
   .chapter-rail { display: none; }
 }
 
+/* A finding page's headline and disclosure line up with the article, not with the rail.
+   Measured 2026-09-13 at 1440px: the h1 sat at 92px with the chapter rail while the prose it
+   introduces sat at 380px in the content column, so the text edge jumped 288px between a
+   finding page and /about/ (where h1 and prose already share one edge). 288px is exactly
+   --rail-width + --space-7, the two things the grid puts to the left of the content column.
+   Only above the rail's own 960px breakpoint: below it the rail is display:none and the hero
+   and the prose already agree, which is why this read fine on a phone and wrong on a monitor.
+   Scoped to `.finding >` so the home page hero, which has no rail, is untouched.
+   Headline SIZE is unchanged -- this moves the left edge only. */
+@media (min-width: 961px) {
+  .finding > .hero,
+  .finding > .disclosure {
+    padding-left: calc(var(--space-6) + var(--rail-width) + var(--space-7));
+  }
+}
+
 .chapter-rail {
   position: sticky;
   top: var(--space-6);
