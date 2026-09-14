@@ -23,7 +23,7 @@ no disagreement over one dollar** ([`model/test_guidelines.py`](/model/test_guid
 
 ## Three fifty-one-jurisdiction datasets, one fixed pattern
 
-All three use the same fixed fact pattern (disclosed on [about](/about/)): payor $201,000/yr, other
+All three use the same fixed worked example (disclosed on [about](/about/)): payor $201,000/yr, other
 parent $570/wk, three children, no child care. Not a general claim.
 
 - [`tier-50-2026-09-05.json`](/data/fifty-state/tier-50-2026-09-05.json): the monthly order in 50

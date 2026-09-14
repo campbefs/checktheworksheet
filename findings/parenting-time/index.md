@@ -194,10 +194,10 @@ parent actually has.
 
 ## Limits
 
-<p class="caveat">Every figure on this page comes from one fact pattern: three children, equal
+<p class="caveat">Every figure on this page comes from one worked example: three children, equal
 parenting time, no child care claimed, at the incomes stated. The mechanism, Box 1's discount
 equalling the payor's own capped Line 6e, is a property of the form itself and does not depend on
-the fact pattern; the specific dollar amounts and percentages do. This page says nothing about Box
+the worked example; the specific dollar amounts and percentages do. This page says nothing about Box
 2, about primary custody, or about any arrangement other than equal time.</p>
 
 <p class="caveat">Per person, the standing caveat applies here too: nothing on this page compares

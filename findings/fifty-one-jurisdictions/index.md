@@ -1,14 +1,14 @@
 ---
 layout: finding
-title: Fifty-one jurisdictions, one fact pattern
+title: Fifty-one jurisdictions, one worked example
 permalink: /findings/fifty-one-jurisdictions/
 description: >-
-  One fact pattern, computed for all fifty states and the District of Columbia, profiled from each
+  One worked example, computed for all fifty states and the District of Columbia, profiled from each
   jurisdiction's own primary documents, computed twice independently, reconciled and adversarially
-  checked. It rests on a single fact pattern and generalizes to nothing beyond the one tested.
+  checked. It rests on a single worked example and generalizes to nothing beyond the one tested.
 disclosure:
   - >-
-    The fact pattern run through all fifty-one jurisdictions on this page is fixed: three
+    The worked example run through all fifty-one jurisdictions on this page is fixed: three
     children, a payor at $201,000 a year, the other parent at $29,640 a year ($570 a week), no
     child care claimed. I pay child support in Massachusetts myself, so I have a stake in the
     outcome; the ranking below only means what it says if the reader can see exactly what was
@@ -41,23 +41,23 @@ sections:
 <section class="hero" markdown="1">
 <p class="eyebrow">The fifty-state comparison</p>
 
-# One fact pattern ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
+# One worked example ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
 
 <p class="lede">Fifty of fifty-one jurisdictions were profiled from their own primary documents,
 computed twice independently, reconciled, and adversarially attacked for defects. At the one fact
 pattern tested, Massachusetts's equal-parenting order ranks first of fifty. This is the weakest
-claim on this site, because it rests on a single fact pattern and generalizes to nothing beyond
+claim on this site, because it rests on a single worked example and generalizes to nothing beyond
 it.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
   <div class="numeral">
     <span class="numeral-value">1 of 50</span>
-    <p class="numeral-caption">Massachusetts's rank on the equal-parenting-time order, one fact pattern: three children, $201,000 and $29,640 a year, no child care</p>
+    <p class="numeral-caption">Massachusetts's rank on the equal-parenting-time order, one worked example: three children, $201,000 and $29,640 a year, no child care</p>
   </div>
 </div>
 
-<p class="confidence-tag">Tiered: see method below. One fact pattern; the ranking generalizes to nothing else.</p>
+<p class="confidence-tag">Tiered: see method below. One worked example; the ranking generalizes to nothing else.</p>
 
 {% include disclosure.html %}
 
@@ -76,7 +76,7 @@ out: its enacted formula and its own online calculator both produce a lower orde
 than at equal time, an inversion this analysis could not resolve into one trustworthy number, so
 Georgia is left off every ranking instead of assigned a number that could be wrong.
 
-That leaves fifty jurisdictions ranked, at one fact pattern. Change the income level, the custody
+That leaves fifty jurisdictions ranked, at one set of incomes. Change the income level, the custody
 split, or the number of children, and every ranking below could move, in either direction.
 
 </section>
@@ -96,12 +96,12 @@ split, or the number of children, and every ranking below could move, in either 
      data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
          width="1744" height="2189"
-         alt="Bar chart ranking fifty state jurisdictions' equal-parenting-time monthly child support orders at one fact pattern, three children, $201,000 and $29,640 in annual income, Massachusetts highlighted.">
+         alt="Bar chart ranking fifty state jurisdictions' equal-parenting-time monthly child support orders at one set of incomes, three children, $201,000 and $29,640 in annual income, Massachusetts highlighted.">
   </a>
   <figcaption>
     <h3 class="exhibit-title">At equal parenting time, Massachusetts orders the most of the fifty states.</h3>
-    <p class="exhibit-deck">Monthly order at one fact pattern, three children, $201,000 and $29,640, no child care.</p>
-    <p class="exhibit-notes">Georgia is held out; see method, above. One fact pattern; the ranking generalizes to nothing else.</p>
+    <p class="exhibit-deck">Monthly order at one set of incomes, three children, $201,000 and $29,640, no child care.</p>
+    <p class="exhibit-notes">Georgia is held out; see method, above. One worked example; the ranking generalizes to nothing else.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
@@ -187,11 +187,11 @@ split, or the number of children, and every ranking below could move, in either 
   <img src="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
          width="1759" height="2230"
          loading="lazy"
-         alt="Bar chart ranking fifty state jurisdictions' monthly child support orders with the children primarily with the lower earner, same fact pattern as the equal-parenting ranking, Massachusetts highlighted.">
+         alt="Bar chart ranking fifty state jurisdictions' monthly child support orders with the children primarily with the lower earner, same worked example as the equal-parenting ranking, Massachusetts highlighted.">
   </a>
   <figcaption>
     <h3 class="exhibit-title">With the lower earner primary, only Hawaii orders more than Massachusetts.</h3>
-    <p class="exhibit-deck">The same fact pattern with the children primarily with the lower earner.</p>
+    <p class="exhibit-deck">The same family with the children primarily with the lower earner.</p>
     <p class="exhibit-notes">Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
@@ -414,7 +414,7 @@ Massachusetts appeared second.
 
 ## Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody
 
-The same fact pattern, recombined: Massachusetts under Box 1 (children half the time with each
+The same worked example, recombined: Massachusetts under Box 1 (children half the time with each
 parent) is placed on the same scale as every other jurisdiction computed with the children primarily
 with the lower earner. Only Hawaii and Wisconsin order more at primary custody than Massachusetts
 does at equal time; Massachusetts's own primary-custody order, $4,714.22, is included for scale.
@@ -441,7 +441,7 @@ almost everywhere else.
   </a>
   <figcaption>
     <h3 class="exhibit-title">Only Wisconsin and Hawaii order more than Massachusetts does at equal time.</h3>
-    <p class="exhibit-deck">The same fact pattern as the two rankings above, with Massachusetts computed under Box 1 and every other jurisdiction computed with the children primarily with the lower earner.</p>
+    <p class="exhibit-deck">The same worked example as the two rankings above, with Massachusetts computed under Box 1 and every other jurisdiction computed with the children primarily with the lower earner.</p>
     <p class="exhibit-notes">Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig10_ma_shared_vs_primary.py</code> ·
       <a href="/figures/working/fig10_ma_shared_vs_primary.csv">data (CSV)</a></p>
@@ -548,13 +548,13 @@ The three economic reviews since then were commissioned by the Commonwealth and 
 
 ## Limits
 
-<p class="caveat">One fact pattern is not a distribution. Nothing here says what a lower-income
+<p class="caveat">One worked example is not a distribution. Nothing here says what a lower-income
 family, a two-child family, or a family with claimed child care would see in any of these fifty
 jurisdictions; those are different points that have not been computed.</p>
 
 <p class="caveat">Nothing here says Massachusetts's amounts are wrong. The Commonwealth's own
 consultant's stated reason for them is cost of living; this page does not test or dispute it. What
-this page does show, at the one fact pattern tested: an arrangement giving each parent equal time is
+this page does show, at the one worked example tested: an arrangement giving each parent equal time is
 priced by Massachusetts's Worksheet at a level most other jurisdictions reserve for one parent having
 the children the great majority of the time.</p>
 

@@ -56,7 +56,7 @@ and computes the real answer for any two incomes, at any dollar value, not just 
 node assets/js/calculator.test.js
 ```
 
-1280 checks: all six fact patterns from `model/runs/official-xfa-vs-model-2026-09-05.txt` (the
+1280 checks: all six worked examples from `model/runs/official-xfa-vs-model-2026-09-05.txt` (the
 Commonwealth's own CJ-D 304 XFA calculate-scripts), both in "round every line" mode (matches the
 official scripts to the dollar on all six) and in the default unrounded mode (matches
 `model/worksheet.py`'s own output to six decimal places — this is what the letter, the paper and

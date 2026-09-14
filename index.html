@@ -4,7 +4,7 @@ title: "checktheworksheet.org: the Massachusetts child support worksheet, checke
 description: "A code reproduction of the Massachusetts Child Support Guidelines Worksheet, checked against the form's own calculation scripts, finds three internal inconsistencies and one fifty-jurisdiction comparison. Every number traces to a file."
 disclosure:
   - >-
-    The worked example throughout runs a fixed fact pattern of two parents' incomes and three
+    The worked example throughout runs a fixed family of two parents' incomes and three
     children. I pay child support in Massachusetts myself, so I have a
     stake in the outcome. It doesn't change the finding: the same gaps hold across the ranges
     charted on every finding page.
@@ -40,10 +40,10 @@ scripts:
       {% include figure.html
          id="e11-hero"
          img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-         alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one fact pattern, Massachusetts highlighted."
+         alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one set of incomes, Massachusetts highlighted."
          title="At equal parenting time, Massachusetts orders the most of the fifty states."
-         deck="Monthly order at one fact pattern."
-         notes="Each row was profiled from primary sources, computed twice blind, then reconciled and attacked. Own premiums ($43/$33) as each state treats them. One fact pattern; the ranking generalizes to nothing else."
+         deck="Monthly order at one set of incomes."
+         notes="Each row was profiled from primary sources, computed twice blind, then reconciled and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else."
          source_script="model/charts/fig5_states.py"
          csv_href="/figures/working/fig5_states.csv"
          lazy="false" %}
@@ -307,10 +307,10 @@ scripts:
         {% include figure.html
            id="e12"
            img="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
-           alt="Horizontal bar chart of the monthly child support order in fifty states with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted."
+           alt="Horizontal bar chart of the monthly child support order in fifty states with the children primarily with the lower earner, one set of incomes, Massachusetts highlighted."
            title="With the lower earner primary, only Hawaii orders more than Massachusetts."
-           deck="Monthly order at one fact pattern. First of a pair with E17."
-           notes="The same fact pattern with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states, same axis range, same colors, same ordering rule as E17, so the two can be read as a pair."
+           deck="Monthly order at one set of incomes. First of a pair with E17."
+           notes="The same family with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states, same axis range, same colors, same ordering rule as E17, so the two can be read as a pair."
            source_script="model/charts/fig5_states.py"
            csv_href="/figures/working/fig5_states.csv"
            confidence="The same two incomes and three children, in every state."
@@ -360,7 +360,7 @@ scripts:
          data-caption="At equal parenting time, Massachusetts orders the most of the fifty states."
          data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
         <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-             alt="Ranked bar chart of fifty states' child support orders at equal parenting time, one fact pattern, Massachusetts at the top.">
+             alt="Ranked bar chart of fifty states' child support orders at equal parenting time, one set of incomes, Massachusetts at the top.">
       </a>
     </div>
     <div class="body">
@@ -447,7 +447,7 @@ scripts:
   <div class="content-col">
     <section id="comparison">
       <h2>All fifty ranked jurisdictions, both custody arrangements</h2>
-      <p>One fact pattern (three children, $201,000 and $29,640 a year); Massachusetts pinned at
+      <p>One worked example (three children, $201,000 and $29,640 a year); Massachusetts pinned at
       the top. &dagger; New York exceeds its $193,000 schedule; the rate above that is discretionary.</p>
 
       <p class="jurisdiction-readout" id="jurisdiction-readout" aria-live="polite">Massachusetts:

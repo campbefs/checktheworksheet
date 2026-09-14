@@ -22,7 +22,7 @@ Conventions that apply to every figure and must travel with any of them:
 | `fig2_childcare_worked_example` | The 87.7% / 64.5% / 53.0% / 49.7% bars at the letter's worked example (64.5% is the § 2 fallback, new Line 6b-2; 53.0% is what the comments ask for, new Lines 6b-1a and 6b-1, withholding basis; 49.7% is the credits-included analysis view, not the ask) | `childcare_post_transfer.py` |
 | `fig3_credit_collapse` | (a) equal-time reduction vs the ⅓-time order: Worksheet today, Variant A, Variant B; (b) implied overnight share at factors 1.5 and 2.0 | `fig3_credit.py`; `box1_fix.py` |
 | `fig4_marginal_retention` | Cents of the next dollar the payor keeps, $100k–$400k, with and without $300/wk child care | `fig4_retention.py`; `marginal_retention.py` |
-| `fig5a_states_S1`, `fig5b_states_S2` | Monthly orders in fifty jurisdictions at the fact pattern, MA highlighted; Georgia held out | `fig5_states.py`; `data/fifty-state/tier-50-2026-09-05.json` |
+| `fig5a_states_S1`, `fig5b_states_S2` | Monthly orders in fifty jurisdictions at the worked example, MA highlighted; Georgia held out | `fig5_states.py`; `data/fifty-state/tier-50-2026-09-05.json` |
 | `fig5c_credit_at_122_tilemap` | 28 jurisdictions give a formula credit at 122 overnights, 23 do not; MA among the 23 | `data/fifty-state/credit-at-122-2026-09-05.json` |
 | `fig6_valve_units_lag` | Line 7e's reading vs the true share of net as child care rises; 7e reaches 40% at $590/wk when the true burden is 57%; the true burden passes 40% at $80/wk | `fig6_valve.py`; `submission_figures.py` |
 | `fig7_box3_inversion` | Two children: Box 1 shared vs Box 3 one-child-each order across the income-share range ($835 vs $581/wk at the worked-example incomes, 30.4% lower) beside Table B's 1.40 vs 2.00; cuts against the lower earner | `fig7_box3_split.py`; `submission_figures.py` § 5.1 |
@@ -45,4 +45,4 @@ both-parents-pay 93% scenario.
 
 **E17 (2026-09-06):** `fig10_ma_shared_vs_primary` puts Massachusetts's Box 1 equal-time order ($4,388) on the same
 bar chart as every other ranked jurisdiction's primary-custody order. It beats 47 of 49; only Hawaii and Wisconsin order more at
-primary custody than Massachusetts does at equal time. CSV beside it. One fact pattern.
+primary custody than Massachusetts does at equal time. CSV beside it. One family.

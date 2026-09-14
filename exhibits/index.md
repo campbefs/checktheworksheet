@@ -24,7 +24,7 @@ behind both.</p>
 Every chart below has one set of axes; an earlier set of exhibits mixed several panels into one
 image, since split into the single-chart figures listed here. The fact line under each title states
 the custody arrangement, child count, child care status, and incomes used, the same pattern the
-chart is computed under. One fact pattern does not generalize to every family, and a household
+chart is computed under. One worked example does not generalize to every family, and a household
 comparison always carries its per-person counterpart.
 
 ## Contents
@@ -519,19 +519,19 @@ comparison always carries its per-person counterpart.
      data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
          loading="lazy"
-         alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one fact pattern, Massachusetts highlighted.">
+         alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one set of incomes, Massachusetts highlighted.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
+    <p class="confidence-tag">Tiered: a single set of incomes; see method</p>
     <h3 class="exhibit-title">At equal parenting time, Massachusetts orders the most of the fifty states.</h3>
-    <p class="exhibit-deck">Monthly order at one fact pattern. Georgia held out.</p>
+    <p class="exhibit-deck">Monthly order at one set of incomes. Georgia held out.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Joint, equal time (Box 1)</dd></div>
       <div><dt>Children</dt><dd>3</dd></div>
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its own enacted formula, reproduced by its own calculator, gives a lower order under primary custody than under equal time. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One fact pattern; the ranking generalizes to nothing else.</p>
+    <p class="exhibit-notes">Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its own enacted formula, reproduced by its own calculator, gives a lower order under primary custody than under equal time. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
@@ -610,19 +610,19 @@ comparison always carries its per-person counterpart.
      data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
          loading="lazy"
-         alt="Horizontal bar chart of the monthly child support order in fifty states with the children primarily with the lower earner, one fact pattern, Massachusetts highlighted.">
+         alt="Horizontal bar chart of the monthly child support order in fifty states with the children primarily with the lower earner, one set of incomes, Massachusetts highlighted.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
+    <p class="confidence-tag">Tiered: a single set of incomes; see method</p>
     <h3 class="exhibit-title">With the lower earner primary, only Hawaii orders more than Massachusetts.</h3>
-    <p class="exhibit-deck">Monthly order at one fact pattern. Georgia held out. First of a pair with E17.</p>
+    <p class="exhibit-deck">Monthly order at one set of incomes. Georgia held out. First of a pair with E17.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>Primary with the lower earner (Box 2)</dd></div>
       <div><dt>Children</dt><dd>3</dd></div>
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Same fact pattern, children primarily with the lower earner. Hawaii's design, shared with Delaware and Montana, exhausts the self-support reserve differently from an income-shares schedule at this income gap. Same states, axis range, colors, and ordering rule as E17, so the two read as a pair.</p>
+    <p class="exhibit-notes">Same worked example, children primarily with the lower earner. Hawaii's design, shared with Delaware and Montana, exhausts the self-support reserve differently from an income-shares schedule at this income gap. Same states, axis range, colors, and ordering rule as E17, so the two read as a pair.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
@@ -704,7 +704,7 @@ comparison always carries its per-person counterpart.
          alt="Tile map of fifty-one jurisdictions, each colored by whether a formula credit applies when a parent has the children 122 overnights a year, about one-third of the time.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
+    <p class="confidence-tag">Tiered: a single set of incomes; see method</p>
     <h3 class="exhibit-title">In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.</h3>
     <p class="exhibit-deck">Twenty-eight states give that parent a formula credit; 23 do not. Blue: a credit at 122 overnights a year. Grey: none.</p>
     <dl class="exhibit-facts">
@@ -795,7 +795,7 @@ comparison always carries its per-person counterpart.
          alt="Horizontal bar chart ranking 41 jurisdictions by the combined income at which their presumptive child support schedule stops, Massachusetts highlighted.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
+    <p class="confidence-tag">Tiered: a single set of incomes; see method</p>
     <h3 class="exhibit-title">Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.</h3>
     <p class="exhibit-deck">Combined income at which each state's presumptive schedule ends; above it, support is discretionary.</p>
     <dl class="exhibit-facts">
@@ -876,7 +876,7 @@ comparison always carries its per-person counterpart.
          alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale.">
   </a>
   <figcaption>
-    <p class="confidence-tag">Tiered: a single fact pattern; see method</p>
+    <p class="confidence-tag">Tiered: a single set of incomes; see method</p>
     <h3 class="exhibit-title">Only Wisconsin and Hawaii order more than Massachusetts does at equal time.</h3>
     <p class="exhibit-deck">Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner.</p>
     <dl class="exhibit-facts">
@@ -885,7 +885,7 @@ comparison always carries its per-person counterpart.
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time. Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison. The Commonwealth's consultant attributes the higher amounts to cost of living, which bears on both households; whatever it explains about the level, it doesn't explain why an arrangement giving each parent half the time is priced where sole primary custody is priced almost everywhere else. One fact pattern; Georgia held out (see E11).</p>
+    <p class="exhibit-notes">Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time. Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison. The Commonwealth's consultant attributes the higher amounts to cost of living, which bears on both households; whatever it explains about the level, it doesn't explain why an arrangement giving each parent half the time is priced where sole primary custody is priced almost everywhere else. One worked example; Georgia held out (see E11).</p>
     <p class="exhibit-source">Source: <code>model/charts/fig10_ma_shared_vs_primary.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig10_ma_shared_vs_primary.csv">data (CSV)</a></p>

@@ -543,7 +543,7 @@ credits-inclusive figures move by up to $880/yr per qualifying child, and depend
 claims which child, which is why they are analysis rather than the ask). The method paragraph next
 to the calculator should keep saying this in one sentence; do not remove it if the copy is edited,
 and do not give the calculator a fourth slider for how many children are under 13, since that would
-change every combination it can compute to a fact pattern that stops making sense once the
+change every combination it can compute to a set of incomes that stops making sense once the
 children slider leaves 3, for a control that presently affects nothing under the default basis.
 
 **Warning-colour thresholds added by v2** (see §7 for the colour itself): the true-share-of-net

@@ -28,7 +28,7 @@ leaves unrecorded, in either direction. Five, four and three of the twelve.
 <p class="kind-legend" markdown="1">
 **Every proposal here that changes a dollar figure lowers what the payor owes, with one
 exception, which is marked as such where it appears.** That is the direction the findings
-run, and it is worth saying before the first one rather than after the last. It is not a position taken in advance: the same model, the same fact pattern and the same
+run, and it is worth saying before the first one rather than after the last. It is not a position taken in advance: the same model, the same worked example and the same
 form produced all eleven, and where the arithmetic runs the other way the page says so. Massachusetts
 sets high orders, and a page that reports what its Worksheet does will read accordingly.
 </p>
@@ -165,7 +165,7 @@ which is the scale this recommendation is measured against.
    alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale."
    title="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
    deck="Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner."
-   notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time. Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison. One fact pattern; Georgia held out."
+   notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time. Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison. One worked example; Georgia held out."
    source_script="model/charts/fig10_ma_shared_vs_primary.py"
    csv_href="/figures/working/fig10_ma_shared_vs_primary.csv" %}
 </details>

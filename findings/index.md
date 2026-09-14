@@ -4,7 +4,7 @@ title: Findings
 description: >-
   Three places where the Massachusetts Child Support Guidelines Worksheet's own arithmetic works
   against its own text, each pinned by a test suite against the form's own calculation scripts,
-  plus one fifty-one-jurisdiction comparison at a single fact pattern.
+  plus one fifty-one-jurisdiction comparison at a single set of incomes.
 disclosure:
   - >-
     The figures below (88 cents, 6.9%, 57%, 48%) come from the worked example used throughout this
@@ -77,7 +77,7 @@ from that caution.
 
 ## 3. Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody
 
-<p class="confidence-tag">Tiered: a single fact pattern; see method</p>
+<p class="confidence-tag">Tiered: a single set of incomes; see method</p>
 
 Massachusetts orders more under equal parenting time than any of the fifty states modeled, and
 more under primary custody than every one of them but Hawaii. Its joint-custody order is higher
@@ -88,10 +88,10 @@ at primary custody.
 {% include figure.html
    id="e11"
    img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-   alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one fact pattern, Massachusetts highlighted."
+   alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one set of incomes, Massachusetts highlighted."
    title="At equal parenting time, Massachusetts orders the most of the fifty states."
-   deck="Monthly order at one fact pattern. Georgia held out."
-   notes="Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One fact pattern; the ranking generalizes to nothing else."
+   deck="Monthly order at one set of incomes. Georgia held out."
+   notes="Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else."
    source_script="model/charts/fig5_states.py"
    csv_href="/figures/working/fig5_states.csv" %}
 
