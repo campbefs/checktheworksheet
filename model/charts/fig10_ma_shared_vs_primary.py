@@ -1,5 +1,5 @@
 """Figure 10: Massachusetts's EQUAL-TIME order (Box 1, S1) against every other jurisdiction's
-PRIMARY-CUSTODY order (S2), one fact pattern. The question: how does an equal-time order in Massachusetts compare with primary-custody orders elsewhere? Data: tier-50 rows (Georgia held out)."""
+PRIMARY-CUSTODY order (S2), one set of incomes. The question: how does an equal-time order in Massachusetts compare with primary-custody orders elsewhere? Data: tier-50 rows (Georgia held out)."""
 import json
 import os
 import matplotlib.pyplot as plt
@@ -49,7 +49,7 @@ def main():
                  pairs=[("Custody", "MA equal time (Box 1) vs others primary"), ("Children", "3"),
                         ("Child care", "None (base support)"), ("Incomes", "\\$201,000 / \\$29,640")],
                  notes="Scaled to match E12 so the two can be read side by side. Georgia held out; "
-                       "one fact pattern only.",
+                       "one set of incomes only.",
                  source="data/fifty-state/tier-50-2026-09-05.json")
     theme.save(fig, out("fig10_ma_shared_vs_primary.png"))
     write_csv("fig10_ma_shared_vs_primary.csv", ["state", "custody", "monthly_order"],

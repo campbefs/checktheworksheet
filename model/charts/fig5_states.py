@@ -1,4 +1,4 @@
-"""Figure 5: the fifty-one jurisdictions at one fact pattern. (a)/(b) monthly orders S1/S2, MA highlighted,
+"""Figure 5: the fifty-one jurisdictions at one set of incomes. (a)/(b) monthly orders S1/S2, MA highlighted,
 tier-50 rows (Georgia held out). (c) tile map: formula credit at 122 overnights, 28 yes / 23 no."""
 import json
 import os
@@ -27,7 +27,7 @@ TILES = {"AK": (0, 0), "ME": (0, 10), "VT": (1, 9), "NH": (1, 10),
 assert len(TILES) == 51 and set(TILES) == set(ABBR.values())
 
 
-def strip(rows, key, title, name, custody, xmax=None, subtitle="Monthly order at one fact pattern. Georgia held out.", notes_extra=""):
+def strip(rows, key, title, name, custody, xmax=None, subtitle="Monthly order at one set of incomes. Georgia held out.", notes_extra=""):
     rows = sorted(rows, key=lambda r: r[key])
     fig, ax = theme.figure(9, 10)
     fig.subplots_adjust(bottom=0.05, top=0.90)
@@ -45,7 +45,7 @@ def strip(rows, key, title, name, custody, xmax=None, subtitle="Monthly order at
                  comma=False,
                  pairs=facts(custody, 3, "None (base support)", "\\$201,000 / \\$29,640"),
                  notes="Each row profiled from primary sources, computed twice blind, reconciled, attacked. Own premiums "
-                       "(\\$43/\\$33) as each state treats them. One fact pattern only." + notes_extra,
+                       "(\\$43/\\$33) as each state treats them. One set of incomes only." + notes_extra,
                  source="data/fifty-state/tier-50-2026-09-05.json")
     theme.save(fig, out(name))
 
