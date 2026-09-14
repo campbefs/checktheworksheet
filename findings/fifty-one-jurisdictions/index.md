@@ -44,8 +44,7 @@ sections:
 # One worked example ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
 
 <p class="lede">Fifty of fifty-one jurisdictions were profiled from their own primary documents,
-computed twice independently, reconciled, and adversarially attacked for defects. At the one fact
-pattern tested, Massachusetts's equal-parenting order ranks first of fifty. This is the weakest
+computed twice independently, reconciled, and adversarially attacked for defects. At the one worked example tested, Massachusetts's equal-parenting order ranks first of fifty. This is the weakest
 claim on this site, because it rests on a single worked example and generalizes to nothing beyond
 it.</p>
 </section>
