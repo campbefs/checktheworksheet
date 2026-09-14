@@ -22,13 +22,13 @@ units; it is wrong on its own terms, whichever way you think support should go, 
 five change a dollar figure. **A judgement** picks a number, a rate or a cap, or installs a rule where the
 form has none: someone who accepts every figure on this page can still disagree with it.
 **A disclosure** changes no dollar figure and records or surfaces something the form currently
-leaves unrecorded, in either direction. Four, four and three of the eleven.
+leaves unrecorded, in either direction. Five, four and three of the twelve.
 </p>
 
 <p class="kind-legend" markdown="1">
-**Every proposal here that changes a dollar figure lowers what the payor owes.** That is the
-direction the findings run, and it is worth saying before the first one rather than after the
-last. It is not a position taken in advance: the same model, the same fact pattern and the same
+**Every proposal here that changes a dollar figure lowers what the payor owes, with one
+exception, which is marked as such where it appears.** That is the direction the findings
+run, and it is worth saying before the first one rather than after the last. It is not a position taken in advance: the same model, the same fact pattern and the same
 form produced all eleven, and where the arithmetic runs the other way the page says so. Massachusetts
 sets high orders, and a page that reports what its Worksheet does will read accordingly.
 </p>
@@ -341,6 +341,57 @@ every cycle since at least 2013 converts gross to net exactly this way, using wi
 standard Social Security and Medicare, because the study the schedule is calibrated against is
 denominated in net. The table would publish the conversion the Commonwealth's own consultant already
 performs and then sets aside.
+</details>
+
+</div>
+
+## Splitting the children between the parents
+
+<p class="kind-legend" markdown="1">
+This is the one proposal on the page that raises what a payor owes. It is here because the same
+model that produced the rest produced this, and leaving it out would have made the page a selection
+rather than a result.
+</p>
+
+<div class="accordion" markdown="0">
+
+<details class="ask" markdown="1" id="ask-box3-netting">
+<summary><span class="ask-head"><span class="ask-title">Stop the Worksheet cutting the order when siblings are split between the parents</span><span class="effect">Raises the order where a split leaves the lower-income household short. In the worked example a split pays $581 a week against $835 for the same two children shared equally, $13,203 a year less, for care that costs more.</span><span class="tag-kind">Correction</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+
+Table B exists to capture economies of scale. Two children do not cost twice one child, so the
+factor is 1.40 rather than 2.00. Where the children are divided between the parents under Box 3,
+those economies are gone. Each household incurs the cost of a first child, and the two columns
+together generate a combined factor of 2.00. **The arrangement is more expensive in total.**
+
+Line 6g then nets the two columns against each other, and the net is computed on the one-child
+schedule. So the more expensive arrangement produces the smaller transfer:
+
+| Arrangement, two children | Payor's share of the children's care | Order |
+|---|---|---|
+| Box 1 — shared equally, both children | 2 x 50% = 1.0 child-share | **$835/wk** |
+| Box 3 — one child residing with each parent | 1 x 100% = 1.0 child-share | **$581/wk** |
+
+That is a 30 percent drop, $13,203 a year, on identical care responsibility. The netting also treats
+the lower earner's column obligation as though it were payable and sets it off in full, and Line
+5c's low-income protection does not reach them, because it engages only where the other parent's
+Line 3a is $391 or less.
+
+**This point does not favour payors. It cuts against whichever parent has the lower income.**
+
+Suggested language, added to the Commentary to Section II.D:
+
+> "**Where the children are divided between the parents under Box 3, each household incurs the cost
+> of a first child, and the combined Table B factors applied across the two columns will exceed the
+> factor that would apply were the children in one household. The netting at Line 6g does not
+> account for this. Where a split arrangement leaves either household with materially less than it
+> would receive were the same children in a single household, Section IV.B may apply.**"
+
+This is a correctness point about one provision, not a claim about typical outcomes; there is no
+published figure for how often Box 3 is used. There is a contrary view and it deserves stating: in
+a split, each parent directly bears their own child's costs, so less needs to transfer. The point
+is not that netting is wrong in principle, but that it is computed on a schedule assuming economies
+of scale the arrangement has eliminated.
+
 </details>
 
 </div>
