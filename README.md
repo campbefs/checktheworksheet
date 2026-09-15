@@ -34,7 +34,7 @@ drawn from them. Everything a reader needs to check a number is here.
 
 The worked example throughout runs a fixed family of two parents' incomes and three
 children, and the comments disclose that the author pays child
-support in Massachusetts and has a stake in the outcome. The claims are about the internal consistency of a computation, not about whether
+support in Massachusetts and has a stake in the outcome. The findings on this site are about the internal consistency of a computation, not about whether
 any support amount is right.
 
 ## Check it yourself
