@@ -57,6 +57,9 @@ exclude:
   - vendor/                       # local `bundle install` path (see .gitignore) — never on GH Pages,
                                    # excluded anyway for a clean local build
   - node_modules/
+  - notes/                       # internal working notes; gitignored too. A Claude usability
+                                 # note was committed here by the auto-commit daemon on 2026-09-16
+                                 # and served live at /notes/ until it was taken down
 
 # Guards a LOCAL `bundle exec jekyll build` from clobbering asset folders it did not generate, if
 # the destination is ever pointed somewhere other than a throwaway _site/. These paths are frozen:
