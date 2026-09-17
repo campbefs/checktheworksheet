@@ -11,8 +11,3 @@ vendor/
 _site/
 .bundle/
 Gemfile.lock
-
-# Internal working notes never belong in this repo -- build_public_repo.py excludes notes/
-# by design, but the auto-commit daemon does not consult it. 2026-09-16: a Claude usability note
-# naming Shopify was committed here and served live at /notes/ for about a day.
-notes/
