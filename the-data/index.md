@@ -6,7 +6,8 @@ description: What each dataset behind the model contains and how confident each 
 
 # Six datasets, traced to a source and rated for confidence
 
-Every number in a finding traces to one of these files, or a script in [the model](/the-model/).
+Every number in a finding traces to one of these files, or to a script in
+[the model](/the-model/). Nothing on this site is entered by hand.
 
 ## The form's own logic
 

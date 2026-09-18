@@ -8,7 +8,9 @@ description: >-
 
 # A model of the worksheet, checked against the form's own scripts as well as against itself
 
-[Findings](/findings/) states what the checks show. This page is the proof.
+[Findings](/findings/) states what the checks show.
+
+This page is the proof.
 
 ## `model/worksheet.py` reimplements CJ-D 304 line by line
 

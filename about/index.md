@@ -19,14 +19,21 @@ disclosure:
 
 # Mission
 
-This project aims to advocate for reform of the Massachusetts Child Support Guidelines, to make
-them more fair and to hold the Commonwealth accountable for the Worksheet. The Worksheet has never
-had a proper review. No task force has examined how its math actually works economically. Every
-figure on this site comes from a published model with tests, so anyone can check the arithmetic
-instead of taking a position on trust.
+This project asks the Commonwealth to correct the arithmetic in its child support Worksheet.
+
+Massachusetts reviews its guidelines every four years, and those reviews are real work. Economists
+compare the order amounts against child cost benchmarks and against what other states order, and
+the question of gross income against net has been raised in review after review.
+
+None of them examines the Worksheet itself: the steps the form performs to turn two incomes into a
+presumptive order. Those steps decide what a parent pays, and they appear in no guidelines text and
+in no published review.
+
+That gap is where every finding on this site comes from. Each figure is published with the code
+that produced it, so a reader can check the arithmetic instead of taking a position on trust.
 
 A child support payor with no affiliation to any organization built this site, working from the
-arithmetic in the Worksheet. The math speaks for itself.
+arithmetic in the Worksheet.
 
 {% include disclosure.html %}
 
