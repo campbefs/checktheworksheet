@@ -43,10 +43,12 @@ sections:
 
 # One worked example ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
 
-<p class="lede">Fifty of fifty-one jurisdictions were profiled from their own primary documents,
-computed twice independently, reconciled, and adversarially attacked for defects. At the one worked example tested, Massachusetts's equal-parenting order ranks first of fifty. This is the weakest
-claim on this site, because it rests on a single worked example and generalizes to nothing beyond
-it.</p>
+<p class="lede">At the one worked example tested, Massachusetts's equal-parenting order ranks
+first of fifty. Fifty of fifty-one jurisdictions were profiled from their own primary documents,
+computed twice independently, reconciled, and adversarially attacked for defects.</p>
+
+<p class="lede">This is the weakest claim on this site. It rests on a single worked example and
+generalizes to nothing beyond it.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
@@ -66,7 +68,7 @@ it.</p>
 
 <section id="mechanism" markdown="1">
 
-## Fifty of fifty-one jurisdictions survived a four-stage check; Georgia did not, and carries no number here
+## Fifty of fifty-one jurisdictions survived a four-stage check. Georgia did not, and carries no number here
 
 Each of the fifty states and the District of Columbia was profiled from its own primary guidelines
 documents, computed twice independently, reconciled where the two passes disagreed, and

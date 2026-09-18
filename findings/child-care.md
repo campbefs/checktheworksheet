@@ -43,9 +43,9 @@ sections:
 # The payor funds 88 cents of every dollar of child care, on money the order has already moved to the other parent
 
 <p class="lede">At the worked example, the payor funds 88 cents of every dollar of the recipient's
-$15,600-a-year child care claim. Massachusetts allocates child care in proportion to income; the
-defect is that the Worksheet measures the share before the base support order moves a single
-dollar between the two households, and never revisits it.</p>
+$15,600-a-year child care claim. Massachusetts allocates child care in proportion to income.
+The Worksheet measures that proportion before the base support order moves a single dollar
+between the two households, and never measures it again.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
@@ -68,11 +68,13 @@ dollar between the two households, and never revisits it.</p>
 ## Line 6b uses the income split from before the base order moved money between the households
 
 Line 3c is each parent's share of combined available income, computed before the base support
-amount at Line 7d exists. Line 6a is the child care one parent actually pays; Line 6b multiplies
-the *other* parent's Line 3c share by that amount, so if the recipient pays the provider, the
-payor's Line 6b charge is the payor's own Line 3c share of the recipient's cost. By the time child care is added at Line 6,
-the base order has already moved a large share of the payor's income to the recipient's household,
-but Line 6b never re-measures the shares against that transfer.
+amount at Line 7d exists. Line 6a is the child care one parent actually pays. Line 6b multiplies
+the *other* parent's Line 3c share by that amount. So when the recipient pays the provider, the
+payor is charged the payor's own Line 3c share of the recipient's cost.
+
+By the time child care is added at Line 6, the base order has already moved a large share of the
+payor's income to the recipient's household. Line 6b never re-measures the shares against that
+transfer.
 
 </section>
 

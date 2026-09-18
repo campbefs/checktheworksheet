@@ -66,8 +66,8 @@ gap alone.</p>
 
 The Guidelines build Box 2, the primary-custody calculation, around a paying parent who has the
 children about one night in three. Box 1 is the equal-time box. Moving from Box 2 to Box 1 is the
-only change between the two orders above. So "a third" is where the form starts, and the finding is
-how little moving from a third to a half changes the order.
+only change between the two orders above. So "a third" is where the form starts. Moving from a third to a half
+is worth 6.9 percent.
 
 </section>
 
