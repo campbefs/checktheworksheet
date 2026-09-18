@@ -42,9 +42,10 @@ sections:
 
 <p class="lede">Section IV.C presumes hardship once a support order reaches 40 percent of the
 payor's available income. The Worksheet's own test for that threshold divides the order by a
-figure computed before tax, while the order is paid out of what's left after tax. At the worked
-example, the presumption doesn't actually kick in until the payor is at 57 percent of net
-income.</p>
+figure computed before tax, while the order is paid out of what's left after tax.</p>
+
+<p class="lede">At the worked example, the presumption does not kick in until the payor is at 57
+percent of net income.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
@@ -68,9 +69,9 @@ income.</p>
 
 Worksheet Line 7e divides Line 7d (the presumptive order) by Line 3a (available income) and flags
 the result once it reaches 40 percent, triggering Section IV.C's rebuttable presumption of hardship.
-Line 3a is gross income minus a short list of specific deductions (existing support orders, and
-health and dental premiums for the children), none of them a tax — so Line 7e answers a question
-about spendable income with a figure that has no tax adjustment at all.
+Line 3a is gross income minus a short list of specific deductions: existing support orders, and
+health and dental premiums for the children. Not one of them is a tax. Line 7e answers a question
+about spendable income with a figure that carries no tax adjustment at all.
 
 </section>
 

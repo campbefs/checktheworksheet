@@ -136,14 +136,17 @@ up with income. Across $150,000 to $300,000 of payor income the share kept stays
 
 <p class="confidence-tag">The deviation data is the Commonwealth's own; the rate at which a contested deviation succeeds is not measured anywhere in it.</p>
 
-Federal law requires the guidelines amount to carry a rebuttable presumption, and Massachusetts's
-own guidelines make rebutting it conditional on a judge making four specific findings: the
-guidelines amount, that applying it would be unjust or inappropriate, the facts justifying
-departure, and that departure is consistent with the child's best interest. Meeting that bar costs
-legal time, so contesting a child care claim or a parenting-time credit worth a few thousand
-dollars a year can cost more than the amount in dispute. The Commonwealth publishes how often the
-presumption is rebutted, but not the one number that would say whether contesting is worth it: how
-often a deviation motion the parties did not simply agree to still succeeds.
+Federal law requires the guidelines amount to carry a rebuttable presumption. Massachusetts's own
+guidelines make rebutting it conditional on a judge making four specific findings: the guidelines
+amount, that applying it would be unjust or inappropriate, the facts justifying departure, and that
+departure is consistent with the child's best interest. Meeting that bar takes a lawyer, and a
+lawyer costs more than a child care claim or a parenting-time credit is usually worth.
+
+So the right exists and cannot be exercised.
+
+The Commonwealth publishes how often the presumption is rebutted. It does not publish the one
+number that would tell a parent whether contesting is worth it: how often a deviation motion the
+parties did not simply agree to still succeeds.
 
 ## 7. At equal parenting time, the recipient household ends up with more money than the payor in 10% of income combinations
 
