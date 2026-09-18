@@ -28,9 +28,13 @@ leaves unrecorded, in either direction. Five, four and three of the twelve.
 <p class="kind-legend" markdown="1">
 **Every proposal here that changes a dollar figure lowers what the payor owes, with one
 exception, which is marked as such where it appears.** That is the direction the findings
-run, and it is worth saying before the first one rather than after the last. It is not a position taken in advance: the same model, the same worked example and the same
-form produced all eleven, and where the arithmetic runs the other way the page says so. Massachusetts
-sets high orders, and a page that reports what its Worksheet does will read accordingly.
+run, and it is worth saying before the first one rather than after the last.
+
+The same model, the same worked example and the same form produced all eleven. Where the
+arithmetic runs the other way, the page says so.
+
+Massachusetts sets high orders. A page that reports what its Worksheet does will read
+accordingly.
 </p>
 
 The Worksheet splits child care on each parent's share of income before the order moves any money. These would split it on what each parent holds after.
