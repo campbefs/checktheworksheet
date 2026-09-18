@@ -152,7 +152,7 @@ parties did not simply agree to still succeeds.
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
-Across the three-child equal-time grid, the recipient's household ends up holding more money than
+Across the three-child equal-time grid (Box 1, the Worksheet's equal-time calculation), the recipient's household ends up holding more money than
 the payor in 9.9% (114 of 1,147) of income combinations. In every one of those 114 the payor still
 holds more per person, because that household is supporting four people and the payor one
 (E01, E02).

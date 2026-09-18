@@ -3,11 +3,6 @@ __pycache__/
 .venv/
 CLAUDE.md
 context/
-# notes/ added 2026-09-17. notes/2026-09-16-usability-findings.md — an internal note —
-# was auto-committed and published to the live site on 2026-09-16, then removed by hand.
-# This repo is PUBLIC and notes/ is where the working-folder convention puts scratch
-# analysis, so it is the likeliest path for the same thing to happen again.
-notes/
 output/
 
 # Local Jekyll build (route (a), web-static-build) — never committed; GitHub Pages builds fresh

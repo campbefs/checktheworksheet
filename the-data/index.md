@@ -41,8 +41,8 @@ parent $570/wk, three children, no child care. Not a general claim.
 ## Where gross-versus-net was, and wasn't, raised
 
 [`data/deferrals-gross-vs-net.json`](/data/deferrals-gross-vs-net.json) holds one row per
-Massachusetts review cycle whose own primary text is in the corpus, seven cycles running 2002 to
-2025. Five are marked `DEFERRED`, each with a verbatim quote and its source document: 2009 and
+Massachusetts review cycle whose own primary text is in the corpus, seven cycles running from
+2002 to 2025. Five are marked `DEFERRED`, each with a verbatim quote and its source document: 2009 and
 2013 in the Task Force's own report, 2017, 2021 and 2025 in the Commonwealth's consultant's
 economic review. The other two, 2002 and 2006, are `NO RECORD IN CORPUS`: no such quote found in
 either document, never inferred from silence. **Five reviews have taken up gross versus net. None
