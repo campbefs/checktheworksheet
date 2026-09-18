@@ -13,7 +13,7 @@ Every figure on this site comes from one of these two documents.
     <span class="doc-title">Comments on the Massachusetts Child Support Guidelines and Guidelines Worksheet, with Attachments A and D</span>
     <span class="confidence-tag">Comments to the Trial Court</span>
     <span class="doc-context">To Hon. Heidi E. Brieger, Chief Justice of the Trial Court, dated
-      3 September 2026: six numbered asks, plus Attachment A (the worked example) and Attachment
+      18 September 2026: six numbered asks, plus Attachment A (the worked example) and Attachment
       D (the fifty-jurisdiction comparison). Every finding here traces to one of the six.
       <a href="/paper/Comments-to-the-Trial-Court-with-Attachments-A-and-D.pdf">PDF</a></span>
   </li>
@@ -27,7 +27,7 @@ Every figure on this site comes from one of these two documents.
   </li>
 </ul>
 
-## The PDF is the record; the site is how to check it
+## The PDF is the record. The site is how to check it
 
 A recipient sees the PDF. These pages restate the same figures and asks with direct links a PDF
 can't offer. Where wording differs, the PDF governs.

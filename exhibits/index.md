@@ -21,8 +21,8 @@ working paper and the public comments; see <a href="/the-model/">the model</a> f
 behind both.</p>
 </div>
 
-Every chart below has one set of axes; an earlier set of exhibits mixed several panels into one
-image, since split into the single-chart figures listed here. The fact line under each title states
+Every chart below has one set of axes. An earlier set mixed several panels into one image, and
+those have been split into the single-chart figures listed here. The fact line under each title states
 the custody arrangement, child count, child care status, and incomes used, the same pattern the
 chart is computed under. One worked example does not generalize to every family, and a household
 comparison always carries its per-person counterpart.
