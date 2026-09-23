@@ -6,7 +6,9 @@ description: The two PDFs behind this site.
 
 # The two PDFs behind this site
 
-Every figure on this site comes from one of these two documents.
+Every figure tied to a mailed document comes from one of the two PDFs below. The
+[federal law finding](/findings/federal-law/) cites federal statutes and regulations directly, and
+its figures are computed by [the model](/the-model/), not read off either PDF.
 
 <ul class="doc-list">
   <li class="doc-item">

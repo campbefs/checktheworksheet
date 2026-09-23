@@ -3,26 +3,27 @@ layout: page
 title: Recommendations
 permalink: /recommendations/
 description: >-
-  What the comments to the Trial Court ask for, and, going further, what would put
-  Massachusetts's equal-time order in line with other states.
+  What federal law should require of every state, and twelve changes to the Massachusetts
+  Worksheet that would follow from it.
 ---
 
-# What should change in the Worksheet
+# Federal law should cap what any state can order, and the Worksheet needs twelve changes inside it
 
-Eleven changes, grouped by what they touch. Each one names the Worksheet line it would alter and
-what it does to the order at the worked example throughout this site: a payor at $201,000 a year,
-the other parent at $29,640, three children. Open a row to read the case for it.
-
-## Child care
+While federal law requires every order to rest on the parent's ability to pay, it sets no cap on
+the order and does not require a worksheet to test it against what a parent keeps. The first
+section below asks Washington to close that gap for every state. The twelve sections after it are specific to the Massachusetts Worksheet: each names
+the line it would change and what that change does to the order at the worked example throughout
+this site, a payor at $201,000 a year, the other parent at $29,640, three children. Open a row to
+read the case for it.
 
 <p class="kind-legend" markdown="1">
 Each proposal below carries one of three labels. **A correction** means the Worksheet applies two
 different measures inside one calculation, or tests a quantity against a threshold in different
 units; it is wrong on its own terms, whichever way you think support should go, and three of the
-five change a dollar figure. **A judgement** picks a number, a rate or a cap, or installs a rule where the
+five Worksheet corrections change a dollar figure. **A judgement** picks a number, a rate or a cap, or installs a rule where the
 form has none: someone who accepts every figure on this page can still disagree with it.
 **A disclosure** changes no dollar figure and records or surfaces something the form currently
-leaves unrecorded, in either direction. Five, four and three of the twelve.
+leaves unrecorded, in either direction. Six, seven and six of the nineteen proposals below.
 </p>
 
 <p class="kind-legend" markdown="1">
@@ -30,12 +31,136 @@ leaves unrecorded, in either direction. Five, four and three of the twelve.
 exception, which is marked as such where it appears.** That is the direction the findings
 run, and it is worth saying before the first one rather than after the last.
 
-The same model, the same worked example and the same form produced all eleven. Where the
+The same model and the same worked example produced every figure on this page. Where the
 arithmetic runs the other way, the page says so.
 
 Massachusetts sets high orders. A page that reports what its Worksheet does will read
 accordingly.
 </p>
+
+<section id="federal" markdown="1">
+
+## Federal law should cap what any state can order, and require it to show its work
+
+Federal law sets no cap on a presumptive order and does not require a worksheet to test it
+against what a parent keeps. A petition filed with the U.S. Department of Health
+and Human Services asks the federal government to fix that for every state, not just
+Massachusetts: a ceiling on the order itself, and disclosure that makes a worksheet show its work.
+The [federal law finding](/findings/federal-law/) on this site has the Massachusetts figures the
+petition is built on.
+
+<div class="accordion" markdown="0">
+<details class="ask" markdown="1" id="ask-federal-net-pay-caps">
+<summary><span class="ask-head"><span class="ask-title">Cap every state's order at 40 percent of net pay, and 25 percent in joint custody</span><span class="effect">No dollar change by itself. The recommendations below apply both numbers to Massachusetts.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+
+Federal law sets no cap on a presumptive order. The petition asks the U.S.
+Department of Health and Human Services to cap it: 40 percent of the payor's net pay in general,
+and 25 percent where each parent has the child at least a third of the time. Both numbers already
+exist in Massachusetts's own rules. Section IV.C calls 40 percent of income a hardship, and the
+[hardship](#ask-hardship-ceiling) and [joint custody](#ask-joint-custody-ceiling) recommendations
+below ask Massachusetts to apply those same two numbers to net pay rather than gross.
+
+Federal law already requires a protection like this at the bottom of the income range: every
+state's guidelines must protect a low earner "by incorporating a low-income adjustment, such as a
+self-support reserve or some other method determined by the State," with the method left to the
+state, 45 C.F.R. § 302.56(c)(1)(ii). This ask writes the same kind of federal floor at the top of
+the range instead of the bottom.
+</details>
+
+<details class="ask" markdown="1" id="ask-federal-net-pay-worksheet">
+<summary><span class="ask-head"><span class="ask-title">Make every state's worksheet compute net pay, and test the order against the federal ceiling</span><span class="effect">No dollar change. It requires the worksheet to check its own arithmetic against the same measure Massachusetts already uses to collect the order.</span><span class="tag-kind">Correction</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+
+Massachusetts already measures this obligation in net pay once, when it collects: the withholding
+statute, G.L. c. 119A § 12, cites the federal ceiling three times. It never measures net pay when
+it sets the amount. The petition asks federal law to close that gap for every state: compute net
+pay on the worksheet or form that produces the order, run every hardship test and deviation
+trigger on that net figure, and compare the order to the federal withholding ceiling, 50 percent
+of take-home pay for a parent who supports a second household, 60 percent for one who does not.
+
+Massachusetts's Worksheet already produces orders the Commonwealth cannot lawfully collect. With
+$100 a week of child care claimed for each child, 40% of three-child, primary-custody income pairs
+cross the federal ceiling. The [federal law finding](/findings/federal-law/) has the grid in full;
+the [hardship test](#ask-hardship-basis) below shows the same gap inside Massachusetts's own rule.
+</details>
+
+<details class="ask" markdown="1" id="ask-federal-joint-custody-definition">
+<summary><span class="ask-head"><span class="ask-title">Define joint custody federally as at least a third of the time, with one computation across that range</span><span class="effect">No dollar change by itself. It sets the range the 25 percent ceiling applies to.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+
+Massachusetts's own Guidelines already mark a third of the time as the point where parenting time
+starts to matter: Section II.D.4 lets a judge consider a deviation once a parent has well over a
+third of the time but less than half. The Commonwealth tried
+pricing every day in that range once before and took it back out. Its 2017 Task Force found that
+letting the order move by the day "increased litigation and acrimony between parents, shifted the
+focus from a parenting plan that is in the best interests of the children to a contest about a
+parenting plan that attempts to reduce a child support order, and failed to create the consistency
+in child support orders that it sought to create," and removed it. The 2025 Guidelines brought the
+same pricing back as a deviation. A rule a state has removed once and restored once cannot be
+relied on to hold the line on its own.
+
+The petition asks federal law to set the definition instead. Once a parent has the child at least
+a third of the time, one adjustment would apply across the whole range up to equal time, with no
+further adjustment for the exact split. The tradeoff is plain: a third of the time becomes the one
+point where the schedule still changes with the day count, instead of every day in between. The
+[Parenting time](#ask-parenting-credit-crosscredit) recommendations below apply what a 25 percent
+ceiling would mean for Massachusetts.
+</details>
+
+<details class="ask" markdown="1" id="ask-federal-gross-disclosure">
+<summary><span class="ask-head"><span class="ask-title">Say plainly whether a schedule runs on gross or net income, and show the conversion</span><span class="effect">No dollar change. It is a disclosure the Worksheet already knows how to produce.</span><span class="tag-kind">Disclosure</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+
+Most state schedules, Massachusetts's included, are built from research measured in net income and
+then applied to gross pay. Someone converts one to the other. Massachusetts's own consultant
+already performs that conversion every review cycle, using "standard withholding for Social
+Security and Medicare," an assumption never published alongside the guidelines. The petition asks
+federal law to require every state to say which income basis its schedule uses, identify the basis
+of the research behind it, and publish the conversion where the two differ. A state that has
+already done the conversion loses nothing by writing down what it already computed.
+</details>
+
+<details class="ask" markdown="1" id="ask-federal-hidden-calculations">
+<summary><span class="ask-head"><span class="ask-title">List every calculation that lives only in a worksheet, and say whether the review looked at it</span><span class="effect">No dollar change. It is a disclosure requirement, not a new rule about what the number should be.</span><span class="tag-kind">Disclosure</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+
+Federal law already requires guidelines to "be based on specific descriptive and numeric criteria
+and result in a computation of the child support obligation." It does not say where the criteria
+have to be written down, and nothing requires a four-year review to examine a computation a
+worksheet performs but the guidelines text never mentions. Massachusetts's own Guidelines delegate
+outright: "The guidelines worksheet will calculate the presumptive child support order based on
+the information entered into the guidelines worksheet." Two lines of that worksheet set the entire
+equal-parenting adjustment through an income-disparity limit that appears in no published document,
+the same limit the [Parenting time](#ask-parenting-credit-crosscredit) recommendations below work
+around. The petition asks every state to list what its worksheet computes outside the guidelines
+text, and say whether its review looked at it.
+</details>
+
+<details class="ask" markdown="1" id="ask-federal-review-date">
+<summary><span class="ask-head"><span class="ask-title">Publish the date of the next guidelines review where the guidelines themselves are published</span><span class="effect">No dollar change.</span><span class="tag-kind">Disclosure</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+
+Federal law already requires a state to publish four things about its review process: the
+reports, who sits on the reviewing body, the effective date, and the date of the next review, 45
+C.F.R. § 302.56(e). Massachusetts publishes the first three. The fourth appears exactly once in
+the whole published record, inside a cost forecast: "between now and the next guidelines review in
+2029." The petition asks that this date be written where a parent would actually look, on the same
+page as the guidelines themselves. The ask requires no new review, no new report and no new
+analysis. The date already exists. The ask is where it is written down.
+</details>
+
+<details class="ask" markdown="1" id="ask-federal-relief">
+<summary><span class="ask-head"><span class="ask-title">Let a parent paying under the current Guidelines ask for immediate relief</span><span class="effect">An order could ask to be capped now, at 40 percent of net pay under primary custody or 25 percent in joint custody, without showing any other change in circumstances.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+
+Today an order can be reviewed only back to whatever the guidelines currently allow, 42 U.S.C.
+§ 666(a)(10). For a guideline that does not comply with federal law, that checks the order against
+the same rule that produced it, which is no review at all. The petition asks the Department to let
+any parent whose order was set under guidelines it finds do not comply ask for an immediate
+reduction, without showing any other change in circumstances, to what the corrected rule allows:
+no more than 40 percent of net pay, and no more than 25 percent in joint custody. Both numbers are
+the two caps above, applied now rather than only once a state corrects its guidelines.
+</details>
+
+</div>
+
+</section>
+
+## Child care
 
 The Worksheet splits child care on each parent's share of income before the order moves any money. These would split it on what each parent holds after.
 
@@ -287,45 +412,25 @@ of 1,147 income combinations, and Line 7e passes it in none of them.
    source_script="model/charts/fig12_net_pay_ceiling.py"
    csv_href="/figures/working/fig12_net_pay_ceiling.csv" %}
 
-**A net ceiling is not a new idea, though no state applies one to the order.** Federal law already
-caps what may be garnished for child support at 50 to 65 percent of a worker's disposable earnings,
-under the Consumer Credit Protection Act: 50 percent where the payor supports another spouse or
-child, otherwise 60 percent, each rising five points where the arrears are more than
-twelve weeks old. That limits collection, not the order, so a court may enter an order larger than
-may lawfully be withheld to satisfy it.
-
-The definition behind those percentages matters more than the percentages do. 15 U.S.C. 1672(b)
-defines disposable earnings as earnings less "any amounts required by law to be withheld", which is
-the same measure this page uses and the same one the Commonwealth's own consultant builds in every
-review. Congress
-wrote the definition, and every employer in the country applies it to an income withholding order
-each payday. The Worksheet is the one place in the chain that does not hold the number. Oregon's 2024 guidelines review,
-prepared by the Center for Policy Research, states the principle while explaining why Oregon's
-schedule stops at six children: "It makes no sense to assess child support at percentages more than
-can legally be held from a parent's paycheck." West Virginia uses 40 percent of weekly disposable
-earnings as the trigger for a right to petition to restructure payments, though only for one narrow
-group of parents.
+**A net ceiling is not a new idea, though no state applies one to the order.** Congress already
+caps what may be withheld from a paycheck for child support, the federal withholding ceiling, 15
+U.S.C. § 1673(b)(2). That limits what may be collected, not what a court may order, so the
+Commonwealth can order an amount it cannot lawfully collect. The
+[federal law finding](/findings/federal-law/) on this site has the full picture: with child care
+claimed, a real share of the Worksheet's own grid crosses it, and none does with no child care
+claimed at all.
 
 **Massachusetts already uses that measure. It just does not use it where the amount is decided.**
-The Commonwealth's income withholding statute, G.L. c. 119A section 12, points at the federal
-ceiling three separate times: on what an employer may withhold, on what it may take toward health
-insurance premiums, and on arrears. The third one is a hardship provision, and it reads like the
-ceiling proposed above. Where paying arrears at a quarter of the order "creates an undue hardship
-upon the obligor or that the withholding would exceed the maximum amount permitted by the Consumer
-Credit Protection Act, 15 USC 1673(b), the rate at which such arrearage must be paid shall be
-reduced to a rate that is fair and reasonable." No motion, no four written findings. The measure is
-exceeded, so the payment comes down.
+The Commonwealth's own income withholding statute, G.L. c. 119A section 12, points at the federal
+ceiling three separate times, including a provision that reduces a payment automatically once it
+would exceed what the Consumer Credit Protection Act permits, with no motion and no written
+findings required. The Guidelines, the economic review and the Task Force report mention the
+Consumer Credit Protection Act zero times.
 
-So the state measures in net when it collects and in gross when it decides the amount, and the two
-rules live in different chapters that never refer to each other. The Guidelines themselves, the
-economic review and the Task Force report mention the Consumer Credit Protection Act zero times and
-disposable earnings zero times.
-
-The federal ceiling governs what may be collected,
-not what may be ordered, so a court can order more than a paycheck may lawfully give up and the
-difference becomes arrears. And Massachusetts adopts the federal number rather than setting a lower
-one of its own. What the statute book supports is measuring this obligation in net pay, and reducing
-an amount automatically when the measure is exceeded. It does not supply the 25 or the 40.
+So the state measures this obligation in net pay when it collects and in gross pay when it decides
+the amount, and the two rules live in chapters that never refer to each other. What the statute
+book supports is measuring this obligation in net pay, and reducing an amount automatically once a
+fixed measure is exceeded. It does not supply the 25 or the 40.
 </details>
 
 <details class="ask" markdown="1" id="ask-net-income-table">

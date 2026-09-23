@@ -1,6 +1,6 @@
 ---
 layout: finding
-title: Fifty-one jurisdictions, one worked example
+title: Massachusetts orders the most of fifty jurisdictions at equal parenting time
 permalink: /findings/fifty-one-jurisdictions/
 description: >-
   One worked example, computed for all fifty states and the District of Columbia, profiled from each
@@ -41,7 +41,7 @@ sections:
 <section class="hero" markdown="1">
 <p class="eyebrow">The fifty-state comparison</p>
 
-# One worked example ranks Massachusetts's order highest of fifty jurisdictions at equal parenting time
+# Massachusetts orders the most of fifty jurisdictions at equal parenting time
 
 <p class="lede">At the one worked example tested, Massachusetts's equal-parenting order ranks
 first of fifty. Fifty of fifty-one jurisdictions were profiled from their own primary documents,
@@ -431,6 +431,15 @@ living may explain the level of Massachusetts's orders generally, but it doesn't
 arrangement giving each parent half the time is priced here where sole primary custody is priced
 almost everywhere else.
 
+The federal government's own cost-of-living measure does not back the explanation either. The
+Bureau of Economic Analysis's Regional Price Parities, all items, score Massachusetts 105.8 for
+2024, lower than six other places: California scores 110.7, Hawaii scores 110.0, the District of
+Columbia scores 109.9, New Jersey scores 108.8, New York scores 107.9, and Washington scores 107.0.
+Every one of those six orders less than Massachusetts at equal parenting time. If cost of living
+set the ranking, the six most expensive places in the country would sit above Massachusetts, not
+below it. (Source: Bureau of Economic Analysis, Regional Price Parities by State, 2024, released
+February 19, 2026.)
+
 <figure class="exhibit" id="e17">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
      data-caption="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
@@ -520,7 +529,7 @@ almost everywhere else.
 
 <section id="gross-net" markdown="1">
 
-## Two task forces were asked to move to net income and declined; three economic reviews since have reported the amounts running above the benchmarks
+## While two task forces declined to move to net income, three economic reviews since have reported the amounts running above the benchmarks
 
 Every ranking above uses each jurisdiction's own income basis, gross or net as its guidelines define
 it, because that's how each state actually calculates its order. The ceiling table above states the

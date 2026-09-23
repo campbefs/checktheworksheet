@@ -878,6 +878,10 @@ input[type="range"]::-moz-range-thumb {
 /* The 2-column readout inside "After tax and the order, per year". */
 .tool-readout.tool-readout--pair { grid-template-columns: repeat(2, 1fr); }
 .tool-readout .cell-value.is-warning { color: var(--accent); }
+/* 2026-09-23: an order over 40% of the payor's take-home pay shows red, figure and badge. */
+.tool-readout .cell-value.is-over40 { color: #b3261e; background: #fde8e6; border-radius: 4px;
+  padding: 0 0.25em; display: inline-block; }
+.tool-flagline.is-over40 { color: #b3261e; font-weight: 600; }
 .cell-note {
   font-size: 0.8125rem; font-weight: 700; color: var(--accent); margin: var(--space-1) 0 0;
   visibility: hidden; min-height: 1.2em;

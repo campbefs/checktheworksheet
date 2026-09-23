@@ -1,11 +1,11 @@
 ---
 layout: finding
-title: Going from a third of the time to half lowers the order by 6.9 percent
+title: Massachusetts orders the most child support for joint custody in the nation, and the discount for equal time is negligible
 permalink: /findings/parenting-time/
 description: >-
-  The Worksheet's primary-custody box already assumes the paying parent has the children a third of
-  the time. Equal time lowers the order 6.9 percent, because the credit is only the gap between the
-  two incomes. No line measures time.
+  Massachusetts orders more for joint custody than any other state, and equal time lowers the order
+  only 6.9 percent because no line on the Worksheet measures parenting time. Federal law should
+  define joint custody as any schedule giving each parent at least a third of the time.
 disclosure:
   - >-
     The worked example below runs three children, equal parenting time, the payor's income and
@@ -28,6 +28,8 @@ sections:
     label: "Line by line"
   - id: cross-credit
     label: "What a cross-credit formula would say"
+  - id: joint-custody-definition
+    label: "A federal definition of joint custody"
   - id: caveats
     label: "Limits"
   - id: check
@@ -37,7 +39,7 @@ sections:
 <section class="hero" markdown="1">
 <p class="eyebrow">Parenting time</p>
 
-# Going from a third of the time to half lowers the order by 6.9 percent
+# Massachusetts orders the most child support for joint custody in the nation, and the discount for equal time is negligible
 
 <p class="lede">With the children about a third of the time, the paying parent's order at the worked
 example is $1,087.90 a week. With them half the time, it is $1,012.73. The difference is $75.17 a
@@ -187,6 +189,38 @@ At the 1.5 factor, neither implied share, 33.3 percent or 46.9 percent, reaches 
 parent actually has.
 
 </details>
+
+</section>
+
+<section id="joint-custody-definition" markdown="1">
+
+## Federal law should define joint custody as any schedule giving each parent at least a third of the time
+
+The Worksheet already treats a third of the time as its starting point. Box 2 assumes the children
+have "a primary residence with one parent and spending approximately one-third of the time with
+another parent," and the 2025 Guidelines let a court deviate once a parent has well over a third of
+the time but less than half, § II.D.4, deviation factor IV.B.9. Between a
+third and a half, nothing on the form does the arithmetic. A judge decides it, case by case.
+
+Massachusetts tried pricing that middle range once already, and undid it. Its 2017 Commentary
+removed a similar provision and gave its reason: "The 2012 change increased litigation and acrimony
+between parents, shifted the focus from a parenting plan that is in the best interests of the
+children to a contest about a parenting plan that attempts to reduce a child support order, and
+failed to create the consistency in child support orders that it sought to create." It added a rule
+of its own: "Child support should not be driving the parenting plan." The 2025 Guidelines brought
+the same kind of pricing back, as § II.D.4.
+
+Federal law should say what joint custody is, so that no state prices each extra day. Once each
+parent has the child at least a third of the time, one computation should apply across that whole
+range, with no further adjustment for the exact split, and the order capped at 25 percent of net
+pay, the same ceiling the [federal-law finding](/findings/federal-law/#fix) proposes. That is the
+harm the 2017 Commentary already named: parents litigating over an extra day, and child support
+driving the parenting plan.
+
+<p class="stat-callout">
+  <span class="stat-value">9 of 50</span>
+  <span class="stat-label">states, including New York, where splitting time equally lowers the order not at all from a one-third schedule</span>
+</p>
 
 </section>
 

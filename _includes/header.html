@@ -39,7 +39,8 @@
       one, so a reader has no obvious way back. Duplicated affordance beats a hidden one.
     {%- endcomment -%}
     <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
-    <a href="{{ '/findings/' | relative_url }}"{% if page.url contains '/findings/' and page.url != '/findings/fifty-one-jurisdictions/' %} aria-current="page"{% endif %}>Findings</a>
+    <a href="{{ '/findings/federal-law/' | relative_url }}"{% if page.url contains '/findings/federal-law' %} aria-current="page"{% endif %}>Federal law</a>
+    <a href="{{ '/findings/' | relative_url }}"{% if page.url contains '/findings/' and page.url != '/findings/fifty-one-jurisdictions/' and page.url != '/findings/federal-law/' %} aria-current="page"{% endif %}>Findings</a>
     <a href="{{ '/recommendations/' | relative_url }}"{% if page.url contains '/recommendations/' %} aria-current="page"{% endif %}>Recommendations</a>
     <a href="{{ '/findings/fifty-one-jurisdictions/' | relative_url }}"{% if page.url contains 'fifty-one-jurisdictions' %} aria-current="page"{% endif %}>Fifty jurisdictions</a>
     <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} aria-current="page"{% endif %}>Mission</a>

@@ -2,9 +2,9 @@
 layout: page
 title: Findings
 description: >-
-  Three places where the Massachusetts Child Support Guidelines Worksheet's own arithmetic works
-  against its own text, each pinned by a test suite against the form's own calculation scripts,
-  plus one fifty-one-jurisdiction comparison at a single set of incomes.
+  The Massachusetts child support guidelines do not comply with federal law: the Worksheet never
+  measures ability to pay and, with child care claimed, sets orders the Commonwealth cannot
+  lawfully collect. Seven more problems follow, each pinned to the form's own calculation scripts.
 disclosure:
   - >-
     The figures below (88 cents, 6.9%, 57%, 48%) come from the worked example used throughout this
@@ -19,14 +19,42 @@ disclosure:
     against the form's own calculation scripts. More on <a href="/about/">About</a>.
 ---
 
-# Seven problems with the Massachusetts child support guidelines
+# Eight problems with the Massachusetts child support guidelines, and the first is that they do not comply with federal law
 
 {% include disclosure.html %}
 
-Each one traces to a script in this repository, or, for the sixth, to the guidelines' own text
+Each one traces to a script in this repository, or, for the seventh, to the guidelines' own text
 on deviation. Biggest first.
 
-## 1. The payor funds 88 cents of every dollar of child care, on money the order has already moved to the other parent
+## 1. The Massachusetts child support guidelines do not comply with federal law
+
+<p class="confidence-tag">Every income pair run through the Worksheet's own arithmetic</p>
+
+**While federal law requires every order to rest on the parent's ability to pay, the Worksheet
+never computes what a parent keeps after tax. With child care claimed, it sets orders above the
+federal withholding ceiling, amounts the Commonwealth cannot lawfully collect.**
+
+Federal rules require a state's guidelines to base the order on the parent's "earnings, income,
+and other evidence of ability to pay," 45 C.F.R. § 302.56(c)(1), and the Massachusetts Guidelines
+recite that standard. The Worksheet has no line for tax or take-home pay. At $100 a week of child
+care claimed per child, three children and primary custody, 40% of income pairs produce an order
+above the federal withholding ceiling, 50 percent of take-home pay, 15 U.S.C. § 1673(b)(2). With no
+child care claimed, none do.
+
+{% include figure.html
+   id="e31"
+   img="/figures/exhibits/E31-income-pairs-over-ceiling-grid.png"
+   alt="Grid of 1,147 income pairs, payor income across and other parent's income up, shaded where the order at $100 of child care per child is over the federal ceiling."
+   title="At $100 a child, 40 percent of income pairs produce an order over the federal ceiling."
+   deck="Each square is one pair of incomes: the Worksheet's order with $300 a week of child care claimed for three children, primary custody."
+   notes="Red squares are over the federal ceiling, 50 percent of take-home pay. Hatched squares are pairs where the other parent would be the higher earner."
+   source_script="model/ccpa_grid.py"
+   csv_href="/figures/working/fig_ceiling_grid.csv"
+   lazy="false" %}
+
+[Read the full finding →](/findings/federal-law/)
+
+## 2. The payor funds 88 cents of every dollar of child care, on money the order has already moved to the other parent
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
@@ -43,11 +71,11 @@ afterward.
    notes="Adjusting the shares by the base order alone, the fallback confined to the Worksheet's existing gross-based lines (Line 6b-2), gives 64.5 percent. The letter's current § 2 redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
-   lazy="false" %}
+   %}
 
 [Read the full finding →](/findings/child-care/)
 
-## 2. Splitting the children's time equally cuts the order by 6.9%. Utah cuts it by 55%, Montana and Hawaii by 52%
+## 3. Splitting the children's time equally cuts the order by 6.9%. Utah cuts it by 55%, Montana and Hawaii by 52%
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
@@ -75,7 +103,7 @@ from that caution.
 
 [Read the full finding →](/findings/parenting-time/)
 
-## 3. Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody
+## 4. Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody
 
 <p class="confidence-tag">Tiered: a single set of incomes; see method</p>
 
@@ -97,7 +125,7 @@ at primary custody.
 
 [Read the full finding →](/findings/fifty-one-jurisdictions/)
 
-## 4. The hardship test measures gross income when it should measure net
+## 5. The hardship test measures gross income when it should measure net
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
@@ -112,7 +140,7 @@ the payor's tax rate rises. At the worked example that gap is 17 points.
 
 [Read the full finding →](/findings/hardship-test/)
 
-## 5. The payor keeps less than half of every extra dollar earned
+## 6. The payor keeps less than half of every extra dollar earned
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 
@@ -132,7 +160,7 @@ up with income. Across $150,000 to $300,000 of payor income the share kept stays
    source_script="model/charts/fig4_retention.py · model/marginal_retention.py"
    csv_href="/figures/working/fig4_marginal_retention.csv" %}
 
-## 6. Challenging the order can cost more than it saves, so wrong orders go uncontested
+## 7. Challenging the order can cost more than it saves, so wrong orders go uncontested
 
 <p class="confidence-tag">The deviation data is the Commonwealth's own; the rate at which a contested deviation succeeds is not measured anywhere in it.</p>
 
@@ -148,7 +176,7 @@ The Commonwealth publishes how often the presumption is rebutted. It does not pu
 number that would tell a parent whether contesting is worth it: how often a deviation motion the
 parties did not simply agree to still succeeds.
 
-## 7. At equal parenting time, the recipient household ends up with more money than the payor in 10% of income combinations
+## 8. At equal parenting time, the recipient household ends up with more money than the payor in 10% of income combinations
 
 <p class="confidence-tag">Verified against the form's own calculation scripts</p>
 

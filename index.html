@@ -1,7 +1,7 @@
 ---
 layout: home
-title: "checktheworksheet.org: the Massachusetts child support worksheet, checked against its own arithmetic"
-description: "A code reproduction of the Massachusetts Child Support Guidelines Worksheet, checked against the form's own calculation scripts, finds three internal inconsistencies and one fifty-jurisdiction comparison. Every number traces to a file."
+title: "checktheworksheet.org: the Massachusetts child support guidelines do not comply with federal law"
+description: "Federal law requires every child support order to rest on the parent's ability to pay. The Massachusetts Worksheet never computes what a parent keeps after tax, sets orders the Commonwealth cannot lawfully collect, and charges the most in the nation for joint custody. Every number traces to a file."
 disclosure:
   - >-
     The worked example throughout runs a fixed family of two parents' incomes and three
@@ -23,28 +23,30 @@ scripts:
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-text">
-      <p class="eyebrow">The Massachusetts Child Support Guidelines Worksheet, checked against the form&rsquo;s own code</p>
-      <h1>Massachusetts charges the most child support of any state when the parents split time equally.</h1>
-      <p class="lede"><strong>Give the children to one parent full time everywhere else, and
-      Massachusetts at equal time still charges more than 47 states do.</strong>
-      The same two incomes and three children in every state ($201,000 and $29,640 a year, no
-      child care), read out of each state's own guidelines, computed twice, then attacked.</p>
+      <p class="eyebrow">The Massachusetts Child Support Guidelines, checked against federal law and the form&rsquo;s own code</p>
+      <h1>The Massachusetts child support guidelines do not comply with federal law.</h1>
+      <p class="lede">While federal law requires every order to rest on the parent&rsquo;s ability
+      to pay, the Massachusetts Worksheet never computes what a parent keeps after tax. With child
+      care claimed, it sets orders above the federal withholding ceiling, amounts the Commonwealth
+      cannot lawfully collect.</p>
+      <p class="lede" style="margin-top:0.9em"><strong>Massachusetts also has the highest child support in the nation for
+      joint custody</strong>, and joint custody here costs more than primary custody in 47 states.</p>
       <div class="stat-callout">
-        <span class="stat-value">Highest of 50 states</span>
-        <span class="stat-label">child support order at equal parenting time</span>
+        <span class="stat-value">40%</span>
+        <span class="stat-label">of income pairs produce an order over the federal ceiling with $100 a week of child care claimed per child (three children, primary custody)</span>
       </div>
-      <p class="confidence-tag">The same two incomes and three children, in every state.</p>
+      <p class="confidence-tag"><a href="/findings/federal-law/">Read the federal-law finding &rarr;</a></p>
     </div>
     <div class="hero-visual">
       {% include figure.html
-         id="e11-hero"
-         img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-         alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one set of incomes, Massachusetts highlighted."
-         title="At equal parenting time, Massachusetts orders the most of the fifty states."
-         deck="Monthly order at one set of incomes."
-         notes="Each row was profiled from primary sources, computed twice blind, then reconciled and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else."
-         source_script="model/charts/fig5_states.py"
-         csv_href="/figures/working/fig5_states.csv"
+         id="e29-hero"
+         img="/figures/exhibits/E29-orders-over-federal-ceiling-by-child-care.png"
+         alt="Line chart of the share of 1,147 income pairs whose order is above the federal withholding ceiling, as child care claimed rises from $0 to $430 per child per week, for primary custody and for joint custody at equal time."
+         title="With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect."
+         deck="Share of income pairs whose order is above the federal ceiling, by child care claimed per child per week."
+         notes="Three children. Federal ceiling: 50 percent of take-home pay, 15 U.S.C. § 1673(b)(2). With no child care claimed, no order crosses it."
+         source_script="model/ccpa_grid.py"
+         csv_href="/figures/working/fig_ceiling_share.csv"
          lazy="false" %}
     </div>
   </div>
@@ -151,22 +153,24 @@ scripts:
         <div class="tool-panel tool-childcare" data-calc-childcare>
           <div class="tool-childcare-headrow">
             <h4 class="tool-childcare-heading">Child care</h4>
-            <span class="tool-childcare-state" data-calc-cc-state>not included</span>
+            <span class="tool-childcare-state is-on" data-calc-cc-state>included</span>
           </div>
           <fieldset class="segmented tool-childcare-onoff">
             <legend class="visually-hidden">Include child care in this calculation</legend>
             <label class="segmented-option">
-              <input type="radio" name="calc-cc-on" value="0" data-calc-radio="ccOn" checked>
+              <input type="radio" name="calc-cc-on" value="0" data-calc-radio="ccOn">
               No child care
             </label>
             <label class="segmented-option">
-              <input type="radio" name="calc-cc-on" value="1" data-calc-radio="ccOn"
-                     aria-expanded="false" aria-controls="calc-childcare-body">
+              <input type="radio" name="calc-cc-on" value="1" data-calc-radio="ccOn" checked
+                     aria-expanded="true" aria-controls="calc-childcare-body">
               With child care
             </label>
           </fieldset>
 
-          <div class="tool-childcare-body" id="calc-childcare-body" hidden>
+          <div class="tool-childcare-body" id="calc-childcare-body">
+            <p class="tool-callout-note">Starts at $100 a week per child, $300 a week for three
+            children, paid by the lower earner. Move the sliders or switch child care off.</p>
             <p class="tool-callout" data-calc-cell="cc_dist_wrap">
               Higher earner&rsquo;s share of child care: <strong data-calc-cell="cc_dist_share3c">87.7%</strong>.
               Their share of income after the order: <strong data-calc-cell="cc_dist_gross">64%</strong> of gross,
@@ -176,14 +180,14 @@ scripts:
             already moved the split to the other two.</p>
 
             <div class="tool-slider-row">
-              <label for="calc-cc-lower">Child care paid by the lower earner, per week
-                <output id="calc-cc-lower-output" for="calc-cc-lower">$100/wk</output>
+              <label for="calc-cc-lower">Child care paid by the lower earner, per week, all children
+                <output id="calc-cc-lower-output" for="calc-cc-lower">$300/wk</output>
               </label>
               <input type="range" id="calc-cc-lower" data-calc-input="ccLower"
-                     min="0" max="1290" step="10" value="100">
+                     min="0" max="1290" step="10" value="300">
             </div>
             <div class="tool-slider-row">
-              <label for="calc-cc-higher">Child care paid by the higher earner, per week
+              <label for="calc-cc-higher">Child care paid by the higher earner, per week, all children
                 <output id="calc-cc-higher-output" for="calc-cc-higher">$0/wk</output>
               </label>
               <input type="range" id="calc-cc-higher" data-calc-input="ccHigher"
@@ -298,10 +302,21 @@ scripts:
   <div></div>
   <div class="content-col">
     <section class="exhibit-section" id="lead-comparison">
-      <p class="eyebrow">The comparison behind this site</p>
+      <p class="eyebrow">The highest joint-custody support in the nation</p>
       <h2>Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody. Only Hawaii and Wisconsin charge more.</h2>
-      <p>Every state at primary custody first, then Massachusetts recomputed at equal parenting
-      time. Full method below.</p>
+      <p>The same two incomes and three children in every state ($201,000 and $29,640 a year, no
+      child care), read out of each state's own guidelines, computed twice, then attacked. At equal
+      parenting time Massachusetts orders the most of the fifty. Full method below.</p>
+      {% include figure.html
+         id="e11-hero"
+         img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
+         alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one set of incomes, Massachusetts highlighted."
+         title="At equal parenting time, Massachusetts orders the most of the fifty states."
+         deck="Monthly order at one set of incomes."
+         notes="Each row was profiled from primary sources, computed twice blind, then reconciled and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else."
+         source_script="model/charts/fig5_states.py"
+         csv_href="/figures/working/fig5_states.csv" %}
+      <p>Every state at primary custody, then Massachusetts at equal parenting time:</p>
       <div class="exhibit-pair">
         {% include figure.html
            id="e12"
@@ -332,9 +347,9 @@ scripts:
 <div class="page-shell">
   <div></div>
   <div class="content-col">
-    <h2 id="findings">What the Worksheet does that its text doesn't say</h2>
-    <p>The four that carry the argument, each pinned to the form's own calculation
-    scripts. <a href="/findings/">All seven are worked through on the findings page</a>.</p>
+    <h2 id="findings">Every finding here is checked against the Worksheet&rsquo;s own calculation scripts</h2>
+    <p>The five that carry the argument. <a href="/findings/">All of them are worked through on
+    the findings page</a>.</p>
   </div>
 </div>
 
@@ -351,6 +366,29 @@ scripts:
 </div>
 
 <div class="finding-grid" id="findings-grid">
+
+  <article class="finding-card" id="f-federal">
+    <div class="thumb">
+      <a class="lightbox-trigger" data-lightbox
+         href="/figures/exhibits/E31-income-pairs-over-ceiling-grid.png"
+         data-caption="At $100 a child, 40 percent of income pairs produce an order over the federal ceiling."
+         data-csv-href="/figures/working/fig_ceiling_grid.csv" data-csv-label="Data (CSV)">
+        <img src="/figures/exhibits/E31-income-pairs-over-ceiling-grid.png"
+             alt="Grid of 1,147 income pairs shaded where the order at $100 of child care per child is over the federal withholding ceiling.">
+      </a>
+    </div>
+    <div class="body">
+      <p class="tag">Every income pair, run through the Worksheet</p>
+      <h3><a href="/findings/federal-law/">The guidelines do not comply with federal law</a></h3>
+      <p>Federal law requires an order based on ability to pay. The Worksheet never computes
+      take-home pay, and with child care claimed it sets orders above the federal withholding
+      ceiling.</p>
+      <div class="stat">
+        <span class="stat-value">186%</span>
+        <span class="stat-label">of take-home pay, the most an order reaches at the Guidelines&rsquo; own child care limit</span>
+      </div>
+    </div>
+  </article>
 
   <article class="finding-card" id="f-fifty">
     <div class="thumb">

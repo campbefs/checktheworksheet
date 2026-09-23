@@ -2,8 +2,8 @@
 layout: page
 title: The model
 description: >-
-  A Python reproduction of the Massachusetts worksheet, a tax model, three extension models,
-  four test suites, and a harness that runs the official form's own scripts against the model.
+  A Python reproduction of the Massachusetts worksheet, a tax model, five extension models,
+  six test suites, and a harness that runs the official form's own scripts against the model.
 ---
 
 # A model of the worksheet, checked against the form's own scripts as well as against itself
@@ -36,7 +36,7 @@ computed on it is published: the 49.7 percent child care share on the
 [recommendations page](/recommendations/), shown there beside the narrower figure the comments
 actually ask for.
 
-## Four extension models, and one script printing every quoted figure
+## Five extension models, and scripts printing every quoted figure
 
 - [`model/box1_fix.py`](/model/box1_fix.py): the Box 1 equal-parenting credit, and three
   redlines that give it a parenting-time term.
@@ -44,13 +44,17 @@ actually ask for.
   income shares measured *after* base support transfers, not Line 6b's pre-transfer shares.
 - [`model/marginal_retention.py`](/model/marginal_retention.py): how much of the payor's next
   dollar is kept after tax.
+- [`model/ccpa_grid.py`](/model/ccpa_grid.py): runs the Worksheet across the whole income grid
+  and tests each order against the four federal withholding ceilings, 15 U.S.C. § 1673(b)(2).
+- [`model/net_caps.py`](/model/net_caps.py): the take-home pay an order would leave, and what a
+  40 percent (25 percent in joint custody) ceiling on it would change.
 - [`model/submission_figures.py`](/model/submission_figures.py): prints every figure quoted to
   the Trial Court, so none is quoted without a script producing it.
 - [`model/recommendations.py`](/model/recommendations.py): the figures behind the
   [recommendations page](/recommendations/), including the fifty-state medians and the child-care
   split options.
 
-## Four test suites, 358 checks, all passing, gate every quoted number
+## Six test suites, 496 checks, all passing, gate every quoted number
 
 | Suite | Checks | What it pins |
 |---|---|---|
@@ -58,6 +62,8 @@ actually ask for.
 | [`model/test_worksheet.py`](/model/test_worksheet.py) | 60 | The disclosed order and the form's rounding |
 | [`model/test_box1_fix.py`](/model/test_box1_fix.py) | 258 | The Box 1 credit and its redlines |
 | [`model/test_childcare_post_transfer.py`](/model/test_childcare_post_transfer.py) | 20 | Child care on post-transfer shares |
+| [`model/test_ccpa_grid.py`](/model/test_ccpa_grid.py) | 50 | Orders over the federal withholding ceiling, all four rates |
+| [`model/test_net_caps.py`](/model/test_net_caps.py) | 88 | The 40 and 25 percent net-pay ceilings |
 
 ## A harness runs the Commonwealth's own scripts instead of a re-derivation
 

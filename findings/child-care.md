@@ -42,10 +42,10 @@ sections:
 
 # The payor funds 88 cents of every dollar of child care, on money the order has already moved to the other parent
 
-<p class="lede">At the worked example, the payor funds 88 cents of every dollar of the recipient's
-$15,600-a-year child care claim. Massachusetts allocates child care in proportion to income.
-The Worksheet measures that proportion before the base support order moves a single dollar
-between the two households, and never measures it again.</p>
+<p class="lede">Massachusetts allocates child care in proportion to income, but the Worksheet measures
+that proportion before the base support order moves a single dollar between the two households,
+and never measures it again. At the worked example, that funds 88 cents of every dollar of the
+recipient's $15,600-a-year child care claim.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
@@ -65,7 +65,7 @@ between the two households, and never measures it again.</p>
 
 <section id="mechanism" markdown="1">
 
-## Line 6b uses the income split from before the base order moved money between the households
+## The child care split uses income shares measured before the base order moved any money between the households
 
 Line 3c is each parent's share of combined available income, computed before the base support
 amount at Line 7d exists. Line 6a is the child care one parent actually pays. Line 6b multiplies
@@ -92,6 +92,11 @@ transfer.
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}
+
+How big the claim is matters as much as how it is split. This page's $300-a-week claim works out
+to $100 a week per child, the level the [federal-law finding](/findings/federal-law/) examines.
+At that level, 40% of income pairs already produce an order over the federal ceiling, an amount
+the Commonwealth cannot lawfully collect.
 
 </section>
 
@@ -192,13 +197,13 @@ print one number, not two.
 
 <section id="caveats" markdown="1">
 
-## Limits
+## This is one worked example, and per person the payor still holds more even when both parents share the cost
 
-<p class="caveat">Allocating child care in proportion to income is a defensible rule. The
-objection is to which income the proportion is measured against. $300 a week is a real but not extreme claim relative to the
-$430-per-child statutory ceiling; a smaller claim moves the split by less, a larger one by more.
-This is one worked example, and how far a typical claim sits from it is not known from anything in
-this repository.</p>
+<p class="caveat">Allocating child care in proportion to income is a defensible rule, and the
+objection is to which income the proportion is measured against. $300 a week is a real but not
+extreme claim relative to the $430-per-child statutory ceiling, and a smaller claim moves the
+split by less, a larger one by more. This is one worked example, and how far a typical claim sits
+from it is not known from anything in this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Even in the scenario where both parents pay
 for care and the payor is charged 93 percent of the combined bill, the payor still holds $58,163

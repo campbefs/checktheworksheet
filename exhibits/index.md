@@ -2,7 +2,7 @@
 layout: page
 title: Exhibits
 description: >-
-  Twenty-four figures behind the paper's findings, one chart each, every one traced to the model
+  Twenty-seven figures behind the paper's findings, one chart each, every one traced to the model
   script or the fifty-jurisdiction dataset that produced it, with the plotted values in a CSV or
   dataset beside every chart.
 ---
@@ -29,32 +29,73 @@ comparison always carries its per-person counterpart.
 
 ## Contents
 
-1. [With three children, the recipient household holds more after the order in 10 percent of income combinations.](#e01)
-2. [Per person, the payor holds more almost everywhere.](#e02)
-3. [With one child, the recipient household holds more after the order in no income combinations.](#e18)
-4. [With two children, the recipient household holds more after the order in 4 of 1,147 income combinations (0.3 percent).](#e19)
-5. [The order exceeds 40 percent of the payor's net income only where the lower earner makes about $20,000 or less.](#e04)
-6. [The hardship test fires late because it reads the wrong income.](#e05)
-7. [Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
-8. [The payor's share of a $15,600 child care bill, three ways to split it.](#e06)
-9. [With one child, splitting child care on income after the order funds the payor 17 points below the payor's income share.](#e20)
-10. [With two children, splitting child care on income after the order funds the payor 24 points below the payor's income share.](#e21)
-11. [With three children, splitting child care on income after the order funds the payor 29 points below the payor's income share.](#e22)
-12. [The payor bears 93 percent of the combined child care while earning 87 percent of the gross income.](#e25)
-13. [Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192.](#e26)
-14. [The Worksheet's equal-time credit collapses as the income gap widens.](#e08)
-15. [The equal-time credit is what a standard formula pays a parent who has the children one night in three.](#e09)
-16. [Splitting two children across two homes cuts the weekly order by 30 percent.](#e23)
-17. [Two homes, one child each, cost 43 percent more on the schedule than one home with two.](#e24)
-18. [At equal parenting time, Massachusetts orders the most of the fifty states.](#e11)
-19. [With the lower earner primary, only Hawaii orders more than Massachusetts.](#e12)
-20. [In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.](#e13)
-21. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
-22. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
-23. [Five reviews have taken up gross versus net. None changed it.](#e27)
-24. [The order passes 40 percent of net pay in 473 of 1,147 income combinations.](#e28)
+1. [With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect.](#e29)
+2. [The more child care is claimed, the further the order goes over the federal ceiling.](#e30)
+3. [At $100 a child, 40 percent of income pairs produce an order over the federal ceiling.](#e31)
+4. [With three children, the recipient household holds more after the order in 10 percent of income combinations.](#e01)
+5. [Per person, the payor holds more almost everywhere.](#e02)
+6. [With one child, the recipient household holds more after the order in no income combinations.](#e18)
+7. [With two children, the recipient household holds more after the order in 4 of 1,147 income combinations (0.3 percent).](#e19)
+8. [The order exceeds 40 percent of the payor's net income only where the lower earner makes about $20,000 or less.](#e04)
+9. [The hardship test fires late because it reads the wrong income.](#e05)
+10. [Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
+11. [The payor's share of a $15,600 child care bill, three ways to split it.](#e06)
+12. [With one child, splitting child care on income after the order funds the payor 17 points below the payor's income share.](#e20)
+13. [With two children, splitting child care on income after the order funds the payor 24 points below the payor's income share.](#e21)
+14. [With three children, splitting child care on income after the order funds the payor 29 points below the payor's income share.](#e22)
+15. [The payor bears 93 percent of the combined child care while earning 87 percent of the gross income.](#e25)
+16. [Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192.](#e26)
+17. [The Worksheet's equal-time credit collapses as the income gap widens.](#e08)
+18. [The equal-time credit is what a standard formula pays a parent who has the children one night in three.](#e09)
+19. [Splitting two children across two homes cuts the weekly order by 30 percent.](#e23)
+20. [Two homes, one child each, cost 43 percent more on the schedule than one home with two.](#e24)
+21. [At equal parenting time, Massachusetts orders the most of the fifty states.](#e11)
+22. [With the lower earner primary, only Hawaii orders more than Massachusetts.](#e12)
+23. [In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.](#e13)
+24. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
+25. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
+26. [Five reviews have taken up gross versus net. None changed it.](#e27)
+27. [The order passes 40 percent of net pay in 473 of 1,147 income combinations.](#e28)
 
-## Who holds more after the order
+## With child care claimed, the Worksheet sets orders the Commonwealth cannot lawfully collect
+
+<p>The federal government caps what may be withheld from a paycheck for child support at 50 percent
+of take-home pay, 15 U.S.C. § 1673(b)(2). With child care claimed, the Worksheet sets orders above
+that ceiling. See the <a href="/findings/federal-law/">federal-law finding</a> for the full
+argument.</p>
+
+{% include figure.html
+   id="e29"
+   img="/figures/exhibits/E29-orders-over-federal-ceiling-by-child-care.png"
+   alt="Line chart of the share of 1,147 income pairs whose order is above the federal withholding ceiling, as child care claimed rises from $0 to $430 per child per week, for primary custody and for joint custody at equal time."
+   title="With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect."
+   deck="Share of income pairs whose order is above the federal ceiling, by child care claimed per child per week."
+   notes="Three children. The federal ceiling is 50 percent of take-home pay, 15 U.S.C. § 1673(b)(2). At $100 a child, 40 percent of pairs cross it under primary custody."
+   source_script="model/ccpa_grid.py"
+   csv_href="/figures/working/fig_ceiling_share.csv"
+   lazy="false" %}
+
+{% include figure.html
+   id="e30"
+   img="/figures/exhibits/E30-order-against-federal-ceiling-by-income.png"
+   alt="Line chart of the order as a share of the payor's take-home pay across payor incomes from $50,000 to $300,000, with no child care and at $100, $200 and $430 per child per week, against the federal ceiling of 50 percent of take-home pay."
+   title="The more child care is claimed, the further the order goes over the federal ceiling."
+   deck="The order as a share of the payor's take-home pay, three children, the other parent primary, the other parent earning $29,640 a year."
+   notes="The red line is the federal ceiling, 50 percent of take-home pay. Take-home pay is after federal and state income tax, Social Security and Medicare."
+   source_script="model/ccpa_grid.py"
+   csv_href="/figures/working/fig_ceiling_by_income.csv" %}
+
+{% include figure.html
+   id="e31"
+   img="/figures/exhibits/E31-income-pairs-over-ceiling-grid.png"
+   alt="Grid of 1,147 income pairs, payor income across and other parent's income up, shaded where the order at $100 of child care per child is over the federal ceiling."
+   title="At $100 a child, 40 percent of income pairs produce an order over the federal ceiling."
+   deck="Each square is one pair of incomes: the Worksheet's order with $300 a week of child care claimed for three children, primary custody."
+   notes="Orange squares are over the federal ceiling. Hatched squares are pairs where the other parent would be the higher earner."
+   source_script="model/ccpa_grid.py"
+   csv_href="/figures/working/fig_ceiling_grid.csv" %}
+
+## Who holds more after the order, by household and by person
 
 <div class="exhibit-pair">
 
@@ -183,7 +224,7 @@ comparison always carries its per-person counterpart.
   </figcaption>
 </figure>
 
-## The hardship test and its units
+## The hardship test reads the wrong income, and a raise is worth less than it looks
 
 <figure class="exhibit" id="e05">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E05-what-line-7e-sees-vs-true-burden-worked-example.png"
@@ -257,7 +298,7 @@ comparison always carries its per-person counterpart.
   </figcaption>
 </figure>
 
-## Child care
+## Child care, split on income measured before the order moves any money
 
 <figure class="exhibit" id="e06">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
@@ -407,7 +448,7 @@ comparison always carries its per-person counterpart.
 
 </div>
 
-## Parenting time
+## The credit for equal parenting time, and what splitting a family costs
 
 <figure class="exhibit" id="e08">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
@@ -511,7 +552,7 @@ comparison always carries its per-person counterpart.
 
 </div>
 
-## Fifty-one jurisdictions
+## How Massachusetts compares to the other fifty states
 
 <figure class="exhibit" id="e11">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
@@ -959,7 +1000,7 @@ comparison always carries its per-person counterpart.
 
 </details>
 
-## The gross-versus-net question
+## Five reviews have raised gross versus net, and none has changed it
 
 <figure class="exhibit" id="e27">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E27-gross-vs-net-deferred-1-of-5-cycles.png"

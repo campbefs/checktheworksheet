@@ -5,7 +5,7 @@ permalink: /findings/hardship-test/
 description: >-
   Worksheet Line 7e tests for hardship by dividing the support order by a gross-derived income
   figure, but the order is paid from net income. At the worked example run throughout this site,
-  the hardship presumption does not kick in until the payor is at 57 percent of net income.
+  the hardship test does not fire until the payor is at 57 percent of net income.
 disclosure:
   - >-
     The worked example throughout (the payor, the $201,000 income, the child care figures) runs
@@ -38,20 +38,20 @@ sections:
 <section class="hero" markdown="1">
 <p class="eyebrow">The hardship test</p>
 
-# The hardship presumption does not kick in until the payor is at 57 percent of net income
+# The hardship test does not fire until the payor is at 57 percent of net income
 
-<p class="lede">Section IV.C presumes hardship once a support order reaches 40 percent of the
-payor's available income. The Worksheet's own test for that threshold divides the order by a
-figure computed before tax, while the order is paid out of what's left after tax.</p>
+<p class="lede">While Section IV.C presumes hardship once a support order reaches 40 percent of the
+payor's income, the Worksheet tests that threshold by dividing the order by a figure computed
+before tax, and the order itself is paid from what's left after tax.</p>
 
-<p class="lede">At the worked example, the presumption does not kick in until the payor is at 57
-percent of net income.</p>
+<p class="lede">At the worked example, the test does not fire until the payor is at 57 percent of
+net income.</p>
 </section>
 
 <div class="numeral-pair numeral-pair--solo">
   <div class="numeral">
     <span class="numeral-value">17</span>
-    <p class="numeral-caption">Point gap, at the worked example, between what Line 7e reports and the payor's true share of net income at the moment the hardship presumption finally kicks in</p>
+    <p class="numeral-caption">Point gap, at the worked example, between what Line 7e reports and the payor's true share of net income at the moment the hardship test finally fires</p>
   </div>
 </div>
 
@@ -65,19 +65,23 @@ percent of net income.</p>
 
 <section id="mechanism" markdown="1">
 
-## Line 7e divides by a pre-tax figure while the order is paid from net income
+## The hardship test divides the order by income measured before tax, while the order is paid after tax
 
 Worksheet Line 7e divides Line 7d (the presumptive order) by Line 3a (available income) and flags
-the result once it reaches 40 percent, triggering Section IV.C's rebuttable presumption of hardship.
-Line 3a is gross income minus a short list of specific deductions: existing support orders, and
-health and dental premiums for the children. Not one of them is a tax. Line 7e answers a question
-about spendable income with a figure that carries no tax adjustment at all.
+the result once it reaches 40 percent, triggering Section IV.C's rebuttable presumption of
+hardship. Line 3a is gross income minus a short list of specific deductions, existing support
+orders and health and dental premiums for the children, and not one of them is a tax. So Line 7e
+answers a question about spendable income with a figure that carries no tax adjustment at all.
+
+While federal law requires every order to rest on what a parent can actually pay, this is the
+Worksheet's one test for that, and it measures the wrong income. [See why that puts Massachusetts
+out of compliance with federal law](/findings/federal-law/).
 
 </section>
 
 <section id="exhibits" markdown="1">
 
-## The blind spot holds across the child care range and across the income range
+## The gap holds at every income level and every level of child care claimed
 
 {% include figure.html
    id="e05"
@@ -131,11 +135,12 @@ week. (Source: `model/runs/submission-figures-run-2026-09-09.txt`, printed by
 
 <section id="caveats" markdown="1">
 
-## Limits
+## This is one worked example, and per person the payor still holds more almost everywhere
 
-<p class="caveat">The presumption does eventually fire, 17 points late. $1,290 a week for three children is
-the statutory ceiling on allowable child care, not a typical claim. This is one worked example, and
-how often actual claims sit near that benchmark isn't known from anything in this repository.</p>
+<p class="caveat">The presumption does eventually fire, 17 points late, at $1,290 a week for three
+children, the statutory ceiling on allowable child care and not a typical claim. This is one
+worked example, and how often actual claims sit near that benchmark is not known from anything in
+this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Across the full grid behind the heatmap
 above, the payor holds more per person than the recipient's household in 98.9 percent (1,134 of

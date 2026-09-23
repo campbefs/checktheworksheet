@@ -19,15 +19,22 @@ disclosure:
 
 # Mission
 
-This project asks the Commonwealth to correct the arithmetic in its child support Worksheet.
+The Massachusetts child support guidelines do not comply with federal law. Federal law requires
+every order to rest on the parent's ability to pay, and while the Guidelines recite that standard,
+the Worksheet that applies it never computes what a parent keeps after tax. With child care
+claimed, that produces orders the Commonwealth cannot lawfully collect. This project asks the
+Commonwealth to correct that and states the fix on the
+[federal law page](/findings/federal-law/).
 
-Massachusetts reviews its guidelines every four years, and those reviews are real work. Economists
-compare the order amounts against child cost benchmarks and against what other states order, and
-the question of gross income against net has been raised in review after review.
+Massachusetts also has the highest child support in the nation for joint custody, and joint custody
+here costs more than primary custody in 47 states.
 
-None of them examines the Worksheet itself: the steps the form performs to turn two incomes into a
-presumptive order. Those steps decide what a parent pays, and they appear in no guidelines text and
-in no published review.
+Both problems trace to the same place: the Worksheet's own arithmetic, the steps the form performs
+to turn two incomes into a presumptive order. Massachusetts reviews its guidelines every four
+years, and those reviews are real work. Economists compare the order amounts against child cost
+benchmarks and against what other states order, and the question of gross income against net has
+been raised in review after review. None of them examines the Worksheet itself, and its steps
+appear in no guidelines text and in no published review.
 
 That gap is where every finding on this site comes from. Each figure is published with the code
 that produced it, so a reader can check the arithmetic instead of taking a position on trust.

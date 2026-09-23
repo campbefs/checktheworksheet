@@ -748,6 +748,8 @@
       if (cells.true_pct_net) {
         cells.true_pct_net.textContent = pct1(active.true_pct_net);
         cells.true_pct_net.classList.toggle('is-warning', active.true_pct_net >= 0.40);
+        // 2026-09-23: over 40% of take-home pay turns the figure red, not just accented.
+        cells.true_pct_net.classList.toggle('is-over40', active.true_pct_net >= 0.40);
       }
       if (cells.payor_after) cells.payor_after.textContent = money(active.payor_after);
       if (cells.recip_after) {
@@ -878,6 +880,7 @@
       setBadge('hardship', active.true_pct_net >= 0.40,
         'The order takes ' + pct1(active.true_pct_net) + ' of the payor’s net income, past the 40 percent '
         + 'the Guidelines call a hardship.', '');
+      if (badges.hardship) badges.hardship.classList.toggle('is-over40', active.true_pct_net >= 0.40);
 
       // -- Child care section: reveal the body in place directly under the control, and keep the
       // heading's state text (and the "with child care" radio's aria-expanded) honest. --
