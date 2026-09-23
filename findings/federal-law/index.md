@@ -92,10 +92,15 @@ Congress caps what may be withheld from a paycheck for child support at 50 perce
 pay, or 60 percent for a parent with no second family to support, 15 U.S.C. § 1673(b)(2). This site
 calls the 50 percent line the federal ceiling.
 
+That ceiling limits collection, not the order. No federal rule limits how large an order may be,
+so a court can order more than an employer may withhold, and the rest is still owed. The only
+federal rule on the order itself is the ability-to-pay requirement, and it never says what ability
+to pay is.
+
 With $100 a week of child care claimed per child, well under the $430 the Guidelines allow, 40% of
 income pairs produce a three-child primary-custody order over the federal ceiling. At the
-Guidelines' own limit of $430 a child, every pair crosses it, and the order reaches 186 percent of
-take-home pay, nearly twice what the parent brings home.
+Guidelines' own limit of $430 a child, every pair crosses it, and at its highest
+the order reaches 186 percent of take-home pay, nearly twice what the parent brings home.
 
 {% include figure.html
    id="e29"
@@ -157,10 +162,11 @@ example it stays silent until the order is taking 56.9 percent of take-home pay.
 
 <section id="fix" markdown="1">
 
-## The fix is a ceiling on net pay, and relief for parents paying under the current Guidelines
+## The fix is a federal definition of ability to pay, with a limit for primary and for joint custody
 
-A presumptive order should never take more than 40 percent of the payor's net pay, child care
-included, and never more than 25 percent in joint custody. The 40 percent is Massachusetts's own
+Federal law should define ability to pay as the payor's net pay less the child care he pays
+himself, because both come out of the same paycheck. A presumptive order, child care included,
+should never take more than 40 percent of it, and never more than 25 percent in joint custody. The 40 percent is Massachusetts's own
 hardship threshold, applied to the income the order is actually paid from. Federal law already
 requires a floor of this kind for a low earner and leaves the method to the state,
 § 302.56(c)(1)(ii), so a ceiling at the top is the same kind of rule.

@@ -51,11 +51,13 @@ petition is built on.
 
 <div class="accordion" markdown="0">
 <details class="ask" markdown="1" id="ask-federal-net-pay-caps">
-<summary><span class="ask-head"><span class="ask-title">Cap every state's order at 40 percent of net pay, and 25 percent in joint custody</span><span class="effect">No dollar change by itself. The recommendations below apply both numbers to Massachusetts.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Define ability to pay federally, and cap every state's order at 40 percent of it, 25 percent in joint custody</span><span class="effect">No dollar change by itself. The recommendations below apply both numbers to Massachusetts.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
 
-Federal law sets no cap on a presumptive order. The petition asks the U.S.
-Department of Health and Human Services to cap it: 40 percent of the payor's net pay in general,
-and 25 percent where each parent has the child at least a third of the time. Both numbers already
+Federal law sets no cap on a presumptive order. It requires the order to rest on ability to pay
+and never defines the term. The petition asks the U.S. Department of Health and Human Services to
+define it as the payor's net pay less the child care he pays himself, and to cap the order at 40
+percent of it in general and 25 percent where each parent has the child at least a third of the
+time. Both numbers already
 exist in Massachusetts's own rules. Section IV.C calls 40 percent of income a hardship, and the
 [hardship](#ask-hardship-ceiling) and [joint custody](#ask-joint-custody-ceiling) recommendations
 below ask Massachusetts to apply those same two numbers to net pay rather than gross.
@@ -145,14 +147,14 @@ analysis. The date already exists. The ask is where it is written down.
 </details>
 
 <details class="ask" markdown="1" id="ask-federal-relief">
-<summary><span class="ask-head"><span class="ask-title">Let a parent paying under the current Guidelines ask for immediate relief</span><span class="effect">An order could ask to be capped now, at 40 percent of net pay under primary custody or 25 percent in joint custody, without showing any other change in circumstances.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Let a parent paying under the current Guidelines ask for immediate relief</span><span class="effect">An order could ask to be capped now, at 40 percent of ability to pay under primary custody or 25 percent in joint custody, without showing any other change in circumstances.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
 
 Today an order can be reviewed only back to whatever the guidelines currently allow, 42 U.S.C.
 § 666(a)(10). For a guideline that does not comply with federal law, that checks the order against
 the same rule that produced it, which is no review at all. The petition asks the Department to let
 any parent whose order was set under guidelines it finds do not comply ask for an immediate
 reduction, without showing any other change in circumstances, to what the corrected rule allows:
-no more than 40 percent of net pay, and no more than 25 percent in joint custody. Both numbers are
+no more than 40 percent of ability to pay, and no more than 25 percent in joint custody. Both numbers are
 the two caps above, applied now rather than only once a state corrects its guidelines.
 </details>
 
