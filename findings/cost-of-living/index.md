@@ -123,7 +123,7 @@ the top of the chart while the costliest places sit well below it.
 
 <section id="limits" markdown="1">
 
-## One family, one year of prices, and a price index that includes housing
+## One family, one year of prices, and a cost-of-living measure that includes housing
 
 <p class="caveat">Every order here is for one family at one set of incomes, the worked example
 this site uses throughout, so the comparison shows how each state treats that family and does not

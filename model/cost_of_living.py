@@ -54,7 +54,7 @@ def rows():
 
 
 def costlier():
-    """Massachusetts, and every place whose price level is at or above it, costliest first."""
+    """Massachusetts, and every place whose cost of living is at or above it, costliest first."""
     rs = rows()
     ma = next(r for r in rs if r["state"] == "Massachusetts")
     return ma, [r for r in rs if r["rpp"] >= ma["rpp"] and r["state"] != "Massachusetts"]
@@ -83,9 +83,9 @@ def state(name, field):
 
 def main():
     ma, up = costlier()
-    print(f"{'State':22} {'Price level':>11} {'Equal time':>11} {'Primary':>9}")
+    print(f"{'State':22} {'Cost of living':>14} {'Equal time':>11} {'Primary':>9}")
     for r in [ma] + up:
-        print(f"{r['state']:22} {r['rpp']:11.1f} ${r['equal']:>9,.0f} ${r['primary']:>8,.0f}")
+        print(f"{r['state']:22} {r['rpp']:14.1f} ${r['equal']:>9,.0f} ${r['primary']:>8,.0f}")
     for k, v in facts().items():
         print(f"  {k}: {v}")
 
