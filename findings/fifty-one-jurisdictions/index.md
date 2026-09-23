@@ -438,7 +438,8 @@ Columbia scores 109.9, New Jersey scores 108.8, New York scores 107.9, and Washi
 Every one of those six orders less than Massachusetts at equal parenting time. If cost of living
 set the ranking, the six most expensive places in the country would sit above Massachusetts, not
 below it. (Source: Bureau of Economic Analysis, Regional Price Parities by State, 2024, released
-February 19, 2026.)
+February 19, 2026.) [The cost-of-living page](/findings/cost-of-living/) sets the six side by side,
+at equal time and at primary custody.
 
 <figure class="exhibit" id="e17">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"

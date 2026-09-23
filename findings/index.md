@@ -123,7 +123,7 @@ at primary custody.
    source_script="model/charts/fig5_states.py"
    csv_href="/figures/working/fig5_states.csv" %}
 
-[Read the full finding →](/findings/fifty-one-jurisdictions/)
+[Read the full finding →](/findings/fifty-one-jurisdictions/) · [Why cost of living does not explain it →](/findings/cost-of-living/)
 
 ## 5. The hardship test measures gross income when it should measure net
 

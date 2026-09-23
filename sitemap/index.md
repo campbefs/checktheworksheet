@@ -16,6 +16,9 @@ description: Every page here, with a one-line purpose for each.
   <li class="doc-item"><span class="doc-title"><a href="/findings/federal-law/">Federal law</a></span>
     <span class="doc-context">The Massachusetts child support guidelines do not comply with
       federal law.</span></li>
+  <li class="doc-item"><span class="doc-title"><a href="/findings/cost-of-living/">Cost of living</a></span>
+    <span class="doc-context">Every place that costs more to live in than Massachusetts orders less
+      at equal parenting time.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/recommendations/">Recommendations</a></span>
     <span class="doc-context">What federal law should require of every state, then the twelve
       changes the Massachusetts Worksheet needs.</span></li>

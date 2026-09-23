@@ -56,6 +56,8 @@ comparison always carries its per-person counterpart.
 25. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
 26. [Five reviews have taken up gross versus net. None changed it.](#e27)
 27. [The order passes 40 percent of net pay in 473 of 1,147 income combinations.](#e28)
+28. [Every place that costs more to live in than Massachusetts orders less at equal time.](#e32)
+29. [Massachusetts orders the most at equal time, and it is not the most expensive place to live.](#e33)
 
 ## With child care claimed, the Worksheet sets orders the Commonwealth cannot lawfully collect
 
@@ -999,6 +1001,28 @@ argument.</p>
   </div>
 
 </details>
+
+The cost-of-living defence, tested on [its own page](/findings/cost-of-living/):
+
+{% include figure.html
+   id="e32"
+   img="/figures/exhibits/E32-costlier-states-order-less.png"
+   alt="Grouped bar chart of the monthly order at equal time and at primary custody for Massachusetts and the six places with a higher cost of living, with a line marking Massachusetts's equal-time order."
+   title="Every place that costs more to live in than Massachusetts orders less at equal time."
+   deck="Monthly order at the same incomes, costliest place first, at equal time and at primary custody."
+   notes="Cost of living: BEA Regional Price Parities 2024, all items, U.S. average 100."
+   source_script="model/cost_of_living.py"
+   csv_href="/figures/working/fig13_cost_of_living.csv" %}
+
+{% include figure.html
+   id="e33"
+   img="/figures/exhibits/E33-cost-of-living-vs-equal-time-order.png"
+   alt="Scatter plot of each state's 2024 cost of living against its monthly equal-time order for the same family, with Massachusetts marked at the top."
+   title="Massachusetts orders the most at equal time, and it is not the most expensive place to live."
+   deck="Each dot is one state: its cost of living against its equal-time order for the same family."
+   notes="Georgia is held out of the fifty-state comparison."
+   source_script="model/cost_of_living.py"
+   csv_href="/figures/working/fig13_cost_of_living.csv" %}
 
 ## Five reviews have raised gross versus net, and none has changed it
 
