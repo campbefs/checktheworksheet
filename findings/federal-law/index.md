@@ -92,7 +92,8 @@ Congress caps what may be withheld from a paycheck for child support at 50 perce
 pay, or 60 percent for a parent with no second family to support, 15 U.S.C. § 1673(b)(2). This site
 calls the 50 percent line the federal ceiling.
 
-That ceiling limits collection, not the order. No federal rule limits how large an order may be,
+The Worksheet has no line for the payor's household, so it cannot tell which of the two ceilings
+applies to the order it sets. That ceiling limits collection, not the order. No federal rule limits how large an order may be,
 so a court can order more than an employer may withhold, and the rest is still owed. The only
 federal rule on the order itself is the ability-to-pay requirement, and it never says what ability
 to pay is.
@@ -108,7 +109,7 @@ the order reaches 186 percent of take-home pay, nearly twice what the parent bri
    alt="Line chart of the share of 1,147 income pairs whose order is above the federal withholding ceiling, as child care claimed rises from $0 to $430 per child per week, for primary custody and for joint custody at equal time."
    title="With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect."
    deck="Share of income pairs whose order is above the federal ceiling, by child care claimed per child per week."
-   notes="Three children. Federal ceiling: 50 percent of take-home pay, 15 U.S.C. § 1673(b)(2). At $100 a child, 40 percent of pairs cross it under primary custody."
+   notes="Three children. Federal ceiling, 15 U.S.C. § 1673(b)(2), shown as a band: 50 percent of take-home pay for a payor with a second family, 60 percent for one without. At $100 a child, 40 percent of pairs cross the 50 percent line under primary custody."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_share.csv"
    lazy="false" %}
@@ -122,7 +123,7 @@ $60,000 to $100,000 against another parent with little or no income.
    alt="Line chart of the order as a share of the payor's take-home pay across payor incomes from $50,000 to $300,000, with no child care and at $100, $200 and $430 per child per week, against a line for the federal ceiling at 50 percent."
    title="The more child care is claimed, the further the order goes over the federal ceiling."
    deck="The order as a share of the payor's take-home pay, three children, the other parent primary, the other parent earning $29,640 a year."
-   notes="The red line is the federal ceiling, 50 percent of take-home pay. Take-home pay is after federal and state income tax, Social Security and Medicare."
+   notes="The shaded band is the federal ceiling: 50 percent of take-home pay for a payor with a second family, 60 percent for one without. Take-home pay is after federal and state income tax, Social Security and Medicare."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_by_income.csv" %}
 
@@ -132,7 +133,7 @@ $60,000 to $100,000 against another parent with little or no income.
    alt="Grid of 1,147 income pairs, payor income across and other parent's income up, shaded where the order at $100 of child care per child is over the federal ceiling."
    title="At $100 a child, 40 percent of income pairs produce an order over the federal ceiling."
    deck="Each square is one pair of incomes: the Worksheet's order with $300 a week of child care claimed for three children, primary custody."
-   notes="Red squares are over the federal ceiling, 50 percent of take-home pay. Hatched squares are pairs where the other parent would be the higher earner."
+   notes="Dark squares are over both federal ceilings (60 percent); light squares are over the 50 percent ceiling that applies to a payor with a second family. Hatched squares are pairs where the other parent would be the higher earner."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_grid.csv" %}
 

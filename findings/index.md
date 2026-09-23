@@ -47,7 +47,7 @@ child care claimed, none do.
    alt="Grid of 1,147 income pairs, payor income across and other parent's income up, shaded where the order at $100 of child care per child is over the federal ceiling."
    title="At $100 a child, 40 percent of income pairs produce an order over the federal ceiling."
    deck="Each square is one pair of incomes: the Worksheet's order with $300 a week of child care claimed for three children, primary custody."
-   notes="Red squares are over the federal ceiling, 50 percent of take-home pay. Hatched squares are pairs where the other parent would be the higher earner."
+   notes="Dark squares are over both federal ceilings (60 percent); light squares are over the 50 percent ceiling that applies to a payor with a second family. Hatched squares are pairs where the other parent would be the higher earner."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_grid.csv"
    lazy="false" %}

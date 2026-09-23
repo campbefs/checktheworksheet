@@ -72,7 +72,7 @@ argument.</p>
    alt="Line chart of the share of 1,147 income pairs whose order is above the federal withholding ceiling, as child care claimed rises from $0 to $430 per child per week, for primary custody and for joint custody at equal time."
    title="With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect."
    deck="Share of income pairs whose order is above the federal ceiling, by child care claimed per child per week."
-   notes="Three children. The federal ceiling is 50 percent of take-home pay, 15 U.S.C. § 1673(b)(2). At $100 a child, 40 percent of pairs cross it under primary custody."
+   notes="Three children. Federal ceiling, 15 U.S.C. § 1673(b)(2), shown as a band: 50 percent of take-home pay for a payor with a second family, 60 percent for one without. At $100 a child, 40 percent of pairs cross the 50 percent line under primary custody."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_share.csv"
    lazy="false" %}
@@ -83,7 +83,7 @@ argument.</p>
    alt="Line chart of the order as a share of the payor's take-home pay across payor incomes from $50,000 to $300,000, with no child care and at $100, $200 and $430 per child per week, against the federal ceiling of 50 percent of take-home pay."
    title="The more child care is claimed, the further the order goes over the federal ceiling."
    deck="The order as a share of the payor's take-home pay, three children, the other parent primary, the other parent earning $29,640 a year."
-   notes="The red line is the federal ceiling, 50 percent of take-home pay. Take-home pay is after federal and state income tax, Social Security and Medicare."
+   notes="The shaded band is the federal ceiling: 50 percent of take-home pay for a payor with a second family, 60 percent for one without. Take-home pay is after federal and state income tax, Social Security and Medicare."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_by_income.csv" %}
 
@@ -93,7 +93,7 @@ argument.</p>
    alt="Grid of 1,147 income pairs, payor income across and other parent's income up, shaded where the order at $100 of child care per child is over the federal ceiling."
    title="At $100 a child, 40 percent of income pairs produce an order over the federal ceiling."
    deck="Each square is one pair of incomes: the Worksheet's order with $300 a week of child care claimed for three children, primary custody."
-   notes="Orange squares are over the federal ceiling. Hatched squares are pairs where the other parent would be the higher earner."
+   notes="Dark squares are over both federal ceilings (60 percent); light squares are over the 50 percent ceiling that applies to a payor with a second family. Hatched squares are pairs where the other parent would be the higher earner."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_grid.csv" %}
 
