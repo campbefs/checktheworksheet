@@ -171,6 +171,11 @@ hardship threshold, applied to the income the order is actually paid from. Feder
 requires a floor of this kind for a low earner and leaves the method to the state,
 § 302.56(c)(1)(ii), so a ceiling at the top is the same kind of rule.
 
+Three jurisdictions already cap
+the order itself: Delaware at 50 percent of net income, Washington at 45 percent of net income, and
+the District of Columbia at 35 percent of adjusted gross income with child care included. No state
+checks the order against the federal withholding ceiling when it sets it.
+
 Parents paying orders set under the current Guidelines should be able to ask for an immediate
 reduction to what the corrected rule allows, without showing any other change in circumstances.
 Today an order can only be reviewed back to the Guidelines, 42 U.S.C. § 666(a)(10), which for a
