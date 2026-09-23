@@ -37,4 +37,12 @@ for st, v in [("California", 110.7), ("Hawaii", 110.0), ("District of Columbia",
               ("New York", 107.9), ("Washington", 107.0), ("Maryland", 105.0), ("New Hampshire", 104.2),
               ("Connecticut", 103.6)]:
     check(f"{st} cost of living is {v}", round(c.state(st, "rpp"), 1) == v)
+# The parenting-time page's "9 of 50": states whose equal-time order equals their one-third-time order.
+import json  # noqa: E402
+tier = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                   "data", "fifty-state", "tier-50-2026-09-05.json")))
+same = sorted(r["state"] for r in tier if abs(r["s1"] - r["s2"]) < 1 and r["state"] != "Massachusetts")
+check("nine states order the same at equal time as at one-third",
+      same == sorted(["Connecticut", "Maine", "Missouri", "New Hampshire", "New Jersey", "New York",
+                      "Ohio", "Texas", "Washington"]))
 print(f"All checks passed ({n}).")
