@@ -19,10 +19,23 @@ theme.apply("light"); P = theme.P
 EXHIBITS = os.path.join(ROOT, "output", "charts", "exhibits")
 SHORT = {"District of Columbia": "D.C."}
 PAIRS = [("Children", "3"), ("Child care", "None (base support)"), ("Incomes", "\\$201,000 / \\$29,640")]
-SRC = "BEA Regional Price Parities 2024; data/fifty-state/tier-50-2026-09-05.json"
+SRC = "Cost of living: BEA Regional Price Parities 2024. Orders: the fifty-jurisdiction comparison at the worked example."
 
 
-def bars():
+# Site colours, and a black-and-white set for the printed petition (monochrome laser).
+SITE = None   # filled from the theme palette in _pal()
+PRINT = dict(eq="#9a9a9a", pr="#111111", ma="#111111", dot="#8a8a8a", text2="#333333", mute="#666666")
+
+
+def _pal(mode):
+    if mode == "print":
+        return PRINT
+    return dict(eq=P["series"][0], pr=P["series"][3], ma=P["series"][1], dot=P["series"][0],
+                text2=P["text_2"], mute=P["text_mute"])
+
+
+def bars(path=None, mode="site"):
+    c = _pal(mode)
     ma, up = col.costlier()
     rs = [ma] + up
     rs = sorted(rs, key=lambda r: r["rpp"])          # costliest at the top of a barh
@@ -30,12 +43,12 @@ def bars():
     fig.subplots_adjust(left=0.33, right=0.96, top=0.74, bottom=0.2)
     h = 0.36
     y = list(range(len(rs)))
-    eq_c, pr_c = P["series"][0], P["series"][3]
+    eq_c, pr_c = c["eq"], c["pr"]
     ax.barh([i + h / 2 for i in y], [r["equal"] for r in rs], height=h, color=eq_c, label="Joint custody, equal time")
     ax.barh([i - h / 2 for i in y], [r["primary"] for r in rs], height=h, color=pr_c, label="Other parent has primary custody")
-    ax.axvline(ma["equal"], color=P["series"][1], lw=1.4, ls=(0, (4, 3)))
+    ax.axvline(ma["equal"], color=c["ma"], lw=1.4, ls=(0, (4, 3)))
     ax.text(ma["equal"] + 60, len(rs) - 0.45, "Massachusetts at equal time", fontsize=8.5,
-            color=P["series"][1], va="top")
+            color=c["ma"], va="top")
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:,.0f}"))
     ax.set_xlim(0, max(r["primary"] for r in rs) * 1.1)
     ax.set_ylim(-0.7, len(rs) - 0.3)
@@ -56,30 +69,31 @@ def bars():
     ax.set_yticklabels([f"{SHORT.get(r['state'], r['state'])}  (cost of living {r['rpp']:.1f})" for r in rs], fontsize=9)
     for lbl, r in zip(ax.get_yticklabels(), rs):
         if r["state"] == "Massachusetts":
-            lbl.set_fontweight("bold"); lbl.set_color(P["series"][1])
+            lbl.set_fontweight("bold"); lbl.set_color(c["ma"])
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:,.0f}"))
-    theme.save(fig, os.path.join(EXHIBITS, "E32-costlier-states-order-less.png"))
+    return theme.save(fig, path or os.path.join(EXHIBITS, "E32-costlier-states-order-less.png"))
 
 
-def scatter():
+def scatter(path=None, mode="site"):
+    c = _pal(mode)
     rs = col.rows()
     ma = next(r for r in rs if r["state"] == "Massachusetts")
     fig, ax = theme.figure(8.6, 6.0)
     fig.subplots_adjust(left=0.12, right=0.96, top=0.74, bottom=0.14)
     others = [r for r in rs if r["state"] != "Massachusetts"]
-    ax.scatter([r["rpp"] for r in others], [r["equal"] for r in others], s=34, color=P["series"][0], alpha=0.85,
+    ax.scatter([r["rpp"] for r in others], [r["equal"] for r in others], s=34, color=c["dot"], alpha=0.85,
                label="Other states", zorder=2)
-    ax.scatter([ma["rpp"]], [ma["equal"]], s=80, color=P["series"][1], zorder=3)
+    ax.scatter([ma["rpp"]], [ma["equal"]], s=80, color=c["ma"], zorder=3)
     ax.annotate("Massachusetts", xy=(ma["rpp"], ma["equal"]), xytext=(ma["rpp"] - 7.5, ma["equal"] + 150),
-                fontsize=9, fontweight="bold", color=P["series"][1],
-                arrowprops=dict(arrowstyle="-", color=P["series"][1], lw=0.8))
+                fontsize=9, fontweight="bold", color=c["ma"],
+                arrowprops=dict(arrowstyle="-", color=c["ma"], lw=0.8))
     _, up = col.costlier()
     for r in up:
         ax.annotate(SHORT.get(r["state"], r["state"]), xy=(r["rpp"], r["equal"]), xytext=(4, -3),
-                    textcoords="offset points", fontsize=8, color=P["text_2"])
-    ax.axvline(ma["rpp"], color=P["text_mute"], lw=0.8, ls=(0, (3, 3)), zorder=1)
+                    textcoords="offset points", fontsize=8, color=c["text2"])
+    ax.axvline(ma["rpp"], color=c["mute"], lw=0.8, ls=(0, (3, 3)), zorder=1)
     ax.text(ma["rpp"] + 0.3, 700, "Costlier than\nMassachusetts",
-            fontsize=8, color=P["text_2"], va="bottom")
+            fontsize=8, color=c["text2"], va="bottom")
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:,.0f}"))
     ax.set_xlabel("Cost of living, 2024 (U.S. average = 100)", labelpad=8)
     ax.set_ylabel("Monthly order at equal time", labelpad=8)
@@ -90,7 +104,13 @@ def scatter():
                  notes="Georgia is held out of the fifty-state comparison. Cost of living: BEA Regional Price Parities, all items.",
                  source=SRC, legend=False)
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:,.0f}"))
-    theme.save(fig, os.path.join(EXHIBITS, "E33-cost-of-living-vs-equal-time-order.png"))
+    return theme.save(fig, path or os.path.join(EXHIBITS, "E33-cost-of-living-vs-equal-time-order.png"))
+
+
+def print_pair(dst):
+    """Black-and-white copies for the printed petition, written into dst. Returns both paths."""
+    return (bars(os.path.join(dst, "E-COL1-costlier-states-order-less.png"), mode="print"),
+            scatter(os.path.join(dst, "E-COL2-cost-of-living-vs-equal-time.png"), mode="print"))
 
 
 def main():
