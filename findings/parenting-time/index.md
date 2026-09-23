@@ -47,10 +47,16 @@ week, or 6.9 percent. The form has no line for parenting time, so the discount c
 gap alone.</p>
 </section>
 
-<div class="numeral-pair numeral-pair--solo">
+<div class="numeral-pair numeral-pair--compare">
   <div class="numeral">
     <span class="numeral-value">6.9%</span>
+    <p class="numeral-caption">What equal parenting time takes off the order in Massachusetts, at the worked example</p>
     <p class="numeral-caption">The equal-parenting discount at the worked example, an 87.7 percent payor income share, down from 77.6 percent at a 56.3 percent share</p>
+  </div>
+  <span class="numeral-arrow" aria-hidden="true" style="align-self:flex-start;margin-top:2.2rem">vs</span>
+  <div class="numeral">
+    <span class="numeral-value">55%</span>
+    <p class="numeral-caption">What it takes off in Utah at the same incomes. Montana 52%, Hawaii 52%, Minnesota 48%</p>
   </div>
 </div>
 

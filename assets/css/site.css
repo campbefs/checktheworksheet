@@ -285,6 +285,11 @@ header.topbar { border-bottom: 1px solid var(--rule); }
    172px wide and SEVEN lines deep, measured 2026-09-11 on the fifty-jurisdictions page, which read
    as a broken column rather than a caption. A solo numeral has the row to itself. */
 .numeral-pair--solo .numeral-caption { max-width: 52ch; }
+/* Two figures compared side by side (2026-09-23): numbers top-aligned so captions of different
+   lengths cannot push one number lower than the other. */
+.numeral-pair--compare { align-items: flex-start; }
+.numeral-pair--compare .numeral-caption { max-width: 34ch; }
+.numeral-pair--compare .numeral-arrow { align-self: center; }
 
 /* A .confidence-tag sitting directly in `article.finding` has no container to give it a width or
    padding: measured left:0, hard against the viewport edge, while the content column began at 320.
@@ -305,6 +310,7 @@ article.finding > .confidence-tag {
 @media (max-width: 700px) {
   .numeral-pair { padding: 0 var(--space-5); gap: var(--space-5); }
   .numeral-arrow { transform: rotate(90deg); }
+  .numeral-pair--compare .numeral-arrow { display: none; }
 }
 
 /* ---- 5. Disclosure: visible prose, not a footnote ----------------------- */
