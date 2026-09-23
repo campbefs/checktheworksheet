@@ -172,7 +172,7 @@ requires a floor of this kind for a low earner and leaves the method to the stat
 § 302.56(c)(1)(ii), so a ceiling at the top is the same kind of rule.
 
 Three jurisdictions already cap
-the order itself: Delaware at 50 percent of net income, Washington at 45 percent of net income, and
+the order itself: Delaware at 50 percent of available income, Washington at 45 percent of net income, and
 the District of Columbia at 35 percent of adjusted gross income with child care included. No state
 checks the order against the federal withholding ceiling when it sets it.
 
