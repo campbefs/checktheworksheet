@@ -707,7 +707,12 @@ article table tbody tr:last-child { border-bottom: 0; }
    becoming a page-level horizontal scrollbar, which reads as a broken site. Same treatment the
    fifty-jurisdictions page already gets from its `.table-scroll` wrapper, without needing one. */
 @media (max-width: 700px) {
-  .page > table, .content-col > table { display: block; overflow-x: auto; max-width: 100%; }
+  .page > table, .content-col > table,
+  .content-col > section > table { display: block; overflow-x: auto; max-width: 100%; }
+  /* 2026-09-24 QA: kramdown wraps a finding page's sections, so the cost-of-living table sat one
+     level below .content-col and overflowed a 320px screen by 52px. */
+  .table-filter, .table-finder { flex-wrap: wrap; }
+  .table-filter input, .table-finder select { min-width: 0; width: 100%; max-width: 100%; }
   /* A long path in inline code (`model/test_childcare_post_transfer.py`) is one unbreakable
      token and pushed the page 6px sideways on its own after the table stopped doing it. */
   code { overflow-wrap: anywhere; }
