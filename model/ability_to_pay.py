@@ -103,7 +103,7 @@ def cross_credit_post_transfer(payor_cc_total=300.0, recip_cc_total=300.0):
     """The cross-credit with child care split the way the Comments ask (section 2, "split on the money
     each parent has after the order"): each parent's share of ALL child care is that parent's share of
     net pay (withholding basis) after the base order moves between them, and each is credited with what
-    he or she pays. Added 2026-09-25 (Chris: "Childcare should be split based on the money after the
+    he or she pays. Added 2026-09-25 ("Childcare should be split based on the money after the
     order for both parties"). Same one-step convention as model/childcare_post_transfer.py rule 5."""
     import net_position as npos
     base = cross_credit_worked(0.0, 0.0)["order_weekly"]
