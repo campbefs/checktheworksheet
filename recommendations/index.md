@@ -99,7 +99,7 @@ in child support orders that it sought to create," and removed it. The 2025 Guid
 same pricing back as a deviation. A rule a state has removed once and restored once cannot be
 relied on to hold the line on its own.
 
-The petition asks federal law to set the definition instead, and to require the method 21
+The petition asks federal law to set the definition instead, and to require the method 19
 jurisdictions already use, the cross-credit formula at the standard 1.5 multiplier. Once a parent
 has the child at least a third of the time, the formula would apply as equal time across the whole
 range, with no further adjustment for the exact split. [How the cross-credit works, and which

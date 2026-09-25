@@ -3,7 +3,7 @@ layout: finding
 title: Most states price joint custody with one formula, and Massachusetts does not use it
 permalink: /findings/shared-parenting-formula/
 description: >-
-  Twenty states and the District of Columbia price joint custody with the cross-credit
+  Eighteen states and the District of Columbia price joint custody with the cross-credit
   formula. At the worked example it orders $701 a week where Massachusetts orders $1,013. It should
   be the national standard for joint custody.
 disclosure:
@@ -37,7 +37,7 @@ sections:
 
 # Most states price joint custody with one formula, and Massachusetts does not use it
 
-<p class="lede">While 20 states and the District of Columbia price joint custody with the cross-credit formula, which credits
+<p class="lede">While 18 states and the District of Columbia price joint custody with the cross-credit formula, which credits
 each parent for the time they house the children, Massachusetts has no parenting-time term at all.
 For the same family that formula orders $701 a week at equal time, and Massachusetts orders
 $1,013.</p>
@@ -72,7 +72,7 @@ costs two households both carry, splits the larger amount between the parents by
 each parent for the share of time the children spend with the other, and has the parent who owes
 more pay the difference.
 
-It is the method most states already use. A 2020 survey of state guidelines found it in 23
+It is the most common shared-parenting formula. A 2020 survey of state guidelines found it in 23
 states and found no other method in use in more than two, Oldham and Venohr, 54 Fam. L.Q. 141, 152.
 
 </section>
@@ -117,25 +117,23 @@ other parent has the children full time.
 
 <section id="states" markdown="1">
 
-## Twenty states and the District of Columbia use the cross-credit today, and four more states use a version of it
+## Eighteen states and the District of Columbia use the cross-credit today, and four more states use a version of it
 
-Read from each state's current guideline. Four rows rest on a secondary source and are marked.
+Read from each state's current guideline.
 
 | State | Added for shared costs | Applies from |
 |---|---|---|
 | Alabama | 50% | About equal time |
 | Alaska | 50% | 30% of the year |
-| Arkansas | Not stated in the text read | About equal time |
 | Colorado | 50% until March 2026, then a table | 93 overnights until March 2026, then from one overnight |
 | District of Columbia | 50% | 35% of the year |
 | Florida | 50% | 73 overnights |
 | Idaho | 50% | More than 25% of overnights |
-| Illinois | 50% | 146 overnights (secondary source) |
+| Illinois | 50% | 146 overnights (110 from January 2027) |
 | Maryland | 50% | 92 overnights |
-| Mississippi | Not stated | Equal time (secondary source) |
 | Montana | No flat amount | 110 days |
-| Nebraska | 50% | More than 142 days (secondary source) |
-| New Mexico | 50% | 35% of the year (secondary source) |
+| Nebraska | 50% | More than 142 days |
+| New Mexico | 50% | 35% of the year |
 | North Carolina | 50% | 123 overnights |
 | Oklahoma | 100%, 75% or 50%, falling as time rises | 121 overnights |
 | South Carolina | 50% | 110 overnights |
@@ -174,9 +172,9 @@ overnights instead.
 ## One family at one set of incomes, and a count that depends on the definition
 
 <p class="caveat">Every dollar figure is for one family, the worked example, so the page shows how
-the formula treats that one family. The count of 21 jurisdictions depends on the definition.
-Nevada nets each parent's full amount with no charge for time, so it is not counted here, though
-the 2020 survey counts it. North Dakota reduces only one parent's amount and is not counted either.
+the formula treats that one family. The count of 19 jurisdictions depends on the definition.
+Nevada nets each parent's full amount with no charge for time, and so do Arkansas and
+Mississippi, so none of them is counted here, though the 2020 survey counts Nevada. North Dakota reduces only one parent's amount and is not counted either.
 Texas lawyers commonly use the formula in practice, but Texas does not write it into its
 guideline. With $300 a week of child care from each parent, split after the order, the cross-credit still takes
 32.6% of this family's ability to pay, above the 30% interim limit and under the 40% ceiling the
