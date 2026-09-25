@@ -25,7 +25,7 @@ import worksheet as w  # noqa: E402
 import net_caps as nc  # noqa: E402
 import ccpa_grid as cg  # noqa: E402
 
-LIMIT = {1: 0.25, 2: 0.40}          # Box 1 joint custody, Box 2 the other parent has primary custody
+LIMIT = {1: 0.30, 2: 0.40}          # 2026-09-25: joint ceiling 25% -> 30%. Box 1 joint custody, Box 2 the other parent has primary custody
 PAYOR_GROSS = 201000.0
 RECIP_WEEKLY = 570.0
 KIDS = 3

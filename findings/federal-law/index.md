@@ -167,7 +167,7 @@ example it stays silent until the order is taking 56.9 percent of take-home pay.
 
 Federal law should define ability to pay as the payor's net pay less the child care he pays
 himself, because both come out of the same paycheck. A presumptive order, child care included,
-should never take more than 40 percent of it, and never more than 25 percent in joint custody. The 40 percent is Massachusetts's own
+should never take more than 40 percent of it, and never more than 30 percent in joint custody. The 40 percent is Massachusetts's own
 hardship threshold, applied to the income the order is actually paid from. Federal law already
 requires a floor of this kind for a low earner and leaves the method to the state,
 § 302.56(c)(1)(ii), so a ceiling at the top is the same kind of rule.
@@ -216,7 +216,7 @@ that order above the ceiling cannot be withheld from the parent's pay.</p>
     Pins the counts on this page, including that no order crosses any ceiling with no child care
     claimed.</li>
   <li><strong><a href="/model/net_caps.py"><code>model/net_caps.py</code></a></strong>
-    The take-home pay calculation and the 40 and 25 percent ceilings.</li>
+    The take-home pay calculation and the 40 and 30 percent ceilings.</li>
   <li><strong><a href="/figures/working/fig_ceiling_grid.csv">fig_ceiling_grid.csv</a></strong>
     Every income pair behind the grid chart, with its order and share of take-home pay.</li>
 </ul>

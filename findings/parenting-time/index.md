@@ -218,7 +218,7 @@ the same kind of pricing back, as § II.D.4.
 
 Federal law should say what joint custody is, so that no state prices each extra day. Once each
 parent has the child at least a third of the time, one computation should apply across that whole
-range, with no further adjustment for the exact split, and the order capped at 25 percent of net
+range, with no further adjustment for the exact split, and the order capped at 30 percent of net
 pay, the same ceiling the [federal-law finding](/findings/federal-law/#fix) proposes. That is the
 harm the 2017 Commentary already named: parents litigating over an extra day, and child support
 driving the parenting plan.

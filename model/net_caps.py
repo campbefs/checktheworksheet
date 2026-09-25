@@ -56,7 +56,7 @@ from model import worksheet as w
 from model.net_position import net_income_withholding_basis
 
 # The proposal.
-CAP_SHARED = 0.25   # Box 1 and Box 3: the children are with each parent about half the time
+CAP_SHARED = 0.30   # 2026-09-25: ceiling 25% -> 30%. Box 1 and Box 3: the children are with each parent about half the time
 CAP_PRIMARY = 0.40  # Box 2: the children are primarily with one parent
 
 # The worked example that runs through this project's documents.

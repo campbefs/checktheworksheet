@@ -56,7 +56,7 @@ petition is built on.
 Federal law sets no cap on a presumptive order. It requires the order to rest on ability to pay
 and never defines the term. The petition asks the U.S. Department of Health and Human Services to
 define it as the payor's net pay less the child care he pays himself, and to cap every order at 40
-percent of it, with 25 percent in joint custody as an interim limit while the Department reviews
+percent of it, with 30 percent in joint custody as an interim limit while the Department reviews
 the cross-credit method below. Both numbers already
 exist in Massachusetts's own rules. Section IV.C calls 40 percent of income a hardship, and the
 [hardship](#ask-hardship-ceiling) and [joint custody](#ask-joint-custody-ceiling) recommendations
@@ -149,15 +149,15 @@ analysis. The date already exists. The ask is where it is written down.
 </details>
 
 <details class="ask" markdown="1" id="ask-federal-relief">
-<summary><span class="ask-head"><span class="ask-title">Let a parent paying under the current Guidelines ask for immediate relief</span><span class="effect">An order could ask to be capped now, at 40 percent of ability to pay under primary custody or 25 percent in joint custody, without showing any other change in circumstances.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Let a parent paying under the current Guidelines ask for immediate relief</span><span class="effect">An order could ask to be capped now, at 40 percent of ability to pay under primary custody or 30 percent in joint custody, without showing any other change in circumstances.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
 
 Today an order can be reviewed only back to whatever the guidelines currently allow, 42 U.S.C.
 § 666(a)(10). For a guideline that does not comply with federal law, that checks the order against
 the same rule that produced it, which is no review at all. The petition asks the Department to let
 any parent whose order was set under guidelines it finds do not comply ask for an immediate
 reduction, without showing any other change in circumstances, to what the corrected rule allows:
-no more than 40 percent of ability to pay, and no more than 25 percent in joint custody. The 40
-percent is the cap above, applied now. The 25 percent is an interim limit for joint custody until
+no more than 40 percent of ability to pay, and no more than 30 percent in joint custody. The 40
+percent is the cap above, applied now. The 30 percent is an interim limit for joint custody until
 the cross-credit method is in place.
 </details>
 
@@ -305,7 +305,7 @@ which is the scale this recommendation is measured against.
 </details>
 
 <details class="ask" markdown="1" id="ask-joint-custody-ceiling">
-<summary><span class="ask-head"><span class="ask-title">Cap the order at 25 percent of net pay when the parents split time equally</span><span class="effect">Order falls from $1,012.73 to $672.28 a week.</span><span class="tag-kind">Judgement</span><span class="tag-origin">Beyond the comments. No state does this</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Cap the order at 30 percent of net pay when the parents split time equally</span><span class="effect">Order falls from $1,012.73 to $806.73 a week.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 Where the children are with each parent about half the time, both households carry the fixed cost of
 housing them, a bedroom in each home kept year round. Every income-shares state that credits shared
@@ -315,19 +315,21 @@ share of the basic obligation at 50 percent.
 The Massachusetts Worksheet contains no parenting-time quantity in any line, so its credit for equal
 time is only the difference in income shares, and it collapses as the income gap widens.
 
-The position: at equal time the order should not exceed 25 percent of the payor's net pay, against
-40 percent at primary custody.
+The position: at equal time the order should not exceed 30 percent of the payor's net pay, against
+40 percent at primary custody, until the Worksheet prices shared parenting with the cross-credit.
 
-**No state does this, and that should be said first.** The fifty-one jurisdiction corpus behind this
-site contains no state that caps a support order at a share of net income as a general rule. The
+**Two jurisdictions cap the order, and neither sets a lower cap for joint custody.** Washington caps
+any order at 45 percent of net income except for good cause, RCW 26.19.065(1), and the District of
+Columbia at 35 percent of adjusted gross income, child care included, D.C. Code § 16-916.01(n). The
 support for a ceiling in principle, the federal garnishment cap and the Center for Policy Research
 statement quoted in part two, is support for the idea of a net ceiling, not for this number.
 
-**What it would cost, and it is not a backstop.** A 25 percent ceiling reaches 9.6 percent (110 of 1,147) of
-one-child equal-time orders on the published grid, 48.2 percent (553 of 1,147) of two-child orders,
-and 62.2 percent (714 of 1,147) of three-child orders.
+**What it would cost.** A 30 percent ceiling reaches no one-child equal-time order on the published
+grid, 29.1 percent (334 of 1,147) of two-child orders, and 48.8 percent (560 of 1,147) of three-child
+orders.
 At the worked example it would take the order from $1,012.73 a week
-down to $672.28. That is a different schedule for shared custody, and it should be argued as one.
+down to $806.73. For families with two or three children that is a different schedule for shared
+custody, and it should be argued as one.
 
 **Where it bites is the argument for it.** The share of net an order takes is driven by the gap
 between the two incomes, not by either income alone. Holding the higher earner at $201,000 with

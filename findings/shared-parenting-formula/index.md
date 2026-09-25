@@ -161,7 +161,7 @@ things. No state could order more for joint custody, meaning each parent has the
 third of the time, than the cross-credit at the standard 50% produces. A state could keep its own
 method so long as it stays under that line. Every order would be capped at 40%
 of ability to pay. While the Department reviews the method, a joint-custody order would be capped
-at 25%. The comments to the Chief Justice ask Massachusetts to adopt the same formula now.
+at 30%. The comments to the Chief Justice ask Massachusetts to adopt the same formula now.
 
 The petition applies the formula as equal time across the whole joint-custody range, so parents
 have no reason to litigate over each extra night. The states that use it charge by the actual
@@ -179,7 +179,7 @@ Nevada nets each parent's full amount with no charge for time, so it is not coun
 the 2020 survey counts it. North Dakota reduces only one parent's amount and is not counted either.
 Texas lawyers commonly use the formula in practice, but Texas does not write it into its
 guideline. With $300 a week of child care from each parent, split after the order, the cross-credit still takes
-32.6% of this family's ability to pay, above the 25% interim limit and under the 40% ceiling the
+32.6% of this family's ability to pay, above the 30% interim limit and under the 40% ceiling the
 petition keeps on every order.</p>
 
 </section>

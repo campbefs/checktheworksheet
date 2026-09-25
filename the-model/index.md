@@ -47,7 +47,7 @@ actually ask for.
 - [`model/ccpa_grid.py`](/model/ccpa_grid.py): runs the Worksheet across the whole income grid
   and tests each order against the four federal withholding ceilings, 15 U.S.C. § 1673(b)(2).
 - [`model/net_caps.py`](/model/net_caps.py): the take-home pay an order would leave, and what a
-  40 percent (25 percent in joint custody) ceiling on it would change.
+  40 percent (30 percent in joint custody) ceiling on it would change.
 - [`model/submission_figures.py`](/model/submission_figures.py): prints every figure quoted to
   the Trial Court, so none is quoted without a script producing it.
 - [`model/recommendations.py`](/model/recommendations.py): the figures behind the
@@ -63,7 +63,7 @@ actually ask for.
 | [`model/test_box1_fix.py`](/model/test_box1_fix.py) | 258 | The Box 1 credit and its redlines |
 | [`model/test_childcare_post_transfer.py`](/model/test_childcare_post_transfer.py) | 20 | Child care on post-transfer shares |
 | [`model/test_ccpa_grid.py`](/model/test_ccpa_grid.py) | 50 | Orders over the federal withholding ceiling, all four rates |
-| [`model/test_net_caps.py`](/model/test_net_caps.py) | 88 | The 40 and 25 percent net-pay ceilings |
+| [`model/test_net_caps.py`](/model/test_net_caps.py) | 88 | The 40 and 30 percent net-pay ceilings |
 
 ## A harness runs the Commonwealth's own scripts instead of a re-derivation
 

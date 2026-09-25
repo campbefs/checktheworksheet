@@ -134,21 +134,23 @@ check("the 40 percent ceiling does reach three-child primary orders",
       grids[(3, 2)]["over"] > 0 and 0.40 < grids[(3, 2)]["share_over"] < 0.45,
       f"got {grids[(3,2)]['share_over']*100:.1f}% of cells")
 
-check("the 25 percent ceiling reaches most three-child equal-time orders",
-      0.60 < grids[(3, 1)]["share_over"] < 0.65,
+check("the 30 percent ceiling (25 until 2026-09-25) reaches about half of three-child equal-time orders",
+      0.46 < grids[(3, 1)]["share_over"] < 0.51,
       f"got {grids[(3,1)]['share_over']*100:.1f}% of cells")
-check("the 25 percent ceiling reaches about half of two-child equal-time orders",
-      0.45 < grids[(2, 1)]["share_over"] < 0.52,
+check("the 30 percent ceiling reaches under a third of two-child equal-time orders",
+      0.27 < grids[(2, 1)]["share_over"] < 0.31,
       f"got {grids[(2,1)]['share_over']*100:.1f}% of cells")
-check("the 25 percent ceiling reaches few one-child equal-time orders",
+check("the 30 percent ceiling reaches few one-child equal-time orders",
       grids[(1, 1)]["share_over"] < 0.12,
       f"got {grids[(1,1)]['share_over']*100:.1f}% of cells")
 
 # The asymmetry is the finding, so pin it: the shared ceiling is a schedule
 # change and the primary ceiling is a backstop, and no rounding should let
 # those two be described the same way.
-check("the shared ceiling reaches far more of its grid than the primary one does",
-      grids[(3, 1)]["share_over"] > grids[(3, 2)]["share_over"] + 0.15,
+# 2026-09-25: at 30 percent the gap narrowed from about 21 points to about 8, so the pin moved
+# from "far more" (+15) to "more" (+5). The shared ceiling is still the one that reaches further.
+check("the shared ceiling reaches more of its grid than the primary one does",
+      grids[(3, 1)]["share_over"] > grids[(3, 2)]["share_over"] + 0.05,
       f"{grids[(3,1)]['share_over']*100:.1f}% vs {grids[(3,2)]['share_over']*100:.1f}%")
 
 # --- where the ceiling sits relative to the Line 6b allocation --------------
