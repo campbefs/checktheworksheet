@@ -51,13 +51,13 @@ petition is built on.
 
 <div class="accordion" markdown="0">
 <details class="ask" markdown="1" id="ask-federal-net-pay-caps">
-<summary><span class="ask-head"><span class="ask-title">Define ability to pay federally, and cap every state's order at 40 percent of it, 25 percent in joint custody</span><span class="effect">No dollar change by itself. The recommendations below apply both numbers to Massachusetts.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Define ability to pay federally, and cap every state's order at 40 percent of it</span><span class="effect">No dollar change by itself. The recommendations below apply the number to Massachusetts.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
 
 Federal law sets no cap on a presumptive order. It requires the order to rest on ability to pay
 and never defines the term. The petition asks the U.S. Department of Health and Human Services to
-define it as the payor's net pay less the child care he pays himself, and to cap the order at 40
-percent of it in general and 25 percent where each parent has the child at least a third of the
-time. Both numbers already
+define it as the payor's net pay less the child care he pays himself, and to cap every order at 40
+percent of it, with 25 percent in joint custody as an interim limit while the Department reviews
+the cross-credit method below. Both numbers already
 exist in Massachusetts's own rules. Section IV.C calls 40 percent of income a hardship, and the
 [hardship](#ask-hardship-ceiling) and [joint custody](#ask-joint-custody-ceiling) recommendations
 below ask Massachusetts to apply those same two numbers to net pay rather than gross.
@@ -86,7 +86,7 @@ the [hardship test](#ask-hardship-basis) below shows the same gap inside Massach
 </details>
 
 <details class="ask" markdown="1" id="ask-federal-joint-custody-definition">
-<summary><span class="ask-head"><span class="ask-title">Define joint custody federally as at least a third of the time, with one computation across that range</span><span class="effect">No dollar change by itself. It sets the range the 25 percent ceiling applies to.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Define joint custody federally as at least a third of the time, and cap it at what the cross-credit formula produces</span><span class="effect">At the worked example the equal-time order falls from $1,012.73 to $701.30 a week.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
 
 Massachusetts's own Guidelines already mark a third of the time as the point where parenting time
 starts to matter: Section II.D.4 lets a judge consider a deviation once a parent has well over a
@@ -99,12 +99,14 @@ in child support orders that it sought to create," and removed it. The 2025 Guid
 same pricing back as a deviation. A rule a state has removed once and restored once cannot be
 relied on to hold the line on its own.
 
-The petition asks federal law to set the definition instead. Once a parent has the child at least
-a third of the time, one adjustment would apply across the whole range up to equal time, with no
-further adjustment for the exact split. The tradeoff is plain: a third of the time becomes the one
+The petition asks federal law to set the definition instead, and to require the method 21
+jurisdictions already use, the cross-credit formula at the standard 1.5 multiplier. Once a parent
+has the child at least a third of the time, the formula would apply as equal time across the whole
+range, with no further adjustment for the exact split. [How the cross-credit works, and which
+states use it →](/findings/shared-parenting-formula/) The tradeoff is plain: a third of the time becomes the one
 point where the schedule still changes with the day count, instead of every day in between. The
-[Parenting time](#ask-parenting-credit-crosscredit) recommendations below apply what a 25 percent
-ceiling would mean for Massachusetts.
+[Parenting time](#ask-parenting-credit-crosscredit) recommendations below apply the same formula
+to Massachusetts.
 </details>
 
 <details class="ask" markdown="1" id="ask-federal-gross-disclosure">
@@ -154,8 +156,9 @@ Today an order can be reviewed only back to whatever the guidelines currently al
 the same rule that produced it, which is no review at all. The petition asks the Department to let
 any parent whose order was set under guidelines it finds do not comply ask for an immediate
 reduction, without showing any other change in circumstances, to what the corrected rule allows:
-no more than 40 percent of ability to pay, and no more than 25 percent in joint custody. Both numbers are
-the two caps above, applied now rather than only once a state corrects its guidelines.
+no more than 40 percent of ability to pay, and no more than 25 percent in joint custody. The 40
+percent is the cap above, applied now. The 25 percent is an interim limit for joint custody until
+the cross-credit method is in place.
 </details>
 
 </div>
@@ -239,10 +242,10 @@ Splitting the week equally cuts the order 6.9 percent, and that credit shrinks a
 
 <div class="accordion" markdown="0">
 <details class="ask" markdown="1" id="ask-parenting-credit-crosscredit">
-<summary><span class="ask-head"><span class="ask-title">Set the equal-time discount with the cross-credit formula 23 states use (recommended)</span><span class="effect">Equal-time order falls from $1,012.73 to $701.30 a week, a 30.8 percent cut.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Set the equal-time discount with the cross-credit formula most states use (recommended)</span><span class="effect">Equal-time order falls from $1,012.73 to $701.30 a week, a 30.8 percent cut.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 **At equal parenting time, Massachusetts's order should fall to what a standard cross-credit
-formula produces, using the 1.5 duplication factor twenty-three other states already use.**
+formula produces, using the 1.5 multiplier most cross-credit states use.** [How it works →](/findings/shared-parenting-formula/)
 
 Both figures are Oldham and Venohr's: "The cross-credit formula is used by 23 states," which "increase the basic obligation owed by both parents by 50% to account for some child-rearing expenses being duplicated when both parents have substantial access" (*The Relationship Between Child Support and Parenting Time*, 54 Fam. L.Q. 141, 152-53 (2020)). A few states use no multiplier, or one other than 1.5.
 

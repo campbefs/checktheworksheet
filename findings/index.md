@@ -101,7 +101,7 @@ from that caution.
    source_script="model/box1_fix.py · model/charts/fig3_credit.py"
    csv_href="/figures/working/fig3_credit_collapse.csv" %}
 
-[Read the full finding →](/findings/parenting-time/)
+[Read the full finding →](/findings/parenting-time/) · [The formula most states use instead →](/findings/shared-parenting-formula/)
 
 ## 4. Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody
 
