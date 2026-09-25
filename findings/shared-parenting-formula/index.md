@@ -94,10 +94,11 @@ and splits the time equally. Every figure is weekly.
 | **The higher earner pays the difference** | **$701** |
 
 That order is 26.1% of the payor's ability to pay, meaning take-home pay less any child care he
-pays himself. Where each parent pays $300 a week of child care during their own time, each should bear
-their own, so the order stays at $701 and takes 29.4% of ability to pay. The Massachusetts
-Worksheet would instead add $226 a week, because it charges the higher earner 87.7% of the other
-parent's child care and credits him 12.3% of his own.
+pays himself. Where each parent pays $300 a week of child care, the $600 should be split on what each household
+has after tax and after the order. The higher earner then carries 62.8% of it, and the order rises
+to $778 a week, 32.6% of ability to pay. The Massachusetts Worksheet would instead make it $927,
+because it charges the higher earner 87.7% of the other parent's child care and credits him 12.3% of
+his own.
 
 </section>
 
@@ -177,9 +178,9 @@ the formula treats that one family. The count of 21 jurisdictions depends on the
 Nevada nets each parent's full amount with no charge for time, so it is not counted here, though
 the 2020 survey counts it. North Dakota reduces only one parent's amount and is not counted either.
 Texas lawyers commonly use the formula in practice, but Texas does not write it into its
-guideline. With each parent paying $300 a week of their own child care, the cross-credit still takes 29.4% of
-this family's ability to pay, above the 25% interim limit and under the 40% ceiling the petition
-keeps on every order.</p>
+guideline. With $300 a week of child care from each parent, split after the order, the cross-credit still takes
+32.6% of this family's ability to pay, above the 25% interim limit and under the 40% ceiling the
+petition keeps on every order.</p>
 
 </section>
 

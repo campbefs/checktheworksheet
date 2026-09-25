@@ -53,4 +53,10 @@ check("own child care: the payor's $300 still comes off ability to pay", abs(co[
 check("own child care: 29.4 percent of ability to pay", round(co["share_of_atp"] * 100, 1) == 29.4)
 check("the Worksheet's child-care split adds $226.09 a week when both pay the same",
       round(c3["order_weekly"] - co["order_weekly"], 2) == 226.09)
+# The proposed rule: child care split on net pay after the order (Comments section 2), 2026-09-25.
+cp = a.cross_credit_post_transfer(300.0, 300.0)
+check("post-transfer: payor carries 62.8 percent of all child care", round(cp["payor_post_share"] * 100, 1) == 62.8)
+check("post-transfer: the order is $778.16 a week", round(cp["order_weekly"], 2) == 778.16)
+check("post-transfer: 32.6 percent of ability to pay", round(cp["share_of_atp"] * 100, 1) == 32.6)
+check("post-transfer: ability to pay is the same measure as the own-child-care case", abs(cp["atp"] - co["atp"]) < 1e-6)
 print(f"All checks passed ({n}).")
