@@ -46,4 +46,11 @@ check("the cross-credit alone does not bring the worked example under the 25 per
 check("step by step: basic x 1.5, split by income, halved, netted, equals the order",
       abs(c0["payor_owes"] - c0["other_owes"] - c0["order_weekly"]) < 0.01
       and abs(c0["payor_part"] / 2 - c0["payor_owes"]) < 0.01 and abs(c0["enhanced"] - 1.5 * c0["basic"]) < 1e-9)
+# Joint custody under the proposed rule: each parent bears his or her own child care (2026-09-25).
+co = a.cross_credit_worked(300.0, 300.0, allocate_child_care=False)
+check("own child care: the order is the no-child-care order, $701.30", round(co["order_weekly"], 2) == 701.30)
+check("own child care: the payor's $300 still comes off ability to pay", abs(co["atp"] - c3["atp"]) < 1e-6)
+check("own child care: 29.4 percent of ability to pay", round(co["share_of_atp"] * 100, 1) == 29.4)
+check("the Worksheet's child-care split adds $226.09 a week when both pay the same",
+      round(c3["order_weekly"] - co["order_weekly"], 2) == 226.09)
 print(f"All checks passed ({n}).")

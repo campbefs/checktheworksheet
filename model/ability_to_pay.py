@@ -66,15 +66,23 @@ def grid_share_over(box, per_child=100.0, kids=3):
     return over / len(pairs), over, len(pairs)
 
 
-def cross_credit_worked(payor_cc_total=0.0, recip_cc_total=0.0):
+def cross_credit_worked(payor_cc_total=0.0, recip_cc_total=0.0, allocate_child_care=True):
     """Added 2026-09-25 for the cross-credit ask. The worked example at equal time under the
     cross-credit formula (model/box1_fix.py Variant B: duplication 1.5, no Line 6e limitation),
-    measured against the same ability-to-pay income. Child care totals are WEEKLY."""
+    measured against the same ability-to-pay income. Child care totals are WEEKLY.
+
+    allocate_child_care=True runs child care through the Worksheet's split (Lines 6a/6b, income
+    shares), which charges the payor 87.7% of the other parent's care and credits him 12.3% of his
+    own. False is the proposed rule for joint custody: each parent bears the child care paid during
+    his or her own time, so none enters the order, while ability to pay still subtracts the
+    payor's own. Added the same day, from the question "if each parent pays $300 a week then I
+    shouldn't be paying 38%"."""
     import box1_fix as bx
     kids = KIDS
+    in_order = 1.0 if allocate_child_care else 0.0
     sheet = bx.run("B", RECIP_WEEKLY, PAYOR_GROSS / 52.0, kids, a_health=cg.A_HEALTH, b_health=cg.B_HEALTH,
-                   a_childcare=tuple([recip_cc_total / kids] * kids),
-                   b_childcare=tuple([payor_cc_total / kids] * kids))
+                   a_childcare=tuple([in_order * recip_cc_total / kids] * kids) if in_order else (),
+                   b_childcare=tuple([in_order * payor_cc_total / kids] * kids) if in_order else ())
     net = nc.net_income_withholding_basis(PAYOR_GROSS)
     atp = net - payor_cc_total * 52.0
     order = sheet["7d"] * 52.0
@@ -84,6 +92,7 @@ def cross_credit_worked(payor_cc_total=0.0, recip_cc_total=0.0):
             "share_of_atp": order / atp, "over_joint_limit": order / atp > LIMIT[1],
             # the arithmetic, step by step, for the site page
             "basic": basic, "enhanced": basic * bx.DUPLICATION, "payor_share": payor_share,
+            "other_share": 1 - payor_share,
             "payor_part": basic * bx.DUPLICATION * payor_share,
             "other_part": basic * bx.DUPLICATION * (1 - payor_share),
             "payor_owes": sheet["A_5b"], "other_owes": sheet["B_5b"]}   # A's 5b is what B owes A
@@ -101,6 +110,9 @@ def main():
         r = cross_credit_worked(cc, cc)
         print(f"cross-credit at 1.5, equal time, each parent paying ${cc:,.0f}/wk child care: order "
               f"${r['order_weekly']:,.2f}/wk = {r['share_of_atp']*100:.1f}% of ability to pay")
+    r = cross_credit_worked(300.0, 300.0, allocate_child_care=False)
+    print(f"cross-credit at 1.5, equal time, each parent paying their OWN $300/wk: order "
+          f"${r['order_weekly']:,.2f}/wk = {r['share_of_atp']*100:.1f}% of ability to pay")
 
 
 if __name__ == "__main__":
