@@ -83,7 +83,7 @@ afterward.
 the same two incomes, the states that give the largest reductions give more than half.**
 
 Line 6g nets the two parents' Line 6e amounts, which reduce to the gap between their income shares
-once Box 1 puts zero children in the payor's column; no line measures overnights. That gap shrinks
+once Box 1 (equal parenting time) puts zero children in the payor's column; no line measures overnights. That gap shrinks
 the discount from 77.6 percent at a narrower income share to 6.9 percent at this family's. Research
 on custody decided mainly by a financial incentive finds children can fare worse under it
 (Fernández-Kranz, Roff and Sun, *Journal of Economic Behavior & Organization* 189 (2021)), an argument against pricing parenting time by formula in
@@ -109,9 +109,9 @@ from that caution.
 
 Massachusetts orders more under equal parenting time than any of the fifty states modeled, and
 more under primary custody than every one of them but Hawaii. Its joint-custody order is higher
-than what 47 states charge a parent whose children live mainly with the other parent; only Hawaii
-and Wisconsin charge more. Georgia is held out: its enacted formula orders less at equal time than
-at primary custody.
+than the primary-custody order in 47 states. Only Hawaii and Wisconsin's primary-custody orders
+are higher than Massachusetts's joint-custody order. Georgia is held out: its enacted formula
+orders less at equal time than at primary custody.
 
 {% include figure.html
       id="e17"

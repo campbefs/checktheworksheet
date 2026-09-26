@@ -115,7 +115,7 @@ the top of the chart while the costliest places sit well below it.
    alt="Scatter plot of each state's 2024 cost of living against its monthly equal-time order for the same family, with Massachusetts marked at the top and the six costlier places labelled."
    title="Massachusetts orders the most at equal time, and it is not the most expensive place to live."
    deck="Each dot is one state: its cost of living against its equal-time order for the same family."
-   notes="Georgia is held out of the fifty-state comparison. Cost of living: BEA Regional Price Parities, all items."
+   notes="Georgia is held out: its enacted formula orders less at equal time than at primary custody. Cost of living: BEA Regional Price Parities, all items."
    source_script="model/cost_of_living.py"
    csv_href="/figures/working/fig13_cost_of_living.csv" %}
 
@@ -129,7 +129,7 @@ the top of the chart while the costliest places sit well below it.
 this site uses throughout, so the comparison shows how each state treats that family and does not
 average across families. The cost-of-living figures are for 2024 and cover all items, housing included,
 which is the cost a parent keeping a second home for the children actually faces. Georgia is held
-out of the fifty-state comparison, so it is absent here.</p>
+out: its enacted formula orders less at equal time than at primary custody, so it is absent here.</p>
 
 </section>
 

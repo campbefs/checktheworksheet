@@ -87,7 +87,7 @@ transfer.
    alt="Bar chart of the payor's share of a $15,600 annual child care claim under three allocation rules, at the worked example."
    title="The payor's share of a $15,600 child care bill, three ways to split it."
    deck="Line 3c allocates 87.7 percent to the payor on pre-transfer income shares."
-   notes="The § 2 fallback, adjusting shares by the base order alone (Line 6b-2), gives 64.5 percent. The § 2 primary redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent."
+   notes="The § 2 fallback this project's comments to the Trial Court propose, adjusting shares by the base order alone (Line 6b-2), gives 64.5 percent. The § 2 primary redline, measured net of tax on a withholding basis (Line 6b-1), gives 53.0 percent."
    source_script="model/charts/fig2_childcare.py"
    csv_href="/figures/working/fig2_childcare_worked_example.csv"
    lazy="false" %}
@@ -206,8 +206,8 @@ split by less, a larger one by more. This is one worked example, and how far a t
 from it is not known from anything in this repository.</p>
 
 <p class="caveat">Per person, the payor remains ahead. Even in the scenario where both parents pay
-for care and the payor is charged 93 percent of the combined bill, the payor still holds $58,163
-against $18,801 each for the recipient's household of four.</p>
+for care and the payor is charged 93 percent of the combined bill, the payor still holds $58,163 after tax
+against $18,801 after tax each for the recipient's household of four.</p>
 
 </section>
 

@@ -99,8 +99,8 @@ out of compliance with federal law](/findings/federal-law/).
    img="/figures/exhibits/E04-order-as-share-of-payor-net-3-children.png"
    alt="Heatmap of the support order as a share of the payor's net income across a grid of higher-earner and lower-earner gross incomes, three children, Box 1 (the Worksheet's equal-time calculation), with a 40 percent contour line."
    title="The order exceeds 40 percent of the payor's net income only where the lower earner makes about $20,000 or less."
-   deck="Order as a share of the payor's net income, three children, Box 1, across a grid of both incomes."
-   notes="The 40 percent contour, computed on net income, sits at a lower-earner income of about $20,000, up to roughly $205,000 of higher-earner income; above that the order never reaches 40 percent of net on the grid. Section IV.C's hardship presumption targets this region; E05 shows what the Worksheet reports there."
+   deck="Order as a share of the payor's net income, three children, Box 1 (equal parenting time), across a grid of both incomes."
+   notes="The 40 percent contour, computed on net income, sits at a lower-earner income of about $20,000, up to roughly $205,000 of higher-earner income; above that the order never reaches 40 percent of net on the grid. Section IV.C's hardship presumption targets this region; the chart above shows what the Worksheet reports there."
    source_script="model/charts/fig1_heatmaps.py"
    csv_href="/figures/working/fig1_heatmap_3child_box1.csv" %}
 

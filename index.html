@@ -200,11 +200,11 @@ scripts:
           </div>
           <div class="tool-readout tool-readout--pair" aria-live="polite">
             <div>
-              <p class="cell-label">Payor keeps, per year</p>
+              <p class="cell-label">Payor keeps after tax, per year</p>
               <p class="cell-value" data-calc-cell="payor_after">$76,768/yr</p>
             </div>
             <div>
-              <p class="cell-label">Recipient household holds, per year</p>
+              <p class="cell-label">Recipient household holds after tax, per year</p>
               <p class="cell-value is-warning" data-calc-cell="recip_after">$88,710/yr</p>
               <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$22,177/yr</strong></p>
               <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
@@ -315,7 +315,7 @@ scripts:
          alt="Horizontal bar chart of the monthly child support order in fifty states with the children primarily with the lower earner, one set of incomes, Massachusetts highlighted."
          title="With the lower earner primary, only Hawaii orders more than Massachusetts."
          deck="Monthly order at one set of incomes, read beside the chart at the top of the page."
-         notes="The same family with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states and same colors as E11, so the two can be read side by side."
+         notes="The same family with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve (the income floor a worksheet protects for the payor) differently from an income-shares schedule (the combined-income method most states, including Massachusetts, use). Same states and same colors as E11, so the two can be read side by side."
          source_script="model/charts/fig5_states.py"
          csv_href="/figures/working/fig5_states.csv"
          confidence="The same two incomes and three children, in every state."

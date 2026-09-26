@@ -88,7 +88,7 @@ split, or the number of children, and every ranking below could move, in either 
 
 <p class="stat-callout">
   <span class="stat-value">$4,388 a month</span>
-  <span class="stat-label">Massachusetts's Box 1 order at the worked example: $321 more than New York, the next-highest of the fifty jurisdictions modeled</span>
+  <span class="stat-label">Massachusetts's Box 1 (equal parenting time) order at the worked example: $321 more than New York, the next-highest of the fifty jurisdictions modeled</span>
 </p>
 
 <figure class="exhibit" id="e11">
@@ -193,7 +193,7 @@ split, or the number of children, and every ranking below could move, in either 
   <figcaption>
     <h3 class="exhibit-title">With the lower earner primary, only Hawaii orders more than Massachusetts.</h3>
     <p class="exhibit-deck">The same family with the children primarily with the lower earner.</p>
-    <p class="exhibit-notes">Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule.</p>
+    <p class="exhibit-notes">Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve (the income floor a worksheet protects for the payor) differently from an income-shares schedule (the combined-income method most states, including Massachusetts, use).</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>
