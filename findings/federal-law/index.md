@@ -159,6 +159,16 @@ takes 40 percent of the payor's income, but it measures that income before tax. 
 example it stays silent until the order is taking 56.9 percent of take-home pay. The
 [hardship test page](/findings/hardship-test/) works through it line by line.
 
+Setting support from gross income is not, on its own, what breaks the rule. Most states do it,
+and the federal rule tests the order that comes out, not the income measure that goes in. When
+the Department of Health and Human Services wrote the rule in 2016, it said a state may set the
+percentage as it chooses "so long as the resulting order takes into consideration the
+noncustodial parent's ability to pay it." What sets Massachusetts apart is what comes out: the
+highest joint-custody orders in the nation, a hardship rule that cannot see an order until it
+takes more than half of take-home pay, and, with child care claimed, orders above the federal
+ceiling. This site has run that test on Massachusetts only. A gross-income state that produced
+the same result would have the same problem.
+
 </section>
 
 <section id="fix" markdown="1">
