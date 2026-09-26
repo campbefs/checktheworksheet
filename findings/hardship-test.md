@@ -137,8 +137,8 @@ week. (Source: `model/runs/submission-figures-run-2026-09-09.txt`, printed by
 
 ## This is one worked example, and per person the payor still holds more almost everywhere
 
-<p class="caveat">The presumption does eventually fire, 17 points late, at $1,290 a week for three
-children, the statutory ceiling on allowable child care and not a typical claim. This is one
+<p class="caveat">The presumption does eventually fire, 17 points late, once claimed child care reaches $589 a
+week for three children. The Guidelines allow up to $1,290, and a claim that size is not typical. This is one
 worked example, and how often actual claims sit near that benchmark is not known from anything in
 this repository.</p>
 

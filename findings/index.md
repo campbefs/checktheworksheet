@@ -117,7 +117,7 @@ at primary custody.
       id="e17"
    img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
    alt="Bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, Massachusetts highlighted, its own primary-custody order marked for scale."
-   title="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
+   title="At primary custody, only Wisconsin and Hawaii order more than Massachusetts does at equal time."
    deck="Monthly order: Massachusetts at equal time against every other state with the children primarily with the lower earner. Georgia held out."
    notes="Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else."
       source_script="model/charts/fig10_ma_shared_vs_primary.py"

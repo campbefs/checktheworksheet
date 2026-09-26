@@ -42,7 +42,7 @@ def main():
     ax.annotate(f"MA primary: ${ma['s2']:,.0f}", xy=(ma["s2"], yi), xytext=(ma["s2"] + 120, yi - 2.2),
                 fontsize=8.5, color=P["text_2"], arrowprops=dict(arrowstyle="-", color=P["text_2"], lw=0.6))
     joined_above = " and ".join(above) if len(above) <= 2 else ", ".join(above[:-1]) + f", and {above[-1]}"
-    theme.finish(ax, title=f"Only {joined_above} order more than Massachusetts does at equal time" if above
+    theme.finish(ax, title=f"At primary custody, only {joined_above} order more than Massachusetts does at equal time" if above
                  else "Massachusetts orders more than every other state does at equal time",
                  subtitle="Massachusetts's equal-time order against every other state's primary-custody order.",
                  comma=False,

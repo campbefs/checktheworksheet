@@ -29,7 +29,7 @@ def main():
     fig, axs = plt.subplots(1, 2, figsize=(15, 6.3))
     fig.subplots_adjust(wspace=0.22, top=0.68, bottom=0.28)
     ax = axs[0]
-    ax.plot(x, [r[6] for r in rows], color=P["series"][3], lw=2.2, label="Worksheet today (Box 1 vs Box 2)")
+    ax.plot(x, [r[6] for r in rows], color=P["series"][3], lw=2.2, label="Worksheet today (Box 1 vs Box 2)", zorder=5)
     ax.plot(x, [r[7] for r in rows], color=P["series"][0], lw=2.2, label="Fix A: apply the credit's limit once, not twice")
     ax.plot(x, [r[8] for r in rows], color=P["series"][2], lw=2.2, label="Fix B: the cross-credit formula 18 states and DC use")
     ax.set_title("(a) Reduction in the order for equal time", loc="left", fontsize=10.5)

@@ -237,8 +237,8 @@ driving the parenting plan.
 <p class="caveat">Every figure on this page comes from one worked example: three children, equal
 parenting time, no child care claimed, at the incomes stated. The mechanism, Box 1's discount
 equalling the payor's own capped Line 6e, is a property of the form itself and does not depend on
-the worked example; the specific dollar amounts and percentages do. This page says nothing about Box
-2, about primary custody, or about any arrangement other than equal time.</p>
+the worked example; the specific dollar amounts and percentages do. The primary-custody order appears only as the baseline the equal-time discount is measured
+from.</p>
 
 <p class="caveat">Per person, the standing caveat applies here too: nothing on this page compares
 what the payor keeps for himself against what each member of the recipient's household holds. See

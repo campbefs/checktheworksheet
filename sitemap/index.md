@@ -20,7 +20,7 @@ description: Every page here, with a one-line purpose for each.
     <span class="doc-context">Every place that costs more to live in than Massachusetts orders less
       at equal parenting time.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/findings/shared-parenting-formula/">Shared-parenting formula</a></span>
-    <span class="doc-context">Most states price joint custody with the cross-credit formula, and
+    <span class="doc-context">More states price joint custody with the cross-credit than with any other formula, and
       Massachusetts does not use it.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/findings/fifty-one-jurisdictions/">Fifty-one jurisdictions</a></span>
     <span class="doc-context">The same family's order under every state's guidelines, with

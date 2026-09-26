@@ -11,10 +11,10 @@ description: >-
 
 While federal law requires every order to rest on the parent's ability to pay, it sets no cap on
 the order and does not require a worksheet to test it against what a parent keeps. The first
-section below asks Washington to close that gap for every state. The five sections after it are specific to the Massachusetts Worksheet: each names
+section below asks the federal government to close that gap for every state. The five sections after it are specific to the Massachusetts Worksheet: each names
 the line it would change and what that change does to the order at the worked example throughout
-this site, a payor at $201,000 a year, the other parent at $29,640, three children. Open a row to
-read the case for it.
+this site, a payor at $201,000 a year, the other parent at $29,640, three children. Each row's summary names its own case: equal time with no child care, equal
+time with $300 a week of child care, or primary custody. Open a row to read the case for it.
 
 <p class="kind-legend" markdown="1">
 Each proposal below carries one of three labels. **A correction** means the Worksheet applies two
@@ -268,8 +268,7 @@ version prices Massachusetts below both comparison states instead of in line wit
 "Against the median / WA / CA" states how far the candidate's monthly figure sits above or below
 the fifty-jurisdiction median ($2,172.95), Washington's equal-time order ($2,819.56), and
 California's equal-time order ($2,424.32). Today's Box 1 order's own distance from Washington and
-California isn't printed by the model; its distance from the median (102.0 percent) is. Reaching
-the median exactly would take a 50.5 percent cut to today's order, down to $511.27 a week.
+California isn't printed by the model; its distance from the median (102.0 percent) is. Reaching the median exactly would take $511.27 a week off today's order, a 50.5 percent cut.
 
 Research on custody decided mainly by a financial incentive finds children can fare worse under it
 (Fernández-Kranz, Roff and Sun, *Journal of Economic Behavior & Organization* 189 (2021)), an argument against pricing parenting time by formula in
@@ -295,7 +294,7 @@ which is the scale this recommendation is measured against.
    id="e17"
    img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
    alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale."
-   title="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
+   title="At primary custody, only Wisconsin and Hawaii order more than Massachusetts does at equal time."
    deck="Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner."
    notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time. Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison. One worked example; Georgia held out."
    source_script="model/charts/fig10_ma_shared_vs_primary.py"

@@ -172,7 +172,7 @@ def main():
     x = [r["payor_3c"] for r in r3]
 
     fig, ax = theme.figure(9.5, 5.2)
-    ax.plot(x, [r["reduction_current"] for r in r3], color=P["series"][3], lw=2.2, label="Worksheet today (Box 1 vs Box 2)")
+    ax.plot(x, [r["reduction_current"] for r in r3], color=P["series"][3], lw=2.2, label="Worksheet today (Box 1 vs Box 2)", zorder=5)
     ax.plot(x, [r["reduction_A"] for r in r3], color=P["series"][0], lw=2.2, label="Fix A: apply the credit's limit once, not twice")
     ax.plot(x, [r["reduction_B"] for r in r3], color=P["series"][2], lw=2.2, label="Fix B: the cross-credit formula 18 states and DC use")
     ax.set_xlim(0.5, 1.0); ax.set_ylim(0, 1)

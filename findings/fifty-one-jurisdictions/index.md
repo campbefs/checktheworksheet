@@ -443,7 +443,7 @@ at equal time and at primary custody.
 
 <figure class="exhibit" id="e17">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
-     data-caption="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
+     data-caption="At primary custody, only Wisconsin and Hawaii order more than Massachusetts does at equal time."
      data-csv-href="/figures/working/fig10_ma_shared_vs_primary.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
          width="1852" height="2264"
@@ -451,7 +451,7 @@ at equal time and at primary custody.
          alt="Bar chart of monthly child support orders in fifty jurisdictions, forty-nine computed with the children primarily with the lower earner and Massachusetts computed twice: once under equal parenting time and once under primary custody for scale.">
   </a>
   <figcaption>
-    <h3 class="exhibit-title">Only Wisconsin and Hawaii order more than Massachusetts does at equal time.</h3>
+    <h3 class="exhibit-title">At primary custody, only Wisconsin and Hawaii order more than Massachusetts does at equal time.</h3>
     <p class="exhibit-deck">The same worked example as the two rankings above, with Massachusetts computed under Box 1 and every other jurisdiction computed with the children primarily with the lower earner.</p>
     <p class="exhibit-notes">Massachusetts's own primary-custody order, $4,714, is marked for scale and isn't part of the ranked comparison.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig10_ma_shared_vs_primary.py</code> ·

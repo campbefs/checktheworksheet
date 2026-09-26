@@ -53,7 +53,7 @@ comparison always carries its per-person counterpart.
 23. [With the lower earner primary, only Hawaii orders more than Massachusetts.](#e12)
 24. [In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.](#e13)
 25. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
-26. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
+26. [At primary custody, only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
 27. [Every place that costs more to live in than Massachusetts orders less at equal time.](#e32)
 28. [Massachusetts orders the most at equal time, and it is not the most expensive place to live.](#e33)
 29. [Five reviews have taken up gross versus net. None changed it.](#e27)
@@ -911,7 +911,7 @@ argument.</p>
 
 <figure class="exhibit" id="e17">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
-     data-caption="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
+     data-caption="At primary custody, only Wisconsin and Hawaii order more than Massachusetts does at equal time."
      data-csv-href="/figures/working/fig10_ma_shared_vs_primary.csv" data-csv-label="Data (CSV)">
   <img src="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
          loading="lazy"
@@ -919,7 +919,7 @@ argument.</p>
   </a>
   <figcaption>
     <p class="confidence-tag">Tiered: a single set of incomes; see method</p>
-    <h3 class="exhibit-title">Only Wisconsin and Hawaii order more than Massachusetts does at equal time.</h3>
+    <h3 class="exhibit-title">At primary custody, only Wisconsin and Hawaii order more than Massachusetts does at equal time.</h3>
     <p class="exhibit-deck">Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner.</p>
     <dl class="exhibit-facts">
       <div><dt>Custody</dt><dd>MA equal time (Box 1) vs others primary</dd></div>

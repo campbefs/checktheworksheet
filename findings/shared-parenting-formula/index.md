@@ -1,6 +1,6 @@
 ---
 layout: finding
-title: Most states price joint custody with one formula, and Massachusetts does not use it
+title: More states price joint custody with the cross-credit than with any other formula, and Massachusetts does not use it
 permalink: /findings/shared-parenting-formula/
 description: >-
   Eighteen states and the District of Columbia price joint custody with the cross-credit
@@ -35,7 +35,7 @@ sections:
 <section class="hero" markdown="1">
 <p class="eyebrow">Shared parenting</p>
 
-# Most states price joint custody with one formula, and Massachusetts does not use it
+# More states price joint custody with the cross-credit than with any other formula, and Massachusetts does not use it
 
 <p class="lede">While 18 states and the District of Columbia price joint custody with the cross-credit formula, which credits
 each parent for the time they house the children, Massachusetts has no parenting-time term at all.
@@ -96,9 +96,8 @@ and splits the time equally. Every figure is weekly.
 That order is 26.1% of the payor's ability to pay, meaning take-home pay less any child care he
 pays himself. Where each parent pays $300 a week of child care, the $600 should be split on what each household
 has after tax and after the order. The higher earner then carries 62.8% of it, and the order rises
-to $778 a week, 32.6% of ability to pay. The Massachusetts Worksheet would instead make it $927,
-because it charges the higher earner 87.7% of the other parent's child care and credits him 12.3% of
-his own.
+to $778 a week, 32.6% of ability to pay. Split the child care the Worksheet's way instead, charging the higher earner 87.7% of the other
+parent's child care and crediting him 12.3% of his own, and the same cross-credit order would be $927.
 
 </section>
 
