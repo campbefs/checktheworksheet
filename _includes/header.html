@@ -30,13 +30,14 @@
   {%- comment -%}
     Petition header trigger. Not a fifth item in .site-nav -- CONVENTIONS.md §8 keeps the top bar
     at exactly four -- so it's a separate, differently-styled element (.topbar-cta). Gated on
-    site.petition_endpoint only (no page.url exclusion): showing it on /petition/ itself is
-    harmless, since it is a plain link to that same page there. With JavaScript, petition.js
-    intercepts the click to open the dialog instead; without it, this is a normal link to the
-    full page. See assets/js/petition.js.
+    site.petition_endpoint AND excluded on /petition/ itself (design review 2026-09-26): no
+    dialog exists to intercept the click (petition-modal.html is not mounted), so on /petition/
+    this was a plain link to the current page -- clicking it while a field was filled in reloaded
+    the page and silently discarded everything typed, with no confirm and no warning. Excluding it
+    here matches the same page.url check petition-card.html already uses for the bottom bar.
   {%- endcomment -%}
-  {% if site.petition_endpoint != "" %}
-  <a class="topbar-cta" href="{{ '/petition/' | relative_url }}" data-petition-trigger>Sign the petition</a>
+  {% if site.petition_endpoint != "" and page.url != "/petition/" %}
+  <a class="topbar-cta" href="{{ '/petition/' | relative_url }}">Sign the petition</a>
   {% endif %}
 
   <input type="checkbox" id="nav-toggle" class="nav-toggle-input">

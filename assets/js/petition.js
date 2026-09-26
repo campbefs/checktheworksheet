@@ -1,7 +1,7 @@
-// checktheworksheet.org — petition sign-up: header trigger, corner card, dialog, and the
-// standalone /petition/ page's own inline form. Loaded on every page, but only when
-// site.petition_endpoint is set (see _layouts/default.html) -- with it empty, this file is never
-// requested at all, which is the whole of the OFF state.
+// checktheworksheet.org — petition sign-up: corner/bottom bar and the standalone /petition/
+// page's own inline form. Loaded on every page, but only when site.petition_endpoint is set (see
+// _layouts/default.html) -- with it empty, this file is never requested at all, which is the
+// whole of the OFF state.
 //
 // The site is static (GitHub Pages), so the form's `action` points at a small purpose-built
 // server, not a third-party form backend -- see _config.yml's `petition_endpoint` comment for the
@@ -10,50 +10,39 @@
 // real (browsers default an unadorned POST form to application/x-www-form-urlencoded, which is
 // exactly what the server expects) and the server 303-redirects back to
 // /petition/?signed=1, which this same script recognizes on the next page load and turns into a
-// thank-you line -- see initPetitionPage() below. Everything else here (the header trigger
-// opening a dialog instead of navigating, the corner card, the inline fetch submit) is enhancement
-// on top of a page that already works without it.
+// thank-you line -- see initPetitionPage() below. Everything else here (the bottom bar, the inline
+// fetch submit, the share step, the returning-signer state) is enhancement on top of a page that
+// already works without it.
+//
+// A <dialog>-based popup (_includes/petition-modal.html) existed here through 2026-09-26 and was
+// replaced by the bar below, which links straight to /petition/ instead of opening a popup. The
+// modal markup is kept on disk (not deleted) but is never mounted from _layouts/default.html, so
+// no dialog-open/close/focus-trap code has anything to attach to; that code was removed from this
+// file as dead, design review 2026-09-26.
 //
 // ---------------------------------------------------------------------------------------------
 // MARKUP CONTRACT
 // ---------------------------------------------------------------------------------------------
-// Dialog (_includes/petition-modal.html), mounted on every page except /petition/ itself:
-//   <dialog data-petition-dialog aria-labelledby="...">
-//     <button data-petition-close>...</button>
-//     <div data-petition-form-wrap> <form data-petition-form> ...fields..., name="_gotcha"
-//       honeypot, <p data-petition-error role="alert" hidden> </form> </div>
-//     <div data-petition-thankyou hidden> ... <p data-petition-thankyou-message></p> </div>
-//   </dialog>
-// A real <dialog>, opened with showModal() -- while open, the browser keeps focus inside it and
-// makes the rest of the document inert, so unlike lightbox.js's plain <div role="dialog"> this
-// needs no hand-rolled Tab trap. Escape fires the dialog's native "cancel" then "close" events;
-// this script does not intercept "cancel", only listens to "close" to return focus to whichever
-// element opened it.
-//
-// Corner card (_includes/petition-card.html), mounted the same way, also excluded on /petition/:
+// Bottom bar (_includes/petition-card.html), excluded on /petition/:
 //   <div data-petition-card hidden aria-hidden="true">
-//     <button data-petition-card-dismiss>...</button>
-//     <p>...</p>
-//     <button data-petition-card-open>...</button>
+//     <a data-petition-card-open>...</a>
+//     <button data-petition-card-toggle>...</button>
 //   </div>
-// Shown once per visitor, after ~25 seconds or 40% scroll depth, whichever comes first -- never
-// on page load, and never blocking (it is a plain positioned div, not a dialog). Dismissing it is
-// remembered 30 days in localStorage; signing anything, anywhere on the site, hides it for good.
+// Always present until a signature (not a timed toast); minimizable, state persisted in
+// localStorage. Signing anything, anywhere on the site, retires it for good.
 //
 // Standalone page (petition/index.md), only rendered there:
 //   <div data-petition-form-wrap> <form data-petition-form> ... </form> </div>
-//   <div data-petition-thankyou hidden> ... <p data-petition-thankyou-message></p> </div>
+//   <div data-petition-thankyou hidden>
+//     ... <p data-petition-thankyou-message></p>
+//     <p data-petition-returning hidden> <button data-petition-signagain>...</button> </p>
+//     <div data-petition-share hidden>
+//       <button data-petition-share-btn hidden>...</button>  (navigator.share path)
+//       <button data-petition-copy-btn hidden>...</button>   (clipboard fallback -- never both)
+//       <a data-petition-email-link>...</a>                  (always present, mailto:)
+//     </div>
+//   </div>
 //   <p data-petition-count hidden></p>
-// The same [data-petition-form-wrap]/[data-petition-thankyou] pair the dialog uses, which is what
-// lets one submit handler serve both. At most one [data-petition-form] ever exists on a page --
-// the dialog's, or the standalone page's, never both, because _includes/petition-modal.html
-// excludes itself on /petition/ -- so this script queries for these elements globally (document-
-// wide) rather than scoping each lookup to a particular container.
-//
-// Any element anywhere on the page with `data-petition-trigger` opens the dialog if one exists on
-// that page (header.html's own button carries it); if none exists (e.g. already on /petition/, or
-// the browser has no <dialog>/showModal support), the click is left alone and the element's own
-// `href` does the navigating.
 
 (function () {
   'use strict';
@@ -66,7 +55,7 @@
   var COUNT_MIN_TO_SHOW = 25;
 
   var DEFAULT_ERROR = "That didn't go through. Nothing you typed was lost. Try again in a moment.";
-  var CONNECTION_ERROR = "That didn't go through, probably a connection problem. Nothing you typed was lost. Try again.";
+  var CONNECTION_ERROR = "That didn't go through. It looks like a connection problem. Nothing you typed was lost. Try again.";
 
   // ---- localStorage, defensive: private-browsing Safari throws on access, not just on quota ----
   function safeGet(key) {
@@ -95,45 +84,6 @@
     document.documentElement.classList.remove('has-petition-bar');
   }
 
-  // ---- dialog: open/close, focus management -------------------------------------------------
-  var dialog = document.querySelector('[data-petition-dialog]');
-  var lastTrigger = null;
-
-  function openDialog(triggerEl) {
-    if (!dialog || typeof dialog.showModal !== 'function') return;
-    lastTrigger = triggerEl || null;
-    dialog.showModal();
-    var firstField = dialog.querySelector('input[name="name"]');
-    var closeBtn = dialog.querySelector('[data-petition-close]');
-    if (firstField && firstField.offsetParent !== null) {
-      firstField.focus();
-    } else if (closeBtn) {
-      closeBtn.focus();
-    }
-  }
-
-  if (dialog) {
-    dialog.addEventListener('close', function () {
-      if (lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
-    });
-    // A click on the ::backdrop registers with the dialog element itself as the target, since the
-    // backdrop is not a separate node in the DOM -- a click on the dialog's own visible content
-    // lands on one of its descendants instead, so this only fires for a true outside click.
-    dialog.addEventListener('click', function (e) {
-      if (e.target === dialog) dialog.close();
-    });
-    var closeBtn = dialog.querySelector('[data-petition-close]');
-    if (closeBtn) closeBtn.addEventListener('click', function () { dialog.close(); });
-  }
-
-  document.querySelectorAll('[data-petition-trigger]').forEach(function (trigger) {
-    trigger.addEventListener('click', function (e) {
-      if (!dialog || typeof dialog.showModal !== 'function') return; // let the href navigate
-      e.preventDefault();
-      openDialog(trigger);
-    });
-  });
-
   // ---- petition bar: always present until a signature, minimizable (2026-09-26) ------------
   // Replaces the timed corner card. Shown on load, never over the text: the page reserves the
   // bar's measured height as bottom padding. Minimized state persists; a signature retires it.
@@ -148,7 +98,9 @@
       if (toggle) {
         toggle.setAttribute('aria-expanded', min ? 'false' : 'true');
         toggle.setAttribute('aria-label', min ? 'Show the petition bar' : 'Minimize the petition bar');
-        toggle.innerHTML = min ? 'Petition &#9652;' : '<span aria-hidden="true">&ndash;</span>';
+        // "Sign", not "Petition" (design review 2026-09-26): the minimized label named the
+        // topic rather than the action tapping it performs.
+        toggle.innerHTML = min ? 'Sign &#9652;' : '<span aria-hidden="true">&ndash;</span>';
       }
       safeSet(MIN_KEY, min ? '1' : '0');
       measure();
@@ -169,6 +121,60 @@
     return response.json().then(function (data) { return data; }, function () { return {}; });
   }
 
+  // ---- share step, after a signature (2026-09-26) ------------------------------------------
+  // A signer had no way to forward the petition -- a persona read of this page (a father who
+  // came specifically to sign and send it to his brother) confirmed it as a task-blocking gap,
+  // not a nicety: a petition's value compounds through forwarding. Feature-detected at render
+  // time, never both buttons at once. No third-party embeds; nothing here calls the Fly server.
+  var PETITION_URL = 'https://checktheworksheet.org/petition/';
+  var SHARE_TEXT = 'Massachusetts child support is among the highest in the nation, and the guidelines do not comply with federal law.';
+  var shareWired = false;
+
+  function wireShare() {
+    if (shareWired) return;
+    shareWired = true;
+    var shareBlock = document.querySelector('[data-petition-share]');
+    if (!shareBlock) return;
+    var shareBtn = shareBlock.querySelector('[data-petition-share-btn]');
+    var copyBtn = shareBlock.querySelector('[data-petition-copy-btn]');
+    var emailLink = shareBlock.querySelector('[data-petition-email-link]');
+
+    if (typeof navigator.share === 'function' && shareBtn) {
+      shareBtn.hidden = false;
+      shareBtn.addEventListener('click', function () {
+        navigator.share({ title: document.title, text: SHARE_TEXT, url: PETITION_URL }).catch(function () {
+          /* user cancelled the share sheet, or the browser refused -- nothing to recover, the
+             copy-link and email routes are still on screen */
+        });
+      });
+    } else if (copyBtn) {
+      copyBtn.hidden = false;
+      var copyOriginalText = copyBtn.textContent;
+      copyBtn.addEventListener('click', function () {
+        var done = function () {
+          copyBtn.textContent = 'Link copied';
+          setTimeout(function () { copyBtn.textContent = copyOriginalText; }, 2000);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(PETITION_URL).then(done, done);
+        } else {
+          done(); // clipboard API unavailable -- nothing better to fall back to here
+        }
+      });
+    }
+
+    if (emailLink) {
+      var subject = encodeURIComponent('Sign the Massachusetts child support petition');
+      var body = encodeURIComponent(SHARE_TEXT + ' Sign the petition: ' + PETITION_URL);
+      emailLink.setAttribute('href', 'mailto:?subject=' + subject + '&body=' + body);
+    }
+  }
+
+  function revealShare() {
+    var shareBlock = document.querySelector('[data-petition-share]');
+    if (shareBlock) { wireShare(); shareBlock.hidden = false; }
+  }
+
   function onSigned(count) {
     markSigned();
     retireCard();
@@ -186,12 +192,62 @@
       thankYou.setAttribute('tabindex', '-1');
       thankYou.focus();
     }
+    revealShare();
+  }
+
+  // ---- returning signer (2026-09-26) --------------------------------------------------------
+  // A signer who comes back to /petition/ directly (bookmark, the footer link, a second visit)
+  // saw the identical blank form a first-time visitor sees, with nothing acknowledging they'd
+  // already signed. isSigned() is the same localStorage flag the bar itself already reads.
+  function showAlreadySigned() {
+    retireCard();
+    var wrap = document.querySelector('[data-petition-form-wrap]');
+    var thankYou = document.querySelector('[data-petition-thankyou]');
+    if (wrap) wrap.hidden = true;
+    if (thankYou) {
+      var messageEl = thankYou.querySelector('[data-petition-thankyou-message]');
+      if (messageEl) messageEl.textContent = "You've already signed this petition from this device.";
+      var returning = thankYou.querySelector('[data-petition-returning]');
+      if (returning) returning.hidden = false;
+      thankYou.hidden = false;
+      thankYou.setAttribute('tabindex', '-1');
+      thankYou.focus();
+    }
+    revealShare();
+    var again = document.querySelector('[data-petition-signagain]');
+    if (again) {
+      again.addEventListener('click', function () {
+        if (wrap) wrap.hidden = false;
+        if (thankYou) thankYou.hidden = true;
+        var nameField = document.querySelector('#petition-name');
+        if (nameField) nameField.focus();
+      });
+    }
   }
 
   function wireForm(form) {
     var honeypot = form.querySelector('input[name="_gotcha"]');
     var errorEl = form.querySelector('[data-petition-error]');
     var submitButton = form.querySelector('button[type="submit"]');
+
+    // ZIP field: the browser's own validation message ("Please match the requested format.")
+    // says nothing about what format is expected once the 02108 placeholder is covered by a
+    // typed value. A custom message, worded the same way a server error reads. Design review
+    // 2026-09-26.
+    var zipField = form.querySelector('input[name="zip"]');
+    if (zipField) {
+      zipField.addEventListener('invalid', function () {
+        zipField.setCustomValidity('Enter a five-digit ZIP code.');
+      });
+      zipField.addEventListener('input', function () { zipField.setCustomValidity(''); });
+    }
+
+    function resetButton() {
+      if (!submitButton) return;
+      submitButton.textContent = submitButton.dataset.originalText || 'Sign the petition';
+      submitButton.removeAttribute('aria-busy');
+      submitButton.disabled = false;
+    }
 
     form.addEventListener('submit', function (e) {
       // Honeypot: a real visitor never fills this in (it's visually hidden and out of the tab
@@ -205,7 +261,17 @@
 
       e.preventDefault();
       if (errorEl) { errorEl.hidden = true; errorEl.textContent = ''; }
-      if (submitButton) submitButton.disabled = true;
+      if (submitButton) {
+        // The Fly server sleeps when idle; the first submit after idle takes ~1-2s with no other
+        // on-screen change. "Signing…" is the one thing that tells a visitor on a slow
+        // connection the click registered, rather than nothing happening. Re-enabled only on
+        // error -- on success the form itself is hidden by onSigned(), so there is nothing left
+        // to re-enable. Design review 2026-09-26.
+        submitButton.dataset.originalText = submitButton.dataset.originalText || submitButton.textContent;
+        submitButton.textContent = 'Signing…';
+        submitButton.setAttribute('aria-busy', 'true');
+        submitButton.disabled = true;
+      }
 
       var formData = new FormData(form);
       var params = new URLSearchParams();
@@ -227,19 +293,20 @@
         .then(function (result) {
           if (result.ok && result.data && result.data.ok) {
             onSigned(typeof result.data.count === 'number' ? result.data.count : null);
-          } else if (errorEl) {
-            errorEl.textContent = (result.data && result.data.error) || DEFAULT_ERROR;
-            errorEl.hidden = false;
+          } else {
+            resetButton();
+            if (errorEl) {
+              errorEl.textContent = (result.data && result.data.error) || DEFAULT_ERROR;
+              errorEl.hidden = false;
+            }
           }
         })
         .catch(function () {
+          resetButton();
           if (errorEl) {
             errorEl.textContent = CONNECTION_ERROR;
             errorEl.hidden = false;
           }
-        })
-        .then(function () {
-          if (submitButton) submitButton.disabled = false;
         });
     });
   }
@@ -258,6 +325,10 @@
       if (window.history && window.history.replaceState) {
         window.history.replaceState(null, '', window.location.pathname);
       }
+    } else if (isSigned()) {
+      // A returning signer (bookmark, footer link, second visit) landing directly on /petition/,
+      // outside the post-submit redirect above. Design review 2026-09-26.
+      showAlreadySigned();
     }
 
     var countEl = document.querySelector('[data-petition-count]');

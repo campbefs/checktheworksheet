@@ -105,7 +105,16 @@ body {
   line-height: 1.6;
 }
 
-a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+/* A long word (e.g. "Massachusetts") in a heading overflowed its column and forced a horizontal
+   scrollbar at a narrow effective width -- small phone plus enlarged text/zoom stacked together
+   (WCAG 1.4.10/1.4.4). No sitewide heading rule existed to wrap it. Design review 2026-09-26. */
+h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+/* Same reflow issue as the heading rule above, found the same pass: a mailto link showing its
+   own address as its text (checktheworksheet@gmail.com, on /petition/ and /contact/) is one
+   unbreakable token and overflowed at the same narrow-effective-width check, once the heading
+   overflow that had been dwarfing it was fixed. */
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; overflow-wrap: break-word; }
 a:hover, a:focus { text-decoration-thickness: 2px; }
 a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
   outline: 3px solid var(--hue-recipient);
@@ -1356,8 +1365,12 @@ body:has(> .petition-card:not([hidden])) { padding-bottom: var(--petition-bar-h,
 }
 .petition-card-toggle {
   position: absolute; right: var(--space-3); top: 50%; transform: translateY(-50%);
-  width: 32px; height: 32px; line-height: 1; font-size: 1.125rem; padding: 0;
-  color: var(--text-secondary); background: none; border: 1px solid var(--rule); border-radius: 4px; cursor: pointer;
+  /* 44x44 touch target (was 32x32, below the comfortable minimum -- design review 2026-09-26) and
+     a border with real contrast: --rule was 1.15:1 against this bar's own background, below the
+     3:1 floor for a non-text control boundary (WCAG 1.4.11). --rule-strong is already computed at
+     3.30:1 and used sitewide for exactly this. */
+  width: 44px; height: 44px; line-height: 1; font-size: 1.125rem; padding: 0;
+  color: var(--text-secondary); background: none; border: 1px solid var(--rule-strong); border-radius: 4px; cursor: pointer;
 }
 .petition-card-toggle:hover { color: var(--text-primary); }
 .petition-card.is-min { left: auto; right: var(--space-3); bottom: 0; padding: 0;
@@ -1396,3 +1409,73 @@ body:has(> .petition-card:not([hidden])) { padding-bottom: var(--petition-bar-h,
    .disclosure/.box (§5) for the bordered-callout look rather than inventing a second one. */
 .petition-thankyou[hidden] { display: none; }
 .petition-thankyou .box h2 { margin-top: 0; }
+/* The thank-you box is no longer a direct child of .page (it's nested inside .petition-main for
+   the grid layout below), so the ".page > .disclosure" margin/padding reset in §5 no longer
+   matches it. Same reset, scoped to this nesting instead. */
+.petition-main > .disclosure {
+  margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0;
+}
+
+/* /petition/ page layout (2026-09-26 design review): the page reserved a two-column-width
+   measure with the right side of it entirely empty -- a cold visitor got less evidence on the
+   one page whose whole job is converting them than the home page gives away for free next to a
+   chart. .petition-why fills that space on desktop; on a phone it renders ABOVE the form (DOM
+   order below achieves this with no media-query trick -- .petition-layout is single-column by
+   default, so items simply stack in source order, and the aside is written first in the source). */
+.petition-layout { display: grid; grid-template-columns: 1fr; gap: var(--space-6); align-items: start; }
+/* A grid item's default min-width is `auto` (its content's min-content size), not 0 -- unlike a
+   plain block container. Wrapping the form in a grid changed its overflow behavior even though
+   the form's own CSS was untouched: an unbreakable token (an email address in the form-note) was
+   free to overflow its column before, inside plain block flow, and pushed the whole grid track
+   wider once it became a grid item. min-width: 0 on every grid child restores plain-block
+   shrinking. Found rendering at a narrow-effective-width check, design review 2026-09-26. */
+.petition-layout > * { min-width: 0; }
+@media (min-width: 900px) {
+  .petition-layout { grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); gap: var(--space-7); }
+  .petition-main { grid-column: 1; grid-row: 1; }
+  .petition-why { grid-column: 2; grid-row: 1; }
+}
+.petition-why {
+  /* Same visual language as .disclosure .box (§5), reused directly rather than through that
+     selector's ancestor requirement -- this card is a grid sibling of the form, not a
+     full-width page section, so .disclosure's own page-width margin/padding rules don't apply
+     to it and shouldn't be invited in. */
+  border-left: 3px solid var(--rule-strong);
+  padding: var(--space-5) var(--space-6);
+  background: var(--surface-raised);
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+.petition-why h2 { font-family: var(--font-serif); font-size: 1.125rem; margin: 0 0 var(--space-3); color: var(--text-primary); }
+.petition-why ul { margin: 0 0 var(--space-3); padding-left: 1.1em; }
+.petition-why li { margin-bottom: var(--space-3); }
+.petition-why li:last-child { margin-bottom: 0; }
+.petition-why p:last-child { margin-bottom: 0; }
+
+/* Share step after signing (2026-09-26): a signer had no way to forward the petition -- no link,
+   no copy button, no email option -- which a persona read (a father wanting to send it to his
+   brother) confirmed as a task-blocking gap, not a nicety. Feature-detected at render time in
+   petition.js: navigator.share where available, else a copy-link button; "Email it" always shows
+   alongside either one. No third-party embeds. */
+.petition-share[hidden] { display: none; }
+.petition-share { margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
+.petition-share p { margin: 0 0 var(--space-3); }
+.petition-share .btn { margin-right: var(--space-4); }
+.petition-share-links a { font-size: 0.9375rem; }
+/* .btn sets its own `display`, which -- being an author-stylesheet rule -- overrides the browser
+   default `[hidden] { display: none }` at equal specificity (author origin always wins over
+   user-agent origin). Without this, the share and copy buttons could both render at once on a
+   browser where only one is meant to (found while screenshotting this build, 2026-09-26): the
+   decision is feature-detected, never-both, and this is what actually enforces "never both". */
+.petition-share .btn[hidden] { display: none; }
+
+/* Returning signer (2026-09-26): landing on /petition/ directly after already signing showed the
+   identical blank form with no acknowledgment. */
+.petition-returning[hidden] { display: none; }
+.petition-returning { margin-top: var(--space-4); }
+[data-petition-signagain] {
+  background: none; border: none; padding: 0; margin: 0;
+  font: inherit; font-weight: 600; color: var(--accent); text-decoration: underline;
+  text-underline-offset: 2px; cursor: pointer;
+}
+[data-petition-signagain]:hover { color: var(--text-primary); }

@@ -16,7 +16,13 @@
 {% endcomment %}
 {% if site.petition_endpoint != "" and page.url != "/petition/" %}
 <div class="petition-card" data-petition-card>
-  <a class="petition-card-link" href="{{ '/petition/' | relative_url }}" data-petition-card-open>Sign the petition for reform &rarr;</a>
+  {%- comment -%}
+    Label states the ask (design review 2026-09-26): a legislative-aide persona read this label as
+    vague ("reform" doesn't say what's being asked) and had to tap through to find out. Rendered
+    and confirmed to fit one line at a 390px viewport; see docs/plans/redteam/design-petition-
+    2026-09-26/shots/ for the check.
+  {%- endcomment -%}
+  <a class="petition-card-link" href="{{ '/petition/' | relative_url }}" data-petition-card-open>Sign the petition to fix child support &rarr;</a>
   <button type="button" class="petition-card-toggle" data-petition-card-toggle aria-expanded="true" aria-label="Minimize the petition bar"><span aria-hidden="true">&ndash;</span></button>
 </div>
 {% endif %}
