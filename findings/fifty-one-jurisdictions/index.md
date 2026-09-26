@@ -415,6 +415,9 @@ Massachusetts appeared second.
 
 ## Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody
 
+<p class="caveat">Here and throughout the site, "47 states" counts the District of Columbia,
+which sets its own guidelines, as one of the 47.</p>
+
 The same worked example, recombined: Massachusetts under Box 1 (children half the time with each
 parent) is placed on the same scale as every other jurisdiction computed with the children primarily
 with the lower earner. Only Hawaii and Wisconsin order more at primary custody than Massachusetts
