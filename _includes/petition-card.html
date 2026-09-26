@@ -17,7 +17,6 @@
 {% if site.petition_endpoint != "" and page.url != "/petition/" %}
 <div class="petition-card" data-petition-card hidden aria-hidden="true">
   <button type="button" class="petition-card-dismiss" data-petition-card-dismiss aria-label="Dismiss">&times;</button>
-  <p class="petition-card-text">The Massachusetts child support guidelines need immediate reform.</p>
-  <button type="button" class="btn" data-petition-card-open>Sign the petition</button>
+  <a class="btn petition-card-link" href="{{ '/petition/' | relative_url }}" data-petition-card-open>Sign the petition for reform &rarr;</a>
 </div>
 {% endif %}

@@ -1351,8 +1351,13 @@ footer.site-footer { border-top: 1px solid var(--rule); }
 .petition-card-dismiss:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .petition-card-text { margin: 0 var(--space-6) 0 0; font-size: 0.9375rem; color: var(--text-primary); }
 .petition-card .btn { align-self: flex-start; }
+/* 2026-09-26: the card is now a one-line toast, a link to /petition/ plus a dismiss button. */
+.petition-card { flex-direction: row-reverse; align-items: center; padding: var(--space-3); max-width: none; }
+.petition-card .petition-card-dismiss { position: static; flex: none; }
+.petition-card .petition-card-link { align-self: center; white-space: nowrap; text-decoration: none; }
 @media (max-width: 480px) {
-  .petition-card { left: var(--space-4); right: var(--space-4); max-width: none; }
+  .petition-card { left: var(--space-4); right: var(--space-4); justify-content: space-between; }
+  .petition-card .petition-card-link { white-space: normal; }
 }
 
 /* Dialog: a real <dialog>, shown with showModal() -- while open, the browser keeps focus inside
