@@ -51,7 +51,7 @@ gap alone.</p>
   <div class="numeral">
     <span class="numeral-value">6.9%</span>
     <p class="numeral-caption">What equal parenting time takes off the order in Massachusetts, at the worked example</p>
-    <p class="numeral-caption">The equal-parenting discount at the worked example, an 87.7 percent payor income share, down from 77.6 percent at a 56.3 percent share</p>
+    <p class="numeral-caption">The discount shrinks as the payor&rsquo;s share of income rises: 77.6% at a 56.3% share, 6.9% at the worked example&rsquo;s 87.7%</p>
   </div>
   <span class="numeral-arrow" aria-hidden="true" style="align-self:flex-start;margin-top:2.2rem">vs</span>
   <div class="numeral">
@@ -92,13 +92,13 @@ the income gap, the less equal time is worth.
    alt="Line chart of the Box 1 order's percentage reduction from the primary-custody order, across the payor's share of combined income, for the current Worksheet and two redlined variants, three children."
    title="The Worksheet's equal-time credit collapses as the income gap widens."
    deck="The discount for equal time, against the primary-custody order, falls from about 75 percent at a 57 percent payor income share to 7 percent at 88 percent and 1 percent at 96 percent, because no parenting-time quantity enters any line."
-   notes="Variant A, applying Line 6e once, raises the discount to 14.0 percent. Variant B, the cross-credit design 23 states use at a 1.5 duplication factor, raises it to 35.5 percent and stops it collapsing. This chart's continuous sweep runs from a 57.3 percent payor income share. The discrete sweep behind the numeral above runs further than either this chart or the table below displays, reaching a 56.3 percent share, where the discount is 77.6 percent."
+   notes="Variant A, applying Line 6e once, raises the discount to 14.0 percent. Variant B, the cross-credit design 18 states and DC use at a 1.5 duplication factor, raises it to 35.5 percent and stops it collapsing. This chart's continuous sweep runs from a 57.3 percent payor income share. The discrete sweep behind the numeral above runs further than either this chart or the table below displays, reaching a 56.3 percent share, where the discount is 77.6 percent."
    source_script="model/box1_fix.py · model/charts/fig3_credit.py"
    csv_href="/figures/working/fig3_credit_collapse.csv"
    lazy="false" %}
 
 The chart also shows the two redlines in the comments. Variant A applies the Line 6e limit once
-and gives $935.06. Variant B rebuilds the credit as the cross-credit 23 states use and gives $701.30,
+and gives $935.06. Variant B rebuilds the credit as the cross-credit 18 states and DC use and gives $701.30,
 a 30.8 percent drop from today's $1,012.73. The count and the factor are Oldham and Venohr's
 (*The Relationship Between Child Support and Parenting Time*, 54 Fam. L.Q. 141, 152-53 (2020)),
 who record that those states raise the basic obligation by 50 percent for the expenses both
@@ -106,7 +106,7 @@ households duplicate; a few use no multiplier, or one other than 1.5. Neither re
 parent actually has.
 
 Research on custody decided mainly by a financial incentive finds children can fare worse under it
-(Fernandez-Kranz, Roff and Sun 2021), an argument against pricing parenting time by formula in
+(Fernández-Kranz, Roff and Sun, *Journal of Economic Behavior & Organization* 189 (2021)), an argument against pricing parenting time by formula in
 either direction, whether a credit shrinks or grows. Both variants above still price it by formula;
 the caution applies to them the same way it applies to today's line.
 
@@ -145,7 +145,7 @@ cross-credit. (Source: `model/runs/box1-fix-run-2026-09-05.txt`, printed by `mod
 
 <section id="mechanism" markdown="1">
 
-## How the form gets there, line by line
+## Nothing between the Worksheet's total and its credit asks how many nights either parent has
 
 Both boxes on the form (CJ-D 304) start from the same total at Line 4c: $1,240.73 a week at the worked example (three
 children, a payor at $201,000 a year, the other parent at $570 a week). Line 5b splits that by
@@ -167,8 +167,9 @@ parent has.
 <details markdown="1">
 <summary>What a cross-credit formula would say</summary>
 
-Massachusetts doesn't say how much cost two households duplicate when they share custody. Twenty-three
-other states answer that with a cross-credit: multiply the basic obligation by a duplication factor
+Massachusetts doesn't say how much cost two households duplicate when they share custody. Eighteen
+states and the District of Columbia answer that with a cross-credit ([which states, and how it
+works](/findings/shared-parenting-formula/)): multiply the basic obligation by a duplication factor
 (Indiana's commentary sets 1.5) before subtracting the lower earner's share.
 
 Solving the Box 1 arithmetic backward through that formula turns up a coincidence: the 6.9 percent
@@ -223,7 +224,7 @@ harm the 2017 Commentary already named: parents litigating over an extra day, an
 driving the parenting plan.
 
 <p class="stat-callout">
-  <span class="stat-value">9 of 50</span>
+  <span class="stat-value"><a href="/findings/fifty-one-jurisdictions/">9 of 50</a></span>
   <span class="stat-label">states, including New York, where splitting time equally lowers the order not at all from a one-third schedule</span>
 </p>
 
@@ -231,7 +232,7 @@ driving the parenting plan.
 
 <section id="caveats" markdown="1">
 
-## Limits
+## Every figure here is one worked example at equal time, though the mechanism is the form's own
 
 <p class="caveat">Every figure on this page comes from one worked example: three children, equal
 parenting time, no child care claimed, at the incomes stated. The mechanism, Box 1's discount

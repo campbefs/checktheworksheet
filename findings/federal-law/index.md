@@ -47,7 +47,7 @@ Commonwealth cannot lawfully collect.</p>
 <div class="numeral-pair numeral-pair--solo">
   <div class="numeral">
     <span class="numeral-value">40%</span>
-    <p class="numeral-caption">of income pairs produce an order over the federal ceiling with $100 a week of child care claimed per child (three children, primary custody)</p>
+    <p class="numeral-caption">of three-child, primary-custody orders cross the federal ceiling at $100 a week of child care per child</p>
   </div>
 </div>
 
@@ -173,8 +173,9 @@ requires a floor of this kind for a low earner and leaves the method to the stat
 § 302.56(c)(1)(ii), so a ceiling at the top is the same kind of rule.
 
 Three jurisdictions already cap
-the order itself: Delaware at 50 percent of available income, Washington at 45 percent of net income, and
-the District of Columbia at 35 percent of adjusted gross income with child care included. No state
+the order itself: Delaware at 50 percent of available income (Family Court Civil Rule 506(b)),
+Washington at 45 percent of net income (RCW 26.19.065(1)), and the District of Columbia at
+35 percent of adjusted gross income with child care included (D.C. Code § 16-916.01(n)). No state
 checks the order against the federal withholding ceiling when it sets it.
 
 Parents paying orders set under the current Guidelines should be able to ask for an immediate

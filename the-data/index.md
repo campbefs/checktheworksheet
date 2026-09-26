@@ -9,14 +9,14 @@ description: What each dataset behind the model contains and how confident each 
 Every number in a finding traces to one of these files, or to a script in
 [the model](/the-model/). Nothing on this site is entered by hand.
 
-## The form's own logic
+## The model matches the calculation scripts built into the official form
 
 [`data/extracted/cjd304-xfa.xml`](/data/extracted/cjd304-xfa.xml) holds the calculation scripts
 built into the 2025 CJ-D 304, the Massachusetts child support guidelines worksheet, extracted by
 [`model/inspect_worksheet.py`](/model/inspect_worksheet.py). **Primary
 source, executed directly**; [the model](/the-model/) matches it on all six scenarios.
 
-## The support chart
+## The model matches all 1,104 rows of the published support chart
 
 [`data/extracted/guidelines-chart.json`](/data/extracted/guidelines-chart.json) holds 1,104
 income-to-support pairs, $0-$8,654/wk, from the 2025 Guidelines Chart. **Checked against Table A,

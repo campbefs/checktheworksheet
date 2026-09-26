@@ -31,7 +31,7 @@ def main():
     ax = axs[0]
     ax.plot(x, [r[6] for r in rows], color=P["series"][3], lw=2.2, label="Worksheet today (Box 1 vs Box 2)")
     ax.plot(x, [r[7] for r in rows], color=P["series"][0], lw=2.2, label="Fix A: apply the credit's limit once, not twice")
-    ax.plot(x, [r[8] for r in rows], color=P["series"][2], lw=2.2, label="Fix B: the credit formula used by 23 other states")
+    ax.plot(x, [r[8] for r in rows], color=P["series"][2], lw=2.2, label="Fix B: the cross-credit formula 18 states and DC use")
     ax.set_title("(a) Reduction in the order for equal time", loc="left", fontsize=10.5)
     ax.set_ylim(0, 1); ax.set_ylabel("Reduction")
     ax = axs[1]

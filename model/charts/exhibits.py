@@ -174,7 +174,7 @@ def main():
     fig, ax = theme.figure(9.5, 5.2)
     ax.plot(x, [r["reduction_current"] for r in r3], color=P["series"][3], lw=2.2, label="Worksheet today (Box 1 vs Box 2)")
     ax.plot(x, [r["reduction_A"] for r in r3], color=P["series"][0], lw=2.2, label="Fix A: apply the credit's limit once, not twice")
-    ax.plot(x, [r["reduction_B"] for r in r3], color=P["series"][2], lw=2.2, label="Fix B: the credit formula used by 23 other states")
+    ax.plot(x, [r["reduction_B"] for r in r3], color=P["series"][2], lw=2.2, label="Fix B: the cross-credit formula 18 states and DC use")
     ax.set_xlim(0.5, 1.0); ax.set_ylim(0, 1)
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0%}"))
     ax.axvline(0.877, color=P["text_mute"], lw=0.8); ax.text(0.879, 0.93, "worked\nexample", fontsize=8, color=P["text_mute"])

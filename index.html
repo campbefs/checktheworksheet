@@ -33,7 +33,7 @@ scripts:
       joint custody</strong>, and joint custody here costs more than primary custody in 47 states.</p>
       <div class="stat-callout">
         <span class="stat-value">40%</span>
-        <span class="stat-label">of income pairs produce an order over the federal ceiling with $100 a week of child care claimed per child (three children, primary custody)</span>
+        <span class="stat-label">of three-child, primary-custody orders cross the federal ceiling at $100 a week of child care per child</span>
       </div>
       <p class="confidence-tag"><a href="/findings/federal-law/">Read the federal-law finding &rarr;</a></p>
     </div>
@@ -114,42 +114,6 @@ scripts:
           </div>
         </div>
 
-        <p class="tool-status-strip" data-calc-status>
-          <span class="tool-flagline" data-calc-badge="range" hidden></span>
-          <span class="tool-flagline" data-calc-badge="impossible" hidden></span>
-          <span class="tool-flagline" data-calc-badge="household" hidden></span>
-          <span class="tool-flagline" data-calc-badge="hardship" hidden></span>
-        </p>
-
-        <div class="tool-panel" data-calc-panel="main">
-          <div class="tool-readout" aria-live="polite">
-            <div>
-              <p class="cell-label">Weekly order (Line 7d)</p>
-              <p class="cell-value" data-calc-cell="order_wk">$1,276/wk</p>
-            </div>
-            <div>
-              <p class="cell-label">Line 7e's reading</p>
-              <p class="cell-value payor-line" data-calc-cell="line_7e">33.4%</p>
-            </div>
-            <div>
-              <p class="cell-label">True share of the payor's net income</p>
-              <p class="cell-value is-over40" data-calc-cell="true_pct_net">46.4%</p>
-            </div>
-          </div>
-          <div class="tool-readout tool-readout--pair" aria-live="polite">
-            <div>
-              <p class="cell-label">Payor keeps, per year</p>
-              <p class="cell-value" data-calc-cell="payor_after">$76,768/yr</p>
-            </div>
-            <div>
-              <p class="cell-label">Recipient household holds, per year</p>
-              <p class="cell-value is-warning" data-calc-cell="recip_after">$88,710/yr</p>
-              <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$22,177/yr</strong></p>
-              <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
-            </div>
-          </div>
-        </div>
-
         <div class="tool-panel tool-childcare" data-calc-childcare>
           <div class="tool-childcare-headrow">
             <h4 class="tool-childcare-heading">Child care</h4>
@@ -167,18 +131,9 @@ scripts:
               With child care
             </label>
           </fieldset>
-
           <div class="tool-childcare-body" id="calc-childcare-body">
             <p class="tool-callout-note">Starts at $100 a week per child, $300 a week for three
             children, paid by the lower earner. Move the sliders or switch child care off.</p>
-            <p class="tool-callout" data-calc-cell="cc_dist_wrap">
-              Higher earner&rsquo;s share of child care: <strong data-calc-cell="cc_dist_share3c">87.7%</strong>.
-              Their share of income after the order: <strong data-calc-cell="cc_dist_gross">64%</strong> of gross,
-              <strong data-calc-cell="cc_dist_net">53%</strong> after tax.
-            </p>
-            <p class="tool-callout-note">Child care is allocated on the first number. The order has
-            already moved the split to the other two.</p>
-
             <div class="tool-slider-row">
               <label for="calc-cc-lower">Child care paid by the lower earner, per week, all children
                 <output id="calc-cc-lower-output" for="calc-cc-lower">$300/wk</output>
@@ -193,23 +148,6 @@ scripts:
               <input type="range" id="calc-cc-higher" data-calc-input="ccHigher"
                      min="0" max="1290" step="10" value="0">
             </div>
-            <div class="tool-readout" aria-live="polite">
-              <div>
-                <p class="cell-label">Weekly order, with child care</p>
-                <p class="cell-value" data-calc-cell="cc_order_wk">$1,276/wk</p>
-              </div>
-              <div>
-                <p class="cell-label">Change from no child care</p>
-                <p class="cell-value" data-calc-cell="cc_delta_wk">+$263/wk</p>
-              </div>
-              <div>
-                <p class="cell-label">Higher earner's share of the lower earner's child care</p>
-                <p class="cell-value" data-calc-cell="cc_share_pct">87.7%</p>
-                <p class="cell-sub">Per year: <strong data-calc-cell="cc_share_wk">$13,678/yr</strong></p>
-              </div>
-            </div>
-            <p class="cell-note" data-calc-cell="cc_combined_line">&nbsp;</p>
-
             <fieldset class="cc-rule-select">
               <legend>How should child care be split?</legend>
               <label class="cc-rule-option">
@@ -235,6 +173,58 @@ scripts:
               </label>
               <p class="cell-note" data-calc-note="cc_rule">&nbsp;</p>
             </fieldset>
+          </div>
+        </div>
+
+        <p class="tool-status-strip" data-calc-status>
+          <span class="tool-flagline" data-calc-badge="range" hidden></span>
+          <span class="tool-flagline" data-calc-badge="impossible" hidden></span>
+          <span class="tool-flagline" data-calc-badge="household" hidden></span>
+          <span class="tool-flagline" data-calc-badge="hardship" hidden></span>
+        </p>
+
+        <div class="tool-panel" data-calc-panel="main">
+          <div class="tool-readout" aria-live="polite">
+            <div>
+              <p class="cell-label">Weekly order (Line 7d)</p>
+              <p class="cell-value" data-calc-cell="order_wk">$1,276/wk</p>
+            </div>
+            <div>
+              <p class="cell-label">What the hardship test reports (Line 7e)</p>
+              <p class="cell-value payor-line" data-calc-cell="line_7e">33.4%</p>
+            </div>
+            <div>
+              <p class="cell-label">True share of the payor's net income</p>
+              <p class="cell-value is-over40" data-calc-cell="true_pct_net">46.4%</p>
+            </div>
+          </div>
+          <div class="tool-readout tool-readout--pair" aria-live="polite">
+            <div>
+              <p class="cell-label">Payor keeps, per year</p>
+              <p class="cell-value" data-calc-cell="payor_after">$76,768/yr</p>
+            </div>
+            <div>
+              <p class="cell-label">Recipient household holds, per year</p>
+              <p class="cell-value is-warning" data-calc-cell="recip_after">$88,710/yr</p>
+              <p class="cell-sub">Per person: <strong data-calc-cell="recip_per_person">$22,177/yr</strong></p>
+              <p class="cell-note visible" data-calc-note="recip_after">Above the payor</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-panel tool-childcare tool-childcare-body" data-calc-cc-results>
+          <h4 class="tool-childcare-heading">What child care does to the order</h4>
+            <div class="tool-readout" aria-live="polite">
+              <div>
+                <p class="cell-label">Change from no child care</p>
+                <p class="cell-value" data-calc-cell="cc_delta_wk">+$263/wk</p>
+              </div>
+              <div>
+                <p class="cell-label">What the higher earner pays of the other parent's child care, per year</p>
+                <p class="cell-value" data-calc-cell="cc_share_wk">$13,678/yr</p>
+              </div>
+            </div>
+            <p class="cell-note" data-calc-cell="cc_combined_line">&nbsp;</p>
             <div class="cc-shift" aria-live="polite">
               <p class="cc-shift-label">Higher earner&rsquo;s share of the child care</p>
               <p class="cc-shift-figures">
@@ -247,7 +237,6 @@ scripts:
             <p class="cc-rule-note" data-calc-cell="cc_rule_note">The Worksheet charges the higher
             earner 87.7% ($13,678/yr) of the child care, while they hold 64% of the money after the
             order on paper and 53% of it after tax.</p>
-          </div>
         </div>
 
         <p class="tool-assumptions"><strong>This tool counts the refundable tax credits, to show
@@ -305,41 +294,42 @@ scripts:
       <p class="eyebrow">The highest joint-custody support in the nation</p>
       <h2>Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody. Only Hawaii and Wisconsin charge more.</h2>
       <p>The same two incomes and three children in every state ($201,000 and $29,640 a year, no
-      child care), read out of each state's own guidelines, computed twice, then attacked. At equal
-      parenting time Massachusetts orders the most of the fifty, and every place that costs more to
-      live in orders less: <a href="/findings/cost-of-living/">the cost-of-living comparison</a>.</p>
+      child care), read out of each state's own guidelines, computed twice, then attacked. Every place
+      that costs more to live in orders less at equal time: <a href="/findings/cost-of-living/">the
+      cost-of-living comparison</a>.</p>
       {% include figure.html
-         id="e11-hero"
-         img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-         alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one set of incomes, Massachusetts highlighted."
-         title="At equal parenting time, Massachusetts orders the most of the fifty states."
-         deck="Monthly order at one set of incomes."
-         notes="Each row was profiled from primary sources, computed twice blind, then reconciled and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else."
-         source_script="model/charts/fig5_states.py"
-         csv_href="/figures/working/fig5_states.csv" %}
-      <p>Every state at primary custody, then Massachusetts at equal parenting time:</p>
+         id="e17"
+         img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
+         alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale."
+         title="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
+         deck="Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner."
+         notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time; Massachusetts's own primary-custody order, $4,714, is marked for scale and is not part of the ranked comparison."
+         source_script="model/charts/fig10_ma_shared_vs_primary.py"
+         csv_href="/figures/working/fig10_ma_shared_vs_primary.csv"
+         confidence="The same two incomes and three children, in every state." %}
+      <p>Ranked against each other, Massachusetts orders the most of the fifty at equal time, and at
+      primary custody only Hawaii orders more:</p>
       <div class="exhibit-pair">
+        {% include figure.html
+           id="e11-hero"
+           img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
+           alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one set of incomes, Massachusetts highlighted."
+           title="At equal parenting time, Massachusetts orders the most of the fifty states."
+           deck="Monthly order at one set of incomes."
+           notes="Each row was profiled from primary sources, computed twice blind, then reconciled and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else."
+           source_script="model/charts/fig5_states.py"
+           csv_href="/figures/working/fig5_states.csv" %}
         {% include figure.html
            id="e12"
            img="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
            alt="Horizontal bar chart of the monthly child support order in fifty states with the children primarily with the lower earner, one set of incomes, Massachusetts highlighted."
            title="With the lower earner primary, only Hawaii orders more than Massachusetts."
-           deck="Monthly order at one set of incomes. First of a pair with E17."
-           notes="The same family with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states, same axis range, same colors, same ordering rule as E17, so the two can be read as a pair."
+           deck="Monthly order at one set of incomes, read beside E11."
+           notes="The same family with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states and same colors as E11, so the two can be read side by side."
            source_script="model/charts/fig5_states.py"
            csv_href="/figures/working/fig5_states.csv"
            confidence="The same two incomes and three children, in every state."
            lazy="false" %}
-        {% include figure.html
-           id="e17"
-           img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
-           alt="Horizontal bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, with Massachusetts's own primary-custody order marked for scale."
-           title="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
-           deck="Monthly order: Massachusetts under Box 1 (children half the time each) against every other jurisdiction with the children primarily with the lower earner."
-           notes="Only Hawaii and Wisconsin order more at primary custody than Massachusetts does at equal time; Massachusetts's own primary-custody order, $4,714, is marked for scale and is not part of the ranked comparison."
-           source_script="model/charts/fig10_ma_shared_vs_primary.py"
-           csv_href="/figures/working/fig10_ma_shared_vs_primary.csv"
-           confidence="The same two incomes and three children, in every state." %}
       </div>
     </section>
   </div>
@@ -357,12 +347,12 @@ scripts:
 <div class="numeral-pair" id="hardship-numerals">
   <div class="numeral">
     <span class="numeral-value">40</span>
-    <p class="numeral-caption">What Line 7e reports, in percent of income</p>
+    <p class="numeral-caption">What the Worksheet&rsquo;s hardship test reports, in percent</p>
   </div>
   <span class="numeral-arrow" aria-hidden="true">&rarr;</span>
   <div class="numeral">
     <span class="numeral-value">57</span>
-    <p class="numeral-caption">The payor's true share of net income when it finally does</p>
+    <p class="numeral-caption">What the order really takes of the payor&rsquo;s take-home pay at that point</p>
   </div>
 </div>
 
@@ -394,11 +384,11 @@ scripts:
   <article class="finding-card" id="f-fifty">
     <div class="thumb">
       <a class="lightbox-trigger" data-lightbox
-         href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-         data-caption="At equal parenting time, Massachusetts orders the most of the fifty states."
-         data-csv-href="/figures/working/fig5_states.csv" data-csv-label="Data (CSV)">
-        <img src="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-             alt="Ranked bar chart of fifty states' child support orders at equal parenting time, one set of incomes, Massachusetts at the top.">
+         href="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
+         data-caption="Massachusetts at equal time against every other state at primary custody. Only Hawaii and Wisconsin order more."
+         data-csv-href="/figures/working/fig10_ma_shared_vs_primary.csv" data-csv-label="Data (CSV)">
+        <img src="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
+             alt="Bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, Massachusetts highlighted.">
       </a>
     </div>
     <div class="body">

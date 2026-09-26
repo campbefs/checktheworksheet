@@ -51,7 +51,7 @@ net income.</p>
 <div class="numeral-pair numeral-pair--solo">
   <div class="numeral">
     <span class="numeral-value">17</span>
-    <p class="numeral-caption">Point gap, at the worked example, between what Line 7e reports and the payor's true share of net income at the moment the hardship test finally fires</p>
+    <p class="numeral-caption">Percentage points between what the hardship test reports and what the order really takes of take-home pay, at the moment the test finally fires</p>
   </div>
 </div>
 
@@ -109,7 +109,7 @@ out of compliance with federal law](/findings/federal-law/).
 <section id="method" markdown="1">
 
 <details markdown="1">
-<summary>Method: the full lag table, and how Line 7e is computed</summary>
+<summary>Every row of the lag, and how the hardship test (Line 7e) computes each one</summary>
 
 The table below holds base support fixed and raises the recipient's claimed child care from $0 to
 the statutory ceiling for three children ($1,290 a week), tracking what Line 7e reports against the

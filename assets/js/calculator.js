@@ -522,7 +522,9 @@
     Array.prototype.slice.call(root.querySelectorAll('[data-calc-badge]')).forEach(function (el) {
       badges[el.getAttribute('data-calc-badge')] = el;
     });
-    var ccBody = root.querySelector('[data-calc-childcare] .tool-childcare-body');
+    // 2026-09-25: the child-care inputs and the child-care results are separate blocks now, so
+    // every .tool-childcare-body is shown or hidden together.
+    var ccBodies = Array.prototype.slice.call(root.querySelectorAll('.tool-childcare-body'));
     var ccStateLabel = root.querySelector('[data-calc-cc-state]');
 
     // The two incomes' EXACT committed values, independent of what a <input type="range"> can
@@ -890,10 +892,10 @@
         ccStateLabel.textContent = facts.ccOn ? 'included' : 'not included';
         ccStateLabel.classList.toggle('is-on', facts.ccOn);
       }
-      if (ccBody) {
-        if (facts.ccOn) ccBody.removeAttribute('hidden');
-        else ccBody.setAttribute('hidden', '');
-      }
+      ccBodies.forEach(function (b) {
+        if (facts.ccOn) b.removeAttribute('hidden');
+        else b.setAttribute('hidden', '');
+      });
     }
 
     // F1 fix (2026-09-10 red team): the two income sliders' native ranges overlap

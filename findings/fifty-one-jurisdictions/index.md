@@ -557,7 +557,7 @@ The three economic reviews since then were commissioned by the Commonwealth and 
 
 <section id="caveats" markdown="1">
 
-## Limits
+## Every figure here is one family at one set of incomes, and the ranking holds for that family only
 
 <p class="caveat">One worked example is not a distribution. Nothing here says what a lower-income
 family, a two-child family, or a family with claimed child care would see in any of these fifty

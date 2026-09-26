@@ -11,7 +11,7 @@ description: >-
 
 While federal law requires every order to rest on the parent's ability to pay, it sets no cap on
 the order and does not require a worksheet to test it against what a parent keeps. The first
-section below asks Washington to close that gap for every state. The twelve sections after it are specific to the Massachusetts Worksheet: each names
+section below asks Washington to close that gap for every state. The five sections after it are specific to the Massachusetts Worksheet: each names
 the line it would change and what that change does to the order at the worked example throughout
 this site, a payor at $201,000 a year, the other parent at $29,640, three children. Open a row to
 read the case for it.
@@ -19,8 +19,8 @@ read the case for it.
 <p class="kind-legend" markdown="1">
 Each proposal below carries one of three labels. **A correction** means the Worksheet applies two
 different measures inside one calculation, or tests a quantity against a threshold in different
-units; it is wrong on its own terms, whichever way you think support should go, and three of the
-five Worksheet corrections change a dollar figure. **A judgement** picks a number, a rate or a cap, or installs a rule where the
+units. It is wrong on its own terms, whichever way you think support should go, and three of
+the five Worksheet corrections change a dollar figure. **A judgement** picks a number, a rate or a cap, or installs a rule where the
 form has none: someone who accepts every figure on this page can still disagree with it.
 **A disclosure** changes no dollar figure and records or surfaces something the form currently
 leaves unrecorded, in either direction. Six, seven and six of the nineteen proposals below.
@@ -43,7 +43,7 @@ accordingly.
 ## Federal law should cap what any state can order, and require it to show its work
 
 Federal law sets no cap on a presumptive order and does not require a worksheet to test it
-against what a parent keeps. A petition filed with the U.S. Department of Health
+against what a parent keeps. A petition to the U.S. Department of Health
 and Human Services asks the federal government to fix that for every state, not just
 Massachusetts: a ceiling on the order itself, and disclosure that makes a worksheet show its work.
 The [federal law finding](/findings/federal-law/) on this site has the Massachusetts figures the
@@ -163,7 +163,7 @@ the cross-credit method is in place.
 
 </section>
 
-## Child care
+## The Worksheet splits child care before the order moves money, and should split it after
 
 The Worksheet splits child care on each parent's share of income before the order moves any money. These would split it on what each parent holds after.
 
@@ -234,13 +234,13 @@ which parent claims which child and that claim is often alternated year to year.
 
 </div>
 
-## Parenting time
+## The equal-time credit shrinks as the income gap widens, because no line of the form prices parenting time
 
 Splitting the week equally cuts the order 6.9 percent, and that credit shrinks as the income gap widens, because no line in the form contains a parenting-time term.
 
 <div class="accordion" markdown="0">
 <details class="ask" markdown="1" id="ask-parenting-credit-crosscredit">
-<summary><span class="ask-head"><span class="ask-title">Set the equal-time discount with the cross-credit formula most states use (recommended)</span><span class="effect">Equal-time order falls from $1,012.73 to $701.30 a week, a 30.8 percent cut.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
+<summary><span class="ask-head"><span class="ask-title">Set the equal-time discount with the cross-credit formula 18 states and DC use (recommended)</span><span class="effect">Equal-time order falls from $1,012.73 to $701.30 a week, a 30.8 percent cut.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the comments to the Trial Court</span></span></summary>
 
 **At equal parenting time, Massachusetts's order should fall to what a standard cross-credit
 formula produces, using the 1.5 multiplier most cross-credit states use.** [How it works →](/findings/shared-parenting-formula/)
@@ -272,7 +272,7 @@ California isn't printed by the model; its distance from the median (102.0 perce
 the median exactly would take a 50.5 percent cut to today's order, down to $511.27 a week.
 
 Research on custody decided mainly by a financial incentive finds children can fare worse under it
-(Fernandez-Kranz, Roff and Sun 2021), an argument against pricing parenting time by formula in
+(Fernández-Kranz, Roff and Sun, *Journal of Economic Behavior & Organization* 189 (2021)), an argument against pricing parenting time by formula in
 either direction, whether a credit shrinks or grows. The cross-credit recommended here and the
 linear alternative both still price it by formula, so that caution applies to this proposal the
 same way it applies to today's line. What it argues for is fixing the line the Worksheet already
@@ -284,7 +284,7 @@ runs, not enlarging a credit for its own sake.
    alt="Line chart of the percentage reduction in the order for equal parenting time versus the Box 2 order, against the payor's share of combined available income, for the current Worksheet and two redline variants."
    title="The Worksheet's equal-time credit collapses as the income gap widens."
    deck="Reduction in the order for equal time, against the Box 2 order (the paying parent has the children about a third of the time)."
-   notes="The reduction falls from about 75 percent at a 57 percent payor income share to 7 percent at 88 percent and 1 percent at 96 percent: no parenting-time quantity enters any line. Variant A, applying Line 6e once, lifts the curve. Variant B, the standard cross-credit at a 1.5 duplication factor used by 23 states, stops it collapsing. Both are the letter's § 5 redlines."
+   notes="The reduction falls from about 75 percent at a 57 percent payor income share to 7 percent at 88 percent and 1 percent at 96 percent: no parenting-time quantity enters any line. Variant A, applying Line 6e once, lifts the curve. Variant B, the standard cross-credit at a 1.5 duplication factor used by 18 states and DC, stops it collapsing. Both are the letter's § 5 redlines."
    source_script="model/box1_fix.py"
    csv_href="/figures/working/fig3_credit_collapse.csv" %}
 
@@ -307,7 +307,7 @@ which is the scale this recommendation is measured against.
 
 Where the children are with each parent about half the time, both households carry the fixed cost of
 housing them, a bedroom in each home kept year round. Every income-shares state that credits shared
-parenting through a cross-credit recognises this: 23 states apply a 1.5 duplication factor (a few
+parenting through a cross-credit recognises this: most apply a 1.5 duplication factor (a few
 use no multiplier, or one other than 1.5), and Indiana's Guideline 6 Commentary puts the duplicated
 share of the basic obligation at 50 percent.
 The Massachusetts Worksheet contains no parenting-time quantity in any line, so its credit for equal
@@ -359,7 +359,7 @@ order from $1,012.73 to $935.06 a week, a 7.7 percent cut.
 
 </div>
 
-## The hardship test
+## The hardship test reads income measured before tax, while the order is paid from take-home pay
 
 Section IV.C calls 40 percent of income a hardship, then measures it on gross while the order is paid from net.
 
@@ -459,7 +459,7 @@ performs and then sets aside.
 
 </div>
 
-## Splitting the children between the parents
+## When the children are split between the parents, the Worksheet cuts the order for care that costs more
 
 <p class="kind-legend" markdown="1">
 This is the one proposal on the page that raises what a payor owes. It is here because the same
@@ -510,7 +510,7 @@ of scale the arrangement has eliminated.
 
 </div>
 
-## What the Worksheet does not record
+## Three gaps leave a judge without a figure, and none of them changes an order
 
 Three gaps that leave a judge without a figure. None of them changes any order.
 

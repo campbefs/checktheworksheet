@@ -8,9 +8,8 @@ description: >-
   this site, that charges the payor 88 cents of every dollar of a $15,600 claim.
 disclosure:
   - >-
-    The worked example throughout (the payor, the recipient's $300-a-week child care claim) runs
-    three children, the payor's income and the other parent's income entered as the
-    Worksheet requires. They are Worksheet figures from a real Massachusetts case, and neither is either parent's current income. I pay child support in Massachusetts myself, so I have a stake in the
+    The worked example on this page runs three children, a $300-a-week child care claim paid by the
+    recipient, and the two incomes the Worksheet requires. They are Worksheet figures from a real Massachusetts case, and neither is either parent's current income. I pay child support in Massachusetts myself, so I have a stake in the
     outcome; a reader should be able to check whether the arithmetic changes when the numbers
     move. It doesn't: the same allocation gap holds across income levels and child counts as
     well as at this example's figures.
@@ -70,7 +69,7 @@ recipient's $15,600-a-year child care claim.</p>
 Line 3c is each parent's share of combined available income, computed before the base support
 amount at Line 7d exists. Line 6a is the child care one parent actually pays. Line 6b multiplies
 the *other* parent's Line 3c share by that amount. So when the recipient pays the provider, the
-payor is charged the payor's own Line 3c share of the recipient's cost.
+payor is charged his own Line 3c share of the recipient's cost.
 
 By the time child care is added at Line 6, the base order has already moved a large share of the
 payor's income to the recipient's household. Line 6b never re-measures the shares against that
@@ -95,14 +94,15 @@ transfer.
 
 How big the claim is matters as much as how it is split. This page's $300-a-week claim works out
 to $100 a week per child, the level the [federal-law finding](/findings/federal-law/) examines.
-At that level, 40% of income pairs already produce an order over the federal ceiling, an amount
-the Commonwealth cannot lawfully collect.
+At that level, 40% of three-child income pairs already produce an order over the federal ceiling
+under primary custody, and some cross it at joint custody too, amounts the Commonwealth cannot
+lawfully collect.
 
 </section>
 
 <section id="range" markdown="1">
 
-## The gap widens with the number of children, in both directions the money can move
+## Splitting child care before the order overcharges the payor more with each child, whichever parent pays the provider
 
 The same gap — the split before the order moves money, versus after — shows up whichever parent
 pays the provider. Three

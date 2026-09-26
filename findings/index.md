@@ -86,7 +86,7 @@ Line 6g nets the two parents' Line 6e amounts, which reduce to the gap between t
 once Box 1 puts zero children in the payor's column; no line measures overnights. That gap shrinks
 the discount from 77.6 percent at a narrower income share to 6.9 percent at this family's. Research
 on custody decided mainly by a financial incentive finds children can fare worse under it
-(Fernandez-Kranz, Roff and Sun 2021), an argument against pricing parenting time by formula in
+(Fernández-Kranz, Roff and Sun, *Journal of Economic Behavior & Organization* 189 (2021)), an argument against pricing parenting time by formula in
 either direction, whether a credit shrinks or grows. The
 <a href="/recommendations/">recommendations</a> page's proposal for a larger credit is not exempt
 from that caution.
@@ -97,7 +97,7 @@ from that caution.
    alt="Line chart of the Box 1 order's percentage reduction from the primary-custody order, across the payor's share of combined income, for the current Worksheet and two redlined variants, three children."
    title="The Worksheet's equal-time credit collapses as the income gap widens."
    deck="The discount for equal time, against the primary-custody order, falls from about 75 percent at a 57 percent payor income share to 7 percent at 88 percent and 1 percent at 96 percent, because no parenting-time quantity enters any line."
-   notes="Variant A, applying Line 6e once, raises the discount to 14.0 percent. Variant B, the cross-credit design 23 states use at a 1.5 duplication factor, raises it to 35.5 percent and stops it collapsing."
+   notes="Variant A, applying Line 6e once, raises the discount to 14.0 percent. Variant B, the cross-credit design 18 states and DC use at a 1.5 duplication factor, raises it to 35.5 percent and stops it collapsing."
    source_script="model/box1_fix.py · model/charts/fig3_credit.py"
    csv_href="/figures/working/fig3_credit_collapse.csv" %}
 
@@ -105,7 +105,7 @@ from that caution.
 
 ## 4. Massachusetts charges more for joint custody than 47 states charge when the recipient has primary custody
 
-<p class="confidence-tag">Tiered: a single set of incomes; see method</p>
+<p class="confidence-tag">One set of incomes, fifty states. <a href="/findings/fifty-one-jurisdictions/">How each state was checked</a></p>
 
 Massachusetts orders more under equal parenting time than any of the fifty states modeled, and
 more under primary custody than every one of them but Hawaii. Its joint-custody order is higher
@@ -114,14 +114,14 @@ and Wisconsin charge more. Georgia is held out: its enacted formula orders less 
 at primary custody.
 
 {% include figure.html
-   id="e11"
-   img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-   alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one set of incomes, Massachusetts highlighted."
-   title="At equal parenting time, Massachusetts orders the most of the fifty states."
-   deck="Monthly order at one set of incomes. Georgia held out."
+      id="e17"
+   img="/figures/exhibits/E17-ma-equal-time-vs-others-primary-custody.png"
+   alt="Bar chart of Massachusetts's equal-time order against 49 other jurisdictions' primary-custody orders, Massachusetts highlighted, its own primary-custody order marked for scale."
+   title="Only Wisconsin and Hawaii order more than Massachusetts does at equal time."
+   deck="Monthly order: Massachusetts at equal time against every other state with the children primarily with the lower earner. Georgia held out."
    notes="Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its enacted formula produces a lower order under primary custody than under equal time, which the state's own calculator reproduces. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else."
-   source_script="model/charts/fig5_states.py"
-   csv_href="/figures/working/fig5_states.csv" %}
+      source_script="model/charts/fig10_ma_shared_vs_primary.py"
+   csv_href="/figures/working/fig10_ma_shared_vs_primary.csv" %}
 
 [Read the full finding →](/findings/fifty-one-jurisdictions/) · [Why cost of living does not explain it →](/findings/cost-of-living/)
 
@@ -162,7 +162,7 @@ up with income. Across $150,000 to $300,000 of payor income the share kept stays
 
 ## 7. Challenging the order can cost more than it saves, so wrong orders go uncontested
 
-<p class="confidence-tag">The deviation data is the Commonwealth's own; the rate at which a contested deviation succeeds is not measured anywhere in it.</p>
+<p class="confidence-tag">The deviation rate is the Commonwealth's own figure. How often a contested deviation succeeds is not published.</p>
 
 Federal law requires the guidelines amount to carry a rebuttable presumption. Massachusetts's own
 guidelines make rebutting it conditional on a judge making four specific findings: the guidelines
@@ -189,10 +189,9 @@ At this site's own worked example the payor is the one ahead, keeping $87,172 a 
 against the recipient household's $77,395,
 which is $19,349 each for the four people in it.
 
-Both figures come from the withholding basis — federal and Massachusetts income tax, Social
-Security and Medicare, no refundable credits — because a figure that turns on which parent claims
-which child in a given year is not something CJ-D 304 collects or a reader can reproduce from
-published rate tables.
+Both figures take out federal and Massachusetts income tax, Social Security and Medicare, and
+count no refundable credits. A credit turns on which parent claims which child in a given year,
+which CJ-D 304 does not collect and a reader cannot reproduce from published rate tables.
 
 {% include figure.html
    id="e01"

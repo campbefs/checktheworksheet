@@ -22,9 +22,8 @@ behind both.</p>
 </div>
 
 Every chart below has one set of axes. An earlier set mixed several panels into one image, and
-those have been split into the single-chart figures listed here. The fact line under each title states
-the custody arrangement, child count, child care status, and incomes used, the same pattern the
-chart is computed under. One worked example does not generalize to every family, and a household
+those have been split into the single-chart figures listed here. The fact line under each title gives the custody arrangement, number of children, child care
+and incomes the chart was computed with. One worked example does not generalize to every family, and a household
 comparison always carries its per-person counterpart.
 
 ## Contents
@@ -39,27 +38,27 @@ comparison always carries its per-person counterpart.
 8. [The order exceeds 40 percent of the payor's net income only where the lower earner makes about $20,000 or less.](#e04)
 9. [The hardship test fires late because it reads the wrong income.](#e05)
 10. [Of the payor's next dollar, the payor keeps between a third and a half.](#e10)
-11. [The payor's share of a $15,600 child care bill, three ways to split it.](#e06)
-12. [With one child, splitting child care on income after the order funds the payor 17 points below the payor's income share.](#e20)
-13. [With two children, splitting child care on income after the order funds the payor 24 points below the payor's income share.](#e21)
-14. [With three children, splitting child care on income after the order funds the payor 29 points below the payor's income share.](#e22)
-15. [The payor bears 93 percent of the combined child care while earning 87 percent of the gross income.](#e25)
-16. [Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192.](#e26)
-17. [The Worksheet's equal-time credit collapses as the income gap widens.](#e08)
-18. [The equal-time credit is what a standard formula pays a parent who has the children one night in three.](#e09)
-19. [Splitting two children across two homes cuts the weekly order by 30 percent.](#e23)
-20. [Two homes, one child each, cost 43 percent more on the schedule than one home with two.](#e24)
-21. [At equal parenting time, Massachusetts orders the most of the fifty states.](#e11)
-22. [With the lower earner primary, only Hawaii orders more than Massachusetts.](#e12)
-23. [In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.](#e13)
-24. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
-25. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
-26. [Five reviews have taken up gross versus net. None changed it.](#e27)
-27. [The order passes 40 percent of net pay in 473 of 1,147 income combinations.](#e28)
-28. [Every place that costs more to live in than Massachusetts orders less at equal time.](#e32)
-29. [Massachusetts orders the most at equal time, and it is not the most expensive place to live.](#e33)
+11. [The order passes 40 percent of net pay in 473 of 1,147 income combinations.](#e28)
+12. [The payor's share of a $15,600 child care bill, three ways to split it.](#e06)
+13. [With one child, splitting child care on income after the order funds the payor 17 points below the payor's income share.](#e20)
+14. [With two children, splitting child care on income after the order funds the payor 24 points below the payor's income share.](#e21)
+15. [With three children, splitting child care on income after the order funds the payor 29 points below the payor's income share.](#e22)
+16. [The payor bears 93 percent of the combined child care while earning 87 percent of the gross income.](#e25)
+17. [Both parents paying child care costs the payor $29,008 a year, the recipient household $2,192.](#e26)
+18. [The Worksheet's equal-time credit collapses as the income gap widens.](#e08)
+19. [The equal-time credit is what a standard formula pays a parent who has the children one night in three.](#e09)
+20. [Splitting two children across two homes cuts the weekly order by 30 percent.](#e23)
+21. [Two homes, one child each, cost 43 percent more on the schedule than one home with two.](#e24)
+22. [At equal parenting time, Massachusetts orders the most of the fifty states.](#e11)
+23. [With the lower earner primary, only Hawaii orders more than Massachusetts.](#e12)
+24. [In Massachusetts and 22 other states, having the children a third of the time lowers the order by nothing.](#e13)
+25. [Massachusetts's presumptive formula runs to $450,000; 12 schedules run higher, 28 stop lower.](#e16)
+26. [Only Wisconsin and Hawaii order more than Massachusetts does at equal time.](#e17)
+27. [Every place that costs more to live in than Massachusetts orders less at equal time.](#e32)
+28. [Massachusetts orders the most at equal time, and it is not the most expensive place to live.](#e33)
+29. [Five reviews have taken up gross versus net. None changed it.](#e27)
 
-## With child care claimed, the Worksheet sets orders the Commonwealth cannot lawfully collect
+## With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect
 
 <p>The federal government caps what may be withheld from a paycheck for child support at 50 percent
 of take-home pay, 15 U.S.C. § 1673(b)(2). With child care claimed, the Worksheet sets orders above
@@ -97,7 +96,7 @@ argument.</p>
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_grid.csv" %}
 
-## Who holds more after the order, by household and by person
+## The recipient household comes out ahead more often as children are added, but per person the payor holds more almost everywhere
 
 <div class="exhibit-pair">
 
@@ -300,7 +299,7 @@ argument.</p>
   </figcaption>
 </figure>
 
-## Child care, split on income measured before the order moves any money
+## The Worksheet splits child care on income measured before the order moves money, so the payor pays more than his share of what is left
 
 <figure class="exhibit" id="e06">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E06-child-care-share-three-rules-worked-example.png"
@@ -450,7 +449,7 @@ argument.</p>
 
 </div>
 
-## The credit for equal parenting time, and what splitting a family costs
+## The equal-time credit collapses as the income gap widens, and splitting the children between two homes cuts the order
 
 <figure class="exhibit" id="e08">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E08-credit-shrinks-as-gap-widens-3-children.png"
@@ -470,7 +469,7 @@ argument.</p>
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / varies</dd></div>
     </dl>
-    <p class="exhibit-notes">The reduction falls from about 75 percent at a 57 percent payor income share to 7 percent at 88 percent and 1 percent at 96 percent: no parenting-time quantity enters any line. Variant A, applying Line 6e once, lifts the curve. Variant B, the standard cross-credit at a 1.5 duplication factor used by 23 states, stops it collapsing. Both are the letter's § 5 redlines.</p>
+    <p class="exhibit-notes">The reduction falls from about 75 percent at a 57 percent payor income share to 7 percent at 88 percent and 1 percent at 96 percent: no parenting-time quantity enters any line. Variant A, applying Line 6e once, lifts the curve. Variant B, the standard cross-credit at a 1.5 duplication factor used by 18 states and DC, stops it collapsing. Both are the letter's § 5 redlines.</p>
     <p class="exhibit-source">Source: <code>model/charts/exhibits.py</code>; <code>model/worksheet.py</code>; <code>model/net_position.py</code>; <code>model/box1_fix.py</code> ·
       <a href="/figures/working/fig3_credit_collapse.csv">data (CSV)</a></p>
   </figcaption>
@@ -554,7 +553,7 @@ argument.</p>
 
 </div>
 
-## How Massachusetts compares to the other fifty states
+## Massachusetts orders the most of the fifty at equal time, and more than almost every state orders at primary custody
 
 <figure class="exhibit" id="e11">
   <a class="lightbox-trigger" data-lightbox href="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"

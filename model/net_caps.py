@@ -24,7 +24,7 @@ Massachusetts document names it. What can be said from the model is what it
 costs and where it binds, which is what the sweep below prints. The argument
 for a lower ceiling at equal time is that both households carry the full fixed
 cost of housing a child -- a bedroom in each home -- which is the same premise
-behind the 1.5 duplication factor in the cross-credit that 23 states use, and
+behind the 1.5 duplication factor in the cross-credit that 18 states and DC use, and
 Indiana's Guideline 6 Commentary putting the duplicated share of the basic
 obligation at 50 percent.
 
