@@ -144,6 +144,11 @@ children.
 The same mechanism runs in the other direction, too, when both parents pay for care during their
 own parenting time.
 
+Put the two bills side by side, for the same family and the same $300 a week. When the recipient
+pays it, the order rises from $1,012.73 to $1,275.77 a week. When the payor pays the same amount
+during the payor's own time, $15,600 a year, the order comes down by $270 a year. The Worksheet
+charges the payor for the other parent's child care and gives almost no relief for the payor's own.
+
 <div class="exhibit-pair">
 {% include figure.html
    id="e25"
