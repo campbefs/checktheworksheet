@@ -216,10 +216,9 @@ failed to create the consistency in child support orders that it sought to creat
 of its own: "Child support should not be driving the parenting plan." The 2025 Guidelines brought
 the same kind of pricing back, as § II.D.4.
 
-Federal law should say what joint custody is, so that no state prices each extra day. Once each
-parent has the child at least a third of the time, one computation should apply across that whole
-range, with no further adjustment for the exact split, and the order capped at 30 percent of net
-pay, the same ceiling the [federal-law finding](/findings/federal-law/#fix) proposes. That is the
+Federal law should say what joint custody is, so that no night of parenting time is worth fighting
+over. Once each parent has the child at least a third of the time, the order should follow the
+cross-credit, weighted by each parent's share of the time, and be capped at 30 percent of net pay, the same ceiling the [federal-law finding](/findings/federal-law/#fix) proposes. That is the
 harm the 2017 Commentary already named: parents litigating over an extra day, and child support
 driving the parenting plan.
 

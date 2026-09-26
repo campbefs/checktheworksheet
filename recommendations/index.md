@@ -100,11 +100,9 @@ same pricing back as a deviation. A rule a state has removed once and restored o
 relied on to hold the line on its own.
 
 The petition asks federal law to set the definition instead, and to require the method 19
-jurisdictions already use, the cross-credit formula at the standard 1.5 multiplier. Once a parent
-has the child at least a third of the time, the formula would apply as equal time across the whole
-range, with no further adjustment for the exact split. [How the cross-credit works, and which
-states use it →](/findings/shared-parenting-formula/) The tradeoff is plain: a third of the time becomes the one
-point where the schedule still changes with the day count, instead of every day in between. The
+jurisdictions already use, the cross-credit formula at the standard 1.5 multiplier. Once a parent has the child at least a third of the time, the formula would weight each parent's
+amount by the time the child spends with the other, so no single night is worth much. [How the cross-credit works, and which
+states use it →](/findings/shared-parenting-formula/)  The
 [Parenting time](#ask-parenting-credit-crosscredit) recommendations below apply the same formula
 to Massachusetts.
 </details>

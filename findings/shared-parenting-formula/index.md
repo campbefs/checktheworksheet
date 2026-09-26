@@ -161,9 +161,9 @@ method so long as it stays under that line. Every order would be capped at 40%
 of ability to pay. While the Department reviews the method, a joint-custody order would be capped
 at 30%. The comments to the Chief Justice ask Massachusetts to adopt the same formula now.
 
-The petition applies the formula as equal time across the whole joint-custody range, so parents
-have no reason to litigate over each extra night. The states that use it charge by the actual
-overnights instead.
+The petition weights the formula by each parent's share of the time, as the states that use it
+do. Crossing a third of the time then moves the order only a little, and no single night is worth
+litigating over.
 
 </section>
 
