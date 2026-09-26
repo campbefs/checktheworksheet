@@ -92,6 +92,7 @@
     card.classList.remove('is-visible');
     card.hidden = true;
     card.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('has-petition-bar');
   }
 
   // ---- dialog: open/close, focus management -------------------------------------------------
@@ -133,46 +134,34 @@
     });
   });
 
-  // ---- corner card: reveal once per visitor, after a delay or a scroll depth ----------------
+  // ---- petition bar: always present until a signature, minimizable (2026-09-26) ------------
+  // Replaces the timed corner card. Shown on load, never over the text: the page reserves the
+  // bar's measured height as bottom padding. Minimized state persists; a signature retires it.
   var card = document.querySelector('[data-petition-card]');
-  if (card && !isSigned() && !isDismissed()) {
-    var revealed = false;
-    var timer = window.setTimeout(reveal, SHOW_DELAY_MS);
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    function onScroll() {
-      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      var fraction = scrollable > 0 ? window.scrollY / scrollable : 0;
-      if (fraction >= SHOW_SCROLL_FRACTION) reveal();
-    }
-
-    function reveal() {
-      if (revealed) return;
-      revealed = true;
-      window.clearTimeout(timer);
-      window.removeEventListener('scroll', onScroll);
-      card.hidden = false;
-      card.removeAttribute('aria-hidden');
-      // Two animation frames: the first lets the browser paint the card in its pre-transition
-      // (hidden) position, the second then adds the class that transitions it in -- adding both
-      // in the same frame the `hidden` attribute is removed skips the transition entirely.
-      window.requestAnimationFrame(function () {
-        window.requestAnimationFrame(function () { card.classList.add('is-visible'); });
-      });
-    }
-
-    var dismissBtn = card.querySelector('[data-petition-card-dismiss]');
-    if (dismissBtn) {
-      dismissBtn.addEventListener('click', function () {
-        markDismissed();
-        retireCard();
-      });
-    }
-    var openBtn = card.querySelector('[data-petition-card-open]');
-    if (openBtn) openBtn.addEventListener('click', function () { openDialog(openBtn); });
+  var MIN_KEY = 'ctw-petition-bar-min';
+  if (card && !isSigned()) {
+    var toggle = card.querySelector('[data-petition-card-toggle]');
+    var root = document.documentElement;
+    var measure = function () { root.style.setProperty('--petition-bar-h', card.offsetHeight + 'px'); };
+    var setMin = function (min) {
+      card.classList.toggle('is-min', min);
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', min ? 'false' : 'true');
+        toggle.setAttribute('aria-label', min ? 'Show the petition bar' : 'Minimize the petition bar');
+        toggle.innerHTML = min ? 'Petition &#9652;' : '<span aria-hidden="true">&ndash;</span>';
+      }
+      safeSet(MIN_KEY, min ? '1' : '0');
+      measure();
+    };
+    card.hidden = false;
+    card.removeAttribute('aria-hidden');
+    root.classList.add('has-petition-bar');
+    setMin(safeGet(MIN_KEY) === '1');
+    if (toggle) toggle.addEventListener('click', function () { setMin(!card.classList.contains('is-min')); });
+    if (window.ResizeObserver) new ResizeObserver(measure).observe(card);
+    else window.addEventListener('resize', measure);
   } else if (card) {
-    retireCard(); // already signed or already dismissed this visit -- never show it
+    retireCard();
   }
 
   // ---- form submit: honeypot, fetch, thank-you state, error state ---------------------------

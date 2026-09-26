@@ -1332,33 +1332,41 @@ footer.site-footer { border-top: 1px solid var(--rule); }
    transition duration, so no separate reduced-motion rule is needed here. Dismissible with its
    own close button; not a focus trap (it never uses showModal, and Tab reaches the rest of the
    page normally while it's open). */
+/* Petition bar (2026-09-26, replacing a timed toast): always present, never over the text.
+   The bar is fixed to the bottom and the page reserves its height as bottom padding
+   (--petition-bar-h, measured by petition.js), so no line of content can sit under it.
+   Minimized, it shrinks to a small tab at the right and the reserved space shrinks with it. */
+html.has-petition-bar body { padding-bottom: var(--petition-bar-h, 3.25rem); }
 .petition-card {
-  position: fixed; right: var(--space-5); bottom: var(--space-5); z-index: 60;
-  max-width: 20rem; background: var(--surface-raised); border: 1px solid var(--rule-strong);
-  border-radius: 6px; box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
-  padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3);
-  transform: translateY(calc(100% + var(--space-5))); opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: center; gap: var(--space-3);
+  padding: var(--space-2) var(--space-4) calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
+  background: var(--surface-raised); border-top: 1px solid var(--rule-strong);
 }
 .petition-card[hidden] { display: none; }
-.petition-card.is-visible { transform: translateY(0); opacity: 1; }
-.petition-card-dismiss {
-  position: absolute; top: var(--space-2); right: var(--space-2);
-  width: 28px; height: 28px; line-height: 1; font-size: 1.125rem;
-  color: var(--text-secondary); background: none; border: none; cursor: pointer; padding: 0;
+.petition-card-link {
+  font-weight: 600; color: var(--accent); text-decoration: none; padding: var(--space-2) 0;
 }
-.petition-card-dismiss:hover { color: var(--text-primary); }
-.petition-card-dismiss:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.petition-card-text { margin: 0 var(--space-6) 0 0; font-size: 0.9375rem; color: var(--text-primary); }
-.petition-card .btn { align-self: flex-start; }
-/* 2026-09-26: the card is now a one-line toast, a link to /petition/ plus a dismiss button. */
-.petition-card { flex-direction: row-reverse; align-items: center; padding: var(--space-3); max-width: none; }
-.petition-card .petition-card-dismiss { position: static; flex: none; }
-.petition-card .petition-card-link { align-self: center; white-space: nowrap; text-decoration: none; }
+.petition-card-link:hover { text-decoration: underline; }
+.petition-card-link:focus-visible, .petition-card-toggle:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 2px;
+}
+.petition-card-toggle {
+  position: absolute; right: var(--space-3); top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; line-height: 1; font-size: 1.125rem; padding: 0;
+  color: var(--text-secondary); background: none; border: 1px solid var(--rule); border-radius: 4px; cursor: pointer;
+}
+.petition-card-toggle:hover { color: var(--text-primary); }
+.petition-card.is-min { left: auto; right: var(--space-3); bottom: 0; padding: 0;
+  border: 1px solid var(--rule-strong); border-bottom: none; border-radius: 6px 6px 0 0; }
+.petition-card.is-min .petition-card-link { display: none; }
+.petition-card.is-min .petition-card-toggle { position: static; transform: none; width: auto; height: auto;
+  border: none; padding: var(--space-2) var(--space-3) calc(var(--space-2) + env(safe-area-inset-bottom, 0px));
+  font-size: 0.875rem; font-weight: 600; color: var(--accent); }
 @media (max-width: 480px) {
-  .petition-card { left: var(--space-4); right: var(--space-4); justify-content: space-between; }
-  .petition-card .petition-card-link { white-space: normal; }
+  .petition-card { justify-content: flex-start; padding-right: calc(var(--space-4) + 40px); }
 }
+@media print { .petition-card { display: none !important; } html.has-petition-bar body { padding-bottom: 0; } }
 
 /* Dialog: a real <dialog>, shown with showModal() -- while open, the browser keeps focus inside
    it and treats everything else as inert, so this needs no hand-rolled Tab trap the way
