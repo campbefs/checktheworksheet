@@ -2,9 +2,7 @@
 
 Built by `model/charts/exhibits.py` from the working figures in `output/charts/` (never edit these by hand; rebuild). Naming and ratings: `docs/2026-09-05-chart-exhibit-guide.md`. No exhibit has more than one set of axes (2026-09-06: "I told you ONE EXHIBIT, ONE GRAPH").
 
-Heatmap exhibits E01/E02/E04/E18/E19 are drawn from `fig1_heatmap_{1,2,3}child_box1.csv`; E20-E22 from `fig2_childcare_rules.csv`; E08/E09 from `fig3_credit_collapse.csv`; E23/E24 from `fig7_box3_inversion*.csv`; E25/E26 from `fig8_both_pay.csv`; E27 from `data/deferrals-gross-vs-net.json`; E29/E30/E31 from `fig_ceiling_share.csv`/`fig_ceiling_by_income.csv`/`fig_ceiling_grid.csv`. The rest are copies of single-panel figures.
-
-E29-E31 are exported by `tools/build_experimental_exhibits_2026-09-22.py`'s `site_export()`, called from `tools/build_rewrite_envelopes.py` right after it builds the mailed envelopes, so the site figures and the mailed ones are the same function call with a different destination (2026-09-23, site rewrite plan). They cover the federal collection ceiling, 15 U.S.C. § 1673(b)(2), never the guidelines' own hardship test (that is E28).
+Heatmap exhibits E01/E02/E04/E18/E19 are drawn from `fig1_heatmap_{1,2,3}child_box1.csv`; E20-E22 from `fig2_childcare_rules.csv`; E08/E09 from `fig3_credit_collapse.csv`; E23/E24 from `fig7_box3_inversion*.csv`; E25/E26 from `fig8_both_pay.csv`; E27 from `data/deferrals-gross-vs-net.json`. The rest are copies of single-panel figures.
 
 **Retired from the exhibit set (multi-panel; kept as working figures for the paper only):** `fig1_headline_household_gap.png` (was E03; its three panels are now E18/E19/E01), `fig2_childcare_rules.png` (was E07; now E20/E21/E22), `fig7_box3_inversion.png` (was E14; now E23/E24), `fig8_both_pay.png` (was E15; now E25/E26). The old E03/E07/E14/E15 exhibit PNGs are retired from the set: in the source repository they sit in `_retired-2026-09-06-multi-panel/`; a copy of this folder may still carry them unlinked. Nothing in the live set references them.
 
@@ -37,3 +35,6 @@ The per-person exhibit (E02) travels with E01/E18/E19. The lead pair is E12 then
 - `E29-orders-over-federal-ceiling-by-child-care.png`
 - `E30-order-against-federal-ceiling-by-income.png`
 - `E31-income-pairs-over-ceiling-grid.png`
+- `E32-costlier-states-order-less.png`
+- `E33-cost-of-living-vs-equal-time-order.png`
+- `E34-ma-highest-at-equal-time-top-ten.png`

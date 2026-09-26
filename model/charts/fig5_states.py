@@ -50,9 +50,45 @@ def strip(rows, key, title, name, custody, xmax=None, subtitle="Monthly order at
     theme.save(fig, out(name))
 
 
+def top_ten(tier, name):
+    """Home-page hero version of the equal-time ranking, added 2026-09-26: the full fifty-row strip
+    is unreadable at hero width on a phone. The ten highest states plus the median of every other
+    state, large type, a dollar label on every bar."""
+    import statistics
+    rows = sorted(tier, key=lambda r: -r["s1"])
+    others = [r["s1"] for r in rows if r["state"] != "Massachusetts"]
+    med = statistics.median(others)
+    shown = rows[:10][::-1]
+    labels = ["Median, all other states"] + [r["state"] for r in shown]
+    vals = [med] + [r["s1"] for r in shown]
+    colors = [P["div_mid"]] + [P["series"][1] if r["state"] == "Massachusetts" else P["series"][0] for r in shown]
+    fig, ax = theme.figure(9, 6.4)
+    y = list(range(len(vals)))
+    ax.barh(y, vals, color=colors, height=0.66)
+    ax.set_yticks(y); ax.set_yticklabels(labels, fontsize=13)
+    for t in ax.get_yticklabels():
+        if t.get_text() == "Massachusetts":
+            t.set_fontweight("bold")
+    for yi, v in zip(y, vals):
+        ax.text(v + 40, yi, f"${v:,.0f}", va="center", fontsize=12, color=P["text"])
+    ax.set_xlim(0, max(vals) * 1.16)
+    ax.set_ylim(-0.6, len(vals) - 0.4)
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:,.0f}"))
+    ax.grid(axis="y", visible=False)
+    theme.finish(ax, title="At equal parenting time, Massachusetts orders the most of the fifty states",
+                 subtitle="Monthly order, the same family in every state. The ten highest, and the median of the rest.",
+                 comma=False,
+                 pairs=facts(1, 3, "None (base support)", "\\$201,000 / \\$29,640"),
+                 notes="Each row profiled from primary sources, computed twice blind, reconciled, attacked. Georgia held out. "
+                       "One set of incomes only; the full ranking is E11.",
+                 source="data/fifty-state/tier-50-2026-09-05.json")
+    theme.save(fig, out(name))
+
+
 def main():
     tier = json.load(open(os.path.join(D, "tier-50-2026-09-05.json")))
     ma = next(r for r in tier if r["state"] == "Massachusetts")
+    top_ten(tier, "fig5d_states_S1_top10.png")
     # Shared with fig10_ma_shared_vs_primary.py (E17): same formula, so the lead pair E12/E17
     # renders at an identical x-axis range. Do not change one without the other.
     pair_xmax = max(max(r["s2"] for r in tier), ma["s1"]) * 1.08

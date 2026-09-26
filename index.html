@@ -39,14 +39,14 @@ scripts:
     </div>
     <div class="hero-visual">
       {% include figure.html
-         id="e29-hero"
-         img="/figures/exhibits/E29-orders-over-federal-ceiling-by-child-care.png"
-         alt="Line chart of the share of 1,147 income pairs whose order is above the federal withholding ceiling, as child care claimed rises from $0 to $430 per child per week, for primary custody and for joint custody at equal time."
-         title="With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect."
-         deck="Share of income pairs whose order is above the federal ceiling, by child care claimed per child per week."
-         notes="Three children. Federal ceiling, 15 U.S.C. § 1673(b)(2), shown as a band: 50 percent of take-home pay for a payor with a second family, 60 percent for one without. With no child care claimed, no order crosses either."
-         source_script="model/ccpa_grid.py"
-         csv_href="/figures/working/fig_ceiling_share.csv"
+         id="e11-top"
+         img="/figures/exhibits/E34-ma-highest-at-equal-time-top-ten.png"
+         alt="Horizontal bar chart of the monthly child support order at equal parenting time for the ten highest states and the median of all other states, Massachusetts highest at $4,388 against a median of $2,119."
+         title="At equal parenting time, Massachusetts orders the most of the fifty states."
+         deck="Monthly order, the same two incomes and three children in every state."
+         notes="$201,000 and $29,640 a year, three children, equal parenting time, no child care. Each row was profiled from primary sources, computed twice blind, then reconciled and attacked. One worked example; the full fifty-state ranking is further down the page."
+         source_script="model/charts/fig5_states.py"
+         csv_href="/figures/working/fig5_states.csv"
          lazy="false" %}
     </div>
   </div>
@@ -307,30 +307,38 @@ scripts:
          source_script="model/charts/fig10_ma_shared_vs_primary.py"
          csv_href="/figures/working/fig10_ma_shared_vs_primary.csv"
          confidence="The same two incomes and three children, in every state." %}
-      <p>Ranked against each other, Massachusetts orders the most of the fifty at equal time, and at
-      primary custody only Hawaii orders more:</p>
-      <div class="exhibit-pair">
-        {% include figure.html
-           id="e11-hero"
-           img="/figures/exhibits/E11-fifty-states-equal-parenting-one-fact-pattern.png"
-           alt="Horizontal bar chart of the monthly child support order in fifty states under equal parenting time, one set of incomes, Massachusetts highlighted."
-           title="At equal parenting time, Massachusetts orders the most of the fifty states."
-           deck="Monthly order at one set of incomes."
-           notes="Each row was profiled from primary sources, computed twice blind, then reconciled and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else."
-           source_script="model/charts/fig5_states.py"
-           csv_href="/figures/working/fig5_states.csv" %}
-        {% include figure.html
-           id="e12"
-           img="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
-           alt="Horizontal bar chart of the monthly child support order in fifty states with the children primarily with the lower earner, one set of incomes, Massachusetts highlighted."
-           title="With the lower earner primary, only Hawaii orders more than Massachusetts."
-           deck="Monthly order at one set of incomes, read beside E11."
-           notes="The same family with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states and same colors as E11, so the two can be read side by side."
-           source_script="model/charts/fig5_states.py"
-           csv_href="/figures/working/fig5_states.csv"
-           confidence="The same two incomes and three children, in every state."
-           lazy="false" %}
-      </div>
+      <p>Ranked against each other, Massachusetts orders the most of the fifty at equal time (the
+      chart at the top of this page), and at primary custody only Hawaii orders more:</p>
+      {% include figure.html
+         id="e12"
+         img="/figures/exhibits/E12-fifty-states-lower-earner-primary-one-fact-pattern.png"
+         alt="Horizontal bar chart of the monthly child support order in fifty states with the children primarily with the lower earner, one set of incomes, Massachusetts highlighted."
+         title="With the lower earner primary, only Hawaii orders more than Massachusetts."
+         deck="Monthly order at one set of incomes, read beside the chart at the top of the page."
+         notes="The same family with the children primarily with the lower earner. Hawaii's design is shared with Delaware and Montana; at this income gap it exhausts the self-support reserve differently from an income-shares schedule. Same states and same colors as E11, so the two can be read side by side."
+         source_script="model/charts/fig5_states.py"
+         csv_href="/figures/working/fig5_states.csv"
+         confidence="The same two incomes and three children, in every state."
+         lazy="false" %}
+    </section>
+    <section class="exhibit-section" id="federal-ceiling">
+      <p class="eyebrow">The federal ceiling</p>
+      <h2>With child care claimed, the Worksheet sets orders the Commonwealth cannot lawfully collect</h2>
+      <p>Federal law caps what can be withheld from a paycheck for support at 50 percent of
+      take-home pay for a payor with a second family, 60 percent for one without. With no child
+      care claimed, no order crosses it. At $100 a week of child care per child, 40 percent of
+      three-child, primary-custody orders do: <a href="/findings/federal-law/">the federal-law
+      finding</a>.</p>
+      {% include figure.html
+         id="e29"
+         img="/figures/exhibits/E29-orders-over-federal-ceiling-by-child-care.png"
+         alt="Line chart of the share of 1,147 income pairs whose order is above the federal withholding ceiling, as child care claimed rises from $0 to $430 per child per week, for primary custody and for joint custody at equal time."
+         title="With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect."
+         deck="Share of income pairs whose order is above the federal ceiling, by child care claimed per child per week."
+         notes="Three children. Federal ceiling, 15 U.S.C. § 1673(b)(2), shown as a band: 50 percent of take-home pay for a payor with a second family, 60 percent for one without. With no child care claimed, no order crosses either."
+         source_script="model/ccpa_grid.py"
+         csv_href="/figures/working/fig_ceiling_share.csv"
+         lazy="true" %}
     </section>
   </div>
 </div>

@@ -209,6 +209,7 @@ def main():
     # --- E11/E12/E13: unchanged single-panel copies. E12 restyled with E17 as a pair
     #     (shared axis range, ordering, colours) inside fig5_states.py itself. ---
     copy("fig5a_states_S1.png", "E11-fifty-states-equal-parenting-one-fact-pattern.png")
+    copy("fig5d_states_S1_top10.png", "E34-ma-highest-at-equal-time-top-ten.png")
     copy("fig5b_states_S2.png", "E12-fifty-states-lower-earner-primary-one-fact-pattern.png")
     copy("fig5c_credit_at_122_tilemap.png", "E13-credit-at-122-overnights-28-of-51.png")
 
