@@ -1336,7 +1336,10 @@ footer.site-footer { border-top: 1px solid var(--rule); }
    The bar is fixed to the bottom and the page reserves its height as bottom padding
    (--petition-bar-h, measured by petition.js), so no line of content can sit under it.
    Minimized, it shrinks to a small tab at the right and the reserved space shrinks with it. */
-html.has-petition-bar body { padding-bottom: var(--petition-bar-h, 3.25rem); }
+html.has-petition-bar body,
+body:has(> .petition-card:not([hidden])) { padding-bottom: var(--petition-bar-h, 3.75rem); }
+/* The bar is visible in the HTML itself (2026-09-26): it no longer waits on the script, so a stale
+   or blocked script can only fail to HIDE it after a signature, never fail to show it. */
 .petition-card {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
   display: flex; align-items: center; justify-content: center; gap: var(--space-3);

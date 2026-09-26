@@ -15,7 +15,7 @@
     </div>
 {% endcomment %}
 {% if site.petition_endpoint != "" and page.url != "/petition/" %}
-<div class="petition-card" data-petition-card hidden>
+<div class="petition-card" data-petition-card>
   <a class="petition-card-link" href="{{ '/petition/' | relative_url }}" data-petition-card-open>Sign the petition for reform &rarr;</a>
   <button type="button" class="petition-card-toggle" data-petition-card-toggle aria-expanded="true" aria-label="Minimize the petition bar"><span aria-hidden="true">&ndash;</span></button>
 </div>
