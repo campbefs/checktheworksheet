@@ -27,6 +27,18 @@
     <span>{{ site.title }}</span>
   </a>
 
+  {%- comment -%}
+    Petition header trigger. Not a fifth item in .site-nav -- CONVENTIONS.md §8 keeps the top bar
+    at exactly four -- so it's a separate, differently-styled element (.topbar-cta). Gated on
+    site.petition_endpoint only (no page.url exclusion): showing it on /petition/ itself is
+    harmless, since it is a plain link to that same page there. With JavaScript, petition.js
+    intercepts the click to open the dialog instead; without it, this is a normal link to the
+    full page. See assets/js/petition.js.
+  {%- endcomment -%}
+  {% if site.petition_endpoint != "" %}
+  <a class="topbar-cta" href="{{ '/petition/' | relative_url }}" data-petition-trigger>Sign the petition</a>
+  {% endif %}
+
   <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
   <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
     <span class="vh">Menu</span>

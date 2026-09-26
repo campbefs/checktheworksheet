@@ -15,6 +15,10 @@ page regardless and needs no opt-in.
 ```
 assets/js/
   site.js                  -- always loaded (progress bar, chapter rail, nav toggle)
+  contact.js                 -- contact form submit handling (contact/index.md only)
+  petition.js                 -- petition dialog, corner card and the standalone /petition/ page's
+                                inline form; loaded on every page, but only when
+                                site.petition_endpoint is set (see _config.yml and CONVENTIONS.md)
   csv-slider.js             -- generic "slider(s) -> grid lookup -> readouts" engine
                                 (child-care valve slider, credit-collapse slider)
   sortable-table.js         -- generic sortable/filterable <table> engine (fifty-jurisdiction table)
@@ -401,6 +405,24 @@ to it — the table itself is already complete and correct either way.
 
 Already fully built by `lightbox.js` — read that file's own header comment for the complete
 markup contract. Not data-driven; no `assets/data/*.json` file involved.
+
+---
+
+## 6. The petition sign-up (2026-09-26)
+
+Header trigger, corner card, `<dialog>`, and the standalone `/petition/` page's own inline form —
+`petition.js`'s own header comment has the full markup contract for all four. Gated end to end on
+`site.petition_endpoint` (`_config.yml`): empty means the script is never even requested, per the
+conditional script tag in `_layouts/default.html`. See CONVENTIONS.md's own note on this feature
+and `docs/plans/2026-09-26-site-petition-build.md` in the private repo for the spec and the
+server's request/response contract.
+
+Uses a real `<dialog>` shown with `showModal()`, unlike `lightbox.js`'s hand-rolled
+`<div role="dialog">` — while a native dialog is open with `showModal()`, the browser keeps focus
+inside it and treats the rest of the page as inert, so this needs no manual Tab trap the way
+`lightbox.js` needs one for its own dialog. Not data-driven; no `assets/data/*.json` file
+involved, and the form posts to a small purpose-built server rather than a third-party form
+backend (unlike `contact.js`, which does use one).
 
 ---
 

@@ -1286,3 +1286,97 @@ footer.site-footer { border-top: 1px solid var(--rule); }
   font-size: 0.9375rem;
   color: var(--text-secondary);
 }
+
+/* ---- 15. Petition sign-up: header CTA, corner card, dialog ----------------
+   assets/js/petition.js has the full markup contract. Reuses .form-field, .form-field--honeypot,
+   .btn, .form-actions, .form-note and .contact-form from §12a above -- only what those don't
+   already cover is added here: a checkbox row readable as a whole sentence (not the small
+   monospace field-caption style .form-field label uses for "Name"/"Email"), a form-level error
+   line, the header trigger, the corner card, and the <dialog> shell. Added 2026-09-26, off by
+   default -- see _config.yml's petition_endpoint. */
+
+.form-checkbox {
+  display: flex; align-items: flex-start; gap: var(--space-3);
+  font-family: var(--font-sans); font-size: 0.9375rem; font-weight: 400;
+  color: var(--text-primary); cursor: pointer; margin: 0;
+}
+.form-checkbox input[type="checkbox"] {
+  width: 20px; height: 20px; min-width: 20px; margin: 2px 0 0; accent-color: var(--accent);
+}
+.petition-form-error {
+  color: var(--accent); font-size: 0.9375rem; font-weight: 600;
+  margin: 0 0 var(--space-4);
+}
+.petition-form-error[hidden] { display: none; }
+
+/* Header trigger. A smaller filled button, deliberately NOT inside .site-nav -- the top bar's
+   flat four-item nav (CONVENTIONS.md §8) stays exactly four; this is a fifth, different kind of
+   element next to it, styled like .btn but sized for the mono top-bar row. `margin-left: auto`
+   groups it with the nav-toggle/nav at the right of .topbar-inner (which is
+   `justify-content: space-between`) without needing a new wrapping element -- the wordmark stays
+   pinned left and everything from this button on is pushed to the end. */
+.topbar-cta {
+  display: inline-flex; align-items: center; font: inherit; font-size: 0.8125rem; font-weight: 600;
+  color: var(--surface); background: var(--accent); border: 1px solid var(--accent);
+  border-radius: 4px; padding: var(--space-2) var(--space-4); min-height: 36px;
+  line-height: 1; text-decoration: none; white-space: nowrap;
+  margin-left: auto; margin-right: var(--space-6);
+}
+.topbar-cta:hover { background: var(--text-primary); border-color: var(--text-primary); }
+.topbar-cta:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 640px) { .topbar-cta { display: none; } } /* same breakpoint the nav collapses at */
+
+/* Corner card: a non-blocking invitation, never a page-load modal (design constraint from the
+   build spec). Fixed position, slid in from below with a CSS transition -- already covered by
+   the sitewide `@media (prefers-reduced-motion: reduce)` rule in §1, which zeroes every
+   transition duration, so no separate reduced-motion rule is needed here. Dismissible with its
+   own close button; not a focus trap (it never uses showModal, and Tab reaches the rest of the
+   page normally while it's open). */
+.petition-card {
+  position: fixed; right: var(--space-5); bottom: var(--space-5); z-index: 60;
+  max-width: 20rem; background: var(--surface-raised); border: 1px solid var(--rule-strong);
+  border-radius: 6px; box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+  padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3);
+  transform: translateY(calc(100% + var(--space-5))); opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.petition-card[hidden] { display: none; }
+.petition-card.is-visible { transform: translateY(0); opacity: 1; }
+.petition-card-dismiss {
+  position: absolute; top: var(--space-2); right: var(--space-2);
+  width: 28px; height: 28px; line-height: 1; font-size: 1.125rem;
+  color: var(--text-secondary); background: none; border: none; cursor: pointer; padding: 0;
+}
+.petition-card-dismiss:hover { color: var(--text-primary); }
+.petition-card-dismiss:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.petition-card-text { margin: 0 var(--space-6) 0 0; font-size: 0.9375rem; color: var(--text-primary); }
+.petition-card .btn { align-self: flex-start; }
+@media (max-width: 480px) {
+  .petition-card { left: var(--space-4); right: var(--space-4); max-width: none; }
+}
+
+/* Dialog: a real <dialog>, shown with showModal() -- while open, the browser keeps focus inside
+   it and treats everything else as inert, so this needs no hand-rolled Tab trap the way
+   lightbox.js's plain <div role="dialog"> does (see that file's own comment on why it needs one).
+   petition.js still moves focus to the first field on open and back to the trigger on close,
+   the same courtesy lightbox.js extends its own trigger. */
+.petition-dialog {
+  max-width: min(94vw, 32rem); width: 100%; border: 1px solid var(--rule-strong);
+  border-radius: 6px; padding: 0; background: var(--surface); color: var(--text-primary);
+}
+.petition-dialog::backdrop { background: rgba(30, 27, 24, 0.55); }
+.petition-dialog-inner { position: relative; padding: var(--space-6); max-height: 85vh; overflow-y: auto; }
+.petition-dialog h2 { font-family: var(--font-serif); font-size: 1.375rem; margin: 0 var(--space-7) var(--space-4) 0; }
+.petition-dialog .petition-form .form-field:last-of-type { margin-bottom: var(--space-4); }
+.petition-dialog-close {
+  position: absolute; top: var(--space-4); right: var(--space-4);
+  width: 32px; height: 32px; line-height: 1; font-size: 1.25rem;
+  color: var(--text-secondary); background: none; border: none; cursor: pointer; padding: 0;
+}
+.petition-dialog-close:hover { color: var(--text-primary); }
+.petition-dialog-close:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* Thank-you state, on the standalone /petition/ page and inside the dialog alike. Reuses
+   .disclosure/.box (§5) for the bordered-callout look rather than inventing a second one. */
+.petition-thankyou[hidden] { display: none; }
+.petition-thankyou .box h2 { margin-top: 0; }

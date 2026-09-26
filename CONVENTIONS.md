@@ -564,3 +564,34 @@ jurisdiction's own two numbers next to Massachusetts's. It does not compute; the
 it is the only tool on this page that does, and remains Massachusetts-only for that reason — its
 method paragraph says so in one clause so a reader does not assume the sliders can model another
 state's worksheet.
+
+---
+
+## 12. Petition sign-up (2026-09-26)
+
+Header trigger, corner card, `<dialog>`, and the standalone `/petition/` page (`petition/index.md`,
+`layout: page`, `permalink: /petition/`). Gated end to end on `site.petition_endpoint`
+(`_config.yml`): empty means OFF — no popup, no header button, no `assets/js/petition.js` script
+tag at all (see the conditional in `_layouts/default.html`), and `/petition/` shows the petition
+text with "Signing opens soon" instead of a form. Setting that key to a real URL is the one-line
+change that turns it on. Full spec and the server's request/response contract:
+`docs/plans/2026-09-26-site-petition-build.md` in the private repo.
+
+Files: `_includes/petition-modal.html` (the dialog), `_includes/petition-card.html` (the corner
+card) — both included unconditionally from `_layouts/default.html`, the same way the lightbox
+root is, and each also excludes itself on `/petition/`, which already carries the same form
+inline. `assets/js/petition.js` — full markup contract and behaviour in its own header comment;
+also documented in `assets/js/README.md` §6.
+
+New CSS classes, all in `assets/css/site.css`'s "§15. Petition sign-up" section: `.form-checkbox`
+(a checkbox whose own label is a full clickable sentence — reads in the body sans font, not the
+small monospace field-caption style `.form-field label` uses for "Name"/"Email"), `.topbar-cta`
+(the header trigger — deliberately NOT a fifth `.site-nav` item, per §8's exactly-four rule),
+`.petition-card`/`.petition-card-dismiss`/`.petition-card-text` (the corner card),
+`.petition-dialog`/`.petition-dialog-inner`/`.petition-dialog-close` (the `<dialog>` shell), and
+`.petition-form-error`. The thank-you state reuses `.disclosure`/`.box` (§6) rather than a new
+class, under an added `.petition-thankyou` hook that only controls its hidden state.
+
+A real `<dialog>`, not the plain-`<div role="dialog">` pattern `lightbox.js` uses — shown with
+`showModal()`, which keeps focus inside it and makes the rest of the page inert while open, so it
+needs no hand-rolled Tab trap the way `lightbox.js` needs one for its own dialog.

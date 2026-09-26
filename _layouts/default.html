@@ -89,8 +89,21 @@
     </div>
   </div>
 
+  {% comment %}
+    Petition sign-up: dialog + corner card, mounted the same way the lightbox root is above --
+    gated entirely on site.petition_endpoint (empty = OFF, per _config.yml), and each include
+    also excludes /petition/ itself, which carries the same form inline. See
+    _includes/petition-modal.html and _includes/petition-card.html for the markup contract and
+    assets/js/petition.js for the behaviour.
+  {% endcomment %}
+  {% include petition-modal.html %}
+  {% include petition-card.html %}
+
   <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/lightbox.js' | relative_url }}" defer></script>
+  {% if site.petition_endpoint != "" %}
+  <script src="{{ '/assets/js/petition.js' | relative_url }}" defer></script>
+  {% endif %}
   {% for src in page.scripts %}
   <script src="{{ src | relative_url }}" defer></script>
   {% endfor %}

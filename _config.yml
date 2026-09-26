@@ -30,6 +30,19 @@ markdown: kramdown
 # docs/plans/redteam/CONTACT-FORM.md in the private child-support-reform repo.
 contact_form_endpoint: "https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"
 
+# Petition sign-up (added 2026-09-26; spec: docs/plans/2026-09-26-site-petition-build.md in the
+# private repo). Empty means OFF: no popup, no header button, no petition.js loaded, and
+# /petition/ shows the petition text with "Signing opens soon" instead of a form. The form posts
+# to a small purpose-built server, not a third-party form backend (Basin was considered and
+# dropped -- see that spec's revision history). Contract: POST to this URL, form-encoded fields
+# name/email/zip/updates/public/_gotcha; with `Accept: application/json` it answers
+# 200 {"ok":true,"count":N} or 4xx {"ok":false,"error":"..."}; without that header (JavaScript
+# off) it 303-redirects to /petition/?signed=1, which /petition/ recognizes and shows a thank-you
+# line for. GET on this same host, path /count, returns {"count":N,"ma_count":M} -- petition.js
+# derives that URL from this one by replacing the trailing "/sign". Setting this to a real URL,
+# e.g. "https://ctw-petition.fly.dev/sign", is the one-line change that turns the feature on.
+petition_endpoint: "https://ctw-petition.fly.dev/sign"
+
 plugins:
   - jekyll-seo-tag     # {% seo %} in _layouts/default.html: meta/OG tags from front matter + this file
   - jekyll-sitemap     # generates /sitemap.xml (machine-readable). The human-readable /sitemap/

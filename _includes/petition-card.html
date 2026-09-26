@@ -1,0 +1,23 @@
+{% comment %}
+  The corner card that invites a visitor to sign, shown once per visitor by assets/js/petition.js
+  after a delay or a scroll depth -- never on page load, and never blocking. Gated off entirely
+  when site.petition_endpoint is empty, and never on /petition/ itself, which already carries the
+  form. Hidden by default in markup (`hidden`, and `aria-hidden="true"`); the script alone decides
+  when to remove those, so a reader with JavaScript off never sees an inert card with a dead
+  button, and one whose JavaScript hasn't run yet never sees it flash visible before the script
+  can apply the 25-second/40%-scroll rule.
+
+  MARKUP CONTRACT (read alongside assets/js/petition.js's own header comment):
+    <div data-petition-card hidden aria-hidden="true">
+      <button data-petition-card-dismiss>...</button>
+      <p>...</p>
+      <button data-petition-card-open>...</button>
+    </div>
+{% endcomment %}
+{% if site.petition_endpoint != "" and page.url != "/petition/" %}
+<div class="petition-card" data-petition-card hidden aria-hidden="true">
+  <button type="button" class="petition-card-dismiss" data-petition-card-dismiss aria-label="Dismiss">&times;</button>
+  <p class="petition-card-text">The Massachusetts child support guidelines need immediate reform.</p>
+  <button type="button" class="btn" data-petition-card-open>Sign the petition</button>
+</div>
+{% endif %}

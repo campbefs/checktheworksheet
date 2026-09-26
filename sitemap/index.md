@@ -10,6 +10,9 @@ description: Every page here, with a one-line purpose for each.
   <li class="doc-item"><span class="doc-title"><a href="/">Home</a></span>
     <span class="doc-context">The guidelines do not comply with federal law, the highest
       joint-custody support in the nation, and a calculator for any two incomes.</span></li>
+  <li class="doc-item"><span class="doc-title"><a href="/petition/">Sign the petition</a></span>
+    <span class="doc-context">Ask the Chief Justice, the Governor and the U.S. Department of
+      Health and Human Services to correct the guidelines now.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/findings/">Findings</a></span>
     <span class="doc-context">Federal law, hardship test, child care, parenting-time credit,
       fifty jurisdictions, each its own page.</span></li>

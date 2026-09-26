@@ -1,0 +1,85 @@
+{% comment %}
+  The petition sign-up dialog. Mounted once per page from _layouts/default.html, the same way the
+  lightbox root is (see that comment there) -- gated off entirely when site.petition_endpoint is
+  empty, and never on /petition/ itself, which already carries the same form inline. Spec:
+  docs/plans/2026-09-26-site-petition-build.md in the private repo. assets/js/petition.js has the
+  full behaviour; this file only supplies the markup it operates on.
+
+  Uses a real <dialog>, not the plain-<div role="dialog"> pattern lightbox.js uses. Shown with
+  showModal(), which keeps focus inside it and makes the rest of the page inert while open, so no
+  hand-rolled Tab trap is needed the way lightbox.js needs one for its own div-based dialog.
+  petition.js still moves focus to the first field on open and returns it to the trigger on close.
+
+  MARKUP CONTRACT (read alongside assets/js/petition.js's own header comment):
+    <dialog data-petition-dialog aria-labelledby="...">
+      <button data-petition-close>...</button>
+      <div data-petition-form-wrap> ... <form data-petition-form> ... </form> </div>
+      <div data-petition-thankyou hidden> ... <p data-petition-thankyou-message></p> </div>
+    </dialog>
+  On a successful submit, petition.js hides [data-petition-form-wrap] and un-hides
+  [data-petition-thankyou] in place -- the same pair of elements /petition/index.md's own inline
+  form uses, so one script handles both. There is at most one [data-petition-form] per page: the
+  dialog's, or the standalone page's, never both (page.url excludes this include on /petition/).
+{% endcomment %}
+{% if site.petition_endpoint != "" and page.url != "/petition/" %}
+<dialog class="petition-dialog" data-petition-dialog aria-labelledby="petition-dialog-title">
+  <div class="petition-dialog-inner">
+    <button type="button" class="petition-dialog-close" data-petition-close aria-label="Close">&times;</button>
+
+    <div data-petition-form-wrap>
+      <h2 id="petition-dialog-title">Sign the petition: the Massachusetts child support guidelines need immediate reform.</h2>
+      <p>To the Chief Justice of the Trial Court, the Governor of Massachusetts, and the U.S.
+        Department of Health and Human Services. The Massachusetts child support guidelines do
+        not comply with federal law. We ask that they be corrected now, and that every parent
+        whose order was set under them be allowed to apply for immediate relief.</p>
+
+      <form class="petition-form" data-petition-form action="{{ site.petition_endpoint }}" method="POST">
+        <div class="form-field">
+          <label for="petition-dialog-name">Full name</label>
+          <input type="text" id="petition-dialog-name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="petition-dialog-email">Email</label>
+          <input type="email" id="petition-dialog-email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-field">
+          <label for="petition-dialog-zip">ZIP code</label>
+          <input type="text" id="petition-dialog-zip" name="zip" required inputmode="numeric"
+                 pattern="^\d{5}(-\d{4})?$" placeholder="02108" autocomplete="postal-code">
+        </div>
+        <div class="form-field">
+          <label class="form-checkbox" for="petition-dialog-updates">
+            <input type="checkbox" id="petition-dialog-updates" name="updates">
+            <span>Email me updates about this petition</span>
+          </label>
+        </div>
+        <div class="form-field">
+          <label class="form-checkbox" for="petition-dialog-public">
+            <input type="checkbox" id="petition-dialog-public" name="public">
+            <span>Show my name publicly as a signer</span>
+          </label>
+        </div>
+        <input type="text" name="_gotcha" class="form-field--honeypot" tabindex="-1" aria-hidden="true" autocomplete="off">
+        <p class="petition-form-error" data-petition-error role="alert" hidden></p>
+        <div class="form-actions">
+          <button type="submit" class="btn">Sign the petition</button>
+        </div>
+        <p class="form-note">
+          Your name, email and ZIP are used to count signatures and to show officials how many
+          signers live in Massachusetts. They are never sold or shared for any other purpose.
+          Your name is shown publicly only if you check the box. You get no email unless you
+          check the updates box. To remove your signature, write to
+          <a href="mailto:checktheworksheet@gmail.com">checktheworksheet@gmail.com</a>.
+        </p>
+      </form>
+    </div>
+
+    <div class="disclosure petition-thankyou" data-petition-thankyou hidden>
+      <div class="box">
+        <h2>Thank you for signing.</h2>
+        <p data-petition-thankyou-message>Your name has been added to the petition.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+{% endif %}
