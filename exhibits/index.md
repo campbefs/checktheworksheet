@@ -573,7 +573,7 @@ argument.</p>
       <div><dt>Child care</dt><dd>None (base support)</dd></div>
       <div><dt>Incomes</dt><dd>$201,000 / $29,640</dd></div>
     </dl>
-    <p class="exhibit-notes">Fifty of fifty-one jurisdictions survived every verification stage; Georgia is held out because its own enacted formula, reproduced by its own calculator, gives a lower order under primary custody than under equal time. Each row was profiled from primary sources, computed twice blind, reconciled, and attacked. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else.</p>
+    <p class="exhibit-notes">Fifty of fifty-one jurisdictions passed every check; Georgia is held out because its own enacted formula, reproduced by its own calculator, gives a lower order under primary custody than under equal time. Each state's amount comes from its own guidelines, worked out twice and checked for errors. Own premiums ($43/$33) as each state treats them. One worked example; the ranking generalizes to nothing else.</p>
     <p class="exhibit-source">Source: <code>model/charts/fig5_states.py</code> ·
       <a href="/data/fifty-state/tier-50-2026-09-05.json">data (JSON)</a> ·
       <a href="/figures/working/fig5_states.csv">data (CSV)</a></p>

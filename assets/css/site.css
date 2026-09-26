@@ -337,7 +337,7 @@ article.finding > .confidence-tag {
   background: var(--surface-raised);
   /* 62ch left a 517px island against a 1320px shell, which read as a stray box rather than part
      of the page. 78ch keeps the line length readable and gives it the weight of a section.
-     Chris, 2026-09-11: "i think boxes should be centered btw if anything or stretched across". */
+     Owner, 2026-09-11: "i think boxes should be centered btw if anything or stretched across". */
   max-width: 78ch;
   font-size: 0.9375rem;
   color: var(--text-secondary); /* NOT --text-muted — see the token comment above */
@@ -347,7 +347,7 @@ article.finding > .confidence-tag {
 .disclosure a { color: var(--text-primary); }
 
 /* ---- Accordion rows (recommendations) ----------------------------------
-   Chris, 2026-09-11, asked for the structure of an FAQ page: a container, the
+   The owner, 2026-09-11, asked for the structure of an FAQ page: a container, the
    question inside it, a caret pointing right, and the detail opening IN PLACE
    rather than scrolling the reader somewhere else. Built on <details>, so it
    opens with a click, with Enter or Space, and with no JavaScript at all.
@@ -565,7 +565,7 @@ article.finding > .confidence-tag {
 /* `.page` needed a gutter of its own. The four pages using `layout: page` (/about/,
    /credits/, /documents/, /recommendations/) never opted into the `.page-shell` +
    `.content-col` markup described in _layouts/page.html, so they rendered full-bleed:
-   body text ran to the viewport edge while the masthead above stayed inset. Chris
+   body text ran to the viewport edge while the masthead above stayed inset. The owner
    reported it 2026-09-09 from /credits/. These values mirror `.page-shell` and
    `.content-col` so a page reads at the same width and measure as a finding page, and
    the same 960px breakpoint drops it to the narrower gutter. A page that later wants the

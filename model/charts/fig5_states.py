@@ -44,7 +44,7 @@ def strip(rows, key, title, name, custody, xmax=None, subtitle="Monthly order at
                  subtitle=subtitle,
                  comma=False,
                  pairs=facts(custody, 3, "None (base support)", "\\$201,000 / \\$29,640"),
-                 notes="Each row profiled from primary sources, computed twice blind, reconciled, attacked. Own premiums "
+                 notes="Each state's amount comes from its own guidelines, worked out twice and checked. Own premiums "
                        "(\\$43/\\$33) as each state treats them. One set of incomes only." + notes_extra,
                  source="data/fifty-state/tier-50-2026-09-05.json")
     theme.save(fig, out(name))
@@ -79,7 +79,7 @@ def top_ten(tier, name):
                  subtitle="Monthly order, the same family in every state. The ten highest, and the median of the rest.",
                  comma=False,
                  pairs=facts(1, 3, "None (base support)", "\\$201,000 / \\$29,640"),
-                 notes="Each row profiled from primary sources, computed twice blind, reconciled, attacked. Georgia held out. "
+                 notes="Each state's amount comes from its own guidelines, worked out twice and checked. Georgia held out. "
                        "One set of incomes only; the full ranking is E11.",
                  source="data/fifty-state/tier-50-2026-09-05.json")
     theme.save(fig, out(name))

@@ -3,9 +3,8 @@ layout: finding
 title: Massachusetts orders the most of fifty jurisdictions at equal parenting time
 permalink: /findings/fifty-one-jurisdictions/
 description: >-
-  One worked example, computed for all fifty states and the District of Columbia, profiled from each
-  jurisdiction's own primary documents, computed twice independently, reconciled and adversarially
-  checked. It rests on a single worked example and generalizes to nothing beyond the one tested.
+  One worked example, computed for all fifty states and the District of Columbia, worked out from each
+  state's own guidelines, twice, with the two results compared and checked for errors. It rests on a single worked example and generalizes to nothing beyond the one tested.
 disclosure:
   - >-
     The worked example run through all fifty-one jurisdictions on this page is fixed: three
@@ -44,8 +43,8 @@ sections:
 # Massachusetts orders the most of fifty jurisdictions at equal parenting time
 
 <p class="lede">At the one worked example tested, Massachusetts's equal-parenting order ranks
-first of fifty. Fifty of fifty-one jurisdictions were profiled from their own primary documents,
-computed twice independently, reconciled, and adversarially attacked for defects.</p>
+first of fifty. Each state's amount was worked out from its own guidelines, twice, and the two
+results were compared and checked for errors.</p>
 
 <p class="lede">This is the weakest claim on this site. It rests on a single worked example and
 generalizes to nothing beyond it.</p>
@@ -70,9 +69,9 @@ generalizes to nothing beyond it.</p>
 
 ## Fifty of fifty-one jurisdictions survived a four-stage check. Georgia did not, and carries no number here
 
-Each of the fifty states and the District of Columbia was profiled from its own primary guidelines
-documents, computed twice independently, reconciled where the two passes disagreed, and
-adversarially attacked for defects. Fifty of fifty-one survived every stage. Georgia is the one held
+Each of the fifty states and the District of Columbia was worked out from its own guidelines, twice and
+separately. Where the two results disagreed, the difference was traced and fixed, and every
+result was then checked again for errors. Fifty of fifty-one passed. Georgia is the one held
 out: its enacted formula and its own online calculator both produce a lower order at primary custody
 than at equal time, an inversion this analysis could not resolve into one trustworthy number, so
 Georgia is left off every ranking instead of assigned a number that could be wrong.

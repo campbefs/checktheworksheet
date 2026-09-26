@@ -63,9 +63,9 @@ executes it and diffs it against the model on six scenarios (`model/runs/officia
 
 ## Method for the fifty-one jurisdictions
 
-Each jurisdiction was profiled from its own primary documents, computed twice independently, reconciled
-on disagreement, and subjected to an adversarial review; Massachusetts was run blind as a control.
-Fifty of fifty-one survived every stage; Georgia is held out because its enacted formula produces a
+Each state's amount was worked out from its own guidelines, twice and separately. Where the two
+results disagreed the difference was traced and fixed, and every result was checked again for
+errors. Massachusetts was also run blind as a control. Fifty of fifty-one passed; Georgia is held out because its enacted formula produces a
 lower order under primary custody than under equal time. The full verification record (about 300
 primary documents and the per-state analyst notes) is available from the author on request.
 
