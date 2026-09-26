@@ -103,7 +103,7 @@
   <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/lightbox.js' | relative_url }}" defer></script>
   {% if site.petition_endpoint != "" %}
-  <script src="{{ '/assets/js/petition.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/petition.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
   {% endif %}
   {% for src in page.scripts %}
   <script src="{{ src | relative_url }}" defer></script>
