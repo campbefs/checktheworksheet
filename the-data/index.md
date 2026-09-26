@@ -29,7 +29,7 @@ parent $570/wk, three children, no child care. Not a general claim.
 
 - [`tier-50-2026-09-05.json`](/data/fifty-state/tier-50-2026-09-05.json): the monthly order in 50
   jurisdictions, equal time (`s1`) and primary custody (`s2`). Massachusetts: $4,388.48 /
-  $4,714.22. Each state worked out twice and checked for errors. A separate blind run of Massachusetts matched.
+  $4,714.22. Each state worked out twice and checked for errors. Massachusetts was also worked out a second time from scratch, without looking at the first result, and the two matched.
   Georgia excluded (its formula gives a lower order under primary custody than equal time).
 - [`credit-at-122-2026-09-05.json`](/data/fifty-state/credit-at-122-2026-09-05.json): whether 122
   overnights earns a formula credit, 51 jurisdictions. Tally: 28 yes, 23 no, Massachusetts among

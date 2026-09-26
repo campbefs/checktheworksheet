@@ -613,7 +613,7 @@ Every figure above is printed by <a href="/model/recommendations.py"><code>model
 checked by <a href="/model/test_recommendations.py"><code>model/test_recommendations.py</code></a>,
 and reproduced in the full run at
 <a href="/model/runs/recommendations-run-2026-09-09.txt">model/runs/recommendations-run-2026-09-09.txt</a>.
-The fifty-jurisdiction figures come from the same tiered dataset used throughout this site,
+The fifty-jurisdiction figures come from the same fifty-state dataset used throughout this site,
 <a href="/data/fifty-state/tier-50-2026-09-05.json">tier-50-2026-09-05.json</a>; Washington and
 California's own basis and income ceilings are in
 <a href="/data/fifty-state/ceilings-2026-09-06.json">ceilings-2026-09-06.json</a>.

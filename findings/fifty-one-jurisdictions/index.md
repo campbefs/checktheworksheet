@@ -57,7 +57,7 @@ generalizes to nothing beyond it.</p>
   </div>
 </div>
 
-<p class="confidence-tag">Tiered: see method below. One worked example; the ranking generalizes to nothing else.</p>
+<p class="confidence-tag">See method below. One worked example; the ranking generalizes to nothing else.</p>
 
 {% include disclosure.html %}
 
@@ -67,7 +67,7 @@ generalizes to nothing beyond it.</p>
 
 <section id="mechanism" markdown="1">
 
-## Fifty of fifty-one jurisdictions survived a four-stage check. Georgia did not, and carries no number here
+## Fifty of fifty-one jurisdictions passed every check. Georgia did not, and carries no number here
 
 Each of the fifty states and the District of Columbia was worked out from its own guidelines, twice and
 separately. Where the two results disagreed, the difference was traced and fixed, and every
@@ -577,8 +577,8 @@ the children the great majority of the time.</p>
 
 <div class="check-yourself">
 <h2>Check it yourself</h2>
-<p>Every ranking above comes from a dataset committed to this repository, built through the
-profile-compute-reconcile-attack process described above.</p>
+<p>The rankings come from these files, each state worked out twice and checked for
+errors.</p>
 <ul>
   <li><strong><a href="/the-data/">The data</a></strong></li>
   <li><strong><a href="/data/fifty-state/tier-50-2026-09-05.json"><code>tier-50-2026-09-05.json</code></a></strong></li>
