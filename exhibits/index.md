@@ -92,7 +92,7 @@ that limit. See the <a href="/findings/federal-law/">federal-law finding</a> for
    alt="Grid of 1,147 income pairs, payor income across and other parent's income up, shaded where the order at $100 of child care per child is over the federal limit on wage withholding."
    title="At $100 a child, 10.6% of income pairs produce an order over the federal limit on wage withholding."
    deck="Each square is one pair of incomes: the Worksheet's order with $300 a week of child care claimed for three children, primary custody."
-   notes="Dark squares are over the federal limit on wage withholding, 60 percent of take-home pay. Light squares are over half of take-home pay but under that limit. Hatched squares are pairs where the other parent would be the higher earner. 10.6 percent of squares are dark. All of them also trip Massachusetts's own 40 percent hardship presumption, which a parent must raise and a judge must grant. It corrects nothing automatically."
+   notes="Dark squares are over the federal limit on wage withholding, 60 percent of take-home pay. Light squares are over half of take-home pay but under that limit. Hatched squares are pairs where the other parent would be the higher earner. 10.6 percent of squares are dark. All of them also trip Massachusetts's own 40 percent hardship presumption, which helps only if the parent raises it and a judge agrees."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_grid.csv" %}
 

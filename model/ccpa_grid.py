@@ -154,7 +154,7 @@ def hardship_overlap(kids, box, childcare_total, rate, hardship_threshold=0.40):
 
     Added round 4, 2026-09-26, for the "all of those also trip Massachusetts's own 40 percent
     hardship presumption" sentence that now runs beside every 60-percent crossing figure. The
-    presumption is REBUTTABLE -- a parent must raise it and a judge must grant it -- so this
+    presumption is REBUTTABLE -- a parent must raise it and a judge may grant it -- so this
     measures overlap, not automatic correction. Reproduces
     notes/2026-09-26-round3-hardship-overlap.py, which found 122 of 122 (100%) at the site's own
     grid (3 children, Box 2, $100/child/week, rate=0.60).

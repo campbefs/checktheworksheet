@@ -40,8 +40,7 @@ recite that standard. The Worksheet has no line for tax or take-home pay. At $10
 care claimed per child, three children and primary custody, 40% of income pairs on a model grid
 have an order that takes more than half of take-home pay, and 10.6% cross 60 percent, the federal
 limit on what can be withheld from wages, 15 U.S.C. § 1673(b)(2). All of those also trip
-Massachusetts's own 40 percent hardship presumption, which a parent must raise and a judge must
-grant. It corrects nothing automatically. With no child care claimed, none do.
+Massachusetts's own 40 percent hardship presumption, which helps only if the parent raises it and a judge agrees. With no child care claimed, none do.
 
 {% include figure.html
    id="e31"
@@ -49,7 +48,7 @@ grant. It corrects nothing automatically. With no child care claimed, none do.
    alt="Grid of 1,147 income pairs, payor income across and other parent's income up, shaded where the order at $100 of child care per child is over the federal limit on wage withholding."
    title="At $100 a child, 10.6% of income pairs produce an order over the federal limit on wage withholding."
    deck="Each square is one pair of incomes: the Worksheet's order with $300 a week of child care claimed for three children, primary custody."
-   notes="Dark squares are over the federal limit on wage withholding, 60 percent of take-home pay. Light squares are over half of take-home pay but under that limit. Hatched squares are pairs where the other parent would be the higher earner. 10.6 percent of squares are dark. All of them also trip Massachusetts's own 40 percent hardship presumption, which a parent must raise and a judge must grant. It corrects nothing automatically."
+   notes="Dark squares are over the federal limit on wage withholding, 60 percent of take-home pay. Light squares are over half of take-home pay but under that limit. Hatched squares are pairs where the other parent would be the higher earner. 10.6 percent of squares are dark. All of them also trip Massachusetts's own 40 percent hardship presumption, which helps only if the parent raises it and a judge agrees."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_grid.csv"
    lazy="false" %}

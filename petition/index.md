@@ -23,8 +23,7 @@ Health and Human Services. We believe federal law requires every child support o
     <li>With $100 a week of child care claimed per child, 40 percent of three-child, primary-custody
       income pairs on a model grid have an order that takes more than half of take-home pay, and 10.6
       percent cross 60 percent, the actual federal limit on what can be withheld from wages. All of
-      those also trip Massachusetts's own 40 percent hardship presumption, which a parent must raise
-      and a judge must grant. It corrects nothing automatically.
+      those also trip Massachusetts's own 40 percent hardship presumption, which helps only if the parent raises it and a judge agrees.
       <a href="{{ '/findings/federal-law/' | relative_url }}">See the finding &rarr;</a></li>
     <li>The Worksheet never computes what a parent keeps after tax.
       <a href="{{ '/findings/federal-law/' | relative_url }}">See the finding &rarr;</a></li>
