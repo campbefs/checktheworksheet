@@ -28,7 +28,7 @@ Commonwealth to correct that and states the fix on the
 Massachusetts also has the highest child support in the nation for joint custody, and joint custody
 here costs more than primary custody in 47 states.
 
-I believe that the Massachusetts guidelines, especially in joint custody situations, serve more as a financial windfall and handout to payees than any sort of actual support for the children. The laws are set to maximize the value extracted from the payer, with little question of what's best for the child, ability to pay, or what the incentive structures are. They encourage abuse of the system by payees and incentivize litigation.
+I believe that the Massachusetts guidelines, especially in joint custody situations, work more as a transfer of wealth from one parent to the other than as actual support for the children. The laws are set to maximize the value extracted from the payer, with little question of what's best for the child, ability to pay, or what the incentive structures are. They reward inflated claims and incentivize litigation.
 
 Both problems trace to the same place: the Worksheet's own arithmetic, the steps the form performs
 to turn two incomes into a presumptive order. Massachusetts reviews its guidelines every four
