@@ -73,7 +73,7 @@ The Guidelines treat both kinds of order as the court's choice. Support past 18 
 
 The statute requires the child to be "domiciled in the home of a parent." A dorm does not change that. The Appeals Court has held that a student at college keeps the family home as a legal domicile, so support continues to the parent who keeps that home, *Tatar v. Schuker*, 70 Mass. App. Ct. 436 (2007).
 
-As *Tatar* describes the earlier cases, support has run to the other parent even where the father paid all of the child's tuition, room and board. The court counted the other parent's home during vacations, the food and the utilities as enough to keep the child principally dependent on her.
+As *Tatar* describes the earlier cases, support has run to the other parent even where the father paid all of the child's tuition, room and board. The court counted the other parent's home during vacations, the food and the utilities as enough to keep the child principally dependent on her. So a parent can pay for college and still pay the other parent four years of child support so the child has a room for part of the summer. Paying the student or the college makes sense. Paying the other parent for a child who lives at school does not.
 
 </section>
 
@@ -99,12 +99,12 @@ Some states already send college money where it is spent. Washington's statute s
 
 <section id="fix" markdown="1">
 
-## After 18, support should go to the child or the college, and a college order should replace child support for the months it covers
+## After 18, support should go to the child or the college instead of the other parent, even while the child is away at college
 
 Three changes would keep the money with the child:
 
-- **After a child turns 18, pay any support to the child or the college instead of the other parent,** unless the child actually lives with that parent most of the time.
-- **Let a college order replace child support for the months it covers,** so a parent pays one or the other.
+- **After a child turns 18, pay any support to the child or the college instead of the other parent,** unless the child actually lives with that parent most of the time. A child away at college does not, and a summer at home does not change that.
+- **Let a college order replace child support,** so a parent pays one or the other.
 - **End presumptive support at 18 or at high school graduation.**
 
 The first two are rules about how guidelines direct and compute an order, which the federal rule already governs, and this project's petition to the Department of Health and Human Services asks for them. The third changes when a state may order support at all, which in Massachusetts is set by statute. Changing it takes the Legislature, or Congress for a national rule.
