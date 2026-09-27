@@ -17,7 +17,7 @@ disclosure:
     against the form's own calculation scripts. More on <a href="/about/">About</a>.
 ---
 
-# Eight problems with the Massachusetts child support guidelines, and the first is federal law's ability-to-pay rule
+# Nine problems with the Massachusetts child support guidelines, and the first is federal law's ability-to-pay rule
 
 {% include disclosure.html %}
 
@@ -203,6 +203,12 @@ which CJ-D 304 does not collect and a reader cannot reproduce from published rat
    notes="Of the 10 percent of the grid where the recipient household is ahead, 75 percent sits below $150,000 of higher-earner income, and none above $175,000. The closed contour inside the red region is Line 6e's limitation, which stops binding once the payor's Line 6d crosses 10 percent; the order then drops about $110 a week in one step. Per person the payor still leads almost everywhere (E02). Masked where the lower earner would out-earn the higher. Premiums $43/$33 a week; MA under-13 credit set to zero; no refundable tax credits counted."
    source_script="model/charts/fig1_heatmaps.py · model/worksheet.py · model/net_position.py"
    csv_href="/figures/working/fig1_heatmap_3child_box1.csv" %}
+
+## 9. After a child turns 18, support can run to 23 and goes to the other parent, even while the child is at college
+
+Massachusetts lets a court order support until a child turns 23, G.L. c. 208, § 28, and the Appeals Court treats a student at college as still living with the parent who receives it. A parent can pay tuition, room and board and still owe support to the other parent for the same months. Federal law sets no age at which support ends and no rule on who receives it. After 18, the money should go to the child or the college.
+
+[Read the full finding →](/findings/support-after-18/)
 
 <div class="ask">
   <h2>Check it yourself</h2>

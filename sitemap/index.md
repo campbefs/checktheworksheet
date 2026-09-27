@@ -23,6 +23,9 @@ description: Every page here, with a one-line purpose for each.
   <li class="doc-item"><span class="doc-title"><a href="/findings/shared-parenting-formula/">Shared-parenting formula</a></span>
     <span class="doc-context">More states price joint custody with the cross-credit than with any other formula, and
       Massachusetts does not use it.</span></li>
+  <li class="doc-item"><span class="doc-title"><a href="/findings/support-after-18/">Support after 18</a></span>
+    <span class="doc-context">After a child turns 18, support can run to 23 and goes to the other parent, even while the
+      child is at college.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/findings/fifty-one-jurisdictions/">Fifty-one jurisdictions</a></span>
     <span class="doc-context">The same family's order under every state's guidelines, with
       Massachusetts first at equal parenting time.</span></li>
