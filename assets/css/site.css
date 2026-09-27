@@ -144,6 +144,7 @@ header.topbar { border-bottom: 1px solid var(--rule); }
   max-width: var(--page-max);
   margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  row-gap: var(--space-4); /* space between the wordmark+button row and the nav when they wrap (iPad) */
   padding: var(--space-4) var(--space-6);
   font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0.02em;
   position: relative;
