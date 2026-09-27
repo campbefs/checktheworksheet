@@ -107,6 +107,19 @@ check("share_of_net matches order_and_cap on a named cell",
 check("that cell's order really is above half the payor's net pay",
       direct["annual"] > 0.50 * net_income_withholding_basis(hi))
 
+# --- Round 4: every 60%-crossing cell also fires the MA 40% hardship presumption ---------------
+ho60 = g.hardship_overlap(3, 2, 300.0, 0.60)
+check("3 kids Box 2 at $300/wk: 122 cells cross 60%", ho60["n_over"] == 122)
+check("3 kids Box 2 at $300/wk: every 60%-crossing cell also fires the 40% hardship presumption",
+      ho60["n_fires"] == ho60["n_over"] == 122)
+check("hardship_overlap pct_fires is exactly 1.0 at $300/wk over 60%",
+      ho60["pct_fires"] == 1.0)
+ho50 = g.hardship_overlap(3, 2, 300.0, 0.50)
+check("3 kids Box 2 at $300/wk: 459 cells cross 50% (matches over50 elsewhere)",
+      ho50["n_over"] == 459)
+check("hardship_overlap agrees with crossings() on the same cell count",
+      ho50["n_over"] == w3b2["over"][0.50]["n"] and ho60["n_over"] == w3b2["over"][0.60]["n"])
+
 # --- Report ------------------------------------------------------------------
 failed = [c for c in CHECKS if not c[1]]
 for label, ok in CHECKS:

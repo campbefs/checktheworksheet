@@ -225,10 +225,30 @@
     }
   }
 
+  // ---- source page: which page's bar or link led here (2026-09-26) -------------------------
+  // The server records this on every signature for the admin dashboard's provenance column. A
+  // referrer from THIS SITE names the page the signer came from (its path, not the full URL --
+  // no query string, no host, nothing that could carry a visitor's own data); a referrer from
+  // elsewhere, or none at all (direct link, a saved bookmark, a browser that blocks referrers),
+  // falls back to the current page's own path so the field is never empty on this site's own
+  // standalone /petition/ page.
+  function sourcePath() {
+    try {
+      var ref = document.referrer;
+      if (ref) {
+        var refUrl = new URL(ref);
+        if (refUrl.host === window.location.host) return refUrl.pathname;
+      }
+    } catch (e) { /* malformed or inaccessible referrer -- fall through */ }
+    return window.location.pathname;
+  }
+
   function wireForm(form) {
     var honeypot = form.querySelector('input[name="_gotcha"]');
     var errorEl = form.querySelector('[data-petition-error]');
     var submitButton = form.querySelector('button[type="submit"]');
+    var sourceField = form.querySelector('[data-petition-source]');
+    if (sourceField) sourceField.value = sourcePath();
 
     // ZIP field: the browser's own validation message ("Please match the requested format.")
     // says nothing about what format is expected once the 02108 placeholder is covered by a

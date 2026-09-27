@@ -147,6 +147,30 @@ def cells_over(kids, box, childcare_total, rate):
     return sorted(out, key=lambda r: -r[2])
 
 
+def hardship_overlap(kids, box, childcare_total, rate, hardship_threshold=0.40):
+    """Of the grid cells whose order crosses `rate` (a CCPA withholding share), the share that
+    ALSO fire the Massachusetts hardship presumption (2025 Guidelines Section IV.C: Worksheet
+    Line 7e >= 40 percent of the payor's Line 3a).
+
+    Added round 4, 2026-09-26, for the "all of those also trip Massachusetts's own 40 percent
+    hardship presumption" sentence that now runs beside every 60-percent crossing figure. The
+    presumption is REBUTTABLE -- a parent must raise it and a judge must grant it -- so this
+    measures overlap, not automatic correction. Reproduces
+    notes/2026-09-26-round3-hardship-overlap.py, which found 122 of 122 (100%) at the site's own
+    grid (3 children, Box 2, $100/child/week, rate=0.60).
+    """
+    pairs = grid_pairs(kids, box)
+    line_7e = []
+    for hi, lo in pairs:
+        r = nc.order_and_cap(hi, lo / 52.0, kids, box, childcare_total, A_HEALTH, B_HEALTH)
+        if r["share_of_net"] > rate:
+            line_7e.append(r["line_7e"])
+    n = len(line_7e)
+    fires = sum(1 for e in line_7e if e >= hardship_threshold)
+    return {"n_over": n, "n_fires": fires,
+            "pct_fires": (fires / n) if n else 0.0}
+
+
 def report(kids_list=(1, 2, 3), boxes=(1, 2)):
     rows = []
     for kids in kids_list:

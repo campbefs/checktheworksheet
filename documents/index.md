@@ -15,8 +15,8 @@ its figures are computed by [the model](/the-model/), not read off either PDF.
     <span class="doc-title">Comments to the Chief Justice on the 2025 Child Support Guidelines, with exhibits and attachments</span>
     <span class="confidence-tag">Comments to the Trial Court, current</span>
     <span class="doc-context">The comments as they go to the Chief Justice of the Trial Court: the
-      federal-law finding, the asks, the charts of orders against the federal ceiling, the proposed
-      language section by section, the worked example line by line, and the fifty-one-jurisdiction
+      federal-law finding, the asks, the charts of income pairs against the federal limit on wage
+      withholding, the proposed language section by section, the worked example line by line, and the fifty-one-jurisdiction
       comparison. Public copy: the author's contact details are removed.
       <a href="/paper/Comments-to-the-Chief-Justice.pdf">PDF</a></span>
   </li>

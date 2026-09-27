@@ -1,7 +1,7 @@
 ---
 layout: home
-title: "checktheworksheet.org: Massachusetts child support is among the highest in the nation, and its guidelines do not comply with federal law"
-description: "Federal law requires every child support order to rest on the parent's ability to pay. The Massachusetts Worksheet never computes what a parent keeps after tax, sets orders the Commonwealth cannot lawfully collect, and charges the most in the nation for joint custody. Every number traces to a file."
+title: "checktheworksheet.org: Massachusetts has the highest child support in the nation for joint custody"
+description: "Federal law requires every child support order to rest on the parent's ability to pay. The Massachusetts Worksheet never computes what a parent keeps after tax, and with child care claimed it can set child support higher than federal law lets the state collect from wages. Federal law never says what ability to pay means once the basics are met. Every number traces to a file."
 disclosure:
   - >-
     The worked example throughout runs a fixed family of two parents' incomes and three
@@ -24,16 +24,24 @@ scripts:
   <div class="hero-grid">
     <div class="hero-text">
       <p class="eyebrow">The Massachusetts Child Support Guidelines, checked against federal law and the form&rsquo;s own code</p>
-      <h1>Massachusetts child support is among the highest in the nation, and its guidelines do not comply with federal law.</h1>
-      <p class="lede">While federal law requires every order to rest on the parent&rsquo;s ability
-      to pay, the Massachusetts Worksheet never computes what a parent keeps after tax. With child
-      care claimed, it sets orders above the federal withholding ceiling, amounts the Commonwealth
-      cannot lawfully collect.</p>
-      <p class="lede" style="margin-top:0.9em"><strong>For joint custody it is the highest in the
-      nation</strong>, and joint custody here costs more than primary custody in 47 states.</p>
+      <h1>Massachusetts has the highest child support in the nation for joint custody.</h1>
+      <p class="hero-subtitle">The state&rsquo;s guidelines can set child support higher than federal law lets the state collect from wages.</p>
+      <p class="lede">Federal law requires every child support order to rest on the parent&rsquo;s ability to pay. The Worksheet never computes what a parent keeps after tax, and federal law never says what ability to pay means once the basics are met. The excess above what federal law lets the state collect from wages is still owed.</p>
+      <p class="caveat" style="margin-top:0.6em">No court or federal agency has ruled on whether the
+      guidelines meet this standard. Federal approval of the state&rsquo;s plan has not addressed it.</p>
+      <p class="lede" style="margin-top:0.9em">At one worked example ($201,000 and $29,640 a year, three children), <strong>Massachusetts orders more for joint custody than any other state</strong>, and more than primary custody costs in 47 states.</p>
       <div class="stat-callout">
-        <span class="stat-value">40%</span>
-        <span class="stat-label">of three-child, primary-custody orders cross the federal ceiling at $100 a week of child care per child</span>
+        <div class="stat-row">
+          <div class="stat-item">
+            <span class="stat-value">40%</span>
+            <span class="stat-label">the order takes more than half of take-home pay</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">10.6%</span>
+            <span class="stat-label">higher than federal law lets the state collect from wages (60% of take-home pay). Every one also trips Massachusetts&rsquo;s own hardship rule, but only if a parent raises it and a judge agrees.</span>
+          </div>
+        </div>
+        <p class="stat-note">Shares of income pairs on a model grid, three children, primary custody, $100 a week of child care per child.</p>
       </div>
       <p class="confidence-tag"><a href="/findings/federal-law/">Read the federal-law finding &rarr;</a></p>
     </div>
@@ -323,19 +331,20 @@ scripts:
     </section>
     <section class="exhibit-section" id="federal-ceiling">
       <p class="eyebrow">The federal ceiling</p>
-      <h2>With child care claimed, the Worksheet sets orders the Commonwealth cannot lawfully collect</h2>
-      <p>Federal law caps what can be withheld from a paycheck for support at 50 percent of
-      take-home pay for a payor with a second family, 60 percent for one without. With no child
-      care claimed, no order crosses it. At $100 a week of child care per child, 40 percent of
-      three-child, primary-custody orders do: <a href="/findings/federal-law/">the federal-law
+      <h2>The Massachusetts guidelines can set child support higher than federal law lets the state collect from wages</h2>
+      <p>Federal law caps what can be withheld from a paycheck for support at 60 percent of
+      take-home pay, less for a payor with a second family. With no child care claimed, no
+      income pair on our model grid crosses it. At $100 a week of child care per child, 40
+      percent of three-child, primary-custody income pairs on the grid have an order that takes
+      more than half of take-home pay, and 10.6 percent cross the 60 percent limit itself: <a href="/findings/federal-law/">the federal-law
       finding</a>.</p>
       {% include figure.html
          id="e29"
          img="/figures/exhibits/E29-orders-over-federal-ceiling-by-child-care.png"
          alt="Line chart of the share of 1,147 income pairs whose order is above the federal withholding ceiling, as child care claimed rises from $0 to $430 per child per week, for primary custody and for joint custody at equal time."
-         title="With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect."
-         deck="Share of income pairs whose order is above the federal ceiling, by child care claimed per child per week."
-         notes="Three children. Federal ceiling, 15 U.S.C. § 1673(b)(2), shown as a band: 50 percent of take-home pay for a payor with a second family, 60 percent for one without. With no child care claimed, no order crosses either."
+         title="The Massachusetts guidelines can set child support higher than federal law lets the state collect from wages."
+         deck="Share of income pairs whose order is above the federal limit on wage withholding, by child care claimed per child per week."
+         notes="Three children. Federal limit on wage withholding, 15 U.S.C. § 1673(b)(2): 60 percent of take-home pay, less for a payor with a second family. With no child care claimed, no income pair on the grid crosses it."
          source_script="model/ccpa_grid.py"
          csv_href="/figures/working/fig_ceiling_share.csv"
          lazy="true" %}
@@ -370,21 +379,21 @@ scripts:
     <div class="thumb">
       <a class="lightbox-trigger" data-lightbox
          href="/figures/exhibits/E31-income-pairs-over-ceiling-grid.png"
-         data-caption="At $100 a child, 40 percent of income pairs produce an order over the federal ceiling."
+         data-caption="At $100 a child, 10.6 percent of income pairs produce an order over the federal limit on wage withholding."
          data-csv-href="/figures/working/fig_ceiling_grid.csv" data-csv-label="Data (CSV)">
         <img src="/figures/exhibits/E31-income-pairs-over-ceiling-grid.png"
-             alt="Grid of 1,147 income pairs shaded where the order at $100 of child care per child is over the federal withholding ceiling.">
+             alt="Grid of 1,147 income pairs shaded where the order at $100 of child care per child is over the federal limit on wage withholding.">
       </a>
     </div>
     <div class="body">
       <p class="tag">Every income pair, run through the Worksheet</p>
-      <h3><a href="/findings/federal-law/">The guidelines do not comply with federal law</a></h3>
+      <h3><a href="/findings/federal-law/">Federal law requires child support to be based on what a parent can actually pay</a></h3>
       <p>Federal law requires an order based on ability to pay. The Worksheet never computes
       take-home pay, and with child care claimed it sets orders above the federal withholding
       ceiling.</p>
       <div class="stat">
         <span class="stat-value">186%</span>
-        <span class="stat-label">of take-home pay, the most an order reaches at the Guidelines&rsquo; own child care limit</span>
+        <span class="stat-label">of take-home pay: a stress-test figure, three children all claimed at the Guidelines&rsquo; $430-a-week child care maximum, not a typical case</span>
       </div>
     </div>
   </article>

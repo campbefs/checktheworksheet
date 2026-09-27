@@ -19,10 +19,9 @@ disclosure:
 
 # Mission
 
-The Massachusetts child support guidelines do not comply with federal law. Federal law requires
-every order to rest on the parent's ability to pay, and while the Guidelines recite that standard,
-the Worksheet that applies it never computes what a parent keeps after tax. With child care
-claimed, that produces orders the Commonwealth cannot lawfully collect. This project asks the
+Federal law requires child support to be based on what a parent can actually pay, and Massachusetts has never been asked whether its guidelines do that. While the Guidelines recite that standard, the Worksheet that applies it never computes what a parent keeps after tax. With child
+care claimed, that can set child support higher than federal law lets the state collect from wages; the excess is still owed. No court or federal agency has ruled on whether the guidelines meet this standard. Federal
+approval of the state's plan has not addressed it. This project asks the
 Commonwealth to correct that and states the fix on the
 [federal law page](/findings/federal-law/).
 

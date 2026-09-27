@@ -76,12 +76,14 @@ Massachusetts already measures this obligation in net pay once, when it collects
 statute, G.L. c. 119A § 12, cites the federal ceiling three times. It never measures net pay when
 it sets the amount. The petition asks federal law to close that gap for every state: compute net
 pay on the worksheet or form that produces the order, run every hardship test and deviation
-trigger on that net figure, and compare the order to the federal withholding ceiling, 50 percent
-of take-home pay for a parent who supports a second household, 60 percent for one who does not.
+trigger on that net figure, and compare the order to the federal limit on wage withholding, 60
+percent of take-home pay, less for a parent who supports a second household.
 
-Massachusetts's Worksheet already produces orders the Commonwealth cannot lawfully collect. With
-$100 a week of child care claimed for each child, 40% of three-child, primary-custody income pairs
-cross the federal ceiling. The [federal law finding](/findings/federal-law/) has the grid in full;
+Massachusetts's Worksheet can already set child support higher than federal law lets the state collect from wages. With $100 a week of child care claimed for each child, 40% of
+three-child, primary-custody income pairs on a model grid have an order that takes more than half
+of take-home pay, and 10.6% cross the 60 percent limit itself. All of those also trip
+Massachusetts's own 40 percent hardship presumption, which a parent must raise and a judge must
+grant. It corrects nothing automatically. The [federal law finding](/findings/federal-law/) has the grid in full;
 the [hardship test](#ask-hardship-basis) below shows the same gap inside Massachusetts's own rule.
 </details>
 
@@ -149,9 +151,7 @@ analysis. The date already exists. The ask is where it is written down.
 <details class="ask" markdown="1" id="ask-federal-relief">
 <summary><span class="ask-head"><span class="ask-title">Let a parent paying under the current Guidelines ask for immediate relief</span><span class="effect">An order could ask to be capped now, at 40 percent of ability to pay under primary custody or 30 percent in joint custody, without showing any other change in circumstances.</span><span class="tag-kind">Judgement</span><span class="tag-origin">In the petition to HHS</span></span></summary>
 
-Today an order can be reviewed only back to whatever the guidelines currently allow, 42 U.S.C.
-§ 666(a)(10). For a guideline that does not comply with federal law, that checks the order against
-the same rule that produced it, which is no review at all. The petition asks the Department to let
+Today an order can be reviewed only back to whatever the guidelines currently allow, 42 U.S.C. § 666(a)(10). If Massachusetts's guidelines do not rest on ability to pay the way federal law requires, that review checks the order against the same rule that produced it, which is no review at all. The petition asks the Department to let
 any parent whose order was set under guidelines it finds do not comply ask for an immediate
 reduction, without showing any other change in circumstances, to what the corrected rule allows:
 no more than 40 percent of ability to pay, and no more than 30 percent in joint custody. The 40
@@ -419,8 +419,9 @@ of 1,147 income combinations, and Line 7e passes it in none of them.
 
 **A net ceiling is not a new idea, though no state applies one to the order.** Congress already
 caps what may be withheld from a paycheck for child support, the federal withholding ceiling, 15
-U.S.C. § 1673(b)(2). That limits what may be collected, not what a court may order, so the
-Commonwealth can order an amount it cannot lawfully collect. The
+U.S.C. § 1673(b)(2). That limits what an employer may withhold from a paycheck, not what a court
+may order, so the Commonwealth can order more than an employer may lawfully withhold; the excess
+remains owed. The
 [federal law finding](/findings/federal-law/) on this site has the full picture: with child care
 claimed, a real share of the Worksheet's own grid crosses it, and none does with no child care
 claimed at all.

@@ -73,9 +73,7 @@ hardship. Line 3a is gross income minus a short list of specific deductions, exi
 orders and health and dental premiums for the children, and not one of them is a tax. So Line 7e
 answers a question about spendable income with a figure that carries no tax adjustment at all.
 
-While federal law requires every order to rest on what a parent can actually pay, this is the
-Worksheet's one test for that, and it measures the wrong income. [See why that puts Massachusetts
-out of compliance with federal law](/findings/federal-law/).
+While federal law requires every order to rest on what a parent can actually pay, this is the Worksheet's one test for that, and it measures the wrong income. [See the Ability to pay finding](/findings/federal-law/).
 
 </section>
 

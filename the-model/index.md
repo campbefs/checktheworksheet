@@ -62,7 +62,7 @@ actually ask for.
 | [`model/test_worksheet.py`](/model/test_worksheet.py) | 60 | The disclosed order and the form's rounding |
 | [`model/test_box1_fix.py`](/model/test_box1_fix.py) | 258 | The Box 1 credit and its redlines |
 | [`model/test_childcare_post_transfer.py`](/model/test_childcare_post_transfer.py) | 20 | Child care on post-transfer shares |
-| [`model/test_ccpa_grid.py`](/model/test_ccpa_grid.py) | 50 | Orders over the federal withholding ceiling, all four rates |
+| [`model/test_ccpa_grid.py`](/model/test_ccpa_grid.py) | 55 | Orders over the federal withholding ceiling, all four rates, plus the round-4 hardship overlap |
 | [`model/test_net_caps.py`](/model/test_net_caps.py) | 88 | The 40 and 30 percent net-pay ceilings |
 
 ## A harness runs the Commonwealth's own scripts instead of a re-derivation

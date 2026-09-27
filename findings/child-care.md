@@ -94,9 +94,10 @@ transfer.
 
 How big the claim is matters as much as how it is split. This page's $300-a-week claim works out
 to $100 a week per child, the level the [federal-law finding](/findings/federal-law/) examines.
-At that level, 40% of three-child income pairs already produce an order over the federal ceiling
-under primary custody, and some cross it at joint custody too, amounts the Commonwealth cannot
-lawfully collect.
+At that level, 40% of three-child income pairs on a model grid already have an order that takes
+more than half of take-home pay under primary custody, and some cross that mark at joint custody
+too. 10.6% cross 60 percent, the federal limit on what can be withheld from wages. That is child
+support higher than federal law lets the state collect from wages, and the excess is still owed.
 
 </section>
 

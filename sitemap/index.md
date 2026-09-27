@@ -8,8 +8,7 @@ description: Every page here, with a one-line purpose for each.
 
 <ul class="doc-list">
   <li class="doc-item"><span class="doc-title"><a href="/">Home</a></span>
-    <span class="doc-context">The guidelines do not comply with federal law, the highest
-      joint-custody support in the nation, and a calculator for any two incomes.</span></li>
+    <span class="doc-context">Ability to pay under federal law, the highest joint-custody support in the nation, and a calculator for any two incomes.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/petition/">Sign the petition</a></span>
     <span class="doc-context">Ask the Chief Justice, the Governor and the U.S. Department of
       Health and Human Services to correct the guidelines now.</span></li>
@@ -17,8 +16,7 @@ description: Every page here, with a one-line purpose for each.
     <span class="doc-context">Federal law, hardship test, child care, parenting-time credit,
       fifty jurisdictions, each its own page.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/findings/federal-law/">Federal law</a></span>
-    <span class="doc-context">The Massachusetts child support guidelines do not comply with
-      federal law.</span></li>
+    <span class="doc-context">Federal law requires child support to be based on what a parent can actually pay.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/findings/cost-of-living/">Cost of living</a></span>
     <span class="doc-context">Every place that costs more to live in than Massachusetts orders less
       at equal parenting time.</span></li>
@@ -32,8 +30,8 @@ description: Every page here, with a one-line purpose for each.
     <span class="doc-context">What federal law should require of every state, then the twelve
       changes the Massachusetts Worksheet needs.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/exhibits/">Exhibits</a></span>
-    <span class="doc-context">Every chart on the site, starting with the orders against the
-      federal ceiling (E29-E31), CSV linked beside each.</span></li>
+    <span class="doc-context">Every chart on the site, starting with the income pairs against the
+      federal limit on wage withholding (E29-E31), CSV linked beside each.</span></li>
   <li class="doc-item"><span class="doc-title"><a href="/the-model/">The model</a></span>
     <span class="doc-context">The worksheet, tax and extension models, six test suites, the
       XFA harness, and commands to reproduce every number.</span></li>

@@ -28,9 +28,9 @@ comparison always carries its per-person counterpart.
 
 ## Contents
 
-1. [With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect.](#e29)
-2. [The more child care is claimed, the further the order goes over the federal ceiling.](#e30)
-3. [At $100 a child, 40 percent of income pairs produce an order over the federal ceiling.](#e31)
+1. [The Massachusetts guidelines can set child support higher than federal law lets the state collect from wages.](#e29)
+2. [The more child care is claimed, the further the order goes over the federal limit on wage withholding.](#e30)
+3. [At $100 a child, 10.6% of income pairs produce an order over the federal limit on wage withholding.](#e31)
 4. [With three children, the recipient household holds more after the order in 10 percent of income combinations.](#e01)
 5. [Per person, the payor holds more almost everywhere.](#e02)
 6. [With one child, the recipient household holds more after the order in no income combinations.](#e18)
@@ -58,20 +58,20 @@ comparison always carries its per-person counterpart.
 28. [Massachusetts orders the most at equal time, and it is not the most expensive place to live.](#e33)
 29. [Five reviews have taken up gross versus net. None changed it.](#e27)
 
-## With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect
+## The Massachusetts guidelines can set child support higher than federal law lets the state collect from wages
 
-<p>The federal government caps what may be withheld from a paycheck for child support at 50 percent
-of take-home pay, 15 U.S.C. § 1673(b)(2). With child care claimed, the Worksheet sets orders above
-that ceiling. See the <a href="/findings/federal-law/">federal-law finding</a> for the full
-argument.</p>
+<p>The federal government caps what may be withheld from a paycheck for child support at 60 percent
+of take-home pay, less for a payor supporting a second family, 15 U.S.C. § 1673(b)(2). With
+child care claimed, the Worksheet produces income pairs on a model grid whose order is above
+that limit. See the <a href="/findings/federal-law/">federal-law finding</a> for the full argument.</p>
 
 {% include figure.html
    id="e29"
    img="/figures/exhibits/E29-orders-over-federal-ceiling-by-child-care.png"
    alt="Line chart of the share of 1,147 income pairs whose order is above the federal withholding ceiling, as child care claimed rises from $0 to $430 per child per week, for primary custody and for joint custody at equal time."
-   title="With child care claimed, the Worksheet produces orders the Commonwealth cannot lawfully collect."
-   deck="Share of income pairs whose order is above the federal ceiling, by child care claimed per child per week."
-   notes="Three children. Federal ceiling, 15 U.S.C. § 1673(b)(2), shown as a band: 50 percent of take-home pay for a payor with a second family, 60 percent for one without. At $100 a child, 40 percent of pairs cross the 50 percent line under primary custody."
+   title="The Massachusetts guidelines can set child support higher than federal law lets the state collect from wages."
+   deck="Share of income pairs whose order is above the federal limit on wage withholding, by child care claimed per child per week."
+   notes="Three children. Federal limit on wage withholding, 15 U.S.C. § 1673(b)(2): 60 percent of take-home pay, less for a payor with a second family. At $100 a child, 10.6 percent of pairs cross it under primary custody. 40 percent have an order over half of take-home pay."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_share.csv"
    lazy="false" %}
@@ -79,20 +79,20 @@ argument.</p>
 {% include figure.html
    id="e30"
    img="/figures/exhibits/E30-order-against-federal-ceiling-by-income.png"
-   alt="Line chart of the order as a share of the payor's take-home pay across payor incomes from $50,000 to $300,000, with no child care and at $100, $200 and $430 per child per week, against the federal ceiling of 50 percent of take-home pay."
-   title="The more child care is claimed, the further the order goes over the federal ceiling."
+   alt="Line chart of the order as a share of the payor's take-home pay across payor incomes from $50,000 to $300,000, with no child care and at $100, $200 and $430 per child per week, against the federal limit on wage withholding at 60 percent of take-home pay."
+   title="The more child care is claimed, the further the order goes over the federal limit on wage withholding"
    deck="The order as a share of the payor's take-home pay, three children, the other parent primary, the other parent earning $29,640 a year."
-   notes="The shaded band is the federal ceiling: 50 percent of take-home pay for a payor with a second family, 60 percent for one without. Take-home pay is after federal and state income tax, Social Security and Medicare."
+   notes="The solid line is the federal limit on wage withholding, 60 percent of take-home pay, less for a payor with a second family. The dashed line marks half of take-home pay, a burden flag, not a legal limit. Take-home pay is after federal and state income tax, Social Security and Medicare."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_by_income.csv" %}
 
 {% include figure.html
    id="e31"
    img="/figures/exhibits/E31-income-pairs-over-ceiling-grid.png"
-   alt="Grid of 1,147 income pairs, payor income across and other parent's income up, shaded where the order at $100 of child care per child is over the federal ceiling."
-   title="At $100 a child, 40 percent of income pairs produce an order over the federal ceiling."
+   alt="Grid of 1,147 income pairs, payor income across and other parent's income up, shaded where the order at $100 of child care per child is over the federal limit on wage withholding."
+   title="At $100 a child, 10.6% of income pairs produce an order over the federal limit on wage withholding."
    deck="Each square is one pair of incomes: the Worksheet's order with $300 a week of child care claimed for three children, primary custody."
-   notes="Dark squares are over both federal ceilings (60 percent); light squares are over the 50 percent ceiling that applies to a payor with a second family. Hatched squares are pairs where the other parent would be the higher earner."
+   notes="Dark squares are over the federal limit on wage withholding, 60 percent of take-home pay. Light squares are over half of take-home pay but under that limit. Hatched squares are pairs where the other parent would be the higher earner. 10.6 percent of squares are dark. All of them also trip Massachusetts's own 40 percent hardship presumption, which a parent must raise and a judge must grant. It corrects nothing automatically."
    source_script="model/ccpa_grid.py"
    csv_href="/figures/working/fig_ceiling_grid.csv" %}
 

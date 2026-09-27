@@ -10,9 +10,7 @@ permalink: /petition/
 # Sign the petition to fix the Massachusetts child support guidelines
 
 To the Chief Justice of the Trial Court, the Governor of Massachusetts, and the U.S. Department of
-Health and Human Services. The Massachusetts child support guidelines do not comply with federal
-law. We ask that they be corrected now, and that every parent whose order was set under them be
-allowed to apply for immediate relief.
+Health and Human Services. We believe federal law requires every child support order to rest on what a parent can actually pay, and that Massachusetts has never been asked whether its guidelines do that. No court or federal agency has ruled on whether the guidelines meet this standard. Federal approval of the state's plan has not addressed it. We ask that they be corrected now, and that every parent whose order was set under them be allowed to apply for immediate relief.
 
 {% if site.petition_endpoint != "" %}
 <div class="petition-layout" markdown="0">
@@ -23,7 +21,10 @@ allowed to apply for immediate relief.
     <li>Massachusetts charges more for joint custody than 47 states charge when the recipient has
       primary custody. <a href="{{ '/findings/fifty-one-jurisdictions/' | relative_url }}">See the comparison &rarr;</a></li>
     <li>With $100 a week of child care claimed per child, 40 percent of three-child, primary-custody
-      income pairs produce an order over the federal withholding ceiling.
+      income pairs on a model grid have an order that takes more than half of take-home pay, and 10.6
+      percent cross 60 percent, the actual federal limit on what can be withheld from wages. All of
+      those also trip Massachusetts's own 40 percent hardship presumption, which a parent must raise
+      and a judge must grant. It corrects nothing automatically.
       <a href="{{ '/findings/federal-law/' | relative_url }}">See the finding &rarr;</a></li>
     <li>The Worksheet never computes what a parent keeps after tax.
       <a href="{{ '/findings/federal-law/' | relative_url }}">See the finding &rarr;</a></li>
@@ -55,6 +56,7 @@ allowed to apply for immediate relief.
       <span>Email me updates about this petition</span>
     </label>
   </div>
+  <input type="hidden" name="source" data-petition-source value="">
   <input type="text" name="_gotcha" class="form-field--honeypot" tabindex="-1" aria-hidden="true" autocomplete="off">
   <p class="petition-form-error" data-petition-error role="alert" hidden></p>
   <div class="form-actions">
