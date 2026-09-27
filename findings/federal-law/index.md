@@ -97,7 +97,9 @@ requirements," 81 Fed. Reg. 93528. That answer settles less than it looks like i
 
 ## The Massachusetts guidelines can set child support higher than federal law lets the state collect from wages
 
-Congress caps what can be withheld from a paycheck for child support at 60 percent of take-home pay, less for a parent supporting another family, 15 U.S.C. § 1673(b)(2). Both limits step up once the support being withheld is more than twelve weeks overdue: "the 50 per centum specified in clause (A) shall be deemed to be 55 per centum and the 60 per centum specified in clause (B) shall be deemed to be 65 per centum," 15 U.S.C. § 1673(b)(2). The figures on this page use 60 percent, the limit before support falls that far behind. Fifty percent is not a legal limit. We flag it because an order taking more than half of take-home pay is worth a second look on its own.
+Congress caps what can be withheld from a paycheck for child support at 60 percent of take-home pay, 15 U.S.C. § 1673(b)(2).[^ceiling] We also mark orders that take more than half of take-home pay, because an order that size is worth a second look on its own.
+
+[^ceiling]: The limit is 50 percent for a parent supporting a second family. Both limits step up once the support being withheld is more than twelve weeks overdue: "the 50 per centum specified in clause (A) shall be deemed to be 55 per centum and the 60 per centum specified in clause (B) shall be deemed to be 65 per centum," 15 U.S.C. § 1673(b)(2). The figures on this page use 60 percent.
 
 The 60 percent limit caps collection, not the order itself. No federal rule limits how large an
 order may be, so a court can order more than an employer may withhold, and the rest is still
