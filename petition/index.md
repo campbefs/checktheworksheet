@@ -10,7 +10,7 @@ permalink: /petition/
 # Sign the petition to fix the Massachusetts child support guidelines
 
 To the Chief Justice of the Trial Court, the Governor of Massachusetts, and the U.S. Department of
-Health and Human Services. We believe federal law requires every child support order to rest on what a parent can actually pay, and that Massachusetts has never been asked whether its guidelines do that. No court or federal agency has ruled on whether the guidelines meet this standard. Federal approval of the state's plan has not addressed it. We ask that they be corrected now, and that every parent whose order was set under them be allowed to apply for immediate relief.
+Health and Human Services. We believe federal law requires every child support order to rest on what a parent can actually pay, and that Massachusetts has never been asked whether its guidelines do that. No court or federal agency has ruled on whether the guidelines meet this standard. Federal approval of the state's plan has not addressed it. We ask that they be corrected now, and that every parent whose order was set under them be allowed to apply for immediate relief. We also ask that support for a child over 18 go to the child or the college instead of the other parent, and that a college order offset support for the same costs.
 
 {% if site.petition_endpoint != "" %}
 <div class="petition-layout" markdown="0">
@@ -27,6 +27,9 @@ Health and Human Services. We believe federal law requires every child support o
       <a href="{{ '/findings/federal-law/' | relative_url }}">See the finding &rarr;</a></li>
     <li>The Worksheet never computes what a parent keeps after tax.
       <a href="{{ '/findings/federal-law/' | relative_url }}">See the finding &rarr;</a></li>
+    <li>After a child turns 18, support can run to 23 and goes to the other parent, even while the
+      child is at college and a parent is paying for it.
+      <a href="{{ '/findings/support-after-18/' | relative_url }}">See the finding &rarr;</a></li>
   </ul>
 </aside>
 
