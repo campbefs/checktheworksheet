@@ -39,8 +39,8 @@ and other evidence of ability to pay," 45 C.F.R. § 302.56(c)(1), and the Massac
 recite that standard. The Worksheet has no line for tax or take-home pay. At $100 a week of child
 care claimed per child, three children and primary custody, 40% of income pairs on a model grid
 have an order that takes more than half of take-home pay, and 10.6% cross 60 percent, the federal
-limit on what can be withheld from wages, 15 U.S.C. § 1673(b)(2). All of those also trip
-Massachusetts's own 40 percent hardship presumption, which helps only if the parent raises it and a judge agrees. With no child care claimed, none do.
+limit on what can be withheld from wages, 15 U.S.C. § 1673(b)(2). The hardship test does flag
+those orders, but it lowers nothing unless the parent raises it and a judge agrees. With no child care claimed, none do.
 
 {% include figure.html
    id="e31"
