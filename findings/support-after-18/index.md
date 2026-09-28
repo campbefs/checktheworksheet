@@ -71,7 +71,7 @@ The Guidelines treat both kinds of order as the court's choice. Support past 18 
 
 ## A child living at college still counts as living with the parent who receives support
 
-The statute requires the child to be "domiciled in the home of a parent." A dorm does not change that. The Appeals Court has held that a student at college keeps the family home as a legal domicile, so support continues to the parent who keeps that home, *Tatar v. Schuker*, 70 Mass. App. Ct. 436 (2007).
+The statute requires the child to be "domiciled in the home of a parent." A dorm does not change that. The Appeals Court treats a student at college as still domiciled with the parent who keeps the family home, so support continues to that parent, *Tatar v. Schuker*, 70 Mass. App. Ct. 436 (2007).
 
 As *Tatar* describes the earlier cases, support has run to the other parent even where the father paid all of the child's tuition, room and board. The court counted the other parent's home during vacations, the food and the utilities as enough to keep the child principally dependent on her. So a parent can pay for college and still pay the other parent four years of child support so the child has a room for part of the summer. Paying the student or the college makes sense. Paying the other parent for a child who lives at school does not.
 
